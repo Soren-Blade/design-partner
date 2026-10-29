@@ -1,0 +1,225 @@
+# 设计资源 — Resources
+
+> 蒸馏自 designeer.xyz/resources（201 条，人工策展，快照 2026-10-29）。组件库、图标、动效/3D 资产、字体与配色，全部面向数字产品界面。
+
+## 用法
+- **Components**：找可复用 UI 组件库与设计系统参考
+- **Icons**：图标库
+- **Motion & 3D**：动效与三维资产
+- **Type & Colour**：字体排印与配色工具
+
+标注（免费）/（免费+付费）/（付费）为官方定价信息。
+
+
+## Type & Colour (14)
+
+- **[Fontshare](https://fontshare.com/)**（免费） — High-quality professional fonts free for commercial use.
+- **[Klim](https://klim.co.nz/)** — Type foundry creating contemporary web typefaces.
+- **[Fontsource](https://fontsource.org/)**（免费） — Self-host open-source fonts via npm packages.
+- **[Wakamai Fondue](https://wakamaifondue.com/)** — Tool inspecting font files and features.
+- **[Utopia](https://utopia.fyi/)**（免费） — Fluid typography calculator generating CSS clamp.
+- **[Velvetyne](https://velvetyne.fr/)**（免费） — Open-source foundry distributing experimental typefaces.
+- **[Departure Mono](https://departuremono.com/)** — Pixel monospace typeface designed for terminals.
+- **[OKLCH](https://oklch.com/)** — Color picker using perceptually uniform space.
+- **[Color.review](https://color.review/)** — Contrast checker helping design accessible palettes.
+- **[Huetone](https://huetone.ardov.me/)** — Accessible palette generator balancing contrast ratios.
+- **[APCA](https://apcaw3.myndex.com/)**（免费） — Modern contrast algorithm matching visual perception.
+- **[Ramps](https://www.ramps.studio/)** — Design token tool generating OKLCH ramps.
+- **[Atmos](https://atmos.style/)**（付费） — A color palette generator built for UI designers
+- **[Typefree](https://typefree.org/)** — A font explorer for free typefaces.
+
+## Components (128)
+
+- **[ForgeUI](https://forgeui.in/)**（免费+付费） — Animated React and Tailwind components and templates.
+- **[shadcn/ui](https://ui.shadcn.com/)** — Components you copy directly into codebases.
+- **[Base UI](https://base-ui.com/)**（免费） — Unstyled component primitives from Radix and MUI.
+- **[Radix](https://www.radix-ui.com/)**（免费+付费） — Accessible unstyled UI primitives for React.
+- **[21st.dev](https://21st.dev/)**（付费） — Community shadcn registry with interactive previews.
+- **[Motion Primitives](https://motion-primitives.com/)**（免费） — Animated React components powered by Motion.
+- **[React Bits](https://reactbits.dev/)**（免费） — Animated and creative components for React.
+- **[Component Gallery](https://component.gallery/)** — Repository comparing design system components.
+- **[NumberFlow](https://number-flow.barvian.me/)** — Smooth number transitions across modern frameworks.
+- **[Fancy Components](https://www.fancycomponents.dev/)**（免费） — Playful React components with physics effects.
+- **[Opensource UI](https://opensourceui.in/)**（免费） — Copy-paste React UI and device mockups.
+- **[Spectrum UI](https://ui.spectrumhq.in/)**（免费） — Polished components designed for SaaS websites.
+- **[Amicro](https://amicro.vercel.app/)**（免费） — Lightweight drop-in React micro-animation primitives.
+- **[Painterly](https://painterly.design-tools.workers.dev/)** — Artistic canvas loader components for React.
+- **[Bencho](https://bencho.dev/)** — Interactive UI blocks with adjustable physics.
+- **[shadcnblocks](https://www.shadcnblocks.com/)**（付费） — Thousands of clean shadcn website blocks.
+- **[blocks.so](https://blocks.so/)**（免费） — Open-source website blocks installable via CLI.
+- **[8bitcn](https://8bitcn.com/)**（免费） — Retro 8-bit components for shadcn projects.
+- **[Evil Charts](https://evilcharts.com/)**（免费） — Animated SVG charts designed for shadcn/ui.
+- **[coss ui](https://coss.com/ui)**（免费） — Copy-paste components built on Base UI.
+- **[Rare UI](https://rareui.com/)**（免费） — Unique animated UI components for React.
+- **[beUI](https://beui.dev/)**（免费） — Animated React components with Tailwind CSS.
+- **[Cult UI](https://www.cult-ui.com/)**（免费） — Animated React components with Framer Motion.
+- **[daisyUI](https://daisyui.com/)**（免费） — Component class library for Tailwind CSS.
+- **[HeroUI](https://www.heroui.com/)**（免费） — Modern React UI library, formerly NextUI.
+- **[Kibo UI](https://www.kibo-ui.com/)**（免费） — Component registry tailored for AI interfaces.
+- **[Magic UI](https://magicui.design/)**（免费+付费） — Animated components crafted for landing pages.
+- **[Aceternity UI](https://ui.aceternity.com/)**（免费+付费） — Trendy animated components and hero sections.
+- **[Animate UI](https://animate-ui.com/)**（免费） — Accessible shadcn components animated with Motion.
+- **[FlyonUI](https://flyonui.com/)**（免费） — Semantic Tailwind CSS components ready for v4.
+- **[TailGrids](https://tailgrids.com/)**（免费+付费） — Responsive UI blocks designed for Tailwind.
+- **[Flowbite](https://flowbite.com/)**（免费） — Extensive component library for Tailwind CSS.
+- **[HyperUI](https://www.hyperui.dev/)**（免费） — Free open-source Tailwind CSS UI components.
+- **[Preline UI](https://preline.co/)**（免费） — Tailwind CSS components for complex dashboards.
+- **[Float UI](https://floatui.com/)**（免费+付费） — Tailwind components crafted for marketing websites.
+- **[Meraki UI](https://merakiui.com/)**（免费） — Tailwind components with right-to-left language support.
+- **[Tremor](https://tremor.so/)**（免费） — Modular React library for building dashboards.
+- **[Headless UI](https://headlessui.com/)** — Unstyled accessible components from Tailwind Labs.
+- **[Base CN](https://basecn.dev/)** — Base UI primitives adapted for shadcn.
+- **[Easy UI](https://easyui.pro/)** — Copy-paste component library for rapid building.
+- **[Eldora UI](https://eldoraui.site/)**（免费） — Animated components tailored for web landings.
+- **[Velora UI](https://velora.colorlib.com/)**（免费+付费） — Free Tailwind CSS components and sections.
+- **[Watermelon UI](https://watermelon.sh/)**（免费） — React component library for shadcn ecosystem.
+- **[Beautiful UI](https://beautifului.dev/)**（免费） — Polished copy-paste components for web applications.
+- **[HextaUI](https://hextaui.com/)**（免费+付费） — Practical shadcn/ui blocks built for AI products.
+- **[Lightswind](https://lightswind.com/)**（免费+付费） — Tailwind components featuring lighting and glows.
+- **[Reverse UI](https://reverseui.com/)**（付费） — Tailwind and React component library.
+- **[Smooth UI](https://smoothui.dev/)**（免费） — Motion-heavy React components ready to copy.
+- **[Tailark](https://tailark.com/)**（免费+付费） — Tailwind sections and components for marketing.
+- **[UI Layouts](https://ui-layouts.com/)**（免费） — Full-page layouts and heroes for Tailwind.
+- **[Kokonut UI](https://kokonutui.com/)**（免费） — Creative interactive components for shadcn format.
+- **[Nex UI](https://nexui.dev/)**（免费） — Extensible component library for modern startups.
+- **[Ninja UI](https://ninna-ui.dev/)** — Lightweight UI components for fast websites.
+- **[Sera UI](https://seraui.com/)**（免费+付费） — React components designed for shadcn CLI.
+- **[Re UI](https://reui.io/)**（付费） — Accessible UI components using Base UI.
+- **[Syntax UI](https://syntaxui.com/)**（免费） — Animated copy-paste components for landing pages.
+- **[shadcn-cssinjs](https://www.shadcn-cssinjs.com/)**（免费） — shadcn components adapted for CSS-in-JS.
+- **[Transitions](https://transitions.dev/)** — Curated CSS transition recipes and easings.
+- **[23rd](https://23rd.dev/)**（免费+付费） — shadcn components for React and Svelte.
+- **[Oneko](https://oneko.dhrv.pw/)**（免费） — Pixel cat companion that chases cursor.
+- **[Rolling Number](https://rolling.kitlangton.dev/)** — Smooth digit-rolling number counter for React.
+- **[Annnimate](https://annnimate.com/)**（付费） — GSAP motion components ready for production.
+- **[GetLayers](https://getlayers.ai/)**（付费） — AI prompts for cinematic page sections.
+- **[Scritto](https://scrit.to/)** — Rolling character text transition component library.
+- **[ogimagecn](https://www.ogimagecn.com/)** — Open Graph image components using Satori.
+- **[Dither Kit](https://www.tripwire.sh/dither-kit)** — Dithered chart components with retro aesthetic.
+- **[shieldcn](https://shieldcn.dev/)**（免费） — README badges styled with shadcn aesthetics.
+- **[unlumen UI](https://ui.unlumen.com/)**（免费+付费） — Minimalist React component library with CLI.
+- **[Bearnie](https://bearnie.dev/)**（免费） — Astro and Tailwind component collection.
+- **[Fluid Functionalism](https://www.fluidfunctionalism.com/)**（免费） — Components designed with purposeful physical animation.
+- **[termcn](https://termcn.dev/)** — Terminal UI components for React, built on Ink and OpenTUI.
+- **[framecn](https://framecn.dev/)** — Video rendering components for React, built on Editframe.
+- **[emailcn](https://emailcn.run/)** — Responsive email components for React Email, MJML, and JSX Email.
+- **[startercn](https://startercn.vercel.app/)** — shadcn/ui registry template with docs, landing page, and agent support.
+- **[pdfcn](https://pdfcn.dev/)** — PDF components for React, built on Takumi and Forme.
+- **[editorcn](https://www.rtecn.space/)** — Rich text editor components for React, built on Tiptap.
+- **[Shadcn Labs](https://www.shadcn-labs.com/)**（免费） — Open-source shadcn/ui component registries and tools ecosystem.
+- **[Frameblox](https://frameblox.com/)**（付费） — Modular Framer sections and templates.
+- **[Nexvyn UI](https://ui.nexvyn.dev/)**（免费） — Polished drop-in components for digital interfaces.
+- **[Gradient Spin](https://gradient-spin.vercel.app/)**（免费） — Spinning gradient loading indicator for React.
+- **[Libraries.dev](https://libraries.dev/)** — UI effects and components for agents.
+- **[Sona UI](https://www.sonaui.com/)** — Animated React components you fully own.
+- **[Colorion Text Effects](https://text-effects.colorion.co/)**（免费） — Animated text effects ready to copy.
+- **[Dot Matrix](https://dotmatrix.zzzzshawn.cloud/)**（免费） — Over fifty dot-matrix loaders for shadcn.
+- **[SRCL](https://www.sacred.computer/)**（免费） — Retro DOS-style terminal component kit.
+- **[Prompt Kit](https://www.prompt-kit.com/)** — Chat and AI interface component primitives.
+- **[Shoogle](https://shoogle.dev/)** — Search engine spanning shadcn component registries.
+- **[interior.dev](https://www.interior.dev/)**（免费） — Micro-interactions finely tuned for click responsiveness.
+- **[soundcn](https://soundcn.xyz/)**（免费） — Collection of copy-paste UI sound effects.
+- **[cuelume](https://cuelume.dev/)**（免费） — Micro interface sounds generated with Web Audio.
+- **[Canvas UI](https://canvasui.dev/)**（免费） — GPU-accelerated liquid physics and canvas shaders.
+- **[Odyssey UI](https://www.odysseyui.com/)**（免费） — Animated React components built on shadcn.
+- **[Spell UI](https://spell.sh/)** — High-craft interactive components for modern apps.
+- **[Skiper UI](https://skiper-ui.com/)**（付费） — Animated UI primitives for Tailwind CSS.
+- **[devl](https://www.devl.dev/)**（付费） — Minimalist experimental UI components for web.
+- **[Uiuno](https://uiuno.com/)** — AI workspace for organizing shadcn components.
+- **[Vengeance UI](https://www.vengeanceui.com/)**（免费） — Animated React components with scroll interactions.
+- **[sensory-ui](https://www.sensory-ui.com/)** — Sound design system for shadcn/ui components.
+- **[Amacro](https://amacro.vercel.app/)**（免费） — Drop-in page reveal animations for React.
+- **[Evil Buttons](https://www.evilbuttons.com/)** — Interactive and tactile button components.
+- **[Componentry](https://componentry.dev/)** — Customizable React UI primitives and components.
+- **[Great UI](https://www.great-ui.com/)**（免费） — Copy-paste React and Tailwind CSS components.
+- **[Ruru UI](https://ui.ruru.build/)**（免费） — Accessible customizable UI components for React.
+- **[Shadcn Studio](https://shadcnstudio.com/)**（免费+付费） — shadcn/ui components, blocks, and templates.
+- **[Animated shadcn/ui](https://shadcn-animated.vercel.app/)** — Motion-powered variants of shadcn/ui components.
+- **[Pin UI](https://www.pinui.xyz/)**（免费） — Distinctive copy-paste React and Tailwind components.
+- **[loading.dev](https://loading.dev/)** — Lightweight library of loading indicators for React.
+- **[UICapsule](https://www.uicapsule.com/)**（免费） — A curated collection of components that spark joy
+- **[Space UI](https://www.spaceui.one)**（免费+付费） — Ship your ideas faster with better UI
+- **[PaceUI](https://paceui.com)**（付费） — Production-ready React UI for React Apps
+- **[BoardUI](https://www.boardui.com/)**（付费） — Build agentic products and data-rich dashboards
+- **[Toolcraft](https://toolcraft.sh/)**（免费） — Build custom design apps with AI.
+- **[Animata](https://animata.design)**（免费） — Ship stunning UI faster with Ship stunning UI
+- **[NoiceSS](https://noicess.fun)**（免费） — Create stunning, beautiful screenshot mockups
+- **[Discover useful apps, AI tools & websites](https://usefulshelf.co/)**（免费） — Discover useful apps, AI tools, and websites for work and everyday life.
+- **[Kobra / React Input OTP component](https://kobra.systems/components/input-otp)**（免费+付费） — A segmented one-time-code input, built on input-otp.
+- **[Cubby UI](https://www.cubby-ui.dev/)** — A modern UI component library built with React, Tailwind CSS, and Base UI.
+- **[Kumo](https://kumo-ui.com/)** — Kumo – a modern component library
+- **[Soralabs UI](https://ui.soralabs.studio/catalog)** — Preview-first layout showcases and interactive components with live demos, install commands, and full API…
+- **[Atelier UI](https://www.atelier-ui.com/en)** — Atelier UI is a growing collection of quality web animations and creative tools, built with React,…
+- **[ObsidianUI](https://obsidianui.dev/)** — ObsidianUI is a React & Tailwind CSS component library featuring components, blocks, and landing page…
+- **[Planes](http://useplanes.com/)** — Animated React components, a React animation library built with Motion (formerly Framer Motion) and Tailwind…
+- **[Glassy UI](https://glassyui.com/)** — 37 free React glass components.
+- **[Components](https://diarmuradi.com/components)** — Reusable motion primitives and tactile controls, with installation guides, examples, and API references.
+- **[creative-ui](https://ui.krutikraut.com)** — Components and Claude skills by Krutik Raut, installable with the shadcn CLI.
+- **[Illos.dev](https://illos.dev)** — Animated illustrations for product sites, and the skills that teach your coding agent to make new ones in…
+- **[UIAble](https://uiable.com/)** — An AI-ready, complete Shadcn design system with reusable components, blocks, templates, and dashboards.
+- **[Caret](https://caretui.rashmitaparmanik.com/)** — Beautiful React components with accessibility and motion built in.
+
+## Motion & 3D (26)
+
+- **[Three.js](https://threejs.org/)**（免费） — JavaScript 3D library rendering WebGL scenes.
+- **[React Three Fiber](https://r3f.docs.pmnd.rs/)** — Declarative React renderer for Three.js scenes.
+- **[Drei](https://drei.docs.pmnd.rs/)** — Helper components for React Three Fiber.
+- **[Blender](https://blender.org/)**（免费） — Open-source 3D modeling and animation suite.
+- **[gltf.report](https://gltf.report/)** — Web-based optimizer for 3D glTF files.
+- **[Poly Haven](https://polyhaven.com/)**（免费+付费） — Public asset library offering CC0 textures.
+- **[Book of Shaders](https://thebookofshaders.com/)** — Interactive guide to mastering fragment shaders.
+- **[compute.toys](https://compute.toys/)**（免费） — Sandbox for authoring WGSL compute shaders.
+- **[Shaderfrog](https://shaderfrog.com/)** — Visual node-based editor for composing shaders.
+- **[shadercn](https://shadercn.run/)** — Shader components for React, built on vgpu and TypeGPU.
+- **[Paper Shaders](https://shaders.paper.design/)** — Zero-dependency shaders ready to import.
+- **[OpenShaders](https://openshaders.com/)** — Open-source shader collection for web projects.
+- **[Orbkit](https://orbkit.zzzzshawn.cloud/)**（免费） — WebGL shader renderer for orb animations.
+- **[Motion](https://motion.dev/)** — Production-ready animation library for React applications.
+- **[GSAP](https://gsap.com/)**（免费） — Industry-standard JavaScript timeline animation engine.
+- **[Rive](https://rive.app/)**（免费+付费） — Interactive state-machine vector animation tool.
+- **[Lottie](https://lottiefiles.com/)**（免费） — Lightweight JSON-based vector animation format.
+- **[Easing Wizard](https://easingwizard.com/)** — Visual generator for custom CSS springs.
+- **[Morphrig](https://morphrig.dev/)** — Interactive manual on how icon morphing works.
+- **[Theatre.js](https://www.theatrejs.com/)** — Visual motion design sequencer for DOM.
+- **[morphicons](https://www.morphicons.com/)** — Spring-physics icon morphing animation library.
+- **[glimm](https://glimm.dev/)** — Shader-driven page transitions for Next.js.
+- **[Devouring Details](https://devouringdetails.com/)**（免费） — Interactive book teaching micro-interaction design.
+- **[textmotion](https://textmotion.dev/)** — Zero-dependency text roll animation primitive.
+- **[Bezel](https://bezel-ui.vercel.app)** — Bezel is a React component library for interface
+- **[Lotiqlab](https://Lotiqlab.com)**（免费+付费） — Free online Lottie editor and motion tool
+
+## Icons (33)
+
+- **[Lucide](https://lucide.dev/)**（免费） — Community-maintained Feather Icons fork with thousands of glyphs.
+- **[Phosphor](https://phosphoricons.com/)** — Icon family providing six consistent weights.
+- **[Iconify](https://iconify.design/)**（免费） — Unified framework providing instant icon access.
+- **[Rune Icons](https://www.runeicons.com/)**（免费） — Minimalist icon set offering five styles.
+- **[Icon Museum](https://icon.museum/)** — Archive celebrating mobile app icon craftsmanship.
+- **[Tabler Icons](https://tabler.io/icons)**（免费+付费） — Library of thousands of outline icons.
+- **[Heroicons](https://heroicons.com/)** — Handcrafted SVG icons from Tailwind creators.
+- **[Material Symbols](https://fonts.google.com/icons)** — Google variable icon font spanning three styles.
+- **[Bootstrap Icons](https://icons.getbootstrap.com/)**（免费） — Official icon library designed for Bootstrap.
+- **[Remix Icon](https://remixicon.com/)**（免费） — Neutral icon library in outline and fill.
+- **[Iconoir](https://iconoir.com/)**（免费） — Open-source SVG icons with consistent strokes.
+- **[Ionicons](https://ionic.io/ionicons/)**（免费） — Premium icon pack for web and mobile.
+- **[Simple Icons](https://simpleicons.org/)**（免费） — Over three thousand SVG brand logos.
+- **[theSVG](https://thesvg.org/)**（免费） — Curated collection of clean brand SVGs.
+- **[Feather](https://feathericons.com/)**（免费） — Minimalist open-source icon set on 24px grid.
+- **[Carbon Icons](https://carbondesignsystem.com/)**（免费） — IBM official icon library for enterprise design.
+- **[Boxicons](https://boxicons.com/)**（免费+付费） — Vector icons crafted in three styles.
+- **[MX Icons](https://mx-icons.vercel.app/)**（免费） — Large collection of customizable React icons.
+- **[Eva Icons](https://akveo.github.io/eva-icons/)**（免费） — Pack of 400 icons in outline and fill.
+- **[Devicon](https://devicon.dev/)** — Developer-focused icon set for programming tools.
+- **[css.gg](https://css.gg/)**（免费） — 700 lightweight icons rendered using pure CSS.
+- **[HugeIcons](https://hugeicons.com/)**（付费） — Comprehensive library of stroke and solid icons.
+- **[Reicon](https://reicon.dev/)**（免费） — Tree-shakeable React icon library with dual weights.
+- **[Iconsax](https://app.iconsax.io/)** — Versatile icon set with six visual styles.
+- **[icons0](https://icons0.dev/)**（免费） — Search engine covering over 200k icons.
+- **[Heroicons Animated](https://heroicons-animated.com/)**（免费） — Heroicons enhanced with reactive hover animations.
+- **[Icons.download](https://icons.download/)**（免费） — Curated icon library in sixteen aesthetic styles.
+- **[Lucide Animated](https://lucide-animated.com/)**（免费） — Lucide icons enhanced with micro-animations.
+- **[Icon Foundry](https://iconfoundry.store/)**（免费） — Searchable collection of icons from many families.
+- **[Inkword](https://inkword.app/)** — Turns a single word into a matching illustration.
+- **[Nucleo – The Ultimate Icon Bundle](https://nucleoapp.com/?ref=21998)**（付费） — Explore the Nucleo icons, 40,000+ premium SVG icon
+- **[IconsDB](https://iconsdb.app)**（免费） — Instant, semantic search across 200K+ icons
+- **[macOS Icon Gallery](https://www.macosicongallery.com/)** — Showcasing beautiful icon designs from the macOS App Store

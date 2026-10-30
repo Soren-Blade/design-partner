@@ -1,21 +1,24 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、中文排版规范、L0→L4 知识路线图、设计执行原则、产出自检与偏好记忆六步流程。
+description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、中文排版规范、L0→L4 知识路线图、记忆树与快捷检索、设计执行原则、产出自检与偏好记忆七步流程。
 ---
 
 # Design Partner 设计伙伴
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v4 · 2026-10-29**（v3→v4 新增：知识路线图、设计 token 体系、中文排版与生态地图、DESIGN.md 规范与 54 品牌 DNA）
+**当前版本 v5 · 2026-10-30**（v4→v5 新增：动效与微交互系统、记忆树 + 快捷检索、第 0 步检索纪律）
 
 资产一览（均在技能目录内，按需读取）：
 
 | 资产 | 内容 | 何时用 |
 |---|---|---|
+| `memory/tree.md` | **记忆树**：意图→位置路由 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
+| `memory/index.json` | 机器索引（文件→章节→行号→摘要） | `dp_search.py` 的数据源 |
 | `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 20 条自测） | 判断该补哪一级、教学、系统性提升 |
 | `references/patterns.md` | 元素设计模式图鉴（12 类高频元素的构型/参数/变体） | **元素级需求必读**（导航栏/Hero/页脚/CTA/定价…） |
 | `references/design-tokens.md` | Token 三层架构 + Ant Design 数值全量 + 三大体系对比 + 中文设计系统矩阵 | 系统级/主题/暗色模式/**必须给数值时** |
+| `references/motion-system.md` | **动效系统**：曲线语义表（M3/Carbon/Ant 精确值）+ 时长刻度 + 20 个场景速查 + View Transitions/scroll-driven 代码 + reduced-motion 三档降级 + 10 条验收 | **任何动效/微交互/转场/滚动动画** |
 | `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
@@ -24,6 +27,8 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/tools.md` | 开发/AI/截取/效率工具（153 条） | 工具落地（截图、录屏、生成、优化） |
 | `references/portfolios.md` | 一线从业者作品集（166 条） | 校准"什么是好的"、推荐可对标风格 |
 | `memory/design-log.md` | 用户偏好画像 + 匹配日志 | **每次匹配灵感前必读**；收到反馈后追加 |
+| `scripts/dp_search.py` | **快捷检索**：关键词 → 命中章节 + 行号 + 摘要 | 任何"知识在哪"的时刻（第 0 步） |
+| `scripts/mindmap.py` | 重建记忆树与索引 + 接线体检 | 资产变更后 |
 | `scripts/refresh_catalog.py` | 知识库自动刷新脚本（designeer 目录 → references） | 快照过期或用户要求更新时执行 |
 | `scripts/build_readme.py` | README 统计自动生成脚本 | 每次知识库变更后同步文档 |
 | `scripts/publish_github.py` | REST API 发布器（git push 被拦截时用） | 每日迭代后推送到 GitHub |
@@ -31,6 +36,17 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 ---
 
 ## 工作流：接到任何设计任务时按此执行
+
+### 第 0 步 · 先检索，别整份读
+
+资产已超 12 份、约 12 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
+
+```bash
+python scripts/dp_search.py "关键词"      # 命中章节 + 行号 + 摘要
+python scripts/dp_search.py --topic       # 不确定关键词时，先看全部主题
+```
+
+拿到「文件 §章节 + 行号」后**只读那一段**（`Read` 带 offset/limit）。检索不到再全读或联网。若命中为空且判断知识缺口真实存在，这本身就是升级信号——记进 `memory/design-log.md` 的待挖项。
 
 ### 第 1 步 · 识别设计意图
 
@@ -44,6 +60,8 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | **要设计规范/系统** | "给我一套规范""统一一下风格" | 4（定气质）→5.5（token 表）→产出 DESIGN.md |
 | **对标某品牌** | "做成 Linear/Vercel 那种感觉" | 查 `design-md-format.md` §3 品牌 DNA → 定制化 |
 | **中文项目** | 任何中文界面（默认情况） | **先读 `chinese-design.md`**，再走对应流程 |
+| **动效/微交互** | "加个动效""这个动画好怪""按钮反馈""页面切换" | **先读 `motion-system.md`**：§1 判该不该动 → §3 取时长 → §2 取曲线 → §4 查场景 |
+| **滚动/转场实现** | "滚动渐显""切页过渡""卡片放大" | `motion-system.md` §7（View Transitions / scroll-driven 代码） |
 | **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
 | **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
 
@@ -142,7 +160,12 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 
 **动效（有目的才动）**
 - 三种合法用途：反馈、引导（空间关系/过程）、个性（品牌表达，每页 ≤ 1 处）。纯装饰删掉。
-- 时长 150–300ms 用 ease；转场保持元素连续性（共享元素过渡优于硬切）。
+- **曲线看语义不看心情**：入场用**减速**（`cubic-bezier(0.05,0.7,0.1,1)`）、出场用**加速**（`cubic-bezier(0.3,0,1,1)`）、双向位移用**标准**（`cubic-bezier(0.2,0,0,1)`）、循环用 `linear`。**出场时长 = 入场 × 0.7**。
+- **时长四档够用**：120ms 状态反馈 / 200ms 常规转场 / 300ms 大面积 / 400ms 上限。用户输入触发的反馈必须 ≤120ms；任何点击触发的动画 **>400ms 都是错的**。
+- **可中断**：交互反馈一律用 `transition`（可中断），`animation` 只用于"播完即结束"的序列。
+- **只动 `transform` / `opacity`**；展开别动 `height`，用 `grid-template-rows: 0fr→1fr`。
+- **必须降级**：`prefers-reduced-motion: reduce` 下杀掉位移/缩放/循环，但保留 ≤100ms 的色彩反馈。
+- 完整数值表（M3/Carbon/Ant 三体系精确对照）、20 个场景速查、View Transitions 与 scroll-driven 代码 → **`motion-system.md`**。
 
 **一致性**
 - 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
@@ -172,6 +195,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 6. **可用性底线**：对比度达标？触控目标 ≥ 44px？信息不只靠颜色传达？
 7. **中文关**（中文项目）：字号 ≥14px？行高 ≥1.6？无中文斜体？无伪粗体？标点全角？避头尾生效？行长 ≤40 字？
 8. **系统关**（多页项目）：所有颜色/字号/间距都能在 token 表里找到出处？有没有"只出现一次"的孤立值？
+9. **动效关**（有动效时）：每处动效说得出用途？入场减速/出场加速？反馈 ≤120ms？有没有点击触发 >400ms？二次操作会不会跳回起点？`reduced-motion` 下是否只剩功能反馈？
 
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 
@@ -204,8 +228,10 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 1. **取源**：读 `Design-related websites.txt`（用户指定清单）+ 上一轮 `memory/` 里记的待挖项；不足则按 `knowledge-map.md` 找缺口补源（设计站、GitHub 仓库）。
 2. **验证**：凡涉及 star/许可/更新时间，用 GitHub API 实测，不凭记忆写数字。凡涉及规范数值，读**官方原文**（如 ant.design/docs/spec/*），不用二手总结。
 3. **蒸馏**：产出**可执行的判断规则**（数值、构型、验收标准），不是链接清单。新增条目必须能回答"所以该怎么做"。
-4. **接线**：更新 `SKILL.md` 的资产表与路由，让新知识**在正确时机被读到**；否则等于没写。
-5. **归档**：`memory/design-log.md` 追加一条；`scripts/build_readme.py` 重算 README；git commit + push。
+4. **接线**：更新 `SKILL.md` 的资产表与路由，让新知识**在正确时机被读到**；否则等于没写。然后跑 `python scripts/mindmap.py` 重建记忆树——它会做**接线体检**，把"写了但没路由"的文件直接报出来。
+5. **归档**：`memory/design-log.md` 追加一条；`scripts/build_readme.py` 重算 README；`git commit` → `scripts/publish_github.py` 推送。
+
+**检索可用性是升级的一部分**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条。命中不了说明标题/摘要写得像散文而不像索引——改标题，别改检索器。
 
 **质量门槛**：一轮升级至少要让 agent 在**某类问题上不再含糊**（能给出具体数值或明确立场）。若只是多了几条链接，判为无效升级，重做。
 
@@ -217,4 +243,4 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 - **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
 - **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
 - **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)。
+- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)。

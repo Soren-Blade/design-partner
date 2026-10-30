@@ -162,10 +162,13 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 交互三层：数据获取 → 信息加工 → 知识流转；口诀「概览第一，聚焦过滤，再按需查看详情」
 - 材料：[AntV 设计语言](https://antv.antgroup.com/specification/language/palette)、[Ant Design 可视化](https://ant.design/docs/spec/visual-cn)
 
-### 支线 C · 动效
+### 支线 C · 动效（界面"活"起来的那一层）
 - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
-- 时长 150–300ms、ease；共享元素过渡优于硬切
-- 材料：[60fps](https://60fps.design/)、[Design Details](https://designdetails.fm/)、[Motion Primitives](https://motion-primitives.com)
+- **语义定曲线**：入场减速、出场加速（时长 ×0.7）、双向位移标准、循环 linear
+- **时长四档**：120 / 200 / 300 / 400ms（上限）；用户输入反馈 ≤120ms
+- **只动 transform / opacity**；必须做 `prefers-reduced-motion` 降级
+- 材料：[60fps](https://60fps.design/)、[Design Details](https://designdetails.fm/)、[Motion Primitives](https://motion-primitives.com)、[easings.net](https://easings.net/)
+- → 全量数值、20 个场景速查、View Transitions/scroll-driven 代码、10 条验收见 `motion-system.md`
 
 ---
 

@@ -21,6 +21,7 @@ design-partner GitHub 发布器（REST API 版）
     python scripts/publish_github.py --repo owner/name --message "feat: xxx"
 """
 import json
+import time
 import os
 import subprocess
 import sys
@@ -71,27 +72,46 @@ def get_token(argv):
     )
 
 
-def call(method, path, token, payload=None, ok=(200, 201)):
+def call(method, path, token, payload=None, ok=(200, 201), retries=4):
+    """带重试的 API 调用。
+
+    本机到 api.github.com 的连接偶发被中途掐断（RemoteDisconnected），
+    单次调用失败不代表接口不可用；因此对网络类错误与 5xx 做指数退避重试，
+    并显式声明 Connection: close 避免复用被代理破坏的长连接。
+    """
     url = path if path.startswith("http") else API + path
     data = json.dumps(payload).encode("utf-8") if payload is not None else None
-    req = urllib.request.Request(url, data=data, method=method)
-    req.add_header("Authorization", f"Bearer {token}")
-    req.add_header("Accept", "application/vnd.github+json")
-    req.add_header("X-GitHub-Api-Version", "2022-11-28")
-    req.add_header("User-Agent", "design-partner-publisher")
-    if data:
-        req.add_header("Content-Type", "application/json")
-    try:
-        with urllib.request.urlopen(req, timeout=90) as r:
-            body = r.read().decode("utf-8")
-            return r.status, (json.loads(body) if body.strip() else {})
-    except urllib.error.HTTPError as e:
-        detail = e.read().decode("utf-8", "replace")[:400]
-        if e.code in ok:
-            return e.code, {}
-        raise RuntimeError(f"{method} {path} -> {e.code} {detail}")
-    except urllib.error.URLError as e:
-        raise RuntimeError(f"{method} {path} -> 网络错误: {e.reason}")
+    last = None
+    for attempt in range(retries):
+        req = urllib.request.Request(url, data=data, method=method)
+        req.add_header("Authorization", f"Bearer {token}")
+        req.add_header("Accept", "application/vnd.github+json")
+        req.add_header("X-GitHub-Api-Version", "2022-11-28")
+        req.add_header("User-Agent", "design-partner-publisher")
+        req.add_header("Connection", "close")
+        if data:
+            req.add_header("Content-Type", "application/json")
+        try:
+            with urllib.request.urlopen(req, timeout=90) as r:
+                body = r.read().decode("utf-8")
+                return r.status, (json.loads(body) if body.strip() else {})
+        except urllib.error.HTTPError as e:
+            detail = e.read().decode("utf-8", "replace")[:400]
+            if e.code in ok:
+                return e.code, {}
+            # 4xx（除 429）是确定性错误，重试无意义
+            if e.code < 500 and e.code != 429:
+                raise RuntimeError(f"{method} {path} -> {e.code} {detail}")
+            last = f"{e.code} {detail}"
+        except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
+            last = f"网络错误: {getattr(e, 'reason', e)}"
+        except Exception as e:  # http.client.RemoteDisconnected 等
+            last = f"{type(e).__name__}: {e}"
+        if attempt < retries - 1:
+            wait = 2 * (attempt + 1)
+            print(f"    重试 {attempt + 1}/{retries - 1}（{last[:60]}）… 等待 {wait}s")
+            time.sleep(wait)
+    raise RuntimeError(f"{method} {path} -> 重试 {retries} 次仍失败: {last}")
 
 
 def tracked_files():

@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-10-31 22:07 ｜ 14 个文件 · 179 个章节 · 143,097 字符
+> 自动生成于 2026-10-31 22:22 ｜ 15 个文件 · 221 个章节 · 164,334 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -11,7 +11,7 @@ python scripts/dp_search.py --topic          # 列出所有主题（章节标题
 python scripts/mindmap.py                    # 资产变更后重建本树与 index.json
 ```
 
-**检索纪律**：先用 `dp_search` 定位到「文件 §章节」，再只读那一段。不要整份读 references——11 份文件全读一遍会吃掉大量上下文，而命中往往只在一节。
+**检索纪律**：先用 `dp_search` 定位到「文件 §章节」，再只读那一段。不要整份读 references——十几份文件全读一遍会吃掉大量上下文，而命中往往只在一节。
 
 ## 一、意图 → 位置（快捷路由）
 
@@ -33,20 +33,20 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_262 行 · 快照 — · 12 节_
+_290 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L39`
-  - **第 0 步 · 先检索，别整份读** `L41` — 资产已超 12 份、约 12 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L52`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L72` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L87` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L113` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L144` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L201` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L220` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L233` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L240` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L254` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L40`
+  - **第 0 步 · 先检索，别整份读** `L42` — 资产已超 13 份、约 13 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L53`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L77` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L92` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L118` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L149` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L226` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L248` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L261` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L268` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L282` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/chinese-design.md` · 中文设计场景 — Chinese Design（排版规范 + 生态地图）
 _195 行 · 快照 2026-10-29 · 14 节_
@@ -137,6 +137,50 @@ _231 行 · 快照 2026-10-29 · 13 节_
   - **5.3 JSON（给设计工具 / agent 用）** `L199` — json
 - **六、常见错误（逐条对照）** `L218`
 
+### `references/form-table.md` · 表单与表格 — Forms & Tables（深度蒸馏）
+_515 行 · 快照 2026-10-31 · 40 节_
+
+- **0. 30 秒速查** `L8` — 表单
+- **1. 表单的五个零件（结构先行，样式后议）** `L39` — 任何表单字段都是这五件套，缺一件就出问题：
+- **2. 标签：位置三选一，别混用** `L55`
+  - **2.1 三种对齐的取舍（Ant Design 原文结论，可直接引用）** `L57` — 决策规则：
+  - **2.2 标签文案** `L71` — - 句首大写、不加冒号、不加句号（GOV.UK / Carbon 一致要求）。中文对应：不加句号，右对齐可保留冒号（Ant 默认带冒号，labelColonMarginInlineStart: 2px、InlineEnd: 8px）；顶对齐
+  - **2.3 标签宽度的具体值** `L78` — - 右对齐：标签列固定宽，取最长标签宽度 + 8–16px，常见 80–120px（中文 4–6 字约 80–100px）。
+- **3. 字段宽度：按内容长度定宽（最被忽视的一条）** `L86` — 铁律：输入框宽度传达"预期输入多长"。全部等宽 = 放弃了一条免费提示。
+- **4. 控件尺寸与内边距（三体系精确值）** `L110`
+  - **Ant Design（中文 B 端事实标准）** `L112` — 计算式（源码）：paddingBlock = (controlHeight − fontSize × lineHeight)/2 − 1；paddingInline = paddingSM(12) − 1。圆角 6px，边框 1px，聚焦时
+  - **Carbon（IBM，规格最完整）** `L122` — - 标签 12px（$label-01）、字段文字 14px、帮助 12px、错误 12px
+  - **选用建议** `L132` — - 中文 B 端桌面：32–40px 高（Ant 默认 32 偏紧，表单页建议 size="large" 40px）。
+- **5. 必填与可选：只标少数派** `L140` — 规则（Carbon 明文）：
+- **6. 校验时机：三档，各有明确适用** `L154` — 实现差异（坑）：Ant Design Form.Item 的 validateTrigger 默认 onChange；Semi Design 的 trigger 默认也是 'change'。两个库都要显式改成 ['onBlur','onSu
+- **7. 错误文案：模板化，禁止「输入有误」** `L173` — 「格式不正确」「输入有误」「非法字符」——这三句等于没说。合格的错误文案必须包含哪里错 + 怎么改，能给例子就给例子。
+- **8. 帮助文字、占位符、前缀后缀** `L203`
+  - **占位符的三宗罪（GOV.UK 原文，直接引用）** `L205` — 1. 用户一开始输入就消失，回看时无从对照，对记忆障碍用户尤其致命；
+  - **帮助文字（Hint）** `L213` — - 一句话，不加句号（GOV.UK）；英文句首大写。
+  - **前缀 / 后缀** `L220` — - 放框外（Ant addonBefore/addonAfter、Carbon 也是外置），不要塞进 placeholder。
+- **9. 控件选择矩阵（含中文特有字段）** `L228` — 中文特有字段的硬规则：
+- **10. 布局梯度：按内容量选，不按审美选** `L259` — Ant Design 表单页规范给出 4 级梯度，每一级兼容前一级：
+- **11. 表单可访问性：可执行清单** `L294` — - [ ] 每个控件都有可见 <label for；占位符不算标签。
+- **12. 表格结构：五层 + 行高密度** `L309`
+  - **12.1 五层结构** `L311` — 标题/工具栏 → 表头 → 数据行 → 批量操作条 → 分页
+  - **12.2 行高：三档够用，别自创** `L319` — Ant Design（源码推算，默认 14px 字号 + 22px 行高 + 1px 分隔线）：
+  - **12.3 表头样式** `L337` — - 底色：浅灰填充（Ant colorFillAlterSolid），不加粗黑底——黑底表头在长表里抢注意力。
+- **13. 列设计：决定表格好不好用的 80%** `L346`
+  - **13.1 对齐（最容易错，且有官方依据）** `L348` — 等宽数字必开：font-variant-numeric: tabular-nums。比例数字下 1 比 8 窄，数字列会左右跳动，右对齐也白做。
+  - **13.2 列宽** `L364` — - 按内容实际长度分配，不要所有列 flex: 1 均分（名称列被压成两行、备注列空一半）。
+  - **13.3 截断与空值** `L371` — - 单行 text-overflow: ellipsis + 悬停 Tooltip 显示全文；关键列（名称/主键）不截断，宁可加宽。
+  - **13.4 状态与语义** `L377` — - 状态用文字 + 颜色标签，不只靠颜色（色盲可读）。
+  - **13.5 序号列** `L383` — 分页时必须计算全局序号：(currentPage − 1) × pageSize + index + 1。直接渲染 index + 1 是常见 bug（每页都从 1 开始）。
+- **14. 表格规模化：分页、固定、批量、空态** `L389`
+  - **14.1 分页 vs 滚动** `L391` — - 默认 pageSize：Ant 是 10；B 端列表建议 20，并提供 10/20/50 切换（Ant showSizeChanger）。
+  - **14.2 固定与滚动** `L403` — - 行数 15 或表格高度受容器限制 → 固定表头（sticky/position: sticky）。
+  - **14.3 批量操作** `L410` — - 表头复选框三态：全选 / 未选 / 不确定（indeterminate，部分选中）。
+  - **14.4 空态、加载、错误** `L417` — ---
+- **15. 表格可访问性与中文细节** `L429` — 语义与键盘：
+- **16. 反模式清单（逐条给改法）** `L452` — 1. 占位符当标签 → 加可见标签，占位符只留格式示例。
+- **17. 交付自检（表单 10 + 表格 10）** `L475` — 表单
+- **18. 出处** `L503` — - Ant Design · 表单（pattern）— 标签对齐优缺点、按钮对齐、主按钮禁用规则、校验三档、输入提示/提醒：2x.ant.design/docs/pattern/form-cn
+
 ### `references/inspiration.md` · 灵感与阅读 — Inspiration
 _153 行 · 快照 2026-10-29 · 4 节_
 
@@ -207,7 +251,7 @@ _348 行 · 快照 2026-10-30 · 21 节_
 - **12. 素材与出处** `L326` — 规范原文（本轮实测）
 
 ### `references/patterns.md` · 元素设计模式图鉴 — Patterns（深度蒸馏）
-_120 行 · 快照 2026-10-29 · 13 节_
+_135 行 · 快照 2026-10-29 · 14 节_
 
 - **导航栏 Navbar** `L7` — 构型谱系（选 1 种，不混用）：
 - **首屏 Hero** `L25` — 构型谱系：
@@ -218,10 +262,11 @@ _120 行 · 快照 2026-10-29 · 13 节_
 - **登录/注册 Auth** `L73` — 构型谱系：居中卡片（≤400px，logo+标题+表单+社交登录+切换链接）｜左品牌右表单分屏（品牌侧放图/标语）｜全屏极简（只有表单）。
 - **仪表盘 Dashboard** `L81` — 构型谱系：侧边导航 F + 顶栏 + 内容区（默认）｜顶部导航 + 卡片网格（轻量工具）｜三栏（列表+详情+属性面板，管理类）。
 - **卡片 Card** `L89` — 构型谱系：竖版图文（封面 16:9 + 标题 + 摘要）｜横版列表行（缩略图 48–64px + 双行文字）｜数据卡（数值+标签+趋势）｜可交互卡（hover 抬升 2px + 阴影加深）。
-- **表单 Form** `L97` — 关键参数：标签在输入框上方 14px；输入框高 44–48px；字段间距 24px；帮助文字 12–13px 灰字在框下方；提交按钮右上或底部全宽。
-- **移动端底部导航 Tab Bar** `L104` — 关键参数：高度 56–64px + 安全区内嵌；3–5 项，图标 24px + 10–11px 标签；当前项用强调色，其余灰；点击目标 ≥44×44px。
-- **落地页版式骨架（整页组装）** `L111` — 标准顺序（SaaS，可裁剪）：导航(A) → Hero(A/B) → 社会证明 logo 墙 → Features(3 列) → 用法演示/截图 → 定价(3 档) → 常见问题(手风琴) → CTA(通栏) → Footer(4 列)。
-- **反模式速查（任何元素通用）** `L118` — 纯灰 #808080 大面积使用｜字号不用阶梯｜间距非 4/8 倍数｜同页两种圆角语言｜标题靠彩色而不是字号字重分层｜动效无反馈/引导/个性用途｜一行放不下还想塞｜对比度 <4.5:1 的正文。
+- **表单 Form** `L97` — 完整规则（标签对齐决策、字段定宽、校验时机、错误文案模板、中文特有字段、布局梯度、可访问性清单）→ form-table.md §1–§11。此处只给构型与速查。
+- **数据表格 Data Table** `L108` — 完整规则（行高计算、列对齐、列宽、固定列、批量操作、空态、可访问性）→ form-table.md §12–§15。
+- **移动端底部导航 Tab Bar** `L119` — 关键参数：高度 56–64px + 安全区内嵌；3–5 项，图标 24px + 10–11px 标签；当前项用强调色，其余灰；点击目标 ≥44×44px。
+- **落地页版式骨架（整页组装）** `L126` — 标准顺序（SaaS，可裁剪）：导航(A) → Hero(A/B) → 社会证明 logo 墙 → Features(3 列) → 用法演示/截图 → 定价(3 档) → 常见问题(手风琴) → CTA(通栏) → Footer(4 列)。
+- **反模式速查（任何元素通用）** `L133` — 纯灰 #808080 大面积使用｜字号不用阶梯｜间距非 4/8 倍数｜同页两种圆角语言｜标题靠彩色而不是字号字重分层｜动效无反馈/引导/个性用途｜一行放不下还想塞｜对比度 <4.5:1 的正文。
 
 ### `references/portfolios.md` · 作品集 — Portfolios
 _194 行 · 快照 2026-10-29 · 8 节_
@@ -256,7 +301,7 @@ _182 行 · 快照 2026-10-29 · 7 节_
 - **Other (1)** `L180` — - ASCII Magic — Free ASCII art generator and image & video effects studio: ASCII, pixel art, voxel, mosaic, halftone,…
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_77 行 · 快照 — · 8 节_
+_96 行 · 快照 — · 9 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -266,40 +311,61 @@ _77 行 · 快照 — · 8 节_
 - **2026-10-29 · v4 系统化与中文场景补齐（每日升级 #1）** `L33` — - 需求：每日深蒸馏 Design-related websites.txt + 补充设计站/GitHub 仓库，产出知识路线与资料，自动推 GitHub 并更新 README
 - **2026-10-30 · 动效系统 + 记忆树与检索（每日升级 #2）** `L46` — - 需求：每日深蒸馏（本轮按用户补充要求：记忆树、快捷搜索查询、自我进化、自动推送）
 - **2026-10-31 · 数据可视化规范（每日升级 #3）** `L61` — - 需求：每日深蒸馏（记忆树 / 快捷检索 / 自我进化 / 自动推送 + 更新 README）
+- **2026-10-31 · 表单与表格规范（每日升级 #4）** `L79` — - 需求：每日深蒸馏（记忆树 / 快捷检索 / 自我进化 / 自动推送 + 更新 README）
 
 ## 三、主题索引（章节标题 → 位置）
 
+- **0. 30 秒速查** → `references/form-table.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
+- **1. 表单的五个零件（结构先行，样式后议）** → `references/form-table.md` L39
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
+- **10. 布局梯度：按内容量选，不按审美选** → `references/form-table.md` L259
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 实现选型（GitHub API 实测 2026-10-31）** → `references/dataviz.md` L325
+- **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
 - **12. 素材与出处** → `references/motion-system.md` L326
 - **12. 自检 12 项（图表交付前逐条过）** → `references/dataviz.md` L349
+- **12. 表格结构：五层 + 行高密度** → `references/form-table.md` L309
+- **13. 列设计：决定表格好不好用的 80%** → `references/form-table.md` L346
 - **13. 素材与出处** → `references/dataviz.md` L366
+- **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
+- **15. 表格可访问性与中文细节** → `references/form-table.md` L429
+- **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
+- **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
+- **18. 出处** → `references/form-table.md` L503
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
 - **2. 曲线：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
+- **2. 标签：位置三选一，别混用** → `references/form-table.md` L55
 - **2026-10-28 · 开发者工具深色落地页（自测）** → `memory/design-log.md` L21
 - **2026-10-29 · v4 系统化与中文场景补齐（每日升级 #1）** → `memory/design-log.md` L33
 - **2026-10-29 · 元素级精准匹配升级（v3）** → `memory/design-log.md` L27
 - **2026-10-30 · 动效系统 + 记忆树与检索（每日升级 #2）** → `memory/design-log.md` L46
 - **2026-10-31 · 数据可视化规范（每日升级 #3）** → `memory/design-log.md` L61
+- **2026-10-31 · 表单与表格规范（每日升级 #4）** → `memory/design-log.md` L79
+- **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
 - **3. 时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
 - **3. 色板：三类用途，不许混用** → `references/dataviz.md` L76
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
+- **4. 控件尺寸与内边距（三体系精确值）** → `references/form-table.md` L110
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
+- **5. 必填与可选：只标少数派** → `references/form-table.md` L140
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
+- **6. 校验时机：三档，各有明确适用** → `references/form-table.md` L154
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **7. 仪表盘布局** → `references/dataviz.md` L223
 - **7. 实现：可直接抄的四段代码** → `references/motion-system.md` L155
+- **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
+- **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
+- **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
 - **AI & Agents (38)** → `references/tools.md` L139
 - **CTA 区块** → `references/patterns.md` L49
 - **Capture & Media (33)** → `references/tools.md` L56
@@ -347,25 +413,26 @@ _77 行 · 快照 — · 8 节_
 - **功能特性区 Features** → `references/patterns.md` L41
 - **匹配与反馈日志（追加层，只增不改）** → `memory/design-log.md` L11
 - **卡片 Card** → `references/patterns.md` L89
-- **反模式速查（任何元素通用）** → `references/patterns.md` L118
+- **反模式速查（任何元素通用）** → `references/patterns.md` L133
 - **四、中文排版自检清单（交付前逐条过）** → `references/chinese-design.md` L182
 - **四、中文设计系统矩阵（GitHub 验证 · 2026-10-29）** → `references/design-tokens.md` L133
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L178
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L39
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L40
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
+- **数据表格 Data Table** → `references/patterns.md` L108
 - **用法** → `references/inspiration.md` L5 · `references/portfolios.md` L5 · `references/resources.md` L5 · `references/tools.md` L5
 - **登录/注册 Auth** → `references/patterns.md` L73
-- **移动端底部导航 Tab Bar** → `references/patterns.md` L104
+- **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
 - **能力自测（20 条，做到 ≥15 条即达 L2+）** → `references/knowledge-map.md` L192
-- **自我成长机制（用得越多越准）** → `SKILL.md` L220
-- **自我进化机制（知识保鲜）** → `SKILL.md` L233
-- **落地页版式骨架（整页组装）** → `references/patterns.md` L111
+- **自我成长机制（用得越多越准）** → `SKILL.md` L248
+- **自我进化机制（知识保鲜）** → `SKILL.md` L261
+- **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L254
+- **边界与习惯** → `SKILL.md` L282
 - **选型规则** → `references/component-libraries.md` L24
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

@@ -157,7 +157,7 @@ def build_tree(files: list, check: dict) -> str:
         "python scripts/mindmap.py                    # 资产变更后重建本树与 index.json",
         "```",
         "",
-        "**检索纪律**：先用 `dp_search` 定位到「文件 §章节」，再只读那一段。不要整份读 references——11 份文件全读一遍会吃掉大量上下文，而命中往往只在一节。",
+        "**检索纪律**：先用 `dp_search` 定位到「文件 §章节」，再只读那一段。不要整份读 references——十几份文件全读一遍会吃掉大量上下文，而命中往往只在一节。",
         "",
         "## 一、意图 → 位置（快捷路由）",
         "",
@@ -210,9 +210,16 @@ def build_tree(files: list, check: dict) -> str:
 def main():
     files = collect()
     check = wiring_check(files)
+    # 检索索引剔除变更日志：design-log.md 是流水账，关键词密度极高，
+    # 会让「表单」「表格」这类查询的前 3 条全是日志而不是知识章节。
+    # 树里仍保留它（人可读），只是不参与 dp_search 排序。
+    NOT_SEARCHABLE = {"memory/design-log.md"}
+    searchable = [
+        {**f, "sections": []} if f["path"] in NOT_SEARCHABLE else f for f in files
+    ]
     index = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        "files": files,
+        "files": searchable,
         "wiring": check,
     }
     MEM.mkdir(parents=True, exist_ok=True)

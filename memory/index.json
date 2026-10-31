@@ -1,27 +1,27 @@
 {
- "generated": "2026-10-31T22:07:20",
+ "generated": "2026-10-31T22:22:13",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 262,
-   "chars": 12497,
+   "lines": 290,
+   "chars": 15020,
    "sections": [
     {
      "id": "工作流-接到任何设计任务时按此执行",
      "level": 2,
      "title": "工作流：接到任何设计任务时按此执行",
      "summary": "",
-     "line": 39,
+     "line": 40,
      "chars": 1
     },
     {
      "id": "第-0-步-先检索-别整份读",
      "level": 3,
      "title": "第 0 步 · 先检索，别整份读",
-     "summary": "资产已超 12 份、约 12 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：",
-     "line": 41,
+     "summary": "资产已超 13 份、约 13 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：",
+     "line": 42,
      "chars": 301
     },
     {
@@ -29,15 +29,15 @@
      "level": 3,
      "title": "第 1 步 · 识别设计意图",
      "summary": "",
-     "line": 52,
-     "chars": 1130
+     "line": 53,
+     "chars": 1545
     },
     {
      "id": "第-2-步-完善需求-设计-brief-澄清",
      "level": 3,
      "title": "第 2 步 · 完善需求（设计 brief 澄清）",
      "summary": "动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。",
-     "line": 72,
+     "line": 77,
      "chars": 459
     },
     {
@@ -45,7 +45,7 @@
      "level": 3,
      "title": "第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）",
      "summary": "执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。",
-     "line": 87,
+     "line": 92,
      "chars": 586
     },
     {
@@ -53,7 +53,7 @@
      "level": 3,
      "title": "第 4 步 · 匹配灵感（三级精准匹配）",
      "summary": "先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。",
-     "line": 113,
+     "line": 118,
      "chars": 1568
     },
     {
@@ -61,23 +61,23 @@
      "level": 3,
      "title": "第 5 步 · 按设计原则执行",
      "summary": "从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：",
-     "line": 144,
-     "chars": 2596
+     "line": 149,
+     "chars": 4043
     },
     {
      "id": "第-6-步-产出前自检-交付评审",
      "level": 3,
      "title": "第 6 步 · 产出前自检 + 交付评审",
      "summary": "交付前逐条检查，不达标先修再交：",
-     "line": 201,
-     "chars": 732
+     "line": 226,
+     "chars": 1071
     },
     {
      "id": "自我成长机制-用得越多越准",
      "level": 2,
      "title": "自我成长机制（用得越多越准）",
      "summary": "记忆档案 memory/design-log.md 分两层，协议如下：",
-     "line": 220,
+     "line": 248,
      "chars": 324
     },
     {
@@ -85,7 +85,7 @@
      "level": 2,
      "title": "自我进化机制（知识保鲜）",
      "summary": "- 自动刷新：references 头部标注快照日期。快照 30 天、或用户说\"更新知识库/刷新灵感库\"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP",
-     "line": 233,
+     "line": 261,
      "chars": 396
     },
     {
@@ -93,7 +93,7 @@
      "level": 3,
      "title": "每日升级协议（Deep Distillation Loop）",
      "summary": "定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：",
-     "line": 240,
+     "line": 268,
      "chars": 730
     },
     {
@@ -101,7 +101,7 @@
      "level": 2,
      "title": "边界与习惯",
      "summary": "- 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。",
-     "line": 254,
+     "line": 282,
      "chars": 803
     }
    ]
@@ -704,6 +704,335 @@
    ]
   },
   {
+   "path": "references/form-table.md",
+   "title": "表单与表格 — Forms & Tables（深度蒸馏）",
+   "snapshot": "2026-10-31",
+   "lines": 515,
+   "chars": 16501,
+   "sections": [
+    {
+     "id": "0-30-秒速查",
+     "level": 2,
+     "title": "0. 30 秒速查",
+     "summary": "表单",
+     "line": 8,
+     "chars": 1028
+    },
+    {
+     "id": "1-表单的五个零件-结构先行-样式后议",
+     "level": 2,
+     "title": "1. 表单的五个零件（结构先行，样式后议）",
+     "summary": "任何表单字段都是这五件套，缺一件就出问题：",
+     "line": 39,
+     "chars": 371
+    },
+    {
+     "id": "2-标签-位置三选一-别混用",
+     "level": 2,
+     "title": "2. 标签：位置三选一，别混用",
+     "summary": "",
+     "line": 55,
+     "chars": 1
+    },
+    {
+     "id": "2-1-三种对齐的取舍-ant-design-原文结论-可直接引用",
+     "level": 3,
+     "title": "2.1 三种对齐的取舍（Ant Design 原文结论，可直接引用）",
+     "summary": "决策规则：",
+     "line": 57,
+     "chars": 397
+    },
+    {
+     "id": "2-2-标签文案",
+     "level": 3,
+     "title": "2.2 标签文案",
+     "summary": "- 句首大写、不加冒号、不加句号（GOV.UK / Carbon 一致要求）。中文对应：不加句号，右对齐可保留冒号（Ant 默认带冒号，labelColonMarginInlineStart: 2px、InlineEnd: 8px）；顶对齐",
+     "line": 71,
+     "chars": 295
+    },
+    {
+     "id": "2-3-标签宽度的具体值",
+     "level": 3,
+     "title": "2.3 标签宽度的具体值",
+     "summary": "- 右对齐：标签列固定宽，取最长标签宽度 + 8–16px，常见 80–120px（中文 4–6 字约 80–100px）。",
+     "line": 78,
+     "chars": 223
+    },
+    {
+     "id": "3-字段宽度-按内容长度定宽-最被忽视的一条",
+     "level": 2,
+     "title": "3. 字段宽度：按内容长度定宽（最被忽视的一条）",
+     "summary": "铁律：输入框宽度传达\"预期输入多长\"。全部等宽 = 放弃了一条免费提示。",
+     "line": 86,
+     "chars": 630
+    },
+    {
+     "id": "4-控件尺寸与内边距-三体系精确值",
+     "level": 2,
+     "title": "4. 控件尺寸与内边距（三体系精确值）",
+     "summary": "",
+     "line": 110,
+     "chars": 1
+    },
+    {
+     "id": "ant-design-中文-b-端事实标准",
+     "level": 3,
+     "title": "Ant Design（中文 B 端事实标准）",
+     "summary": "计算式（源码）：paddingBlock = (controlHeight − fontSize × lineHeight)/2 − 1；paddingInline = paddingSM(12) − 1。圆角 6px，边框 1px，聚焦时",
+     "line": 112,
+     "chars": 366
+    },
+    {
+     "id": "carbon-ibm-规格最完整",
+     "level": 3,
+     "title": "Carbon（IBM，规格最完整）",
+     "summary": "- 标签 12px（$label-01）、字段文字 14px、帮助 12px、错误 12px",
+     "line": 122,
+     "chars": 272
+    },
+    {
+     "id": "选用建议",
+     "level": 3,
+     "title": "选用建议",
+     "summary": "- 中文 B 端桌面：32–40px 高（Ant 默认 32 偏紧，表单页建议 size=\"large\" 40px）。",
+     "line": 132,
+     "chars": 158
+    },
+    {
+     "id": "5-必填与可选-只标少数派",
+     "level": 2,
+     "title": "5. 必填与可选：只标少数派",
+     "summary": "规则（Carbon 明文）：",
+     "line": 140,
+     "chars": 283
+    },
+    {
+     "id": "6-校验时机-三档-各有明确适用",
+     "level": 2,
+     "title": "6. 校验时机：三档，各有明确适用",
+     "summary": "实现差异（坑）：Ant Design Form.Item 的 validateTrigger 默认 onChange；Semi Design 的 trigger 默认也是 'change'。两个库都要显式改成 ['onBlur','onSu",
+     "line": 154,
+     "chars": 627
+    },
+    {
+     "id": "7-错误文案-模板化-禁止-输入有误",
+     "level": 2,
+     "title": "7. 错误文案：模板化，禁止「输入有误」",
+     "summary": "「格式不正确」「输入有误」「非法字符」——这三句等于没说。合格的错误文案必须包含哪里错 + 怎么改，能给例子就给例子。",
+     "line": 173,
+     "chars": 918
+    },
+    {
+     "id": "8-帮助文字-占位符-前缀后缀",
+     "level": 2,
+     "title": "8. 帮助文字、占位符、前缀后缀",
+     "summary": "",
+     "line": 203,
+     "chars": 1
+    },
+    {
+     "id": "占位符的三宗罪-gov-uk-原文-直接引用",
+     "level": 3,
+     "title": "占位符的三宗罪（GOV.UK 原文，直接引用）",
+     "summary": "1. 用户一开始输入就消失，回看时无从对照，对记忆障碍用户尤其致命；",
+     "line": 205,
+     "chars": 142
+    },
+    {
+     "id": "帮助文字-hint",
+     "level": 3,
+     "title": "帮助文字（Hint）",
+     "summary": "- 一句话，不加句号（GOV.UK）；英文句首大写。",
+     "line": 213,
+     "chars": 143
+    },
+    {
+     "id": "前缀-后缀",
+     "level": 3,
+     "title": "前缀 / 后缀",
+     "summary": "- 放框外（Ant addonBefore/addonAfter、Carbon 也是外置），不要塞进 placeholder。",
+     "line": 220,
+     "chars": 178
+    },
+    {
+     "id": "9-控件选择矩阵-含中文特有字段",
+     "level": 2,
+     "title": "9. 控件选择矩阵（含中文特有字段）",
+     "summary": "中文特有字段的硬规则：",
+     "line": 228,
+     "chars": 1051
+    },
+    {
+     "id": "10-布局梯度-按内容量选-不按审美选",
+     "level": 2,
+     "title": "10. 布局梯度：按内容量选，不按审美选",
+     "summary": "Ant Design 表单页规范给出 4 级梯度，每一级兼容前一级：",
+     "line": 259,
+     "chars": 903
+    },
+    {
+     "id": "11-表单可访问性-可执行清单",
+     "level": 2,
+     "title": "11. 表单可访问性：可执行清单",
+     "summary": "- [ ] 每个控件都有可见 <label for；占位符不算标签。",
+     "line": 294,
+     "chars": 725
+    },
+    {
+     "id": "12-表格结构-五层-行高密度",
+     "level": 2,
+     "title": "12. 表格结构：五层 + 行高密度",
+     "summary": "",
+     "line": 309,
+     "chars": 1
+    },
+    {
+     "id": "12-1-五层结构",
+     "level": 3,
+     "title": "12.1 五层结构",
+     "summary": "标题/工具栏 → 表头 → 数据行 → 批量操作条 → 分页",
+     "line": 311,
+     "chars": 220
+    },
+    {
+     "id": "12-2-行高-三档够用-别自创",
+     "level": 3,
+     "title": "12.2 行高：三档够用，别自创",
+     "summary": "Ant Design（源码推算，默认 14px 字号 + 22px 行高 + 1px 分隔线）：",
+     "line": 319,
+     "chars": 510
+    },
+    {
+     "id": "12-3-表头样式",
+     "level": 3,
+     "title": "12.3 表头样式",
+     "summary": "- 底色：浅灰填充（Ant colorFillAlterSolid），不加粗黑底——黑底表头在长表里抢注意力。",
+     "line": 337,
+     "chars": 333
+    },
+    {
+     "id": "13-列设计-决定表格好不好用的-80",
+     "level": 2,
+     "title": "13. 列设计：决定表格好不好用的 80%",
+     "summary": "",
+     "line": 346,
+     "chars": 1
+    },
+    {
+     "id": "13-1-对齐-最容易错-且有官方依据",
+     "level": 3,
+     "title": "13.1 对齐（最容易错，且有官方依据）",
+     "summary": "等宽数字必开：font-variant-numeric: tabular-nums。比例数字下 1 比 8 窄，数字列会左右跳动，右对齐也白做。",
+     "line": 348,
+     "chars": 483
+    },
+    {
+     "id": "13-2-列宽",
+     "level": 3,
+     "title": "13.2 列宽",
+     "summary": "- 按内容实际长度分配，不要所有列 flex: 1 均分（名称列被压成两行、备注列空一半）。",
+     "line": 364,
+     "chars": 352
+    },
+    {
+     "id": "13-3-截断与空值",
+     "level": 3,
+     "title": "13.3 截断与空值",
+     "summary": "- 单行 text-overflow: ellipsis + 悬停 Tooltip 显示全文；关键列（名称/主键）不截断，宁可加宽。",
+     "line": 371,
+     "chars": 172
+    },
+    {
+     "id": "13-4-状态与语义",
+     "level": 3,
+     "title": "13.4 状态与语义",
+     "summary": "- 状态用文字 + 颜色标签，不只靠颜色（色盲可读）。",
+     "line": 377,
+     "chars": 158
+    },
+    {
+     "id": "13-5-序号列",
+     "level": 3,
+     "title": "13.5 序号列",
+     "summary": "分页时必须计算全局序号：(currentPage − 1) × pageSize + index + 1。直接渲染 index + 1 是常见 bug（每页都从 1 开始）。",
+     "line": 383,
+     "chars": 99
+    },
+    {
+     "id": "14-表格规模化-分页-固定-批量-空态",
+     "level": 2,
+     "title": "14. 表格规模化：分页、固定、批量、空态",
+     "summary": "",
+     "line": 389,
+     "chars": 1
+    },
+    {
+     "id": "14-1-分页-vs-滚动",
+     "level": 3,
+     "title": "14.1 分页 vs 滚动",
+     "summary": "- 默认 pageSize：Ant 是 10；B 端列表建议 20，并提供 10/20/50 切换（Ant showSizeChanger）。",
+     "line": 391,
+     "chars": 333
+    },
+    {
+     "id": "14-2-固定与滚动",
+     "level": 3,
+     "title": "14.2 固定与滚动",
+     "summary": "- 行数 15 或表格高度受容器限制 → 固定表头（sticky/position: sticky）。",
+     "line": 403,
+     "chars": 181
+    },
+    {
+     "id": "14-3-批量操作",
+     "level": 3,
+     "title": "14.3 批量操作",
+     "summary": "- 表头复选框三态：全选 / 未选 / 不确定（indeterminate，部分选中）。",
+     "line": 410,
+     "chars": 182
+    },
+    {
+     "id": "14-4-空态-加载-错误",
+     "level": 3,
+     "title": "14.4 空态、加载、错误",
+     "summary": "---",
+     "line": 417,
+     "chars": 262
+    },
+    {
+     "id": "15-表格可访问性与中文细节",
+     "level": 2,
+     "title": "15. 表格可访问性与中文细节",
+     "summary": "语义与键盘：",
+     "line": 429,
+     "chars": 638
+    },
+    {
+     "id": "16-反模式清单-逐条给改法",
+     "level": 2,
+     "title": "16. 反模式清单（逐条给改法）",
+     "summary": "1. 占位符当标签 → 加可见标签，占位符只留格式示例。",
+     "line": 452,
+     "chars": 653
+    },
+    {
+     "id": "17-交付自检-表单-10-表格-10",
+     "level": 2,
+     "title": "17. 交付自检（表单 10 + 表格 10）",
+     "summary": "表单",
+     "line": 475,
+     "chars": 702
+    },
+    {
+     "id": "18-出处",
+     "level": 2,
+     "title": "18. 出处",
+     "summary": "- Ant Design · 表单（pattern）— 标签对齐优缺点、按钮对齐、主按钮禁用规则、校验三档、输入提示/提醒：2x.ant.design/docs/pattern/form-cn",
+     "line": 503,
+     "chars": 1440
+    }
+   ]
+  },
+  {
    "path": "references/inspiration.md",
    "title": "灵感与阅读 — Inspiration",
    "snapshot": "2026-10-29",
@@ -1190,8 +1519,8 @@
    "path": "references/patterns.md",
    "title": "元素设计模式图鉴 — Patterns（深度蒸馏）",
    "snapshot": "2026-10-29",
-   "lines": 120,
-   "chars": 3673,
+   "lines": 135,
+   "chars": 4529,
    "sections": [
     {
      "id": "导航栏-navbar",
@@ -1269,16 +1598,24 @@
      "id": "表单-form",
      "level": 2,
      "title": "表单 Form",
-     "summary": "关键参数：标签在输入框上方 14px；输入框高 44–48px；字段间距 24px；帮助文字 12–13px 灰字在框下方；提交按钮右上或底部全宽。",
+     "summary": "完整规则（标签对齐决策、字段定宽、校验时机、错误文案模板、中文特有字段、布局梯度、可访问性清单）→ form-table.md §1–§11。此处只给构型与速查。",
      "line": 97,
-     "chars": 142
+     "chars": 487
+    },
+    {
+     "id": "数据表格-data-table",
+     "level": 2,
+     "title": "数据表格 Data Table",
+     "summary": "完整规则（行高计算、列对齐、列宽、固定列、批量操作、空态、可访问性）→ form-table.md §12–§15。",
+     "line": 108,
+     "chars": 492
     },
     {
      "id": "移动端底部导航-tab-bar",
      "level": 2,
      "title": "移动端底部导航 Tab Bar",
      "summary": "关键参数：高度 56–64px + 安全区内嵌；3–5 项，图标 24px + 10–11px 标签；当前项用强调色，其余灰；点击目标 ≥44×44px。",
-     "line": 104,
+     "line": 119,
      "chars": 133
     },
     {
@@ -1286,7 +1623,7 @@
      "level": 2,
      "title": "落地页版式骨架（整页组装）",
      "summary": "标准顺序（SaaS，可裁剪）：导航(A) → Hero(A/B) → 社会证明 logo 墙 → Features(3 列) → 用法演示/截图 → 定价(3 档) → 常见问题(手风琴) → CTA(通栏) → Footer(4 列)。",
-     "line": 111,
+     "line": 126,
      "chars": 216
     },
     {
@@ -1294,7 +1631,7 @@
      "level": 2,
      "title": "反模式速查（任何元素通用）",
      "summary": "纯灰 #808080 大面积使用｜字号不用阶梯｜间距非 4/8 倍数｜同页两种圆角语言｜标题靠彩色而不是字号字重分层｜动效无反馈/引导/个性用途｜一行放不下还想塞｜对比度 <4.5:1 的正文。",
-     "line": 118,
+     "line": 133,
      "chars": 99
     }
    ]
@@ -1490,74 +1827,9 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 77,
-   "chars": 3562,
-   "sections": [
-    {
-     "id": "当前画像-规则层-命中-2-次的稳定偏好",
-     "level": 2,
-     "title": "当前画像（规则层，命中 ≥2 次的稳定偏好）",
-     "summary": "（暂无——随使用积累）",
-     "line": 6,
-     "chars": 61
-    },
-    {
-     "id": "匹配与反馈日志-追加层-只增不改",
-     "level": 2,
-     "title": "匹配与反馈日志（追加层，只增不改）",
-     "summary": "",
-     "line": 11,
-     "chars": 10
-    },
-    {
-     "id": "yyyy-mm-dd-需求一句话",
-     "level": 2,
-     "title": "YYYY-MM-DD · 需求一句话",
-     "summary": "- 需求：载体/调性/明暗",
-     "line": 14,
-     "chars": 103
-    },
-    {
-     "id": "2026-10-28-开发者工具深色落地页-自测",
-     "level": 2,
-     "title": "2026-10-28 · 开发者工具深色落地页（自测）",
-     "summary": "- 需求：落地页 / 深色 / 开发者工具；调性默认 极简+专业+冷静",
-     "line": 21,
-     "chars": 171
-    },
-    {
-     "id": "2026-10-29-元素级精准匹配升级-v3",
-     "level": 2,
-     "title": "2026-10-29 · 元素级精准匹配升级（v3）",
-     "summary": "- 需求：导航栏等元素提示词应返回设计图本体而非设计网站链接",
-     "line": 27,
-     "chars": 186
-    },
-    {
-     "id": "2026-10-29-v4-系统化与中文场景补齐-每日升级-1",
-     "level": 2,
-     "title": "2026-10-29 · v4 系统化与中文场景补齐（每日升级 #1）",
-     "summary": "- 需求：每日深蒸馏 Design-related websites.txt + 补充设计站/GitHub 仓库，产出知识路线与资料，自动推 GitHub 并更新 README",
-     "line": 33,
-     "chars": 638
-    },
-    {
-     "id": "2026-10-30-动效系统-记忆树与检索-每日升级-2",
-     "level": 2,
-     "title": "2026-10-30 · 动效系统 + 记忆树与检索（每日升级 #2）",
-     "summary": "- 需求：每日深蒸馏（本轮按用户补充要求：记忆树、快捷搜索查询、自我进化、自动推送）",
-     "line": 46,
-     "chars": 836
-    },
-    {
-     "id": "2026-10-31-数据可视化规范-每日升级-3",
-     "level": 2,
-     "title": "2026-10-31 · 数据可视化规范（每日升级 #3）",
-     "summary": "- 需求：每日深蒸馏（记忆树 / 快捷检索 / 自我进化 / 自动推送 + 更新 README）",
-     "line": 61,
-     "chars": 1186
-    }
-   ]
+   "lines": 96,
+   "chars": 4919,
+   "sections": []
   }
  ],
  "wiring": {

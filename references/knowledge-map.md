@@ -158,9 +158,12 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ### 支线 B · 数据可视化
 - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
-- 图表选型：时间→折线面积；比较→柱状条形；分布→散点箱线；流程→漏斗；占比→环图
+- **先判关系再选图形**（FT 九类）：偏差→分歧条形；相关→散点；排名→有序条形；分布→直方/箱线；随时间→折线；部分整体→堆叠柱/环形（≤5 片）；数量→柱形（**0 基线**）；空间→分级统计地图（用比率）；流向→桑基
+- 硬上限：饼图 ≤5 片、折线 ≤5 条、颜色编码 ≤7 类、一屏图表 ≤5 张
+- 三类色板不许混用：分类（固定顺序取）/ 顺序（浅色主题最深=最大）/ 发散（必须对称、中点=0）
 - 交互三层：数据获取 → 信息加工 → 知识流转；口诀「概览第一，聚焦过滤，再按需查看详情」
-- 材料：[AntV 设计语言](https://antv.antgroup.com/specification/language/palette)、[Ant Design 可视化](https://ant.design/docs/spec/visual-cn)
+- 材料：[FT Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary)、[Carbon 数据可视化色板](https://carbondesignsystem.com/data-visualization/color-palettes/)、[Ant Design 可视化](https://ant.design/docs/spec/visual-cn)、[Datawrapper 双轴指南](https://www.datawrapper.de/blog/dual-axis-charts-guide)
+- → **精确色板 hex、坐标轴数值、中文数字单位、仪表盘布局、12 条反模式、12 项自检见 `dataviz.md`**
 
 ### 支线 C · 动效（界面"活"起来的那一层）
 - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）

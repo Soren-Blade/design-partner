@@ -237,3 +237,58 @@
 - 检索门槛：16 个品牌关键词 + 12 个既有模块回归词，共 28 项全部命中目标文件前 3 条，FAIL 0（无回归）
 - 反馈：无真实用户反馈（自动化任务）；下轮验证点：logo/VI 类提示词是否直接进 §4/§5 而非全读
 - 效果：待观察
+
+---
+
+## 2026-11-01 · 暗色模式体系（每日升级 #10）
+
+> 补记：本轮当时只写入了自动化 memory，遗漏 design-log，此处按原始记录补入（不改动既有内容）。
+
+- 主题：**暗色模式体系**（上轮候选第 1 位；原知识仅 `design-tokens.md` 一个 6 行 dark 块 + 一句"降饱和提层级"）
+- 取源（官方原文/源码/API 实测）：`material-color-utilities` 的 `color_spec_2021.ts` 与 `scheme.ts`（surface 6 / cLow 10 / c 12 / cHigh 17 / cHighest 22、outline 50→60、onErrorContainer 暗色 80 的不对称）、Ant `themes/dark/colors.ts`（85/65/45/25、lighten 0/8/12/26）与 `default/colors.ts` 对照（88/65/45/25、lighten 4/0/0）、Carbon g100 全 hex、M2 dark-theme 全表（`#121212`、elevation overlay 0–16%、`#CF6679`）、Apple HIG Dark Mode、Radix 12 步（11/12 步保证 Lc60/Lc90）、NN/g 暗色证据链（Piepenbrock 2013 / Dobres 2017 / Aleman 2018）、Android DayNight 与微信 DarkMode、MDN `color-scheme` 与 `light-dark()`、Tailwind v4 `@custom-variant`
+- 新增 `references/dark-mode.md`（15 节 / 656 行 / 24.6k 字符）
+- **本轮最大价值：把"抄来的经验值"变成"算出来的证据"**——用 WCAG 相对亮度公式与 CIELAB L*→Y 自算，得到三个可验证结论：Ant 三级文本 45% 白在纯黑上只有 **4.43（不达 AA）**；Ant 暗色边框 `#424242` 仅 **2.09:1**（过不了 1.4.11）；暗色层级跨度必须大于亮色（亮 1.23 vs 暗 **1.50**）
+- SKILL.md v13：资产 +1、路由 61→71、第 5 步新增暗色节 13 条、自检 17→18（暗色关）、frontmatter 加暗色段
+- knowledge-map：支线 H（七→八条）、自测 34→38、门槛 ≥25→≥28
+- 别名 50→57 组，并把"暗色模式/深色模式"从「配色」组摘出（避免被 20+ 配色词稀释）；路由顺序未动
+- 检索门槛 21 项 FAIL 0；回归 16 项无空命中；接线体检 21 文件 / 568 章节
+- 发布 commit `4942a4b623`；全局双份安装完成
+- 踩坑：`raw.githubusercontent.com` 多次超时/连接重置（exit 28/56/7），单文件重试 2–3 次即通；`github.com` API 目录列举比猜路径可靠
+
+---
+
+
+## 2026-11-01 · 性能与设计的关系（每日升级 #11）
+
+- 主题：**性能与设计的关系**（上轮候选第 1 位；原知识仅 `knowledge-map.md` L3 一句"CWV 三阈值"）
+- 取源（全部官方原文 / 源码 / API 实测，无二手博客）：
+  - web.dev `vitals`（LCP ≤2.5 / INP ≤200 / CLS ≤0.1、**75 百分位**、移动桌面分段、**现场优先**、TBT 作 INP 代理）
+  - web.dev `optimize-lcp`（四子部分 **TTFB 40% / load delay <10% / load duration 40% / render delay <10%**，官方明确"不可换算成绝对秒数"；`fetchpriority="high"` 只给 1–2 张；LCP 图禁 lazy；CSS 背景图须 preload）
+  - web.dev `inp`（三阶段定义、**200/500ms**、**每 50 次交互忽略最高 1 次**、`durationThreshold` 默认 104ms / 最小 16ms、仅 click/tap/键盘）
+  - web.dev `cls`（0.1/0.25、`impact × distance` 公式 + 三个官方算例 0.1875/0.07/0.18、会话窗口 **<1s 且 ≤5s**、`hadRecentInput` **500ms** 仅离散输入）
+  - web.dev `long-tasks-devtools`（Long Task **>50ms**、RAIL 50ms 处理 → 100ms 响应、INP 放宽到 200ms 的官方理由）
+  - web.dev `font-best-practices`（`font-display` 五档 block/swap 期**精确值**：block 2–3s/∞、swap 0/∞、fallback 100ms/3s、optional 100ms/无；默认阻塞 3s 与 **Safari 无限期**；WOFF2 **省 30%**；拉丁 100–1000 vs **CJK >10000** 字形；`preload` **绕过 `unicode-range`**）
+  - web.dev `choose-the-right-image-format`（格式矩阵、**DPR 像素 4 倍/9 倍**、GIF→`<video>`、图内禁文字、CSS 效果优先）
+  - web.dev `performance-budgets-101`（**关键路径 <170KB + TTI <5s（3G + 中位设备）**、预算三选一"优化/删掉/不加"）
+  - Chrome `performance-scoring`（Lighthouse 10 权重 **TBT 30 / LCP 25 / CLS 25 / FCP 10 / SI 10**、0–49/50–89/90–100、对数正态曲线 25%→50 分 / 8%→90 分、**0.96 收益断崖**）
+  - Addy Osmani 的 JS 成本（CNN **4s/13s/36s**、parse+compile 占 **10–30%**、中位页面 350KB→TTI **14s+**、Pinterest **2.5MB→200KB** 换注册 **+753%**）
+  - 微信《代码包体积优化》（**单个代码包上限 2M**、ZSTD、分包/独立分包/预下载/异步化、全局组件与插件的"启动税"、包内资源难以再压缩）+《合理使用 setData》（**Shadow 树节点量影响大于数据量**、只传 diff、`data` 只放渲染字段）
+  - 仓库实测 12 个：lighthouse 30992★ / sharp 32812★ / squoosh 26083★ / lazysizes 17713★ / partytown 13807★ / workbox 13040★ / imgproxy 11165★ / critical 10299★ / web-vitals 8668★ / lighthouse-ci 7123★ / fontsource 6255★ / sitespeed 5047★ / image-actions 1578★ **GPL-3.0**；**发现 2 个已归档**：critters（2024-10）、preload-webpack-plugin（2021-01）
+- 新增 `references/performance-design.md`（19 节 / **843 行 / 28.3k 字符**）
+- **本轮最大价值：把"性能优化清单"改写成"设计决策的价格表"**
+  - §10 **视觉手法性能价格表**：CSS 渐变★1 → 首屏视频★5（5s 1080p@4Mbps ≈ **2.5MB**，算术可复核）/ 玻璃拟态★4 / 视差★4 / 3D★5 / 粒子★5 / 自动轮播★5，每项给**机制 + 替代方案**
+  - §11 把 `will-change` 从"玄学"变成算术：合成层内存 = **宽×高×4 字节**（375×812=1.22MB / 1920×1080=**7.93MB** / 2x 全屏=17.8MB），推出"同屏活跃层 ≤5–8"
+  - §12 **三档决策分级**（A 效率不许花 / B 平衡 / C 表达必须降级），给出 C 档四条硬约束（首屏仍 2.5s、必须有静态降级、必须可跳过、移动端单独设计）
+  - §6 六类页面预算表（落地页/内容页/电商/中后台/H5/小程序），把预算定义为**设计评审的否决权**而非开发指标
+- SKILL.md v14：资产表 +1 行、意图路由 → **83** 类（+13 类性能相关）、第 5 步新增「性能」节 18 条数值化、自检 18→**19**（性能关）、frontmatter description 加性能段、数据来源 +13 条
+- knowledge-map：支线 I（八→**九条**）、自测 38→**45**（+7 条性能硬指标）、门槛 ≥28→**≥34**、L3 必读加 `performance-design.md`
+- 别名 57→**66** 组（性能/LCP/卡顿/CLS/性能预算/图片优化/字体加载/弱网/小程序性能），**路由顺序一行未动**
+- **修掉两个既有检索缺陷（非本轮引入，是回归测试暴露的）**：
+  1. `accessibility.md` 全篇**没有任何 H2 含「无障碍」**（H1 是"可访问性实操"，§1 是"先定判定口径"）→ 查「无障碍」时它排第 4，被 brand-identity/feedback-states/responsive 抢占。修法：H1 改「可访问性实操 / 无障碍」、§1 改「先定判定口径：无障碍验收按哪套标准」。修后 → 第 2（第 1 是 brand 的"必须过无障碍验收"章节，合理）
+  2. 查「表单」时 `form-table.md` 排第 5（patterns 的「§表单 Form」因标题精确匹配 ×10 权重压住）→ 把 form-table §1 标题改为「表单（Form）的五个零件：标签·控件·帮助·错误·动作」，修后 → 第 3
+  - **两处都只改标题，未动检索器算法**（遵守升级协议）
+- 检索门槛：27 个性能关键词全部命中 `performance-design.md` 前 3，**FAIL 0**；回归 18 项（暗色/表单/表格/海报/logo/无障碍/图表/toast/断点/动效/空态/色阶/对比度/焦点/留白/标志/卡片/导航）**18/18 通过**
+- 接线体检：22 文件 / **644 章节**，未接线 0、失联 0
+- 源清单 450→**518** 行（性能专题 62 条，六组）
+- 反馈：无真实用户反馈（自动化任务）；下轮验证点：用户说"这个效果会不会太慢"时，是否直接进 §10 价格表而不是全读
+- 效果：待观察

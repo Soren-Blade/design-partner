@@ -105,13 +105,14 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ### 核心概念
 1. **技术栈匹配**：React/Vue/纯 HTML，选库先看栈再看元素覆盖
-2. **性能预算**：LCP < 2.5s、CLS < 0.1、INP < 200ms（Core Web Vitals 阈值）
+2. **性能预算**：LCP < 2.5s、CLS < 0.1、INP < 200ms（Core Web Vitals 阈值）；关键路径 <170KB、TTI <5s（3G）——见 `performance-design.md`
 3. **渐进增强**：先保证无 JS 可用，再叠加动效
 4. **可访问性不是附加项**：语义标签、焦点环、对比度、键盘可达
 5. **许可合规**：MIT / Apache-2.0 可商用；逐组件署名（如 uiverse）需注意
 
 ### 必读材料
 - 本技能 `component-libraries.md`：14 库元素覆盖矩阵 + 选型规则 + 维护协议
+- 本技能 `performance-design.md`：性能阈值 / LCP 四分解 / 视觉手法价格表 / 预算与验收
 - 本技能 `tools.md`：截图/录屏/优化/生成工具
 - [web.dev Core Web Vitals](https://web.dev/articles/vitals)：性能阈值与测量
 - [Inclusive Components](https://inclusive-components.design/)：可访问组件的实现范式
@@ -150,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 八条专题支线（可与主线并行）
+## 九条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -226,6 +227,19 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[M2 Dark theme](https://m2.material.io/design/color/dark-theme.html)、[M3 color-utilities 源码](https://github.com/material-foundation/material-color-utilities)、[Ant 暗色算法](https://github.com/ant-design/ant-design/blob/master/components/theme/themes/dark/colors.ts)、[Carbon g100](https://github.com/carbon-design-system/carbon/blob/main/packages/themes/src/v10/g100.ts)、[Apple HIG Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode)、[NN/g Dark Mode](https://www.nngroup.com/articles/dark-mode/)、[MDN color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)、[微信 DarkMode](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/darkmode.html)
 - → **对比度实测表、四端实现、22 项自检、20 条反模式见 `dark-mode.md`**
 
+### 支线 I · 性能与设计（"好看"必须先"看得见"）
+- **性能是设计约束，不是开发收尾**。首屏主视觉选什么、用几套字体、上不上视频，**在稿子上就已经定了 LCP 的上限**。
+- **七个阈值**：LCP **2.5s** / INP **200ms** / CLS **0.1**（差：4.0 / 500 / 0.25）；辅助 TTFB 800ms、FCP 1.8s、TBT 200ms、SI 3.4s。取 **p75**，移动/桌面分段，**看现场不看本地**。
+- **LCP 四分解**：TTFB ~40% / load delay <10% / load duration ~40% / render delay <10%。**单独优化一段会把时间转移到另一段**，必须四段一起看。
+- **首屏视频 ≈ 2.5MB**（5s 1080p@4Mbps）：它不是 LCP 元素，但抢带宽把 LCP 推后。**想要氛围，先把氛围放到第二屏**。
+- **图片 25 倍浪费**是常态：400×300 的位配 4000×3000 源图。DPR 翻倍 = 像素 **4 倍**。格式：照片 AVIF → WebP → JPEG；图标 SVG；动图 `<video>`。
+- **字体是最易被低估的成本**：CJK >10000 字形，未子集化 3–8MB；不写 `font-display` 时 Safari **无限期阻塞文本**。
+- **只动 `transform` / `opacity`**；`will-change` 一个全屏层就是 **7.93MB** 显存，不许常驻。
+- **全屏每帧重算 = 红灯**（全屏 blur / canvas 粒子 / 多层视差）。**限定面积**是唯一便宜的解法。
+- **预算**：关键路径 <170KB、TTI <5s（3G）。超了只有三选一：优化 / 删掉 / 不加。
+- 材料：[web.dev Web Vitals](https://web.dev/articles/vitals)、[Optimize LCP](https://web.dev/articles/optimize-lcp)、[Performance budgets 101](https://web.dev/articles/performance-budgets-101)、[Lighthouse scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)、[微信 代码包体积优化](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips/start_optimizeA)
+- → **价格表、图层内存算术、六类页面预算、三档决策分级、小程序五手段、18 项自检见 `performance-design.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -242,7 +256,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（38 条，做到 ≥28 条即达 L2+）
+## 能力自测（45 条，做到 ≥34 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -286,6 +300,13 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 知道暗色正文为什么不能用 `#fff`（四体系共识），并能说出 Ant 三级文本 45% 在纯黑上只有 4.43 的问题与修法
 - [ ] 能判断一个暗色主题的表单边框是否合规（`#424242` 仅 2.09:1 不过 1.4.11，需 `#6f6f6f` 起）
 - [ ] 能说出防闪白三件套的正确顺序，并解释 `color-scheme` 不设会导致什么（滚动条与原生控件仍白）
+- [ ] 拿到"首屏要不要放背景视频"，能算出它的字节量级（5s 1080p@4Mbps ≈ 2.5MB）并给出把氛围挪到第二屏的替代方案
+- [ ] 能解释「同一个 LCP，四段占比该是 40/10/40/10」，并说出为什么单独压图可能一点没快（时间转移到 render delay）
+- [ ] 给出 400×300 的展示位与 4000×3000 的源图，能算出 25 倍像素浪费，并说出 DPR 翻倍为什么是 4 倍而不是 2 倍
+- [ ] 能说出 `font-display` 五档的阻塞/交换期数值，并解释不写它时 Safari 会怎样（无限期阻塞文本）
+- [ ] 能算出 `will-change` 带来的图层内存（宽×高×4），并说明为什么它不能常驻
+- [ ] 能判断一个"高级感"效果的价格档位（玻璃拟态/视差/3D/粒子/轮播），并给出至少一个更便宜的替代
+- [ ] 能说出小程序单个代码包的上限（2MB）与 `setData` 的两条铁律，并解释为什么"拆组件比减数据更有效"
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

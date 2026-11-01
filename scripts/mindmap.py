@@ -264,7 +264,11 @@ def main():
     # 检索索引剔除变更日志：design-log.md 是流水账，关键词密度极高，
     # 会让「表单」「表格」这类查询的前 3 条全是日志而不是知识章节。
     # 树里仍保留它（人可读），只是不参与 dp_search 排序。
-    NOT_SEARCHABLE = {"memory/design-log.md"}
+    # SKILL.md 常驻上下文（技能激活即全量可见），而它的「工作流」是 500+ 行的巨型章节，
+    # 放进索引会吞掉任何多词查询（例：查「商标注册」时 §工作流 因正文词频高排第一，
+    # 真正的 §17 反而被压到第二）。检索层的职责是定位 references/ 与 memory/ 里的知识，
+    # 所以这两类不进索引——树里仍保留，方便人看。
+    NOT_SEARCHABLE = {"memory/design-log.md", "SKILL.md"}
     searchable = [
         {**f, "sections": []} if f["path"] in NOT_SEARCHABLE else f for f in files
     ]

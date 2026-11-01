@@ -1,13 +1,13 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报/长图/信息图/社媒图/印刷品、版式与网格/栏数/页边距/行长/行距/出血、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、**版式与网格（Van de Graaf 页边距 2:3:4:6 + 12 栏与基线网格 + 行长 45–90 字符 / 中文 25–40 字 + 模数阶梯 + 海报出血与安全区 + 长图字号换算 + 九平台社媒尺寸 + 印刷 CMYK 与总墨量）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
+description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报/长图/信息图/社媒图/印刷品、版式与网格/栏数/页边距/行长/行距/出血、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、品牌视觉/logo/标志/VI 手册/清space/最小尺寸/品牌色/色阶/商标注册、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范""帮我设计个 logo""这套 VI 怎么做"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、**版式与网格（Van de Graaf 页边距 2:3:4:6 + 12 栏与基线网格 + 行长 45–90 字符 / 中文 25–40 字 + 模数阶梯 + 海报出血与安全区 + 长图字号换算 + 九平台社媒尺寸 + 印刷 CMYK 与总墨量）**、**品牌视觉与 Logo 逻辑（七型标志选择决策 + 24dp 网格与四基形 + 光学修正四条 + 清space 三口径 + 最小尺寸 40px/10mm + 响应式标志四档 + 种子色选色四问 + HCT·Radix 12 步·对比度优先三条色阶路线 + M3 官方 tone 映射表 + 图标网格两体系 + 品牌语气四维 + 资产交付清单 + 商标与授权合规）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
 ---
 
 # Design Partner 设计伙伴
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v11 · 2026-11-01**（v10→v11 新增：版式与网格——Van de Graaf 页边距 2:3:4:6、12 栏与基线网格、模数阶梯七档、行长 45–90 字符与行距 120–145% 的联动表、孤寡行与断行三件套、海报出血/安全区/远距离字号公式、长图字号换算与分段节奏、九平台社媒尺寸（官方/惯例分级）、印刷 CMYK 与总墨量 300%、竖排与避头尾 CSS、18 项版式自检；同时补齐 11 个排版渲染仓库的 star/许可实测）
+**当前版本 v12 · 2026-11-01**（v11→v12 新增：品牌视觉与 Logo 逻辑——七型标志选择决策树、24dp 网格与四基形（方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20）、光学修正四条、清space 三口径与可抄 CSS、最小尺寸 40px/10mm 与「最细笔画 ÷0.75」判定公式、响应式标志四档、种子色选色四问、三条色阶路线（HCT tone / Radix 12 步语义 / Leonardo 对比度优先）、M3 官方亮暗 tone 映射全表、品牌色在图表与大屏与印刷的边界、图标网格两体系对照、插画五参数、品牌语气四维、资产交付清单（SVG/ico/180/192/512/maskable 40% 安全区/1024/OG）、商标与授权合规、18 项品牌自检；同时实测 18 个品牌与图标仓库的 star/许可）
 
 资产一览（均在技能目录内，按需读取）：
 
@@ -15,8 +15,8 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 |---|---|---|
 | `memory/tree.md` | **记忆树**：意图→位置路由 + 别名映射 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
 | `memory/index.json` | 机器索引（文件→章节→行号→摘要） | `dp_search.py` 的数据源 |
-| `memory/aliases.json` | **检索层别名映射**（32 组：toast↔轻提示、弹窗↔dialog、转圈↔loading、断点↔breakpoint、版心↔container、流式排版↔clamp…） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
-| `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 20 条自测） | 判断该补哪一级、教学、系统性提升 |
+| `memory/aliases.json` | **检索层别名映射**（50 组：toast↔轻提示、弹窗↔dialog、转圈↔loading、断点↔breakpoint、版心↔container、流式排版↔clamp、标志↔logo、清space↔clear space、种子色↔seed color、商标↔trademark…） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
+| `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 34 条自测 + 7 条专题支线） | 判断该补哪一级、教学、系统性提升 |
 | `references/patterns.md` | 元素设计模式图鉴（12 类高频元素的构型/参数/变体） | **元素级需求必读**（导航栏/Hero/页脚/CTA/定价…） |
 | `references/design-tokens.md` | Token 三层架构 + Ant Design 数值全量 + 三大体系对比 + 中文设计系统矩阵 | 系统级/主题/暗色模式/**必须给数值时** |
 | `references/motion-system.md` | **动效系统**：曲线语义表（M3/Carbon/Ant 精确值）+ 时长刻度 + 20 个场景速查 + View Transitions/scroll-driven 代码 + reduced-motion 三档降级 + 10 条验收 | **任何动效/微交互/转场/滚动动画** |
@@ -27,6 +27,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/responsive-layout.md` | **响应式与断点体系**：六体系断点精确值对照（Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584 与 4→8→16 列 · M3 600/840/1200/1600）+ 断点该定在哪（内容断而非设备断）+ 跨断点五动词（露出/分割/缩放/移位/换件）+ gutter 固定 column 流体 + 版心宽度表 + 容器查询 `cq*` 单位与退化 + `clamp()` 无障碍公式（max ≥ 2×min）+ 视口单位陷阱（`vh`≡`lvh`、`svh`/`dvh`）+ `srcset`/`sizes` 五条规则 + 窄屏表格四策略决策 + 中后台 1440 画板与 1366 验收 + 20 条反模式 + 15 项自检 + 6 段可抄代码 | **任何多端/响应式/移动端/平板/断点/容器查询/视口/表格在窄屏怎么变** |
 | `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
 | `references/editorial-layout.md` | **版式与网格**：五类载体决策表 + 网格五型选择 + 12 栏与 gutter 推导 + 基线网格 + Van de Graaf 页边距 2:3:4:6（1/9·2/9）+ 模数阶梯七档 + 行长 45–90 字符与行距 120–145% 联动表 + 孤寡行与断行三件套（balance 6/10 行上限）+ 视觉动线 + 留白占比 + 海报尺寸·出血 3mm·安全区·远距字号公式 + 长图字号换算（设计字号=目标×宽/375）与分段节奏 + 九平台社媒尺寸（官方/惯例分级）+ 印刷 CMYK·总墨量 300%·K100·0.25pt 细线 + 竖排与避头尾 CSS + 20 条反模式 + 18 项自检 + 3 套模板 | **任何海报/长图/社媒图/印刷品/长文版式/网格与栏数/行长行距** |
+| `references/brand-identity.md` | **品牌视觉与 Logo 逻辑**：四层结构（定位/语言/系统/资产）+ 三词定位与六维翻译表 + 七型标志选择决策树 + 24dp 网格与四基形（方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20）+ 光学修正四条 + 清space 三口径（字高 / 半符号直径 / 高度折半）与可抄 CSS + 最小尺寸 40px·10mm 与「最细笔画 ÷0.75」公式 + 响应式标志四档 + 种子色选色四问 + 三条色阶路线（HCT tone / Radix 12 步语义 / Leonardo 对比度优先）+ M3 官方亮暗 tone 映射全表 + 品牌色在图表·大屏·印刷·多品牌的边界 + 字体三档配置与中文三坑 + 图标网格两体系对照（Material 24 / Carbon 16-20-24-32）+ 插画五参数 + 品牌语气四维（NN/g）+ 资产交付清单（SVG/ico/180/192/512/maskable 40% 安全区/1024/OG 1200×630）+ 商标与授权合规 + 20 条反模式 + 18 项自检 | **任何 logo / 标志 / VI / 品牌色 / 色阶 / 品牌手册 / favicon·应用图标 / 商标与授权** |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
 | `references/resources.md` | 组件/图标/动效3D/字体配色（201 条） | 需要设计资产 |
@@ -46,7 +47,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 
 ### 第 0 步 · 先检索，别整份读
 
-资产已超 17 份参考、约 23.5 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
+资产已超 18 份参考、约 25.9 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
 
 ```bash
 python scripts/dp_search.py "关键词"      # 命中章节 + 行号 + 摘要
@@ -109,6 +110,17 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 | **长文排版/行长行距** | "一行字太多了""行距多少合适""正文读不下去" | `editorial-layout.md` §6（45–90 字符 / 中文 25–40 字 + 120–145% 联动表）· §7（孤寡行 + 断行三件套） |
 | **竖排/繁体直排** | "竖排文字""直排书""从右往左" | `editorial-layout.md` §14.5（`writing-mode` + `text-combine-upright`）· §15（clreq 竖排规则） |
 | **版式诊断** | "排版很挤/很空""看着乱""说不上哪不对" | `editorial-layout.md` §17 反模式 20 条 + §18 自检 18 项逐条对照 |
+| **logo / 标志设计** | "帮我设计个 logo""做个标志""标怎么画""图形标还是字标" | **先读 `brand-identity.md`**：§3 三词定位 → §4 七型选择决策树 → §5 网格与基形 → §7 降级四档 |
+| **VI / 品牌规范手册** | "做套 VI""品牌手册""视觉识别系统""给我一份品牌规范" | `brand-identity.md` §2 四层结构 → §15.3 手册两种体量 → §16 一致性十条 |
+| **品牌色 / 主色定不下来** | "主色选什么""品牌色怎么定""这个颜色能当主色吗" | `brand-identity.md` §8（选色四问 + 配额）→ §9（色阶三条路线）→ §10（tone 映射） |
+| **色阶生成 / 品牌色双主题** | "生成一套色阶""暗色模式品牌色怎么变""色阶有断层/错序" | `brand-identity.md` §9（HCT / Radix 12 步 / 对比度优先）· §10（亮暗 tone 全表） |
+| **清space / 最小尺寸** | "logo 周围留多少""最小能缩到多大""小尺寸就糊" | `brand-identity.md` §6（三口径 + 可抄 CSS）· §7（40px / 10mm + 笔画公式） |
+| **响应式 logo / 多版本** | "小屏 logo 怎么变""要不要做简化版""只放符号行不行" | `brand-identity.md` §7.2（四档与切换阈值） |
+| **图标风格统一** | "图标粗细不一""图标和 logo 不搭""要几套图标" | `brand-identity.md` §13.1（Material/Carbon 两体系 + 四条纪律） |
+| **favicon / 应用图标** | "网站图标怎么做""APP 图标要哪些尺寸""桌面图标糊" | `brand-identity.md` §15.2（ico / 180 / 192 / 512 / maskable 40% / 1024） |
+| **商标 / 素材授权** | "logo 要注册商标吗""字体能商用吗""图标许可能商用吗" | `brand-identity.md` §17（版权≠商标 + 尼斯 45 类 + 四项授权链） |
+| **品牌语气 / 文案调性** | "文案该什么调子""品牌声音怎么定""语气不统一" | `brand-identity.md` §14（NN/g 四维 + 语气词 + 反语气词） |
+| **品牌诊断** | "这个 logo 哪里不对""品牌看着不统一" | `brand-identity.md` §19 反模式 20 条 + §20 自检 18 项逐条对照 |
 | **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
 | **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
 
@@ -305,6 +317,31 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **中文版式三条最常翻车**：① 用 `letter-spacing` 拉大字距冒充高级感（方块结构散了）；② `justify` 但不处理标点挤压（孤字成行）；③ 中英混排不留 **1/4 字宽**空隙。中文**不用斜体、不用 500 字重**。
 - 完整尺寸表、出血规则、九平台数据、可抄 CSS（subgrid / initial-letter / 竖排 / 多栏）、20 条反模式、18 项自检 → **`editorial-layout.md`**。
 
+**品牌视觉与 Logo（有标志/品牌色/VI 时必做）**
+- **别从 logo 开始**。顺序是 定位 → 语言 → 系统 → 资产。定位层只要三样：**3 个形容词 + 3 个反义词 + 一句"我们不是谁"**。形容词必须可翻译成参数——"专业/高端/科技感"不可翻译（说了等于没说），"克制/锐利/档案感"可翻译。
+- **三个词必须分属不同维度**（形 / 色 / 字 / 图 / 动 / 声）。三个词都落在"形"上 = 只有一个词。**反义词是排除法**，用来挡掉 80% 的评审争论。
+- **标志七型**：字标 / 字母标 / 图形标 / 抽象标 / **组合标（新品牌默认）** / 徽章 / 动态标。新品牌只做图形标 = 前 18 个月靠投放硬砸；**徽章缩到 24px 必糊**，必须另配仅符号版；**动态标必须带静态兜底**。
+- **画在 24dp 网格上**（与界面图标同源）：内容区 **20×20**、四周 padding **2**、基形取**方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20**、默认圆角 **2**、描边 **2**（复杂形状局部可降到 **1.5**）。标志画布取 24 的整数倍（48/96/192），**笔画取 2 的整数倍**。
+- **一个标志只允许两档笔画**（主 + 细节 ×0.5 或 ×0.75）；端点与转角风格全标志统一。出现第三档就是没控制住。
+- **光学修正四条**：圆要溢出（直径 20 的圆 ≈ 18 的方）、尖角要收（顶点 −10%）、直曲交接要收口（曲线侧 −0.25~0.5dp）、重心上压 1–2%。
+- **清space 必须给一个可计算单位**，不许写"留足空间"。三口径选一：字高口径 **0.5x–1x** / 半符号口径（= 符号圆直径的一半）/ 高度折半。CSS 用 `padding` 不用 `margin`，且 `line-height: 0`。
+- **最小尺寸有实测口径**：数字端 **40px**、印刷 **10mm**；**40–80px（数字）/ 9–18mm（印刷）改用简化版**。通用判定公式：**最小可用尺寸 = 最细笔画 ÷ 0.75px**——笔画虚了就换版，不要继续缩。
+- **响应式标志四档**：主组合（≥160px）/ 简化组合（80–160px）/ 仅符号（24–80px）/ 仅字标（窄条）。四档**同几何体系**，切换**只按尺寸不按感觉**。最常被漏的是"仅符号"，最后拿主标硬缩糊掉。
+- **主色是种子色不是最终色**。选色四问（顺序不能反）：① 做按钮底压白字过 **4.5:1**？② 能生成 10–12 档且第 9 档（实心）与第 11 档（文字）都成立？③ CMYK 转换后是否偏色、要不要专色？④ 同品类前 5 名是不是都用这个色相？**先跑色阶，色阶崩了换种子，不要手调 12 个值硬凑**。
+- **色阶三条路线选一条，不许混**：① **HCT tone**（固定 hue+chroma 只变 tone，tone 0–100 与感知亮度对齐——这是它比 HSL 好用的唯一理由）；② **Radix 12 步语义**（1–2 背景 / 3–5 组件底 / 6–8 边框与焦点环 / **9 实心且彩度最高** / 10 hover / 11–12 文字，11/12 步保证 APCA Lc60/Lc90）；③ **对比度优先**（Leonardo：以目标对比度反解颜色，输出略高于目标，因为 WCAG 是最低要求）。
+- **暗色模式不是反色，是 tone 重映射**：primary **40 → 80**、onPrimary 100 → 20、container 90 → 30、onContainer 10 → 90、surface 99 → 10、onSurface 10 → 90、**outline 50 → 60（暗底反而更亮）**。
+- **主色不许当图表分类色**。主色是"强调"，分类色是"区分"；图表分类色另起一套（`dataviz.md` §3），主色只出现在"当前选中系列"或"目标参考线"。
+- **主色占屏 ≤10%**（大屏可放到 15–20%，仍 ≤25%）。60-30-10 里主色超过 15% 就不再是强调，而是噪音。
+- **语义色四档不得与主色同色相**，否则"错误"看起来像"强调"。
+- **图标与标志同网格同笔画**：一个产品只用一套图标；图标与文字**居中对齐**（不是基线对齐）；图标颜色**跟文字同色**（对比度 4.5:1）；交互热区 **≥44×44**（用 padding 撑，不画大图标）。
+- **字体 ≤2 族、字重 ≤3 档**。两族搭配的唯一硬指标是 **x-height 差 ≤8%**。品牌字体只用于品牌露出位（logo/大标题/封面），**正文用系统栈**。中文**不用 500 字重**（伪粗）、**不用斜体**、**不靠 `letter-spacing` 冒充高级感**；数字开 `tabular-nums`。
+- **品牌语气四维**（NN/g）：正式↔随意、严肃↔幽默、尊重↔不恭、就事论事↔热情。定位后只挑**少量**语气词 + **反语气词**（"权威但不说教"）。人格一致、语气随场景变；**幽默不进错误/支付/删除**；一屏感叹号 ≤1。
+- **插画/影像写五个参数**才算定义了风格：视角 / 光源 / 材质 / 细节密度（单图形 ≤7 个形状）/ 色域（只用哪几档）。写完返工率会直接下降——争议从"感觉不对"变成"光源方向错了"。
+- **交付包不许缺件**：转曲的 SVG（主标/单色/反白/仅符号/横竖锁版）+ AI/EPS/PDF（CMYK）+ ico（16/32/48）+ **apple-touch 180** + manifest **192/512** + **maskable 512（内容压进中心半径 40% 的圆内，圆外不保证可见）** + **iOS 1024（正方形，自己别切圆角，系统统一遮罩）** + OG **1200×630** + 手册。
+- **Apple 图标三条**：图层必须**未遮罩**（自切圆角会破坏高光并产生锯齿）；**文字只在必要时**（不支持无障碍与本地化，禁"Watch/Play/New"这类词）；考虑 default / dark / clear / tinted 四外观且**核心视觉一致**。
+- **商标 ≠ 版权**：版权创作完成自动产生；**商标必须注册**，否则同类被抢注可能要改标。尼斯分类 **1–34 商品 / 35–45 服务**；互联网产品至少覆盖 **9 / 35 / 42 类**（内容加 41、餐饮加 43）。注册前必做近似检索；周期以 CNIPA 当期公告为准，别引用旧口径。
+- 完整决策树、tone 全表、可抄代码、20 条反模式、18 项自检 → **`brand-identity.md`**。
+
 **一致性**
 - 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
 
@@ -347,6 +384,8 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 15. **响应式关**（会在多宽度被看时）：断点 **≤5** 且每个都能说出一句"什么变了"？断点值**同属一套体系**？**320px 无横向滚动**（表格容器除外）？400% 缩放只有**单向滚动**、200% 缩放文字不截断？正文行宽 **25–40 字**、版心到顶后多余宽度**给了留白**？跨断点变化能归到**五动词**之一、换件**功能等价且信息不丢**？gutter 固定 column 流体？全屏高度用 `svh`/`dvh` 且底部栏有 `safe-area-inset`？`clamp()` 最大值 **≥2× 最小值**？图片有 `width`/`height` 且首屏未 lazy？窄屏表格策略是**四选一**而非默认卡片化、横滚表格有**粘性首列**？触屏目标 **≥44px**、hover 内容有触屏路径、**没禁缩放**？过完 **320/375/768/1024/1366/1440/1920** 七档？
 
 16. **版式关**（海报/长图/社媒图/印刷/长文时）：**先判了载体**（观看距离/停留时长/媒介）再排版？行长落在 **45–90 字符**（中文 **25–40 字**）、行距 **120–145%**（中文 1.6–1.8）且与行长联动？全项目**只用一套字号比例**、正文:主标题 **2–4 倍**？所有垂直尺寸都是**基线（4/8px）整数倍**（压暗后基线能连成等距线）？缩进与段间距**只用一个**？`orphans/widows ≥3`、标题 `break-after: avoid`、`text-wrap: balance` 行数在 **6 行内**？下边距**比上边距大 6mm**？留白占比在区间（海报 40–60% / 编辑 30–45% / 长图 20–30%）？**海报**：画布含 **3mm 出血×2**、文字在安全区（再缩 3–5mm）、L3 **≥18pt**、只有**一个最重元素**？**长图**：字号按 **×设计宽÷375** 换算（1080 宽正文 ≥44px）、一屏一点、单张 ≤20000px、接缝不在文字行上？**社媒图**：缩到 **120px** 仍认得出主标题、关键信息避开裁切区？**印刷**：300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 ≥0.25pt / PDF-X4？**中文**：无斜体、无 500 字重、无 `letter-spacing` 疏排、标点全角、避头尾生效、中英混排留 1/4 字宽？
+
+17. **品牌关**（有 logo / 品牌色 / VI 时）：能说出 **3 个形容词 + 3 个反义词**，且每个词能落到六维表 ≥2 个维度？标志类型是**按决策树选的**而不是"画着画着变成这样"？画在 **24 网格**上、基形取自方/圆/竖矩/横矩之一？**笔画只有两档**、端点与转角统一、做过光学修正？**清space 有明确单位与四个方向的数值**（不是"留足空间"）？有 **40px / 10mm** 下限且知道从哪档换简化版？**响应式四档齐全**（主组合/简化/仅符号/仅字标）且每档都过 24px 检验？种子色跑过色阶、**第 9 档与第 11 档都成立**、**无错序**（9 不比 10 亮）？主色压白字过 **4.5:1**、非文本过 3:1？亮暗走的是 **tone 映射不是反色**（primary 40↔80、outline 50↔60）？语义色**不与主色同色相**？**主色没被当图表分类色**、占屏 ≤10%？图标与标志**同网格同笔画**、图标与文字**居中对齐**、热区 **≥44**？字体 **≤2 族 ≤3 字重**、中文无伪粗无伪斜、数字开 `tabular-nums`？**语气四维 + 反语气词**定过，幽默没进错误文案？交付包**无缺件**（转曲 SVG 全档 / ico / 180 / 192 / 512 / maskable 40% 安全区 / 1024 未自切圆角 / OG 1200×630 / 手册）？**商标类别与素材授权链**查过（版权≠商标）？
 
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 
@@ -394,4 +433,4 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
 - **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
 - **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)、[Butterick's Practical Typography](https://practicaltypography.com/)（行长 45–90 字符 / 行距 120–145%）、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)（Van de Graaf 2:3:4:6）、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[Instagram 图片分辨率](https://help.instagram.com/1631821640426723)、[X Ads creative specs](https://business.x.com/en/help/campaign-setup/creative-ad-specifications)、[YouTube 缩略图](https://support.google.com/youtube/answer/72431)、[MDN text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)、[MDN initial-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter)、[MDN subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)、[MDN orphans](https://developer.mozilla.org/en-US/docs/Web/CSS/orphans)。
+- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)、[Butterick's Practical Typography](https://practicaltypography.com/)（行长 45–90 字符 / 行距 120–145%）、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)（Van de Graaf 2:3:4:6）、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[Instagram 图片分辨率](https://help.instagram.com/1631821640426723)、[X Ads creative specs](https://business.x.com/en/help/campaign-setup/creative-ad-specifications)、[YouTube 缩略图](https://support.google.com/youtube/answer/72431)、[MDN text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)、[MDN initial-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter)、[MDN subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)、[MDN orphans](https://developer.mozilla.org/en-US/docs/Web/CSS/orphans)、[Material 3 图标设计规范](https://m3.material.io/styles/icons/designing-icons)（24dp 网格 / 四基形 / 描边 2dp）、[Carbon Icons](https://carbondesignsystem.com/elements/icons/usage/)（16px 画布 / 热区 44 / 居中对齐）、[Apple HIG App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)（1024 / 未遮罩 / 四外观）、[Google favicon 规范](https://developers.google.com/search/docs/appearance/favicon-in-search)（1:1 / ≥8×8 / 推荐 >48）、[W3C Manifest 安全区](https://w3c.github.io/manifest/)（半径 2/5 的圆）、[Radix Colors 12 步](https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale)、[material-color-utilities scheme.ts](https://github.com/material-foundation/material-color-utilities/blob/main/typescript/scheme/scheme.ts)（亮暗 tone 映射）、[Adobe Leonardo](https://github.com/adobe/leonardo)（对比度优先反解）、[NN/g 语气四维](https://www.nngroup.com/articles/tone-of-voice-dimensions/)、[RIA 品牌指南](https://www.ria.ie/brand-guidelines/)（40px / 10mm / 清space 半符号）。

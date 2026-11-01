@@ -561,6 +561,147 @@
         "从右往左",
         "繁体竖排"
       ]
+    },
+    {
+      "canonical": "标志",
+      "aliases": [
+        "logo",
+        "logotype",
+        "wordmark",
+        "symbol mark",
+        "图形标",
+        "标徽",
+        "标志设计",
+        "标志规范",
+        "品牌符号"
+      ]
+    },
+    {
+      "canonical": "字标",
+      "aliases": [
+        "wordmark",
+        "lettermark",
+        "monogram",
+        "字母标",
+        "组合标",
+        "徽章标",
+        "emblem",
+        "文字标志",
+        "横排标",
+        "竖排标"
+      ]
+    },
+    {
+      "canonical": "清space",
+      "aliases": [
+        "clear space",
+        "clearspace",
+        "安全边距",
+        "净空",
+        "保护空间",
+        "隔离区",
+        "留白区",
+        "最小间距",
+        "clear zone"
+      ]
+    },
+    {
+      "canonical": "最小尺寸",
+      "aliases": [
+        "minimum size",
+        "最小使用尺寸",
+        "缩小极限",
+        "缩放下限",
+        "最细笔画",
+        "小尺寸版",
+        "简化版标志",
+        "响应式标志"
+      ]
+    },
+    {
+      "canonical": "品牌色",
+      "aliases": [
+        "brand color",
+        "主色",
+        "种子色",
+        "seed color",
+        "品牌主色",
+        "色阶",
+        "色阶生成",
+        "调色板生成",
+        "tonal palette",
+        "HCT",
+        "品牌调色板"
+      ]
+    },
+    {
+      "canonical": "图标网格",
+      "aliases": [
+        "icon grid",
+        "keyline",
+        "基形",
+        "图标画布",
+        "24dp",
+        "图标规范",
+        "笔画粗细",
+        "图标对齐",
+        "图标家族"
+      ]
+    },
+    {
+      "canonical": "商标",
+      "aliases": [
+        "trademark",
+        "注册商标",
+        "尼斯分类",
+        "商标注册",
+        "版权",
+        "著作权",
+        "商用授权",
+        "字体授权",
+        "素材授权",
+        "logo 侵权"
+      ]
+    },
+    {
+      "canonical": "品牌手册",
+      "aliases": [
+        "brand guidelines",
+        "品牌规范",
+        "VI 手册",
+        "视觉识别手册",
+        "brand book",
+        "品牌指南",
+        "一页式规范",
+        "brand identity"
+      ]
+    },
+    {
+      "canonical": "品牌语气",
+      "aliases": [
+        "tone of voice",
+        "语气",
+        "品牌声音",
+        "文案语气",
+        "品牌人格",
+        "语气词",
+        "反语气词",
+        "brand voice"
+      ]
+    },
+    {
+      "canonical": "favicon",
+      "aliases": [
+        "网站图标",
+        "标签页图标",
+        "app icon",
+        "应用图标",
+        "桌面图标",
+        "PWA 图标",
+        "maskable",
+        "触屏图标",
+        "apple-touch-icon"
+      ]
     }
   ]
 }

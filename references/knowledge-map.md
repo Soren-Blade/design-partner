@@ -150,7 +150,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 六条专题支线（可与主线并行）
+## 七条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -203,6 +203,18 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Butterick's Practical Typography](https://practicaltypography.com/)、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[W3C clreq](https://www.w3.org/TR/clreq/)
 - → **全部尺寸表、九平台规格、可抄 CSS、20 条反模式、18 项自检见 `editorial-layout.md`**
 
+### 支线 G · 品牌视觉与 Logo（做"一个品牌"而不是"一个页面"）
+- **顺序不能反**：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。
+- **标志七型**：字标 / 字母标 / 图形标 / 抽象标 / **组合标（新品牌默认）** / 徽章 / 动态标。徽章缩到 24px 必糊；动态标必须带静态兜底。
+- **构造用 24dp 网格**：内容区 20×20、padding 2、基形 **方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20**、圆角 2、描边 2（复杂处 1.5）。**一个标志只允许两档笔画。**
+- **清space 必须可计算**：字高口径 0.5x–1x / 半符号口径（符号圆直径的一半）/ 高度折半。**写"留足空间"等于没写。**
+- **最小尺寸**：数字 **40px**、印刷 **10mm**；40–80px / 9–18mm 换简化版；通用公式 **最细笔画 ÷ 0.75px**。
+- **品牌色是种子色**：选色四问（对比度余量 / 色阶可生成性 / 印刷可复制 / 行业反差）；色阶三路线（HCT tone / Radix 12 步语义 / Leonardo 对比度优先）**选一条不许混**；**暗色不是反色，是 tone 重映射（primary 40↔80、outline 50↔60）**。
+- **主色占屏 ≤10%**，不许当图表分类色，语义色不与主色同色相。
+- **商标 ≠ 版权**：版权自动产生，商标必须注册；尼斯 **1–34 商品 / 35–45 服务**；互联网产品至少 9/35/42 类。
+- 材料：[Material Icons 规范](https://m3.material.io/styles/icons/designing-icons)、[Carbon Icons](https://carbondesignsystem.com/elements/icons/usage/)、[Radix Colors 12 步](https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale)、[material-color-utilities](https://github.com/material-foundation/material-color-utilities)、[Adobe Leonardo](https://github.com/adobe/leonardo)、[Apple HIG App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)、[NN/g 语气四维](https://www.nngroup.com/articles/tone-of-voice-dimensions/)
+- → **决策树、tone 全表、清space CSS、交付清单、20 条反模式、18 项自检见 `brand-identity.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -219,7 +231,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（30 条，做到 ≥22 条即达 L2+）
+## 能力自测（34 条，做到 ≥25 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -255,6 +267,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 给出任一正文版式，能说出它的行长（字符/字数）、行距比例，并判断是否落在 45–90 字符与 120–145% 的可读区间
 - [ ] 拿到一张 A2 海报需求，能独立算出画布尺寸（含 3mm 出血）、安全区、三层信息字号，并说出 3 米外的可读下限
 - [ ] 能解释「1080 宽长图正文为什么必须 ≥44px」，并换算任意设计宽度下的等价字号
+- [ ] 拿到"帮我设计个 logo"，能先给出 3 个形容词 + 3 个反义词与六维参数，而不是直接开画
+- [ ] 能说出标志最小可用尺寸的两种口径（40px/10mm 与「最细笔画 ÷0.75」），并解释为什么缩小到一定程度要换简化版而不是继续缩
+- [ ] 能解释「品牌主色为什么是种子色而不是最终色」，并说出三条色阶路线的差别与不可混用的原因
+- [ ] 能说出暗色模式品牌色为什么不是反色（primary 40↔80、outline 50↔60），以及主色为什么不能当图表分类色
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

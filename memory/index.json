@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-01T14:47:01",
+ "generated": "2026-11-01T15:06:11",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 436,
-   "chars": 38099,
+   "lines": 463,
+   "chars": 42711,
    "sections": []
   },
   {
@@ -1122,6 +1122,391 @@
      "summary": "- 快照：2026-10-29。任何条目链接失效或用户报告质量下降时：先 GitHub API 复核该库（star/推送/许可），再决定降级或替换，并在本文件更新快照日期。",
      "line": 34,
      "chars": 234
+    }
+   ]
+  },
+  {
+   "path": "references/dark-mode.md",
+   "title": "暗色模式体系（Dark Mode System）",
+   "snapshot": "2026-11-01",
+   "lines": 656,
+   "chars": 24576,
+   "sections": [
+    {
+     "id": "1-先决定-该不该做暗色-含反面证据",
+     "level": 2,
+     "title": "1. 先决定：该不该做暗色（含反面证据）",
+     "summary": "NN/g 的 Raluca Budiu 综述了学界研究，结论不利于\"暗色默认\"：",
+     "line": 13,
+     "chars": 1
+    },
+    {
+     "id": "1-1-nn-g-的证据链-与直觉相反-必须先知道",
+     "level": 3,
+     "title": "1.1 NN/g 的证据链（与直觉相反，必须先知道）",
+     "summary": "NN/g 的 Raluca Budiu 综述了学界研究，结论不利于\"暗色默认\"：",
+     "line": 15,
+     "chars": 627
+    },
+    {
+     "id": "1-2-但暗色确实有不可替代的场景",
+     "level": 3,
+     "title": "1.2 但暗色确实有不可替代的场景",
+     "summary": "",
+     "line": 29,
+     "chars": 577
+    },
+    {
+     "id": "1-3-决策树",
+     "level": 3,
+     "title": "1.3 决策树",
+     "summary": "目标用户是普通大众 / 办公 / 数据录入 / 长文阅读？",
+     "line": 40,
+     "chars": 441
+    },
+    {
+     "id": "2-表面层级-暗色的核心是-重排-不是-反相",
+     "level": 2,
+     "title": "2. 表面层级：暗色的核心是\"重排\"，不是\"反相\"",
+     "summary": "亮色模式里，#fff 背景 + 阴影 = 高度。暗色模式里，阴影在深底上几乎不可见，所以必须换一种信号：表面越靠前，颜色越亮。这就是 M2 的 elevation overlay、M3 的 surface container tone、An",
+     "line": 58,
+     "chars": 1
+    },
+    {
+     "id": "2-1-为什么不能反相-一句话原理",
+     "level": 3,
+     "title": "2.1 为什么不能反相（一句话原理）",
+     "summary": "亮色模式里，#fff 背景 + 阴影 = 高度。暗色模式里，阴影在深底上几乎不可见，所以必须换一种信号：表面越靠前，颜色越亮。这就是 M2 的 elevation overlay、M3 的 surface container tone、An",
+     "line": 60,
+     "chars": 564
+    },
+    {
+     "id": "2-2-material-3-tone-全表-源码逐字-非二手",
+     "level": 3,
+     "title": "2.2 Material 3：tone 全表（源码逐字，非二手）",
+     "summary": "来源：material-color-utilities/typescript/dynamiccolor/colorspec2021.ts + scheme/scheme.ts。",
+     "line": 67,
+     "chars": 1121
+    },
+    {
+     "id": "2-3-ant-design-暗色是-黑底-白-alpha-提亮",
+     "level": 3,
+     "title": "2.3 Ant Design：暗色是\"黑底 + 白 alpha 提亮\"",
+     "summary": "来源：components/theme/themes/dark/colors.ts，colorBgBase='#000'，getSolidColor = lighten(brightness)。",
+     "line": 88,
+     "chars": 771
+    },
+    {
+     "id": "2-4-carbon-g100-的-layer-阶梯-hex-全部来自-carbon-colors-11-61-0-包内源码",
+     "level": 3,
+     "title": "2.4 Carbon：g100 的 layer 阶梯（hex 全部来自 @carbon/colors 11.61.0 包内源码）",
+     "summary": "Carbon 灰阶（实测取值）：gray10 #f4f4f4 · gray20 #e0e0e0 · gray30 #c6c6c6 · gray40 #a8a8a8 · gray50 #8d8d8d · gray60 #6f6f6f · gr",
+     "line": 103,
+     "chars": 894
+    },
+    {
+     "id": "2-5-选底色的三种做法与取舍",
+     "level": 3,
+     "title": "2.5 选底色的三种做法与取舍",
+     "summary": "M2 的原话立场：默认用深灰 #121212 而非纯黑，因为\"深灰能表达更丰富的色彩、高度和深度，因为阴影在灰色上比在黑色上更易看见\"；纯黑只留给\"需要高效省电的产品\"。",
+     "line": 124,
+     "chars": 590
+    },
+    {
+     "id": "3-文字-暗色下不能用纯白-暗色对比度与文字层级",
+     "level": 2,
+     "title": "3. 文字：暗色下不能用纯白（暗色对比度与文字层级）",
+     "summary": "原因：亮色文字在深底上会因光渗（halation）在视觉上\"发胖\"、边缘扩散，纯白尤其明显；同时纯白 + 纯黑是 21:1 的极端对比，长时间阅读反而更累。降到 tone 90 档既保住可读性，又削掉晕光。",
+     "line": 141,
+     "chars": 1
+    },
+    {
+     "id": "3-1-四家体系的-不用纯白-是共识-可验证",
+     "level": 3,
+     "title": "3.1 四家体系的\"不用纯白\"是共识（可验证）",
+     "summary": "原因：亮色文字在深底上会因光渗（halation）在视觉上\"发胖\"、边缘扩散，纯白尤其明显；同时纯白 + 纯黑是 21:1 的极端对比，长时间阅读反而更累。降到 tone 90 档既保住可读性，又削掉晕光。",
+     "line": 143,
+     "chars": 400
+    },
+    {
+     "id": "3-2-ant-design-四档文本透明度-实测对比度-重点看第三档",
+     "level": 3,
+     "title": "3.2 Ant Design 四档文本透明度 + 实测对比度（重点看第三档）",
+     "summary": "这张表暴露了两个真实陷阱：",
+     "line": 154,
+     "chars": 713
+    },
+    {
+     "id": "3-3-文字层级推荐表-可直接抄",
+     "level": 3,
+     "title": "3.3 文字层级推荐表（可直接抄）",
+     "summary": "中文字体的额外注意：中文笔画细密，暗底上光渗更明显。同一字号下，中文在暗色里的可读性下降比拉丁文更快。暗色下中文正文建议：行高 +0.05~0.1、字重不降、字号不小于 14px；12px 中文在暗色里几乎不可读（NN/g 的\"字号越小浅色",
+     "line": 169,
+     "chars": 485
+    },
+    {
+     "id": "4-边框与分隔线-暗色下不可依赖",
+     "level": 2,
+     "title": "4. 边框与分隔线：暗色下不可依赖",
+     "summary": "这意味着：抄 Ant 的暗色边框（#424242）做输入框描边，不满足 WCAG 2.2 SC 1.4.11（非文本对比 3:1）——因为输入框边界是\"识别控件所必需\"的。Carbon 用 ui04（gray60）就达标。",
+     "line": 183,
+     "chars": 1
+    },
+    {
+     "id": "4-1-实测-主流暗色的边框都不达-3-1",
+     "level": 3,
+     "title": "4.1 实测：主流暗色的边框都不达 3:1",
+     "summary": "这意味着：抄 Ant 的暗色边框（#424242）做输入框描边，不满足 WCAG 2.2 SC 1.4.11（非文本对比 3:1）——因为输入框边界是\"识别控件所必需\"的。Carbon 用 ui04（gray60）就达标。",
+     "line": 185,
+     "chars": 366
+    },
+    {
+     "id": "4-2-三条规则",
+     "level": 3,
+     "title": "4.2 三条规则",
+     "summary": "1. 表单控件边界必须 ≥3:1。用 #6f6f6f 起步，不要用 #424242。",
+     "line": 195,
+     "chars": 259
+    },
+    {
+     "id": "5-阴影与高度-两派做法与正确用法",
+     "level": 2,
+     "title": "5. 阴影与高度：两派做法与正确用法",
+     "summary": "怎么选：",
+     "line": 203,
+     "chars": 1
+    },
+    {
+     "id": "5-1-两派-存在真实分歧-不要以为只有一种对",
+     "level": 3,
+     "title": "5.1 两派（存在真实分歧，不要以为只有一种对）",
+     "summary": "怎么选：",
+     "line": 205,
+     "chars": 453
+    },
+    {
+     "id": "5-2-高度与表面值的对照-把两套合成一张表",
+     "level": 3,
+     "title": "5.2 高度与表面值的对照（把两套合成一张表）",
+     "summary": "注意 §3 的连带影响：表面越亮，白字对比越低。#424242 上的白字只有 10.05、85% 白只有 7.83——仍达标，但如果再往上提（比如 #525252，白字 7.81），就要检查正文 4.5:1 是否还成立。M2 的原始约束就是",
+     "line": 216,
+     "chars": 566
+    },
+    {
+     "id": "6-品牌色与语义色-降饱和-不是反相",
+     "level": 2,
+     "title": "6. 品牌色与语义色：降饱和，不是反相",
+     "summary": "- 不要用高饱和色做暗色主题的主色。原因两条：过不了 AA 4.5:1；在深底上产生光学振动（optical vibration），加剧眼疲劳。",
+     "line": 230,
+     "chars": 1
+    },
+    {
+     "id": "6-1-m2-的精确规则-可直接执行",
+     "level": 3,
+     "title": "6.1 M2 的精确规则（可直接执行）",
+     "summary": "- 不要用高饱和色做暗色主题的主色。原因两条：过不了 AA 4.5:1；在深底上产生光学振动（optical vibration），加剧眼疲劳。",
+     "line": 232,
+     "chars": 316
+    },
+    {
+     "id": "6-2-m3-的做法-不是-取-200-阶-是-tone-重映射",
+     "level": 3,
+     "title": "6.2 M3 的做法：不是\"取 200 阶\"，是\"tone 重映射\"",
+     "summary": "两处易错点（源码实测，别自作聪明\"对称化\"）：",
+     "line": 240,
+     "chars": 671
+    },
+    {
+     "id": "6-3-中国特色-涨跌色在暗色下必须重调",
+     "level": 3,
+     "title": "6.3 中国特色：涨跌色在暗色下必须重调",
+     "summary": "A 股/中文金融场景的红涨绿跌在暗色下有两个坑：",
+     "line": 260,
+     "chars": 425
+    },
+    {
+     "id": "7-图像-插画-图标",
+     "level": 2,
+     "title": "7. 图像、插画、图标",
+     "summary": "- \"Soften the color of white backgrounds\"：内容图里带白底的，暗色下要轻微压暗，否则白底在深色界面里\"发光\"。",
+     "line": 273,
+     "chars": 1
+    },
+    {
+     "id": "7-1-apple-的明确要求",
+     "level": 3,
+     "title": "7.1 Apple 的明确要求",
+     "summary": "- \"Soften the color of white backgrounds\"：内容图里带白底的，暗色下要轻微压暗，否则白底在深色界面里\"发光\"。",
+     "line": 275,
+     "chars": 253
+    },
+    {
+     "id": "7-2-web-落地规则",
+     "level": 3,
+     "title": "7.2 Web 落地规则",
+     "summary": "",
+     "line": 282,
+     "chars": 431
+    },
+    {
+     "id": "7-3-一张必查清单-图片在暗色里的四个死法",
+     "level": 3,
+     "title": "7.3 一张必查清单（图片在暗色里的四个死法）",
+     "summary": "1. 白底图 → 发光（压暗 + 边框）",
+     "line": 293,
+     "chars": 129
+    },
+    {
+     "id": "8-状态与交互反馈在暗色下的差异",
+     "level": 2,
+     "title": "8. 状态与交互反馈在暗色下的差异",
+     "summary": "Focus 环在暗色的具体值：GOV.UK 的 #FFDD00 焦点黄在深底上依然可用（黄在暗色里对比极高），但内圈必须配深色（#0B0C0C）形成双色环。或者用主色 tone 80 的 2px 环 + 2px offset。完整焦点三件套",
+     "line": 302,
+     "chars": 695
+    },
+    {
+     "id": "9-切换实现-四端与防闪白",
+     "level": 2,
+     "title": "9. 切换实现：四端与防闪白",
+     "summary": "html",
+     "line": 318,
+     "chars": 1
+    },
+    {
+     "id": "9-1-web-三件事必须一起做",
+     "level": 3,
+     "title": "9.1 Web：三件事必须一起做",
+     "summary": "html",
+     "line": 320,
+     "chars": 890
+    },
+    {
+     "id": "9-2-防闪白-fouc-唯一正确顺序",
+     "level": 3,
+     "title": "9.2 防闪白（FOUC）：唯一正确顺序",
+     "summary": "1. <head 里 meta color-scheme（浏览器绘制前生效）",
+     "line": 355,
+     "chars": 423
+    },
+    {
+     "id": "9-3-三态切换的存储约定",
+     "level": 3,
+     "title": "9.3 三态切换的存储约定",
+     "summary": "删除键 vs 存 \"system\"：删键能让\"用户从未选择过\"和\"用户主动选了跟随系统\"在逻辑上合并，少一个分支。若要支持\"系统主题变化时实时跟随\"，监听 matchMedia('(prefers-color-scheme: dark)')",
+     "line": 373,
+     "chars": 337
+    },
+    {
+     "id": "9-4-tailwind-v4-的两种写法",
+     "level": 3,
+     "title": "9.4 Tailwind v4 的两种写法",
+     "summary": "css",
+     "line": 383,
+     "chars": 281
+    },
+    {
+     "id": "9-5-微信小程序暗色适配-theme-json-官方配置逐字",
+     "level": 3,
+     "title": "9.5 微信小程序暗色适配（theme.json 官方配置逐字）",
+     "summary": "json",
+     "line": 398,
+     "chars": 961
+    },
+    {
+     "id": "9-6-ios-android",
+     "level": 3,
+     "title": "9.6 iOS / Android",
+     "summary": "",
+     "line": 419,
+     "chars": 694
+    },
+    {
+     "id": "9-7-切换动画",
+     "level": 3,
+     "title": "9.7 切换动画",
+     "summary": "- 全局 transition: background-color .2s, color .2s 只加在容器与文字上，不要 { transition: all }（会把布局属性也带上，卡顿）。",
+     "line": 428,
+     "chars": 267
+    },
+    {
+     "id": "10-暗色专属的无障碍陷阱",
+     "level": 2,
+     "title": "10. 暗色专属的无障碍陷阱",
+     "summary": "---",
+     "line": 436,
+     "chars": 572
+    },
+    {
+     "id": "11-场景速查-12-个高频问题-直接答案",
+     "level": 2,
+     "title": "11. 场景速查（12 个高频问题 → 直接答案）",
+     "summary": "---",
+     "line": 451,
+     "chars": 607
+    },
+    {
+     "id": "12-上线自检-22-项-逐条打勾",
+     "level": 2,
+     "title": "12. 上线自检（22 项，逐条打勾）",
+     "summary": "决策层",
+     "line": 470,
+     "chars": 867
+    },
+    {
+     "id": "13-反模式-20-条-看到就是错",
+     "level": 2,
+     "title": "13. 反模式（20 条，看到就是错）",
+     "summary": "1. filter: invert(1) 整页反相——图片、品牌色、肤色全毁",
+     "line": 510,
+     "chars": 774
+    },
+    {
+     "id": "14-可抄代码-4-段",
+     "level": 2,
+     "title": "14. 可抄代码（4 段）",
+     "summary": "css",
+     "line": 535,
+     "chars": 1
+    },
+    {
+     "id": "14-1-完整变量骨架-亮-暗双套-含层级与文字四档",
+     "level": 3,
+     "title": "14.1 完整变量骨架（亮/暗双套，含层级与文字四档）",
+     "summary": "css",
+     "line": 537,
+     "chars": 1301
+    },
+    {
+     "id": "14-2-防-fouc-的三行脚本-放-head-最前-不-defer",
+     "level": 3,
+     "title": "14.2 防 FOUC 的三行脚本（放 <head 最前，不 defer）",
+     "summary": "html",
+     "line": 583,
+     "chars": 467
+    },
+    {
+     "id": "14-3-三态切换组件逻辑",
+     "level": 3,
+     "title": "14.3 三态切换组件逻辑",
+     "summary": "js",
+     "line": 598,
+     "chars": 547
+    },
+    {
+     "id": "14-4-暗色图片处理",
+     "level": 3,
+     "title": "14.4 暗色图片处理",
+     "summary": "css",
+     "line": 620,
+     "chars": 433
+    },
+    {
+     "id": "15-参考来源",
+     "level": 2,
+     "title": "15. 参考来源",
+     "summary": "- Material Design 3 · Color roles / 源码：material-color-utilities 的 dynamiccolor/colorspec2021.ts（surface 与容器 tone、Contras",
+     "line": 642,
+     "chars": 1681
     }
    ]
   },
@@ -2896,8 +3281,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-01",
-   "lines": 278,
-   "chars": 11805,
+   "lines": 293,
+   "chars": 13570,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -3108,9 +3493,9 @@
      "chars": 43
     },
     {
-     "id": "七条专题支线-可与主线并行",
+     "id": "八条专题支线-可与主线并行",
      "level": 2,
-     "title": "七条专题支线（可与主线并行）",
+     "title": "八条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 153,
      "chars": 1
@@ -3169,23 +3554,31 @@
      "title": "支线 G · 品牌视觉与 Logo（做\"一个品牌\"而不是\"一个页面\"）",
      "summary": "- 顺序不能反：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。",
      "line": 206,
-     "chars": 1367
+     "chars": 1362
+    },
+    {
+     "id": "支线-h-暗色模式-反一下色-和-设计一套暗色-是两件事",
+     "level": 3,
+     "title": "支线 H · 暗色模式（\"反一下色\"和\"设计一套暗色\"是两件事）",
+     "summary": "- 先问该不该做：正常视力用户浅色更优（字号越小差距越大）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。中后台不要默认暗色。",
+     "line": 218,
+     "chars": 1471
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 220,
+     "line": 231,
      "chars": 311
     },
     {
-     "id": "能力自测-34-条-做到-25-条即达-l2",
+     "id": "能力自测-38-条-做到-28-条即达-l2",
      "level": 2,
-     "title": "能力自测（34 条，做到 ≥25 条即达 L2+）",
+     "title": "能力自测（38 条，做到 ≥28 条即达 L2+）",
      "summary": "L0",
-     "line": 234,
-     "chars": 1274
+     "line": 245,
+     "chars": 1537
     }
    ]
   },

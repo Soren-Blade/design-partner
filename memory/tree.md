@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-01 14:47 ｜ 20 个文件 · 520 个章节 · 314,712 字符
+> 自动生成于 2026-11-01 15:06 ｜ 21 个文件 · 568 个章节 · 345,665 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -46,7 +46,7 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **空态** | empty · 空状态 · 无数据 · 空页面 · 没有内容 · empty state |
 | **错误** | error · 报错 · 异常 · 失败提示 · 错误页 · 404 · 500 · 503 · 服务不可用 · 出错 |
 | **动效** | motion · animation · 动画 · 微交互 · 过渡 · transition · easing · 缓动 · 曲线 · 转场 |
-| **配色** | color · 色彩 · 色板 · palette · 主题色 · 主色 · 暗色模式 · dark mode · 深色模式 · 颜色 |
+| **配色** | color · 色彩 · 色板 · palette · 主题色 · 主色 · 颜色 |
 | **排版** | typography · 字体 · font · 字号 · 行高 · 字重 · 字阶 · 文本层级 |
 | **间距** | spacing · 留白 · padding · margin · 栅格 · grid · 节奏 · 8pt · 4px |
 | **token** | design token · 设计变量 · 变量 · 语义化 · tokens · 主题变量 |
@@ -90,26 +90,33 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **品牌手册** | brand guidelines · 品牌规范 · VI 手册 · 视觉识别手册 · brand book · 品牌指南 · 一页式规范 · brand identity |
 | **品牌语气** | tone of voice · 语气 · 品牌声音 · 文案语气 · 品牌人格 · 语气词 · 反语气词 · brand voice |
 | **favicon** | 网站图标 · 标签页图标 · app icon · 应用图标 · 桌面图标 · PWA 图标 · maskable · 触屏图标 · apple-touch-icon |
+| **暗色模式** | dark mode · dark theme · 深色模式 · 深色主题 · 夜间模式 · 暗黑模式 · 暗色主题 · 暗色版 · night mode · 黑色主题 · 深色版 · 暗色 · 暗黑 |
+| **表面层级** | surface · surface container · 表面色 · 层级 · elevation · 高度层级 · 卡片层级 · 浮层 · 层阶 · 层叠 · 深度 · z轴 · 表面变亮 |
+| **暗色底色** | 纯黑 · 纯黑背景 · 深灰 · 底色 · 暗色背景 · background color · #121212 · #161616 · 黑底 · 背景明度 |
+| **主题切换** | theme switch · 切换主题 · 跟随系统 · prefers-color-scheme · 闪白 · FOUC · 主题持久化 · 三态 · 亮暗切换 · 换肤 · theme.json · color-scheme |
+| **暗色文字** | 白字 · 纯白文字 · 文字透明度 · 文字层级 · 晕光 · halation · 光渗 · 暗色下看不清 · 字发虚 · 刺眼 |
+| **遮罩层** | scrim · 蒙层 · overlay · 半透明遮罩 · 背景变暗 · 遮罩透明度 |
+| **涨跌色** | 红涨绿跌 · 涨跌 · 涨色 · 跌色 · 红绿 · 金融配色 · 股票颜色 · up down color · 盈亏色 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_436 行 · 快照 — · 12 节_
+_463 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L46` — 资产已超 18 份参考、约 25.9 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L48` — 资产已超 18 份参考、约 25.9 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L61`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L127` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L142` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L168` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L199` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L362` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L394` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L407` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L414` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L428` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L47` — 资产已超 18 份参考、约 25.9 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L49` — 资产已超 18 份参考、约 25.9 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L62`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L138` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L153` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L179` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L210` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L387` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L421` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L434` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L441` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L455` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -261,6 +268,57 @@ _37 行 · 快照 2026-10-29 · 3 节_
 - **元素覆盖矩阵** `L5`
 - **选型规则** `L24` — - 要"复制类名就用"（无 JS 依赖）：HyperUI TailGrids daisyUI Meraki UI
 - **维护协议** `L34` — - 快照：2026-10-29。任何条目链接失效或用户报告质量下降时：先 GitHub API 复核该库（star/推送/许可），再决定降级或替换，并在本文件更新快照日期。
+
+### `references/dark-mode.md` · 暗色模式体系（Dark Mode System）
+_656 行 · 快照 2026-11-01 · 47 节_
+
+- **1. 先决定：该不该做暗色（含反面证据）** `L13` — NN/g 的 Raluca Budiu 综述了学界研究，结论不利于"暗色默认"：
+  - **1.1 NN/g 的证据链（与直觉相反，必须先知道）** `L15` — NN/g 的 Raluca Budiu 综述了学界研究，结论不利于"暗色默认"：
+  - **1.2 但暗色确实有不可替代的场景** `L29`
+  - **1.3 决策树** `L40` — 目标用户是普通大众 / 办公 / 数据录入 / 长文阅读？
+- **2. 表面层级：暗色的核心是"重排"，不是"反相"** `L58` — 亮色模式里，#fff 背景 + 阴影 = 高度。暗色模式里，阴影在深底上几乎不可见，所以必须换一种信号：表面越靠前，颜色越亮。这就是 M2 的 elevation overlay、M3 的 surface container tone、An
+  - **2.1 为什么不能反相（一句话原理）** `L60` — 亮色模式里，#fff 背景 + 阴影 = 高度。暗色模式里，阴影在深底上几乎不可见，所以必须换一种信号：表面越靠前，颜色越亮。这就是 M2 的 elevation overlay、M3 的 surface container tone、An
+  - **2.2 Material 3：tone 全表（源码逐字，非二手）** `L67` — 来源：material-color-utilities/typescript/dynamiccolor/colorspec2021.ts + scheme/scheme.ts。
+  - **2.3 Ant Design：暗色是"黑底 + 白 alpha 提亮"** `L88` — 来源：components/theme/themes/dark/colors.ts，colorBgBase='#000'，getSolidColor = lighten(brightness)。
+  - **2.4 Carbon：g100 的 layer 阶梯（hex 全部来自 @carbon/colors 11.61.0 包内源码）** `L103` — Carbon 灰阶（实测取值）：gray10 #f4f4f4 · gray20 #e0e0e0 · gray30 #c6c6c6 · gray40 #a8a8a8 · gray50 #8d8d8d · gray60 #6f6f6f · gr
+  - **2.5 选底色的三种做法与取舍** `L124` — M2 的原话立场：默认用深灰 #121212 而非纯黑，因为"深灰能表达更丰富的色彩、高度和深度，因为阴影在灰色上比在黑色上更易看见"；纯黑只留给"需要高效省电的产品"。
+- **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** `L141` — 原因：亮色文字在深底上会因光渗（halation）在视觉上"发胖"、边缘扩散，纯白尤其明显；同时纯白 + 纯黑是 21:1 的极端对比，长时间阅读反而更累。降到 tone 90 档既保住可读性，又削掉晕光。
+  - **3.1 四家体系的"不用纯白"是共识（可验证）** `L143` — 原因：亮色文字在深底上会因光渗（halation）在视觉上"发胖"、边缘扩散，纯白尤其明显；同时纯白 + 纯黑是 21:1 的极端对比，长时间阅读反而更累。降到 tone 90 档既保住可读性，又削掉晕光。
+  - **3.2 Ant Design 四档文本透明度 + 实测对比度（重点看第三档）** `L154` — 这张表暴露了两个真实陷阱：
+  - **3.3 文字层级推荐表（可直接抄）** `L169` — 中文字体的额外注意：中文笔画细密，暗底上光渗更明显。同一字号下，中文在暗色里的可读性下降比拉丁文更快。暗色下中文正文建议：行高 +0.05~0.1、字重不降、字号不小于 14px；12px 中文在暗色里几乎不可读（NN/g 的"字号越小浅色
+- **4. 边框与分隔线：暗色下不可依赖** `L183` — 这意味着：抄 Ant 的暗色边框（#424242）做输入框描边，不满足 WCAG 2.2 SC 1.4.11（非文本对比 3:1）——因为输入框边界是"识别控件所必需"的。Carbon 用 ui04（gray60）就达标。
+  - **4.1 实测：主流暗色的边框都不达 3:1** `L185` — 这意味着：抄 Ant 的暗色边框（#424242）做输入框描边，不满足 WCAG 2.2 SC 1.4.11（非文本对比 3:1）——因为输入框边界是"识别控件所必需"的。Carbon 用 ui04（gray60）就达标。
+  - **4.2 三条规则** `L195` — 1. 表单控件边界必须 ≥3:1。用 #6f6f6f 起步，不要用 #424242。
+- **5. 阴影与高度：两派做法与正确用法** `L203` — 怎么选：
+  - **5.1 两派（存在真实分歧，不要以为只有一种对）** `L205` — 怎么选：
+  - **5.2 高度与表面值的对照（把两套合成一张表）** `L216` — 注意 §3 的连带影响：表面越亮，白字对比越低。#424242 上的白字只有 10.05、85% 白只有 7.83——仍达标，但如果再往上提（比如 #525252，白字 7.81），就要检查正文 4.5:1 是否还成立。M2 的原始约束就是
+- **6. 品牌色与语义色：降饱和，不是反相** `L230` — - 不要用高饱和色做暗色主题的主色。原因两条：过不了 AA 4.5:1；在深底上产生光学振动（optical vibration），加剧眼疲劳。
+  - **6.1 M2 的精确规则（可直接执行）** `L232` — - 不要用高饱和色做暗色主题的主色。原因两条：过不了 AA 4.5:1；在深底上产生光学振动（optical vibration），加剧眼疲劳。
+  - **6.2 M3 的做法：不是"取 200 阶"，是"tone 重映射"** `L240` — 两处易错点（源码实测，别自作聪明"对称化"）：
+  - **6.3 中国特色：涨跌色在暗色下必须重调** `L260` — A 股/中文金融场景的红涨绿跌在暗色下有两个坑：
+- **7. 图像、插画、图标** `L273` — - "Soften the color of white backgrounds"：内容图里带白底的，暗色下要轻微压暗，否则白底在深色界面里"发光"。
+  - **7.1 Apple 的明确要求** `L275` — - "Soften the color of white backgrounds"：内容图里带白底的，暗色下要轻微压暗，否则白底在深色界面里"发光"。
+  - **7.2 Web 落地规则** `L282`
+  - **7.3 一张必查清单（图片在暗色里的四个死法）** `L293` — 1. 白底图 → 发光（压暗 + 边框）
+- **8. 状态与交互反馈在暗色下的差异** `L302` — Focus 环在暗色的具体值：GOV.UK 的 #FFDD00 焦点黄在深底上依然可用（黄在暗色里对比极高），但内圈必须配深色（#0B0C0C）形成双色环。或者用主色 tone 80 的 2px 环 + 2px offset。完整焦点三件套
+- **9. 切换实现：四端与防闪白** `L318` — html
+  - **9.1 Web：三件事必须一起做** `L320` — html
+  - **9.2 防闪白（FOUC）：唯一正确顺序** `L355` — 1. <head 里 meta color-scheme（浏览器绘制前生效）
+  - **9.3 三态切换的存储约定** `L373` — 删除键 vs 存 "system"：删键能让"用户从未选择过"和"用户主动选了跟随系统"在逻辑上合并，少一个分支。若要支持"系统主题变化时实时跟随"，监听 matchMedia('(prefers-color-scheme: dark)')
+  - **9.4 Tailwind v4 的两种写法** `L383` — css
+  - **9.5 微信小程序暗色适配（theme.json 官方配置逐字）** `L398` — json
+  - **9.6 iOS / Android** `L419`
+  - **9.7 切换动画** `L428` — - 全局 transition: background-color .2s, color .2s 只加在容器与文字上，不要 { transition: all }（会把布局属性也带上，卡顿）。
+- **10. 暗色专属的无障碍陷阱** `L436` — ---
+- **11. 场景速查（12 个高频问题 → 直接答案）** `L451` — ---
+- **12. 上线自检（22 项，逐条打勾）** `L470` — 决策层
+- **13. 反模式（20 条，看到就是错）** `L510` — 1. filter: invert(1) 整页反相——图片、品牌色、肤色全毁
+- **14. 可抄代码（4 段）** `L535` — css
+  - **14.1 完整变量骨架（亮/暗双套，含层级与文字四档）** `L537` — css
+  - **14.2 防 FOUC 的三行脚本（放 <head 最前，不 defer）** `L583` — html
+  - **14.3 三态切换组件逻辑** `L598` — js
+  - **14.4 暗色图片处理** `L620` — css
+- **15. 参考来源** `L642` — - Material Design 3 · Color roles / 源码：material-color-utilities 的 dynamiccolor/colorspec2021.ts（surface 与容器 tone、Contras
 
 ### `references/dataviz.md` · 数据可视化规范 · Data Visualization
 _376 行 · 快照 2026-10-31 · 26 节_
@@ -504,7 +562,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_278 行 · 快照 2026-11-01 · 36 节_
+_293 行 · 快照 2026-11-01 · 37 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -532,7 +590,7 @@ _278 行 · 快照 2026-11-01 · 36 节_
   - **必读材料** `L139` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L145` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L148` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **七条专题支线（可与主线并行）** `L153` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **八条专题支线（可与主线并行）** `L153` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L155` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L159` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L168` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -540,8 +598,9 @@ _278 行 · 快照 2026-11-01 · 36 节_
   - **支线 E · 反馈与状态（"有没有回应"决定可不可信）** `L186` — - 五层反馈：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。严重度决定层级，不决定颜色。
   - **支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）** `L196` — - 先判载体：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。
   - **支线 G · 品牌视觉与 Logo（做"一个品牌"而不是"一个页面"）** `L206` — - 顺序不能反：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。
-- **学习节奏（可持续，不靠意志力）** `L220` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（34 条，做到 ≥25 条即达 L2+）** `L234` — L0
+  - **支线 H · 暗色模式（"反一下色"和"设计一套暗色"是两件事）** `L218` — - 先问该不该做：正常视力用户浅色更优（字号越小差距越大）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。中后台不要默认暗色。
+- **学习节奏（可持续，不靠意志力）** `L231` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（38 条，做到 ≥28 条即达 L2+）** `L245` — L0
 
 ### `references/motion-system.md` · 动效与微交互系统 — Motion System（深度蒸馏）
 _348 行 · 快照 2026-10-30 · 21 节_
@@ -701,6 +760,7 @@ _239 行 · 快照 — · 14 节_
 - **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
 - **1. 一页速查：品牌视觉从零到交付** → `references/brand-identity.md` L8
+- **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
 - **1. 表单的五个零件（结构先行，样式后议）** → `references/form-table.md` L39
@@ -708,25 +768,31 @@ _239 行 · 快照 — · 14 节_
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
 - **10. 品牌色双主题：M3 官方 tone 映射表（亮色/暗色精确值，可直接抄进 token）** → `references/brand-identity.md` L300
 - **10. 布局梯度：按内容量选，不按审美选** → `references/form-table.md` L259
+- **10. 暗色专属的无障碍陷阱** → `references/dark-mode.md` L436
 - **10. 表单在窄屏** → `references/responsive-layout.md` L442
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 品牌色的边界：图表 / 大屏 / 印刷 / 多品牌** → `references/brand-identity.md` L342
+- **11. 场景速查（12 个高频问题 → 直接答案）** → `references/dark-mode.md` L451
 - **11. 实现选型（GitHub API 实测 2026-10-31）** → `references/dataviz.md` L325
 - **11. 导航降级：一条标准路径** → `references/responsive-layout.md` L458
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
+- **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
 - **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 字体系统：品牌字体与系统栈** → `references/brand-identity.md` L374
 - **12. 素材与出处** → `references/motion-system.md` L326
 - **12. 自检 12 项（图表交付前逐条过）** → `references/dataviz.md` L349
 - **12. 表格结构：五层 + 行高密度** → `references/form-table.md` L309
 - **13. 列设计：决定表格好不好用的 80%** → `references/form-table.md` L346
+- **13. 反模式（20 条，看到就是错）** → `references/dark-mode.md` L510
 - **13. 图形语言：图标网格三体系 + 插画五参数** → `references/brand-identity.md` L404
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
+- **14. 可抄代码（4 段）** → `references/dark-mode.md` L535
 - **14. 品牌声音与文案语气（NN/g 四维）** → `references/brand-identity.md` L443
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
+- **15. 参考来源** → `references/dark-mode.md` L642
 - **15. 反模式 20 条** → `references/responsive-layout.md` L565
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **15. 资产交付清单与文件格式** → `references/brand-identity.md` L469
@@ -746,6 +812,7 @@ _239 行 · 快照 — · 14 节_
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
 - **2. 曲线：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
 - **2. 标签：位置三选一，别混用** → `references/form-table.md` L55
+- **2. 表面层级：暗色的核心是"重排"，不是"反相"** → `references/dark-mode.md` L58
 - **20. 自检 18 项（交付前逐条打勾）** → `references/brand-identity.md` L650
 - **2026-10-28 · 开发者工具深色落地页（自测）** → `memory/design-log.md` L21
 - **2026-10-29 · v4 系统化与中文场景补齐（每日升级 #1）** → `memory/design-log.md` L33
@@ -761,6 +828,7 @@ _239 行 · 快照 — · 14 节_
 - **21. 数据来源** → `references/brand-identity.md` L673
 - **3. 从三个词到视觉：定位翻译表** → `references/brand-identity.md` L47
 - **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
+- **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** → `references/dark-mode.md` L141
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
 - **3. 时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
 - **3. 色板：三类用途，不许混用** → `references/dataviz.md` L76
@@ -769,17 +837,21 @@ _239 行 · 快照 — · 14 节_
 - **4. 控件尺寸与内边距（三体系精确值）** → `references/form-table.md` L110
 - **4. 标志类型学：七型与选择决策** → `references/brand-identity.md` L78
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
+- **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
 - **5. 栅格与版心：三个必须给的数值** → `references/responsive-layout.md` L226
 - **5. 标志几何构造：网格 / 基形 / 笔画 / 光学修正** → `references/brand-identity.md` L123
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
+- **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
+- **6. 品牌色与语义色：降饱和，不是反相** → `references/dark-mode.md` L230
 - **6. 标志清space（安全边距）三口径** → `references/brand-identity.md` L163
 - **6. 校验时机：三档，各有明确适用** → `references/form-table.md` L154
 - **6. 流式排版：clamp() 的正确用法** → `references/responsive-layout.md` L263
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **7. 仪表盘布局** → `references/dataviz.md` L223
+- **7. 图像、插画、图标** → `references/dark-mode.md` L273
 - **7. 实现：可直接抄的四段代码** → `references/motion-system.md` L155
 - **7. 最小尺寸与响应式标志四档（多小算太小 / 缩小到什么时候换版）** → `references/brand-identity.md` L198
 - **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
@@ -789,7 +861,9 @@ _239 行 · 快照 — · 14 节_
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
 - **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
+- **8. 状态与交互反馈在暗色下的差异** → `references/dark-mode.md` L302
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
+- **9. 切换实现：四端与防闪白** → `references/dark-mode.md` L318
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
 - **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
 - **9. 色阶生成三条路线（选一条，别混）** → `references/brand-identity.md` L253
@@ -879,7 +953,6 @@ _239 行 · 快照 — · 14 节_
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
 - **一、中文排版：为什么不是"英文换字"** → `references/chinese-design.md` L10
 - **七、与本技能其他文件的衔接** → `references/design-md-format.md` L182
-- **七条专题支线（可与主线并行）** → `references/knowledge-map.md` L153
 - **三、54 品牌 DNA 速查** → `references/design-md-format.md` L44
 - **三、三大体系对比（选哪套取决于产品语境）** → `references/design-tokens.md` L112
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
@@ -891,6 +964,7 @@ _239 行 · 快照 — · 14 节_
 - **仪表盘 Dashboard** → `references/patterns.md` L81
 - **元素覆盖矩阵** → `references/component-libraries.md` L5
 - **全景：五级台阶与对应产出** → `references/knowledge-map.md` L9
+- **八条专题支线（可与主线并行）** → `references/knowledge-map.md` L153
 - **六、写 DESIGN.md 的四条纪律** → `references/design-md-format.md` L173
 - **六、常见错误（逐条对照）** → `references/design-tokens.md` L218
 - **功能特性区 Features** → `references/patterns.md` L41
@@ -901,22 +975,22 @@ _239 行 · 快照 — · 14 节_
 - **四、中文排版自检清单（交付前逐条过）** → `references/chinese-design.md` L182
 - **四、中文设计系统矩阵（GitHub 验证 · 2026-10-29）** → `references/design-tokens.md` L133
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L220
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L231
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L46
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L47
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据表格 Data Table** → `references/patterns.md` L108
 - **用法** → `references/inspiration.md` L5 · `references/portfolios.md` L5 · `references/resources.md` L5 · `references/tools.md` L5
 - **登录/注册 Auth** → `references/patterns.md` L73
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（34 条，做到 ≥25 条即达 L2+）** → `references/knowledge-map.md` L234
-- **自我成长机制（用得越多越准）** → `SKILL.md` L394
-- **自我进化机制（知识保鲜）** → `SKILL.md` L407
+- **能力自测（38 条，做到 ≥28 条即达 L2+）** → `references/knowledge-map.md` L245
+- **自我成长机制（用得越多越准）** → `SKILL.md` L421
+- **自我进化机制（知识保鲜）** → `SKILL.md` L434
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L428
+- **边界与习惯** → `SKILL.md` L455
 - **选型规则** → `references/component-libraries.md` L24
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

@@ -150,7 +150,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 七条专题支线（可与主线并行）
+## 八条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -215,6 +215,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Material Icons 规范](https://m3.material.io/styles/icons/designing-icons)、[Carbon Icons](https://carbondesignsystem.com/elements/icons/usage/)、[Radix Colors 12 步](https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale)、[material-color-utilities](https://github.com/material-foundation/material-color-utilities)、[Adobe Leonardo](https://github.com/adobe/leonardo)、[Apple HIG App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)、[NN/g 语气四维](https://www.nngroup.com/articles/tone-of-voice-dimensions/)
 - → **决策树、tone 全表、清space CSS、交付清单、20 条反模式、18 项自检见 `brand-identity.md`**
 
+### 支线 H · 暗色模式（"反一下色"和"设计一套暗色"是两件事）
+- **先问该不该做**：正常视力用户浅色更优（**字号越小差距越大**）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。**中后台不要默认暗色。**
+- **表面层级是重排不是反相**：亮色靠阴影表达高度，暗色靠**表面变亮**。亮色跨度 1.23（98→90），暗色跨度 **1.50**（tone 6→22）——**暗色需要更大的层级差**。
+- **三套可抄值**：M3 `surface 6 / cLow 10 / c 12 / cHigh 17 / cHighest 22`；Ant `lighten(0/8/12/26)`；Carbon `#161616 → #262626 → #393939`。底色默认**深灰**，纯黑只给 OLED 省电场景（有滚动拖影）。
+- **文字不用纯白**：M3 tone 90 / Ant 85% 白 / Carbon `#f4f4f4` / Radix 第 12 步，四家一致。四档 **85/65/52/32**；**Ant 原生 45% 在纯黑上只有 4.43，不达标**。
+- **边框要 3:1**：`#6f6f6f` 起步；Ant 的 `#424242` 只有 2.09:1，过不了 1.4.11。
+- **状态方向反转**：hover 提亮、scrim 60–80%、skeleton 比底亮一档、focus 环用亮色。
+- **切换三件套顺序**：`meta color-scheme` → head 内联脚本 → CSS；另设 `:root{color-scheme:light dark}` 管滚动条与原生控件。
+- 材料：[M2 Dark theme](https://m2.material.io/design/color/dark-theme.html)、[M3 color-utilities 源码](https://github.com/material-foundation/material-color-utilities)、[Ant 暗色算法](https://github.com/ant-design/ant-design/blob/master/components/theme/themes/dark/colors.ts)、[Carbon g100](https://github.com/carbon-design-system/carbon/blob/main/packages/themes/src/v10/g100.ts)、[Apple HIG Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode)、[NN/g Dark Mode](https://www.nngroup.com/articles/dark-mode/)、[MDN color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)、[微信 DarkMode](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/darkmode.html)
+- → **对比度实测表、四端实现、22 项自检、20 条反模式见 `dark-mode.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -231,7 +242,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（34 条，做到 ≥25 条即达 L2+）
+## 能力自测（38 条，做到 ≥28 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -271,6 +282,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出标志最小可用尺寸的两种口径（40px/10mm 与「最细笔画 ÷0.75」），并解释为什么缩小到一定程度要换简化版而不是继续缩
 - [ ] 能解释「品牌主色为什么是种子色而不是最终色」，并说出三条色阶路线的差别与不可混用的原因
 - [ ] 能说出暗色模式品牌色为什么不是反色（primary 40↔80、outline 50↔60），以及主色为什么不能当图表分类色
+- [ ] 能解释「暗色表面层级跨度必须大于亮色」（亮色 1.23 vs 暗色 1.50），并说出为什么暗色不能靠阴影表达高度
+- [ ] 知道暗色正文为什么不能用 `#fff`（四体系共识），并能说出 Ant 三级文本 45% 在纯黑上只有 4.43 的问题与修法
+- [ ] 能判断一个暗色主题的表单边框是否合规（`#424242` 仅 2.09:1 不过 1.4.11，需 `#6f6f6f` 起）
+- [ ] 能说出防闪白三件套的正确顺序，并解释 `color-scheme` 不设会导致什么（滚动条与原生控件仍白）
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

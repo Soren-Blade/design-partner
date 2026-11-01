@@ -3,7 +3,7 @@
 """
 design-partner 快捷检索（记忆树的查询入口）
 
-先用一句话定位到「文件 §章节」，再只读那一段——避免把 11 份参考整份塞进上下文。
+先用一句话定位到「文件 §章节」，再只读那一段——避免把十几份参考整份塞进上下文。
 
 用法:
     python scripts/dp_search.py "缓动曲线"            # 检索（默认前 8 条）
@@ -12,8 +12,11 @@ design-partner 快捷检索（记忆树的查询入口）
     python scripts/dp_search.py --topic              # 主题总览：所有二级标题
     python scripts/dp_search.py "动效" --json         # 机器可读输出
     python scripts/dp_search.py --rebuild            # 先重建索引再检索
+    python scripts/dp_search.py "弹窗" --no-alias     # 关闭别名扩展（只按原词匹配）
 
 打分: 标题命中 ×10 · 摘要命中 ×4 · 正文出现次数 ×1（同一词只算一次标题/摘要）
+别名: memory/aliases.json 里的同义词组会以 0.45 权重追加为补充检索词——
+      只提升召回，不改变 SKILL.md 的意图路由优先级；规范词命中仍占主导。
 """
 import json
 import re
@@ -29,22 +32,57 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 MEM = ROOT / "memory"
 INDEX = MEM / "index.json"
+ALIASES = MEM / "aliases.json"
 FENCE = re.compile(r"```.*?```", re.S)
+ALIAS_WEIGHT = 0.45
 
 
 def terms_of(query: str) -> list:
-    """英文按词切；中文补二元组（中文无空格，整串匹配会漏）。"""
+    """英文按词切；中文补二元组（中文无空格，整串匹配会漏）。返回 [(term, 1.0)]。"""
     q = query.strip()
     out = set()
     for w in re.findall(r"[A-Za-z][A-Za-z0-9+#.\-]*", q):
         if len(w) >= 2:
             out.add(w.lower())
+    # 纯数字也要收：404 / 500 / 401 是设计里的高频检索词，只按字母开头切会全部漏掉
+    for n in re.findall(r"\b\d{3,}\b", q):
+        out.add(n)
     for run in re.findall(r"[\u4e00-\u9fff]+", q):
         out.add(run)
         if len(run) > 2:
             for i in range(len(run) - 1):
                 out.add(run[i:i + 2])
-    return sorted(out, key=len, reverse=True)
+    return [(t, 1.0) for t in sorted(out, key=len, reverse=True)]
+
+
+def load_alias_map() -> dict:
+    """term(小写) → 该词组内所有其他词。用于召回扩展。"""
+    if not ALIASES.exists():
+        return {}
+    try:
+        data = json.loads(ALIASES.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    mapping = {}
+    for g in data.get("groups", []):
+        members = {g["canonical"].lower()} | {a.lower() for a in g.get("aliases", [])}
+        for m in members:
+            mapping.setdefault(m, set()).update(members - {m})
+    return mapping
+
+
+def expand(terms: list, alias_map: dict) -> tuple:
+    """把原词扩展为带权重的检索词。别名只补召回，权重 0.45。"""
+    seen = {t for t, _ in terms}
+    out = list(terms)
+    added = []
+    for t, _ in terms:
+        for sib in alias_map.get(t.lower(), ()):
+            if sib not in seen and len(sib) >= 2:
+                seen.add(sib)
+                out.append((sib, ALIAS_WEIGHT))
+                added.append(sib)
+    return out, sorted(added)
 
 
 def need_rebuild() -> bool:
@@ -101,6 +139,8 @@ def main():
 
     as_json = "--json" in argv
     argv = [a for a in argv if a != "--json"]
+    no_alias = "--no-alias" in argv
+    argv = [a for a in argv if a != "--no-alias"]
     top_n = 8
     if "-n" in argv:
         i = argv.index("-n")
@@ -126,7 +166,12 @@ def main():
     if not query:
         print(__doc__)
         return
-    terms = terms_of(query)
+
+    base_terms = terms_of(query)
+    if no_alias:
+        terms, added = base_terms, []
+    else:
+        terms, added = expand(base_terms, load_alias_map())
 
     cache, hits = {}, []
     for f in index["files"]:
@@ -140,30 +185,42 @@ def main():
                 p = ROOT / f["path"]
                 text = p.read_text(encoding="utf-8") if p.exists() else ""
             body = section_body(text, s["line"] + 1, end)  # 跳过标题行本身
+            if not body.strip():
+                # 本节只有子标题、没有导语：把范围扩到下一个同级/更高级标题，
+                # 否则摘要片段全空，命中等于没有上下文。
+                for j in range(i + 1, len(secs)):
+                    if secs[j]["level"] <= s["level"]:
+                        end = secs[j]["line"]
+                        break
+                else:
+                    end = f["lines"] + 1
+                body = section_body(text, s["line"] + 1, end)
             low_title = s["title"].lower()
             low_sum = s["summary"].lower()
             low_body = body.lower()
-            score = 0
-            for t in terms:
+            score = 0.0
+            for t, w in terms:
                 tl = t.lower()
                 if tl in low_title:
-                    score += 10
+                    score += 10 * w
                 if tl in low_sum:
-                    score += 4
+                    score += 4 * w
                 c = low_body.count(tl)
                 if c:
-                    score += min(c, 8)
+                    score += min(c, 8) * w
             if score:
                 hits.append({
                     "file": f["path"], "title": f["title"], "section": s["title"],
-                    "line": s["line"], "score": score, "snippet": snippet(body, terms),
+                    "line": s["line"], "score": round(score, 1),
+                    "snippet": snippet(body, [t for t, _ in base_terms] or [t for t, _ in terms]),
                 })
 
     hits.sort(key=lambda h: -h["score"])
     hits = hits[:top_n]
 
     if as_json:
-        print(json.dumps({"query": query, "terms": terms, "hits": hits},
+        print(json.dumps({"query": query, "terms": [t for t, _ in terms],
+                          "alias_added": added, "hits": hits},
                          ensure_ascii=False, indent=1))
         return
 
@@ -171,10 +228,13 @@ def main():
         print(f"未命中「{query}」。试试更短的关键词，或先 --topic 看全部主题。")
         return
 
-    print(f"查询「{query}」 · 拆词 {len(terms)} 个 · 命中 {len(hits)} 条\n")
+    alias_note = f" · 别名扩展 +{len(added)} 词" if added else ""
+    print(f"查询「{query}」 · 拆词 {len(terms)} 个{alias_note} · 命中 {len(hits)} 条\n")
+    if added:
+        print(f"  别名召回：{'、'.join(added[:10])}{' …' if len(added) > 10 else ''}\n")
     for h in hits:
-        print(f"[{h['score']:>3}] {h['file']}  §{h['section']}  (L{h['line']})")
-        print(f"      {h['snippet']}")
+        print(f"[{h['score']:>5}] {h['file']}  §{h['section']}  (L{h['line']})")
+        print(f"        {h['snippet']}")
         print()
 
 

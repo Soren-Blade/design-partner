@@ -150,7 +150,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 四条专题支线（可与主线并行）
+## 五条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -183,6 +183,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[WCAG 2.2](https://www.w3.org/TR/WCAG22/)、[WAI-ARIA APG](https://www.w3.org/WAI/ARIA/apg/)、[GOV.UK 焦点样式](https://design-system.service.gov.uk/get-started/focus-states/)、[Inclusive Components](https://inclusive-components.design/)、[axe-core](https://github.com/dequelabs/axe-core)
 - → **全部阈值、可抄 CSS、25 条上线自检、读屏 15 分钟脚本、GB/T 37668 与适老化硬指标见 `accessibility.md`**
 
+### 支线 E · 反馈与状态（"有没有回应"决定可不可信）
+- **五层反馈**：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。**严重度决定层级，不决定颜色**。
+- **时间刻度**：100ms 内必须有变化；<1s 不加加载态；1–2s 按钮 loading；2–10s 骨架/局部 spinner；>10s 进度 + 时间 + 取消。
+- **toast 数值**：Ant 3s / 4.5s（384px）、Carbon 5s、M3 4–10s、微信 1.5s；≤2 行、1 个动作。
+- **五种空态**：首次 / 无结果 / 无权限 / **失败（不要伪装成无数据）** / 完成。
+- **五级错误**：字段 → 表单摘要 → 区块 → 页面（404/403/500）→ 全局。
+- **确认框**：只给不可逆；写对象名 + 数量；按钮写动词；默认焦点不给危险项；能撤销优先撤销。
+- 材料：[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[Atlassian Flag](https://atlassian.design/components/flag/usage)、[NN/g 响应时间](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g 骨架屏](https://www.nngroup.com/articles/skeleton-screens/)、[GOV.UK 404](https://design-system.service.gov.uk/patterns/page-not-found-pages/)
+- → **全部时长/尺寸、五态模型、10 场景速查、15 项自检见 `feedback-states.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -199,7 +209,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（20 条，做到 ≥15 条即达 L2+）
+## 能力自测（27 条，做到 ≥20 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -228,6 +238,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出模态弹窗的四条焦点要求（入框/循环/Esc/返回）
 - [ ] 知道目标尺寸 24/44/60 三档分别对应什么场景
 - [ ] 能判断一个库的许可是否可商用
+- [ ] 能说出五层反馈（L0–L4）各自解决什么问题，并给一个"错层级"的反例
+- [ ] 知道 <1s / 2–10s / >10s 三档分别该用什么加载形态，以及为什么 <1s 不能加 spinner
+- [ ] 能一眼指出空态属于五种里的哪一种，并给出对应的唯一主操作
+- [ ] 能说出严重错误为什么不能用 toast（而不是"颜色不够红"）
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

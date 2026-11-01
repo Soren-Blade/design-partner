@@ -47,6 +47,10 @@ INTENTS = [
     ("动效 / 微交互 / 动画", "motion-system.md：§2 曲线 · §3 时长 · §4 场景表 · §7 代码 · §10 验收"),
     ("滚动动画 / 页面转场", "motion-system.md §7.3 View Transitions · §7.4 scroll-driven"),
     ("无障碍 / reduced-motion", "motion-system.md §8.1 三档降级"),
+    ("提示 / toast / 弹窗 / 确认", "feedback-states.md：§1 层级决策 · §3 toast 数值 · §7 确认与破坏性操作"),
+    ("加载 / 骨架屏 / 进度", "feedback-states.md：§2 时间阈值 · §4 加载与进度 · §14.2 骨架代码"),
+    ("空状态 / 无数据 / 失败空", "feedback-states.md §5（五种空 + 五件套结构 + 文案公式）"),
+    ("错误页 / 报错文案 / 重试", "feedback-states.md §6（五级错误 + 404/500 规则 + 三段式文案）"),
     ("找工具 / 资产", "tools.md（工具）· resources.md（图标/字体/3D）· component-libraries.md（代码）"),
     ("想提升自己 / 学习路径", "knowledge-map.md L0→L4 + 20 条自测"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
@@ -64,6 +68,23 @@ def clean(text: str) -> str:
 def slug(title: str) -> str:
     s = re.sub(r"[^\w\u4e00-\u9fff]+", "-", title).strip("-")
     return s.lower() or "section"
+
+
+def load_aliases() -> list:
+    """读 memory/aliases.json → [(规范词, [别名...])]，供树中展示与检索扩展。"""
+    p = MEM / "aliases.json"
+    if not p.exists():
+        return []
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    rows = []
+    for g in data.get("groups", []):
+        c, a = g.get("canonical"), g.get("aliases", [])
+        if c:
+            rows.append((c, a))
+    return rows
 
 
 def snapshot(text: str) -> str:
@@ -89,10 +110,21 @@ def parse_file(path: Path) -> dict:
         start = m.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         body = text[start:end]
+        # 若本节下面紧接子标题（body 只有空行），摘要要往下找：
+        # 否则 §3 这类"只有子节、没有导语"的章节在索引里摘要为空，检索命中后片段也是空白。
+        level = len(m.group(1))
+        eff_end = end
+        if not body.strip():
+            for j in range(i + 1, len(matches)):
+                if len(matches[j].group(1)) <= level:
+                    eff_end = matches[j].start()
+                    break
+            else:
+                eff_end = len(text)
         summary = ""
-        for raw in body.splitlines():
+        for raw in text[start:eff_end].splitlines():
             s = raw.strip()
-            if not s or s.startswith("|") or s.startswith("<!--"):
+            if not s or s.startswith("|") or s.startswith("<!--") or s.startswith("#"):
                 continue
             summary = clean(s)[:120]
             if summary:
@@ -100,7 +132,7 @@ def parse_file(path: Path) -> dict:
         line_no = text[: m.start()].count("\n") + 1
         sections.append({
             "id": slug(m.group(2)),
-            "level": len(m.group(1)),
+            "level": level,
             "title": clean(m.group(2)),
             "summary": summary,
             "line": line_no,
@@ -166,6 +198,25 @@ def build_tree(files: list, check: dict) -> str:
     ]
     for intent, where in INTENTS:
         out.append(f"| {intent} | {where} |")
+
+    # 别名映射：检索层专用，只提升召回，不改上面的路由优先级
+    alias_rows = load_aliases()
+    if alias_rows:
+        out += [
+            "",
+            "## 一·B、别名映射（检索层，不改路由优先级）",
+            "",
+            "> 用户在说法上不会统一：说「弹窗」还是 dialog、说「转圈」还是 loading。"
+            "`memory/aliases.json` 把这些说法归到同一个规范词，`dp_search.py` 检索时以 **0.45 权重**追加召回——"
+            "**只影响召回，不影响上表的意图路由顺序**。",
+            "",
+            "| 规范词 | 别名 / 俗称 / 中英对应 |",
+            "|---|---|",
+        ]
+        for canonical, aliases in alias_rows:
+            out.append(f"| **{canonical}** | {' · '.join(aliases)} |")
+        out.append("")
+        out.append("新增别名改 `memory/aliases.json`；`dp_search.py \"词\" --no-alias` 可关闭扩展做对比。")
 
     out += ["", "## 二、知识树（按文件）", ""]
     for f in files:

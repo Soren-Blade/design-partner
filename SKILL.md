@@ -1,20 +1,21 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、中文排版规范、L0→L4 知识路线图、记忆树与快捷检索、设计执行原则、产出自检与偏好记忆七步流程。
+description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
 ---
 
 # Design Partner 设计伙伴
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v8 · 2026-11-01**（v7→v8 新增：可访问性实操——WCAG 2.2 全量阈值与判定口径、焦点三层标准与可抄样式、24px 圆间距例外、拖动替代表、ARIA 四条高频错误、aria-live 纪律、Okabe–Ito 色盲板、forced-colors、读屏 15 分钟实测脚本、GB/T 37668 与适老化硬指标；自检 12→13 项）
+**当前版本 v9 · 2026-11-01**（v8→v9 新增：反馈与状态设计——五层反馈决策树、四体系 toast 时长精确值、加载三形态分工与进度条六铁律、五种空态与五件套结构、五级错误与 404/500 文案规则、确认框 NN/g 八条 + M3 弹窗尺寸、五态数据模型、15 条反馈自检；同时新增**检索层别名映射**（`memory/aliases.json`，只提升召回、不改路由优先级））
 
 资产一览（均在技能目录内，按需读取）：
 
 | 资产 | 内容 | 何时用 |
 |---|---|---|
-| `memory/tree.md` | **记忆树**：意图→位置路由 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
+| `memory/tree.md` | **记忆树**：意图→位置路由 + 别名映射 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
 | `memory/index.json` | 机器索引（文件→章节→行号→摘要） | `dp_search.py` 的数据源 |
+| `memory/aliases.json` | **检索层别名映射**（25 组：toast↔轻提示、弹窗↔dialog、转圈↔loading…） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
 | `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 20 条自测） | 判断该补哪一级、教学、系统性提升 |
 | `references/patterns.md` | 元素设计模式图鉴（12 类高频元素的构型/参数/变体） | **元素级需求必读**（导航栏/Hero/页脚/CTA/定价…） |
 | `references/design-tokens.md` | Token 三层架构 + Ant Design 数值全量 + 三大体系对比 + 中文设计系统矩阵 | 系统级/主题/暗色模式/**必须给数值时** |
@@ -22,6 +23,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/dataviz.md` | **数据可视化规范**：FT 九类关系选型表 + 选型决策树与硬上限 + Carbon/AntV 分类·顺序·发散色板精确 hex + 坐标轴/图例/Tooltip 数值 + 中文数字单位 + 仪表盘布局 + 双轴立场 + 12 条反模式 + 12 项自检 | **任何图表/仪表盘/大屏/数据看板/BI** |
 | `references/form-table.md` | **表单与表格规范**：五件套结构 + 标签三对齐决策 + 字段按内容定宽 + 控件尺寸精确值（Ant/Carbon）+ 校验三档 + 12 条错误文案模板 + 中文特有字段（手机号/身份证/验证码/金额）+ 四级布局梯度与可编辑列表阈值 + 行高三档 + 列对齐/列宽 + 分页·固定列·批量·空态 + 18 条反模式 + 20 项自检 | **任何表单/登录/设置页/中后台列表/数据表格** |
 | `references/accessibility.md` | **可访问性实操**：WCAG 2.2 结构与 86 条口径 + 四档对比度阈值（不可四舍五入）+ 中文笔画修正 + 焦点三层标准（2.4.7/2.4.13/1.4.11）与三套可抄样式 + 键盘顺序/模态焦点/inert + 2.4.11 遮挡 + 24px 圆间距例外 + 拖动替代表 + ARIA 四条高频错误 + aria-live 纪律 + alt 决策树 + 色盲 Okabe–Ito 8 色 + forced-colors + 读屏 15 分钟脚本 + GB/T 37668 与适老化硬指标 + 25 条上线自检 + 18 条反模式 | **任何界面上线前、无障碍/适老化/合规要求、焦点与键盘问题、读屏播报、色盲可辨** |
+| `references/feedback-states.md` | **反馈与状态设计**：五层反馈决策树（L0–L4）+ 0.1/1/10s 时间阈值与组件映射 + 四体系 toast 时长·位置·宽度精确值（Ant 3s/4.5s·384px、Carbon 5s、M3 4–10s、微信 1.5s）+ 加载三形态分工 + 骨架屏禁用清单 + 进度条六铁律 + 五种空态与五件套结构 + 五级错误与 404/500 文案规则 + 确认框 NN/g 八条 + M3 弹窗尺寸 + 五态数据模型 + 乐观更新回滚 + WCAG 4.1.3/2.2.1 + 10 场景速查 + 20 条反模式 + 15 项自检 + 4 段可抄代码 | **任何 toast/弹窗/加载/骨架屏/空态/错误页/确认框/保存状态/乐观更新** |
 | `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
@@ -30,7 +32,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/tools.md` | 开发/AI/截取/效率工具（153 条） | 工具落地（截图、录屏、生成、优化） |
 | `references/portfolios.md` | 一线从业者作品集（166 条） | 校准"什么是好的"、推荐可对标风格 |
 | `memory/design-log.md` | 用户偏好画像 + 匹配日志 | **每次匹配灵感前必读**；收到反馈后追加 |
-| `scripts/dp_search.py` | **快捷检索**：关键词 → 命中章节 + 行号 + 摘要 | 任何"知识在哪"的时刻（第 0 步） |
+| `scripts/dp_search.py` | **快捷检索**：关键词 → 命中章节 + 行号 + 摘要（含别名扩展，`--no-alias` 可关） | 任何"知识在哪"的时刻（第 0 步） |
 | `scripts/mindmap.py` | 重建记忆树与索引 + 接线体检 | 资产变更后 |
 | `scripts/refresh_catalog.py` | 知识库自动刷新脚本（designeer 目录 → references） | 快照过期或用户要求更新时执行 |
 | `scripts/build_readme.py` | README 统计自动生成脚本 | 每次知识库变更后同步文档 |
@@ -48,6 +50,8 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 python scripts/dp_search.py "关键词"      # 命中章节 + 行号 + 摘要
 python scripts/dp_search.py --topic       # 不确定关键词时，先看全部主题
 ```
+
+**别名层**：`memory/aliases.json` 把用户的口语与知识库术语对上（"转圈"→loading、"弹窗"→dialog、"冒泡"→toast）。检索会自动以 0.45 权重追加同义词召回，**只影响召回、不改变下面的意图路由优先级**；规范词命中仍占主导。查不到时先 `--no-alias` 对比一次，确认是"没这个词"还是"别名没收录"。
 
 拿到「文件 §章节 + 行号」后**只读那一段**（`Read` 带 offset/limit）。检索不到再全读或联网。若命中为空且判断知识缺口真实存在，这本身就是升级信号——记进 `memory/design-log.md` 的待挖项。
 
@@ -77,6 +81,13 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 | **读屏/播报** | "读屏念不出来""动态更新没反应""错误提示要播报吗" | `accessibility.md` §8（语义与 ARIA）· §10（aria-live 纪律）· §14（15 分钟实测脚本） |
 | **色盲/对比度争议** | "红绿色盲能分清吗""这个灰够不够""要不要上 APCA" | `accessibility.md` §2（四档阈值）· §12（不靠颜色 + Okabe–Ito 8 色）· §19（APCA 立场） |
 | **适老化/银发产品** | "做个长辈版""字号要大""工信部适老化改造" | `accessibility.md` §16（60/48/44 dp、行距 1.3、法标三层）+ `chinese-design.md` |
+| **提示/toast/消息条** | "保存成功提示""toast 停留多久""要不要弹提示""消息放哪" | **先读 `feedback-states.md`**：§1 定层级（L0–L4）→ §3 取时长/位置/宽度 → §3.3 判该不该用 toast |
+| **加载/骨架屏/进度** | "加载中怎么显示""要骨架屏吗""进度条""转圈转太久" | `feedback-states.md` §2（时间阈值→组件映射）· §4（三形态分工 + 进度六铁律）· §14.2（骨架代码） |
+| **空态/无数据** | "列表空的怎么办""没有数据""搜不到结果""空页面" | `feedback-states.md` §5（先判五种空 → 五件套 → 文案公式） |
+| **错误页/报错文案/重试** | "报错了怎么说""404/500 页""失败后怎么办""错误提示太笼统" | `feedback-states.md` §6（五级错误 + 404/500 规则 + 三段式文案 + 重试纪律） |
+| **删除确认/危险操作** | "删除要不要确认""二次确认怎么写""不可撤销" | `feedback-states.md` §7（NN/g 八条 + 文案模板 + M3 弹窗尺寸 + 焦点纪律） |
+| **保存状态/乐观更新** | "自动保存怎么提示""点了立刻变但失败了""草稿状态" | `feedback-states.md` §4.5（乐观更新三态）· §8.3（保存五态） |
+| **反馈诊断** | "这个提示很烦""为什么用户没看到""弹窗太多了" | `feedback-states.md` §12 反模式 20 条逐条对照，给立场明确的结论 |
 | **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
 | **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
 
@@ -225,8 +236,23 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **强制色彩模式**：`forced-colors: active` 下阴影/渐变/背景图全被抹掉——靠阴影表达层级的界面会变一片白，必须有边框兜底。
 - 完整阈值、可抄 CSS、25 条上线自检、读屏实测脚本、GB/T 37668 与适老化硬指标 → **`accessibility.md`**。
 
+**反馈与状态（有交互时必做，不是"加个 toast"）**
+- **先定层级再选组件**：L0 微反馈（hover/按下，≤120ms）→ L1 轻提示（toast，3–5s）→ L2 就地状态（inline/banner/空态，常驻）→ L3 阻塞模态 → L4 结果页。**严重度决定层级，不决定颜色**——把严重错误做成红 toast 仍是错的。
+- **时间刻度背下来**：点击后 **100ms 内**必须有视觉变化；**<1s 不加任何加载态**（闪一下反而焦虑）；**1–2s** 按钮内 loading；**2–10s** 骨架屏/局部 spinner；**>10s** 进度条 + 粗略时间 + **取消**。
+- **toast 数值**：Ant `message` **3s** / `notification` **4.5s** 且宽 **384px**；Carbon **5s**（默认常驻）；M3 **4–10s**；微信 `showToast` **1.5s**。**≤2 行、≤14 字、只允许 1 个动作（1–2 个词）**。
+- **一个动作只给一次主反馈**：按钮变"已保存"就不要再弹 toast。编辑器每次保存都弹 = 一天弹上百次。
+- **严重失败不用 toast**：改用 L2 inline 或 L3 对话框（Ant 原文：3s 太短会漏）。**关键警告永不自动消失**（Atlassian）。
+- **加载三形态不许混用**：骨架屏只给容器型/数据型组件（卡片/列表/表格/首屏）；**按钮、输入框、开关、toast、下拉菜单、弹窗本身不做骨架**；**不要 frame-only 骨架**。
+- **进度条六铁律**：>10s 才用百分比；宁慢勿快（问卷相反）；不后退、不卡 99%；不知道总量就显示"3 / 50"；必须能取消；循环动画只用于 ≤10s。
+- **空态分五种**：首次空（给新建）/ 无结果空（给清除筛选）/ 无权限空（给申请）/ **失败空（给重试，不要伪装成无数据）** / 完成空（给肯定）。结构五件套：图（可选）+ **正向标题** + 说明 + 一个主操作 + 次链接。表格空态**必须替换表头与分页**。
+- **错误文案三段式**：发生了什么 + 为什么 + 怎么办，**≤30 字**，不责怪用户（"我们连接出了问题"而非"你的网络有问题"）。提交失败**不清空已填内容**。
+- **确认框只给严重后果**：不写"确定吗"，要写**对象名 + 数量 + 不可逆性**；按钮写**动词**（"删除 3 个文件"）不写"是/否"；**默认焦点不给危险按钮**；能撤销就优先撤销。
+- **五态都要设计**：`loading / empty / error / partial / success`——**`partial` 最常被漏**（6 张卡片挂 2 张，应 4 张正常 + 2 张各自重试，而不是整页报错）。
+- 完整数值表、五级错误规则、10 场景速查、可抄代码 → **`feedback-states.md`**。
+
 **一致性**
 - 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
+
 
 **系统化（≥3 页或需长期维护时必做）**
 - 用三层 token：base（原始值）→ semantic（语义角色）→ component（组件覆盖）。组件只引用后两层，禁止硬编码色值。
@@ -261,6 +287,8 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 
 13. **无障碍关**（每个交付都要过）：正文 4.5:1 / 大文本 3:1 / 非文本 3:1，且**没四舍五入**？焦点框存在且 ≥2px、颜色 ≠ 主色、没被 `outline:none` 杀掉？只用键盘能走完全流程、无 `tabindex>0`、弹窗焦点锁住并能返回？目标 ≥24×24（触屏 44、适老 60）？图片有 alt（装饰用空串）、图标按钮有 `aria-label`、`aria-label` 含可见文本？错误有 `aria-invalid` + 播报、动态更新容器预先存在？信息不只靠颜色（色盲可读）？`forced-colors` 下还有边框？
 
+14. **反馈关**（有交互/有数据时）：每次点击 **100ms 内**有可见变化？**<1s 的请求没加多余 loading**？2–10s 有骨架/局部 spinner 且骨架结构与真实布局一致？>10s 有进度 + 时间估计 + 取消？**严重错误没用 toast**？toast ≤2 行 ≤14 字且**另有就地出口**？一个动作**只给了一次主反馈**？空态**分对了五类**且有一个主操作、标题正向？表格空态**替换了表头与分页**？错误文案含「哪里错 + 为什么 + 怎么改」且 ≤30 字？确认框写了对象名与数量、按钮是动词、**默认焦点不在危险按钮**？破坏性操作有撤销或二次确认？`partial` 态（部分失败）设计过吗？
+
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 
 ---
@@ -292,10 +320,10 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 1. **取源**：读 `Design-related websites.txt`（用户指定清单）+ 上一轮 `memory/` 里记的待挖项；不足则按 `knowledge-map.md` 找缺口补源（设计站、GitHub 仓库）。
 2. **验证**：凡涉及 star/许可/更新时间，用 GitHub API 实测，不凭记忆写数字。凡涉及规范数值，读**官方原文**（如 ant.design/docs/spec/*），不用二手总结。
 3. **蒸馏**：产出**可执行的判断规则**（数值、构型、验收标准），不是链接清单。新增条目必须能回答"所以该怎么做"。
-4. **接线**：更新 `SKILL.md` 的资产表与路由，让新知识**在正确时机被读到**；否则等于没写。然后跑 `python scripts/mindmap.py` 重建记忆树——它会做**接线体检**，把"写了但没路由"的文件直接报出来。
+4. **接线**：更新 `SKILL.md` 的资产表与路由，让新知识**在正确时机被读到**；否则等于没写。然后跑 `python scripts/mindmap.py` 重建记忆树——它会做**接线体检**，把"写了但没路由"的文件直接报出来。若新知识引入了一批新说法（用户口语、英文别名），同步在 `memory/aliases.json` 加一组——**别名只进检索层，不许改路由顺序**。
 5. **归档**：`memory/design-log.md` 追加一条；`scripts/build_readme.py` 重算 README；`git commit` → `scripts/publish_github.py` 推送；最后同步全局安装（`~/.agents/skills/design-partner/` 与 `~/.workbuddy-ai/skills/design-partner/` 双份，保留各自 memory）。
 
-**检索可用性是升级的一部分**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条。命中不了说明标题/摘要写得像散文而不像索引——改标题，别改检索器。
+**检索可用性是升级的一部分**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条。命中不了说明标题/摘要写得像散文而不像索引——改标题，别改检索器。若用户口语与术语差太远（"转圈"vs loading），补别名而不是改标题。
 
 **质量门槛**：一轮升级至少要让 agent 在**某类问题上不再含糊**（能给出具体数值或明确立场）。若只是多了几条链接，判为无效升级，重做。
 
@@ -307,4 +335,4 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
 - **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
 - **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)。
+- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)。

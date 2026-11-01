@@ -1,0 +1,107 @@
+{
+  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
+  "_updated": "2026-11-01",
+  "_weight": 0.45,
+  "groups": [
+    {
+      "canonical": "轻提示",
+      "aliases": ["toast", "message", "snackbar", "提示条", "消息提示", "浮层提示", "冒泡", "轻提示"]
+    },
+    {
+      "canonical": "模态",
+      "aliases": ["modal", "dialog", "弹窗", "对话框", "模态框", "遮罩", "popconfirm", "确认框", "气泡确认"]
+    },
+    {
+      "canonical": "加载",
+      "aliases": ["loading", "加载中", "骨架屏", "skeleton", "spinner", "进度条", "progress", "转圈", "等待状态", "占位"]
+    },
+    {
+      "canonical": "空态",
+      "aliases": ["empty", "空状态", "无数据", "空页面", "没有内容", "empty state"]
+    },
+    {
+      "canonical": "错误",
+      "aliases": ["error", "报错", "异常", "失败提示", "错误页", "404", "500", "503", "服务不可用", "出错"]
+    },
+    {
+      "canonical": "动效",
+      "aliases": ["motion", "animation", "动画", "微交互", "过渡", "transition", "easing", "缓动", "曲线", "转场"]
+    },
+    {
+      "canonical": "配色",
+      "aliases": ["color", "色彩", "色板", "palette", "主题色", "主色", "暗色模式", "dark mode", "深色模式", "颜色"]
+    },
+    {
+      "canonical": "排版",
+      "aliases": ["typography", "字体", "font", "字号", "行高", "字重", "字阶", "文本层级"]
+    },
+    {
+      "canonical": "间距",
+      "aliases": ["spacing", "留白", "padding", "margin", "栅格", "grid", "节奏", "8pt", "4px"]
+    },
+    {
+      "canonical": "token",
+      "aliases": ["design token", "设计变量", "变量", "语义化", "tokens", "主题变量"]
+    },
+    {
+      "canonical": "图表",
+      "aliases": ["chart", "可视化", "dataviz", "仪表盘", "dashboard", "大屏", "BI", "KPI", "折线图", "柱状图", "饼图", "看板"]
+    },
+    {
+      "canonical": "表单",
+      "aliases": ["form", "输入框", "校验", "验证", "报错文案", "登录页", "注册", "填写", "字段"]
+    },
+    {
+      "canonical": "表格",
+      "aliases": ["table", "列表页", "数据表", "分页", "列宽", "行高", "批量操作", "筛选"]
+    },
+    {
+      "canonical": "无障碍",
+      "aliases": ["a11y", "accessibility", "可访问性", "读屏", "屏幕阅读器", "焦点", "对比度", "键盘操作", "色盲", "适老化", "WCAG"]
+    },
+    {
+      "canonical": "按钮",
+      "aliases": ["button", "CTA", "主按钮", "次按钮", "操作按钮", "提交按钮"]
+    },
+    {
+      "canonical": "导航",
+      "aliases": ["navbar", "导航栏", "顶栏", "菜单", "侧边栏", "tab bar", "底部导航", "面包屑"]
+    },
+    {
+      "canonical": "卡片",
+      "aliases": ["card", "卡片布局", "容器", "信息块", "tile"]
+    },
+    {
+      "canonical": "中文",
+      "aliases": ["chinese", "汉字", "中文字体", "标点", "全角", "避头尾", "中英混排", "clreq"]
+    },
+    {
+      "canonical": "品牌",
+      "aliases": ["brand", "品牌视觉", "logo", "视觉识别", "VI", "品牌调性"]
+    },
+    {
+      "canonical": "响应式",
+      "aliases": ["responsive", "断点", "breakpoint", "移动端", "适配", "自适应", "容器查询"]
+    },
+    {
+      "canonical": "作品集",
+      "aliases": ["portfolio", "案例", "个人站", "审美校准"]
+    },
+    {
+      "canonical": "图标",
+      "aliases": ["icon", "iconfont", "图标库", "线性图标", "面性图标"]
+    },
+    {
+      "canonical": "工具",
+      "aliases": ["tool", "插件", "效率工具", "截图", "录屏", "生成器"]
+    },
+    {
+      "canonical": "学习路径",
+      "aliases": ["怎么学", "路线图", "知识地图", "入门", "进阶", "能力自测"]
+    },
+    {
+      "canonical": "规范文档",
+      "aliases": ["DESIGN.md", "设计规范", "设计系统文档", "风格指南", "style guide"]
+    }
+  ]
+}

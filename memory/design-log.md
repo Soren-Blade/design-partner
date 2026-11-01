@@ -143,3 +143,25 @@
 - 验证：8 个关键词（toast/弹窗/加载/骨架屏/空态/错误页/确认/乐观更新）全部命中 feedback-states.md 前 3 条；`--no-alias` 对比确认别名确有增量召回
 - 反馈：无真实用户反馈（自动化任务）；下轮验证点：反馈类提示词是否直接进入 §1 决策树而非全读
 - 效果：待观察
+
+## 2026-11-01 · 响应式与断点体系（每日升级 #7）
+- 需求：每日深蒸馏 + 自我进化；本轮取上一轮候选第 1 位（响应式与断点），原知识仅 `design-md-format.md` 两行"要写断点值"与一句"能响应式"
+- 取源（全部官方原文 / 源码 / API 实测）：
+  - Ant Grid（xs<576/sm576/md768/lg992/xl1200/xxl1600/xxxl1920、24 栅格、gutter 可分段）＋ Ant 布局规范（画板 1440、主流 1920/1440/1366/1280、左右与上下两种适配、8 网格、gutter 固定 column 流体）
+  - MUI Breakpoints（0/600/900/1200/1536、`down` 开区间 step:5 → 899.95px）
+  - Tailwind v4（640/768/1024/1280/1536 rem、`max-*` 严格小于、容器查询 13 档 256→1280）
+  - Bootstrap 5.3 Containers（版心阶梯 100/540/720/960/1140/1320）
+  - Carbon 2x Grid（320/672/1056/1312/1584、列数 4→8→16、8px mini unit、padding16 / margin 0·16·16·16·24）
+  - M3 Breakpoints（<600/600–839/840–1199/1200–1599/1600+、分栏 1/1-2/2/2/2-3、40–60 字符行长、五动词 reveal/divide/resize/reposition/swap）
+  - MDN：Container Queries（`container-type:inline-size`、`cq*` 单位、无容器退化为 `sv*`）、`clamp()`（max(MIN,min(VAL,MAX))、MIN>MAX 取 MIN、max ≥ 2×min）、`<length>`（`vh`≡`lvh`）、Responsive images（sizes 窄到宽排序、不能百分比、x 描述符）
+  - WCAG 2.2 SC 1.4.10 Reflow 原文（320×256 CSS px、400% 等效 1280、二维例外只覆盖该段、**表格单元格仍需 Reflow、标题/搜索/分页不在例外内**）
+  - GOV.UK Table（`govuk-table--small-text-until-tablet`）
+  - 9 个响应式相关仓库 star/许可/推送经 GitHub API 实测
+- 新增 `references/responsive-layout.md`（19 节 / 726 行 / 38239 字符）
+- SKILL.md v10：资产表 +1 行、意图路由 24→35 类（响应式/断点怎么定/跨断点怎么变/栅格版心/容器查询/流式字号/全屏高度/响应式图片/窄屏表格/中后台适配/响应式诊断）、第 5 步新增「响应式」节（14 条数值化）、自检 14→15（响应式关）
+- 别名层 25→33 组（新增 断点/容器查询/版心/流式排版/视口单位/响应式图片/多端适配/窄屏表格），**路由顺序一行未动**
+- **修掉一处文档说谎**：`build_readme.py` 里「别名 25 组」为硬编码，改为读 `aliases.json` 实时统计（新增 `alias_count()`）
+- 检索门槛：17 关键词全部命中 responsive-layout.md 前 3 条，FAIL 0
+- 修索引质量：`§9` 原题「表格在窄屏的降级」检索不到「手机表格/表格变卡片」→ 按协议**改标题不改检索器**，标题补入「移动端表格 / 手机表格 / 表格变卡片」
+- 接线体检：18 文件 / 392 章节，未接线 0、失联 0
+- 源清单：`Design-related websites.txt` 225→271 行（新增响应式专题 46 条，分规范原文/标准条款/实现模式/GitHub 四组）

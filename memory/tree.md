@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-01 13:23 ｜ 17 个文件 · 337 个章节 · 217,268 字符
+> 自动生成于 2026-11-01 14:05 ｜ 18 个文件 · 392 个章节 · 245,544 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -60,6 +60,14 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **中文** | chinese · 汉字 · 中文字体 · 标点 · 全角 · 避头尾 · 中英混排 · clreq |
 | **品牌** | brand · 品牌视觉 · logo · 视觉识别 · VI · 品牌调性 |
 | **响应式** | responsive · 断点 · breakpoint · 移动端 · 适配 · 自适应 · 容器查询 |
+| **断点** | breakpoint · 媒体查询 · media query · @media · 屏宽 · 视口宽 · viewport · 最小宽度 · min-width · max-width · 响应式断点 · 栅格断点 |
+| **容器查询** | container query · @container · container-type · cqw · cqi · 组件自适应 · 按容器宽度 · 卡片自适应 |
+| **版心** | container · 最大宽度 · max-width · 内容区宽度 · 栅格系统 · grid system · 24栅格 · 12栅格 · gutter · 槽宽 · column · 栏宽 |
+| **流式排版** | clamp · fluid type · 流体排版 · 自适应字号 · 字号缩放 · 响应式字号 · min() · max() · 字号随屏幕变 |
+| **视口单位** | vh · vw · 100vh · dvh · svh · lvh · 全屏高度 · 地址栏遮挡 · safe-area · 安全区 · 刘海屏 · 满屏 |
+| **响应式图片** | srcset · sizes · picture · 图片适配 · 多倍图 · 2x图 · 懒加载 · lazy · 图片跳动 · CLS · 艺术指导 |
+| **多端适配** | 多端 · H5 · 手机端 · PC端 · 平板 · iPad · 折叠屏 · 大屏 · 小屏 · 窄屏 · 中后台适配 · 1366 · 1440 · 1920 |
+| **窄屏表格** | 移动端表格 · 手机表格 · 表格变卡片 · 表格转卡片 · 卡片化 · responsive table · 横滚表格 · 横向滚动表格 · 表格太宽 · 表格横向滑动 |
 | **作品集** | portfolio · 案例 · 个人站 · 审美校准 |
 | **图标** | icon · iconfont · 图标库 · 线性图标 · 面性图标 |
 | **工具** | tool · 插件 · 效率工具 · 截图 · 录屏 · 生成器 |
@@ -71,20 +79,20 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_338 行 · 快照 — · 12 节_
+_369 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L43` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L45` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L58`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L94` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L109` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L135` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L166` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L270` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L296` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L309` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L316` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L330` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L44` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L46` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L59`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L106` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L121` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L147` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L178` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L299` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L327` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L340` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L347` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L361` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -449,6 +457,65 @@ _225 行 · 快照 2026-10-29 · 5 节_
 - **Motion & 3D (26)** `L162` — - Three.js（免费） — JavaScript 3D library rendering WebGL scenes.
 - **Icons (33)** `L191` — - Lucide（免费） — Community-maintained Feather Icons fork with thousands of glyphs.
 
+### `references/responsive-layout.md` · 响应式与断点体系 · Responsive Layout
+_726 行 · 快照 2026-11-01 · 55 节_
+
+- **0. 先定策略，再谈数值** `L8` — 绝大多数"响应式做不好"不是断点值选错，而是顺序错了：先抄一套断点，再往里塞布局，于是每个断点都在打补丁。
+- **1. 视口断点 vs 容器断点：先选对工具** `L22` — 判断规则（照做）：
+- **2. 六大体系断点精确值对照** `L55` — 同一份设计换到不同技术栈就"断错位"，原因就是各家默认值不一样。下表全部为官方默认值，可直接抄。
+  - **2.1 Ant Design（中文中后台事实标准）** `L59` — - 栅格 24 栏，gutter 可为 {xs:8, sm:16, md:24} 分断点给值。
+  - **2.2 Material UI（React 生态默认）** `L75` — - down(key) 是开区间：down('md') = [0, 900px)，内部用 step: 5 生成 max-width: 899.95px。这就是为什么不要自己手写 max-width: 899px——差 1px 会漏掉 899
+  - **2.3 Tailwind CSS v4（默认 rem，可换算）** `L88` — - sm: 不是"小屏"，是"从 sm 断点起"。给手机写样式要用不带前缀的类。这是 Tailwind 最高频的误用。
+  - **2.4 Bootstrap 5.3（断点 + 版心一起看）** `L103` — 这张表的第二列比第一列更有用：它给出了一套经过验证的「版心宽度阶梯」——视口变宽时，内容区不是无限拉伸，而是跳到下一个固定版心。自己做站时直接抄这一列。
+  - **2.5 IBM Carbon 2x Grid（列数会变的那一派）** `L116` — - 基础单位是 8px mini unit，列宽/行高/间距/内外边距都是它的倍数。
+  - **2.6 Material 3（dp，跨 Android/Web）** `L131` — - 只有 Medium 允许"低密度内容"用两栏；高信息密度在 Medium 用两栏会降低可用性。
+  - **2.7 一页对照速查** `L145` — 读法：六个体系在同一语义档上最大差 96px（平板竖：768 vs 672 vs 600）。所以"抄哪家"不重要，一套用到底才重要。混用会出现"某个宽度下两套规则同时生效"的双断点 bug。
+- **3. 断点该定在哪：内容断，不是设备断** `L160` — 1. 在浏览器里把窗口从 320px 连续拖到 1920px，不要跳着看。
+  - **3.1 定断点的唯一正确方法** `L162` — 1. 在浏览器里把窗口从 320px 连续拖到 1920px，不要跳着看。
+  - **3.2 建议默认（无特殊理由时直接用这套）** `L175` — 只有 3 档也能做出好响应式：< 768 单栏 / 768–1199 双栏 / ≥1200 三栏 + 固定侧栏。断点数量不是质量指标，每档的变化是否说得清才是。
+  - **3.3 移动优先还是桌面优先** `L188` — 中后台可以正大光明用桌面优先，但必须同时满足：① 明确声明"移动端仅支持查看，不支持编辑"；② 320px 下仍不出现横向滚动（WCAG 1.4.10 不看你是不是中后台）。做不到就退回移动优先。
+- **4. 跨断点做什么：五个动词** `L202` — M3 的框架最实用——跨断点时只有五种合法动作，每种都要说得出为什么。这比"这里改成两栏"具体得多。
+- **5. 栅格与版心：三个必须给的数值** `L226` — 24 栏的理由：能被 2/3/4/6/8/12 整除，中文中后台四等分（6 栏）、三等分（8 栏）、二等分（12 栏）都落在整数栏上。12 栏分不出 5 等分（2.4 栏）。做五列布局时 24 栏更省事。
+  - **5.1 栏数** `L228` — 24 栏的理由：能被 2/3/4/6/8/12 整除，中文中后台四等分（6 栏）、三等分（8 栏）、二等分（12 栏）都落在整数栏上。12 栏分不出 5 等分（2.4 栏）。做五列布局时 24 栏更省事。
+  - **5.2 Gutter 与 Column 谁固定** `L239` — 铁律：Gutter 固定，Column 流体。
+  - **5.3 版心（container max-width）** `L247` — 直接抄 Bootstrap 阶梯，或按内容定：
+- **6. 流式排版：clamp() 的正确用法** `L263` — css
+  - **6.1 公式** `L265` — css
+  - **6.2 无障碍硬要求（MDN 明确）** `L276` — 用 clamp() 控制字号时，最大值必须是相对单位，且不小于最小值的 2 倍。
+  - **6.3 中文流式排版的三个额外约束** `L289` — 1. 行高不跟着字号线性缩。中文行高在小字号需要更大比例：14px 用 1.7，18px 用 1.6，32px+ 用 1.4。写成 line-height: clamp(1.4, 1.8 - 0.01vw, 1.75) 意义不大——按字号档
+  - **6.4 字号阶梯在各断点的取值（建议）** `L295` — 只允许 5–6 档。每多一档，团队就多一个"这个标题该用 26 还是 28"的争论。
+- **7. 视口单位：100vh 是个陷阱** `L310` — 关键事实：vh 当前等同于 lvh，也就是说 height: 100vh 在手机上是"地址栏收起时的高度"。地址栏一展开，底部内容被遮住 —— 这是移动端 H5 最常见的 bug。
+- **8. 响应式图片：三条规则 + 一个防抖** `L336` — html
+  - **8.1 分辨率切换（同一图，不同大小）** `L338` — html
+  - **8.2 固定尺寸、多倍屏（logo / 头像 / 图标）** `L357` — html
+  - **8.3 艺术指导（不同构图，不只是不同大小）** `L365` — html
+  - **8.4 防布局偏移（CLS）** `L379` — - 永远写 width / height 属性。它们只用来确定宽高比，不必等于实际渲染尺寸。
+- **9. 表格在窄屏的降级（移动端表格 / 手机表格 / 表格变卡片）：四种策略** `L388` — 表格是响应式最难的一环，因为它天然是二维的。四种策略各有明确适用条件，选错就白做。
+  - **9.1 策略对照** `L392`
+  - **9.2 决策规则（按顺序问）** `L401` — 1. 用户在小屏上需要"横向比较同一字段的多行值"吗？（比价、对账、看谁最高）→ 是 → A（横滚 + 粘性首列），不要卡片化。
+  - **9.3 WCAG 1.4.10 的例外边界（常被误读）** `L410` — 原文允许「需要二维布局才能使用或表达含义的部分」例外，明确举例包含 data tables（但不含单独单元格）。但有三个边界：
+  - **9.4 可抄骨架** `L420` — html
+- **10. 表单在窄屏** `L442` — - 粘底提交栏：position: sticky; bottom: 0 + padding-bottom: env(safe-area-inset-bottom)。移动端长表单没有粘底按钮，用户会滚到顶部找"提交"。
+- **11. 导航降级：一条标准路径** `L458` — - 底部 tab 只放 ≤5 项，超过就用"更多"。M3 与 iOS 都是这个上限。
+- **12. 中后台适配（中文场景专用）** `L473` — Ant Design 布局规范给了明确口径，直接采用：
+- **13. 触控与鼠标：两套输入不能共用一套假设** `L504` — 照做：
+- **14. 调试与验收** `L530` — 320 / 375 / 414 / 768 / 1024 / 1280 / 1366 / 1440 / 1920
+  - **14.1 必测宽度（8 档）** `L532` — 320 / 375 / 414 / 768 / 1024 / 1280 / 1366 / 1440 / 1920
+  - **14.2 每档检查 6 件事** `L538` — 1. 有没有横向滚动条（document.documentElement.scrollWidth clientWidth）→ 有就是 bug，除非是 §9 允许的表格容器。
+  - **14.3 缩放进阶测试（无障碍必做）** `L547` — - 200% 缩放（Cmd/Ctrl + + 到 200%）：文字是否可读、是否截断（WCAG 1.4.4）。
+  - **14.4 一条命令自查横向溢出** `L553` — js
+- **15. 反模式 20 条** `L565` — 1. 先抄断点再设计布局（顺序反了）。
+- **16. 自检 15 项（有响应式要求时逐条过）** `L590` — 1. 断点数量 ≤5，且每个断点都能说出一句"这个宽度下什么变了"？
+- **17. 可抄代码** `L610` — css
+  - **17.1 媒体查询骨架（移动优先）** `L612` — css
+  - **17.2 容器查询卡片（同一组件两种宽度）** `L624` — css
+  - **17.3 流式字号（无障碍合规）** `L639` — css
+  - **17.4 响应式表格（横滚 + 粘性首列 + 提示）** `L651` — css
+  - **17.5 安全区底部操作栏** `L670` — css
+  - **17.6 只在真 hover 设备上做悬停效果** `L681` — css
+- **18. 与其他资产的分工** `L696` — ---
+- **19. 数据来源** `L711` — - Ant Design Grid（24 栅格与 xs→xxxl 精确值）：https://ant.design/components/grid
+
 ### `references/tools.md` · 制作工具 — Tools
 _182 行 · 快照 2026-10-29 · 7 节_
 
@@ -478,26 +545,39 @@ _145 行 · 快照 — · 11 节_
 ## 三、主题索引（章节标题 → 位置）
 
 - **0. 30 秒速查** → `references/form-table.md` L8
+- **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
 - **1. 表单的五个零件（结构先行，样式后议）** → `references/form-table.md` L39
+- **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
 - **10. 布局梯度：按内容量选，不按审美选** → `references/form-table.md` L259
+- **10. 表单在窄屏** → `references/responsive-layout.md` L442
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 实现选型（GitHub API 实测 2026-10-31）** → `references/dataviz.md` L325
+- **11. 导航降级：一条标准路径** → `references/responsive-layout.md` L458
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
+- **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 素材与出处** → `references/motion-system.md` L326
 - **12. 自检 12 项（图表交付前逐条过）** → `references/dataviz.md` L349
 - **12. 表格结构：五层 + 行高密度** → `references/form-table.md` L309
 - **13. 列设计：决定表格好不好用的 80%** → `references/form-table.md` L346
 - **13. 素材与出处** → `references/dataviz.md` L366
+- **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
+- **14. 调试与验收** → `references/responsive-layout.md` L530
+- **15. 反模式 20 条** → `references/responsive-layout.md` L565
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
+- **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
+- **17. 可抄代码** → `references/responsive-layout.md` L610
+- **18. 与其他资产的分工** → `references/responsive-layout.md` L696
 - **18. 出处** → `references/form-table.md` L503
+- **19. 数据来源** → `references/responsive-layout.md` L711
+- **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
 - **2. 曲线：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
 - **2. 标签：位置三选一，别混用** → `references/form-table.md` L55
@@ -510,26 +590,33 @@ _145 行 · 快照 — · 11 节_
 - **2026-11-01 · 反馈与状态设计 + 检索层别名映射（每日升级 #6）** → `memory/design-log.md` L123
 - **2026-11-01 · 可访问性实操（每日升级 #5）** → `memory/design-log.md` L98
 - **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
+- **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
 - **3. 时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
 - **3. 色板：三类用途，不许混用** → `references/dataviz.md` L76
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
 - **4. 控件尺寸与内边距（三体系精确值）** → `references/form-table.md` L110
+- **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
+- **5. 栅格与版心：三个必须给的数值** → `references/responsive-layout.md` L226
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
 - **6. 校验时机：三档，各有明确适用** → `references/form-table.md` L154
+- **6. 流式排版：clamp() 的正确用法** → `references/responsive-layout.md` L263
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **7. 仪表盘布局** → `references/dataviz.md` L223
 - **7. 实现：可直接抄的四段代码** → `references/motion-system.md` L155
+- **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
 - **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
+- **8. 响应式图片：三条规则 + 一个防抖** → `references/responsive-layout.md` L336
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
 - **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
 - **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
+- **9. 表格在窄屏的降级（移动端表格 / 手机表格 / 表格变卡片）：四种策略** → `references/responsive-layout.md` L388
 - **AI & Agents (38)** → `references/tools.md` L139
 - **CTA 区块** → `references/patterns.md` L49
 - **Capture & Media (33)** → `references/tools.md` L56
@@ -619,7 +706,7 @@ _145 行 · 快照 — · 11 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L198
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L43
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L44
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据表格 Data Table** → `references/patterns.md` L108
 - **用法** → `references/inspiration.md` L5 · `references/portfolios.md` L5 · `references/resources.md` L5 · `references/tools.md` L5
@@ -627,11 +714,11 @@ _145 行 · 快照 — · 11 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
 - **能力自测（27 条，做到 ≥20 条即达 L2+）** → `references/knowledge-map.md` L212
-- **自我成长机制（用得越多越准）** → `SKILL.md` L296
-- **自我进化机制（知识保鲜）** → `SKILL.md` L309
+- **自我成长机制（用得越多越准）** → `SKILL.md` L327
+- **自我进化机制（知识保鲜）** → `SKILL.md` L340
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L330
+- **边界与习惯** → `SKILL.md` L361
 - **选型规则** → `references/component-libraries.md` L24
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

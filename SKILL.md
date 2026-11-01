@@ -1,13 +1,13 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
+description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
 ---
 
 # Design Partner 设计伙伴
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v9 · 2026-11-01**（v8→v9 新增：反馈与状态设计——五层反馈决策树、四体系 toast 时长精确值、加载三形态分工与进度条六铁律、五种空态与五件套结构、五级错误与 404/500 文案规则、确认框 NN/g 八条 + M3 弹窗尺寸、五态数据模型、15 条反馈自检；同时新增**检索层别名映射**（`memory/aliases.json`，只提升召回、不改路由优先级））
+**当前版本 v10 · 2026-11-01**（v9→v10 新增：响应式与断点体系——六体系断点精确值对照表、版心阶梯、容器查询 vs 媒体查询的判断规则、`clamp()` 无障碍公式、`100vh` 陷阱与 `svh/dvh`、窄屏表格四策略决策、中后台 1440 画板适配、15 项响应式自检；同时把 README 里硬编码的别名组数改为实时统计）
 
 资产一览（均在技能目录内，按需读取）：
 
@@ -15,7 +15,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 |---|---|---|
 | `memory/tree.md` | **记忆树**：意图→位置路由 + 别名映射 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
 | `memory/index.json` | 机器索引（文件→章节→行号→摘要） | `dp_search.py` 的数据源 |
-| `memory/aliases.json` | **检索层别名映射**（25 组：toast↔轻提示、弹窗↔dialog、转圈↔loading…） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
+| `memory/aliases.json` | **检索层别名映射**（32 组：toast↔轻提示、弹窗↔dialog、转圈↔loading、断点↔breakpoint、版心↔container、流式排版↔clamp…） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
 | `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 20 条自测） | 判断该补哪一级、教学、系统性提升 |
 | `references/patterns.md` | 元素设计模式图鉴（12 类高频元素的构型/参数/变体） | **元素级需求必读**（导航栏/Hero/页脚/CTA/定价…） |
 | `references/design-tokens.md` | Token 三层架构 + Ant Design 数值全量 + 三大体系对比 + 中文设计系统矩阵 | 系统级/主题/暗色模式/**必须给数值时** |
@@ -24,6 +24,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/form-table.md` | **表单与表格规范**：五件套结构 + 标签三对齐决策 + 字段按内容定宽 + 控件尺寸精确值（Ant/Carbon）+ 校验三档 + 12 条错误文案模板 + 中文特有字段（手机号/身份证/验证码/金额）+ 四级布局梯度与可编辑列表阈值 + 行高三档 + 列对齐/列宽 + 分页·固定列·批量·空态 + 18 条反模式 + 20 项自检 | **任何表单/登录/设置页/中后台列表/数据表格** |
 | `references/accessibility.md` | **可访问性实操**：WCAG 2.2 结构与 86 条口径 + 四档对比度阈值（不可四舍五入）+ 中文笔画修正 + 焦点三层标准（2.4.7/2.4.13/1.4.11）与三套可抄样式 + 键盘顺序/模态焦点/inert + 2.4.11 遮挡 + 24px 圆间距例外 + 拖动替代表 + ARIA 四条高频错误 + aria-live 纪律 + alt 决策树 + 色盲 Okabe–Ito 8 色 + forced-colors + 读屏 15 分钟脚本 + GB/T 37668 与适老化硬指标 + 25 条上线自检 + 18 条反模式 | **任何界面上线前、无障碍/适老化/合规要求、焦点与键盘问题、读屏播报、色盲可辨** |
 | `references/feedback-states.md` | **反馈与状态设计**：五层反馈决策树（L0–L4）+ 0.1/1/10s 时间阈值与组件映射 + 四体系 toast 时长·位置·宽度精确值（Ant 3s/4.5s·384px、Carbon 5s、M3 4–10s、微信 1.5s）+ 加载三形态分工 + 骨架屏禁用清单 + 进度条六铁律 + 五种空态与五件套结构 + 五级错误与 404/500 文案规则 + 确认框 NN/g 八条 + M3 弹窗尺寸 + 五态数据模型 + 乐观更新回滚 + WCAG 4.1.3/2.2.1 + 10 场景速查 + 20 条反模式 + 15 项自检 + 4 段可抄代码 | **任何 toast/弹窗/加载/骨架屏/空态/错误页/确认框/保存状态/乐观更新** |
+| `references/responsive-layout.md` | **响应式与断点体系**：六体系断点精确值对照（Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584 与 4→8→16 列 · M3 600/840/1200/1600）+ 断点该定在哪（内容断而非设备断）+ 跨断点五动词（露出/分割/缩放/移位/换件）+ gutter 固定 column 流体 + 版心宽度表 + 容器查询 `cq*` 单位与退化 + `clamp()` 无障碍公式（max ≥ 2×min）+ 视口单位陷阱（`vh`≡`lvh`、`svh`/`dvh`）+ `srcset`/`sizes` 五条规则 + 窄屏表格四策略决策 + 中后台 1440 画板与 1366 验收 + 20 条反模式 + 15 项自检 + 6 段可抄代码 | **任何多端/响应式/移动端/平板/断点/容器查询/视口/表格在窄屏怎么变** |
 | `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
@@ -88,6 +89,17 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 | **删除确认/危险操作** | "删除要不要确认""二次确认怎么写""不可撤销" | `feedback-states.md` §7（NN/g 八条 + 文案模板 + M3 弹窗尺寸 + 焦点纪律） |
 | **保存状态/乐观更新** | "自动保存怎么提示""点了立刻变但失败了""草稿状态" | `feedback-states.md` §4.5（乐观更新三态）· §8.3（保存五态） |
 | **反馈诊断** | "这个提示很烦""为什么用户没看到""弹窗太多了" | `feedback-states.md` §12 反模式 20 条逐条对照，给立场明确的结论 |
+| **响应式/多端适配** | "手机上怎么显示""做个响应式""要适配平板""H5 和 PC 两套吗" | **先读 `responsive-layout.md`**：§1 定策略（视口 or 容器）→ §3 定断点 → §4 选降级动词 → §6/§9/§11 取数值 |
+| **断点怎么定** | "断点设多少""用哪套断点""为什么要 768" | `responsive-layout.md` §2（六体系精确值对照）· §3（内容断而非设备断 + 默认五档）· §3.3（移动优先 vs 桌面优先） |
+| **跨断点怎么变** | "大屏多出来空间怎么用""桌面版要加什么" | `responsive-layout.md` §4（五动词：露出/分割/缩放/移位/换件 + 换件三纪律） |
+| **栅格/版心/最大宽度** | "版心多宽""24 栅格怎么分""内容区要不要限宽" | `responsive-layout.md` §5（gutter 固定 column 流体 + 版心宽度表）· §12（中后台 1440 画板） |
+| **容器查询/组件复用** | "同一个卡片放主栏和侧栏都难看""组件要自适应所在宽度" | `responsive-layout.md` §1（`container-type` / `@container` / `cqi` + 塌陷坑） |
+| **流式字号/clamp** | "字号要跟着屏幕变""clamp 怎么写""大屏字太小" | `responsive-layout.md` §6（公式 + max ≥ 2×min 无障碍要求 + 各断点字号表） |
+| **全屏高度/地址栏遮挡** | "手机底部被挡住""100vh 不对""全屏遮罩多高" | `responsive-layout.md` §7（`vh`≡`lvh`、`svh`/`dvh` 选型、`safe-area-inset`） |
+| **响应式图片** | "图片要几套尺寸""移动端加载大图""图片加载跳动" | `responsive-layout.md` §8（`srcset`/`sizes` 五规则 + `x` 描述符 + `<picture>` + 防 CLS） |
+| **表格在手机/窄屏** | "表格在手机怎么办""要不要变卡片""横向滚动好不好" | `responsive-layout.md` §9（四策略决策 + WCAG 1.4.10 例外边界 + 粘性首列代码） |
+| **中后台适配** | "1366 上错位""侧栏宽度多少""大屏浪费空间" | `responsive-layout.md` §12（1440 画板 / 1366 必测 / 侧栏 208·64 / 内容最小 720） |
+| **响应式诊断** | "这个页面缩放就乱""手机上要横着滑" | `responsive-layout.md` §15 反模式 20 条 + §14 调试与验收（8 档宽度 + 溢出脚本） |
 | **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
 | **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
 
@@ -250,6 +262,23 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **五态都要设计**：`loading / empty / error / partial / success`——**`partial` 最常被漏**（6 张卡片挂 2 张，应 4 张正常 + 2 张各自重试，而不是整页报错）。
 - 完整数值表、五级错误规则、10 场景速查、可抄代码 → **`feedback-states.md`**。
 
+**响应式（页面会在不同宽度被看时必做）**
+- **先定策略再定数值**：页面骨架（导航形态/栏数/版心）用 `@media`；可复用组件（卡片/列表项/统计块）用 `@container`。**同一组件要在 2 种以上宽度复用，就必须用容器查询**，否则一边必然难看。
+- **断点是结果不是输入**：把窗口从 320 连续拖到 1920，找出布局第一次难看的宽度，+1~8px 就是断点。**按内容断，不按设备断**——`iphone14` 这种命名换机即失效。
+- **一套用到底**：Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584（列数 4→8→16）· M3 <600/600/840/1200/1600。**混用两套会出现双断点区间**。
+- **断点 ≤5 个**，每个都要能说出"这个宽度下什么变了"。3 档（<768 单栏 / 768–1199 双栏 / ≥1200 三栏+侧栏）也能做出好响应式。
+- **跨断点只能做五件事**：露出 / 分割 / 缩放 / 移位 / **换件**。换件必须**功能等价、信息不丢**（底部 tab 5 项换 rail 还是 5 项）；**禁止**按钮换 chip、列表换卡片这类不等价替换。
+- **gutter 固定、column 流体**。gutter 用百分比 = 大屏松、小屏挤。推荐 16/24/32（8 倍数），可 `{xs:8, sm:16, md:24}`。
+- **版心到顶后，多出的宽度给留白，不给内容**。长文 680–760px（中文 38em）、营销页 1140–1280px、表单 ≤640px、中后台不限宽。
+- **`clamp()` 最大值必须 ≥ 最小值的 2 倍且用相对单位**，否则 200% 放大失效（WCAG 1.4.4）。`clamp(MIN,VAL,MAX)` 写反了会静默取 MIN。
+- **全屏高度禁用 `100vh`**（当前等同于 `lvh`，地址栏一展开就遮住底部）。首屏用 `100svh`、遮罩用 `100dvh`、底部栏配 `env(safe-area-inset-bottom)`。满宽用 `width:100%` 不用 `100vw`（含滚动条宽）。
+- **320px 必须无横向滚动**（WCAG 1.4.10 硬要求，不看你是不是中后台）。表格是唯一例外：**只把 `<table>` 包进横滚容器**，标题/搜索/分页留在外面正常回流；横滚表格**必须配粘性首列**（背景不透明）。
+- **窄屏表格四选一**：横向对比需求强 → 横滚+粘性首列；列 ≤4 且每行独立 → 卡片化；有主次 → 减列+详情入口；字段多需逐条处理 → 主从。**8 列表格禁止卡片化**。
+- **移动端表单**：1 列、标签顶对齐、输入框字号 **≥16px**（否则 iOS 聚焦自动放大）、`inputmode` 齐、提交栏 `sticky bottom` + 安全区。**禁 `user-scalable=no`**。
+- **导航降级路径**：<768 汉堡或底部 tab（≤5 项）→ 768–1023 顶部导航/图标条 → ≥1024 常驻侧栏。折叠侧栏 **64px**、展开 **208–240px**、内容区最小 **≥720px**。
+- **中后台**：画板 1440，主流 1920/1440/**1366**（必测）、1280（不可崩）；左右布局固定侧栏+内容缩放，上下布局先保留白下限再压内容。
+- 完整对照表、决策树、可抄代码、20 条反模式、15 项自检 → **`responsive-layout.md`**。
+
 **一致性**
 - 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
 
@@ -288,6 +317,8 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 13. **无障碍关**（每个交付都要过）：正文 4.5:1 / 大文本 3:1 / 非文本 3:1，且**没四舍五入**？焦点框存在且 ≥2px、颜色 ≠ 主色、没被 `outline:none` 杀掉？只用键盘能走完全流程、无 `tabindex>0`、弹窗焦点锁住并能返回？目标 ≥24×24（触屏 44、适老 60）？图片有 alt（装饰用空串）、图标按钮有 `aria-label`、`aria-label` 含可见文本？错误有 `aria-invalid` + 播报、动态更新容器预先存在？信息不只靠颜色（色盲可读）？`forced-colors` 下还有边框？
 
 14. **反馈关**（有交互/有数据时）：每次点击 **100ms 内**有可见变化？**<1s 的请求没加多余 loading**？2–10s 有骨架/局部 spinner 且骨架结构与真实布局一致？>10s 有进度 + 时间估计 + 取消？**严重错误没用 toast**？toast ≤2 行 ≤14 字且**另有就地出口**？一个动作**只给了一次主反馈**？空态**分对了五类**且有一个主操作、标题正向？表格空态**替换了表头与分页**？错误文案含「哪里错 + 为什么 + 怎么改」且 ≤30 字？确认框写了对象名与数量、按钮是动词、**默认焦点不在危险按钮**？破坏性操作有撤销或二次确认？`partial` 态（部分失败）设计过吗？
+
+15. **响应式关**（会在多宽度被看时）：断点 **≤5** 且每个都能说出一句"什么变了"？断点值**同属一套体系**？**320px 无横向滚动**（表格容器除外）？400% 缩放只有**单向滚动**、200% 缩放文字不截断？正文行宽 **25–40 字**、版心到顶后多余宽度**给了留白**？跨断点变化能归到**五动词**之一、换件**功能等价且信息不丢**？gutter 固定 column 流体？全屏高度用 `svh`/`dvh` 且底部栏有 `safe-area-inset`？`clamp()` 最大值 **≥2× 最小值**？图片有 `width`/`height` 且首屏未 lazy？窄屏表格策略是**四选一**而非默认卡片化、横滚表格有**粘性首列**？触屏目标 **≥44px**、hover 内容有触屏路径、**没禁缩放**？过完 **320/375/768/1024/1366/1440/1920** 七档？
 
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 
@@ -335,4 +366,4 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
 - **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
 - **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)。
+- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)。

@@ -5,103 +5,437 @@
   "groups": [
     {
       "canonical": "轻提示",
-      "aliases": ["toast", "message", "snackbar", "提示条", "消息提示", "浮层提示", "冒泡", "轻提示"]
+      "aliases": [
+        "toast",
+        "message",
+        "snackbar",
+        "提示条",
+        "消息提示",
+        "浮层提示",
+        "冒泡",
+        "轻提示"
+      ]
     },
     {
       "canonical": "模态",
-      "aliases": ["modal", "dialog", "弹窗", "对话框", "模态框", "遮罩", "popconfirm", "确认框", "气泡确认"]
+      "aliases": [
+        "modal",
+        "dialog",
+        "弹窗",
+        "对话框",
+        "模态框",
+        "遮罩",
+        "popconfirm",
+        "确认框",
+        "气泡确认"
+      ]
     },
     {
       "canonical": "加载",
-      "aliases": ["loading", "加载中", "骨架屏", "skeleton", "spinner", "进度条", "progress", "转圈", "等待状态", "占位"]
+      "aliases": [
+        "loading",
+        "加载中",
+        "骨架屏",
+        "skeleton",
+        "spinner",
+        "进度条",
+        "progress",
+        "转圈",
+        "等待状态",
+        "占位"
+      ]
     },
     {
       "canonical": "空态",
-      "aliases": ["empty", "空状态", "无数据", "空页面", "没有内容", "empty state"]
+      "aliases": [
+        "empty",
+        "空状态",
+        "无数据",
+        "空页面",
+        "没有内容",
+        "empty state"
+      ]
     },
     {
       "canonical": "错误",
-      "aliases": ["error", "报错", "异常", "失败提示", "错误页", "404", "500", "503", "服务不可用", "出错"]
+      "aliases": [
+        "error",
+        "报错",
+        "异常",
+        "失败提示",
+        "错误页",
+        "404",
+        "500",
+        "503",
+        "服务不可用",
+        "出错"
+      ]
     },
     {
       "canonical": "动效",
-      "aliases": ["motion", "animation", "动画", "微交互", "过渡", "transition", "easing", "缓动", "曲线", "转场"]
+      "aliases": [
+        "motion",
+        "animation",
+        "动画",
+        "微交互",
+        "过渡",
+        "transition",
+        "easing",
+        "缓动",
+        "曲线",
+        "转场"
+      ]
     },
     {
       "canonical": "配色",
-      "aliases": ["color", "色彩", "色板", "palette", "主题色", "主色", "暗色模式", "dark mode", "深色模式", "颜色"]
+      "aliases": [
+        "color",
+        "色彩",
+        "色板",
+        "palette",
+        "主题色",
+        "主色",
+        "暗色模式",
+        "dark mode",
+        "深色模式",
+        "颜色"
+      ]
     },
     {
       "canonical": "排版",
-      "aliases": ["typography", "字体", "font", "字号", "行高", "字重", "字阶", "文本层级"]
+      "aliases": [
+        "typography",
+        "字体",
+        "font",
+        "字号",
+        "行高",
+        "字重",
+        "字阶",
+        "文本层级"
+      ]
     },
     {
       "canonical": "间距",
-      "aliases": ["spacing", "留白", "padding", "margin", "栅格", "grid", "节奏", "8pt", "4px"]
+      "aliases": [
+        "spacing",
+        "留白",
+        "padding",
+        "margin",
+        "栅格",
+        "grid",
+        "节奏",
+        "8pt",
+        "4px"
+      ]
     },
     {
       "canonical": "token",
-      "aliases": ["design token", "设计变量", "变量", "语义化", "tokens", "主题变量"]
+      "aliases": [
+        "design token",
+        "设计变量",
+        "变量",
+        "语义化",
+        "tokens",
+        "主题变量"
+      ]
     },
     {
       "canonical": "图表",
-      "aliases": ["chart", "可视化", "dataviz", "仪表盘", "dashboard", "大屏", "BI", "KPI", "折线图", "柱状图", "饼图", "看板"]
+      "aliases": [
+        "chart",
+        "可视化",
+        "dataviz",
+        "仪表盘",
+        "dashboard",
+        "大屏",
+        "BI",
+        "KPI",
+        "折线图",
+        "柱状图",
+        "饼图",
+        "看板"
+      ]
     },
     {
       "canonical": "表单",
-      "aliases": ["form", "输入框", "校验", "验证", "报错文案", "登录页", "注册", "填写", "字段"]
+      "aliases": [
+        "form",
+        "输入框",
+        "校验",
+        "验证",
+        "报错文案",
+        "登录页",
+        "注册",
+        "填写",
+        "字段"
+      ]
     },
     {
       "canonical": "表格",
-      "aliases": ["table", "列表页", "数据表", "分页", "列宽", "行高", "批量操作", "筛选"]
+      "aliases": [
+        "table",
+        "列表页",
+        "数据表",
+        "分页",
+        "列宽",
+        "行高",
+        "批量操作",
+        "筛选"
+      ]
     },
     {
       "canonical": "无障碍",
-      "aliases": ["a11y", "accessibility", "可访问性", "读屏", "屏幕阅读器", "焦点", "对比度", "键盘操作", "色盲", "适老化", "WCAG"]
+      "aliases": [
+        "a11y",
+        "accessibility",
+        "可访问性",
+        "读屏",
+        "屏幕阅读器",
+        "焦点",
+        "对比度",
+        "键盘操作",
+        "色盲",
+        "适老化",
+        "WCAG"
+      ]
     },
     {
       "canonical": "按钮",
-      "aliases": ["button", "CTA", "主按钮", "次按钮", "操作按钮", "提交按钮"]
+      "aliases": [
+        "button",
+        "CTA",
+        "主按钮",
+        "次按钮",
+        "操作按钮",
+        "提交按钮"
+      ]
     },
     {
       "canonical": "导航",
-      "aliases": ["navbar", "导航栏", "顶栏", "菜单", "侧边栏", "tab bar", "底部导航", "面包屑"]
+      "aliases": [
+        "navbar",
+        "导航栏",
+        "顶栏",
+        "菜单",
+        "侧边栏",
+        "tab bar",
+        "底部导航",
+        "面包屑"
+      ]
     },
     {
       "canonical": "卡片",
-      "aliases": ["card", "卡片布局", "容器", "信息块", "tile"]
+      "aliases": [
+        "card",
+        "卡片布局",
+        "容器",
+        "信息块",
+        "tile"
+      ]
     },
     {
       "canonical": "中文",
-      "aliases": ["chinese", "汉字", "中文字体", "标点", "全角", "避头尾", "中英混排", "clreq"]
+      "aliases": [
+        "chinese",
+        "汉字",
+        "中文字体",
+        "标点",
+        "全角",
+        "避头尾",
+        "中英混排",
+        "clreq"
+      ]
     },
     {
       "canonical": "品牌",
-      "aliases": ["brand", "品牌视觉", "logo", "视觉识别", "VI", "品牌调性"]
+      "aliases": [
+        "brand",
+        "品牌视觉",
+        "logo",
+        "视觉识别",
+        "VI",
+        "品牌调性"
+      ]
     },
     {
       "canonical": "响应式",
-      "aliases": ["responsive", "断点", "breakpoint", "移动端", "适配", "自适应", "容器查询"]
+      "aliases": [
+        "responsive",
+        "断点",
+        "breakpoint",
+        "移动端",
+        "适配",
+        "自适应",
+        "容器查询"
+      ]
+    },
+    {
+      "canonical": "断点",
+      "aliases": [
+        "breakpoint",
+        "媒体查询",
+        "media query",
+        "@media",
+        "屏宽",
+        "视口宽",
+        "viewport",
+        "最小宽度",
+        "min-width",
+        "max-width",
+        "响应式断点",
+        "栅格断点"
+      ]
+    },
+    {
+      "canonical": "容器查询",
+      "aliases": [
+        "container query",
+        "@container",
+        "container-type",
+        "cqw",
+        "cqi",
+        "组件自适应",
+        "按容器宽度",
+        "卡片自适应"
+      ]
+    },
+    {
+      "canonical": "版心",
+      "aliases": [
+        "container",
+        "最大宽度",
+        "max-width",
+        "内容区宽度",
+        "栅格系统",
+        "grid system",
+        "24栅格",
+        "12栅格",
+        "gutter",
+        "槽宽",
+        "column",
+        "栏宽"
+      ]
+    },
+    {
+      "canonical": "流式排版",
+      "aliases": [
+        "clamp",
+        "fluid type",
+        "流体排版",
+        "自适应字号",
+        "字号缩放",
+        "响应式字号",
+        "min()",
+        "max()",
+        "字号随屏幕变"
+      ]
+    },
+    {
+      "canonical": "视口单位",
+      "aliases": [
+        "vh",
+        "vw",
+        "100vh",
+        "dvh",
+        "svh",
+        "lvh",
+        "全屏高度",
+        "地址栏遮挡",
+        "safe-area",
+        "安全区",
+        "刘海屏",
+        "满屏"
+      ]
+    },
+    {
+      "canonical": "响应式图片",
+      "aliases": [
+        "srcset",
+        "sizes",
+        "picture",
+        "图片适配",
+        "多倍图",
+        "2x图",
+        "懒加载",
+        "lazy",
+        "图片跳动",
+        "CLS",
+        "艺术指导"
+      ]
+    },
+    {
+      "canonical": "多端适配",
+      "aliases": [
+        "多端",
+        "H5",
+        "手机端",
+        "PC端",
+        "平板",
+        "iPad",
+        "折叠屏",
+        "大屏",
+        "小屏",
+        "窄屏",
+        "中后台适配",
+        "1366",
+        "1440",
+        "1920"
+      ]
+    },
+    {
+      "canonical": "窄屏表格",
+      "aliases": ["移动端表格", "手机表格", "表格变卡片", "表格转卡片", "卡片化", "responsive table", "横滚表格", "横向滚动表格", "表格太宽", "表格横向滑动"]
     },
     {
       "canonical": "作品集",
-      "aliases": ["portfolio", "案例", "个人站", "审美校准"]
+      "aliases": [
+        "portfolio",
+        "案例",
+        "个人站",
+        "审美校准"
+      ]
     },
     {
       "canonical": "图标",
-      "aliases": ["icon", "iconfont", "图标库", "线性图标", "面性图标"]
+      "aliases": [
+        "icon",
+        "iconfont",
+        "图标库",
+        "线性图标",
+        "面性图标"
+      ]
     },
     {
       "canonical": "工具",
-      "aliases": ["tool", "插件", "效率工具", "截图", "录屏", "生成器"]
+      "aliases": [
+        "tool",
+        "插件",
+        "效率工具",
+        "截图",
+        "录屏",
+        "生成器"
+      ]
     },
     {
       "canonical": "学习路径",
-      "aliases": ["怎么学", "路线图", "知识地图", "入门", "进阶", "能力自测"]
+      "aliases": [
+        "怎么学",
+        "路线图",
+        "知识地图",
+        "入门",
+        "进阶",
+        "能力自测"
+      ]
     },
     {
       "canonical": "规范文档",
-      "aliases": ["DESIGN.md", "设计规范", "设计系统文档", "风格指南", "style guide"]
+      "aliases": [
+        "DESIGN.md",
+        "设计规范",
+        "设计系统文档",
+        "风格指南",
+        "style guide"
+      ]
     }
   ]
 }

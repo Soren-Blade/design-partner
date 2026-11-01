@@ -2,7 +2,7 @@
 
 > 本文件回答「**一个设计师该按什么顺序学、每个阶段读什么、怎么验收学会了**」。它不替代其他参考文件，而是给它们排顺序、定门槛。
 > 使用方式：接到任务先判断自己落在哪一级，缺什么补什么——**不要跳级**（L0 没建立视觉判断力就上 L2 做设计系统，产出必然空洞）。
-> 快照 2026-10-29
+> 快照 2026-11-01
 
 ---
 
@@ -150,7 +150,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三条专题支线（可与主线并行）
+## 四条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -172,6 +172,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - **只动 transform / opacity**；必须做 `prefers-reduced-motion` 降级
 - 材料：[60fps](https://60fps.design/)、[Design Details](https://designdetails.fm/)、[Motion Primitives](https://motion-primitives.com)、[easings.net](https://easings.net/)
 - → 全量数值、20 个场景速查、View Transitions/scroll-driven 代码、10 条验收见 `motion-system.md`
+
+### 支线 D · 可访问性（不是"加分项"，是交付门槛）
+- **四档对比度**：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。**不可四舍五入**（`4.499:1` 不达标）。
+- **焦点三层**：存在（2.4.7）→ 面积 ≥2px 周长、状态变化 ≥3:1（2.4.13）→ 与相邻色 ≥3:1（1.4.11）。内嵌焦点框要 ≥3px。永不用 `outline:none` 而无替代。
+- **键盘**：顺序 = DOM 顺序；`tabindex` 只用 `0`/`-1`；模态锁焦点 + `Esc` + 关闭回原处 + 背景 `inert`。
+- **目标尺寸三档**：24（AA 底线）/ 44（触屏）/ 60（适老版主组件）。
+- **不只靠颜色**：错误、必填、状态、涨跌都要第二通道；色盲用 Okabe–Ito 8 色。
+- **WCAG 2.2 新增 9 条**：焦点不遮挡、焦点外观、拖动替代、目标尺寸、帮助一致、不重复录入、可访问认证。
+- 材料：[WCAG 2.2](https://www.w3.org/TR/WCAG22/)、[WAI-ARIA APG](https://www.w3.org/WAI/ARIA/apg/)、[GOV.UK 焦点样式](https://design-system.service.gov.uk/get-started/focus-states/)、[Inclusive Components](https://inclusive-components.design/)、[axe-core](https://github.com/dequelabs/axe-core)
+- → **全部阈值、可抄 CSS、25 条上线自检、读屏 15 分钟脚本、GB/T 37668 与适老化硬指标见 `accessibility.md`**
 
 ---
 
@@ -213,7 +223,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 **L3**
 - [ ] 能按技术栈选出合适的组件库并说明理由
 - [ ] 知道 Core Web Vitals 三个指标的阈值
-- [ ] 能说出至少 3 个可访问性硬性要求
+- [ ] 能说出四档对比度阈值（4.5 / 3 / 3 / 7）且知道**不能四舍五入**
+- [ ] 知道焦点框为什么不能只有 2px 内嵌、为什么不能等于品牌主色
+- [ ] 能说出模态弹窗的四条焦点要求（入框/循环/Esc/返回）
+- [ ] 知道目标尺寸 24/44/60 三档分别对应什么场景
 - [ ] 能判断一个库的许可是否可商用
 
 **L4**

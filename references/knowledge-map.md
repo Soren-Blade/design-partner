@@ -150,7 +150,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 五条专题支线（可与主线并行）
+## 六条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -193,6 +193,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[Atlassian Flag](https://atlassian.design/components/flag/usage)、[NN/g 响应时间](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g 骨架屏](https://www.nngroup.com/articles/skeleton-screens/)、[GOV.UK 404](https://design-system.service.gov.uk/patterns/page-not-found-pages/)
 - → **全部时长/尺寸、五态模型、10 场景速查、15 项自检见 `feedback-states.md`**
 
+### 支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）
+- **先判载体**：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。
+- **页边距**：Van de Graaf 内:上:外:下 = **2:3:4:6**（1/9、2/9），但那是**书页装订**系统；实用只有两条——**下边距比上边距大 6mm**、**非对称差 ≥25mm**。
+- **网格**：**12 栏**（能被 2/3/4/6 整除）；gutter 固定、栏宽流体，gutter ≈ 栏宽 1/4–1/3；**基线 4/8px**，所有垂直尺寸都是它整数倍。
+- **字**：一套模数比例（1.2/1.25/1.333/1.414/1.5/1.618），正文:主标题 **2–4 倍**；行长 **45–90 字符**（中文 25–40 字），行距 **120–145%**（中文 1.6–1.8），两者联动。
+- **印刷五查**：300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 ≥0.25pt；画布含 **3mm 出血 ×2**，文字在安全区。
+- **长图换算**：`设计字号 = 目标字号 × (设计宽 ÷ 375)`；1080 宽正文 **≥44px**；一屏一个信息点。
+- 材料：[Butterick's Practical Typography](https://practicaltypography.com/)、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[W3C clreq](https://www.w3.org/TR/clreq/)
+- → **全部尺寸表、九平台规格、可抄 CSS、20 条反模式、18 项自检见 `editorial-layout.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -209,7 +219,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（27 条，做到 ≥20 条即达 L2+）
+## 能力自测（30 条，做到 ≥22 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -242,6 +252,9 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 知道 <1s / 2–10s / >10s 三档分别该用什么加载形态，以及为什么 <1s 不能加 spinner
 - [ ] 能一眼指出空态属于五种里的哪一种，并给出对应的唯一主操作
 - [ ] 能说出严重错误为什么不能用 toast（而不是"颜色不够红"）
+- [ ] 给出任一正文版式，能说出它的行长（字符/字数）、行距比例，并判断是否落在 45–90 字符与 120–145% 的可读区间
+- [ ] 拿到一张 A2 海报需求，能独立算出画布尺寸（含 3mm 出血）、安全区、三层信息字号，并说出 3 米外的可读下限
+- [ ] 能解释「1080 宽长图正文为什么必须 ≥44px」，并换算任意设计宽度下的等价字号
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

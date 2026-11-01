@@ -384,7 +384,18 @@
     },
     {
       "canonical": "窄屏表格",
-      "aliases": ["移动端表格", "手机表格", "表格变卡片", "表格转卡片", "卡片化", "responsive table", "横滚表格", "横向滚动表格", "表格太宽", "表格横向滑动"]
+      "aliases": [
+        "移动端表格",
+        "手机表格",
+        "表格变卡片",
+        "表格转卡片",
+        "卡片化",
+        "responsive table",
+        "横滚表格",
+        "横向滚动表格",
+        "表格太宽",
+        "表格横向滑动"
+      ]
     },
     {
       "canonical": "作品集",
@@ -435,6 +446,120 @@
         "设计系统文档",
         "风格指南",
         "style guide"
+      ]
+    },
+    {
+      "canonical": "版式",
+      "aliases": [
+        "layout",
+        "editorial",
+        "版面",
+        "构图",
+        "网格系统",
+        "grid system",
+        "分栏",
+        "栏数",
+        "gutter",
+        "版心",
+        "页边距",
+        "margin",
+        "基线网格",
+        "baseline grid",
+        "栅格系统"
+      ]
+    },
+    {
+      "canonical": "行长",
+      "aliases": [
+        "measure",
+        "line length",
+        "每行字数",
+        "行宽",
+        "一行多少字",
+        "行距",
+        "leading",
+        "line-height",
+        "字距",
+        "tracking",
+        "缩进",
+        "段间距"
+      ]
+    },
+    {
+      "canonical": "海报",
+      "aliases": [
+        "poster",
+        "展板",
+        "主视觉",
+        "key visual",
+        "KV",
+        "活动图",
+        "宣传图",
+        "易拉宝",
+        "banner 图",
+        "三折页"
+      ]
+    },
+    {
+      "canonical": "长图",
+      "aliases": [
+        "long image",
+        "信息图",
+        "infographic",
+        "一图流",
+        "滑动长图",
+        "详情页长图",
+        "长图海报",
+        "竖长图"
+      ]
+    },
+    {
+      "canonical": "社媒图",
+      "aliases": [
+        "social image",
+        "封面图",
+        "首图",
+        "缩略图",
+        "thumbnail",
+        "OG image",
+        "og:image",
+        "分享卡",
+        "小红书封面",
+        "公众号封面",
+        "视频封面",
+        "头图"
+      ]
+    },
+    {
+      "canonical": "印刷",
+      "aliases": [
+        "print",
+        "出血",
+        "bleed",
+        "安全区",
+        "safe area",
+        "CMYK",
+        "300dpi",
+        "300ppi",
+        "印厂",
+        "交印",
+        "PDF/X",
+        "总墨量",
+        "转曲",
+        "套印",
+        "裁切线"
+      ]
+    },
+    {
+      "canonical": "竖排",
+      "aliases": [
+        "vertical writing",
+        "writing-mode",
+        "直排",
+        "竖排版",
+        "纵中横排",
+        "从右往左",
+        "繁体竖排"
       ]
     }
   ]

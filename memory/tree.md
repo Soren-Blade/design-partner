@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-01 14:08 ｜ 18 个文件 · 393 个章节 · 247,307 字符
+> 自动生成于 2026-11-01 14:19 ｜ 19 个文件 · 457 个章节 · 278,063 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -73,26 +73,33 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **工具** | tool · 插件 · 效率工具 · 截图 · 录屏 · 生成器 |
 | **学习路径** | 怎么学 · 路线图 · 知识地图 · 入门 · 进阶 · 能力自测 |
 | **规范文档** | DESIGN.md · 设计规范 · 设计系统文档 · 风格指南 · style guide |
+| **版式** | layout · editorial · 版面 · 构图 · 网格系统 · grid system · 分栏 · 栏数 · gutter · 版心 · 页边距 · margin · 基线网格 · baseline grid · 栅格系统 |
+| **行长** | measure · line length · 每行字数 · 行宽 · 一行多少字 · 行距 · leading · line-height · 字距 · tracking · 缩进 · 段间距 |
+| **海报** | poster · 展板 · 主视觉 · key visual · KV · 活动图 · 宣传图 · 易拉宝 · banner 图 · 三折页 |
+| **长图** | long image · 信息图 · infographic · 一图流 · 滑动长图 · 详情页长图 · 长图海报 · 竖长图 |
+| **社媒图** | social image · 封面图 · 首图 · 缩略图 · thumbnail · OG image · og:image · 分享卡 · 小红书封面 · 公众号封面 · 视频封面 · 头图 |
+| **印刷** | print · 出血 · bleed · 安全区 · safe area · CMYK · 300dpi · 300ppi · 印厂 · 交印 · PDF/X · 总墨量 · 转曲 · 套印 · 裁切线 |
+| **竖排** | vertical writing · writing-mode · 直排 · 竖排版 · 纵中横排 · 从右往左 · 繁体竖排 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_369 行 · 快照 — · 12 节_
+_397 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L44` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L46` — 资产已超 14 份参考、约 15 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L59`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L106` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L121` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L147` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L178` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L299` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L327` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L340` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L347` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L361` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L45` — 资产已超 17 份参考、约 23.5 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L47` — 资产已超 17 份参考、约 23.5 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L60`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L115` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L130` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L156` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L187` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L325` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L355` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L368` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L375` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L389` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -245,6 +252,73 @@ _231 行 · 快照 2026-10-29 · 13 节_
   - **5.3 JSON（给设计工具 / agent 用）** `L199` — json
 - **六、常见错误（逐条对照）** `L218`
 
+### `references/editorial-layout.md` · 版式与网格（Editorial Layout）
+_767 行 · 快照 2026-11-01 · 63 节_
+
+- **§0 一页速查（赶时间只看这里）** `L18` — ---
+- **§1 先判载体：五类产出的本质差异** `L38` — 版式不是一套规则通吃。先定载体，再定网格，顺序反了会做出"网页排版的海报"。
+- **§2 网格类型与选择** `L54` — 选择顺序（照做即可）：
+- **§3 栏数、gutter 与基线网格** `L74` — 12 的约数有 2、3、4、6——同一套栏线可以切出 1/2、1/3、1/4、1/6 的所有组合，这是它成为默认值的唯一原因（数学，不是审美）。
+  - **3.1 为什么是 12 栏** `L76` — 12 的约数有 2、3、4、6——同一套栏线可以切出 1/2、1/3、1/4、1/6 的所有组合，这是它成为默认值的唯一原因（数学，不是审美）。
+  - **3.2 gutter 与栏宽的关系** `L90` — - gutter 固定、栏宽流体（与响应式一致）：gutter 用百分比会导致大屏松、小屏挤。
+  - **3.3 基线网格（最容易被跳过、收益最大的一项）** `L96` — 规则：所有垂直尺寸（行高、段间距、图高、卡片高、模块间距）都是同一个基线单位的整数倍。
+- **§4 版心与页边距（版心宽度 / 页边距比例）** `L108` — 版心先定，边距是结果——不要先给 margin 再算内容宽度，会得到 6.5″ 这种"打字机行长"。
+  - **4.0 版心宽度速查（一句话答案）** `L110` — 版心先定，边距是结果——不要先给 margin 再算内容宽度，会得到 6.5″ 这种"打字机行长"。
+  - **4.1 Van de Graaf canon（唯一有几何证明的边距系统）** `L123` — 对任意页面比例都成立，2:3 页面时结果最漂亮：
+  - **4.2 实用边距表** `L139` — 两条硬规则：
+  - **4.3 版心宽度与开本** `L154` — - 版心宽 ≈ 页宽 × 0.55–0.70（书页）；低于 0.5 显空，高于 0.75 显挤。
+- **§5 字号模数与层级（字号阶梯）** `L161` — 以正文为基准（1.0），乘同一个比例得到各级字号：
+  - **5.1 模数比例（modular scale）** `L163` — 以正文为基准（1.0），乘同一个比例得到各级字号：
+  - **5.2 中文的字号修正** `L182` — - 中文同字号视觉上比西文小（字面率低），整体 +1–2px：正文 16–18px（内容页）/ 14px（中后台）。
+- **§6 行长与行距（最影响"读得下去"的两项）** `L191` — 西文（Butterick 原文）：
+  - **6.1 行长（measure）** `L193` — 西文（Butterick 原文）：
+  - **6.2 行距（leading）** `L205` — 西文（Butterick 原文）：120%–145% 字号。低于 110% 太挤，高于 170% 太散。
+  - **6.3 行长 × 行距联动表（直接用）** `L215`
+  - **6.4 段落间距 vs 首行缩进（二选一，不许并用）** `L224` — 中文特例：首段不缩进（跟随标题），后续段缩进 2 字——这是书籍惯例；网页一律用段间距。
+- **§7 段落细节与断行（工艺层，差一点就差很多）** `L236` — - orphan（孤行）：段落首行被留在页/栏底部，单独一行。
+  - **7.1 孤行与寡行（widows & orphans）** `L238` — - orphan（孤行）：段落首行被留在页/栏底部，单独一行。
+  - **7.2 断行算法（CSS 三件套）** `L245` — 标题一行放不下时的正确顺序：① 改文案（最有效）→ ② 缩字号一档 → ③ text-wrap: balance → ④ 手动 <br 控制断点。永远不要靠 letter-spacing 硬塞。
+  - **7.3 标点悬挂（hanging punctuation）** `L256` — - 西文：hanging-punctuation: first last; 让首行开引号/末行闭引号探出版心，左边缘视觉才齐。
+  - **7.4 两端对齐（justify）的代价** `L262` — - 中文：text-align: justify 可用且推荐（方块字天然等宽，不会出现大河）。
+- **§8 视觉动线与焦点** `L270` — 海报/社媒图一律用单点式：先定"3 秒后用户记住的那一个东西"（一句话/一个数字/一张脸），其余元素降级为配角。
+  - **8.1 三种动线模型** `L272` — 海报/社媒图一律用单点式：先定"3 秒后用户记住的那一个东西"（一句话/一个数字/一张脸），其余元素降级为配角。
+  - **8.2 分割线与落点** `L282` — - 三分法（rule of thirds）：把画面切 3×3，主体放在交点上（0.333 / 0.667）。YouTube 官方缩略图指南明确推荐用三分法构图。
+  - **8.3 视觉重量（判断"哪边重"）** `L288` — 按重量从大到小：人脸/眼睛 高对比色块 大字号 深色块 图形 细线 留白。
+- **§9 留白与密度（留白占比）** `L296` — 四条纪律：
+- **§10 海报（Poster）** `L314` — ISO 216 规则：A 系列同一比例 √2:1，每级面积为上一级一半，向下取整到毫米；尺寸公差 ≤150mm 为 ±1.5mm、150–600mm 为 ±2mm、600mm 为 ±3mm。
+  - **10.1 尺寸与文件** `L316` — ISO 216 规则：A 系列同一比例 √2:1，每级面积为上一级一半，向下取整到毫米；尺寸公差 ≤150mm 为 ±1.5mm、150–600mm 为 ±2mm、600mm 为 ±3mm。
+  - **10.2 出血与安全区（做错必被印厂退回）** `L330` — 常见事故：把底色做成"成品尺寸"→ 裁切后四边露白边 1–2mm。底色画布 = 成品 + 出血 ×2。
+  - **10.3 海报的信息层级（三层封顶）** `L342` — 远距离可读性经验公式（标牌行业惯例，非标准）：字高（mm）≈ 观看距离（m）× 8。
+  - **10.4 海报构图四选一** `L355` — 必查：文字压在图上时，局部对比度 ≥4.5:1（不是整图平均）。做法：给文字区加单向渐变遮罩（黑 0%→60%），不要给整图加暗角。
+- **§11 长图（Long Image / 信息长图）** `L368` — 长图在手机上被缩放到屏宽显示，所以设计稿字号必须按比例放大：
+  - **11.1 尺寸与字号换算（这一步错了整张图都小）** `L370` — 长图在手机上被缩放到屏宽显示，所以设计稿字号必须按比例放大：
+  - **11.2 分段节奏（长图的真正难点）** `L382` — - 一屏一个信息点。屏高按 1080 × 1.4 ≈ 1500px 估算（手机可视区约 1.4 屏宽高比）。
+  - **11.3 切图与导出** `L389` — - 单张高度 ≤ 20000px（部分平台/工具上限），超出切成 2–3 段，重叠 100–200px 保证接缝连续。
+- **§12 社媒图（各平台尺寸表）** `L398` — 标注「官方」= 平台文档明确写出；标注「惯例」= 行业通行但平台未承诺，上线前以平台当前页面为准。
+  - **12.1 尺寸表** `L402`
+  - **12.2 缩略图测试（社媒图的唯一硬指标）** `L424` — 把成品缩到 120px 宽看一眼：
+  - **12.3 平台裁切安全区** `L433` — ---
+- **§13 印刷交付（设计做完不等于能印）** `L445` — - 字体转曲（outline） 或嵌入字体。转曲后不能再改字，保留一份可编辑源文件。
+  - **13.1 五个必查项** `L447`
+  - **13.2 字体与文件** `L457` — - 字体转曲（outline） 或嵌入字体。转曲后不能再改字，保留一份可编辑源文件。
+  - **13.3 纸张与工艺（影响设计决策）** `L464` — ---
+- **§14 CSS 实现（可抄）** `L476` — css
+  - **14.1 编辑型网格（12 栏 + subgrid 对齐）** `L478` — css
+  - **14.2 长文排版（一次给全）** `L503` — css
+  - **14.3 首字下沉（drop cap）** `L527` — css
+  - **14.4 多栏文本（杂志内页）** `L539` — css
+  - **14.5 竖排（中文/日文传统版式）** `L552` — css
+  - **14.6 图片按版心比例裁切** `L566` — css
+- **§15 中文版式专项（避头尾 / 标点 / 竖排）** `L579` — 中文排版三条最常翻车的：① 用 letter-spacing 拉大字距冒充"高级感"（方块结构散了）；② 用 text-align: justify 但不处理标点挤压（出现"孤字成行"）；③ 中英混排不加空隙（2026年11月1日 与 20
+- **§16 工具链（star / 许可实测 2026-11-01）** `L598` — 选型建议：
+- **§17 反模式（20 条，逐条对照）** `L621` — 1. 正文通栏 1200px，一行 130 字符 —— 读者第三行就串行。
+- **§18 自检（18 项，交付前逐条过）** `L646` — 网格与版心
+- **§19 三套可抄模板** `L676` — html
+  - **19.1 A2 海报（上下分割，含出血）** `L678` — html
+  - **19.2 1080 宽长图首屏** `L707` — html
+  - **19.3 OG / 社媒分享卡（Satori 友好：只用 flex）** `L730` — html
+- **§20 与其他文件的分工** `L756` — 一句话分工：本文件管"版面怎么分、字怎么排、图怎么印"；responsive-layout.md 管"宽度变了怎么办"；chinese-design.md 管"中文特有的字与标点"。
+
 ### `references/feedback-states.md` · 反馈与状态设计 — Feedback & States（深度蒸馏）
 _587 行 · 快照 2026-11-01 · 54 节_
 
@@ -356,7 +430,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_249 行 · 快照 2026-11-01 · 34 节_
+_262 行 · 快照 2026-11-01 · 35 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -384,14 +458,15 @@ _249 行 · 快照 2026-11-01 · 34 节_
   - **必读材料** `L139` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L145` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L148` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **五条专题支线（可与主线并行）** `L153` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **六条专题支线（可与主线并行）** `L153` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L155` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L159` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L168` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
   - **支线 D · 可访问性（不是"加分项"，是交付门槛）** `L176` — - 四档对比度：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。不可四舍五入（4.499:1 不达标）。
   - **支线 E · 反馈与状态（"有没有回应"决定可不可信）** `L186` — - 五层反馈：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。严重度决定层级，不决定颜色。
-- **学习节奏（可持续，不靠意志力）** `L198` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（27 条，做到 ≥20 条即达 L2+）** `L212` — L0
+  - **支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）** `L196` — - 先判载体：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。
+- **学习节奏（可持续，不靠意志力）** `L208` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（30 条，做到 ≥22 条即达 L2+）** `L222` — L0
 
 ### `references/motion-system.md` · 动效与微交互系统 — Motion System（深度蒸馏）
 _348 行 · 快照 2026-10-30 · 21 节_
@@ -645,39 +720,60 @@ _167 行 · 快照 — · 12 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
+- **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
+- **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径（否则后面全是空谈）** → `references/accessibility.md` L9
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
+- **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
+- **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
+- **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
+- **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
+- **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 可抄代码** → `references/feedback-states.md` L485
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
+- **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
 - **§15 工具与库（2026-11-01 GitHub API 实测）** → `references/feedback-states.md` L573
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
+- **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
 - **§17 上线前自检：25 条（按可判定性排序）** → `references/accessibility.md` L607
+- **§17 反模式（20 条，逐条对照）** → `references/editorial-layout.md` L621
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
+- **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
+- **§19 三套可抄模板** → `references/editorial-layout.md` L676
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
+- **§2 网格类型与选择** → `references/editorial-layout.md` L54
+- **§20 与其他文件的分工** → `references/editorial-layout.md` L756
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
+- **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§4 加载与进度** → `references/feedback-states.md` L126
+- **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
+- **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
+- **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
+- **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
+- **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
+- **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
 - **§9 表单无障碍：只补 form-table.md 没说的** → `references/accessibility.md` L330
 - **一、DESIGN.md 是什么，为什么值得作为交付物** → `references/design-md-format.md` L10
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
@@ -691,12 +787,12 @@ _167 行 · 快照 — · 12 节_
 - **二、九章骨架（照此结构写，不增不减）** → `references/design-md-format.md` L26
 - **五、Token 输出格式（三种落地形态）** → `references/design-tokens.md` L156
 - **五、何时把 DESIGN.md 作为交付物** → `references/design-md-format.md` L153
-- **五条专题支线（可与主线并行）** → `references/knowledge-map.md` L153
 - **仪表盘 Dashboard** → `references/patterns.md` L81
 - **元素覆盖矩阵** → `references/component-libraries.md` L5
 - **全景：五级台阶与对应产出** → `references/knowledge-map.md` L9
 - **六、写 DESIGN.md 的四条纪律** → `references/design-md-format.md` L173
 - **六、常见错误（逐条对照）** → `references/design-tokens.md` L218
+- **六条专题支线（可与主线并行）** → `references/knowledge-map.md` L153
 - **功能特性区 Features** → `references/patterns.md` L41
 - **匹配与反馈日志（追加层，只增不改）** → `memory/design-log.md` L11
 - **卡片 Card** → `references/patterns.md` L89
@@ -705,22 +801,22 @@ _167 行 · 快照 — · 12 节_
 - **四、中文排版自检清单（交付前逐条过）** → `references/chinese-design.md` L182
 - **四、中文设计系统矩阵（GitHub 验证 · 2026-10-29）** → `references/design-tokens.md` L133
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L198
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L208
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L44
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L45
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据表格 Data Table** → `references/patterns.md` L108
 - **用法** → `references/inspiration.md` L5 · `references/portfolios.md` L5 · `references/resources.md` L5 · `references/tools.md` L5
 - **登录/注册 Auth** → `references/patterns.md` L73
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（27 条，做到 ≥20 条即达 L2+）** → `references/knowledge-map.md` L212
-- **自我成长机制（用得越多越准）** → `SKILL.md` L327
-- **自我进化机制（知识保鲜）** → `SKILL.md` L340
+- **能力自测（30 条，做到 ≥22 条即达 L2+）** → `references/knowledge-map.md` L222
+- **自我成长机制（用得越多越准）** → `SKILL.md` L355
+- **自我进化机制（知识保鲜）** → `SKILL.md` L368
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L361
+- **边界与习惯** → `SKILL.md` L389
 - **选型规则** → `references/component-libraries.md` L24
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

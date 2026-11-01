@@ -27,7 +27,7 @@ MEM = ROOT / "memory"
 
 # (文件名, 中文名, 定位说明)
 ASSETS = [
-    ("knowledge-map.md", "知识路线图", "L0→L4 分级目标 / 必读 / 练习 / 验收 + 20 条自测"),
+    ("knowledge-map.md", "知识路线图", "L0→L4 分级目标 / 必读 / 练习 / 验收 + {selftests} 条自测"),
     ("patterns.md", "元素设计模式", "12 类高频元素的构型谱系、参数区间、速配规则"),
     ("design-tokens.md", "设计 Token 体系", "三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵"),
     ("motion-system.md", "动效与微交互系统", "曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收"),
@@ -36,6 +36,7 @@ ASSETS = [
     ("accessibility.md", "可访问性实操", "WCAG 2.2 四档阈值 / 焦点三层标准与可抄样式 / 24px 圆间距例外 / ARIA 纪律 / aria-live / 读屏实测 / GB/T 37668 与适老化 / 25 条自检"),
     ("feedback-states.md", "反馈与状态设计", "五层反馈决策树 / 0.1·1·10s 阈值 / 四体系 toast 时长与宽度 / 加载三形态 / 进度六铁律 / 五种空态 / 五级错误 / 确认框八条 / 五态模型 / WCAG 4.1.3 / 15 项自检"),
     ("responsive-layout.md", "响应式与断点体系", "六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式"),
+    ("editorial-layout.md", "版式与网格（Editorial）", "五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检"),
     ("design-md-format.md", "DESIGN.md 规范", "九章骨架 + 54 品牌 DNA 速查 + 项目类型选型"),
     ("chinese-design.md", "中文设计场景", "中文排版规范 + 中文设计生态地图 + 产品形态特征"),
     ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
@@ -98,14 +99,18 @@ def skill_facts() -> dict:
     README 里的数字一律不手写——上一轮就出现过「11 份参考」「12 类意图路由」
     这类硬编码过期的问题。全部改为从真实文件统计。
     """
-    facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0}
+    facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0, "branches": []}
     refs = sorted(REF.glob("*.md"))
     facts["refs"] = len(refs)
     facts["chars"] = sum(len(p.read_text(encoding="utf-8")) for p in refs)
 
     km = REF / "knowledge-map.md"
     if km.exists():
-        facts["selftests"] = len(re.findall(r"^- \[ \]", km.read_text(encoding="utf-8"), re.M))
+        kt = km.read_text(encoding="utf-8")
+        facts["selftests"] = len(re.findall(r"^- \[ \]", kt, re.M))
+        # 专题支线：`### 支线 X · 名称（…）` → 只取名称部分
+        facts["branches"] = [re.sub(r"（.*$", "", b).strip()
+                             for b in re.findall(r"^### 支线 [A-Z] · (.+)$", kt, re.M)]
 
     sk = ROOT / "SKILL.md"
     if not sk.exists():
@@ -130,8 +135,10 @@ def skill_facts() -> dict:
 
 
 def build() -> str:
+    f = skill_facts()
     rows, total_entries, total_files = [], 0, 0
     for fname, name, desc in ASSETS:
+        desc = desc.replace("{selftests}", str(f["selftests"]))
         p = REF / fname
         n = count_entries(p)
         snap = snapshot(p)
@@ -142,7 +149,6 @@ def build() -> str:
     log = changelog()
     log_md = "\n".join(f"| {d} | {t} |" for d, t in log) or "| — | 尚无记录 |"
     today = time.strftime("%Y-%m-%d")
-    f = skill_facts()
     wan = f"{f['chars'] / 10000:.0f}"
 
     return f"""# Design Partner · 设计伙伴
@@ -170,6 +176,7 @@ def build() -> str:
 | **无障碍过不了验收** | 焦点框被 `outline:none` 杀掉、只靠颜色表状态、读屏念不出、适老化尺寸不够 | `accessibility.md` 四档阈值 + 焦点三层 + 24/44/60 三档 + 25 条自检 |
 | **反馈要么吵要么没** | 保存成功弹一堆 toast、严重错误 3 秒就消失、加载转圈 15 秒没进度、空态只放插画 | `feedback-states.md` 五层决策树 + toast 精确时长 + 五种空态 + 五级错误 |
 | **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
+| **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
 | **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
@@ -196,8 +203,8 @@ def build() -> str:
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
-第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  {f['checks']} 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关）+ 交付说明三段式
+第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 一致性 / 系统化 / 中文修正
+第 6 步  自检与交付    →  {f['checks']} 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -236,7 +243,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含五条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态）、学习节奏表、{f['selftests']} 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含{len(f['branches'])}条专题支线（{' / '.join(f['branches'])}）、学习节奏表、{f['selftests']} 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 

@@ -1,13 +1,13 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
+description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报/长图/信息图/社媒图/印刷品、版式与网格/栏数/页边距/行长/行距/出血、演示文稿、配色、字体、图标、动效/微交互、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/错误页/确认框）、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、品牌视觉、作品集、简历排版；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、**版式与网格（Van de Graaf 页边距 2:3:4:6 + 12 栏与基线网格 + 行长 45–90 字符 / 中文 25–40 字 + 模数阶梯 + 海报出血与安全区 + 长图字号换算 + 九平台社媒尺寸 + 印刷 CMYK 与总墨量）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程。
 ---
 
 # Design Partner 设计伙伴
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v10 · 2026-11-01**（v9→v10 新增：响应式与断点体系——六体系断点精确值对照表、版心阶梯、容器查询 vs 媒体查询的判断规则、`clamp()` 无障碍公式、`100vh` 陷阱与 `svh/dvh`、窄屏表格四策略决策、中后台 1440 画板适配、15 项响应式自检；同时把 README 里硬编码的别名组数改为实时统计）
+**当前版本 v11 · 2026-11-01**（v10→v11 新增：版式与网格——Van de Graaf 页边距 2:3:4:6、12 栏与基线网格、模数阶梯七档、行长 45–90 字符与行距 120–145% 的联动表、孤寡行与断行三件套、海报出血/安全区/远距离字号公式、长图字号换算与分段节奏、九平台社媒尺寸（官方/惯例分级）、印刷 CMYK 与总墨量 300%、竖排与避头尾 CSS、18 项版式自检；同时补齐 11 个排版渲染仓库的 star/许可实测）
 
 资产一览（均在技能目录内，按需读取）：
 
@@ -26,6 +26,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/feedback-states.md` | **反馈与状态设计**：五层反馈决策树（L0–L4）+ 0.1/1/10s 时间阈值与组件映射 + 四体系 toast 时长·位置·宽度精确值（Ant 3s/4.5s·384px、Carbon 5s、M3 4–10s、微信 1.5s）+ 加载三形态分工 + 骨架屏禁用清单 + 进度条六铁律 + 五种空态与五件套结构 + 五级错误与 404/500 文案规则 + 确认框 NN/g 八条 + M3 弹窗尺寸 + 五态数据模型 + 乐观更新回滚 + WCAG 4.1.3/2.2.1 + 10 场景速查 + 20 条反模式 + 15 项自检 + 4 段可抄代码 | **任何 toast/弹窗/加载/骨架屏/空态/错误页/确认框/保存状态/乐观更新** |
 | `references/responsive-layout.md` | **响应式与断点体系**：六体系断点精确值对照（Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584 与 4→8→16 列 · M3 600/840/1200/1600）+ 断点该定在哪（内容断而非设备断）+ 跨断点五动词（露出/分割/缩放/移位/换件）+ gutter 固定 column 流体 + 版心宽度表 + 容器查询 `cq*` 单位与退化 + `clamp()` 无障碍公式（max ≥ 2×min）+ 视口单位陷阱（`vh`≡`lvh`、`svh`/`dvh`）+ `srcset`/`sizes` 五条规则 + 窄屏表格四策略决策 + 中后台 1440 画板与 1366 验收 + 20 条反模式 + 15 项自检 + 6 段可抄代码 | **任何多端/响应式/移动端/平板/断点/容器查询/视口/表格在窄屏怎么变** |
 | `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
+| `references/editorial-layout.md` | **版式与网格**：五类载体决策表 + 网格五型选择 + 12 栏与 gutter 推导 + 基线网格 + Van de Graaf 页边距 2:3:4:6（1/9·2/9）+ 模数阶梯七档 + 行长 45–90 字符与行距 120–145% 联动表 + 孤寡行与断行三件套（balance 6/10 行上限）+ 视觉动线 + 留白占比 + 海报尺寸·出血 3mm·安全区·远距字号公式 + 长图字号换算（设计字号=目标×宽/375）与分段节奏 + 九平台社媒尺寸（官方/惯例分级）+ 印刷 CMYK·总墨量 300%·K100·0.25pt 细线 + 竖排与避头尾 CSS + 20 条反模式 + 18 项自检 + 3 套模板 | **任何海报/长图/社媒图/印刷品/长文版式/网格与栏数/行长行距** |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
 | `references/resources.md` | 组件/图标/动效3D/字体配色（201 条） | 需要设计资产 |
@@ -45,7 +46,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 
 ### 第 0 步 · 先检索，别整份读
 
-资产已超 14 份参考、约 15 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
+资产已超 17 份参考、约 23.5 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
 
 ```bash
 python scripts/dp_search.py "关键词"      # 命中章节 + 行号 + 摘要
@@ -100,6 +101,14 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 | **表格在手机/窄屏** | "表格在手机怎么办""要不要变卡片""横向滚动好不好" | `responsive-layout.md` §9（四策略决策 + WCAG 1.4.10 例外边界 + 粘性首列代码） |
 | **中后台适配** | "1366 上错位""侧栏宽度多少""大屏浪费空间" | `responsive-layout.md` §12（1440 画板 / 1366 必测 / 侧栏 208·64 / 内容最小 720） |
 | **响应式诊断** | "这个页面缩放就乱""手机上要横着滑" | `responsive-layout.md` §15 反模式 20 条 + §14 调试与验收（8 档宽度 + 溢出脚本） |
+| **海报/展板/活动图** | "做个海报""A2 展板""活动主视觉""远处要看得清" | **先读 `editorial-layout.md`**：§10（尺寸·出血·安全区·三层信息·远距字号公式）→ §8 定动线 → §19.1 套模板 |
+| **长图/信息长图** | "做张长图""信息图""公众号长图""往下滑的那种" | `editorial-layout.md` §11（字号换算 = 目标×宽÷375 + 一屏一点 + 分段节奏 + 切图规则） |
+| **社媒图/封面/缩略图** | "小红书封面""公众号首图""视频封面""分享卡/OG 图" | `editorial-layout.md` §12（九平台尺寸表 + 120px 缩略图测试 + 各平台裁切区） |
+| **印刷/交印厂** | "要打印""出血多少""印出来颜色不对""CMYK" | `editorial-layout.md` §13（300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 0.25pt / PDF-X4）+ §10.2 |
+| **网格/栏数/gutter** | "分几栏""栅格怎么分""基线网格""版心多宽" | `editorial-layout.md` §2（五型网格选择）· §3（12 栏理由 + gutter 比例 + 基线 4/8px）· §4（版心与页边距 2:3:4:6） |
+| **长文排版/行长行距** | "一行字太多了""行距多少合适""正文读不下去" | `editorial-layout.md` §6（45–90 字符 / 中文 25–40 字 + 120–145% 联动表）· §7（孤寡行 + 断行三件套） |
+| **竖排/繁体直排** | "竖排文字""直排书""从右往左" | `editorial-layout.md` §14.5（`writing-mode` + `text-combine-upright`）· §15（clreq 竖排规则） |
+| **版式诊断** | "排版很挤/很空""看着乱""说不上哪不对" | `editorial-layout.md` §17 反模式 20 条 + §18 自检 18 项逐条对照 |
 | **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
 | **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
 
@@ -279,6 +288,23 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **中后台**：画板 1440，主流 1920/1440/**1366**（必测）、1280（不可崩）；左右布局固定侧栏+内容缩放，上下布局先保留白下限再压内容。
 - 完整对照表、决策树、可抄代码、20 条反模式、15 项自检 → **`responsive-layout.md`**。
 
+**版式与网格（海报/长图/社媒图/印刷/长文时必做）**
+- **先判载体再排版**：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报（1–5m，3 秒）≠ 长图（30cm，连续滑）≠ 社媒图（缩略图 120px）≠ 印刷品（有物理约束）。**用网页版式做海报 = 远处一片灰**。
+- **页边距借方法不借数字**：Van de Graaf 内:上:外:下 = **2:3:4:6**（1/9 与 2/9），那是**书页装订**系统；网页/海报只需记住两条——**下边距比上边距大 6mm（0.25″）**，**非对称时左右差 ≥25mm** 否则看着像没对齐。
+- **12 栏不是审美是数学**：能被 2/3/4/6 整除。**栏数 × 2 > 屏上元素数时，网格就只是装饰**。gutter **固定**、栏宽流体，gutter ≈ 栏宽 1/4–1/3（桌面 16–24px / 印刷 4–5mm）。
+- **基线网格是最容易跳过、收益最大的一项**：所有垂直尺寸都是 **4 或 8px** 的整数倍。16px × 1.5 = 24px ✓；× 1.6 = 25.6px ✗（取 24 或 32）。**检验法：压暗到只剩文字，基线能连成等距横线**。
+- **字号只用一个比例**：1.2（稳）/ 1.25（常用）/ 1.333（编辑感）/ 1.414（海报）/ 1.5（远看）/ 1.618（大标题）。**正文:主标题 = 2–4 倍**（海报可 6–8 倍），阶梯值取整到偶数。混用两套比例会出现"两个差不多大"的标题。
+- **行长背下来**：西文 **45–90 字符**（2–3 个字母表）；中文 **25–40 字/行**、移动端 15–20。**中文上限比西文更严**（无词间空格，超 45 字回行找首字明显变慢）。
+- **行距与行长联动**：西文 **120–145%**、中文 **1.6–1.8**；`line-height ≈ 1.2 + (字符数−45) × 0.005`。**中文行距必须落回基线**（16px 取 24 或 32，不要 25.6）。
+- **缩进与段间距二选一**：中文缩进 **2em**（首段不缩进）/ 段间距 **0.75–1.0 倍行高**。**并用 = 双重分段，关系反而模糊**。
+- **孤寡行要 3 不是 2**：CSS 默认 `orphans/widows: 2` 只够及格线，书籍用 **3**；标题 `break-after: avoid`。`text-wrap: balance` 只对 **Chromium ≤6 行 / Firefox ≤10 行**生效，超限静默退化。
+- **海报三件事**：① 画布 = 成品 **+ 出血 3mm ×2**（大幅面 6.35mm），底色必须画进出血区；② 文字全在**安全区**（出血内再缩 3–5mm）；③ 信息**三层封顶**（主张 / 支撑 / 细节），L3 字号 **≥18pt**。远距离可读经验公式：**字高(mm) ≈ 观看距离(m) × 8**（下限，主张应 3–5 倍）。
+- **长图字号要换算**：`设计稿字号 = 目标 CSS 字号 × (设计宽 ÷ 375)`。1080 宽 → 正文 **≥44px**（写 28px 在手机上只有 9.7pt）。**一屏一个信息点**（屏高 ≈ 1080×1.4），每 3–5 屏一个气口，单张高 ≤20000px，接缝避开文字行。
+- **社媒图唯一硬指标是缩略图**：缩到 **120px** 还认得出主标题吗？三铁律——**字 ≤12 个、主体 ≤2 个、对比拉到极限**。关键信息避开各平台裁切区（YT 右下 15%、微信首图两侧、小红书底部 20%）。
+- **印刷五查**：成品尺寸下 **300ppi**（A1+ 可 150）/ **CMYK** / 总墨量 **≤300%** / 正文 **K100 单黑**（四色黑 400% 必糊）/ 细线 **≥0.25pt**、中文 **≥7pt**。交 **PDF/X-4**、字体转曲、图片嵌入。
+- **中文版式三条最常翻车**：① 用 `letter-spacing` 拉大字距冒充高级感（方块结构散了）；② `justify` 但不处理标点挤压（孤字成行）；③ 中英混排不留 **1/4 字宽**空隙。中文**不用斜体、不用 500 字重**。
+- 完整尺寸表、出血规则、九平台数据、可抄 CSS（subgrid / initial-letter / 竖排 / 多栏）、20 条反模式、18 项自检 → **`editorial-layout.md`**。
+
 **一致性**
 - 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
 
@@ -319,6 +345,8 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 14. **反馈关**（有交互/有数据时）：每次点击 **100ms 内**有可见变化？**<1s 的请求没加多余 loading**？2–10s 有骨架/局部 spinner 且骨架结构与真实布局一致？>10s 有进度 + 时间估计 + 取消？**严重错误没用 toast**？toast ≤2 行 ≤14 字且**另有就地出口**？一个动作**只给了一次主反馈**？空态**分对了五类**且有一个主操作、标题正向？表格空态**替换了表头与分页**？错误文案含「哪里错 + 为什么 + 怎么改」且 ≤30 字？确认框写了对象名与数量、按钮是动词、**默认焦点不在危险按钮**？破坏性操作有撤销或二次确认？`partial` 态（部分失败）设计过吗？
 
 15. **响应式关**（会在多宽度被看时）：断点 **≤5** 且每个都能说出一句"什么变了"？断点值**同属一套体系**？**320px 无横向滚动**（表格容器除外）？400% 缩放只有**单向滚动**、200% 缩放文字不截断？正文行宽 **25–40 字**、版心到顶后多余宽度**给了留白**？跨断点变化能归到**五动词**之一、换件**功能等价且信息不丢**？gutter 固定 column 流体？全屏高度用 `svh`/`dvh` 且底部栏有 `safe-area-inset`？`clamp()` 最大值 **≥2× 最小值**？图片有 `width`/`height` 且首屏未 lazy？窄屏表格策略是**四选一**而非默认卡片化、横滚表格有**粘性首列**？触屏目标 **≥44px**、hover 内容有触屏路径、**没禁缩放**？过完 **320/375/768/1024/1366/1440/1920** 七档？
+
+16. **版式关**（海报/长图/社媒图/印刷/长文时）：**先判了载体**（观看距离/停留时长/媒介）再排版？行长落在 **45–90 字符**（中文 **25–40 字**）、行距 **120–145%**（中文 1.6–1.8）且与行长联动？全项目**只用一套字号比例**、正文:主标题 **2–4 倍**？所有垂直尺寸都是**基线（4/8px）整数倍**（压暗后基线能连成等距线）？缩进与段间距**只用一个**？`orphans/widows ≥3`、标题 `break-after: avoid`、`text-wrap: balance` 行数在 **6 行内**？下边距**比上边距大 6mm**？留白占比在区间（海报 40–60% / 编辑 30–45% / 长图 20–30%）？**海报**：画布含 **3mm 出血×2**、文字在安全区（再缩 3–5mm）、L3 **≥18pt**、只有**一个最重元素**？**长图**：字号按 **×设计宽÷375** 换算（1080 宽正文 ≥44px）、一屏一点、单张 ≤20000px、接缝不在文字行上？**社媒图**：缩到 **120px** 仍认得出主标题、关键信息避开裁切区？**印刷**：300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 ≥0.25pt / PDF-X4？**中文**：无斜体、无 500 字重、无 `letter-spacing` 疏排、标点全角、避头尾生效、中英混排留 1/4 字宽？
 
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 
@@ -366,4 +394,4 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
 - **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
 - **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)。
+- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)、[Butterick's Practical Typography](https://practicaltypography.com/)（行长 45–90 字符 / 行距 120–145%）、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)（Van de Graaf 2:3:4:6）、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[Instagram 图片分辨率](https://help.instagram.com/1631821640426723)、[X Ads creative specs](https://business.x.com/en/help/campaign-setup/creative-ad-specifications)、[YouTube 缩略图](https://support.google.com/youtube/answer/72431)、[MDN text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)、[MDN initial-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter)、[MDN subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)、[MDN orphans](https://developer.mozilla.org/en-US/docs/Web/CSS/orphans)。

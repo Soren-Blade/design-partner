@@ -292,3 +292,38 @@
 - 源清单 450→**518** 行（性能专题 62 条，六组）
 - 反馈：无真实用户反馈（自动化任务）；下轮验证点：用户说"这个效果会不会太慢"时，是否直接进 §10 价格表而不是全读
 - 效果：待观察
+
+## 2026-11-01 · 设计交付与协作（每日升级 #12）
+
+- 主题：**设计交付与协作**（上轮候选第 1 位；原知识里"走查"零命中、"设计交付"只有 8 条散落在 editorial/accessibility/design-md 的边角）
+- 取源（官方原文 / 源码 / API 实测，无二手总结）：
+  - **Carbon Component checklist**（definition of done 全表）：设计规格**六类**（只用 color/type/spacing token、**所有**间距与对齐都要标、含 hover·focus·selected·disabled·read-only·error·warning、含响应式·溢出重排·展开·滚动、文字 **4.5:1（disabled 例外）**+ 非文本 **3:1** + 焦点流转必须写清）；代码侧"**不得包含未 token 化的魔法数字或颜色**"、响应式到 **~320px**；测试侧单测覆盖 **≥80%**、VRT **至少 1 条默认 story**、AVT **默认态 + 全部复杂态**、读屏 **JAWS/VoiceOver/NVDA**；状态四档 Draft/Preview candidate/Preview/Stable
+  - **Carbon 2x Grid**：mini unit **8px**、padding **恒 16**、gutter 合计 **32**、sizing **8/16/24/32/48/64/80**、断点表 **320/672/1056/1312/1584**（列数 **4→8→16**，单列占比 25/12.5/6.25%、Margin 0/16/16/16/24）、比例 **1:1·2:1·2:3·3:2·4:3·16:9**、"文字对齐 padding 边缘不得压在 padding 上"
+  - **Carbon Spacing**：`$spacing-01`–`13` 全 13 档精确 px/rem（**2·4·8·12·16·24·32·40·48·64·80·96·160**）；"偏离阶梯应尽可能避免"；百分比可做分栏不可做间距；**token 本身不随断点变，但允许在断点跳档**
+  - **Figma Dev Mode**：Inspect 面板（Code/List 双模式、语言与单位可切、值可点复制）、**Ready for dev**（全付费套餐）/ **Completed**（仅 Org/Enterprise）、Annotations、**Dev resources 传播到所有实例**、Code Connect 套餐与用途、导出 **PNG/JPG/SVG/PDF**
+  - **Figma 组件命名与变体**：斜杠生成层级、`Button/Primary/Large/Default/False` → 1 组件集 + 4 属性、**每个被合并组件斜杠数必须相同**、同组合必须唯一、**默认变体 = 左上角**、组件集只能装组件、**不要用变体分组不同图标**、"导入大组件集会拖慢文件"
+  - **W3C DTCG Design Tokens Format 2025.10**：`.tokens`/`.tokens.json`、MIME 两种、**含 `$value` 才是 token / 不含才是组**、名称禁 `$ { } .`、类型继承三级（引用→最近父组→无效，**禁止猜类型**）、别名 `{}` 与 `$ref` 两种都必支持、`$extends` 深合并、`$root`、**必须报错的 6 类错误**、基础 7 类型 + 复合 4 类型、`dimension` 仅 **px/rem**、fontWeight **100–950** 十档映射；官方标注**预览草稿、不可据此实现**
+  - **Style Dictionary**：原生 `value/type/comment` 与 DTCG `$value/$type/$description` **不可混用**、`include` 先于 `source` 且后者覆盖前者、`source` 之间冲突才警告、CTI 结构、自动元数据 `path/original/filePath/isSource`
+  - **SemVer 2.0.0** 全 11 条原文 + FAQ：已发布内容不可改、`0.y.z`、**标记废弃必须升 MINOR**、**移除前至少隔一个 MINOR**、预发布与 build 元数据优先级规则
+  - **Cucumber Gherkin**：Given 只写状态 / When 单个动作 / Then 只验**可观测**结果（**禁查数据库**）、**每场景 3–5 步**、Background **>4 行就该上提**
+  - **NN/g Design Critiques**：standalone critique vs design review 之别、三主题（范围/目标/对话）、round robin 与 **quota 2 正 1 改**、facilitator **轮换**、**每周 30 分钟**起步、reframing 两组实例、**五个坑**
+  - **优设·设计走查**：定义（还原度检查/视觉 Review/设计验证）与**体验走查**之别、**提测后测试跑完一遍**介入、**三遍法**（流程→交互→视觉）、文档 **9 字段**、**P0–P3**、邮件+当面澄清+复查、**约占项目 1/4 时间**
+  - 仓库实测 10 个：storybook **91420★** MIT / playwright **99007★** Apache-2.0 / BackstopJS **7192★** MIT / reg-suit **1305★** MIT / addon-designs **952★** MIT / chromatic-cli **342★** MIT / DTCG community-group **2160★** NOASSERTION；**lost-pixel 1676★ 已于 2026-04-22 归档**（勿新采用）；另发现 `amzn/style-dictionary` 已迁移到 `style-dictionary/style-dictionary`（**4875★** Apache-2.0）、`backstopjs/backstopjs` 迁到 `garris/BackstopJS`
+- 新增 `references/handoff-collaboration.md`（20 节 / **851 行 / 52.1k 字符**）
+- **本轮最大价值：把"交付靠默契"变成"交付可判定"**
+  - §2 三层信息模型 **intent / rule / value**，给出可操作检验："**拿掉设计稿，开发能不能做出第二个页面**"
+  - §4 **只标四类**（例外值/对齐关键线/尺寸约束/断点切换）+ Carbon 硬数值表，把"标注"从体力活变成查表
+  - §5 **9 态矩阵**（Carbon 7 + loading + empty）与"组合爆炸三刀砍"，并纠正一个高频误用：**Carbon 的 4.5:1 例外只给 disabled**，read-only/占位/暗色次级文字都不适用
+  - §11 **P0–P3 只看"用户还能不能完成目标"**，配发布门禁（P0=0、P1 书面豁免写"谁批何时补"）
+  - §12 **改默认值 = MAJOR**——最常被误判成 PATCH 的不兼容变更
+  - §17 **六个交付指标 + 两个过程指标**（"开发问多少 px 的次数趋近 0"）
+- SKILL.md v15：资产表 +1 行、意图路由 **83→92** 类（交付/AC/评审/走查/分级/命名/发版/token 管线/回归）、第 5 步新增「交付与协作」节 21 条、自检 19→**20**（交付关）、frontmatter description 加交付段、数据来源 +13 条
+- knowledge-map：支线 J（九→**十条**）、自测 45→**50**（+5 条交付硬指标）、门槛 ≥34→**≥38**
+- 别名 66→**74** 组（设计交付/设计走查/验收标准/设计评审/缺陷分级/组件命名/版本管理/token 交付），**路由顺序一行未动**
+- **修掉一个系统性索引缺陷**：`mindmap.py` 的标题正则在代码块内也生效 → 变更日志模板里的 `## [2.0.0] - 2026-11-01` 被当成真章节进索引（`2.0.0` 能查到一条假章节）。新增 `mask_fences()`：把围栏代码块抹成等长空格，**保留字符位置**，标题只在块外识别、正文仍从原文切。修后假章节消失，章节数 719→720（净增来自真实小节）
+- **修掉一个别名污染**：`栅格` 同时挂在「间距」组里，导致新文件的 spacing 表把"栅格怎么分"顶到第 1。把 `栅格` 从「间距」组移除（它本属「版心」组）→ 修后查「栅格」回 `responsive-layout.md §5 栅格与版心`
+- 检索门槛：18 个交付关键词全部命中 `handoff-collaboration.md` 前 3，**FAIL 0**；回归 20 项（对比度/表单/表格/卡片/导航/图表/动效/toast/断点/海报/logo/暗色/焦点/空态/缓动/色阶/栅格/触控/骨架屏/行高）**20/20 落回原主文件或合理位置**
+- 接线体检：23 文件 / **720 章节**，未接线 0、失联 0
+- 源清单 518→**569** 行（交付专题 46 条源 + 5 组标题）
+- 反馈：无真实用户反馈（自动化任务）；下轮验证点：用户说"这稿子怎么交给开发"时，是否直接进 §3 spec 九字段而不是整份读
+

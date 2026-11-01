@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-01T15:23:51",
+ "generated": "2026-11-01T15:45:51",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 501,
-   "chars": 51767,
+   "lines": 539,
+   "chars": 60804,
    "sections": []
   },
   {
@@ -244,9 +244,9 @@
      "id": "8-4-图标按钮必须有名称",
      "level": 3,
      "title": "8.4 图标按钮必须有名称",
-     "summary": "html",
+     "summary": "只有图标、没有可访问名称的按钮，读屏会念\"按钮\"——用户完全不知道它干什么。",
      "line": 321,
-     "chars": 140
+     "chars": 46
     },
     {
      "id": "9-表单无障碍-只补-form-table-md-没说的",
@@ -260,9 +260,9 @@
      "id": "9-1-错误与帮助的关联-aria-侧",
      "level": 3,
      "title": "9.1 错误与帮助的关联（ARIA 侧）",
-     "summary": "html",
+     "summary": "- aria-describedby 同时挂帮助和错误，读屏聚焦时会一起念。",
      "line": 334,
-     "chars": 485
+     "chars": 181
     },
     {
      "id": "9-2-错误摘要-多字段表单必做",
@@ -316,9 +316,9 @@
      "id": "11-2-图表的具体写法",
      "level": 3,
      "title": "11.2 图表的具体写法",
-     "summary": "html",
+     "summary": "内联 SVG 若含可聚焦元素或大量 <path，加 aria-hidden=\"true\" 并把文字说明放在外部。dataviz.md §9 的对比度要求与此处并行：视觉可读与语义可读是两件事。",
      "line": 427,
-     "chars": 367
+     "chars": 114
     },
     {
      "id": "11-3-图标字体",
@@ -364,9 +364,9 @@
      "id": "13-用户偏好媒体查询-三条-别只做第一条",
      "level": 2,
      "title": "§13 用户偏好媒体查询（三条，别只做第一条）",
-     "summary": "css",
+     "summary": "forced-colors 是最容易被忽略的一条：Windows 高对比度模式下，box-shadow、background-image、linear-gradient 全部被抹掉。凡是\"靠阴影表达层级\"\"靠渐变区分按钮\"的界面，在这个模式",
      "line": 491,
-     "chars": 682
+     "chars": 198
     },
     {
      "id": "14-读屏实测-不做实测等于没做",
@@ -549,9 +549,9 @@
      "id": "选择决策树",
      "level": 3,
      "title": "选择决策树",
-     "summary": "名字 ≤10 字符且要好记？ ── 是 ──→ 字标（最省认知成本）",
+     "summary": "三条硬立场：",
      "line": 90,
-     "chars": 543
+     "chars": 194
     },
     {
      "id": "5-标志几何构造-网格-基形-笔画-光学修正",
@@ -605,9 +605,9 @@
      "id": "6-2-落地写法-不要用-margin-用-padding",
      "level": 3,
      "title": "6.2 落地写法（不要用 margin，用 padding）",
-     "summary": "css",
+     "summary": "四个必须写进手册的数值：top / right / bottom / left 各多少 px（按最小尺寸算一次、按主尺寸算一次）。",
      "line": 177,
-     "chars": 329
+     "chars": 72
     },
     {
      "id": "6-3-联合品牌-co-branding-间距",
@@ -637,9 +637,9 @@
      "id": "7-2-响应式标志四档-一套系统-不是一张图",
      "level": 3,
      "title": "7.2 响应式标志四档（一套系统，不是一张图）",
-     "summary": "① 主组合标 图形 + 全称（+ 可选标语） ≥ 160px",
+     "summary": "切换纪律：",
      "line": 213,
-     "chars": 343
+     "chars": 152
     },
     {
      "id": "8-品牌色-主色怎么定-不是-选个好看的颜色",
@@ -917,33 +917,33 @@
      "id": "18-1-标志清space-响应式四档",
      "level": 3,
      "title": "18.1 标志清space + 响应式四档",
-     "summary": "html",
+     "summary": "",
      "line": 559,
-     "chars": 453
+     "chars": 1
     },
     {
      "id": "18-2-单色标志跟随文字色",
      "level": 3,
      "title": "18.2 单色标志跟随文字色",
-     "summary": "html",
+     "summary": "",
      "line": 579,
-     "chars": 245
+     "chars": 1
     },
     {
      "id": "18-3-品牌色双主题-tone-映射-不是反色",
      "level": 3,
      "title": "18.3 品牌色双主题（tone 映射，不是反色）",
-     "summary": "css",
+     "summary": "",
      "line": 591,
-     "chars": 336
+     "chars": 1
     },
     {
      "id": "18-4-favicon-manifest-最小套件",
      "level": 3,
      "title": "18.4 favicon / manifest 最小套件",
-     "summary": "html",
+     "summary": "---",
      "line": 608,
-     "chars": 477
+     "chars": 6
     },
     {
      "id": "19-反模式-20-条",
@@ -1006,9 +1006,9 @@
      "id": "1-3-中文字体族栈-可直接用",
      "level": 3,
      "title": "1.3 中文字体族栈（可直接用）",
-     "summary": "css",
+     "summary": "衬线 vs 无衬线：中文正文用无衬线（黑体）更清晰；宋体适合长文阅读、文化/出版调性、大标题。混用两套中文衬线/无衬线是灾难，最多 1 套中文 + 1 套西文。",
      "line": 32,
-     "chars": 770
+     "chars": 533
     },
     {
      "id": "1-4-字重陷阱-中文特有",
@@ -1160,9 +1160,9 @@
      "id": "1-3-决策树",
      "level": 3,
      "title": "1.3 决策树",
-     "summary": "目标用户是普通大众 / 办公 / 数据录入 / 长文阅读？",
+     "summary": "三条硬规矩：",
      "line": 40,
-     "chars": 441
+     "chars": 234
     },
     {
      "id": "2-表面层级-暗色的核心是-重排-不是-反相",
@@ -1376,17 +1376,17 @@
      "id": "9-1-web-三件事必须一起做",
      "level": 3,
      "title": "9.1 Web：三件事必须一起做",
-     "summary": "html",
+     "summary": "MDN 明确的三点：",
      "line": 320,
-     "chars": 890
+     "chars": 275
     },
     {
      "id": "9-2-防闪白-fouc-唯一正确顺序",
      "level": 3,
      "title": "9.2 防闪白（FOUC）：唯一正确顺序",
-     "summary": "1. <head 里 meta color-scheme（浏览器绘制前生效）",
+     "summary": "内联脚本必须在 CSS 之前、且不能 defer。Tailwind 官方示例也是这个思路（\"best to add inline in head to avoid FOUC\"）：",
      "line": 355,
-     "chars": 423
+     "chars": 281
     },
     {
      "id": "9-3-三态切换的存储约定",
@@ -1400,17 +1400,17 @@
      "id": "9-4-tailwind-v4-的两种写法",
      "level": 3,
      "title": "9.4 Tailwind v4 的两种写法",
-     "summary": "css",
+     "summary": "推荐 data-theme：和 CSS 变量方案统一，且不会和第三方库的 .dark class 打架。",
      "line": 383,
-     "chars": 281
+     "chars": 63
     },
     {
      "id": "9-5-微信小程序暗色适配-theme-json-官方配置逐字",
      "level": 3,
      "title": "9.5 微信小程序暗色适配（theme.json 官方配置逐字）",
-     "summary": "json",
+     "summary": "- 用 @变量名 引用：\"navigationBarBackgroundColor\": \"@navBgColor\"。",
      "line": 398,
-     "chars": 961
+     "chars": 701
     },
     {
      "id": "9-6-ios-android",
@@ -1472,33 +1472,33 @@
      "id": "14-1-完整变量骨架-亮-暗双套-含层级与文字四档",
      "level": 3,
      "title": "14.1 完整变量骨架（亮/暗双套，含层级与文字四档）",
-     "summary": "css",
+     "summary": "",
      "line": 537,
-     "chars": 1301
+     "chars": 1
     },
     {
      "id": "14-2-防-fouc-的三行脚本-放-head-最前-不-defer",
      "level": 3,
      "title": "14.2 防 FOUC 的三行脚本（放 <head 最前，不 defer）",
-     "summary": "html",
+     "summary": "",
      "line": 583,
-     "chars": 467
+     "chars": 1
     },
     {
      "id": "14-3-三态切换组件逻辑",
      "level": 3,
      "title": "14.3 三态切换组件逻辑",
-     "summary": "js",
+     "summary": "",
      "line": 598,
-     "chars": 547
+     "chars": 1
     },
     {
      "id": "14-4-暗色图片处理",
      "level": 3,
      "title": "14.4 暗色图片处理",
-     "summary": "css",
+     "summary": "---",
      "line": 620,
-     "chars": 433
+     "chars": 6
     },
     {
      "id": "15-参考来源",
@@ -1537,9 +1537,9 @@
      "id": "2-图表选型决策树-30-秒版",
      "level": 2,
      "title": "2. 图表选型决策树（30 秒版）",
-     "summary": "数据里有几个变量？",
+     "summary": "硬上限（超过就换图形，不要硬塞）：",
      "line": 43,
-     "chars": 713
+     "chars": 284
     },
     {
      "id": "3-色板-三类用途-不许混用",
@@ -1563,7 +1563,7 @@
      "title": "3.2 分类色板 · AntV 默认 10 色（中文项目常用，G2 v5 源码实测）",
      "summary": "配套语义色（状态用，不要当分类色）：危险 #F4664A｜成功 #30BF78｜警告 #FAAD14。",
      "line": 102,
-     "chars": 328
+     "chars": 231
     },
     {
      "id": "3-3-顺序色板-连续值-热力-地图",
@@ -1923,25 +1923,25 @@
      "id": "5-1-css-变量-推荐-最通用",
      "level": 3,
      "title": "5.1 CSS 变量（推荐，最通用）",
-     "summary": "css",
+     "summary": "",
      "line": 158,
-     "chars": 429
+     "chars": 1
     },
     {
      "id": "5-2-tailwind-配置-工程侧",
      "level": 3,
      "title": "5.2 Tailwind 配置（工程侧）",
-     "summary": "js",
+     "summary": "",
      "line": 183,
-     "chars": 280
+     "chars": 1
     },
     {
      "id": "5-3-json-给设计工具-agent-用",
      "level": 3,
      "title": "5.3 JSON（给设计工具 / agent 用）",
-     "summary": "json",
+     "summary": "一份 token 三处输出（CSS / Tailwind / JSON）是标准做法；源头只能有一份，其余由脚本生成，否则必然漂移。",
      "line": 199,
-     "chars": 400
+     "chars": 79
     },
     {
      "id": "六-常见错误-逐条对照",
@@ -2348,49 +2348,49 @@
      "id": "14-1-编辑型网格-12-栏-subgrid-对齐",
      "level": 3,
      "title": "14.1 编辑型网格（12 栏 + subgrid 对齐）",
-     "summary": "css",
+     "summary": "subgrid 关键事实（MDN）：grid-template-columns: subgrid 让子网格复用父级轨道尺寸，gap 默认继承（可覆盖）；子网格内行号从 1 重新计数；子网格维度不会生成隐式轨道——自动放置超出时会挤进最后一轨",
      "line": 478,
-     "chars": 647
+     "chars": 166
     },
     {
      "id": "14-2-长文排版-一次给全",
      "level": 3,
      "title": "14.2 长文排版（一次给全）",
-     "summary": "css",
+     "summary": "",
      "line": 503,
-     "chars": 633
+     "chars": 1
     },
     {
      "id": "14-3-首字下沉-drop-cap",
      "level": 3,
      "title": "14.3 首字下沉（drop cap）",
-     "summary": "css",
+     "summary": "注意（MDN）：initial-letter: 3 等价 3 3（sink = size）；3 1 是凸起（raised）效果。中文不用首字下沉（方块字下沉后与后续字基线错位，视觉很怪）。",
      "line": 527,
-     "chars": 319
+     "chars": 115
     },
     {
      "id": "14-4-多栏文本-杂志内页",
      "level": 3,
      "title": "14.4 多栏文本（杂志内页）",
-     "summary": "css",
+     "summary": "",
      "line": 539,
-     "chars": 269
+     "chars": 1
     },
     {
      "id": "14-5-竖排-中文-日文传统版式",
      "level": 3,
      "title": "14.5 竖排（中文/日文传统版式）",
-     "summary": "css",
+     "summary": "clreq 要点：直排时行由右向左、栏水平切割、书页由左页起；西文单词顺时针旋转 90°，并在与汉字间加 ≤1/4 汉字宽字距（行首行尾除外）；2–3 位数字用纵中横排。",
      "line": 552,
-     "chars": 375
+     "chars": 108
     },
     {
      "id": "14-6-图片按版心比例裁切",
      "level": 3,
      "title": "14.6 图片按版心比例裁切",
-     "summary": "css",
+     "summary": "---",
      "line": 566,
-     "chars": 157
+     "chars": 6
     },
     {
      "id": "15-中文版式专项-避头尾-标点-竖排",
@@ -2436,25 +2436,25 @@
      "id": "19-1-a2-海报-上下分割-含出血",
      "level": 3,
      "title": "19.1 A2 海报（上下分割，含出血）",
-     "summary": "html",
+     "summary": "",
      "line": 678,
-     "chars": 952
+     "chars": 1
     },
     {
      "id": "19-2-1080-宽长图首屏",
      "level": 3,
      "title": "19.2 1080 宽长图首屏",
-     "summary": "html",
+     "summary": "",
      "line": 707,
-     "chars": 779
+     "chars": 1
     },
     {
      "id": "19-3-og-社媒分享卡-satori-友好-只用-flex",
      "level": 3,
      "title": "19.3 OG / 社媒分享卡（Satori 友好：只用 flex）",
-     "summary": "html",
+     "summary": "Satori 限制：只支持 flex 子集（无 grid、无 gap 的部分写法、需内联样式或 tw 属性），字体需显式传入。",
      "line": 730,
-     "chars": 793
+     "chars": 81
     },
     {
      "id": "20-与其他文件的分工",
@@ -2493,9 +2493,9 @@
      "id": "1-2-三问决策树-照此走-不要凭手感",
      "level": 3,
      "title": "1.2 三问决策树（照此走，不要凭手感）",
-     "summary": "① 这条信息需要用户「做一个决定」吗？",
+     "summary": "",
      "line": 22,
-     "chars": 276
+     "chars": 1
     },
     {
      "id": "1-3-三条硬规则",
@@ -2621,9 +2621,9 @@
      "id": "4-4-按钮内-loading-最高频-最容易做错",
      "level": 3,
      "title": "4.4 按钮内 loading（最高频、最容易做错）",
-     "summary": "css",
+     "summary": "- 文案：动词进行时（\"保存中…\"→\"已保存\"），不要\"提交\"→\"提交中\"→\"提交\"。",
      "line": 156,
-     "chars": 338
+     "chars": 174
     },
     {
      "id": "4-5-乐观更新-optimistic-ui",
@@ -2653,9 +2653,9 @@
      "id": "5-2-结构五件套-carbon",
      "level": 3,
      "title": "5.2 结构五件套（Carbon）",
-     "summary": "[图（可选）] ← 与情境相关；空间小就省略，只留文字",
+     "summary": "- 标题必须正向。Carbon 原文举例：\"Start by adding data assets\" 比 \"You don't have any data assets\" 更好；退一步可用 \"还没有…\"（带\"还\"字暗示会变）。",
      "line": 191,
-     "chars": 405
+     "chars": 191
     },
     {
      "id": "5-3-布局与尺寸",
@@ -2701,9 +2701,9 @@
      "id": "6-3-错误文案三段式-报错文案怎么写",
      "level": 3,
      "title": "6.3 错误文案三段式（报错文案怎么写）",
-     "summary": "[发生了什么] + [为什么] + [怎么办]",
+     "summary": "- ❌ \"系统错误，请稍后重试\"（三样全缺）",
      "line": 259,
-     "chars": 247
+     "chars": 214
     },
     {
      "id": "6-4-重试的纪律",
@@ -2749,9 +2749,9 @@
      "id": "7-4-危险确认的文案模板",
      "level": 3,
      "title": "7.4 危险确认的文案模板",
-     "summary": "标题：删除「项目 A」？ ← 动作 + 对象名",
+     "summary": "- 危险按钮用危险色，取消按钮用中性色。两个都红 = 没有重点。",
      "line": 317,
-     "chars": 307
+     "chars": 149
     },
     {
      "id": "8-五态数据模型-工程落地",
@@ -2765,9 +2765,9 @@
      "id": "8-1-每个数据区块都必须实现的五态",
      "level": 3,
      "title": "8.1 每个数据区块都必须实现的五态",
-     "summary": "idle → loading → success",
+     "summary": "partial 是最常被漏掉的一态：一个仪表盘 6 张卡片挂了 2 张，正确做法是其余 4 张正常显示 + 2 张各自显示错误与重试，而不是整页报错。",
      "line": 335,
-     "chars": 262
+     "chars": 88
     },
     {
      "id": "8-2-列表页的加载序列",
@@ -2869,33 +2869,33 @@
      "id": "14-1-toast-容器-预置-aria-live-避免-插入即不播报",
      "level": 3,
      "title": "14.1 Toast 容器（预置 aria-live，避免\"插入即不播报\"）",
-     "summary": "html",
+     "summary": "",
      "line": 487,
-     "chars": 638
+     "chars": 1
     },
     {
      "id": "14-2-骨架屏-结构对齐-尊重-reduced-motion",
      "level": 3,
      "title": "14.2 骨架屏（结构对齐 + 尊重 reduced-motion）",
-     "summary": "css",
+     "summary": "",
      "line": 510,
-     "chars": 549
+     "chars": 1
     },
     {
      "id": "14-3-按钮-loading-宽度锁定-不跳版",
      "level": 3,
      "title": "14.3 按钮 loading（宽度锁定，不跳版）",
-     "summary": "html",
+     "summary": "",
      "line": 532,
-     "chars": 640
+     "chars": 1
     },
     {
      "id": "14-4-危险确认-结构-焦点纪律",
      "level": 3,
      "title": "14.4 危险确认（结构 + 焦点纪律）",
-     "summary": "html",
+     "summary": "---",
      "line": 558,
-     "chars": 365
+     "chars": 6
     },
     {
      "id": "15-工具与库-2026-11-01-github-api-实测",
@@ -3237,6 +3237,599 @@
    ]
   },
   {
+   "path": "references/handoff-collaboration.md",
+   "title": "设计交付与协作 / Design Handoff & Collaboration",
+   "snapshot": "2026-11-01",
+   "lines": 851,
+   "chars": 29950,
+   "sections": [
+    {
+     "id": "1-一页速查-交付链的六个关卡",
+     "level": 2,
+     "title": "1. 一页速查：交付链的六个关卡",
+     "summary": "设计交付不是\"发个链接\"，是六次信息交接。每一次交接都会掉信息，掉的那部分最终会以返工的形式回来。",
+     "line": 9,
+     "chars": 550
+    },
+    {
+     "id": "2-交付的本质-交付决策-不是交付图",
+     "level": 2,
+     "title": "2. 交付的本质：交付决策，不是交付图",
+     "summary": "一张设计稿里其实有三层信息，交付时经常只传了最表面的一层：",
+     "line": 26,
+     "chars": 577
+    },
+    {
+     "id": "3-交付物清单-spec-sheet-的-9-个字段",
+     "level": 2,
+     "title": "3. 交付物清单：spec sheet 的 9 个字段",
+     "summary": "Carbon 把设计规格（design spec）定义为\"开发用来在代码里构建组件、设计师用来在 Figma 里构建组件的蓝图，是视觉外观与功能的唯一事实来源\"。它要求的六类内容，加上中文项目实际要的沟通字段，合成 9 项：",
+     "line": 50,
+     "chars": 1360
+    },
+    {
+     "id": "4-标注规则-标例外-不标全量",
+     "level": 2,
+     "title": "4. 标注规则：标例外，不标全量",
+     "summary": "Carbon 2x Grid 的硬数值（可直接抄）：",
+     "line": 79,
+     "chars": 1
+    },
+    {
+     "id": "4-1-先把网格定死-标注量会掉一个数量级",
+     "level": 3,
+     "title": "4.1 先把网格定死，标注量会掉一个数量级",
+     "summary": "Carbon 2x Grid 的硬数值（可直接抄）：",
+     "line": 81,
+     "chars": 805
+    },
+    {
+     "id": "4-2-spacing-token-13-档-carbon-官方精确值",
+     "level": 3,
+     "title": "4.2 spacing token 13 档（Carbon 官方精确值）",
+     "summary": "Carbon 对\"能不能用阶梯外的值\"的回答是明确的：\"偏离 spacing 阶梯应尽可能避免\"。百分比（50% / 33%）可用于分栏与 max/min 宽度，但不能当间距。",
+     "line": 103,
+     "chars": 929
+    },
+    {
+     "id": "4-3-只标这四类-其余靠-token-与网格",
+     "level": 3,
+     "title": "4.3 只标这四类，其余靠 token 与网格",
+     "summary": "不要标：每一条 8px 的间距、每个 padding、每个已经 token 化的圆角。全量标注的副作用是开发看不见重点——满屏红线等于没有红线。",
+     "line": 123,
+     "chars": 325
+    },
+    {
+     "id": "4-4-单位换算写清楚",
+     "level": 3,
+     "title": "4.4 单位换算写清楚",
+     "summary": "- 设计稿用 px，代码多用 rem；1rem = 16px 时 24px = 1.5rem、8px = 0.5rem。",
+     "line": 134,
+     "chars": 262
+    },
+    {
+     "id": "5-状态矩阵-9-态-别画-2ⁿ",
+     "level": 2,
+     "title": "5. 状态矩阵：9 态，别画 2ⁿ",
+     "summary": "Carbon 列的交互态是 7 个：hover / focus / selected / disabled / read-only / error / warning。加上设计侧必须补的两个：",
+     "line": 142,
+     "chars": 819
+    },
+    {
+     "id": "5-1-组合爆炸的控制",
+     "level": 3,
+     "title": "5.1 组合爆炸的控制",
+     "summary": "一个按钮 3 尺寸 × 2 类型 × 9 状态 = 54 个变体。不要全画，按下面三刀砍：",
+     "line": 160,
+     "chars": 320
+    },
+    {
+     "id": "5-2-disabled-的对比度例外-别用错地方",
+     "level": 3,
+     "title": "5.2 disabled 的对比度例外，别用错地方",
+     "summary": "Carbon 明确写了 4.5:1 \"with the exceptions of disabled states\"。这条例外只给 disabled——read-only、placeholder、辅助文字、暗色下的次级文字都不适用。把\"看起",
+     "line": 170,
+     "chars": 173
+    },
+    {
+     "id": "6-命名四套-图层-组件-变体-token",
+     "level": 2,
+     "title": "6. 命名四套：图层 / 组件 / 变体 / token",
+     "summary": "命名的唯一标准：能不能不打开文件就找到它。",
+     "line": 176,
+     "chars": 28
+    },
+    {
+     "id": "6-1-figma-的斜杠规则-官方机制-不是审美",
+     "level": 3,
+     "title": "6.1 Figma 的斜杠规则（官方机制，不是审美）",
+     "summary": "- 组件名里每个 / 生成一级层级：Button/Primary/Large → 资产面板里 Button Primary Large。",
+     "line": 180,
+     "chars": 499
+    },
+    {
+     "id": "6-2-四套命名规则",
+     "level": 3,
+     "title": "6.2 四套命名规则",
+     "summary": "",
+     "line": 190,
+     "chars": 524
+    },
+    {
+     "id": "6-3-为什么-红色-是坏名字",
+     "level": 3,
+     "title": "6.3 为什么\"红色\"是坏名字",
+     "summary": "color=red 把实现写进了语义。品牌换成紫色那天，red 变成谎言，而且所有调用点都要改。正确写法是 type=danger，颜色由 token 决定。同理：size=big → size=lg（与代码 prop 对齐）、style=",
+     "line": 199,
+     "chars": 226
+    },
+    {
+     "id": "6-4-token-的-cti-结构",
+     "level": 3,
+     "title": "6.4 token 的 CTI 结构",
+     "summary": "Style Dictionary 推荐的 Category / Type / Item 三层（非强制，但用了就不会出现\"到底叫 buttoncolorerror 还是 errorbuttoncolor\"的争论）：",
+     "line": 205,
+     "chars": 306
+    },
+    {
+     "id": "6-5-中文项目的命名纪律",
+     "level": 3,
+     "title": "6.5 中文项目的命名纪律",
+     "summary": "- 图层与组件名统一英文，中文只出现在文案内容与注释里。混写会导致：搜索失效、导出文件名乱码、Figma 插件解析失败。",
+     "line": 216,
+     "chars": 242
+    },
+    {
+     "id": "7-组件-api-与设计稿-1-1-对齐",
+     "level": 2,
+     "title": "7. 组件 API 与设计稿 1:1 对齐",
+     "summary": "设计属性与代码 props 必须是同一套词表，否则每次交付都要做一次人工翻译。",
+     "line": 224,
+     "chars": 46
+    },
+    {
+     "id": "7-1-figma-的四类组件属性",
+     "level": 3,
+     "title": "7.1 Figma 的四类组件属性",
+     "summary": "Boolean 命名用 is/has/can/show 前缀，默认值取最常见的那个（通常是 false）。默认值错了，每个实例都要手动改一次。",
+     "line": 228,
+     "chars": 405
+    },
+    {
+     "id": "7-2-属性数量的经验上限",
+     "level": 3,
+     "title": "7.2 属性数量的经验上限",
+     "summary": "Figma 官方没有上限，但组合数是乘积：3 属性 × 5 值 = 125 个变体，光是加载就会拖慢文件（官方明确：Importing large component sets will impact Figma's speed and p",
+     "line": 239,
+     "chars": 237
+    },
+    {
+     "id": "7-3-三条官方级禁令",
+     "level": 3,
+     "title": "7.3 三条官方级禁令",
+     "summary": "1. 不要用变体分组不同图标（Figma 原文：\"We don't recommend using variants to group different icons\"）。同图标不同尺寸可以，不同图标不行——图标应该各自是组件，靠 Icon",
+     "line": 245,
+     "chars": 302
+    },
+    {
+     "id": "7-4-code-connect-让开发者看到-你的组件-而不是-自动生成的-div",
+     "level": 3,
+     "title": "7.4 Code Connect：让开发者看到\"你的组件\"而不是\"自动生成的 div\"",
+     "summary": "Dev Mode 默认给的是自动生成代码（可切语言与单位，CSS 单位可改）。接上 Code Connect 后，开发者看到的是设计系统库里真实的组件代码，变体与属性被映射到真实 props。",
+     "line": 251,
+     "chars": 193
+    },
+    {
+     "id": "8-验收标准的写法-given-when-then",
+     "level": 2,
+     "title": "8. 验收标准的写法：Given / When / Then",
+     "summary": "走查之所以吵，是因为没有事先写\"该是什么样\"。AC（验收标准）就是那份\"该是什么样\"。",
+     "line": 259,
+     "chars": 50
+    },
+    {
+     "id": "8-1-gherkin-的三段语义-官方定义",
+     "level": 3,
+     "title": "8.1 Gherkin 的三段语义（官方定义）",
+     "summary": "官方硬建议：每个场景 3–5 步；步数过多就失去\"规格说明\"的表达力。Background 复用重复前置，但超过 4 行就该上提成更高层的步骤。",
+     "line": 263,
+     "chars": 302
+    },
+    {
+     "id": "8-2-设计-ac-的五条模板",
+     "level": 3,
+     "title": "8.2 设计 AC 的五条模板",
+     "summary": "",
+     "line": 273,
+     "chars": 410
+    },
+    {
+     "id": "8-3-三种写坏的-ac",
+     "level": 3,
+     "title": "8.3 三种写坏的 AC",
+     "summary": "---",
+     "line": 290,
+     "chars": 198
+    },
+    {
+     "id": "9-设计评审-critique-30-分钟-2-正-1-改",
+     "level": 2,
+     "title": "9. 设计评审（critique）：30 分钟，2 正 1 改",
+     "summary": "NN/g 明确区分：",
+     "line": 300,
+     "chars": 1
+    },
+    {
+     "id": "9-1-先分清两种-评审",
+     "level": 3,
+     "title": "9.1 先分清两种\"评审\"",
+     "summary": "NN/g 明确区分：",
+     "line": 302,
+     "chars": 323
+    },
+    {
+     "id": "9-2-有效评审的三个前提-nn-g-原文三主题",
+     "level": 3,
+     "title": "9.2 有效评审的三个前提（NN/g 原文三主题）",
+     "summary": "1. 范围清晰：这次评什么、不评什么，必须写死。范围不清的评审 100% 会跑偏。",
+     "line": 316,
+     "chars": 153
+    },
+    {
+     "id": "9-3-两种主持方法",
+     "level": 3,
+     "title": "9.3 两种主持方法",
+     "summary": "",
+     "line": 322,
+     "chars": 203
+    },
+    {
+     "id": "9-4-角色与节奏",
+     "level": 3,
+     "title": "9.4 角色与节奏",
+     "summary": "- Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确提出想要哪类反馈。快速讲完，别为每个决策辩护——辩解会吃掉真正讨论的时间。",
+     "line": 329,
+     "chars": 352
+    },
+    {
+     "id": "9-5-把意见翻译成问题-reframing",
+     "level": 3,
+     "title": "9.5 把意见翻译成问题（reframing）",
+     "summary": "规则：所有反馈必须挂在目标上。挂不上目标的，是个人偏好，记录但不执行。",
+     "line": 338,
+     "chars": 175
+    },
+    {
+     "id": "9-6-五个坑-nn-g-原文",
+     "level": 3,
+     "title": "9.6 五个坑（NN/g 原文）",
+     "summary": "1. 事先没对齐人物画像/目标",
+     "line": 347,
+     "chars": 169
+    },
+    {
+     "id": "10-设计走查-design-qa-三遍法-9-字段文档",
+     "level": 2,
+     "title": "10. 设计走查（design QA）：三遍法 + 9 字段文档",
+     "summary": "设计走查（又叫还原度检查、视觉 Review、设计验证）的目的是保证落地效果与设计稿一致。它在开发完成后的测试阶段进行，是上线前最后一道质检。",
+     "line": 359,
+     "chars": 1
+    },
+    {
+     "id": "10-1-定义与边界",
+     "level": 3,
+     "title": "10.1 定义与边界",
+     "summary": "设计走查（又叫还原度检查、视觉 Review、设计验证）的目的是保证落地效果与设计稿一致。它在开发完成后的测试阶段进行，是上线前最后一道质检。",
+     "line": 361,
+     "chars": 330
+    },
+    {
+     "id": "10-2-时机",
+     "level": 3,
+     "title": "10.2 时机",
+     "summary": "- 在计划提测时间介入：测试同学跑完第一遍流程后开始走查——太早页面还在动，太晚改不动。",
+     "line": 376,
+     "chars": 143
+    },
+    {
+     "id": "10-3-三遍法-先大后小-先流程后像素",
+     "level": 3,
+     "title": "10.3 三遍法：先大后小，先流程后像素",
+     "summary": "为什么不能先抠像素：先抠像素会让你在一条本来就走不通的流程上纠结 2px，而真正的阻断问题排在清单末尾。",
+     "line": 382,
+     "chars": 312
+    },
+    {
+     "id": "10-4-走查文档的-9-个字段",
+     "level": 3,
+     "title": "10.4 走查文档的 9 个字段",
+     "summary": "一条一问题。把 5 个问题写进一行，结果一定是修了 3 个、漏了 2 个、还吵了一架。",
+     "line": 392,
+     "chars": 443
+    },
+    {
+     "id": "10-5-沟通纪律",
+     "level": 3,
+     "title": "10.5 沟通纪律",
+     "summary": "1. 邮件/文档正式发出：正式渠道提高重视度，也留痕（原文：\"防止日后被甩锅\"）。",
+     "line": 408,
+     "chars": 164
+    },
+    {
+     "id": "10-6-走查环境的六个变量-缺一个就会吵",
+     "level": 3,
+     "title": "10.6 走查环境的六个变量（缺一个就会吵）",
+     "summary": "机型 / 系统版本 / 屏幕分辨率 / 浏览器与版本 / 系统缩放或字体大小 / 是否暗色模式。",
+     "line": 415,
+     "chars": 131
+    },
+    {
+     "id": "11-缺陷分级与发布门禁",
+     "level": 2,
+     "title": "11. 缺陷分级与发布门禁",
+     "summary": "分级只看一件事：用户还能不能完成他的目标。不看\"改起来多贵\"，也不看\"谁写的\"。",
+     "line": 423,
+     "chars": 574
+    },
+    {
+     "id": "12-版本与变更管理",
+     "level": 2,
+     "title": "12. 版本与变更管理",
+     "summary": "废弃的正确姿势（SemVer FAQ 原文要点）：① 更新文档告知；② 发一个带废弃声明的 MINOR；③ 在下一个 MAJOR 里才彻底移除——中间至少隔一个 MINOR，让使用方平滑迁移。",
+     "line": 442,
+     "chars": 1
+    },
+    {
+     "id": "12-1-semver-2-0-0-的-11-条-设计系统直接照搬",
+     "level": 3,
+     "title": "12.1 SemVer 2.0.0 的 11 条（设计系统直接照搬）",
+     "summary": "废弃的正确姿势（SemVer FAQ 原文要点）：① 更新文档告知；② 发一个带废弃声明的 MINOR；③ 在下一个 MAJOR 里才彻底移除——中间至少隔一个 MINOR，让使用方平滑迁移。",
+     "line": 444,
+     "chars": 710
+    },
+    {
+     "id": "12-2-映射到设计系统",
+     "level": 3,
+     "title": "12.2 映射到设计系统",
+     "summary": "\"改默认值\"是最容易被误判成 PATCH 的 MAJOR。默认值一改，所有没显式传值的调用点视觉全变——这是不兼容变更。",
+     "line": 462,
+     "chars": 383
+    },
+    {
+     "id": "12-3-变更日志格式-keep-a-changelog-六类",
+     "level": 3,
+     "title": "12.3 变更日志格式（Keep a Changelog 六类）",
+     "summary": "Added / Changed / Deprecated / Removed / Fixed / Security。每条写影响面，不只写\"优化了按钮\"：",
+     "line": 472,
+     "chars": 266
+    },
+    {
+     "id": "12-4-major-必须带-codemod",
+     "level": 3,
+     "title": "12.4 MAJOR 必须带 codemod",
+     "summary": "Carbon 的要求写得很直白：如果变更需要消费方迁移，就必须提供自动化迁移脚本（通过 @carbon/upgrade 发布）。理由是\"迁移成本乘以所有团队，会显著影响整体产出\"。",
+     "line": 484,
+     "chars": 182
+    },
+    {
+     "id": "12-5-三个版本号不要混",
+     "level": 3,
+     "title": "12.5 三个版本号不要混",
+     "summary": "事故高发点：设计稿写\"v3\"，组件库已经到 2.4.0，产品是 5.1.2，三方对不上。交付文档里必须同时写清三个版本号。",
+     "line": 490,
+     "chars": 220
+    },
+    {
+     "id": "13-token-交付管线-从设计变量到代码",
+     "level": 2,
+     "title": "13. Token 交付管线：从设计变量到代码",
+     "summary": "base（原始值）→ semantic（语义角色）→ component（组件覆盖）。组件层只引用后两层，禁止硬编码。Carbon 的原话是\"组件样式不得包含未 token 化的魔法数字或颜色\"。",
+     "line": 502,
+     "chars": 1
+    },
+    {
+     "id": "13-1-三层不要混-详见-design-tokens-md",
+     "level": 3,
+     "title": "13.1 三层不要混（详见 design-tokens.md）",
+     "summary": "base（原始值）→ semantic（语义角色）→ component（组件覆盖）。组件层只引用后两层，禁止硬编码。Carbon 的原话是\"组件样式不得包含未 token 化的魔法数字或颜色\"。",
+     "line": 504,
+     "chars": 115
+    },
+    {
+     "id": "13-2-w3c-dtcg-格式-2025-10-草案",
+     "level": 3,
+     "title": "13.2 W3C DTCG 格式（2025.10 草案）",
+     "summary": "⚠️ 重要前提：官方明确标注这是预览草稿（Draft Community Group Report），\"请勿直接据此实现\"，它既不是 W3C 标准，也不在标准轨道上。用它做交换格式可以，用它做合规承诺不行。",
+     "line": 508,
+     "chars": 1741
+    },
+    {
+     "id": "13-3-style-dictionary-的构建规则",
+     "level": 3,
+     "title": "13.3 Style Dictionary 的构建规则",
+     "summary": "标准管线：",
+     "line": 547,
+     "chars": 785
+    },
+    {
+     "id": "13-4-token-交付的五条纪律",
+     "level": 3,
+     "title": "13.4 token 交付的五条纪律",
+     "summary": "1. 一个 token 一个用途。color-blue-500 可以给多处用；color-button-bg 只能给按钮用。语义 token 被复用成\"万能色\"，改一次全站崩。",
+     "line": 570,
+     "chars": 347
+    },
+    {
+     "id": "14-回归防线-让-改-a-崩-b-在合并前被发现",
+     "level": 2,
+     "title": "14. 回归防线：让\"改 A 崩 B\"在合并前被发现",
+     "summary": "Carbon 的测试要求可以直接当行业基线：",
+     "line": 580,
+     "chars": 349
+    },
+    {
+     "id": "14-1-工具实测-2026-11-01-github-api",
+     "level": 3,
+     "title": "14.1 工具实测（2026-11-01 · GitHub API）",
+     "summary": "选型建议：",
+     "line": 591,
+     "chars": 772
+    },
+    {
+     "id": "14-2-设计侧的-回归-比代码更早",
+     "level": 3,
+     "title": "14.2 设计侧的\"回归\"：比代码更早",
+     "summary": "Figma Dev Mode 自带两种 diff，走查前先用它们自查：",
+     "line": 611,
+     "chars": 274
+    },
+    {
+     "id": "15-协作节奏-每次交接都要有可验收的产出",
+     "level": 2,
+     "title": "15. 协作节奏：每次交接都要有可验收的产出",
+     "summary": "",
+     "line": 622,
+     "chars": 327
+    },
+    {
+     "id": "15-1-冻结后要改怎么办",
+     "level": 3,
+     "title": "15.1 冻结后要改怎么办",
+     "summary": "变更单四问（写不清就不改）：",
+     "line": 640,
+     "chars": 187
+    },
+    {
+     "id": "15-2-异步优先",
+     "level": 3,
+     "title": "15.2 异步优先",
+     "summary": "- 设计稿提前发（评审前至少半天），避免\"现场第一次看\"的直觉反应。",
+     "line": 651,
+     "chars": 167
+    },
+    {
+     "id": "16-中文-本土交付现实",
+     "level": 2,
+     "title": "16. 中文/本土交付现实",
+     "summary": "1. Spec（该是什么样）",
+     "line": 661,
+     "chars": 1
+    },
+    {
+     "id": "16-1-术语对齐表-对外沟通直接用",
+     "level": 3,
+     "title": "16.1 术语对齐表（对外沟通直接用）",
+     "summary": "",
+     "line": 663,
+     "chars": 248
+    },
+    {
+     "id": "16-2-交付包清单-对外-外包-甲方",
+     "level": 3,
+     "title": "16.2 交付包清单（对外/外包/甲方）",
+     "summary": "",
+     "line": 675,
+     "chars": 326
+    },
+    {
+     "id": "16-3-三份签字文件",
+     "level": 3,
+     "title": "16.3 三份签字文件",
+     "summary": "1. Spec（该是什么样）",
+     "line": 686,
+     "chars": 100
+    },
+    {
+     "id": "16-4-合规口径-政府-金融-医疗-适老化项目",
+     "level": 3,
+     "title": "16.4 合规口径（政府/金融/医疗/适老化项目）",
+     "summary": "- 无障碍常要求 GB/T 37668 + WCAG 2.1/2.2 AA 双达标（详见 accessibility.md §15）。",
+     "line": 694,
+     "chars": 167
+    },
+    {
+     "id": "16-5-三句可以直接用的话",
+     "level": 3,
+     "title": "16.5 三句可以直接用的话",
+     "summary": "---",
+     "line": 700,
+     "chars": 205
+    },
+    {
+     "id": "17-度量-交付质量的六个指标",
+     "level": 2,
+     "title": "17. 度量：交付质量的六个指标",
+     "summary": "说明：下面是建议基线（本技能立场），不是行业统计数据。目的是让\"交付好不好\"从感觉变成可讨论的数字。第一轮先测自己的基线，第二轮再谈改善。",
+     "line": 710,
+     "chars": 590
+    },
+    {
+     "id": "18-反模式-20-条",
+     "level": 2,
+     "title": "18. 反模式 20 条",
+     "summary": "1. 只交图不交规则——开发反推，偏差从第一个像素开始。",
+     "line": 730,
+     "chars": 727
+    },
+    {
+     "id": "19-自检-20-项-交付前逐条打勾",
+     "level": 2,
+     "title": "19. 自检 20 项（交付前逐条打勾）",
+     "summary": "1. 拿掉设计稿，开发只看文档能做出第二个页面吗？",
+     "line": 755,
+     "chars": 844
+    },
+    {
+     "id": "20-四个可抄模板",
+     "level": 2,
+     "title": "20. 四个可抄模板",
+     "summary": "markdown",
+     "line": 780,
+     "chars": 1
+    },
+    {
+     "id": "20-1-spec-sheet-组件级",
+     "level": 3,
+     "title": "20.1 Spec sheet（组件级）",
+     "summary": "",
+     "line": 782,
+     "chars": 1
+    },
+    {
+     "id": "20-2-走查表-一行一条",
+     "level": 3,
+     "title": "20.2 走查表（一行一条）",
+     "summary": "",
+     "line": 799,
+     "chars": 1
+    },
+    {
+     "id": "20-3-ac-五条一组",
+     "level": 3,
+     "title": "20.3 AC（五条一组）",
+     "summary": "",
+     "line": 808,
+     "chars": 1
+    },
+    {
+     "id": "20-4-变更日志-六类",
+     "level": 3,
+     "title": "20.4 变更日志（六类）",
+     "summary": "---",
+     "line": 818,
+     "chars": 6
+    },
+    {
+     "id": "数据来源",
+     "level": 2,
+     "title": "数据来源",
+     "summary": "- Carbon · Component checklist（definition of done） — 设计规格六类要求、代码/测试/设计包四组清单、80% 覆盖率、VRT/AVT/三读屏器",
+     "line": 837,
+     "chars": 2201
+    }
+   ]
+  },
+  {
    "path": "references/inspiration.md",
    "title": "灵感与阅读 — Inspiration",
    "snapshot": "2026-10-29",
@@ -3281,8 +3874,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-01",
-   "lines": 314,
-   "chars": 15428,
+   "lines": 332,
+   "chars": 16939,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -3493,9 +4086,9 @@
      "chars": 43
     },
     {
-     "id": "九条专题支线-可与主线并行",
+     "id": "十条专题支线-可与主线并行",
      "level": 2,
-     "title": "九条专题支线（可与主线并行）",
+     "title": "十条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -3570,23 +4163,31 @@
      "title": "支线 I · 性能与设计（\"好看\"必须先\"看得见\"）",
      "summary": "- 性能是设计约束，不是开发收尾。首屏主视觉选什么、用几套字体、上不上视频，在稿子上就已经定了 LCP 的上限。",
      "line": 230,
-     "chars": 1263
+     "chars": 1258
+    },
+    {
+     "id": "支线-j-设计交付与协作-画完不等于交完",
+     "level": 3,
+     "title": "支线 J · 设计交付与协作（画完不等于交完）",
+     "summary": "- 交付的是决策，不是图。稿子里有 intent / rule / value 三层，只给 value，开发必须反推前两层——偏差从这里开始。检验法：拿掉设计稿，开发能做出第二个页面吗？",
+     "line": 243,
+     "chars": 1165
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 245,
+     "line": 258,
      "chars": 311
     },
     {
-     "id": "能力自测-45-条-做到-34-条即达-l2",
+     "id": "能力自测-50-条-做到-38-条即达-l2",
      "level": 2,
-     "title": "能力自测（45 条，做到 ≥34 条即达 L2+）",
+     "title": "能力自测（50 条，做到 ≥38 条即达 L2+）",
      "summary": "L0",
-     "line": 259,
-     "chars": 1993
+     "line": 272,
+     "chars": 2317
     }
    ]
   },
@@ -3689,9 +4290,9 @@
      "id": "7-1-动效-token-贴进-root",
      "level": 3,
      "title": "7.1 动效 token（贴进 :root）",
-     "summary": "css",
+     "summary": "",
      "line": 157,
-     "chars": 415
+     "chars": 1
     },
     {
      "id": "7-2-从-display-none-进入的弹层-starting-style",
@@ -3713,9 +4314,9 @@
      "id": "7-4-滚动驱动动画-无-js",
      "level": 3,
      "title": "7.4 滚动驱动动画（无 JS）",
-     "summary": "css",
+     "summary": "纪律：滚动驱动动画只能做\"入场\"和\"进度指示\"，不要做滚动劫持（用 JS 强行改滚动位置），后者是体验灾难且伤可访问性。",
      "line": 221,
-     "chars": 381
+     "chars": 76
     },
     {
      "id": "8-性能与降级",
@@ -3923,9 +4524,9 @@
      "id": "1-3-设计师该在什么时候介入",
      "level": 3,
      "title": "1.3 设计师该在什么时候介入",
-     "summary": "需求阶段 → 定载体/首屏结构 →【性能预算】← 在这里定，成本最低",
+     "summary": "性能是唯一一个\"越早决定越便宜\"的设计维度：改一张首屏图的构图，在设计阶段是 10 分钟；在上线后发现 LCP 4.2s，是重做首屏。",
      "line": 34,
-     "chars": 188
+     "chars": 79
     },
     {
      "id": "2-指标体系-先背下这七个数",
@@ -4035,9 +4636,9 @@
      "id": "5-1-官方公式",
      "level": 3,
      "title": "5.1 官方公式",
-     "summary": "layout shift score = impact fraction × distance fraction",
+     "summary": "- impact fraction：不稳定元素在前后两帧中可见区域的并集 ÷ 视口面积（变化前后的位置都算）。",
      "line": 165,
-     "chars": 494
+     "chars": 428
     },
     {
      "id": "5-2-什么算位移-判定表",
@@ -4123,9 +4724,9 @@
      "id": "7-3-响应式图片五条规则",
      "level": 3,
      "title": "7.3 响应式图片五条规则",
-     "summary": "html",
+     "summary": "1. srcset 用 w 描述符 + sizes 给布局宽度；sizes 写错等于白做（浏览器按 sizes 算需要多少像素）。",
      "line": 286,
-     "chars": 564
+     "chars": 302
     },
     {
      "id": "7-4-lcp-图三规则-与-3-呼应",
@@ -4403,17 +5004,17 @@
      "id": "15-2-验收顺序-别搞反",
      "level": 3,
      "title": "15.2 验收顺序（别搞反）",
-     "summary": "① 现场 p75 达标？",
+     "summary": "\"本地 Lighthouse 100 分\"不是验收通过。官方明确：实验室测量不能替代现场测量。",
      "line": 642,
-     "chars": 205
+     "chars": 54
     },
     {
      "id": "15-3-性能预算进-ci-的三行配置-示意",
      "level": 3,
      "title": "15.3 性能预算进 CI 的三行配置（示意）",
-     "summary": "jsonc",
+     "summary": "---",
      "line": 654,
-     "chars": 408
+     "chars": 6
     },
     {
      "id": "16-反模式清单-20-条-逐条对照",
@@ -4443,49 +5044,49 @@
      "id": "18-1-首屏-lcp-图-最优组合",
      "level": 3,
      "title": "18.1 首屏 LCP 图（最优组合）",
-     "summary": "html",
+     "summary": "",
      "line": 733,
-     "chars": 579
+     "chars": 1
     },
     {
      "id": "18-2-折叠线以下图片-防-cls-懒加载",
      "level": 3,
      "title": "18.2 折叠线以下图片（防 CLS + 懒加载）",
-     "summary": "html",
+     "summary": "",
      "line": 752,
-     "chars": 165
+     "chars": 1
     },
     {
      "id": "18-3-字体-子集-度量对齐-性能优先",
      "level": 3,
      "title": "18.3 字体（子集 + 度量对齐 + 性能优先）",
-     "summary": "css",
+     "summary": "",
      "line": 760,
-     "chars": 644
+     "chars": 1
     },
     {
      "id": "18-4-只动合成器属性的入场动画",
      "level": 3,
      "title": "18.4 只动合成器属性的入场动画",
-     "summary": "css",
+     "summary": "",
      "line": 783,
-     "chars": 345
+     "chars": 1
     },
     {
      "id": "18-5-用-intersectionobserver-替代滚动回调",
      "level": 3,
      "title": "18.5 用 IntersectionObserver 替代滚动回调",
-     "summary": "js",
+     "summary": "",
      "line": 799,
-     "chars": 292
+     "chars": 1
     },
     {
      "id": "18-6-省流与慢网降级",
      "level": 3,
      "title": "18.6 省流与慢网降级",
-     "summary": "js",
+     "summary": "---",
      "line": 811,
-     "chars": 362
+     "chars": 6
     },
     {
      "id": "19-数据来源",
@@ -4790,9 +5391,9 @@
      "id": "6-1-公式",
      "level": 3,
      "title": "6.1 公式",
-     "summary": "css",
+     "summary": "- 解析规则：clamp(MIN, VAL, MAX) = max(MIN, min(VAL, MAX))。若 MIN MAX，MIN 胜出（不报错，静默取 MIN）——手滑写反了会得到一个永远不变的字号。",
      "line": 265,
-     "chars": 348
+     "chars": 267
     },
     {
      "id": "6-2-无障碍硬要求-mdn-明确",
@@ -4838,25 +5439,25 @@
      "id": "8-1-分辨率切换-同一图-不同大小",
      "level": 3,
      "title": "8.1 分辨率切换（同一图，不同大小）",
-     "summary": "html",
+     "summary": "规则（全部来自 MDN，逐条都是硬要求）：",
      "line": 338,
-     "chars": 468
+     "chars": 249
     },
     {
      "id": "8-2-固定尺寸-多倍屏-logo-头像-图标",
      "level": 3,
      "title": "8.2 固定尺寸、多倍屏（logo / 头像 / 图标）",
-     "summary": "html",
+     "summary": "用 x 描述符时不写 sizes。1x 可省略。",
      "line": 357,
-     "chars": 149
+     "chars": 37
     },
     {
      "id": "8-3-艺术指导-不同构图-不只是不同大小",
      "level": 3,
      "title": "8.3 艺术指导（不同构图，不只是不同大小）",
-     "summary": "html",
+     "summary": "- 必须保留最后的 <img src alt 作为兜底。",
      "line": 365,
-     "chars": 357
+     "chars": 155
     },
     {
      "id": "8-4-防布局偏移-cls",
@@ -4902,9 +5503,9 @@
      "id": "9-4-可抄骨架",
      "level": 3,
      "title": "9.4 可抄骨架",
-     "summary": "html",
+     "summary": "- 横滚容器要有可见提示（右侧渐隐遮罩或\"← 左右滑动 →\"），否则用户不知道右边还有内容。",
      "line": 420,
-     "chars": 496
+     "chars": 89
     },
     {
      "id": "10-表单在窄屏",
@@ -4974,9 +5575,9 @@
      "id": "14-4-一条命令自查横向溢出",
      "level": 3,
      "title": "14.4 一条命令自查横向溢出",
-     "summary": "js",
+     "summary": "---",
      "line": 553,
-     "chars": 257
+     "chars": 6
     },
     {
      "id": "15-反模式-20-条",
@@ -5006,49 +5607,49 @@
      "id": "17-1-媒体查询骨架-移动优先",
      "level": 3,
      "title": "17.1 媒体查询骨架（移动优先）",
-     "summary": "css",
+     "summary": "",
      "line": 612,
-     "chars": 401
+     "chars": 1
     },
     {
      "id": "17-2-容器查询卡片-同一组件两种宽度",
      "level": 3,
      "title": "17.2 容器查询卡片（同一组件两种宽度）",
-     "summary": "css",
+     "summary": "",
      "line": 624,
-     "chars": 308
+     "chars": 1
     },
     {
      "id": "17-3-流式字号-无障碍合规",
      "level": 3,
      "title": "17.3 流式字号（无障碍合规）",
-     "summary": "css",
+     "summary": "",
      "line": 639,
-     "chars": 384
+     "chars": 1
     },
     {
      "id": "17-4-响应式表格-横滚-粘性首列-提示",
      "level": 3,
      "title": "17.4 响应式表格（横滚 + 粘性首列 + 提示）",
-     "summary": "css",
+     "summary": "",
      "line": 651,
-     "chars": 542
+     "chars": 1
     },
     {
      "id": "17-5-安全区底部操作栏",
      "level": 3,
      "title": "17.5 安全区底部操作栏",
-     "summary": "css",
+     "summary": "",
      "line": 670,
-     "chars": 187
+     "chars": 1
     },
     {
      "id": "17-6-只在真-hover-设备上做悬停效果",
      "level": 3,
      "title": "17.6 只在真 hover 设备上做悬停效果",
-     "summary": "css",
+     "summary": "---",
      "line": 681,
-     "chars": 285
+     "chars": 6
     },
     {
      "id": "18-与其他资产的分工",
@@ -5137,8 +5738,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 294,
-   "chars": 20929,
+   "lines": 329,
+   "chars": 25165,
    "sections": []
   }
  ],

@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 九条专题支线（可与主线并行）
+## 十条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -240,6 +240,19 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[web.dev Web Vitals](https://web.dev/articles/vitals)、[Optimize LCP](https://web.dev/articles/optimize-lcp)、[Performance budgets 101](https://web.dev/articles/performance-budgets-101)、[Lighthouse scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)、[微信 代码包体积优化](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips/start_optimizeA)
 - → **价格表、图层内存算术、六类页面预算、三档决策分级、小程序五手段、18 项自检见 `performance-design.md`**
 
+### 支线 J · 设计交付与协作（画完不等于交完）
+- **交付的是决策，不是图**。稿子里有 intent / rule / value 三层，只给 value，开发必须反推前两层——偏差从这里开始。**检验法：拿掉设计稿，开发能做出第二个页面吗？**
+- **spec 九字段**：标识（含版本与状态）/ 布局 / 间距尺寸 / 字体颜色 / 交互状态 / 行为边界 / 无障碍 / 素材链接 / 沟通字段。
+- **只标例外**：例外值 + 对齐关键线 + 尺寸约束 + 断点切换。全量标注 = 没有标注。
+- **9 态都要有出处**：default / hover / focus / active / selected / disabled / **read-only** / error / loading。Carbon 的 4.5:1 例外**只给 disabled**。
+- **命名四套**：图层 / 组件（斜杠分级）/ 变体属性（**禁视觉名**）/ token（CTI）。**默认变体 = 左上角 = 最常用那版**。
+- **AC 用 Given/When/Then 3–5 步**：只验**用户看得见**的结果，一个 When 只做一个动作。
+- **评审 30 分钟/周**、round robin、quota **2 正 1 改**、**必须有决策/待定/负责人/期限**。
+- **走查三遍法**：主流程 → 交互逐条 → 才看像素。**P0 = 0 才可上线**，P1 豁免要写"谁批、何时补"。
+- **改默认值 = MAJOR**（SemVer 规则映射），MAJOR 必带迁移表/codemod。
+- 材料：[Carbon Component checklist](https://carbondesignsystem.com/getting-started/contributing/component-checklist/)、[Figma Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode)、[SemVer](https://semver.org/)、[NN/g Design Critiques](https://www.nngroup.com/articles/design-critiques/)、[Cucumber Gherkin](https://cucumber.io/docs/gherkin/reference/)
+- → **9 字段 spec、P0–P3 门禁、DTCG 管线、回归四层、六个指标、20 项自检、4 套模板见 `handoff-collaboration.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -256,7 +269,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（45 条，做到 ≥34 条即达 L2+）
+## 能力自测（50 条，做到 ≥38 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -307,6 +320,11 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能算出 `will-change` 带来的图层内存（宽×高×4），并说明为什么它不能常驻
 - [ ] 能判断一个"高级感"效果的价格档位（玻璃拟态/视差/3D/粒子/轮播），并给出至少一个更便宜的替代
 - [ ] 能说出小程序单个代码包的上限（2MB）与 `setData` 的两条铁律，并解释为什么"拆组件比减数据更有效"
+- [ ] 拿到一个组件，能写出含**九字段**的 spec，并说清哪四类内容才需要标注（例外值/对齐线/尺寸约束/断点）
+- [ ] 能说出**9 态矩阵**里最常被漏的两态（read-only 与 loading），并解释为什么 Carbon 的 4.5:1 例外**只给 disabled**
+- [ ] 能把一条模糊需求改写成 **3–5 步 Given/When/Then**，且 Then 只验用户可见结果
+- [ ] 能说出设计走查的**三遍顺序**与为什么不能从像素开始，并给出 **P0/P1** 的判定差异
+- [ ] 能判断一次 token 改名/默认值变更属于 **MAJOR 还是 PATCH**，并说明为什么后者会出事
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

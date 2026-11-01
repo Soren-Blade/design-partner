@@ -95,6 +95,18 @@ def snapshot(text: str) -> str:
     return m.group(1) if m else "—"
 
 
+def mask_fences(text: str) -> str:
+    """把 ``` 代码块里的内容抹成空格（保留换行与字符位置）。
+
+    否则代码块里的 `## 标题` 会被当成真章节：例如变更日志模板里的
+    `## [2.0.0] - 2026-11-01` 会变成一条假章节，污染索引与检索排序。
+    抹成等长空格是为了让 match 的 start/end 仍能直接索引原文。
+    """
+    def repl(m):
+        return re.sub(r"[^\n]", " ", m.group(0))
+    return FENCE.sub(repl, text)
+
+
 def parse_file(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
@@ -105,7 +117,8 @@ def parse_file(path: Path) -> dict:
             break
 
     sections = []
-    matches = list(H2.finditer(text))
+    # 标题只在代码块之外识别；正文仍从原文切，行号与内容都不受影响
+    matches = list(H2.finditer(mask_fences(text)))
     for i, m in enumerate(matches):
         start = m.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)

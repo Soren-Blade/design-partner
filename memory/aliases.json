@@ -118,7 +118,6 @@
         "留白",
         "padding",
         "margin",
-        "栅格",
         "grid",
         "节奏",
         "8pt",
@@ -931,6 +930,128 @@
         "按需注入",
         "包大小",
         "小程序慢"
+      ]
+    },
+    {
+      "canonical": "设计交付",
+      "aliases": [
+        "handoff",
+        "设计交接",
+        "标注稿",
+        "标注规范",
+        "spec",
+        "设计规格",
+        "交付文档",
+        "交付物",
+        "交付清单",
+        "切图",
+        "交图",
+        "交接"
+      ]
+    },
+    {
+      "canonical": "设计走查",
+      "aliases": [
+        "走查",
+        "还原度",
+        "视觉走查",
+        "交互走查",
+        "design QA",
+        "还原度检查",
+        "视觉还原",
+        "走查表",
+        "走查清单",
+        "提测",
+        "上线前检查"
+      ]
+    },
+    {
+      "canonical": "验收标准",
+      "aliases": [
+        "acceptance criteria",
+        "验收",
+        "验收条件",
+        "完成标准",
+        "definition of done",
+        "DoD",
+        "算做完",
+        "验收口径",
+        "通过标准",
+        "given when then"
+      ]
+    },
+    {
+      "canonical": "设计评审",
+      "aliases": [
+        "评审",
+        "critique",
+        "设计评审会",
+        "评稿",
+        "design review",
+        "评审会",
+        "过稿",
+        "设计批评",
+        "方案评审"
+      ]
+    },
+    {
+      "canonical": "缺陷分级",
+      "aliases": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "优先级分级",
+        "严重程度",
+        "bug 分级",
+        "阻断问题",
+        "发布门禁",
+        "能不能上线"
+      ]
+    },
+    {
+      "canonical": "组件命名",
+      "aliases": [
+        "命名规范",
+        "命名",
+        "变体命名",
+        "图层命名",
+        "naming",
+        "命名约定",
+        "组件属性",
+        "variant 属性",
+        "组件 API",
+        "属性命名"
+      ]
+    },
+    {
+      "canonical": "版本管理",
+      "aliases": [
+        "semver",
+        "语义化版本",
+        "版本号",
+        "发版",
+        "变更日志",
+        "changelog",
+        "废弃",
+        "deprecation",
+        "迁移",
+        "codemod",
+        "版本级别"
+      ]
+    },
+    {
+      "canonical": "token 交付",
+      "aliases": [
+        "dtcg",
+        "tokens.json",
+        ".tokens",
+        "style dictionary",
+        "变量导出",
+        "token 管线",
+        "变量同步",
+        "导出 token",
+        "token 格式"
       ]
     }
   ]

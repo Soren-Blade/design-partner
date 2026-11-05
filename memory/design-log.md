@@ -427,5 +427,6 @@
 - 取源避坑：Microsoft Writing Style Guide 的 `brand-voice-design/` 与 `top-10-tips` 均 404、Medium 上 EightShapes `Documenting Components` 失效、Polaris 旧组件页重定向到 shopify.dev references —— **四条拿不到原文的线索一律不写入知识资产**，只保留可从官方原文或上游源码逐字验证的结论。
 - 检索门槛 **16/16 PASS**（设计系统文档 / 组件文档页 / 文档信息架构 / 文档版本化 / changelog / 迁移文档 / 贡献指南 / 文档治理 / Diátaxis 四象限 / GOV.UK 九段式 / 活文档 / 文档模板 / Storybook Autodocs / MDX Doc Blocks / 文档漂移 / 文档新鲜度 全部命中新文件前 3）；历史回归 **24/24 PASS**（#16 的 15 条 + #15 的 5 条 + 演示/文案/交付/暗色 4 条，全量 **40/40**）。`--no-alias` 对比确认别名只补召回、不改变规范词主导。
 - 接线体检：`mindmap.py` **29 文件 / 1124 章节**，✅ 所有 references 均已在 SKILL.md 接线（未接线 0 / 已失联 0）。
+- **发布环节的自愈改动（本轮第二笔提交 `7129a43`）**：`scripts/publish_github.py` 原本只从 `~/.workbuddy-ai/secrets/github_token.txt` 取 PAT，本轮该文件里的 fine-grained PAT 已失效，返回 `401 Bad credentials`；但**未认证读取仓库仍是 200**，旧逻辑会把 401 当确定性错误直接抛出、无从区分「令牌失效」与「网络故障」。现按 `--token → 环境变量 → 密钥文件 → git credential helper` 逐个用 `GET /user` 验证（新增 `token_status()` / `creds_from_helper()`），失效即跳过，网络类故障标 `unknown` 不误杀。发布时自动降级到 Windows GCM 里有效的 PAT（`permissions.push=true`），一次跑通；**没有改动或覆盖任何仓库外的凭据文件**。远端最终 commit `1450322bcf`（39 文件）。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察

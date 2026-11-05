@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-05 19:20 ｜ 26 个文件 · 930 个章节 · 537,899 字符
+> 自动生成于 2026-11-05 19:56 ｜ 27 个文件 · 1000 个章节 · 600,995 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -135,26 +135,35 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **幻灯片字号** | PPT字号 · 幻灯片字体大小 · 标题字号 · 正文字号 · 最小字号 · 投影字号 · 后排看不清 · 字太小 · point size · pt |
 | **安全区** | safe area · safe margin · 安全边距 · 标题安全区 · 动作安全区 · title safe · action safe · 过扫 · overscan · 边缘裁切 · 投影裁切 |
 | **线上演示** | online presentation · remote presentation · 线上汇报 · 远程演示 · Zoom演示 · Teams分享 · 屏幕共享 ·  webinar · 网络研讨会 · 视频会议演示 |
+| **动效编排** | orchestration · 编排 · 动画顺序 · 序列动画 · 多个动画 · 时间轴 · timeline · 动画调度 · 依次动画 · 同时动 |
+| **交错动画** | stagger · staggerChildren · delayChildren · staggerDirection · 交错 · 错峰 · 逐项入场 · 依次出现 · 瀑布式 · 级联动画 |
+| **FLIP** | flip · First Last Invert Play · 布局动画 · layout animation · 位移补间 · 重排动画 · 位置补间 · getBoundingClientRect |
+| **共享元素转场** | shared element · shared element transition · layoutId · 卡片放大 · 缩略图变大图 · hero transition · 跨视图元素 · 共享布局动画 |
+| **视图过渡** | View Transitions · view transition · view-transition · startViewTransition · view-transition-name · match-element · 伪元素树 · 快照转场 · 跨文档转场 · MPA转场 · pageswap · pagereveal |
+| **动画状态机** | state machine · statechart · XState · 四态 · entering · exiting · 状态迁移 · 进出场状态 · unmountOnExit · AnimatePresence 状态 |
+| **动画中断** | 可中断 · 打断 · 连点就乱 · cancel · commitStyles · skipTransition · 竞态 · 并发转场 · 动画取消 · replaceState · updatePlaybackRate |
+| **列表增删动画** | 列表动画 · 增删动画 · AnimatePresence · TransitionGroup · list-move · popLayout · 列表重排 · 退场动画 · exit animation · LayoutGroup |
+| **进出场动画** | @starting-style · allow-discrete · transition-behavior · display none 动画 · 入场动画 · 退场看不见 · popover 动画 · overlay · 顶层动画 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_604 行 · 快照 — · 12 节_
+_634 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L62` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L64` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L77`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L193` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L208` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L234` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L265` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L520` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L562` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L575` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L582` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L596` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L65` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L67` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L80`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L204` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L219` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L245` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L276` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L548` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L592` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L605` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L612` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L626` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -364,7 +373,7 @@ _376 行 · 快照 2026-10-31 · 26 节_
 - **0. 四条总原则（AntV 官方，可直接引用）** `L8` — 交互三层（AntV）：数据获取 → 信息加工 → 知识流转；口诀「概览第一，聚焦过滤，再按需查看详情」。做仪表盘时按这个顺序设计，不要一上来就给明细表。
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** `L21` — FT 的核心主张：按"你要表达什么关系"组织，而不是按"你会画什么图"组织。选图前先回答"我想让读者看到什么关系"。
 - **2. 图表选型决策树（30 秒版）** `L43` — 硬上限（超过就换图形，不要硬塞）：
-- **3. 色板：三类用途，不许混用** `L76` — 这是数据可视化里最容易翻车的一环。 三类色板解决三个不同问题，混用等于撒谎：
+- **3. 图表色板：三类用途（分类 / 顺序 / 发散），不许混用** `L76` — 这是数据可视化里最容易翻车的一环。 三类色板解决三个不同问题，混用等于撒谎：
   - **3.1 分类色板 · Carbon 14 色（IBM，精确值，必须按序取用）** `L86` — 原文规定："The colors of this palette should be applied in sequence strictly as described below." —— 顺序经专门编排以最大化相邻色对比度。不要自己挑颜
   - **3.2 分类色板 · AntV 默认 10 色（中文项目常用，G2 v5 源码实测）** `L102` — 配套语义色（状态用，不要当分类色）：危险 #F4664A｜成功 #30BF78｜警告 #FAAD14。
   - **3.3 顺序色板（连续值 / 热力 / 地图）** `L114` — 规则（Carbon 原文）：浅色主题下最深 = 最大；深色主题下最浅 = 最大。这条搞反是热力图最常见的错误。
@@ -677,7 +686,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_376 行 · 快照 2026-11-05 · 41 节_
+_395 行 · 快照 2026-11-05 · 42 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -705,27 +714,100 @@ _376 行 · 快照 2026-11-05 · 41 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **十二条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **十三条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
-  - **支线 D · 可访问性（不是"加分项"，是交付门槛）** `L177` — - 四档对比度：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。不可四舍五入（4.499:1 不达标）。
-  - **支线 E · 反馈与状态（"有没有回应"决定可不可信）** `L187` — - 五层反馈：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。严重度决定层级，不决定颜色。
-  - **支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）** `L197` — - 先判载体：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。
-  - **支线 G · 品牌视觉与 Logo（做"一个品牌"而不是"一个页面"）** `L207` — - 顺序不能反：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。
-  - **支线 H · 暗色模式（"反一下色"和"设计一套暗色"是两件事）** `L219` — - 先问该不该做：正常视力用户浅色更优（字号越小差距越大）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。中后台不要默认暗色。
-  - **支线 I · 性能与设计（"好看"必须先"看得见"）** `L230` — - 性能是设计约束，不是开发收尾。首屏主视觉选什么、用几套字体、上不上视频，在稿子上就已经定了 LCP 的上限。
-  - **支线 J · 设计交付与协作（画完不等于交完）** `L243` — - 交付的是决策，不是图。稿子里有 intent / rule / value 三层，只给 value，开发必须反推前两层——偏差从这里开始。检验法：拿掉设计稿，开发能做出第二个页面吗？
-  - **支线 K · 内容设计与 UX 文案（界面上的每个字都是设计）** `L256` — - 三级文案尺寸：long ≥3 段（引导页/帮助） / short 2–3 段（对话框/结果说明） / micro <3 句（按钮/标签/toast/错误——占界面 80%）。先判尺寸再写。
-  - **支线 L · 演示文稿与幻灯片版式（不是"缩小的文档"是"放大的瞬间"）** `L274` — - 3 秒法则：每张幻灯片停留 20–60 秒，观众 3 秒内决定是否继续看。倒金字塔——结论先行。
-- **学习节奏（可持续，不靠意志力）** `L295` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（58 条，做到 ≥44 条即达 L2+）** `L309` — L0
+  - **支线 D · 可访问性（不是"加分项"，是交付门槛）** `L178` — - 四档对比度：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。不可四舍五入（4.499:1 不达标）。
+  - **支线 E · 反馈与状态（"有没有回应"决定可不可信）** `L188` — - 五层反馈：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。严重度决定层级，不决定颜色。
+  - **支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）** `L198` — - 先判载体：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。
+  - **支线 G · 品牌视觉与 Logo（做"一个品牌"而不是"一个页面"）** `L208` — - 顺序不能反：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。
+  - **支线 H · 暗色模式（"反一下色"和"设计一套暗色"是两件事）** `L220` — - 先问该不该做：正常视力用户浅色更优（字号越小差距越大）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。中后台不要默认暗色。
+  - **支线 I · 性能与设计（"好看"必须先"看得见"）** `L231` — - 性能是设计约束，不是开发收尾。首屏主视觉选什么、用几套字体、上不上视频，在稿子上就已经定了 LCP 的上限。
+  - **支线 J · 设计交付与协作（画完不等于交完）** `L244` — - 交付的是决策，不是图。稿子里有 intent / rule / value 三层，只给 value，开发必须反推前两层——偏差从这里开始。检验法：拿掉设计稿，开发能做出第二个页面吗？
+  - **支线 K · 内容设计与 UX 文案（界面上的每个字都是设计）** `L257` — - 三级文案尺寸：long ≥3 段（引导页/帮助） / short 2–3 段（对话框/结果说明） / micro <3 句（按钮/标签/toast/错误——占界面 80%）。先判尺寸再写。
+  - **支线 L · 演示文稿与幻灯片版式（不是"缩小的文档"是"放大的瞬间"）** `L275` — - 3 秒法则：每张幻灯片停留 20–60 秒，观众 3 秒内决定是否继续看。倒金字塔——结论先行。
+  - **支线 M · 动效编排与状态机（动效 bug 八成不在曲线，在状态没建模）** `L294` — - 三层分工：L1 单动效（该不该动 / 多久 / 什么曲线）走 motion-system.md；L2 编排（≥2 元素或有先后）；L3 状态机（互斥状态 / 跨视图配对 / 会被打断）走 motion-orchestration.md。
+- **学习节奏（可持续，不靠意志力）** `L310` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（61 条，做到 ≥47 条即达 L2+）** `L324` — L0
+
+### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
+_1049 行 · 快照 2026-11-05 · 68 节_
+
+- **1. 分工与决策树：单动效、编排、状态机三层** `L11` — 动效问题分三层，先判层再查文件，否则会把「一个按钮反馈」做成状态机，或把「列表增删」当成单个 transition。
+- **2. 编排的四种时间结构与总时长公式** `L31` — 编排 = 给 N 个动画分配起始时刻。只有四种结构，所有框架都是这四种的包装：
+  - **2.1 总时长硬上限与可算的 stagger** `L42` — motion-system.md 定了「点击触发 ≤400ms」「stagger 间隔 20–40ms」「≤6 项」——这三条其实是同一个公式的三个约束：
+  - **2.2 编排的层级纪律（与 motion-system.md §5 对齐并补全）** `L63` — - 父先子后用 when：when: "beforeChildren" 进场、when: "afterChildren" 退场。退场必须等子内容先走完，否则父容器消失会把子元素一起拽掉。
+- **3. 交错编排 stagger：variants 传播与多框架实现** `L72` — 传播规则（官方原文）：「Variants will flow down through motion components」——父级 motion 组件切换 variant 标签时，所有子级 motion 组件会自动切换到同名 varian
+  - **3.1 Motion for React：variants 传播是编排的地基** `L74` — 传播规则（官方原文）：「Variants will flow down through motion components」——父级 motion 组件切换 variant 标签时，所有子级 motion 组件会自动切换到同名 varian
+  - **3.2 两代编排 API（重要：官方文档已换写法）** `L93` — 新版官方原文代码：
+  - **3.3 原生 CSS 交错（无框架、包体最小）** `L122` — --index 由渲染层写入（style="--index:3"）。纪律：animation-fill-mode: both 必写，否则延迟期间元素以「已可见」状态闪一下再开始动。
+  - **3.4 Vue / Svelte / GSAP 的等价写法** `L137` — - Vue <TransitionGroup：用 :css="false" + JS hooks，把 index 写进 data-index，delay: el.dataset.index 0.15（官方示例用 GSAP onComplet
+  - **3.5 中文长列表与「逐字动画」陷阱** `L143` — - 中文无词间空格，逐字 stagger 会破词（motion-system.md §9 已给结论）。中文列表按「整行」交错，不要按字符交错。
+- **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** `L151` — 来源：Paul Lewis（Aerotwist, 2015-02，2022-05 更新），Google I/O 2015 与 Chrome Dev Summit 站点的实际做法。它不是框架，是一种思路：把逐帧的昂贵布局计算预先算完，只把 t
+  - **4.1 四步与精确算式** `L155` — 原文 WAAPI 版本（可直接抄，含官方给的曲线）：
+  - **4.2 为什么快：100ms 响应窗口** `L181` — 原文核心论断：「There is a window of 100ms after someone interacts with your site where you're able to do work without them noti
+  - **4.3 三条原文 caveat（工程上最容易踩）** `L189` — 1. 别超 100ms 窗口——批量元素时先全部读、再全部写（§14），不要「读一个写一个」。
+  - **4.4 FLIP vs View Transitions 的选型** `L195` — ---
+- **5. 列表增删与重排：四种操作的动画策略** `L209` — 列表是动效 bug 最密集的场景，因为同一批 DOM 会经历四种完全不同的变化，而多数人只写了「入场」一种。
+  - **5.1 key 稳定性是所有列表动画的前提** `L220` — 官方一致口径（Motion / Vue / React 三家都写了）：
+  - **5.2 退场元素必须脱离布局流（Vue 官方解法）** `L228`
+  - **5.3 AnimatePresence 的三种 mode（Motion 官方）** `L240` — 三个官方排错点（照抄）：
+  - **5.4 View Transitions 的列表方案：match-element** `L255` — 给每个列表项手写唯一 view-transition-name 太笨重，浏览器提供 view-transition-name: match-element（MDN 官方）：自动给所有选中元素设置唯一名称。配套的 view-transitio
+- **6. 共享元素转场 A：View Transitions 完整机制** `L271` — 1. 触发：SPA 调 document.startViewTransition(updateCallback)；MPA 由同源导航触发（两页 CSS 都写 @view-transition { navigation: auto }）。
+  - **6.1 六步流程（MDN 原文顺序）** `L273` — 1. 触发：SPA 调 document.startViewTransition(updateCallback)；MPA 由同源导航触发（两页 CSS 都写 @view-transition { navigation: auto }）。
+  - **6.2 伪元素树（原文结构）** `L284` — - ::view-transition-old() / new() 都按 replaced content 渲染（像 <img/<video），因此可以用 object-fit / object-position。
+  - **6.3 默认动画精确值（W3C CSS View Transitions Level 1 UA stylesheet 原文）** `L302` — - 默认 0.25s（quarter-second）、ease、cross-fade、fill-mode: both；子伪元素全部 inherit 定时，因此改时长写 group 一处即可。
+  - **6.4 view-transition-name 唯一性（最容易炸的一条）** `L335` — 工程纪律：动态设置 name 后必须在转场结束清理；尤其在 MPA + bfcache 场景（§8.2），残留 name 会在用户按返回键时造成重名 → 转场被跳过。
+  - **6.5 三个 Promise 与 skipTransition()** `L349` — skipTransition() 只跳过动画，不跳过 DOM 更新（官方："This won't skip calling updateCallback"）。这是把「用户关闭动效偏好」接入 View Transitions 的标准入口，也用
+  - **6.6 并发与中断：单例规则** `L372` — "Only one view transition is allowed to run at a time. If a new view transition starts while one is already running, the
+- **7. 共享元素转场 B：layoutId 与 Motion 布局动画** `L383` — Motion（原 Framer Motion）用 layout 系列 prop 在真实 DOM 上做 FLIP，不需要浏览器快照。
+- **8. 跨文档转场（MPA）与导航方向类型** `L418` — - 无需 JavaScript：同源跨文档导航 + 两个文档 CSS 都写 @view-transition { navigation: auto; } 即触发。
+  - **8.1 触发与版本** `L420` — - 无需 JavaScript：同源跨文档导航 + 两个文档 CSS 都写 @view-transition { navigation: auto; } 即触发。
+  - **8.2 bfcache 的隐藏陷阱（MDN 明确警告）** `L426` — 在 pageswap 里给元素临时设置 view-transition-name 后，转场结束必须移除。原文："If we left them set, they would persist in the page state saved 
+  - **8.3 首帧稳定化** `L439` — 跨文档转场要求「关键内容已解析」才有稳定快照。Chrome DevRel 建议用 render blocking 保证：① 关键样式已加载应用；② 关键脚本已执行；③ 用户首屏可见的 HTML 已解析。
+- **9. 动画状态机：四态/六态模型与 XState** `L452` — in = true timeout 结束
+  - **9.1 经典四态（react-transition-group <Transition 官方）** `L454` — 四个主状态：'entering'、'entered'、'exiting'、'exited'。in prop 切换时进入对应阶段，timeout 毫秒后自动切下一状态。children 作为函数时收到当前状态字符串。
+  - **9.2 为什么必须是状态机（XState / Stately 官方定义）** `L472` — - 状态机「capture all the states, events and transitions」，好处是「find impossible states and spot undesirable transitions」。
+  - **9.3 状态 × 事件矩阵（可直接贴进设计交付文档）** `L494` — 关键收益：「快速连点」不再是一堆 if，而是 exiting 收到 OPEN → 反向回 entering，且从当前插值继续（§10）。isLoading && isSuccess 这类不可能状态在建模阶段就被消灭。
+- **10. 中断与取消：可中断性的工程定义** `L509` — motion-system.md 说「交互反馈一律用 transition（可中断）」——这里给出可中断的精确定义与实现手段。
+  - **10.1 定义** `L513` — 可中断 = 动画进行中收到新事件时，从「当前视觉值」平滑迁移到新目标，而不是跳回起点、跳过终点或卡在中间。
+  - **10.2 WAAPI 播放控制（MDN 精确语义）** `L525` — 为什么不要用 fill: forwards 长期保态（官方两条理由）：① 浏览器得维护仍 active 的动画状态，持续耗资源；② 动画样式在 cascade 中优先级高于指定样式，之后想覆盖很难。
+  - **10.3 自动移除 filling animations 的 5 个条件（全部满足才移除）** `L540` — 1. 动画处于 filling（正向播放时 fill: forwards、倒放时 backwards、或 both）；
+  - **10.4 transitionend / animationend 的四个坑** `L550` — 1. 冒泡：子元素过渡结束也会冒泡到父容器 → 必须检查 event.target === el 与 event.propertyName。
+- **11. WAAPI 精确参数表（KeyframeEffect / Element.animate）** `L561` — 以下全部为 MDN KeyframeEffect() 与 Using WAAPI 的官方默认值，与 CSS 动画默认值不同处已标出：
+- **12. CSS 入场/退场状态机：@starting-style 四件套** `L585` — @starting-style 定义「元素没有 previous state 时的起始值」，让 CSS transitions 在首次渲染或从 display:none 变可见时也能触发。
+  - **12.1 三个状态，不是两个（MDN 原文）** `L587` — @starting-style 定义「元素没有 previous state 时的起始值」，让 CSS transitions 在首次渲染或从 display:none 变可见时也能触发。
+  - **12.2 四件套（缺一不可）** `L599`
+  - **12.3 allow-discrete 的 50% 规则与两个例外（MDN 原文）** `L628` — - 初始值 normal；allow-discrete 让离散属性也参与过渡。
+  - **12.4 DOM 增删：先播退场，再移除节点** `L638` — MDN 示例流程：点击关闭 → 给元素加 .fade-out（其内设 display:none + opacity/scale 终点）→ setTimeout(() = el.remove(), 1000) 延迟移除，确保动画播完再删 DO
+- **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** `L646` — motion animation 的官方定义：「addition of steps between conditions to create the illusion of movement or to give a sense of a 
+  - **13.1 三条 WCAG 条款原文口径** `L648` — motion animation 的官方定义：「addition of steps between conditions to create the illusion of movement or to give a sense of a 
+  - **13.2 prefers-reduced-motion 精确语义（MDN）** `L662` — - no-preference：用户未表态，该值求值为 false；reduce：求值为 true。
+  - **13.3 编排层降级的四条纪律（本文件的差异化结论）** `L669` — 1. 整段跳过，不要逐个归零。把 stagger 序列里每个元素的 animation-duration 都设成 1ms，结果是 N 个变化在一帧内重叠闪现——比不做降级更糟。正确做法：命中 reduce 时取消交错（--index 系数置
+- **14. 性能：100ms 响应窗口、读写分离与快照开销** `L680` — FLIP 批量模板（先读后写，避免 N 次 sync layout）：
+- **15. 跨框架实现矩阵与选型决策** `L709` — 选型决策树：
+- **16. 场景速查（16 条，直接取结论）** `L738` — ---
+- **17. 反模式（20 条，命中即扣分）** `L761` — 1. 用 index 作列表 key —— 重排后退场动画挂到错误元素（Motion / Vue 官方都点名）。
+- **18. 自检清单（20 条，动效编排交付前逐条过）** `L786` — 1. 判过层了吗（L1 单动效 / L2 编排 / L3 状态机）？有没有把简单反馈做成状态机、把列表增删当成单个 transition？
+- **19. 可抄代码（8 段）** `L811` — jsx
+  - **19.1 Motion 交错编排（新版 + 旧版对照）** `L813`
+  - **19.2 CSS --index 级联 + 编排层降级** `L841`
+  - **19.3 FLIP 批量重排（先全读、再全写，100ms 窗口内）** `L865`
+  - **19.4 列表增删（Vue TransitionGroup + Motion popLayout）** `L884`
+  - **19.5 View Transitions 增强封装（单例 + types + 偏好 + 清理）** `L905`
+  - **19.6 动画状态机（XState 四态 + WAAPI 从当前值重启）** `L941`
+  - **19.7 @starting-style 四件套（dialog 下进上出）** `L966`
+  - **19.8 JS 层 reduced-motion 降级（覆盖 WAAPI / Svelte / VT）** `L981` — ---
+- **20. 素材与出处（本轮实测 / 官方原文）** `L1005` — - MDN · View Transition API — 接口、伪元素、properties、pseudo-classes、:active-view-transition-type()、view-transition-scope
+  - **20.1 规范与官方原文（全部逐页读取，非二手总结）** `L1007` — - MDN · View Transition API — 接口、伪元素、properties、pseudo-classes、:active-view-transition-type()、view-transition-scope
+  - **20.2 仓库实测（GitHub API，2026-11-05）** `L1030` — 实测备注：barba/barba 与 motionone/motion 本轮 API 返回 404（仓库迁移/合并），故不列入表，也不臆造数字。motionone 已并入 motiondivision/motion。
 
 ### `references/motion-system.md` · 动效与微交互系统 — Motion System（深度蒸馏）
 _348 行 · 快照 2026-10-30 · 21 节_
 
 - **1. 决策三问：先判该不该动** `L10` — 动效只有三种合法用途（说不出属于哪一种，就删掉）：
-- **2. 曲线：语义决定曲线，不是审美决定** `L30` — 核心规则（90% 的人搞反的一条）：
+- **2. 缓动曲线（easing）：语义决定曲线，不是审美决定** `L30` — 核心规则（90% 的人搞反的一条）：
   - **2.1 四体系精确值对照（可直接抄进 CSS）** `L39` — Ant 的反向曲线：motionEaseInBack cubic-bezier(0.71, -0.46, 0.88, 0.6)（先回撤再走），慎用，仅适合"取消/撤销"的语义。
   - **2.2 立场：项目默认用哪套** `L53` — 给一个 3 曲线最小集就够，不要引入 12 档：
 - **3. 时长：按距离和面积取，不按心情取** `L69` — 原理：位移距离越长、面积越大，人眼需要的追踪时间越长，时长必须递增（Carbon 原话：the larger the change in distance or size, the longer the animation）。但上限 400
@@ -1153,7 +1235,7 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.6 链接文案检查脚本** `L799` — ---
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_356 行 · 快照 — · 18 节_
+_369 行 · 快照 — · 19 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1173,6 +1255,7 @@ _356 行 · 快照 — · 18 节_
 - **2026-11-01 · 性能与设计的关系（每日升级 #11）** `L261` — - 主题：性能与设计的关系（上轮候选第 1 位；原知识仅 knowledge-map.md L3 一句"CWV 三阈值"）
 - **2026-11-01 · 设计交付与协作（每日升级 #12）** `L296` — - 主题：设计交付与协作（上轮候选第 1 位；原知识里"走查"零命中、"设计交付"只有 8 条散落在 editorial/accessibility/design-md 的边角）
 - **2026-11-05 · 内容设计与 UX 文案体系（每日升级 #13）** `L330` — - 主题：内容设计与 UX 文案（上轮候选第 2 位；候选第 1 位「多品牌/多主题 token 架构」已在 #12 前完成，multi-brand-theming.md 已存在；原知识只有 form-table.md 的 12 条错误模板
+- **2026-11-05 · 演示文稿与幻灯片版式（每日升级 #14）** `L358` — - 需求：每日深蒸馏设计知识，本轮主题为演示文稿与幻灯片版式（上轮候选第 1 位）
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -1185,9 +1268,11 @@ _356 行 · 快照 — · 18 节_
 - **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
+- **1. 分工与决策树：单动效、编排、状态机三层** → `references/motion-orchestration.md` L11
 - **1. 尺寸与比例** → `references/presentation-design.md` L32
 - **1. 表单（Form）的五个零件：标签·控件·帮助·错误·动作** → `references/form-table.md` L39
 - **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
+- **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
 - **10. 品牌色双主题：M3 官方 tone 映射表（亮色/暗色精确值，可直接抄进 token）** → `references/brand-identity.md` L300
 - **10. 布局梯度：按内容量选，不按审美选** → `references/form-table.md` L259
@@ -1197,6 +1282,7 @@ _356 行 · 快照 — · 18 节_
 - **10. 设计走查（design QA）：三遍法 + 9 字段文档** → `references/handoff-collaboration.md` L359
 - **10. 远程与线上演示** → `references/presentation-design.md` L480
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
+- **11. WAAPI 精确参数表（KeyframeEffect / Element.animate）** → `references/motion-orchestration.md` L561
 - **11. 中文演示场景** → `references/presentation-design.md` L511
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 品牌色的边界：图表 / 大屏 / 印刷 / 多品牌** → `references/brand-identity.md` L342
@@ -1206,6 +1292,7 @@ _356 行 · 快照 — · 18 节_
 - **11. 渲染性能：帧预算与图层内存（可算的数）** → `references/performance-design.md` L465
 - **11. 缺陷分级与发布门禁** → `references/handoff-collaboration.md` L423
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
+- **12. CSS 入场/退场状态机：@starting-style 四件套** → `references/motion-orchestration.md` L585
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
 - **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 字体系统：品牌字体与系统栈** → `references/brand-identity.md` L374
@@ -1222,12 +1309,14 @@ _356 行 · 快照 — · 18 节_
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
 - **13. 演示节奏与信息流** → `references/presentation-design.md` L589
 - **13. 素材与出处** → `references/dataviz.md` L366
+- **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
 - **14. 可抄代码（4 段）** → `references/dark-mode.md` L535
 - **14. 品牌声音与文案语气（NN/g 四维）** → `references/brand-identity.md` L443
 - **14. 回归防线：让"改 A 崩 B"在合并前被发现** → `references/handoff-collaboration.md` L580
 - **14. 工具与框架** → `references/presentation-design.md` L630
 - **14. 微信小程序：另一套物理规律** → `references/performance-design.md` L589
+- **14. 性能：100ms 响应窗口、读写分离与快照开销** → `references/motion-orchestration.md` L680
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
 - **15. 12 场景速查** → `references/presentation-design.md` L671
@@ -1237,15 +1326,18 @@ _356 行 · 快照 — · 18 节_
 - **15. 度量与验收：看哪个数、在哪看** → `references/performance-design.md` L628
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **15. 资产交付清单与文件格式** → `references/brand-identity.md` L469
+- **15. 跨框架实现矩阵与选型决策** → `references/motion-orchestration.md` L709
 - **16. 20 条反模式** → `references/presentation-design.md` L690
 - **16. 中文/本土交付现实** → `references/handoff-collaboration.md` L661
 - **16. 反模式清单（20 条，逐条对照）** → `references/performance-design.md` L674
 - **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
 - **16. 品牌一致性的十条检查（交付前逐条过）** → `references/brand-identity.md` L506
+- **16. 场景速查（16 条，直接取结论）** → `references/motion-orchestration.md` L738
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
 - **17. 18 项自检** → `references/presentation-design.md` L717
 - **17. 交付自检（18 项，全过才算过关）** → `references/performance-design.md` L699
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
+- **17. 反模式（20 条，命中即扣分）** → `references/motion-orchestration.md` L761
 - **17. 可抄代码** → `references/responsive-layout.md` L610
 - **17. 商标与授权合规（不做这步，前面全白做）** → `references/brand-identity.md` L521
 - **17. 度量：交付质量的六个指标** → `references/handoff-collaboration.md` L710
@@ -1253,7 +1345,9 @@ _356 行 · 快照 — · 18 节_
 - **18. 出处** → `references/form-table.md` L503
 - **18. 反模式 20 条** → `references/handoff-collaboration.md` L730
 - **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L742
+- **18. 自检清单（20 条，动效编排交付前逐条过）** → `references/motion-orchestration.md` L786
 - **19. 反模式 20 条** → `references/brand-identity.md` L625
+- **19. 可抄代码（8 段）** → `references/motion-orchestration.md` L811
 - **19. 数据来源** → `references/performance-design.md` L827 · `references/responsive-layout.md` L711
 - **19. 自检 20 项（交付前逐条打勾）** → `references/handoff-collaboration.md` L755
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
@@ -1262,10 +1356,12 @@ _356 行 · 快照 — · 18 节_
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
 - **2. 安全区与边距** → `references/presentation-design.md` L80
 - **2. 指标体系：先背下这七个数** → `references/performance-design.md` L46
-- **2. 曲线：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
 - **2. 标签：位置三选一，别混用** → `references/form-table.md` L55
+- **2. 缓动曲线（easing）：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
+- **2. 编排的四种时间结构与总时长公式** → `references/motion-orchestration.md` L31
 - **2. 表面层级：暗色的核心是"重排"，不是"反相"** → `references/dark-mode.md` L58
 - **20. 四个可抄模板** → `references/handoff-collaboration.md` L780
+- **20. 素材与出处（本轮实测 / 官方原文）** → `references/motion-orchestration.md` L1005
 - **20. 自检 18 项（交付前逐条打勾）** → `references/brand-identity.md` L650
 - **2026-10-28 · 开发者工具深色落地页（自测）** → `memory/design-log.md` L21
 - **2026-10-29 · v4 系统化与中文场景补齐（每日升级 #1）** → `memory/design-log.md` L33
@@ -1282,16 +1378,19 @@ _356 行 · 快照 — · 18 节_
 - **2026-11-01 · 版式与网格（每日升级 #8）** → `memory/design-log.md` L169
 - **2026-11-01 · 设计交付与协作（每日升级 #12）** → `memory/design-log.md` L296
 - **2026-11-05 · 内容设计与 UX 文案体系（每日升级 #13）** → `memory/design-log.md` L330
+- **2026-11-05 · 演示文稿与幻灯片版式（每日升级 #14）** → `memory/design-log.md` L358
 - **21. 数据来源** → `references/brand-identity.md` L673
 - **3. LCP：把 2.5 秒拆成四段（这是最有用的一张表）** → `references/performance-design.md` L94
 - **3. 交付物清单：spec sheet 的 9 个字段** → `references/handoff-collaboration.md` L50
+- **3. 交错编排 stagger：variants 传播与多框架实现** → `references/motion-orchestration.md` L72
 - **3. 从三个词到视觉：定位翻译表** → `references/brand-identity.md` L47
+- **3. 图表色板：三类用途（分类 / 顺序 / 发散），不许混用** → `references/dataviz.md` L76
 - **3. 字号体系与可读性** → `references/presentation-design.md` L121
 - **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
 - **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** → `references/dark-mode.md` L141
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
 - **3. 时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
-- **3. 色板：三类用途，不许混用** → `references/dataviz.md` L76
+- **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** → `references/motion-orchestration.md` L151
 - **4. INP：交互延迟的三段与"设计侧预算"** → `references/performance-design.md` L126
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
@@ -1302,6 +1401,7 @@ _356 行 · 快照 — · 18 节_
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
 - **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
 - **5. CLS：公式、五个位移源、设计侧防抖清单** → `references/performance-design.md` L163
+- **5. 列表增删与重排：四种操作的动画策略** → `references/motion-orchestration.md` L209
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
 - **5. 栅格与版心：三个必须给的数值** → `references/responsive-layout.md` L226
@@ -1311,6 +1411,7 @@ _356 行 · 快照 — · 18 节_
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
+- **6. 共享元素转场 A：View Transitions 完整机制** → `references/motion-orchestration.md` L271
 - **6. 动画与转场** → `references/presentation-design.md` L300
 - **6. 命名四套：图层 / 组件 / 变体 / token** → `references/handoff-collaboration.md` L176
 - **6. 品牌色与语义色：降饱和，不是反相** → `references/dark-mode.md` L230
@@ -1320,6 +1421,7 @@ _356 行 · 快照 — · 18 节_
 - **6. 流式排版：clamp() 的正确用法** → `references/responsive-layout.md` L263
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **7. 仪表盘布局** → `references/dataviz.md` L223
+- **7. 共享元素转场 B：layoutId 与 Motion 布局动画** → `references/motion-orchestration.md` L383
 - **7. 图像、插画、图标** → `references/dark-mode.md` L273
 - **7. 图片：设计师最直接的性能杠杆** → `references/performance-design.md` L251
 - **7. 实现：可直接抄的四段代码** → `references/motion-system.md` L155
@@ -1336,10 +1438,12 @@ _356 行 · 快照 — · 18 节_
 - **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
 - **8. 状态与交互反馈在暗色下的差异** → `references/dark-mode.md` L302
+- **8. 跨文档转场（MPA）与导航方向类型** → `references/motion-orchestration.md` L418
 - **8. 验收标准的写法：Given / When / Then** → `references/handoff-collaboration.md` L259
 - **9. JavaScript：设计师看不见但逃不掉的那部分** → `references/performance-design.md` L399
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
 - **9. 切换实现：四端与防闪白** → `references/dark-mode.md` L318
+- **9. 动画状态机：四态/六态模型与 XState** → `references/motion-orchestration.md` L452
 - **9. 可访问性** → `references/presentation-design.md` L441
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
 - **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
@@ -1471,11 +1575,11 @@ _356 行 · 快照 — · 18 节_
 - **十七、20 条反模式** → `references/ux-writing.md` L631
 - **十三、品牌注入管线：从客户填表到 CSS 生效** → `references/multi-brand-theming.md` L509
 - **十三、国际化文案注意事项** → `references/ux-writing.md` L513
+- **十三条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **十九、18 项自检（多品牌/多主题关）** → `references/multi-brand-theming.md` L641
 - **十九、可抄代码** → `references/ux-writing.md` L683
 - **十二、Figma 侧：变量模式必须与代码轴一一对应** → `references/multi-brand-theming.md` L495
 - **十二、数字、日期与单位** → `references/ux-writing.md` L479
-- **十二条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **十五、内容设计系统化** → `references/ux-writing.md` L571
 - **十五、性能成本：变量数量与切换代价** → `references/multi-brand-theming.md` L561
 - **十八、18 项自检清单** → `references/ux-writing.md` L658
@@ -1492,10 +1596,10 @@ _356 行 · 快照 — · 18 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L295
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L310
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L62
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L65
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -1504,12 +1608,12 @@ _356 行 · 快照 — · 18 节_
 - **目录** → `references/presentation-design.md` L9
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（58 条，做到 ≥44 条即达 L2+）** → `references/knowledge-map.md` L309
-- **自我成长机制（用得越多越准）** → `SKILL.md` L562
-- **自我进化机制（知识保鲜）** → `SKILL.md` L575
+- **能力自测（61 条，做到 ≥47 条即达 L2+）** → `references/knowledge-map.md` L324
+- **自我成长机制（用得越多越准）** → `SKILL.md` L592
+- **自我进化机制（知识保鲜）** → `SKILL.md` L605
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L596
+- **边界与习惯** → `SKILL.md` L626
 - **选型规则** → `references/component-libraries.md` L24
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十二条专题支线（可与主线并行）
+## 十三条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -173,6 +173,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - **只动 transform / opacity**；必须做 `prefers-reduced-motion` 降级
 - 材料：[60fps](https://60fps.design/)、[Design Details](https://designdetails.fm/)、[Motion Primitives](https://motion-primitives.com)、[easings.net](https://easings.net/)
 - → 全量数值、20 个场景速查、View Transitions/scroll-driven 代码、10 条验收见 `motion-system.md`
+- → **进阶层**（多个元素编排 / 交错 stagger / FLIP / 共享元素转场 / 动画状态机 / 中断与取消 / `@starting-style`）见 `motion-orchestration.md`，对应下方支线 M
 
 ### 支线 D · 可访问性（不是"加分项"，是交付门槛）
 - **四档对比度**：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。**不可四舍五入**（`4.499:1` 不达标）。
@@ -290,6 +291,20 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Microsoft Support - 动画与转场区别](https://support.microsoft.com/en-us/office/the-difference-between-animations-and-transitions-bae174a4-dad3-4268-bf9c-c201a70995f1)、[WCAG 2.3.1 闪烁阈值](https://www.w3.org/WAI/WCAG22/UNDERSTANDING/three-flashes-or-below-threshold)、[WebAIM 对比度检查器](https://webaim.org/resources/contrastchecker/)、[reveal.js](https://github.com/hakimel/reveal.js)、[Slidev](https://github.com/slidevjs/slidev)
 - → **尺寸表 + 安全区 + 字号阶梯 + 密度规则 + 母版步骤 + 动画转场分类 + 投影对比度 + 12 场景速查 + 20 反模式 + 18 自检 + 6 段可抄代码见 `presentation-design.md`**
 
+### 支线 M · 动效编排与状态机（动效 bug 八成不在曲线，在状态没建模）
+- **三层分工**：L1 单动效（该不该动 / 多久 / 什么曲线）走 `motion-system.md`；L2 编排（≥2 元素或有先后）；L3 状态机（互斥状态 / 跨视图配对 / 会被打断）走 `motion-orchestration.md`。
+- **四种时间结构**：并行 `max(d)` / 串行 `Σd` / 重叠 `d₁+(1−p)d₂` / 交错 `d+(n−1)s`。硬约束 `T ≤ 400ms`，反解 `s ≤ (400−d)/(n−1)` → 6 项×30ms=350ms ✅ / 12 项×40ms=640ms ❌，**n>6 改整组淡入**。
+- **单位统一表**：CSS 秒（`0.3s`）· WAAPI 毫秒（`300`，且默认 easing 是 `linear`）· Motion 秒（`0.3`）· React Transition Group 毫秒（`timeout={300}`）。
+- **FLIP 四步**：First 读 → Last 改完再读 → Invert（`invertY = first.top − last.top`）→ Play。**100ms 响应窗口**内做预计算；批量**先全读再全写**；同一时刻只允许一个 FLIP 编排。
+- **列表增删四策略**：新增让位 / 删除合拢（退场项 `position:absolute` 脱离布局流）/ 重排走 FLIP 位移 / 整批替换串行。**key 禁用 index**。
+- **共享元素两路线**：View Transitions（快照，UA 默认 **0.25s / ease / both**，name 必须唯一、单例、跨文档 MPA）vs Motion `layoutId`（真实 DOM transform、允许多个同名、能补滚动）。
+- **状态机**：四态 `entering/entered/exiting/exited` + 状态×事件矩阵；连点时 `exiting` 收 `OPEN` 应反向 `entering` 且从当前值继续；动画轴与数据轴做并行 region。
+- **中断与取消**：三策略（重启 / `composite:add` / `finish`）；保态用 `commitStyles()` 不用长期 `fill:forwards`；清理挂 `finished`+`finally`，别只挂 `transitionend`（四坑）。
+- **CSS 进出场四件套**：`@starting-style` + `display` + `overlay` + `allow-discrete`；两处顺序陷阱（简写之后、原规则之后）；离散属性 50% 翻转、display 例外。
+- **降级分两层**：CSS `prefers-reduced-motion` ＋ **JS 层**（WAAPI / Svelte / View Transitions 不吃 CSS media 归零）；编排要**整段跳过**而非逐项归零。WCAG **2.3.3 AAA**（motion animation 可关闭，essential 例外）。
+- 材料：[MDN View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using)、[W3C CSS View Transitions L1](https://drafts.csswg.org/css-view-transitions-1/)、[Paul Lewis FLIP](https://aerotwist.com/blog/flip-your-animations/)、[Motion AnimatePresence](https://motion.dev/docs/react-animate-presence)、[React Transition Group](https://reactcommunity.org/react-transition-group/transition)、[W3C SC 2.3.3](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html)
+- → **四种时间结构 + 总时长公式 + 两代 stagger API + FLIP 算式 + 列表四策略 + VT 伪元素树与三 promise + 四态矩阵 + WAAPI 全默认值 + 16 场景 + 20 反模式 + 20 自检 + 8 段可抄代码见 `motion-orchestration.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -306,7 +321,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（58 条，做到 ≥44 条即达 L2+）
+## 能力自测（61 条，做到 ≥47 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -369,6 +384,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出演示文稿最小字号 **24pt**（线上 28pt）的原因，并用 Duarte 法验证投影后排可读性
 - [ ] 能区分动画（单元素）与转场（整张幻灯片每页 1 个），并说出为什么华丽转场禁用、Morph 只用于跨页位移
 - [ ] 给一个 5 行 8 词的幻灯片，能按 **5×5 或 1-6-6** 规则改写，并解释中文 5×5 = 5 行×10 字的原因
+- [ ] 拿到「6 项列表依次入场」与「20 项表格入场」两个需求，能分别给出 `200ms + 5×30ms = 350ms` 的 stagger 方案与「整组淡入」的结论，并用 `T = d + (n−1)×s ≤ 400ms` 解释为什么后者不能逐项
+- [ ] 能写出 FLIP 的 F/L/I/P 四步与 `invertY = first.top − last.top` 算式，说明为什么预计算必须落在交互后 **100ms 响应窗口**内、以及批量为什么必须「先全读再全写」
+- [ ] 能说出 View Transitions 的 UA 默认参数（**0.25s / ease / both**），以及 `view-transition-name` 重名时 `ready` reject、`finished` fulfill、`updateCallback` 仍执行三者为何不矛盾，并解释主流程为什么不能 await `ready`
+- [ ] 能画出 `entering/entered/exiting/exited` 四态的状态×事件矩阵，说明快速连点如何从当前视觉值反向恢复，并指出为什么全局 CSS `prefers-reduced-motion` 归零管不住 Svelte / WAAPI 过渡
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

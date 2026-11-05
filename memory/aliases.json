@@ -1353,6 +1353,139 @@
     "网络研讨会",
     "视频会议演示"
    ]
+  },
+  {
+   "canonical": "动效编排",
+   "aliases": [
+    "orchestration",
+    "编排",
+    "动画顺序",
+    "序列动画",
+    "多个动画",
+    "时间轴",
+    "timeline",
+    "动画调度",
+    "依次动画",
+    "同时动"
+   ]
+  },
+  {
+   "canonical": "交错动画",
+   "aliases": [
+    "stagger",
+    "staggerChildren",
+    "delayChildren",
+    "staggerDirection",
+    "交错",
+    "错峰",
+    "逐项入场",
+    "依次出现",
+    "瀑布式",
+    "级联动画"
+   ]
+  },
+  {
+   "canonical": "FLIP",
+   "aliases": [
+    "flip",
+    "First Last Invert Play",
+    "布局动画",
+    "layout animation",
+    "位移补间",
+    "重排动画",
+    "位置补间",
+    "getBoundingClientRect"
+   ]
+  },
+  {
+   "canonical": "共享元素转场",
+   "aliases": [
+    "shared element",
+    "shared element transition",
+    "layoutId",
+    "卡片放大",
+    "缩略图变大图",
+    "hero transition",
+    "跨视图元素",
+    "共享布局动画"
+   ]
+  },
+  {
+   "canonical": "视图过渡",
+   "aliases": [
+    "View Transitions",
+    "view transition",
+    "view-transition",
+    "startViewTransition",
+    "view-transition-name",
+    "match-element",
+    "伪元素树",
+    "快照转场",
+    "跨文档转场",
+    "MPA转场",
+    "pageswap",
+    "pagereveal"
+   ]
+  },
+  {
+   "canonical": "动画状态机",
+   "aliases": [
+    "state machine",
+    "statechart",
+    "XState",
+    "四态",
+    "entering",
+    "exiting",
+    "状态迁移",
+    "进出场状态",
+    "unmountOnExit",
+    "AnimatePresence 状态"
+   ]
+  },
+  {
+   "canonical": "动画中断",
+   "aliases": [
+    "可中断",
+    "打断",
+    "连点就乱",
+    "cancel",
+    "commitStyles",
+    "skipTransition",
+    "竞态",
+    "并发转场",
+    "动画取消",
+    "replaceState",
+    "updatePlaybackRate"
+   ]
+  },
+  {
+   "canonical": "列表增删动画",
+   "aliases": [
+    "列表动画",
+    "增删动画",
+    "AnimatePresence",
+    "TransitionGroup",
+    "list-move",
+    "popLayout",
+    "列表重排",
+    "退场动画",
+    "exit animation",
+    "LayoutGroup"
+   ]
+  },
+  {
+   "canonical": "进出场动画",
+   "aliases": [
+    "@starting-style",
+    "allow-discrete",
+    "transition-behavior",
+    "display none 动画",
+    "入场动画",
+    "退场看不见",
+    "popover 动画",
+    "overlay",
+    "顶层动画"
+   ]
   }
  ]
 }

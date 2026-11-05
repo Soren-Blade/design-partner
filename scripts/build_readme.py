@@ -31,6 +31,7 @@ ASSETS = [
     ("patterns.md", "元素设计模式", "12 类高频元素的构型谱系、参数区间、速配规则"),
     ("design-tokens.md", "设计 Token 体系", "三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵"),
     ("motion-system.md", "动效与微交互系统", "曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收"),
+    ("motion-orchestration.md", "动效进阶·编排 / 状态机 / 共享元素转场", "三层分工判层 / 四种时间结构与 T≤400ms 总时长公式 / 两代 stagger API / FLIP 四步与 100ms 窗口 / 列表增删重排四策略 / View Transitions 伪元素树与 UA 默认 0.25s·ease·三 promise·单例中断 / Motion layoutId 与 scale correction / 四态状态机与 XState / 中断三策略与 WAAPI 全默认值 / @starting-style 四件套 / WCAG 2.3.3 与 JS 层降级 / 跨框架矩阵 / 16 场景 / 20 反模式 / 20 自检 / 8 段代码"),
     ("dataviz.md", "数据可视化规范", "FT 九类关系选型 / Carbon·AntV 精确色板 / 坐标轴与图例数值 / 仪表盘布局 / 12 条反模式"),
     ("form-table.md", "表单与表格规范", "标签对齐决策 / 字段定宽 / 校验三档与 12 条错误文案模板 / 行高三档 / 列对齐 / 分页·批量·空态 / 18 条反模式"),
     ("accessibility.md", "可访问性实操", "WCAG 2.2 四档阈值 / 焦点三层标准与可抄样式 / 24px 圆间距例外 / ARIA 纪律 / aria-live / 读屏实测 / GB/T 37668 与适老化 / 25 条自检"),
@@ -40,7 +41,10 @@ ASSETS = [
     ("brand-identity.md", "品牌视觉与 Logo 逻辑", "四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检"),
     ("performance-design.md", "性能与设计的关系", "CWV 七指标阈值与 p75 口径 / Lighthouse 10 权重 / LCP 四分解 40·10·40·10 / INP 三阶段与长任务 50ms / CLS 公式与 500ms 免责窗口 / 关键路径 170KB 与六类页面预算 / 图片格式矩阵与 25 倍像素浪费 / font-display 五档与中文字集化 / 视觉手法性能价格表 / 帧预算 16.67ms 与图层内存算术 / 三档决策分级 / 弱网三层降级 / 小程序单包 2MB / 18 项自检"),
     ("dark-mode.md", "暗色模式体系", "该不该做的 NN/g 证据链 / 三态切换决策树 / 表面层级三套精确值（M3 tone 4·6·10·12·17·22 / Ant lighten 0·8·12·26 / Carbon g100 阶梯）/ 实测对比度陷阱（45% 白仅 4.43、边框仅 2.09:1）/ 不用纯白的四体系共识 / 阴影两派与合成方案 / 品牌色 tone 重映射 / 涨跌色双套 / 图像四死法 / 四端实现与防闪白 / 暗色专属八陷阱 / 22 项自检"),
+    ("multi-brand-theming.md", "多品牌与多主题 Token 架构", "四根正交轴 / 四层架构 L0–L3 / 品牌色阶四条生成路线 / 对比度护栏（亮度边界 0.1833·0.1750·0.3000 与九色实测）/ 轴独立选择器与 @layer / 多品牌同页共存 / 四套真实主题矩阵 / DTCG 与 Style Dictionary / Figma 变量模式 / 注入六步管线 / 18 项自检"),
     ("handoff-collaboration.md", "设计交付与协作", "交付链六关卡与 intent·rule·value 三层 / spec 9 字段与 Carbon 规格六类 / 标注只标四类（8px mini unit·padding 16·gutter 32·spacing 13 档）/ 9 态矩阵 / 命名四套与默认变体规则 / 组件属性四类与 3–5 上限 / Given-When-Then 3–5 步 / 评审 30 分钟与 2 正 1 改 / 走查三遍法与 9 字段表 / P0–P3 门禁 / SemVer 11 条与 MAJOR 迁移表 / DTCG 与 Style Dictionary 管线 / 回归四层（80%·VRT·AVT·三读屏器）/ 六个交付指标 / 20 项自检 + 4 套模板"),
+    ("ux-writing.md", "内容设计与 UX 文案", "三级文案尺寸 / 五条不可商量原则（禁 OK）/ 按钮·错误·空态文案模板 / 语气四维 / 表单与对话框文案 / 术语管理 / sentence case 四体系共识 / 中文标点与数字日期 / 国际化 +40% / 文案 token / 18 项自检"),
+    ("presentation-design.md", "演示文稿与幻灯片版式", "16:9=1920×1080 / 标题 5%·动作 3% 安全区 / 字号阶梯（最小 24pt 线上 28pt）/ 文字密度四规则 / 母版 6–8 版式 / 动画与转场区分三档 / 投影对比度高 50% / 线上与中文演示 / 三分法与 Z 模式 / 12 场景 / 18 自检"),
     ("design-md-format.md", "DESIGN.md 规范", "九章骨架 + 54 品牌 DNA 速查 + 项目类型选型"),
     ("chinese-design.md", "中文设计场景", "中文排版规范 + 中文设计生态地图 + 产品形态特征"),
     ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
@@ -103,7 +107,7 @@ def skill_facts() -> dict:
     README 里的数字一律不手写——上一轮就出现过「11 份参考」「12 类意图路由」
     这类硬编码过期的问题。全部改为从真实文件统计。
     """
-    facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0, "branches": []}
+    facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0, "branches": [], "check_names": []}
     refs = sorted(REF.glob("*.md"))
     facts["refs"] = len(refs)
     facts["chars"] = sum(len(p.read_text(encoding="utf-8")) for p in refs)
@@ -134,12 +138,16 @@ def skill_facts() -> dict:
     seg = re.search(r"### 第 6 步.*?(?=\n---)", text, re.S)
     if seg:
         facts["checks"] = len(re.findall(r"^\d+\.\s*\*\*", seg.group(0), re.M))
+        # 自检关名也实时提取，避免 README 里那串「含中文关、系统关…」每轮过期
+        facts["check_names"] = [n for n in re.findall(r"^\d+\.\s*\*\*(.+?)\*\*", seg.group(0), re.M)
+                                if n.endswith("关")]
 
     return facts
 
 
 def build() -> str:
     f = skill_facts()
+    check_names = "、".join(f["check_names"]) or "各项"
     rows, total_entries, total_files = [], 0, 0
     for fname, name, desc in ASSETS:
         desc = desc.replace("{selftests}", str(f["selftests"]))
@@ -211,7 +219,7 @@ def build() -> str:
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  {f['checks']} 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关）+ 交付说明三段式
+第 6 步  自检与交付    →  {f['checks']} 项自检（含{check_names}）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。

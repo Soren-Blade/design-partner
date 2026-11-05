@@ -367,3 +367,27 @@
   - 源清单 589→615 行（+26 条演示文稿源）
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+
+## 2026-11-05 · 动效进阶：编排、状态机与共享元素转场（每日升级 #15）
+- 需求：每日深蒸馏设计知识，本轮主题取上轮候选第 1 位「动效进阶（编排与状态机）」——`motion-system.md` 只覆盖单动效的曲线与时长，多元素编排、列表增删、共享元素转场、动画状态机与中断策略完全空白
+- 升级：
+  - 新增 `references/motion-orchestration.md`（20 节 / 1049 行 / 48.9k 字符），与 `motion-system.md` 严格分层（决策层 vs 工程实现层），不重设曲线/时长数值
+  - 取源全部为官方原文（20 篇逐页核对）：MDN View Transition API 与 Using（六步流程/伪元素树/快照语义/三 promise/match-element/MPA/bfcache/link rel=expect）、W3C CSS View Transitions L1（**UA 默认 0.25s·ease·both** + 三个 `-ua-*` keyframes + group 动态样式 + name 唯一 abort + updateCallback always called）、Chrome DevRel 两篇（Chrome 111/126、`skipTransition()`、`types`、单例中断、enhancement 原则、网络请求前置）、MDN Using WAAPI（毫秒/`Infinity`/默认 `linear`/`commitStyles`/`persist`/`updatePlaybackRate`/`replaceState`/自动移除 **5 条件**）、MDN KeyframeEffect 构造函数（全默认参数表 + `composite` add·accumulate）、MDN `@starting-style`（三状态 + 同 specificity 顺序）、MDN `transition-behavior`（离散 50% 翻转 + display 0%/100% 例外 + overlay）、Chrome 116/117 四特性、Paul Lewis FLIP 原文（F/L/I/P 算式 + **100ms 响应窗口** + 三条 caveat + WAAPI 300ms 曲线）、Motion 三篇（AnimatePresence 三 mode / layout 系列与 scale correction / variants 传播与 `stagger()`）、React Transition Group 四态、Stately 状态机、Vue TransitionGroup、Svelte transition:、MDN prefers-reduced-motion、W3C SC 2.3.3 AAA
+  - GitHub 仓库实测 10 个：svelte 88562★ MIT / anime 74308★ MIT / vue core 54840★ MIT / motion 34922★ MIT / xstate 30411★ MIT / GSAP 30193★ 自定义 / react-spring 29260★ MIT / react-transition-group 10211★ NOASSERTION / turbo 7399★ MIT / swup 5251★ MIT；**`barba/barba` 与 `motionone/motion` API 返回 404（迁移/合并），本轮不列入、不臆造数字**
+  - SKILL.md v19：资产表 +1 行、意图路由 **119** 类（+8：动效编排/列表增删/共享元素/View Transitions/动画状态机/动画中断/进出场动画/编排诊断）、第 5 步新增「动效编排、状态机与共享元素转场」节 13 条、自检 22→**23**（编排关）、frontmatter description 与 v19 基线段落更新
+  - 别名层 95→**104** 组（动效编排/交错动画/FLIP/共享元素转场/视图过渡/动画状态机/动画中断/列表增删动画/进出场动画），**SKILL.md 路由顺序一行未动**
+  - knowledge-map：新增**支线 M**（十二→十三条）、自测 **61** 条、门槛 **≥47**；支线 C 补一行指向进阶层
+  - 源清单 616→**653 行**（+37 行：20 条规范原文 + 13 条仓库/演示 + 2 组标题 + 空行）
+- **本轮最大价值：把「动效 bug」从审美问题重新定义为状态建模问题**。三条可验证的差异化结论：
+  - **总时长是可算的**：`T = T_parent + d_child + (n−1)×s ≤ 400ms` 反解 `s ≤ (400−d)/(n−1)` → 6 项×30ms=350ms ✅、12 项×40ms=640ms ❌，因此「n>6 改整组淡入」不是审美偏好而是算术结果
+  - **降级必须分两层**：Svelte 官方明确指出其 transition 由 WAAPI 驱动，全局 CSS `@media (prefers-reduced-motion)` 把 duration 归零**对它们无效**；WAAPI / View Transitions 同理 → 必须在 JS 层用 `matchMedia` / `prefersReducedMotion` / `getAnimations()` / `skipTransition()` 降级；且编排层要**整段跳过交错**而非逐项归零（否则 N 个变化一帧内重叠闪现）
+  - **动画是 enhancement**：View Transitions 的 `ready` 会因重名 reject，但 `updateCallback` 始终执行、`finished` 仍 fulfill → 主流程绝不能 await `ready`；清理必须挂 `finished` + `finally`
+- **修掉三处遗留系统性缺陷**（不改检索器，只改标题/补齐资产表）：
+  - `build_readme.py` 的 ASSETS 漏了 `multi-brand-theming.md` / `ux-writing.md` / `presentation-design.md`（README 只列 21 行、磁盘已有 24 份）→ 补齐这 3 项并加入本轮新文件，ASSETS 21→**25**，README 从此与磁盘一致
+  - `knowledge-map.md` 标题写「58 条自测」但实际只有 57 个 checkbox → 统一为 **61**
+  - 两处检索排序退化（改标题）：`motion-system.md` §2 补「缓动曲线（easing）」→「缓动曲线」回到第 1；`dataviz.md` §3 补「图表色板」→「图表色板」回到第 1。顺带修好 #14 遗留的缓动曲线排序问题
+- 检索门槛 16/16 PASS（动效编排/交错 stagger/FLIP/共享元素转场/列表增删/动画状态机/动画中断/View Transitions/@starting-style/layoutId/进出场动画/view-transition-name/popLayout/转场并发/编排/动画取消 全部命中新文件前 3）；回归 **16/16 PASS**（修标题后全量复测 32/32）
+- 接线体检：27 文件 / **1000 章节**，未接线 0、已失联 0
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

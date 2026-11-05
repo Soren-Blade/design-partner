@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-05T19:20:11",
+ "generated": "2026-11-05T19:56:11",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 604,
-   "chars": 75663,
+   "lines": 634,
+   "chars": 86026,
    "sections": []
   },
   {
@@ -1515,7 +1515,7 @@
    "title": "数据可视化规范 · Data Visualization",
    "snapshot": "2026-10-31",
    "lines": 376,
-   "chars": 13566,
+   "chars": 13582,
    "sections": [
     {
      "id": "0-四条总原则-antv-官方-可直接引用",
@@ -1542,9 +1542,9 @@
      "chars": 284
     },
     {
-     "id": "3-色板-三类用途-不许混用",
+     "id": "3-图表色板-三类用途-分类-顺序-发散-不许混用",
      "level": 2,
-     "title": "3. 色板：三类用途，不许混用",
+     "title": "3. 图表色板：三类用途（分类 / 顺序 / 发散），不许混用",
      "summary": "这是数据可视化里最容易翻车的一环。 三类色板解决三个不同问题，混用等于撒谎：",
      "line": 76,
      "chars": 304
@@ -3874,8 +3874,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 376,
-   "chars": 21549,
+   "lines": 395,
+   "chars": 24290,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -4086,9 +4086,9 @@
      "chars": 43
     },
     {
-     "id": "十二条专题支线-可与主线并行",
+     "id": "十三条专题支线-可与主线并行",
      "level": 2,
-     "title": "十二条专题支线（可与主线并行）",
+     "title": "十三条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -4115,14 +4115,14 @@
      "title": "支线 C · 动效（界面\"活\"起来的那一层）",
      "summary": "- 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）",
      "line": 169,
-     "chars": 449
+     "chars": 570
     },
     {
      "id": "支线-d-可访问性-不是-加分项-是交付门槛",
      "level": 3,
      "title": "支线 D · 可访问性（不是\"加分项\"，是交付门槛）",
      "summary": "- 四档对比度：正文 4.5:1 / 大文本 3:1（≥24px 或 ≥18.5px 粗体）/ 非文本 3:1 / AAA 正文 7:1。不可四舍五入（4.499:1 不达标）。",
-     "line": 177,
+     "line": 178,
      "chars": 807
     },
     {
@@ -4130,7 +4130,7 @@
      "level": 3,
      "title": "支线 E · 反馈与状态（\"有没有回应\"决定可不可信）",
      "summary": "- 五层反馈：L0 微反馈（≤120ms）/ L1 toast（3–5s）/ L2 就地状态（常驻）/ L3 模态 / L4 结果页。严重度决定层级，不决定颜色。",
-     "line": 187,
+     "line": 188,
      "chars": 916
     },
     {
@@ -4138,7 +4138,7 @@
      "level": 3,
      "title": "支线 F · 版式与网格（海报 / 长图 / 社媒图 / 印刷）",
      "summary": "- 先判载体：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报 1–5m 看 3 秒，长图 30cm 连续滑，社媒图缩略图只有 120px。",
-     "line": 197,
+     "line": 198,
      "chars": 951
     },
     {
@@ -4146,7 +4146,7 @@
      "level": 3,
      "title": "支线 G · 品牌视觉与 Logo（做\"一个品牌\"而不是\"一个页面\"）",
      "summary": "- 顺序不能反：定位（3 个形容词 + 3 个反义词）→ 语言（形/色/字/图/动/声）→ 系统（token 与网格）→ 资产（文件与手册）。从 logo 开始的项目，评审时一定被打回且说不出原因。",
-     "line": 207,
+     "line": 208,
      "chars": 1362
     },
     {
@@ -4154,7 +4154,7 @@
      "level": 3,
      "title": "支线 H · 暗色模式（\"反一下色\"和\"设计一套暗色\"是两件事）",
      "summary": "- 先问该不该做：正常视力用户浅色更优（字号越小差距越大）；暗色的正当理由是低视力/白内障、暗环境、OLED 省电、沉浸媒体、长文选项。中后台不要默认暗色。",
-     "line": 219,
+     "line": 220,
      "chars": 1466
     },
     {
@@ -4162,7 +4162,7 @@
      "level": 3,
      "title": "支线 I · 性能与设计（\"好看\"必须先\"看得见\"）",
      "summary": "- 性能是设计约束，不是开发收尾。首屏主视觉选什么、用几套字体、上不上视频，在稿子上就已经定了 LCP 的上限。",
-     "line": 230,
+     "line": 231,
      "chars": 1258
     },
     {
@@ -4170,7 +4170,7 @@
      "level": 3,
      "title": "支线 J · 设计交付与协作（画完不等于交完）",
      "summary": "- 交付的是决策，不是图。稿子里有 intent / rule / value 三层，只给 value，开发必须反推前两层——偏差从这里开始。检验法：拿掉设计稿，开发能做出第二个页面吗？",
-     "line": 243,
+     "line": 244,
      "chars": 1160
     },
     {
@@ -4178,7 +4178,7 @@
      "level": 3,
      "title": "支线 K · 内容设计与 UX 文案（界面上的每个字都是设计）",
      "summary": "- 三级文案尺寸：long ≥3 段（引导页/帮助） / short 2–3 段（对话框/结果说明） / micro <3 句（按钮/标签/toast/错误——占界面 80%）。先判尺寸再写。",
-     "line": 256,
+     "line": 257,
      "chars": 2382
     },
     {
@@ -4186,24 +4186,585 @@
      "level": 3,
      "title": "支线 L · 演示文稿与幻灯片版式（不是\"缩小的文档\"是\"放大的瞬间\"）",
      "summary": "- 3 秒法则：每张幻灯片停留 20–60 秒，观众 3 秒内决定是否继续看。倒金字塔——结论先行。",
-     "line": 274,
-     "chars": 1705
+     "line": 275,
+     "chars": 1700
+    },
+    {
+     "id": "支线-m-动效编排与状态机-动效-bug-八成不在曲线-在状态没建模",
+     "level": 3,
+     "title": "支线 M · 动效编排与状态机（动效 bug 八成不在曲线，在状态没建模）",
+     "summary": "- 三层分工：L1 单动效（该不该动 / 多久 / 什么曲线）走 motion-system.md；L2 编排（≥2 元素或有先后）；L3 状态机（互斥状态 / 跨视图配对 / 会被打断）走 motion-orchestration.md。",
+     "line": 294,
+     "chars": 2023
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 295,
+     "line": 310,
      "chars": 311
     },
     {
-     "id": "能力自测-58-条-做到-44-条即达-l2",
+     "id": "能力自测-61-条-做到-47-条即达-l2",
      "level": 2,
-     "title": "能力自测（58 条，做到 ≥44 条即达 L2+）",
+     "title": "能力自测（61 条，做到 ≥47 条即达 L2+）",
      "summary": "L0",
-     "line": 309,
-     "chars": 2769
+     "line": 324,
+     "chars": 3330
+    }
+   ]
+  },
+  {
+   "path": "references/motion-orchestration.md",
+   "title": "动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）",
+   "snapshot": "2026-11-05",
+   "lines": 1049,
+   "chars": 48885,
+   "sections": [
+    {
+     "id": "1-分工与决策树-单动效-编排-状态机三层",
+     "level": 2,
+     "title": "1. 分工与决策树：单动效、编排、状态机三层",
+     "summary": "动效问题分三层，先判层再查文件，否则会把「一个按钮反馈」做成状态机，或把「列表增删」当成单个 transition。",
+     "line": 11,
+     "chars": 677
+    },
+    {
+     "id": "2-编排的四种时间结构与总时长公式",
+     "level": 2,
+     "title": "2. 编排的四种时间结构与总时长公式",
+     "summary": "编排 = 给 N 个动画分配起始时刻。只有四种结构，所有框架都是这四种的包装：",
+     "line": 31,
+     "chars": 377
+    },
+    {
+     "id": "2-1-总时长硬上限与可算的-stagger",
+     "level": 3,
+     "title": "2.1 总时长硬上限与可算的 stagger",
+     "summary": "motion-system.md 定了「点击触发 ≤400ms」「stagger 间隔 20–40ms」「≤6 项」——这三条其实是同一个公式的三个约束：",
+     "line": 42,
+     "chars": 758
+    },
+    {
+     "id": "2-2-编排的层级纪律-与-motion-system-md-5-对齐并补全",
+     "level": 3,
+     "title": "2.2 编排的层级纪律（与 motion-system.md §5 对齐并补全）",
+     "summary": "- 父先子后用 when：when: \"beforeChildren\" 进场、when: \"afterChildren\" 退场。退场必须等子内容先走完，否则父容器消失会把子元素一起拽掉。",
+     "line": 63,
+     "chars": 448
+    },
+    {
+     "id": "3-交错编排-stagger-variants-传播与多框架实现",
+     "level": 2,
+     "title": "3. 交错编排 stagger：variants 传播与多框架实现",
+     "summary": "传播规则（官方原文）：「Variants will flow down through motion components」——父级 motion 组件切换 variant 标签时，所有子级 motion 组件会自动切换到同名 varian",
+     "line": 72,
+     "chars": 1
+    },
+    {
+     "id": "3-1-motion-for-react-variants-传播是编排的地基",
+     "level": 3,
+     "title": "3.1 Motion for React：variants 传播是编排的地基",
+     "summary": "传播规则（官方原文）：「Variants will flow down through motion components」——父级 motion 组件切换 variant 标签时，所有子级 motion 组件会自动切换到同名 varian",
+     "line": 74,
+     "chars": 658
+    },
+    {
+     "id": "3-2-两代编排-api-重要-官方文档已换写法",
+     "level": 3,
+     "title": "3.2 两代编排 API（重要：官方文档已换写法）",
+     "summary": "新版官方原文代码：",
+     "line": 93,
+     "chars": 780
+    },
+    {
+     "id": "3-3-原生-css-交错-无框架-包体最小",
+     "level": 3,
+     "title": "3.3 原生 CSS 交错（无框架、包体最小）",
+     "summary": "--index 由渲染层写入（style=\"--index:3\"）。纪律：animation-fill-mode: both 必写，否则延迟期间元素以「已可见」状态闪一下再开始动。",
+     "line": 122,
+     "chars": 103
+    },
+    {
+     "id": "3-4-vue-svelte-gsap-的等价写法",
+     "level": 3,
+     "title": "3.4 Vue / Svelte / GSAP 的等价写法",
+     "summary": "- Vue <TransitionGroup：用 :css=\"false\" + JS hooks，把 index 写进 data-index，delay: el.dataset.index 0.15（官方示例用 GSAP onComplet",
+     "line": 137,
+     "chars": 643
+    },
+    {
+     "id": "3-5-中文长列表与-逐字动画-陷阱",
+     "level": 3,
+     "title": "3.5 中文长列表与「逐字动画」陷阱",
+     "summary": "- 中文无词间空格，逐字 stagger 会破词（motion-system.md §9 已给结论）。中文列表按「整行」交错，不要按字符交错。",
+     "line": 143,
+     "chars": 223
+    },
+    {
+     "id": "4-flip-共享元素位移的通用算法-first-last-invert-play",
+     "level": 2,
+     "title": "4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）",
+     "summary": "来源：Paul Lewis（Aerotwist, 2015-02，2022-05 更新），Google I/O 2015 与 Chrome Dev Summit 站点的实际做法。它不是框架，是一种思路：把逐帧的昂贵布局计算预先算完，只把 t",
+     "line": 151,
+     "chars": 159
+    },
+    {
+     "id": "4-1-四步与精确算式",
+     "level": 3,
+     "title": "4.1 四步与精确算式",
+     "summary": "原文 WAAPI 版本（可直接抄，含官方给的曲线）：",
+     "line": 155,
+     "chars": 1037
+    },
+    {
+     "id": "4-2-为什么快-100ms-响应窗口",
+     "level": 3,
+     "title": "4.2 为什么快：100ms 响应窗口",
+     "summary": "原文核心论断：「There is a window of 100ms after someone interacts with your site where you're able to do work without them noti",
+     "line": 181,
+     "chars": 378
+    },
+    {
+     "id": "4-3-三条原文-caveat-工程上最容易踩",
+     "level": 3,
+     "title": "4.3 三条原文 caveat（工程上最容易踩）",
+     "summary": "1. 别超 100ms 窗口——批量元素时先全部读、再全部写（§14），不要「读一个写一个」。",
+     "line": 189,
+     "chars": 392
+    },
+    {
+     "id": "4-4-flip-vs-view-transitions-的选型",
+     "level": 3,
+     "title": "4.4 FLIP vs View Transitions 的选型",
+     "summary": "---",
+     "line": 195,
+     "chars": 592
+    },
+    {
+     "id": "5-列表增删与重排-四种操作的动画策略",
+     "level": 2,
+     "title": "5. 列表增删与重排：四种操作的动画策略",
+     "summary": "列表是动效 bug 最密集的场景，因为同一批 DOM 会经历四种完全不同的变化，而多数人只写了「入场」一种。",
+     "line": 209,
+     "chars": 471
+    },
+    {
+     "id": "5-1-key-稳定性是所有列表动画的前提",
+     "level": 3,
+     "title": "5.1 key 稳定性是所有列表动画的前提",
+     "summary": "官方一致口径（Motion / Vue / React 三家都写了）：",
+     "line": 220,
+     "chars": 365
+    },
+    {
+     "id": "5-2-退场元素必须脱离布局流-vue-官方解法",
+     "level": 3,
+     "title": "5.2 退场元素必须脱离布局流（Vue 官方解法）",
+     "summary": "",
+     "line": 228,
+     "chars": 1
+    },
+    {
+     "id": "5-3-animatepresence-的三种-mode-motion-官方",
+     "level": 3,
+     "title": "5.3 AnimatePresence 的三种 mode（Motion 官方）",
+     "summary": "三个官方排错点（照抄）：",
+     "line": 240,
+     "chars": 770
+    },
+    {
+     "id": "5-4-view-transitions-的列表方案-match-element",
+     "level": 3,
+     "title": "5.4 View Transitions 的列表方案：match-element",
+     "summary": "给每个列表项手写唯一 view-transition-name 太笨重，浏览器提供 view-transition-name: match-element（MDN 官方）：自动给所有选中元素设置唯一名称。配套的 view-transitio",
+     "line": 255,
+     "chars": 525
+    },
+    {
+     "id": "6-共享元素转场-a-view-transitions-完整机制",
+     "level": 2,
+     "title": "6. 共享元素转场 A：View Transitions 完整机制",
+     "summary": "1. 触发：SPA 调 document.startViewTransition(updateCallback)；MPA 由同源导航触发（两页 CSS 都写 @view-transition { navigation: auto }）。",
+     "line": 271,
+     "chars": 1
+    },
+    {
+     "id": "6-1-六步流程-mdn-原文顺序",
+     "level": 3,
+     "title": "6.1 六步流程（MDN 原文顺序）",
+     "summary": "1. 触发：SPA 调 document.startViewTransition(updateCallback)；MPA 由同源导航触发（两页 CSS 都写 @view-transition { navigation: auto }）。",
+     "line": 273,
+     "chars": 770
+    },
+    {
+     "id": "6-2-伪元素树-原文结构",
+     "level": 3,
+     "title": "6.2 伪元素树（原文结构）",
+     "summary": "- ::view-transition-old() / new() 都按 replaced content 渲染（像 <img/<video），因此可以用 object-fit / object-position。",
+     "line": 284,
+     "chars": 385
+    },
+    {
+     "id": "6-3-默认动画精确值-w3c-css-view-transitions-level-1-ua-stylesheet-原文",
+     "level": 3,
+     "title": "6.3 默认动画精确值（W3C CSS View Transitions Level 1 UA stylesheet 原文）",
+     "summary": "- 默认 0.25s（quarter-second）、ease、cross-fade、fill-mode: both；子伪元素全部 inherit 定时，因此改时长写 group 一处即可。",
+     "line": 302,
+     "chars": 386
+    },
+    {
+     "id": "6-4-view-transition-name-唯一性-最容易炸的一条",
+     "level": 3,
+     "title": "6.4 view-transition-name 唯一性（最容易炸的一条）",
+     "summary": "工程纪律：动态设置 name 后必须在转场结束清理；尤其在 MPA + bfcache 场景（§8.2），残留 name 会在用户按返回键时造成重名 → 转场被跳过。",
+     "line": 335,
+     "chars": 808
+    },
+    {
+     "id": "6-5-三个-promise-与-skiptransition",
+     "level": 3,
+     "title": "6.5 三个 Promise 与 skipTransition()",
+     "summary": "skipTransition() 只跳过动画，不跳过 DOM 更新（官方：\"This won't skip calling updateCallback\"）。这是把「用户关闭动效偏好」接入 View Transitions 的标准入口，也用",
+     "line": 349,
+     "chars": 1021
+    },
+    {
+     "id": "6-6-并发与中断-单例规则",
+     "level": 3,
+     "title": "6.6 并发与中断：单例规则",
+     "summary": "\"Only one view transition is allowed to run at a time. If a new view transition starts while one is already running, the",
+     "line": 372,
+     "chars": 569
+    },
+    {
+     "id": "7-共享元素转场-b-layoutid-与-motion-布局动画",
+     "level": 2,
+     "title": "7. 共享元素转场 B：layoutId 与 Motion 布局动画",
+     "summary": "Motion（原 Framer Motion）用 layout 系列 prop 在真实 DOM 上做 FLIP，不需要浏览器快照。",
+     "line": 383,
+     "chars": 1753
+    },
+    {
+     "id": "8-跨文档转场-mpa-与导航方向类型",
+     "level": 2,
+     "title": "8. 跨文档转场（MPA）与导航方向类型",
+     "summary": "- 无需 JavaScript：同源跨文档导航 + 两个文档 CSS 都写 @view-transition { navigation: auto; } 即触发。",
+     "line": 418,
+     "chars": 1
+    },
+    {
+     "id": "8-1-触发与版本",
+     "level": 3,
+     "title": "8.1 触发与版本",
+     "summary": "- 无需 JavaScript：同源跨文档导航 + 两个文档 CSS 都写 @view-transition { navigation: auto; } 即触发。",
+     "line": 420,
+     "chars": 415
+    },
+    {
+     "id": "8-2-bfcache-的隐藏陷阱-mdn-明确警告",
+     "level": 3,
+     "title": "8.2 bfcache 的隐藏陷阱（MDN 明确警告）",
+     "summary": "在 pageswap 里给元素临时设置 view-transition-name 后，转场结束必须移除。原文：\"If we left them set, they would persist in the page state saved ",
+     "line": 426,
+     "chars": 503
+    },
+    {
+     "id": "8-3-首帧稳定化",
+     "level": 3,
+     "title": "8.3 首帧稳定化",
+     "summary": "跨文档转场要求「关键内容已解析」才有稳定快照。Chrome DevRel 建议用 render blocking 保证：① 关键样式已加载应用；② 关键脚本已执行；③ 用户首屏可见的 HTML 已解析。",
+     "line": 439,
+     "chars": 337
+    },
+    {
+     "id": "9-动画状态机-四态-六态模型与-xstate",
+     "level": 2,
+     "title": "9. 动画状态机：四态/六态模型与 XState",
+     "summary": "in = true timeout 结束",
+     "line": 452,
+     "chars": 1
+    },
+    {
+     "id": "9-1-经典四态-react-transition-group-transition-官方",
+     "level": 3,
+     "title": "9.1 经典四态（react-transition-group <Transition 官方）",
+     "summary": "四个主状态：'entering'、'entered'、'exiting'、'exited'。in prop 切换时进入对应阶段，timeout 毫秒后自动切下一状态。children 作为函数时收到当前状态字符串。",
+     "line": 454,
+     "chars": 583
+    },
+    {
+     "id": "9-2-为什么必须是状态机-xstate-stately-官方定义",
+     "level": 3,
+     "title": "9.2 为什么必须是状态机（XState / Stately 官方定义）",
+     "summary": "- 状态机「capture all the states, events and transitions」，好处是「find impossible states and spot undesirable transitions」。",
+     "line": 472,
+     "chars": 849
+    },
+    {
+     "id": "9-3-状态-事件矩阵-可直接贴进设计交付文档",
+     "level": 3,
+     "title": "9.3 状态 × 事件矩阵（可直接贴进设计交付文档）",
+     "summary": "关键收益：「快速连点」不再是一堆 if，而是 exiting 收到 OPEN → 反向回 entering，且从当前插值继续（§10）。isLoading && isSuccess 这类不可能状态在建模阶段就被消灭。",
+     "line": 494,
+     "chars": 546
+    },
+    {
+     "id": "10-中断与取消-可中断性的工程定义",
+     "level": 2,
+     "title": "10. 中断与取消：可中断性的工程定义",
+     "summary": "motion-system.md 说「交互反馈一律用 transition（可中断）」——这里给出可中断的精确定义与实现手段。",
+     "line": 509,
+     "chars": 74
+    },
+    {
+     "id": "10-1-定义",
+     "level": 3,
+     "title": "10.1 定义",
+     "summary": "可中断 = 动画进行中收到新事件时，从「当前视觉值」平滑迁移到新目标，而不是跳回起点、跳过终点或卡在中间。",
+     "line": 513,
+     "chars": 377
+    },
+    {
+     "id": "10-2-waapi-播放控制-mdn-精确语义",
+     "level": 3,
+     "title": "10.2 WAAPI 播放控制（MDN 精确语义）",
+     "summary": "为什么不要用 fill: forwards 长期保态（官方两条理由）：① 浏览器得维护仍 active 的动画状态，持续耗资源；② 动画样式在 cascade 中优先级高于指定样式，之后想覆盖很难。",
+     "line": 525,
+     "chars": 806
+    },
+    {
+     "id": "10-3-自动移除-filling-animations-的-5-个条件-全部满足才移除",
+     "level": 3,
+     "title": "10.3 自动移除 filling animations 的 5 个条件（全部满足才移除）",
+     "summary": "1. 动画处于 filling（正向播放时 fill: forwards、倒放时 backwards、或 both）；",
+     "line": 540,
+     "chars": 396
+    },
+    {
+     "id": "10-4-transitionend-animationend-的四个坑",
+     "level": 3,
+     "title": "10.4 transitionend / animationend 的四个坑",
+     "summary": "1. 冒泡：子元素过渡结束也会冒泡到父容器 → 必须检查 event.target === el 与 event.propertyName。",
+     "line": 550,
+     "chars": 468
+    },
+    {
+     "id": "11-waapi-精确参数表-keyframeeffect-element-animate",
+     "level": 2,
+     "title": "11. WAAPI 精确参数表（KeyframeEffect / Element.animate）",
+     "summary": "以下全部为 MDN KeyframeEffect() 与 Using WAAPI 的官方默认值，与 CSS 动画默认值不同处已标出：",
+     "line": 561,
+     "chars": 1373
+    },
+    {
+     "id": "12-css-入场-退场状态机-starting-style-四件套",
+     "level": 2,
+     "title": "12. CSS 入场/退场状态机：@starting-style 四件套",
+     "summary": "@starting-style 定义「元素没有 previous state 时的起始值」，让 CSS transitions 在首次渲染或从 display:none 变可见时也能触发。",
+     "line": 585,
+     "chars": 1
+    },
+    {
+     "id": "12-1-三个状态-不是两个-mdn-原文",
+     "level": 3,
+     "title": "12.1 三个状态，不是两个（MDN 原文）",
+     "summary": "@starting-style 定义「元素没有 previous state 时的起始值」，让 CSS transitions 在首次渲染或从 display:none 变可见时也能触发。",
+     "line": 587,
+     "chars": 461
+    },
+    {
+     "id": "12-2-四件套-缺一不可",
+     "level": 3,
+     "title": "12.2 四件套（缺一不可）",
+     "summary": "",
+     "line": 599,
+     "chars": 329
+    },
+    {
+     "id": "12-3-allow-discrete-的-50-规则与两个例外-mdn-原文",
+     "level": 3,
+     "title": "12.3 allow-discrete 的 50% 规则与两个例外（MDN 原文）",
+     "summary": "- 初始值 normal；allow-discrete 让离散属性也参与过渡。",
+     "line": 628,
+     "chars": 765
+    },
+    {
+     "id": "12-4-dom-增删-先播退场-再移除节点",
+     "level": 3,
+     "title": "12.4 DOM 增删：先播退场，再移除节点",
+     "summary": "MDN 示例流程：点击关闭 → 给元素加 .fade-out（其内设 display:none + opacity/scale 终点）→ setTimeout(() = el.remove(), 1000) 延迟移除，确保动画播完再删 DO",
+     "line": 638,
+     "chars": 288
+    },
+    {
+     "id": "13-编排层编排的无障碍降级-wcag-2-3-3-2-2-2-prefers-reduced-motion",
+     "level": 2,
+     "title": "13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）",
+     "summary": "motion animation 的官方定义：「addition of steps between conditions to create the illusion of movement or to give a sense of a ",
+     "line": 646,
+     "chars": 1
+    },
+    {
+     "id": "13-1-三条-wcag-条款原文口径",
+     "level": 3,
+     "title": "13.1 三条 WCAG 条款原文口径",
+     "summary": "motion animation 的官方定义：「addition of steps between conditions to create the illusion of movement or to give a sense of a ",
+     "line": 648,
+     "chars": 940
+    },
+    {
+     "id": "13-2-prefers-reduced-motion-精确语义-mdn",
+     "level": 3,
+     "title": "13.2 prefers-reduced-motion 精确语义（MDN）",
+     "summary": "- no-preference：用户未表态，该值求值为 false；reduce：求值为 true。",
+     "line": 662,
+     "chars": 473
+    },
+    {
+     "id": "13-3-编排层降级的四条纪律-本文件的差异化结论",
+     "level": 3,
+     "title": "13.3 编排层降级的四条纪律（本文件的差异化结论）",
+     "summary": "1. 整段跳过，不要逐个归零。把 stagger 序列里每个元素的 animation-duration 都设成 1ms，结果是 N 个变化在一帧内重叠闪现——比不做降级更糟。正确做法：命中 reduce 时取消交错（--index 系数置",
+     "line": 669,
+     "chars": 1020
+    },
+    {
+     "id": "14-性能-100ms-响应窗口-读写分离与快照开销",
+     "level": 2,
+     "title": "14. 性能：100ms 响应窗口、读写分离与快照开销",
+     "summary": "FLIP 批量模板（先读后写，避免 N 次 sync layout）：",
+     "line": 680,
+     "chars": 1224
+    },
+    {
+     "id": "15-跨框架实现矩阵与选型决策",
+     "level": 2,
+     "title": "15. 跨框架实现矩阵与选型决策",
+     "summary": "选型决策树：",
+     "line": 709,
+     "chars": 1392
+    },
+    {
+     "id": "16-场景速查-16-条-直接取结论",
+     "level": 2,
+     "title": "16. 场景速查（16 条，直接取结论）",
+     "summary": "---",
+     "line": 738,
+     "chars": 1206
+    },
+    {
+     "id": "17-反模式-20-条-命中即扣分",
+     "level": 2,
+     "title": "17. 反模式（20 条，命中即扣分）",
+     "summary": "1. 用 index 作列表 key —— 重排后退场动画挂到错误元素（Motion / Vue 官方都点名）。",
+     "line": 761,
+     "chars": 1300
+    },
+    {
+     "id": "18-自检清单-20-条-动效编排交付前逐条过",
+     "level": 2,
+     "title": "18. 自检清单（20 条，动效编排交付前逐条过）",
+     "summary": "1. 判过层了吗（L1 单动效 / L2 编排 / L3 状态机）？有没有把简单反馈做成状态机、把列表增删当成单个 transition？",
+     "line": 786,
+     "chars": 1266
+    },
+    {
+     "id": "19-可抄代码-8-段",
+     "level": 2,
+     "title": "19. 可抄代码（8 段）",
+     "summary": "jsx",
+     "line": 811,
+     "chars": 1
+    },
+    {
+     "id": "19-1-motion-交错编排-新版-旧版对照",
+     "level": 3,
+     "title": "19.1 Motion 交错编排（新版 + 旧版对照）",
+     "summary": "",
+     "line": 813,
+     "chars": 1
+    },
+    {
+     "id": "19-2-css-index-级联-编排层降级",
+     "level": 3,
+     "title": "19.2 CSS --index 级联 + 编排层降级",
+     "summary": "",
+     "line": 841,
+     "chars": 1
+    },
+    {
+     "id": "19-3-flip-批量重排-先全读-再全写-100ms-窗口内",
+     "level": 3,
+     "title": "19.3 FLIP 批量重排（先全读、再全写，100ms 窗口内）",
+     "summary": "",
+     "line": 865,
+     "chars": 1
+    },
+    {
+     "id": "19-4-列表增删-vue-transitiongroup-motion-poplayout",
+     "level": 3,
+     "title": "19.4 列表增删（Vue TransitionGroup + Motion popLayout）",
+     "summary": "",
+     "line": 884,
+     "chars": 1
+    },
+    {
+     "id": "19-5-view-transitions-增强封装-单例-types-偏好-清理",
+     "level": 3,
+     "title": "19.5 View Transitions 增强封装（单例 + types + 偏好 + 清理）",
+     "summary": "",
+     "line": 905,
+     "chars": 1
+    },
+    {
+     "id": "19-6-动画状态机-xstate-四态-waapi-从当前值重启",
+     "level": 3,
+     "title": "19.6 动画状态机（XState 四态 + WAAPI 从当前值重启）",
+     "summary": "",
+     "line": 941,
+     "chars": 1
+    },
+    {
+     "id": "19-7-starting-style-四件套-dialog-下进上出",
+     "level": 3,
+     "title": "19.7 @starting-style 四件套（dialog 下进上出）",
+     "summary": "",
+     "line": 966,
+     "chars": 1
+    },
+    {
+     "id": "19-8-js-层-reduced-motion-降级-覆盖-waapi-svelte-vt",
+     "level": 3,
+     "title": "19.8 JS 层 reduced-motion 降级（覆盖 WAAPI / Svelte / VT）",
+     "summary": "---",
+     "line": 981,
+     "chars": 6
+    },
+    {
+     "id": "20-素材与出处-本轮实测-官方原文",
+     "level": 2,
+     "title": "20. 素材与出处（本轮实测 / 官方原文）",
+     "summary": "- MDN · View Transition API — 接口、伪元素、properties、pseudo-classes、:active-view-transition-type()、view-transition-scope",
+     "line": 1005,
+     "chars": 1
+    },
+    {
+     "id": "20-1-规范与官方原文-全部逐页读取-非二手总结",
+     "level": 3,
+     "title": "20.1 规范与官方原文（全部逐页读取，非二手总结）",
+     "summary": "- MDN · View Transition API — 接口、伪元素、properties、pseudo-classes、:active-view-transition-type()、view-transition-scope",
+     "line": 1007,
+     "chars": 4228
+    },
+    {
+     "id": "20-2-仓库实测-github-api-2026-11-05",
+     "level": 3,
+     "title": "20.2 仓库实测（GitHub API，2026-11-05）",
+     "summary": "实测备注：barba/barba 与 motionone/motion 本轮 API 返回 404（仓库迁移/合并），故不列入表，也不臆造数字。motionone 已并入 motiondivision/motion。",
+     "line": 1030,
+     "chars": 1455
     }
    ]
   },
@@ -4212,7 +4773,7 @@
    "title": "动效与微交互系统 — Motion System（深度蒸馏）",
    "snapshot": "2026-10-30",
    "lines": 348,
-   "chars": 14329,
+   "chars": 14339,
    "sections": [
     {
      "id": "1-决策三问-先判该不该动",
@@ -4223,9 +4784,9 @@
      "chars": 498
     },
     {
-     "id": "2-曲线-语义决定曲线-不是审美决定",
+     "id": "2-缓动曲线-easing-语义决定曲线-不是审美决定",
      "level": 2,
-     "title": "2. 曲线：语义决定曲线，不是审美决定",
+     "title": "2. 缓动曲线（easing）：语义决定曲线，不是审美决定",
      "summary": "核心规则（90% 的人搞反的一条）：",
      "line": 30,
      "chars": 220
@@ -7429,8 +7990,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 356,
-   "chars": 27187,
+   "lines": 369,
+   "chars": 28268,
    "sections": []
   }
  ],

@@ -8,12 +8,15 @@ design-partner GitHub 发布器（REST API 版）
     此时 git push 必然失败，但 REST API 仍可用。本脚本用 Git Data API
     一次性把本地已跟踪文件打成单个 commit 推上去。
 
-令牌来源（按优先级）：
-    1. 环境变量 GITHUB_TOKEN
-    2. 文件 ~/.workbuddy-ai/secrets/github_token（首行）
-    3. --token 参数
+令牌来源（按优先级，逐个用 GET /user 验证，失效自动降级）：
+    1. --token 参数
+    2. 环境变量 GITHUB_TOKEN
+    3. 文件 ~/.workbuddy-ai/secrets/github_token（首行）
+    4. git credential helper（Windows GCM / macOS keychain 等已保存的凭据）
 
-令牌要求：fine-grained PAT，对该仓库授予 Contents: Read and write。
+令牌要求：PAT，对该仓库授予 Contents: Read and write。
+为什么要验证：过期/被撤销的 PAT 在 /user 与所有写接口都返回 401 Bad credentials，
+    而未认证读取仍是 200 —— 不主动验证会误判成「网络问题」并反复重试。
 
 用法:
     python scripts/publish_github.py                 # 推送到默认仓库
@@ -52,23 +55,74 @@ def die(msg):
     sys.exit(1)
 
 
+def creds_from_helper(host="github.com"):
+    """从 git credential helper 取已保存的凭据（只读，不触发写库）。"""
+    try:
+        out = subprocess.run(
+            ["git", "credential", "fill"],
+            input=f"protocol=https\nhost={host}\n\n",
+            capture_output=True, text=True, timeout=20, check=False,
+        ).stdout
+        d = dict(l.split("=", 1) for l in out.splitlines() if "=" in l)
+        return d.get("password", "").strip()
+    except Exception:
+        return ""
+
+
+def token_status(token):
+    """ok / bad / unknown。网络类故障返回 unknown，不把网络问题误判成令牌失效。"""
+    req = urllib.request.Request(
+        API + "/user",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "design-partner-publisher",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            r.read()
+            return "ok" if r.status == 200 else "unknown"
+    except urllib.error.HTTPError as e:
+        return "bad" if e.code in (401, 403) else "unknown"
+    except Exception:
+        return "unknown"
+
+
 def get_token(argv):
+    candidates = []
     if "--token" in argv:
-        return argv[argv.index("--token") + 1].strip()
+        arg = argv[argv.index("--token") + 1].strip()
+        if arg:
+            candidates.append(("命令行 --token", arg))
     tok = os.environ.get("GITHUB_TOKEN", "").strip()
     if tok:
-        return tok
+        candidates.append(("环境变量 GITHUB_TOKEN", tok))
     for cand in TOKEN_CANDIDATES:
         if cand.exists():
             lines = cand.read_text(encoding="utf-8").strip().splitlines()
             if lines and lines[0].strip():
-                return lines[0].strip()
+                candidates.append((str(cand), lines[0].strip()))
+    helper = creds_from_helper()
+    if helper:
+        candidates.append(("git credential helper", helper))
+
+    for label, token in candidates:
+        state = token_status(token)
+        if state == "ok":
+            if label != candidates[0][0]:
+                print(f"[凭据] 首选不可用，已自动降级到：{label}")
+            return token
+        if state == "bad":
+            print(f"[凭据] 已失效，跳过：{label}")
     die(
-        "找不到令牌。请任选其一：\n"
-        f"  1) 把 PAT 写入 {TOKEN_CANDIDATES[0]}（或同名 .txt，首行，仅自己可读）\n"
+        "找不到可用令牌（全部验证失败）。请任选其一：\n"
+        f"  1) 把有效 PAT 写入 {TOKEN_CANDIDATES[0]}（或同名 .txt，首行，仅自己可读）\n"
         "  2) 设置环境变量 GITHUB_TOKEN\n"
-        "  3) 传 --token <PAT>\n"
-        "令牌需为 fine-grained PAT，授予目标仓库 Contents: Read and write。"
+        "  3) 用 `git credential fill` 可用的 helper 保存凭据\n"
+        "  4) 传 --token <PAT>\n"
+        "令牌需为 PAT，授予目标仓库 Contents: Read and write。"
     )
 
 

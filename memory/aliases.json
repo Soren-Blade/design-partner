@@ -1626,6 +1626,178 @@
     "姓名排序",
     "given name family name"
    ]
+  },
+  {
+   "canonical": "组件文档页",
+   "aliases": [
+    "component documentation",
+    "组件文档",
+    "组件说明",
+    "component page",
+    "组件页模板",
+    "props 表",
+    "API 文档",
+    "component docs"
+   ]
+  },
+  {
+   "canonical": "文档信息架构",
+   "aliases": [
+    "documentation IA",
+    "文档导航",
+    "文档目录",
+    "docs IA",
+    "信息架构",
+    "文档站点结构",
+    "docs navigation",
+    "sidebar"
+   ]
+  },
+  {
+   "canonical": "文档版本化",
+   "aliases": [
+    "docs versioning",
+    "versioned docs",
+    "版本化文档",
+    "多版本文档",
+    "versioned_docs",
+    "versions.json",
+    "版本化维护"
+   ]
+  },
+  {
+   "canonical": "变更日志",
+   "aliases": [
+    "changelog",
+    "CHANGELOG.md",
+    "更新日志",
+    "发版说明",
+    "release notes",
+    "版本记录",
+    "Keep a Changelog",
+    "Unreleased"
+   ]
+  },
+  {
+   "canonical": "迁移指南",
+   "aliases": [
+    "migration guide",
+    "迁移文档",
+    "升级指南",
+    "breaking changes",
+    "codemod",
+    "升级手册",
+    "migration"
+   ]
+  },
+  {
+   "canonical": "贡献指南",
+   "aliases": [
+    "contribution criteria",
+    "贡献规范",
+    "贡献指南",
+    "CONTRIBUTING",
+    "提案门槛",
+    "准入标准",
+    "contributing"
+   ]
+  },
+  {
+   "canonical": "文档治理",
+   "aliases": [
+    "governance",
+    "文档治理",
+    "文档评审",
+    "docs governance",
+    "维护责任",
+    "owner 归属",
+    "文档准入"
+   ]
+  },
+  {
+   "canonical": "活文档",
+   "aliases": [
+    "living documentation",
+    "活文档",
+    "研究证据",
+    "已知问题",
+    "近期变更",
+    "Recent changes",
+    "Research on this component",
+    "Help improve"
+   ]
+  },
+  {
+   "canonical": "文档模板",
+   "aliases": [
+    "doc template",
+    "文档模板",
+    "组件页模板",
+    "documentation template",
+    "文档骨架",
+    "文档范例"
+   ]
+  },
+  {
+   "canonical": "自动生成文档",
+   "aliases": [
+    "Autodocs",
+    "docs-as-code",
+    "MDX",
+    "Doc Blocks",
+    "Storybook docs",
+    "代码即文档",
+    "自动生成文档",
+    "Code Connect"
+   ]
+  },
+  {
+   "canonical": "文档新鲜度",
+   "aliases": [
+    "docs drift",
+    "文档漂移",
+    "文档陈旧",
+    "新鲜度",
+    "stale docs",
+    "文档一致性",
+    "文档腐烂"
+   ]
+  },
+  {
+   "canonical": "文档写作风格",
+   "aliases": [
+    "style guide",
+    "写作规范",
+    "文档写作",
+    "sentence case",
+    "descriptive link",
+    "Google style",
+    "Microsoft style",
+    "alt 文本"
+   ]
+  },
+  {
+   "canonical": "Diátaxis 四象限",
+   "aliases": [
+    "diataxis",
+    "四象限",
+    "tutorials how-to reference explanation",
+    "教程与操作指南",
+    "技术参考",
+    "解释型文档"
+   ]
+  },
+  {
+   "canonical": "文档成熟度",
+   "aliases": [
+    "lifecycle",
+    "组件状态",
+    "成熟度",
+    "USWDS",
+    "45 天评论期",
+    "deprecated component",
+    "beta 组件"
+   ]
   }
  ]
 }

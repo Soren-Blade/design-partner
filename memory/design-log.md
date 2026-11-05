@@ -409,3 +409,23 @@
 - **补修源头缺陷（发布后追加的第二笔提交）**：只在路由层打补丁会留下自相矛盾的知识，因此把 `ux-writing.md` §13.1 的「按钮和标签必须能容纳 +40%」整段改写为**分档弹性口径 + 指向 `i18n-localization.md` §2**，并同步 §18 自检第 16 项（改为「按钮过 2–3× 伪本地化加长测试」）；`SKILL.md` 的 ux-writing 资产行与 **v17 历史基线段落**里残留的 +40% 也加了「v20 已裁决」标注（历史基线只加标注、不篡改原文）。`build_readme.py` 的 ux-writing 摘要同样改掉。做到全仓不再有一处把 +40% 当成 microcopy 设计余量。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+## 2026-11-05 · 设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理（每日升级 #17）
+- 需求：每日深蒸馏设计知识，本轮主题取 #16 候选第 1 位「设计系统文档写作」。缺口判定：`dp_search.py "设计系统文档 文档信息架构 组件文档 版本化"` + grep → `文档站点 / 组件文档 / 版本化 / 贡献指南 / governance / 文档模板` 全部零命中；`design-md-format.md` 只有单文件 DESIGN.md 九章骨架，`handoff-collaboration.md` 覆盖的是「把设计稿交给开发」，没有设计系统站点自身的信息架构、组件文档页模板、文档治理、docs-as-code 版本化与文档写作标准。
+- 升级：
+  - 新增 `references/design-system-docs.md`（**22 节 / 949 行 / 47.3k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码**）：§0 与既有资产分层、§1 Diátaxis 四象限判层、§2 GOV.UK 组件页九段式逐节拆解、§3 五问验收与字段清单、§4 信息架构四条地基、§5 Google 三层参考层级与写作清单、§6 示例代码五条硬规则、§7 完整填充范例（Button 精简版）、§8 活文档四件套、§9 组件状态与成熟度、§10 Docusaurus 3.10.2 版本化、§11 Keep a Changelog 1.1.0、§12 MAJOR 迁移文档、§13 DTCG token 文档源与 preview/published 辨析、§14 Storybook Autodocs·MDX·Doc Blocks、§15 Figma Code Connect、§16 GOV.UK 贡献与治理、§17 文档新鲜度与漂移（自举到本技能）、§18–§21 场景/反模式/自检/代码、§22 来源。
+  - 取源 25 条官方原文 + 16 仓库 GitHub REST API 实测；GOV.UK Button 源文件 `src/components/button/index.md`、USWDS `lifecycle-phases.yml`/`lifecycle-status.yml`、Carbon `docs/guides/versioning.md` 均读上游源码而非二手转述。
+  - SKILL.md **v21**：frontmatter 触发词补文档站/组件文档页/版本化/changelog/贡献治理/docs-as-code；版本基线段；资产表 +1；意图路由 **127→135**（+8，**既有 127 行顺序一行未动，全部纯追加**）；第 5 步新增 H4「设计系统文档写作」10 条原则；自检 **24→25**（文档关）；第 0 步资产数 22→27、字数 38 万→59 万；知识路线图资产行的自测/支线数字同步。
+  - 其余接线点：`build_readme.py ASSETS` **26→27**；`memory/aliases.json` **114→128 组**（+14：组件文档页 / 文档信息架构 / 文档版本化 / 变更日志 / 迁移指南 / 贡献指南 / 文档治理 / 活文档 / 文档模板 / 自动生成文档 / 文档新鲜度 / 文档写作风格 / Diátaxis 四象限 / 文档成熟度），**只进检索层，路由优先级未动**；`knowledge-map.md` 修正陈旧标题「十三条」→「**十五条**」、新增**支线 O**、自测 **69→76**、门槛 **≥53→≥58**；源清单 **690→736 行**（+46：25 条官方原文 + 16 条仓库实测 + 分组标题空行），头部「最后更新」2026-11-01→2026-11-05。
+- **本轮最重要的一条裁决：规范引用认 published 不认 preview**。`https://tr.designtokens.org/format/` 页首明写 *"This is a preview"* / *"Do not attempt to implement this version of the specification. Do not reference this version as authoritative in any way."*，因此只能作为**辨析对象**；权威引用是 **DTCG published 2025.10**（`https://www.designtokens.org/TR/2025.10/format/`）。`handoff-collaboration.md` 早已标注「预览草稿，不可当标准」，本轮把**该引用哪条 URL**说清楚了，并把 `$description` / `$deprecated` / `$extensions` 定位成 token 文档的自动生成源，避免手抄第二份必然漂移的表。
+- 另外四条可验证的差异化结论：
+  - **组件文档页不是 props 表**：GOV.UK 九段式里最容易漏的是 `When not to use` 与 **Research / Recent changes / Help improve 活文档四件套**；后者是文档能持续生长的反馈闭环，砍掉即停止演化。
+  - **Docusaurus 官方反对无脑版本化**：明说多数站点不需要；真做则 `versioned_docs`/`versioned_sidebars`/`versions.json` 三件套、版本数 **<10**、dev/deploy preview **2 或 3** 个、**patch 不切新版本**、旧版 banner `unmaintained`。
+  - **changelog ≠ git log**：Keep a Changelog 1.1.0 七条指导原则 + 六类变更（Added/Changed/Deprecated/Removed/Fixed/Security）+ 常驻 `[Unreleased]` + ISO 8601；**MAJOR 迁移文档必须能被机器校验**（codemod / 脚本可跑）。
+  - **治理写门槛不写口号**：GOV.UK 提案看 **Useful / Unique**、发布看 **Usable / Consistent / Versatile**，社区资源另有 1 个月 / 3 个月使用阈值；USWDS 三阶段十二子状态与 45 天评论期给出成熟度口径。
+- **GitHub API 实测发现两个「活源」已归档**：`Shopify/polaris`（6148★ / 2026-09-11）与 `adobe/spectrum-css`（1293★ / 2026-10-13）均 `archived=true`。规范内容仍可读，但**不能再当作会持续更新的活源**；新文件与源清单都显式标注。未认证批量请求曾全部 `403 rate limit exceeded`，改用 `~/.workbuddy-ai/secrets/github_token.txt` 的 PAT 加 `Authorization: Bearer` 后 16/17 成功；`diataxis/documentation-framework` 返回 404（仓库不存在），已剔除，不臆造数据。
+- 取源避坑：Microsoft Writing Style Guide 的 `brand-voice-design/` 与 `top-10-tips` 均 404、Medium 上 EightShapes `Documenting Components` 失效、Polaris 旧组件页重定向到 shopify.dev references —— **四条拿不到原文的线索一律不写入知识资产**，只保留可从官方原文或上游源码逐字验证的结论。
+- 检索门槛 **16/16 PASS**（设计系统文档 / 组件文档页 / 文档信息架构 / 文档版本化 / changelog / 迁移文档 / 贡献指南 / 文档治理 / Diátaxis 四象限 / GOV.UK 九段式 / 活文档 / 文档模板 / Storybook Autodocs / MDX Doc Blocks / 文档漂移 / 文档新鲜度 全部命中新文件前 3）；历史回归 **24/24 PASS**（#16 的 15 条 + #15 的 5 条 + 演示/文案/交付/暗色 4 条，全量 **40/40**）。`--no-alias` 对比确认别名只补召回、不改变规范词主导。
+- 接线体检：`mindmap.py` **29 文件 / 1124 章节**，✅ 所有 references 均已在 SKILL.md 接线（未接线 0 / 已失联 0）。
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

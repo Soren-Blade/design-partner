@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十三条专题支线（可与主线并行）
+## 十五条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -318,6 +318,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[W3C Text size in translation](https://www.w3.org/International/articles/article-text-size.en)、[W3C QA HTML dir](https://www.w3.org/International/questions/qa-html-dir.en.html)、[W3C Inline bidi markup](https://www.w3.org/International/articles/inline-bidi-markup/)、[MDN CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)、[W3C WCAG 3.1.1 / 3.1.2](https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html)、[CLDR Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules.html)、[ICU MessageFormat](https://unicode-org.github.io/icu/userguide/format_parse/messages/)、[MDN Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)、[Material Bidirectionality](https://m2.material.io/design/usability/bidirectionality.html)、[W3C Personal names around the world](https://www.w3.org/International/questions/qa-personal-names)
 - → **三层判层 + 膨胀表与四因素 + `lang`/`dir` 与 H57/H58 + logical properties 全映射 + 镜像白黑名单 + CLDR 复数类别表 + ICU 嵌套范式 + `Intl` API 实测输出 + 姓名地址与文化适配 + 伪本地化可抄代码 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `i18n-localization.md`**
 
+### 支线 O · 设计系统文档写作（给人读的系统，不是给机器读的约束）
+- **先分层再判层**：`design-md-format.md` 的 DESIGN.md 是**给机器读的约束清单**，`handoff-collaboration.md` 的终点是"开发能做出第二个页面"，本支线的终点是"半年后第三个团队也能自己查到、自己改对、自己升级"。先用 **Diátaxis 四象限**（tutorials 不给选择 / how-to 必须能分支 / reference *"Describe and only describe"* / explanation）判清在写哪一种，别混在一页。
+- **组件页九段式**：GOV.UK Button 逐节为 `When to use` / `When not to use` / `How it works` / 变体与状态 / Accessibility / Props·API / Research / Recent changes / Help improve。**最容易被砍掉的恰恰是后三段**——它们构成"活文档四件套"（研究证据 / 已知问题 / 近期变更 / 帮助改进），砍掉文档就停止生长。
+- **能验收才算规范**：五问（找得到 / 看得懂 / 抄得走 / 对得上代码 / 半年后有人改）+ 字段清单逐条打分；示例代码五条硬规则（可直接复制运行、零隐式依赖、给出 import、结果与截图一致、随版本回归）；Google style highlights：sentence case、第二人称、主动语态、descriptive link text、alt 非文件名、serial comma。
+- **版本化与变更**：Docusaurus 官方"多数站点不需要版本化"；真做就守住 `versioned_docs` / `versioned_sidebars` / `versions.json`、版本数 **<10**、preview **2–3** 个、patch 不切版本、旧版 `unmaintained` banner。Keep a Changelog 1.1.0 七原则 + 六类变更 + `[Unreleased]`，**反对把 git log 倒进 changelog**；MAJOR 迁移文档要能被机器校验（codemod / 脚本）。
+- **规范引用与 docs-as-code**：`tr.designtokens.org/format/` 是 preview draft（*"Do not reference this version as authoritative"*），权威是 **published 2025.10**；`$description` / `$deprecated` / `$extensions` 直接当文档源。Storybook `tags: ['autodocs']` / `['!autodocs']`、MDX `of={}` 与 attached/unattached、默认六 Doc Block、`Meta` 空行规则、Figma Code Connect 命名一致性 → 文档与代码同源。
+- **治理与防腐**：GOV.UK **Useful / Unique**（提案）+ **Usable / Consistent / Versatile**（发布）+ 社区资源 1 个月 / 3 个月阈值；USWDS 三阶段十二子状态与 45 天评论期；新鲜度指标（链接失效率 / props 一致性 / 最后更新 / 示例可运行率）。本技能自举：`mindmap.py` 接线体检 + `build_readme.py` 实时统计，不手抄会过期的数字。
+- 材料：[Diátaxis](https://diataxis.fr/)、[GOV.UK Button](https://design-system.service.gov.uk/components/button/) 与 [Contribution criteria](https://design-system.service.gov.uk/community/contribution-criteria/)、[Docusaurus Versioning](https://docusaurus.io/docs/versioning)、[Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)、[Storybook Autodocs](https://storybook.js.org/docs/writing-docs/autodocs)、[DTCG 2025.10](https://www.designtokens.org/TR/2025.10/format/)、[Google style highlights](https://developers.google.com/style/highlights)
+- → **四象限判层 + 九段式逐节表与五问验收 + 信息架构四条地基 + 完整填充范例 + 活文档四件套 + 成熟度与 semver 对照 + 版本化目录结构 + changelog 模板 + 迁移文档 + Storybook/MDX 配置 + 治理准入 + 漂移指标 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `design-system-docs.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -334,7 +344,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（69 条，做到 ≥53 条即达 L2+）
+## 能力自测（76 条，做到 ≥58 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -410,6 +420,14 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能解释 CLDR 复数 `one` 为什么不等于数字 1、为什么中文只有 `other` 反而最容易漏测，并写出一条带 `select` 外层 + `plural` 内层 + `offset:1` 的 ICU 消息
 - [ ] 能说出 `Intl` 为什么不是构造器、本机 Node v22.22.2 实测 `Intl.DurationFormat` 抛什么错、生产代码该怎么降级，以及 `zh_cn` 为什么会抛 `RangeError`
 - [ ] 能设计一个伪本地化用例（音标 + ①–⑨ + `^` 定界 + microcopy 3× 加长），并说出它能分别暴露哪四类缺陷；能解释为什么姓名表单应只给一个 `Full name`
+
+- [ ] 能说出 Diátaxis 四象限各自读者状态与义务，并解释为什么「在 reference 里展开一段为什么」会同时毁掉参考页和解释页
+- [ ] 能默写 GOV.UK 组件页九段式，并指出哪三段构成「活文档四件套」、为什么最容易被砍掉
+- [ ] 能用五问验收给一份组件文档打分，并说出示例代码五条硬规则与 descriptive link text / alt 的具体写法
+- [ ] 能说出 Docusaurus 官方为什么建议多数站点不做版本化，以及 <10 版本、preview 2–3、patch 不切版本、`unmaintained` banner 四条口径
+- [ ] 能写出符合 Keep a Changelog 1.1.0 的 `[Unreleased]` 段落（六类变更齐全），并解释为什么不能倒 git log、MAJOR 迁移文档为什么要能被机器校验
+- [ ] 能辨析 DTCG preview draft 与 published 2025.10 该引用哪条 URL，并说出 `$description` / `$deprecated` 如何变成 token 文档源
+- [ ] 能写出 Storybook `tags: ['autodocs']` 与 `['!autodocs']` 的差别、MDX `of={}` 的 attached/unattached 之别，并列出 GOV.UK 贡献准入 Useful/Unique 与 Usable/Consistent/Versatile 各属哪道门槛
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

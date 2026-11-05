@@ -47,6 +47,7 @@ ASSETS = [
     ("i18n-localization.md", "国际化与本地化设计（i18n / L10n / RTL）", "三层判层（标记层 lang·dir / 布局层弹性·逻辑属性·镜像 / 数据层复数·日期·数字·姓名·排序）/ W3C-IBM 膨胀表（≤10 字符 200–300% → microcopy 2–3×）/ 裁决 ux-writing §13「+40%」对短串错误 / WCAG 3.1.1 A·3.1.2 AA 与 H57·H58 / W3C 硬禁令 Never use CSS to apply the base direction / CSS logical properties 全映射 / Material 镜像白黑名单 / CLDR 复数六类（one≠1·中文仅 other）/ ICU MessageFormat 禁拼接 / Intl API 与 Node v22.22.2 实测（DurationFormat 需能力检测）/ 日期·数字·货币·列表·排序 / 姓名单一 Full name / 伪本地化五变换 / 12 场景 / 20 反模式 / 20 自检"),
     ("presentation-design.md", "演示文稿与幻灯片版式", "16:9=1920×1080 / 标题 5%·动作 3% 安全区 / 字号阶梯（最小 24pt 线上 28pt）/ 文字密度四规则 / 母版 6–8 版式 / 动画与转场区分三档 / 投影对比度高 50% / 线上与中文演示 / 三分法与 Z 模式 / 12 场景 / 18 自检"),
     ("design-md-format.md", "DESIGN.md 规范", "九章骨架 + 54 品牌 DNA 速查 + 项目类型选型"),
+    ("design-system-docs.md", "设计系统文档写作", "Diátaxis 四象限判层 / GOV.UK 组件页九段式与活文档四件套 / 文档信息架构四条地基与 Google 写作规范 / 完整填充范例 / 组件成熟度（USWDS 三阶段·Carbon semver）/ Docusaurus 3.10.2 版本化（<10·preview 2–3·patch 不切）/ Keep a Changelog 1.1.0 七原则六类 / MAJOR 迁移文档 / DTCG published 2025.10 与 preview draft 裁决 / Storybook Autodocs·MDX·Doc Blocks·Figma Code Connect / GOV.UK 贡献与治理 / 新鲜度与漂移自举 / 12 场景 / 20 反模式 / 20 自检"),
     ("chinese-design.md", "中文设计场景", "中文排版规范 + 中文设计生态地图 + 产品形态特征"),
     ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
     ("resources.md", "设计资源", "组件 / 图标 / 动效 3D / 字体配色"),

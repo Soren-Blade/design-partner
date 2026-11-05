@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-05T21:25:54",
+ "generated": "2026-11-05T22:43:59",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 662,
-   "chars": 96818,
+   "lines": 688,
+   "chars": 103548,
    "sections": []
   },
   {
@@ -1837,6 +1837,423 @@
      "summary": "",
      "line": 182,
      "chars": 243
+    }
+   ]
+  },
+  {
+   "path": "references/design-system-docs.md",
+   "title": "设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理",
+   "snapshot": "2026-11-05",
+   "lines": 949,
+   "chars": 47317,
+   "sections": [
+    {
+     "id": "0-与既有资产的分层-先判读哪一份-别读错",
+     "level": 2,
+     "title": "0. 与既有资产的分层（先判读哪一份，别读错）",
+     "summary": "一句话分层：DESIGN.md 是给机器读的约束，design-system-docs.md 是给人读的系统。handoff-collaboration.md 的终点是\"开发能做出第二个页面\"，本文件的终点是\"半年后第三个团队也能自己查到、",
+     "line": 7,
+     "chars": 573
+    },
+    {
+     "id": "1-判层-先分清你要写的是哪一种设计系统文档-diátaxis-四象限",
+     "level": 2,
+     "title": "1. 判层：先分清你要写的是哪一种设计系统文档（Diátaxis 四象限）",
+     "summary": "最常见的失败不是写得不好，是把四种文档混在一页里：一个组件页里既塞入门教程、又塞 props 表、又夹一段\"我们为什么这样设计\"，结果谁都找不到自己要的东西。",
+     "line": 20,
+     "chars": 2062
+    },
+    {
+     "id": "2-组件文档页九段式-gov-uk-逐节拆解-最经得起检验的模板",
+     "level": 2,
+     "title": "2. 组件文档页九段式：GOV.UK 逐节拆解（最经得起检验的模板）",
+     "summary": "GOV.UK Design System 的 Button 页是全球被抄最多的组件文档结构。直接读其源文件 src/components/button/index.md，可逐字核对，不是二手总结。",
+     "line": 54,
+     "chars": 107
+    },
+    {
+     "id": "2-1-源文件-frontmatter-7-个字段-一个都不能少",
+     "level": 3,
+     "title": "2.1 源文件 frontmatter（7 个字段，一个都不能少）",
+     "summary": "",
+     "line": 58,
+     "chars": 449
+    },
+    {
+     "id": "2-2-正文九段-按源文件与渲染页逐节对照",
+     "level": 3,
+     "title": "2.2 正文九段（按源文件与渲染页逐节对照）",
+     "summary": "",
+     "line": 80,
+     "chars": 1476
+    },
+    {
+     "id": "2-3-九段里最常被漏掉的是-7-8-9-而它们才是-活文档-的原因",
+     "level": 3,
+     "title": "2.3 九段里最常被漏掉的是 7/8/9 —— 而它们才是\"活文档\"的原因",
+     "summary": "多数设计系统只有 1–6（实例 + 用法 + 变体 + props），于是半年后没人敢信它：",
+     "line": 94,
+     "chars": 355
+    },
+    {
+     "id": "3-五问验收-组件页字段清单-能打分才算规范",
+     "level": 2,
+     "title": "3. 五问验收 + 组件页字段清单（能打分才算规范）",
+     "summary": "可量化的最低门槛：一个组件页至少 1 个可交互实例 + 2 段判断（use / not use）+ 3 个状态或变体 + 1 条带出处的证据 + 1 条带日期的变更记录。低于此不要标 stable（见 §9）。",
+     "line": 106,
+     "chars": 1
+    },
+    {
+     "id": "3-1-五问-缺一即判该组件文档-未完工",
+     "level": 3,
+     "title": "3.1 五问（缺一即判该组件文档「未完工」）",
+     "summary": "可量化的最低门槛：一个组件页至少 1 个可交互实例 + 2 段判断（use / not use）+ 3 个状态或变体 + 1 条带出处的证据 + 1 条带日期的变更记录。低于此不要标 stable（见 §9）。",
+     "line": 108,
+     "chars": 498
+    },
+    {
+     "id": "3-2-nn-g-的六字段-与九段式的映射",
+     "level": 3,
+     "title": "3.2 NN/g 的六字段（与九段式的映射）",
+     "summary": "NN/g Design Systems 101（2021-04-11 发布，2026-08-27 复审）列出组件库除视觉示例外必须包含：",
+     "line": 120,
+     "chars": 1216
+    },
+    {
+     "id": "4-信息架构-目录-命名-链接-检索-文档写作的四条地基",
+     "level": 2,
+     "title": "4. 信息架构：目录、命名、链接、检索（文档写作的四条地基）",
+     "summary": "中文场景补充：中文组件页常见「一句英文术语 + 三种中文译法」。ux-writing.md 的术语表规则在此同样适用——建一张文档术语表，同概念同词（variant ≠ 变体 ≠ 样式 ≠ 状态），并在 frontmatter 的 alia",
+     "line": 140,
+     "chars": 1584
+    },
+    {
+     "id": "5-文档写作规范-google-三条参考层级-可直接执行的清单",
+     "level": 2,
+     "title": "5. 文档写作规范：Google 三条参考层级 + 可直接执行的清单",
+     "summary": "Google developer documentation style guide（About 页）给出的参考优先级是设计系统文档最该照抄的治理结构：",
+     "line": 157,
+     "chars": 1275
+    },
+    {
+     "id": "6-示例代码的可抄性-五条硬规则-写错就没人用",
+     "level": 2,
+     "title": "6. 示例代码的可抄性：五条硬规则（写错就没人用）",
+     "summary": "GOV.UK 每个例子都给 HTML + Nunjucks 双 tab + 新窗口打开；NN/g 更进一步要求 code snippets 与框架说明。合成本技能的验收口径：",
+     "line": 188,
+     "chars": 686
+    },
+    {
+     "id": "7-完整填充范例-一个可直接复制的组件文档页-button-精简版",
+     "level": 2,
+     "title": "7. 完整填充范例：一个可直接复制的组件文档页（Button 精简版）",
+     "summary": "下面是模板骨架，不是给某个具体组件库的规范值。方括号处必须替换；带 ⚠️ 的是最常被漏掉的字段。把这一段存成 components/button.md 即可作为新组件页的起点。",
+     "line": 202,
+     "chars": 2290
+    },
+    {
+     "id": "8-活文档四件套-研究-已知问题-近期变更-帮助改进-证据与反馈闭环",
+     "level": 2,
+     "title": "8. 活文档四件套：研究 / 已知问题 / 近期变更 / 帮助改进（证据与反馈闭环）",
+     "summary": "GOV.UK 把它做成了产品机制而不是文案：discussionId 是 frontmatter 字段，Help improve 直接给 GitHub 讨论串与 propose a content change using GitHub 指",
+     "line": 293,
+     "chars": 1183
+    },
+    {
+     "id": "9-组件文档状态与成熟度-uswds-生命周期-carbon-semver-对照",
+     "level": 2,
+     "title": "9. 组件文档状态与成熟度（USWDS 生命周期 + Carbon semver 对照）",
+     "summary": "USWDS 把组件状态存在 data/lifecycle-status.yml（statusmajor + statusminor 两个字段），阶段定义存在 data/lifecycle-phases.yml。这是状态数据化的范例：文档页不",
+     "line": 311,
+     "chars": 1
+    },
+    {
+     "id": "9-1-uswds-三阶段-十二子状态-读-_data-lifecycle-phases-yml-源码所得",
+     "level": 3,
+     "title": "9.1 USWDS 三阶段 / 十二子状态（读 data/lifecycle-phases.yml 源码所得）",
+     "summary": "USWDS 把组件状态存在 data/lifecycle-status.yml（statusmajor + statusminor 两个字段），阶段定义存在 data/lifecycle-phases.yml。这是状态数据化的范例：文档页不",
+     "line": 313,
+     "chars": 1352
+    },
+    {
+     "id": "9-2-carbon-把-什么改动算什么版本-做成了可查表-源码-docs-guides-versioning-md",
+     "level": 3,
+     "title": "9.2 Carbon 把\"什么改动算什么版本\"做成了可查表（源码 docs/guides/versioning.md）",
+     "summary": "Carbon 直接引用 SemVer 三段定义，并给出 @carbon/react 的逐改动类型版本表：",
+     "line": 337,
+     "chars": 993
+    },
+    {
+     "id": "10-文档版本化-docusaurus-3-10-2-官方规则-semver-对接",
+     "level": 2,
+     "title": "10. 文档版本化（Docusaurus 3.10.2 官方规则 + SemVer 对接）",
+     "summary": "Docusaurus Versioning 原文三条警告（逐字）：",
+     "line": 360,
+     "chars": 1
+    },
+    {
+     "id": "10-1-先问-要不要版本化-官方立场是否定的",
+     "level": 3,
+     "title": "10.1 先问\"要不要版本化\" —— 官方立场是否定的",
+     "summary": "Docusaurus Versioning 原文三条警告（逐字）：",
+     "line": 362,
+     "chars": 636
+    },
+    {
+     "id": "10-2-需要版本化时的精确规则",
+     "level": 3,
+     "title": "10.2 需要版本化时的精确规则",
+     "summary": "PATCH 不要切文档版本（官方原文）：包从 1.0.0 修到 1.0.1，\"Should you cut a new documentation version 1.0.1? You probably shouldn't\"，理由是 \"1.",
+     "line": 372,
+     "chars": 1928
+    },
+    {
+     "id": "11-changelog-keep-a-changelog-1-1-0-的七条指导原则与六类变更",
+     "level": 2,
+     "title": "11. Changelog：Keep a Changelog 1.1.0 的七条指导原则与六类变更",
+     "summary": "\"All notable changes to this project will be documented in this file.\"",
+     "line": 404,
+     "chars": 2528
+    },
+    {
+     "id": "12-迁移文档-major-必带-且必须能被机器校验",
+     "level": 2,
+     "title": "12. 迁移文档：MAJOR 必带，且必须能被机器校验",
+     "summary": "SemVer FAQ 关于废弃的原文要求：\"When you deprecate part of your public API, you should do two things: (1) update your documentatio",
+     "line": 461,
+     "chars": 923
+    },
+    {
+     "id": "13-token-文档自动生成-dtcg-2025-10-把-description-明确定位成文档源",
+     "level": 2,
+     "title": "13. Token 文档自动生成：DTCG 2025.10 把 $description 明确定位成文档源",
+     "summary": "handoff-collaboration.md §13.2 与来源清单写的是 https://tr.designtokens.org/format/，标注「预览草稿」。本轮打开该页核对，页首状态为：",
+     "line": 480,
+     "chars": 1
+    },
+    {
+     "id": "13-1-先裁决一个本技能自己引用过的-url-口径",
+     "level": 3,
+     "title": "13.1 ⚠️ 先裁决一个本技能自己引用过的 URL 口径",
+     "summary": "handoff-collaboration.md §13.2 与来源清单写的是 https://tr.designtokens.org/format/，标注「预览草稿」。本轮打开该页核对，页首状态为：",
+     "line": 482,
+     "chars": 688
+    },
+    {
+     "id": "13-2-规范里原生就有-文档工具-这一类",
+     "level": 3,
+     "title": "13.2 规范里原生就有「文档工具」这一类",
+     "summary": "DTCG §3.5 原文定义 Documentation tool：\"A tool for documenting design tokens usage\"，并列举 Storybook / Zeroheight / Backlight / ",
+     "line": 492,
+     "chars": 402
+    },
+    {
+     "id": "13-3-能直接喂给文档生成器的字段-全部来自规范正文",
+     "level": 3,
+     "title": "13.3 能直接喂给文档生成器的字段（全部来自规范正文）",
+     "summary": "可抄的 token → 文档最小范例（$description 与 $deprecated 均按规范正文写法）：",
+     "line": 498,
+     "chars": 1725
+    },
+    {
+     "id": "13-4-三条落地纪律",
+     "level": 3,
+     "title": "13.4 三条落地纪律",
+     "summary": "1. 单一真源：token 值是 .tokens.json，文档页由生成器渲染（Style Dictionary / Storybook doc block），禁止在 Markdown 里复制粘贴数值。本技能自己就是这么做的：scripts",
+     "line": 530,
+     "chars": 426
+    },
+    {
+     "id": "14-代码即文档-storybook-autodocs-mdx-doc-blocks-精确配置",
+     "level": 2,
+     "title": "14. 代码即文档：Storybook Autodocs / MDX / Doc Blocks 精确配置",
+     "summary": "NN/g 要求 code snippets 与 sandbox，DTCG 把 Storybook 列为文档工具，Storybook 官方则把 story 直接定义为文档的基础：\"When you write component storie",
+     "line": 538,
+     "chars": 201
+    },
+    {
+     "id": "14-1-autodocs-tags-autodocs-版本相关-逐字配置",
+     "level": 3,
+     "title": "14.1 Autodocs：tags: ['autodocs']（版本相关，逐字配置）",
+     "summary": "原文规则：\"If a CSF file contains at least one story tagged with autodocs, then a documentation page will be generated for th",
+     "line": 542,
+     "chars": 920
+    },
+    {
+     "id": "14-2-mdx-结构文档-可交互-jsx",
+     "level": 3,
+     "title": "14.2 MDX：结构文档 + 可交互 JSX",
+     "summary": "官方分工原话：CSF \"is great for succinctly defining stories… If you use TypeScript, it also provides type safety and auto-compl",
+     "line": 557,
+     "chars": 1355
+    },
+    {
+     "id": "14-3-与九段式的对接表",
+     "level": 3,
+     "title": "14.3 与九段式的对接表",
+     "summary": "结论（给立场）：机器负责\"值\"，人负责\"判断\"。props、token 值、状态截图、代码 tab 全部自动生成；When not to use、Research、Recent changes、禁令与取舍理由必须人写。把两者混在同一份手写 ",
+     "line": 584,
+     "chars": 535
+    },
+    {
+     "id": "15-设计稿-文档-代码-figma-code-connect-与命名一致性",
+     "level": 2,
+     "title": "15. 设计稿 ↔ 文档 ↔ 代码：Figma Code Connect 与命名一致性",
+     "summary": "handoff-collaboration.md 讲「标注只标例外」「Dev resources 传播到所有实例」；本节补上设计组件与真实代码组件之间的连接层。",
+     "line": 599,
+     "chars": 1555
+    },
+    {
+     "id": "16-贡献与治理-gov-uk-的准入标准-含可量化阈值",
+     "level": 2,
+     "title": "16. 贡献与治理：GOV.UK 的准入标准（含可量化阈值）",
+     "summary": "可复制的治理动作：提案阶段先要「多团队复用证据 + 不重复」，避免系统变成个人组件收藏夹；发布前要「含残障用户的研究样本 + 跨浏览器/读屏/设备 + 文案与代码规范 + 多场景通用性」。这五条比\"PR 里附张截图\"严格一个数量级，也正是 ",
+     "line": 622,
+     "chars": 1
+    },
+    {
+     "id": "16-1-组件准入-提案-2-条-发布前-3-条-contribution-criteria-原文",
+     "level": 3,
+     "title": "16.1 组件准入：提案 2 条 + 发布前 3 条（Contribution criteria 原文）",
+     "summary": "可复制的治理动作：提案阶段先要「多团队复用证据 + 不重复」，避免系统变成个人组件收藏夹；发布前要「含残障用户的研究样本 + 跨浏览器/读屏/设备 + 文案与代码规范 + 多场景通用性」。这五条比\"PR 里附张截图\"严格一个数量级，也正是 ",
+     "line": 624,
+     "chars": 724
+    },
+    {
+     "id": "16-2-社区资源-工具准入的-七条带数值-要求-原文",
+     "level": 3,
+     "title": "16.2 社区资源/工具准入的七条带数值要求（原文）",
+     "summary": "链接到设计系统的第三方资源须满足：有明确 owner；不会被误认为官方；有文档说明如何使用、如何贡献、如何获得支持；support tickets 1 个月内答复；写明支持哪个 GOV.UK Frontend 版本；落后最新版本不超过 3 ",
+     "line": 636,
+     "chars": 320
+    },
+    {
+     "id": "16-3-uswds-的公开决策节奏",
+     "level": 3,
+     "title": "16.3 USWDS 的公开决策节奏",
+     "summary": "Proposal open for comment 阶段最少 45 天公开评论期，状态数据存在仓库里（lifecycle-status.yml），而不是会议纪要。结合 NN/g 的最小团队编制（1 交互 + 1 视觉 + 1 开发，理想配 ",
+     "line": 642,
+     "chars": 250
+    },
+    {
+     "id": "17-文档新鲜度与漂移-可测指标-本技能自身的防漂移机制-自举",
+     "level": 2,
+     "title": "17. 文档新鲜度与漂移：可测指标 + 本技能自身的防漂移机制（自举）",
+     "summary": "design-partner 为了对抗自身 26+ 份参考的漂移，已经跑通四层，正好对应本文的四个论点：",
+     "line": 650,
+     "chars": 1
+    },
+    {
+     "id": "17-1-六项可自动检查的指标",
+     "level": 3,
+     "title": "17.1 六项可自动检查的指标",
+     "summary": "",
+     "line": 652,
+     "chars": 371
+    },
+    {
+     "id": "17-2-本技能自己就是这套机制的活样本-可直接抄架构",
+     "level": 3,
+     "title": "17.2 本技能自己就是这套机制的活样本（可直接抄架构）",
+     "summary": "design-partner 为了对抗自身 26+ 份参考的漂移，已经跑通四层，正好对应本文的四个论点：",
+     "line": 663,
+     "chars": 1065
+    },
+    {
+     "id": "17-3-一条反直觉但重要的结论",
+     "level": 3,
+     "title": "17.3 一条反直觉但重要的结论",
+     "summary": "文档越\"自动生成\"越要写判断。能自动生成的（props、token 值、故事截图、变更列表）不写反而更准；不能自动生成的（何时别用、证据、取舍、已知问题）不写就永远没人补。所以文档工作量不会因自动化减少，只是从抄数值转向写立场。",
+     "line": 678,
+     "chars": 130
+    },
+    {
+     "id": "18-十二场景速查-设计系统文档写作",
+     "level": 2,
+     "title": "18. 十二场景速查（设计系统文档写作）",
+     "summary": "---",
+     "line": 684,
+     "chars": 819
+    },
+    {
+     "id": "19-二十条反模式-写了等于没写",
+     "level": 2,
+     "title": "19. 二十条反模式（写了等于没写）",
+     "summary": "1. 只有截图和 props 表，没有「什么时候不用」。",
+     "line": 703,
+     "chars": 982
+    },
+    {
+     "id": "20-二十项自检-组件文档上线前逐条打勾",
+     "level": 2,
+     "title": "20. 二十项自检（组件文档上线前逐条打勾）",
+     "summary": "1. 页面属于四象限中的哪一类？混合页是否有固定分区（§1）？",
+     "line": 728,
+     "chars": 1121
+    },
+    {
+     "id": "21-六段可抄代码-文档团队直接拿去用",
+     "level": 2,
+     "title": "21. 六段可抄代码（文档团队直接拿去用）",
+     "summary": "python",
+     "line": 753,
+     "chars": 1
+    },
+    {
+     "id": "21-1-组件页-frontmatter-校验-python-ci-里跑",
+     "level": 3,
+     "title": "21.1 组件页 frontmatter 校验（Python，CI 里跑）",
+     "summary": "",
+     "line": 755,
+     "chars": 1
+    },
+    {
+     "id": "21-2-docusaurus-版本化配置-单-major-长期维护-避免维护两份",
+     "level": 3,
+     "title": "21.2 Docusaurus 版本化配置（单 major 长期维护，避免维护两份）",
+     "summary": "",
+     "line": 781,
+     "chars": 1
+    },
+    {
+     "id": "21-3-changelog-格式校验-六类-iso-日期-unreleased-breaking",
+     "level": 3,
+     "title": "21.3 CHANGELOG 格式校验（六类 / ISO 日期 / Unreleased / breaking）",
+     "summary": "",
+     "line": 800,
+     "chars": 1
+    },
+    {
+     "id": "21-4-token-文件-文档表格生成器-用-description-deprecated",
+     "level": 3,
+     "title": "21.4 token 文件 → 文档表格生成器（用 $description / $deprecated）",
+     "summary": "",
+     "line": 820,
+     "chars": 1
+    },
+    {
+     "id": "21-5-storybook-mdx-组件页-人写判断-机器给值",
+     "level": 3,
+     "title": "21.5 Storybook MDX 组件页（人写判断 + 机器给值）",
+     "summary": "",
+     "line": 843,
+     "chars": 1
+    },
+    {
+     "id": "21-6-文档新鲜度巡检-owner-stale-失联链接",
+     "level": 3,
+     "title": "21.6 文档新鲜度巡检（owner / stale / 失联链接）",
+     "summary": "---",
+     "line": 879,
+     "chars": 6
+    },
+    {
+     "id": "22-来源-2026-11-05-取源-全部官方原文-上游源码-api-实测",
+     "level": 2,
+     "title": "22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）",
+     "summary": "组件页结构与准入：",
+     "line": 899,
+     "chars": 3958
     }
    ]
   },
@@ -4427,8 +4844,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 417,
-   "chars": 28582,
+   "lines": 435,
+   "chars": 31592,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -4639,9 +5056,9 @@
      "chars": 43
     },
     {
-     "id": "十三条专题支线-可与主线并行",
+     "id": "十五条专题支线-可与主线并行",
      "level": 2,
-     "title": "十三条专题支线（可与主线并行）",
+     "title": "十五条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -4756,23 +5173,31 @@
      "title": "支线 N · 国际化与本地化（出海不是加个语言包，是三层同时改）",
      "summary": "- 先判三层：① 标记层 <html lang + dir；② 布局层 文案膨胀弹性 / CSS logical properties / RTL 镜像；③ 数据层 复数 / 日期 / 数字 / 姓名 / 排序。翻译只解决字符串，三层不动必",
      "line": 308,
-     "chars": 3427
+     "chars": 3422
+    },
+    {
+     "id": "支线-o-设计系统文档写作-给人读的系统-不是给机器读的约束",
+     "level": 3,
+     "title": "支线 O · 设计系统文档写作（给人读的系统，不是给机器读的约束）",
+     "summary": "- 先分层再判层：design-md-format.md 的 DESIGN.md 是给机器读的约束清单，handoff-collaboration.md 的终点是\"开发能做出第二个页面\"，本支线的终点是\"半年后第三个团队也能自己查到、自己改",
+     "line": 321,
+     "chars": 2307
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 323,
+     "line": 333,
      "chars": 311
     },
     {
-     "id": "能力自测-69-条-做到-53-条即达-l2",
+     "id": "能力自测-76-条-做到-58-条即达-l2",
      "level": 2,
-     "title": "能力自测（69 条，做到 ≥53 条即达 L2+）",
+     "title": "能力自测（76 条，做到 ≥58 条即达 L2+）",
      "summary": "L0",
-     "line": 337,
-     "chars": 4164
+     "line": 347,
+     "chars": 4835
     }
    ]
   },
@@ -8551,8 +8976,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 411,
-   "chars": 35046,
+   "lines": 431,
+   "chars": 38854,
    "sections": []
   }
  ],

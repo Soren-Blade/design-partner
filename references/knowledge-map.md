@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十一条专题支线（可与主线并行）
+## 十二条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -271,6 +271,25 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Apple HIG Writing](https://developer.apple.com/design/human-interface-guidelines/writing)、[NN/g Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/)、[NN/g UI Copy](https://www.nngroup.com/articles/ui-copy/)、[NN/g Tone of Voice 4 Dimensions](https://www.nngroup.com/articles/tone-of-voice-dimensions/)、[NN/g UX Copy Sizes](https://www.nngroup.com/articles/ux-copy-sizes/)、[Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/top-10-tips-style-voice)、[GOV.UK Style Guide A–Z](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style)、[Ant Design 反馈规范](https://ant.design/docs/spec/feedback-cn)、[优设 B 端文案规范](https://www.uisdc.com/b-product-copywriting)
 - → **三级尺寸 + 五原则 + 按钮规则 + 错误三层 + 禁用词 + 10 类模板 + 空态五件套 + 语气矩阵 + 表单/对话框/Toast/引导/导航文案 + 大小写 + 标点 + 数字 + 国际化 + 文案 token + 12 场景速查 + 20 反模式 + 18 自检 + 6 段可抄代码见 `ux-writing.md`**
 
+### 支线 L · 演示文稿与幻灯片版式（不是"缩小的文档"是"放大的瞬间"）
+- **3 秒法则**：每张幻灯片停留 20–60 秒，观众 3 秒内决定是否继续看。倒金字塔——结论先行。
+- **尺寸**：16:9（1920×1080）为事实标准（PowerPoint/Google Slides/Keynote/reveal.js 全部默认）。4:3 仅旧投影和打印讲义。同一文件不支持混比例。
+- **安全区**：标题安全区边距 ≥5%（96px/2.54cm）、动作安全区 ≥3%（58px/1.48cm）、投影过扫预留四边 0.5"。
+- **字号阶梯**：封面 44–60pt / 章节标题 36–44pt / 幻灯片标题 28–36pt / 正文 24–28pt / 标注 20–22pt / 页脚 14–16pt。**最小 24pt（线上 28pt）**。阅读型讲义可降至 14pt。全篇同一层级字号一致（母版设的）。单页最多 3 种字号。
+- **字体**：Sans-serif 系统字体（Helvetica/Calibri/Arial/思源黑体/微软雅黑）。全篇最多 2 种。禁 Comic Sans/ALL CAPS/全加粗/Word Art/阴影描边。
+- **可读性验证**（Duarte 法）：屏幕对角线英寸数 = 后退英尺数。
+- **文字密度**：Godin（≤6 词/页）/ 5×5（5 行×5 词）/ 6×6 / 1-6-6（1 观点×6 条×6 词）/ 中文 5×5 = 5 行×10 字。
+- **母版与占位符**：6–8 种版式上限，每种命名。用占位符不用手动文本框（保无障碍阅读顺序）。logo 高 0.5–1"。
+- **动画 vs 转场**：动画=单元素（入场/退出/强调/动作路径），转场=整张幻灯片（每页仅 1 个）。三档：细微 Fade✅ / 华丽❌。全篇统一 1 种转场，≤0.5s，禁声音。Morph 用于跨页位移非炫技。
+- **投影对比度**：正文 ≥4.5:1 / 大字 ≥3:1。投影损失 20–40% 需高 50%。禁红绿/红蓝/亮色背景。
+- **可访问性**：WCAG 2.1 AA。占位符/alt 文本/Accessibility Checker 0 错误/闪烁 ≤3 次/秒（2.3.1 不可豁免）/ ≤25% 面积。
+- **线上演示**：字号 +4pt / 减少动画 / 高对比 / 关通知。
+- **中文演示**：最小 26–28pt / 行距 1.4–1.6 / 思源黑体 / 中英加空格。
+- **版式构图**：三分法则 / Z 模式 / 留白 30–50% / 视觉引导面向内部。
+- **演示节奏**：主题演讲 15–30s/页 / 商务 30–60s / 教学 60–120s。切换后等 2–3s 再讲。
+- 材料：[Microsoft Support - 动画与转场区别](https://support.microsoft.com/en-us/office/the-difference-between-animations-and-transitions-bae174a4-dad3-4268-bf9c-c201a70995f1)、[WCAG 2.3.1 闪烁阈值](https://www.w3.org/WAI/WCAG22/UNDERSTANDING/three-flashes-or-below-threshold)、[WebAIM 对比度检查器](https://webaim.org/resources/contrastchecker/)、[reveal.js](https://github.com/hakimel/reveal.js)、[Slidev](https://github.com/slidevjs/slidev)
+- → **尺寸表 + 安全区 + 字号阶梯 + 密度规则 + 母版步骤 + 动画转场分类 + 投影对比度 + 12 场景速查 + 20 反模式 + 18 自检 + 6 段可抄代码见 `presentation-design.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -287,7 +306,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（54 条，做到 ≥41 条即达 L2+）
+## 能力自测（58 条，做到 ≥44 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -347,6 +366,9 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 给一条「用户名无效」的错误提示，能改写成三层结构（发生了什么+为什么+怎么修），并指出原句违反了禁用词表哪几条
 - [ ] 能解释为什么按钮禁用 OK，以及 sentence case 为什么是四体系共识（全大写降可读性 10% + 读屏逐字母读）
 - [ ] 拿到一个空态需求，能判断属于五种里的哪一种并给出对应的五件套（标题+说明+按钮+次要链接+视觉），并解释为什么失败不能伪装成无数据
+- [ ] 能说出演示文稿最小字号 **24pt**（线上 28pt）的原因，并用 Duarte 法验证投影后排可读性
+- [ ] 能区分动画（单元素）与转场（整张幻灯片每页 1 个），并说出为什么华丽转场禁用、Morph 只用于跨页位移
+- [ ] 给一个 5 行 8 词的幻灯片，能按 **5×5 或 1-6-6** 规则改写，并解释中文 5×5 = 5 行×10 字的原因
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

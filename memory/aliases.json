@@ -1257,6 +1257,102 @@
     "首字母大写",
     "大小写规则"
    ]
+  },
+  {
+   "canonical": "演示文稿",
+   "aliases": [
+    "presentation",
+    "PPT",
+    "ppt",
+    "幻灯片",
+    "slides",
+    "deck",
+    "演示",
+    "讲演",
+    "slide deck",
+    "keynote",
+    "google slides",
+    "汇报",
+    "答辩",
+    "课件"
+   ]
+  },
+  {
+   "canonical": "幻灯片母版",
+   "aliases": [
+    "slide master",
+    "master slide",
+    "母版",
+    "模板",
+    "template",
+    "版式",
+    "layout",
+    "占位符",
+    "placeholder",
+    "主题模板",
+    "potx"
+   ]
+  },
+  {
+   "canonical": "转场动画",
+   "aliases": [
+    "transition",
+    "转场",
+    "切换效果",
+    "切换",
+    "morph",
+    "变体",
+    "fade",
+    "淡入淡出",
+    "幻灯片切换",
+    "页面切换"
+   ]
+  },
+  {
+   "canonical": "幻灯片字号",
+   "aliases": [
+    "PPT字号",
+    "幻灯片字体大小",
+    "标题字号",
+    "正文字号",
+    "最小字号",
+    "投影字号",
+    "后排看不清",
+    "字太小",
+    "point size",
+    "pt"
+   ]
+  },
+  {
+   "canonical": "安全区",
+   "aliases": [
+    "safe area",
+    "safe margin",
+    "安全边距",
+    "标题安全区",
+    "动作安全区",
+    "title safe",
+    "action safe",
+    "过扫",
+    "overscan",
+    "边缘裁切",
+    "投影裁切"
+   ]
+  },
+  {
+   "canonical": "线上演示",
+   "aliases": [
+    "online presentation",
+    "remote presentation",
+    "线上汇报",
+    "远程演示",
+    "Zoom演示",
+    "Teams分享",
+    "屏幕共享",
+    " webinar",
+    "网络研讨会",
+    "视频会议演示"
+   ]
   }
  ]
 }

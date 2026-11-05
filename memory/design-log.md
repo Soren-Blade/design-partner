@@ -354,3 +354,16 @@
 - 反馈：无真实用户反馈（自动化任务）；下轮验证点：用户说"这个按钮该写什么"时，是否直接进 §2 按钮文案而非全读
 - 效果：待观察
 
+
+## 2026-11-05 · 演示文稿与幻灯片版式（每日升级 #14）
+- 需求：每日深蒸馏设计知识，本轮主题为演示文稿与幻灯片版式（上轮候选第 1 位）
+- 升级：
+  - 新增 `references/presentation-design.md`（18 节 / 约 1100 行 / 约 35k 字符）
+  - 取源全部为官方原文：Microsoft Support（动画与转场定义/PowerPoint 无障碍/占位符编辑）、W3C WCAG 2.3.1（闪烁 ≤3 次/秒 不可豁免）、W3C WCAG 2.2.2（自动播放 >5s 需可暂停）、WMU 无障碍演示规范（WCAG 2.1 AA / 最小 18pt / 对比度 4.5:1）、WebAIM 对比度检查器、Lumen Learning Slide Layout（5×5/6×6/7×7 规则 / Duarte 可读性验证法 / 三分法则 / Z 模式 / 禁华丽转场）、Faulkner University（5-6 词/行 / 3-4 要点）、Whitepage Studio（现场最小 24pt / 线上 28pt / 封面 60pt+）、SlideModel（16:9=1920×1080 / 混比例不支持 / 母版辅助线）、Adobe After Effects（HD 动作安全 10% / 标题安全 20%）、Coblis 色盲模拟器
+  - GitHub 仓库实测：reveal.js 67000★ MIT / Slidev 36000★ MIT / Marp 8000★ MIT / spectacle 9600★ MIT / remark 12000★ MIT / python-pptx 2100★ MIT
+  - SKILL.md v18：资产 22 行（新增 presentation-design.md）、意图路由 +7 类（演示文稿/幻灯片模板/字号太小/转场动画/线上演示/演示诊断）、第 5 步新增「演示文稿与幻灯片版式」节 15 条、自检 22 项（演示关）、frontmatter description 加演示文稿段
+  - knowledge-map：支线 L（十一→十二条）、自测 54→58、门槛 ≥41→≥44
+  - 别名 90→97 组（演示文稿/幻灯片母版/转场动画/幻灯片字号/安全区/线上演示），路由顺序一行未动
+  - 源清单 589→615 行（+26 条演示文稿源）
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

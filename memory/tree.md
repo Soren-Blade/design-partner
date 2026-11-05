@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-05 19:56 ｜ 27 个文件 · 1000 个章节 · 600,995 字符
+> 自动生成于 2026-11-05 21:14 ｜ 28 个文件 · 1070 个章节 · 669,007 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -144,26 +144,36 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **动画中断** | 可中断 · 打断 · 连点就乱 · cancel · commitStyles · skipTransition · 竞态 · 并发转场 · 动画取消 · replaceState · updatePlaybackRate |
 | **列表增删动画** | 列表动画 · 增删动画 · AnimatePresence · TransitionGroup · list-move · popLayout · 列表重排 · 退场动画 · exit animation · LayoutGroup |
 | **进出场动画** | @starting-style · allow-discrete · transition-behavior · display none 动画 · 入场动画 · 退场看不见 · popover 动画 · overlay · 顶层动画 |
+| **国际化与本地化** | i18n · l10n · internationalization · localization · 出海设计 · 多语言 · 全球化设计 · 语言包 · 翻译适配 · locale |
+| **RTL 与双向文本** | right-to-left · bidi · bidirectional text · 阿拉伯语 · 希伯来语 · dir=rtl · 从右到左 · 双向文字 · 双向排版 · base direction |
+| **文案膨胀** | text expansion · text size in translation · 翻译膨胀 · 字数变长 · 德语太长 · 按钮撑破 · 翻译后溢出 · 文字截断 · 字符余量 · 长度余量 |
+| **复数规则** | plural rules · pluralization · cldr plural · Intl.PluralRules · 复数类别 · 数量文案 · one few many other · 中文没有复数 |
+| **ICU MessageFormat** | icu message · message format · formatjs · selectordinal · offset:1 · 字符串拼接 · 变量插值 · 整句翻译 |
+| **Intl API 与数据格式化** | Intl.DateTimeFormat · Intl.NumberFormat · Intl.DurationFormat · 日期格式 · 货币格式 · 数字格式 · 千分位 · 印度数字分组 · BCP 47 · zh_CN · navigator.language · localeMatcher |
+| **CSS 逻辑属性** | logical properties · inline-size · margin-inline-start · inset-inline-start · inline-start · block axis · 逻辑属性 · 方向无关布局 |
+| **伪本地化** | pseudolocalization · pseudo-localization · en-XA · en-XB · qps-ploc · qaa-qtz · 加长测试 · 漏译检测 · 定界符暴露截断 |
+| **RTL 图标镜像** | mirroring · bidi mirroring · 图标翻转 · 方向性图标 · 进度条镜像 · 媒体控件不镜像 · 数字不镜像 |
+| **姓名与地址本地化** | Full name · 姓名字段 · 单名 · 双姓 · patronymic · 地址格式 · 姓名排序 · given name family name |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_634 行 · 快照 — · 12 节_
+_662 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L65` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L67` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L80`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L204` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L219` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L245` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L276` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L548` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L592` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L605` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L612` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L626` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L68` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L70` — 资产已 22 份参考、约 38 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L83`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L215` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L230` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L256` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L287` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L574` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L620` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L633` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L640` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L654` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -677,6 +687,78 @@ _851 行 · 快照 2026-11-01 · 73 节_
   - **20.4 变更日志（六类）** `L818` — ---
 - **数据来源** `L837` — - Carbon · Component checklist（definition of done） — 设计规格六类要求、代码/测试/设计包四组清单、80% 覆盖率、VRT/AVT/三读屏器
 
+### `references/i18n-localization.md` · 国际化与本地化设计（i18n / L10n / RTL / 多语言）
+_1058 行 · 快照 2026-11-05 · 68 节_
+
+- **一、判层：国际化与本地化 i18n / L10n / 翻译 / 多语言 / RTL 不是同一件事** `L11` — 先分层，否则会把「加个语言包」当成全部工作。
+  - **1.1 什么时候要读本文件** `L29` — ---
+- **二、文案膨胀 text expansion：翻译后文字变长、按钮放不下，+40% 不是安全值** `L44` — 本轮最重要的一条修正。 现有 ux-writing.md §13 写「按钮和标签必须能容纳 +40% 的文字长度」，Microsoft 伪本地化也给「+40%」启发式——但对短字符串而言这是错的，而且错得刚好落在按钮、标签、tab 这些最容
+  - **2.1 W3C / IBM 官方膨胀表（逐字取，不要自行「修正」）** `L48` — W3C《Text size in translation》转引 IBM《Guidelines to design global solutions》，给出英译欧洲语言的平均预期膨胀率：
+  - **2.2 Flickr "views" 实测比例表（W3C 原文）** `L63` — 同一个短词 views（Flickr 的「392 views」），翻译成各语言的长度比（以英文为 1）：
+  - **2.3 裁决：+40% 用在哪、2–3× 用在哪** `L81` — 三个来源并不矛盾，它们说的是不同长度档：
+  - **2.4 四类「不只是变长」的复杂因素（W3C 原文）** `L101`
+  - **2.5 布局弹性清单（可交付给前端）** `L110` — - [ ] 所有文字容器用 min-inline-size / max-inline-size，不用固定 width；inline-size: fit-content + max-inline-size 是常用组合。
+- **三、lang 与 dir：BCP 47 语言声明、RTL 方向、WCAG 3.1.1 / 3.1.2** `L124` — 标记层是无障碍硬要求，不是「锦上添花的语义」。
+  - **3.1 WCAG 2.2 原文** `L128` — - 3.1.1 的充分技术 H57：在 HTML 元素上使用语言属性。WAI 明确：页面多语言时，默认语言取用得最多的那种；若几种用得一样多，取最先出现的那种。
+  - **3.2 lang 的规则与反模式（W3C《Declaring language in HTML》）** `L140` — 必须：
+  - **3.3 dir：方向是标记层的，不是样式层（W3C《Structural markup and RTL text in HTML》）** `L169` — - dir 用于设置 base direction，以便 Unicode 双向算法（UBA） 正确重排文本，同时设置段落默认对齐。支持 RTL 脚本：Adlam、Arabic、Hebrew、N'Ko、Syriac、Thaana（W3C 列举
+  - **3.4 dir="auto" 与 dirname** `L193` — dir="auto"（W3C）：浏览器查看元素内第一个强方向字符（first strongly typed character）决定该元素的 base direction。
+  - **3.5 行内双向文本（W3C《Inline markup and bidirectional text in HTML》）** `L216` — 统一做法，不要逐例判断：把每一个反方向短语用 dir 紧包裹（tightly wrap = 元素包含整个反方向短语，且只包含它）。dir 不仅设 base direction，浏览器还会方向隔离（directionally isolate）
+- **四、CSS logical properties：逻辑属性 inline / block、start / end 与 RTL 自动镜像** `L237` — MDN 定义：CSS Logical Properties and Values 模块定义「与书写方向相对」而非「与物理方向绑定」的属性。
+  - **4.1 两根轴** `L241` — MDN 的关键句：「The start of a line is not always the left side of a line.」 流相对值：block-start / block-end / inline-start / inli
+  - **4.2 物理 → 逻辑全映射（MDN 精确属性名）** `L250` — 简写：margin-block / margin-inline、padding-block / padding-inline、border-block / border-inline、inset / inset-block / inset-
+  - **4.3 什么时候仍然用 left / right** `L283` — W3C：「Left and right values may still be useful, occasionally, if you want the item you are positioning to remain in a fi
+  - **4.4 常见漏网点** `L287` — - transform: translateX(20px) / rotate() 不会自动镜像，需要按 dir 显式分支或改写成逻辑方向。
+- **五、RTL 镜像规则：该镜像与不该镜像清单（Material Design Bidirectionality 官方）** `L298` — Material 定义：把 UI 从 LTR 切到 RTL 通常叫 mirroring，RTL 布局是 LTR 布局的镜像，影响 layout / text / graphics。时间的流逝在 LTR 里表现为左→右，RTL 里表现为右→左
+  - **5.1 应该镜像（白名单）** `L302`
+  - **5.2 不应该镜像（黑名单）** `L321`
+  - **5.3 三个最易错的边界** `L336` — 1. 一般进度条 vs 媒体进度条：Material 一边说「Progress bars fill in the same direction as content is read」，一边说「Do not mirror media play
+  - **5.4 Material 2 的精确数值（RTL 前后保持相同，变化的是左右归属）** `L342` — 平台支持（Material 官方标注）：Android / iOS / Web / Flutter 均 Available。
+  - **5.5 RTL 页面验收动作** `L359` — 切到 dir="rtl" 后逐项看：返回箭头方向、主次按钮顺序、checkbox 在文字右侧、字段图标换边、tab 起始位置、进度条填充方向、图标镜像白名单是否误伤黑名单、数字是否仍是 LTR 且字形正确、URL/品牌名是否保持 LTR、标
+- **六、复数 plural：CLDR 六类、ICU 复数规则、不同语言复数形式（Node 实测）** `L365` — CLDR 使用 6 个助记标签：zero / one (singular) / two (dual) / few (paucal) / many（也用于有独立类别的分数）/ other（required — general plural f
+  - **6.1 CLDR 官方类别（逐字取）** `L367` — CLDR 使用 6 个助记标签：zero / one (singular) / two (dual) / few (paucal) / many（也用于有独立类别的分数）/ other（required — general plural f
+  - **6.2 CLDR 49 语言复数规则图表：各 locale 的 cardinal 类别** `L380` — 口径：只看 cardinal（普通名词/单位复数）。图表另有 ordinal 与 range 行，例如 en 的 ordinal 有 one/two/few/other，不要混进 cardinal 的表。
+  - **6.3 Node v22.22.2 Intl.PluralRules 本机实测（本章最有价值的表）** `L393` — new Intl.PluralRules(locale).select(n) 实测输出：
+  - **6.4 设计含义** `L422` — - 任何含数量的 UI 文案（「已删除 N 项」「N 条未读」「N 天前」）都必须走 ICU plural / selectordinal，不能写 n === 1 ? A : B。
+- **七、ICU MessageFormat：禁拼接字符串、单句完整翻译、select / plural / selectordinal** `L431` — ICU 用户指南的出发点直接点名拼接的危害：「If the user-visible string were concatenated directly from fragments and formatted elements, then
+  - **7.1 三种复杂参数** `L435` — - plural：按数值 + 该语言复数规则选子消息
+  - **7.2 官方示例（逐字取，含 offset 与 #）** `L442` — - offset:1：把「主人本人」从计数里扣掉，# 输出的是 扣除 offset 后的值（不是原始 numguests）。
+  - **7.3 嵌套顺序的官方建议** `L461` — 「If possible, use complex arguments as the outermost structure of a message, and write full sentences in their sub-messa
+  - **7.4 引号 / 转义（最容易踩的坑）** `L469` — - 语法字符在文本部分要用成对的 ASCII 撇号包起来；一对 ASCII '' 代表一个 ASCII '，类似 printf 的 %%：
+  - **7.5 参数格式化的官方取舍** `L476` — 官方示例输出 At 4:34 PM on March 23, there was a disturbance in the Force on planet 7. 的模式：
+  - **7.6 反模式速查** `L491` — - ❌ "Welcome " + name + "!"（语序可能不同）
+- **八、Intl API 全表与本机实测（Node v22.22.2）** `L502` — MDN 官方定义：Intl is not a constructor —— 不能用 new，也不能当函数调用；所有属性和方法都是静态的（类似 Math）。它是 namespace object，里面装的是构造器与公共能力。
+  - **8.1 完整清单** `L506` — 实测能力警告（本轮独有）：MDN 列出了 Intl.DurationFormat，但本机 Node v22.22.2 执行 new Intl.DurationFormat('zh', ...) 抛 TypeError: Intl.Durat
+  - **8.2 Intl.Locale 元数据实测（日历 / 数字系统 / 周 / 方向）** `L528` — 设计含义：日历控件的周起始日和周末必须按 locale 取，不能写死周一或周日——实测 zh-CN 周一、en-US 周日、ar-EG 周六（firstDay 6）、he-IL 周日；ar-EG 周末是周五+周六。这也是「多语言日历」最高频
+  - **8.3 语言协商（locale negotiation）与 navigator** `L541` — MDN：所有国际化构造器都接受 locales + options，用 options.localeMatcher 指定的算法，把请求的 locale 与实现支持的 locale 协商。
+- **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** `L564` — 同一个 Date('2026-03-09T16:05:00Z')，dateStyle:'full'、timeZone:'UTC'：
+- **十、数字 / 货币 / 单位 / 千分位格式（Node 实测）** `L593` — Intl.NumberFormat 格式化 1234567.89：
+- **十一、列表 / 相对时间 / DisplayNames / 排序 Collator / 中文分词 Segmenter（Node 实测）** `L622` — 规则：
+- **十二、姓名 / 地址 / 称呼：不要 first name + last name（W3C《Personal names around the world》）** `L645` — W3C 开宗明义：设计表单/数据库/本体的人常常不知道别国姓名可以有多不同，于是假设过多。
+  - **12.1 官方点名的反例（按类型）** `L649`
+  - **12.2 官方设计建议（可直接作为表单规范）** `L664` — 首选：单一 Full name 字段，按用户原样输入。W3C：「it will be simpler, where it is possible, to just use the full name as the user provides
+- **十三、语言协商 locale negotiation 与回退策略** `L692` — 把 §8.3 的运行时规则落到产品上：
+- **十四、伪本地化 pseudolocalization / 伪翻译 / 伪 locale（Microsoft Learn 官方）** `L707` — 定义：不真的翻译，用自动转换源文本来模拟翻译的常见副作用，在翻译开始前就能验证产品可本地化性，并贯穿整个开发周期持续回归。Microsoft 说这些手段在圈内简称 "pseudo"。
+  - **14.1 伪翻译的五种变换（官方原文）** `L711` — 另两个官方要点：
+  - **14.2 伪 locale（专测格式化与解析）** `L727` — Windows 定义三个伪 locale：
+  - **14.3 可执行的伪本地化验收流程** `L743` — 1. 全站切到 en-XA（或自定义 40% 加长 + 音标 + ^ 定界）→ 检查截断、换行、重叠、min-inline-size 是否生效。
+- **十五、文化适配：颜色、图标、图像、示例数据与数字字形** `L755` — - 颜色含义不通用：ux-writing.md §13 给的例子是白色在西方=婚礼、东亚=丧礼。做法不是「背一张颜色文化表」，而是为目标市场做一次调研并写进 locale brief，尤其语义色（成功/危险/警告）与营销主色。同时注意：da
+- **十六、给译者的交付规格：字符预算、变量说明、截图与术语表（与 handoff-collaboration.md 衔接）** `L768` — 翻译不是「把 JSON 发出去」。每条消息应带：
+- **十七、框架与工程落地：React / Vue / Next / MUI RTL、字体、能力检测** `L788` — NOASSERTION 表示 GitHub API 的 license.spdxid 未给出标准 SPDX 值（多为自定义/多许可/未标注），不是「无许可」；采用前须查仓库 LICENSE 原文。本表只记实测结果，不臆测。
+  - **17.1 生态仓库（GitHub API 实测 2026-11-05，star / license / 最近推送）** `L790` — NOASSERTION 表示 GitHub API 的 license.spdxid 未给出标准 SPDX 值（多为自定义/多许可/未标注），不是「无许可」；采用前须查仓库 LICENSE 原文。本表只记实测结果，不臆测。
+  - **17.2 落地纪律** `L807` — - 字符串全部外置，组件内不出现面向用户的字面量；数字/日期/复数不进消息目录，交给 Intl。
+- **十八、12 个场景速查** `L819` — ---
+- **十九、20 条反模式** `L838` — 1. 把「加个语言包」当成国际化全部工作（漏掉标记层、布局层、数据层）。
+- **二十、20 项自检（出海交付前逐条过）** `L863` — 1. <html 上有正确且完整的 lang（BCP 47 / IANA），不是 body、不是 meta？
+- **二十一、6 段可抄代码** `L888` — html
+  - **21.1 文档骨架：lang + dir + 逻辑属性基线** `L890`
+  - **21.2 复数/选择：ICU MessageFormat（完整单句 + select 外层）** `L926`
+  - **21.3 按 locale 安全的格式化封装（含能力检测）** `L947`
+  - **21.4 语言协商 + 周起始日 / 方向兜底校验** `L966`
+  - **21.5 伪本地化变换（含 200% microcopy 档）** `L984`
+  - **21.6 CI 静态检查：硬编码方向 / 物理属性 / 缺失 lang** `L1002` — ---
+- **二十二、数据来源（官方原文 + API 实测）** `L1024` — W3C / WAI
+
 ### `references/inspiration.md` · 灵感与阅读 — Inspiration
 _153 行 · 快照 2026-10-29 · 4 节_
 
@@ -686,7 +768,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_395 行 · 快照 2026-11-05 · 42 节_
+_417 行 · 快照 2026-11-05 · 43 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -728,8 +810,9 @@ _395 行 · 快照 2026-11-05 · 42 节_
   - **支线 K · 内容设计与 UX 文案（界面上的每个字都是设计）** `L257` — - 三级文案尺寸：long ≥3 段（引导页/帮助） / short 2–3 段（对话框/结果说明） / micro <3 句（按钮/标签/toast/错误——占界面 80%）。先判尺寸再写。
   - **支线 L · 演示文稿与幻灯片版式（不是"缩小的文档"是"放大的瞬间"）** `L275` — - 3 秒法则：每张幻灯片停留 20–60 秒，观众 3 秒内决定是否继续看。倒金字塔——结论先行。
   - **支线 M · 动效编排与状态机（动效 bug 八成不在曲线，在状态没建模）** `L294` — - 三层分工：L1 单动效（该不该动 / 多久 / 什么曲线）走 motion-system.md；L2 编排（≥2 元素或有先后）；L3 状态机（互斥状态 / 跨视图配对 / 会被打断）走 motion-orchestration.md。
-- **学习节奏（可持续，不靠意志力）** `L310` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（61 条，做到 ≥47 条即达 L2+）** `L324` — L0
+  - **支线 N · 国际化与本地化（出海不是加个语言包，是三层同时改）** `L308` — - 先判三层：① 标记层 <html lang + dir；② 布局层 文案膨胀弹性 / CSS logical properties / RTL 镜像；③ 数据层 复数 / 日期 / 数字 / 姓名 / 排序。翻译只解决字符串，三层不动必
+- **学习节奏（可持续，不靠意志力）** `L323` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（69 条，做到 ≥53 条即达 L2+）** `L337` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -984,98 +1067,98 @@ _194 行 · 快照 2026-10-29 · 8 节_
 - **Other (6)** `L187` — - Krutik Raut — Creative portfolio of Krutik - Designer and Developer who makes pixels behave
 
 ### `references/presentation-design.md` · 演示文稿与幻灯片版式（Presentation Design）
-_1128 行 · 快照 — · 90 节_
+_1129 行 · 快照 2026-11-05 · 90 节_
 
-- **目录** `L9` — 1. 尺寸与比例
-- **1. 尺寸与比例** `L32` — - PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）
-  - **1.0 速查表** `L34`
-  - **1.1 16:9 是事实标准** `L46` — - PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）
-  - **1.2 何时用 4:3** `L53`
-  - **1.3 混合比例的坑** `L62` — - PowerPoint 不支持同一文件内不同比例的幻灯片——所有幻灯片必须共享同一尺寸
-  - **1.4 分辨率与导出** `L68` — ---
-- **2. 安全区与边距** `L80` — PowerPoint 无传统页边距（不像 Word），用以下方式模拟：
-  - **2.0 速查表** `L82`
-  - **2.1 为什么需要安全区** `L90`
-  - **2.2 边距实操** `L99` — PowerPoint 无传统页边距（不像 Word），用以下方式模拟：
-  - **2.3 版心推荐值（16:9 / 1920×1080）** `L107` — ---
-- **3. 字号体系与可读性** `L121` — 最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）
-  - **3.0 核心铁律** `L123` — 最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）
-  - **3.1 字号阶梯（现场演示型）** `L128`
-  - **3.2 字号阶梯（阅读型讲义 / Slidedoc）** `L140` — 阅读型演示文稿不是"放大的瞬间"，是"缩小的文档"。字号可以更小，但层次要更清晰。
-  - **3.3 字号阶梯（海报型 / 社媒分享）** `L150`
-  - **3.4 字体选择** `L158`
-  - **3.5 字体使用禁忌** `L167` — - ❌ 禁止 Comic Sans（"会丧失可信度"）
-  - **3.6 可读性验证方法（Nancy Duarte 法）** `L179` — 测量显示器对角线英寸数 → 后退相同数值的英尺数 → 检查是否清晰
-  - **3.7 字号一致性规则** `L189` — - 同一层级文字全篇字号一致：所有标题同一字号，所有正文同一字号
-- **4. 文字密度限制** `L198` — 中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：
-  - **4.0 速查表** `L200`
-  - **4.1 哪条规则该用** `L210`
-  - **4.2 中文文字密度** `L220` — 中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：
-  - **4.3 项目符号（Bullet Points）使用纪律** `L230` — - ✅ 仅用于：规格说明、流程步骤、并列要点
-  - **4.4 一页一信息原则** `L237` — 每张幻灯片传达一个核心信息。
-- **5. 母版与占位符** `L245` — 1. 视图 → 幻灯片母版
-  - **5.0 母版是什么** `L247`
-  - **5.1 必备版式清单（6–8 种上限）** `L255`
-  - **5.2 母版设置步骤（PowerPoint）** `L268` — 1. 视图 → 幻灯片母版
-  - **5.3 占位符规则** `L281` — - ✅ 始终用占位符而非手动文本框——占位符保证阅读顺序（无障碍）
-  - **5.4 logo 放置** `L289` — ---
-- **6. 动画与转场** `L300` — 1. 同一演示文稿全篇统一 1 种转场——不要每页不同
-  - **6.0 定义区分** `L302`
-  - **6.1 动画四类** `L310`
-  - **6.2 转场三档** `L319`
-  - **6.3 动画与转场铁律** `L327` — 1. 同一演示文稿全篇统一 1 种转场——不要每页不同
-  - **6.4 何时应完全避免动画** `L337` — Lumen Learning / Public Speaking 教材的立场：
-  - **6.5 Morph（变体）使用指南** `L345` — ---
-- **7. 投影对比度与配色** `L357` — bash
-  - **7.0 对比度阈值** `L359`
-  - **7.1 投影 vs 屏幕的差异** `L367`
-  - **7.2 安全配色策略** `L376`
-  - **7.3 禁止的配色** `L385`
-  - **7.4 投影对比度自检** `L394` — ---
-- **8. 图表在幻灯片中的规则** `L408` — 一张幻灯片一个图表。两个图表 = 拆两页。
-  - **8.0 核心原则** `L410` — 一张幻灯片一个图表。两个图表 = 拆两页。
-  - **8.1 图表字号** `L414`
-  - **8.2 图表在幻灯片中的尺寸** `L424`
-  - **8.3 图表颜色** `L432` — - 使用 3–4 种区分色（色盲安全）
-- **9. 可访问性** `L441` — 1. 用内置版式（不用手动文本框）→ 保证阅读顺序
-  - **9.0 WCAG 对演示文稿的要求** `L443`
-  - **9.1 可访问性实操清单** `L456` — 1. 用内置版式（不用手动文本框）→ 保证阅读顺序
-  - **9.2 闪烁与光敏性** `L469` — ---
-- **10. 远程与线上演示** `L480` — ---
-  - **10.0 线上演示的差异** `L482`
-  - **10.1 线上演示字号调整** `L492`
-  - **10.2 线上演示工具适配** `L500` — ---
-- **11. 中文演示场景** `L511` — - 全角标点（，。、；：""''）
-  - **11.0 中文字号调整** `L513`
-  - **11.1 中文字体推荐** `L522`
-  - **11.2 中文标点与排版** `L530` — - 全角标点（，。、；：""''）
-  - **11.3 中文演示密度** `L538` — ---
-- **12. 版式构图法则** `L549` — - 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域
-  - **12.1 三分法则** `L551` — - 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域
-  - **12.2 Z 模式阅读** `L558` — - 在从左到右的语言环境中：
-  - **12.3 留白规则** `L568` — - 留白 = 呼吸空间 → 吸引注意力到焦点
-  - **12.4 视觉引导** `L575` — - 所有人物和动物的朝向应面向幻灯片内部，最好朝向主焦点
-  - **12.5 一致性规则** `L581` — - 全篇重复使用：相同颜色、字体、图片风格、布局
-- **13. 演示节奏与信息流** `L589` — Mayer (2001) 研究表明：分裂注意力影响信息保留能力。
-  - **13.0 切换节奏** `L591`
-  - **13.1 演讲-幻灯片节奏** `L600` — Mayer (2001) 研究表明：分裂注意力影响信息保留能力。
-  - **13.2 引用语规则** `L614` — - ✅ 可以使用，但需满足：简短、清晰、少量使用
-  - **13.3 信息结构（倒金字塔）** `L620` — ---
-- **14. 工具与框架** `L630` — ---
-  - **14.1 桌面工具** `L632`
-  - **14.2 代码驱动框架** `L641`
-  - **14.3 设计辅助工具** `L651`
-  - **14.4 检查工具** `L660` — ---
-- **15. 12 场景速查** `L671` — ---
-- **16. 20 条反模式** `L690` — ---
-- **17. 18 项自检** `L717` — ---
-- **18. 可抄代码** `L742` — html
-  - **18.1 reveal.js 基础配置** `L744`
-  - **18.2 PowerPoint VBA 批量设置字号** `L799`
-  - **18.3 对比度检查（Python）** `L839`
-  - **18.4 Slidev 基础配置（Markdown 驱动）** `L896`
-  - **18.5 CSS 幻灯片安全区模拟（通用）** `L969`
-  - **18.6 Python-pptx 生成幻灯片模板** `L1044` — ---
+- **目录** `L10` — 1. 尺寸与比例
+- **1. 尺寸与比例** `L33` — - PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）
+  - **1.0 速查表** `L35`
+  - **1.1 16:9 是事实标准** `L47` — - PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）
+  - **1.2 何时用 4:3** `L54`
+  - **1.3 混合比例的坑** `L63` — - PowerPoint 不支持同一文件内不同比例的幻灯片——所有幻灯片必须共享同一尺寸
+  - **1.4 分辨率与导出** `L69` — ---
+- **2. 安全区与边距** `L81` — PowerPoint 无传统页边距（不像 Word），用以下方式模拟：
+  - **2.0 速查表** `L83`
+  - **2.1 为什么需要安全区** `L91`
+  - **2.2 边距实操** `L100` — PowerPoint 无传统页边距（不像 Word），用以下方式模拟：
+  - **2.3 版心推荐值（16:9 / 1920×1080）** `L108` — ---
+- **3. 字号体系与可读性** `L122` — 最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）
+  - **3.0 核心铁律** `L124` — 最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）
+  - **3.1 字号阶梯（现场演示型）** `L129`
+  - **3.2 字号阶梯（阅读型讲义 / Slidedoc）** `L141` — 阅读型演示文稿不是"放大的瞬间"，是"缩小的文档"。字号可以更小，但层次要更清晰。
+  - **3.3 字号阶梯（海报型 / 社媒分享）** `L151`
+  - **3.4 字体选择** `L159`
+  - **3.5 字体使用禁忌** `L168` — - ❌ 禁止 Comic Sans（"会丧失可信度"）
+  - **3.6 可读性验证方法（Nancy Duarte 法）** `L180` — 测量显示器对角线英寸数 → 后退相同数值的英尺数 → 检查是否清晰
+  - **3.7 字号一致性规则** `L190` — - 同一层级文字全篇字号一致：所有标题同一字号，所有正文同一字号
+- **4. 文字密度限制** `L199` — 中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：
+  - **4.0 速查表** `L201`
+  - **4.1 哪条规则该用** `L211`
+  - **4.2 中文文字密度** `L221` — 中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：
+  - **4.3 项目符号（Bullet Points）使用纪律** `L231` — - ✅ 仅用于：规格说明、流程步骤、并列要点
+  - **4.4 一页一信息原则** `L238` — 每张幻灯片传达一个核心信息。
+- **5. 母版与占位符** `L246` — 1. 视图 → 幻灯片母版
+  - **5.0 母版是什么** `L248`
+  - **5.1 必备版式清单（6–8 种上限）** `L256`
+  - **5.2 母版设置步骤（PowerPoint）** `L269` — 1. 视图 → 幻灯片母版
+  - **5.3 占位符规则** `L282` — - ✅ 始终用占位符而非手动文本框——占位符保证阅读顺序（无障碍）
+  - **5.4 logo 放置** `L290` — ---
+- **6. 动画与转场** `L301` — 1. 同一演示文稿全篇统一 1 种转场——不要每页不同
+  - **6.0 定义区分** `L303`
+  - **6.1 动画四类** `L311`
+  - **6.2 转场三档** `L320`
+  - **6.3 动画与转场铁律** `L328` — 1. 同一演示文稿全篇统一 1 种转场——不要每页不同
+  - **6.4 何时应完全避免动画** `L338` — Lumen Learning / Public Speaking 教材的立场：
+  - **6.5 Morph（变体）使用指南** `L346` — ---
+- **7. 投影对比度与配色** `L358` — bash
+  - **7.0 对比度阈值** `L360`
+  - **7.1 投影 vs 屏幕的差异** `L368`
+  - **7.2 安全配色策略** `L377`
+  - **7.3 禁止的配色** `L386`
+  - **7.4 投影对比度自检** `L395` — ---
+- **8. 图表在幻灯片中的规则** `L409` — 一张幻灯片一个图表。两个图表 = 拆两页。
+  - **8.0 核心原则** `L411` — 一张幻灯片一个图表。两个图表 = 拆两页。
+  - **8.1 图表字号** `L415`
+  - **8.2 图表在幻灯片中的尺寸** `L425`
+  - **8.3 图表颜色** `L433` — - 使用 3–4 种区分色（色盲安全）
+- **9. 可访问性** `L442` — 1. 用内置版式（不用手动文本框）→ 保证阅读顺序
+  - **9.0 WCAG 对演示文稿的要求** `L444`
+  - **9.1 可访问性实操清单** `L457` — 1. 用内置版式（不用手动文本框）→ 保证阅读顺序
+  - **9.2 闪烁与光敏性** `L470` — ---
+- **10. 远程与线上演示** `L481` — ---
+  - **10.0 线上演示的差异** `L483`
+  - **10.1 线上演示字号调整** `L493`
+  - **10.2 线上演示工具适配** `L501` — ---
+- **11. 中文演示场景** `L512` — - 全角标点（，。、；：""''）
+  - **11.0 中文字号调整** `L514`
+  - **11.1 中文字体推荐** `L523`
+  - **11.2 中文标点与排版** `L531` — - 全角标点（，。、；：""''）
+  - **11.3 中文演示密度** `L539` — ---
+- **12. 版式构图法则** `L550` — - 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域
+  - **12.1 三分法则** `L552` — - 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域
+  - **12.2 Z 模式阅读** `L559` — - 在从左到右的语言环境中：
+  - **12.3 留白规则** `L569` — - 留白 = 呼吸空间 → 吸引注意力到焦点
+  - **12.4 视觉引导** `L576` — - 所有人物和动物的朝向应面向幻灯片内部，最好朝向主焦点
+  - **12.5 一致性规则** `L582` — - 全篇重复使用：相同颜色、字体、图片风格、布局
+- **13. 演示节奏与信息流** `L590` — Mayer (2001) 研究表明：分裂注意力影响信息保留能力。
+  - **13.0 切换节奏** `L592`
+  - **13.1 演讲-幻灯片节奏** `L601` — Mayer (2001) 研究表明：分裂注意力影响信息保留能力。
+  - **13.2 引用语规则** `L615` — - ✅ 可以使用，但需满足：简短、清晰、少量使用
+  - **13.3 信息结构（倒金字塔）** `L621` — ---
+- **14. 工具与框架** `L631` — ---
+  - **14.1 桌面工具** `L633`
+  - **14.2 代码驱动框架** `L642`
+  - **14.3 设计辅助工具** `L652`
+  - **14.4 检查工具** `L661` — ---
+- **15. 12 场景速查** `L672` — ---
+- **16. 20 条反模式** `L691` — ---
+- **17. 18 项自检** `L718` — ---
+- **18. 可抄代码** `L743` — html
+  - **18.1 reveal.js 基础配置** `L745`
+  - **18.2 PowerPoint VBA 批量设置字号** `L800`
+  - **18.3 对比度检查（Python）** `L840`
+  - **18.4 Slidev 基础配置（Markdown 驱动）** `L897`
+  - **18.5 CSS 幻灯片安全区模拟（通用）** `L970`
+  - **18.6 Python-pptx 生成幻灯片模板** `L1045` — ---
 
 ### `references/resources.md` · 设计资源 — Resources
 _225 行 · 快照 2026-10-29 · 5 节_
@@ -1235,7 +1318,7 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.6 链接文案检查脚本** `L799` — ---
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_369 行 · 快照 — · 19 节_
+_393 行 · 快照 — · 20 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1256,6 +1339,7 @@ _369 行 · 快照 — · 19 节_
 - **2026-11-01 · 设计交付与协作（每日升级 #12）** `L296` — - 主题：设计交付与协作（上轮候选第 1 位；原知识里"走查"零命中、"设计交付"只有 8 条散落在 editorial/accessibility/design-md 的边角）
 - **2026-11-05 · 内容设计与 UX 文案体系（每日升级 #13）** `L330` — - 主题：内容设计与 UX 文案（上轮候选第 2 位；候选第 1 位「多品牌/多主题 token 架构」已在 #12 前完成，multi-brand-theming.md 已存在；原知识只有 form-table.md 的 12 条错误模板
 - **2026-11-05 · 演示文稿与幻灯片版式（每日升级 #14）** `L358` — - 需求：每日深蒸馏设计知识，本轮主题为演示文稿与幻灯片版式（上轮候选第 1 位）
+- **2026-11-05 · 动效进阶：编排、状态机与共享元素转场（每日升级 #15）** `L372` — - 需求：每日深蒸馏设计知识，本轮主题取上轮候选第 1 位「动效进阶（编排与状态机）」——motion-system.md 只覆盖单动效的曲线与时长，多元素编排、列表增删、共享元素转场、动画状态机与中断策略完全空白
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -1269,7 +1353,7 @@ _369 行 · 快照 — · 19 节_
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
 - **1. 分工与决策树：单动效、编排、状态机三层** → `references/motion-orchestration.md` L11
-- **1. 尺寸与比例** → `references/presentation-design.md` L32
+- **1. 尺寸与比例** → `references/presentation-design.md` L33
 - **1. 表单（Form）的五个零件：标签·控件·帮助·错误·动作** → `references/form-table.md` L39
 - **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
@@ -1280,10 +1364,10 @@ _369 行 · 快照 — · 19 节_
 - **10. 表单在窄屏** → `references/responsive-layout.md` L442
 - **10. 视觉手法的性能价格表（本轮核心）** → `references/performance-design.md` L431
 - **10. 设计走查（design QA）：三遍法 + 9 字段文档** → `references/handoff-collaboration.md` L359
-- **10. 远程与线上演示** → `references/presentation-design.md` L480
+- **10. 远程与线上演示** → `references/presentation-design.md` L481
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **11. WAAPI 精确参数表（KeyframeEffect / Element.animate）** → `references/motion-orchestration.md` L561
-- **11. 中文演示场景** → `references/presentation-design.md` L511
+- **11. 中文演示场景** → `references/presentation-design.md` L512
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 品牌色的边界：图表 / 大屏 / 印刷 / 多品牌** → `references/brand-identity.md` L342
 - **11. 场景速查（12 个高频问题 → 直接答案）** → `references/dark-mode.md` L451
@@ -1296,7 +1380,7 @@ _369 行 · 快照 — · 19 节_
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
 - **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 字体系统：品牌字体与系统栈** → `references/brand-identity.md` L374
-- **12. 版式构图法则** → `references/presentation-design.md` L549
+- **12. 版式构图法则** → `references/presentation-design.md` L550
 - **12. 版本与变更管理** → `references/handoff-collaboration.md` L442
 - **12. 素材与出处** → `references/motion-system.md` L326
 - **12. 自检 12 项（图表交付前逐条过）** → `references/dataviz.md` L349
@@ -1307,19 +1391,19 @@ _369 行 · 快照 — · 19 节_
 - **13. 反模式（20 条，看到就是错）** → `references/dark-mode.md` L510
 - **13. 图形语言：图标网格三体系 + 插画五参数** → `references/brand-identity.md` L404
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
-- **13. 演示节奏与信息流** → `references/presentation-design.md` L589
+- **13. 演示节奏与信息流** → `references/presentation-design.md` L590
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
 - **14. 可抄代码（4 段）** → `references/dark-mode.md` L535
 - **14. 品牌声音与文案语气（NN/g 四维）** → `references/brand-identity.md` L443
 - **14. 回归防线：让"改 A 崩 B"在合并前被发现** → `references/handoff-collaboration.md` L580
-- **14. 工具与框架** → `references/presentation-design.md` L630
+- **14. 工具与框架** → `references/presentation-design.md` L631
 - **14. 微信小程序：另一套物理规律** → `references/performance-design.md` L589
 - **14. 性能：100ms 响应窗口、读写分离与快照开销** → `references/motion-orchestration.md` L680
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
-- **15. 12 场景速查** → `references/presentation-design.md` L671
+- **15. 12 场景速查** → `references/presentation-design.md` L672
 - **15. 协作节奏：每次交接都要有可验收的产出** → `references/handoff-collaboration.md` L622
 - **15. 参考来源** → `references/dark-mode.md` L642
 - **15. 反模式 20 条** → `references/responsive-layout.md` L565
@@ -1327,14 +1411,14 @@ _369 行 · 快照 — · 19 节_
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **15. 资产交付清单与文件格式** → `references/brand-identity.md` L469
 - **15. 跨框架实现矩阵与选型决策** → `references/motion-orchestration.md` L709
-- **16. 20 条反模式** → `references/presentation-design.md` L690
+- **16. 20 条反模式** → `references/presentation-design.md` L691
 - **16. 中文/本土交付现实** → `references/handoff-collaboration.md` L661
 - **16. 反模式清单（20 条，逐条对照）** → `references/performance-design.md` L674
 - **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
 - **16. 品牌一致性的十条检查（交付前逐条过）** → `references/brand-identity.md` L506
 - **16. 场景速查（16 条，直接取结论）** → `references/motion-orchestration.md` L738
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
-- **17. 18 项自检** → `references/presentation-design.md` L717
+- **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 交付自检（18 项，全过才算过关）** → `references/performance-design.md` L699
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
 - **17. 反模式（20 条，命中即扣分）** → `references/motion-orchestration.md` L761
@@ -1344,7 +1428,7 @@ _369 行 · 快照 — · 19 节_
 - **18. 与其他资产的分工** → `references/responsive-layout.md` L696
 - **18. 出处** → `references/form-table.md` L503
 - **18. 反模式 20 条** → `references/handoff-collaboration.md` L730
-- **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L742
+- **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L743
 - **18. 自检清单（20 条，动效编排交付前逐条过）** → `references/motion-orchestration.md` L786
 - **19. 反模式 20 条** → `references/brand-identity.md` L625
 - **19. 可抄代码（8 段）** → `references/motion-orchestration.md` L811
@@ -1354,7 +1438,7 @@ _369 行 · 快照 — · 19 节_
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
 - **2. 品牌视觉的四层结构（别从 logo 开始）** → `references/brand-identity.md` L25
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
-- **2. 安全区与边距** → `references/presentation-design.md` L80
+- **2. 安全区与边距** → `references/presentation-design.md` L81
 - **2. 指标体系：先背下这七个数** → `references/performance-design.md` L46
 - **2. 标签：位置三选一，别混用** → `references/form-table.md` L55
 - **2. 缓动曲线（easing）：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
@@ -1378,6 +1462,7 @@ _369 行 · 快照 — · 19 节_
 - **2026-11-01 · 版式与网格（每日升级 #8）** → `memory/design-log.md` L169
 - **2026-11-01 · 设计交付与协作（每日升级 #12）** → `memory/design-log.md` L296
 - **2026-11-05 · 内容设计与 UX 文案体系（每日升级 #13）** → `memory/design-log.md` L330
+- **2026-11-05 · 动效进阶：编排、状态机与共享元素转场（每日升级 #15）** → `memory/design-log.md` L372
 - **2026-11-05 · 演示文稿与幻灯片版式（每日升级 #14）** → `memory/design-log.md` L358
 - **21. 数据来源** → `references/brand-identity.md` L673
 - **3. LCP：把 2.5 秒拆成四段（这是最有用的一张表）** → `references/performance-design.md` L94
@@ -1385,7 +1470,7 @@ _369 行 · 快照 — · 19 节_
 - **3. 交错编排 stagger：variants 传播与多框架实现** → `references/motion-orchestration.md` L72
 - **3. 从三个词到视觉：定位翻译表** → `references/brand-identity.md` L47
 - **3. 图表色板：三类用途（分类 / 顺序 / 发散），不许混用** → `references/dataviz.md` L76
-- **3. 字号体系与可读性** → `references/presentation-design.md` L121
+- **3. 字号体系与可读性** → `references/presentation-design.md` L122
 - **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
 - **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** → `references/dark-mode.md` L141
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
@@ -1395,7 +1480,7 @@ _369 行 · 快照 — · 19 节_
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
 - **4. 控件尺寸与内边距（三体系精确值）** → `references/form-table.md` L110
-- **4. 文字密度限制** → `references/presentation-design.md` L198
+- **4. 文字密度限制** → `references/presentation-design.md` L199
 - **4. 标志类型学：七型与选择决策** → `references/brand-identity.md` L78
 - **4. 标注规则：标例外，不标全量** → `references/handoff-collaboration.md` L79
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
@@ -1406,13 +1491,13 @@ _369 行 · 快照 — · 19 节_
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
 - **5. 栅格与版心：三个必须给的数值** → `references/responsive-layout.md` L226
 - **5. 标志几何构造：网格 / 基形 / 笔画 / 光学修正** → `references/brand-identity.md` L123
-- **5. 母版与占位符** → `references/presentation-design.md` L245
+- **5. 母版与占位符** → `references/presentation-design.md` L246
 - **5. 状态矩阵：9 态，别画 2ⁿ** → `references/handoff-collaboration.md` L142
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
 - **6. 共享元素转场 A：View Transitions 完整机制** → `references/motion-orchestration.md` L271
-- **6. 动画与转场** → `references/presentation-design.md` L300
+- **6. 动画与转场** → `references/presentation-design.md` L301
 - **6. 命名四套：图层 / 组件 / 变体 / token** → `references/handoff-collaboration.md` L176
 - **6. 品牌色与语义色：降饱和，不是反相** → `references/dark-mode.md` L230
 - **6. 性能预算：给每个页面类型一个数字** → `references/performance-design.md` L215
@@ -1425,7 +1510,7 @@ _369 行 · 快照 — · 19 节_
 - **7. 图像、插画、图标** → `references/dark-mode.md` L273
 - **7. 图片：设计师最直接的性能杠杆** → `references/performance-design.md` L251
 - **7. 实现：可直接抄的四段代码** → `references/motion-system.md` L155
-- **7. 投影对比度与配色** → `references/presentation-design.md` L357
+- **7. 投影对比度与配色** → `references/presentation-design.md` L358
 - **7. 最小尺寸与响应式标志四档（多小算太小 / 缩小到什么时候换版）** → `references/brand-identity.md` L198
 - **7. 组件 API 与设计稿 1:1 对齐** → `references/handoff-collaboration.md` L224
 - **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
@@ -1433,7 +1518,7 @@ _369 行 · 快照 — · 19 节_
 - **8. 品牌色：主色怎么定（不是"选个好看的颜色"）** → `references/brand-identity.md` L229
 - **8. 响应式图片：三条规则 + 一个防抖** → `references/responsive-layout.md` L336
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
-- **8. 图表在幻灯片中的规则** → `references/presentation-design.md` L408
+- **8. 图表在幻灯片中的规则** → `references/presentation-design.md` L409
 - **8. 字体：最容易被设计师低估的成本** → `references/performance-design.md` L324
 - **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
@@ -1444,7 +1529,7 @@ _369 行 · 快照 — · 19 节_
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
 - **9. 切换实现：四端与防闪白** → `references/dark-mode.md` L318
 - **9. 动画状态机：四态/六态模型与 XState** → `references/motion-orchestration.md` L452
-- **9. 可访问性** → `references/presentation-design.md` L441
+- **9. 可访问性** → `references/presentation-design.md` L442
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
 - **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
 - **9. 色阶生成三条路线（选一条，别混）** → `references/brand-identity.md` L253
@@ -1534,24 +1619,33 @@ _369 行 · 快照 — · 19 节_
 - **一、DESIGN.md 是什么，为什么值得作为交付物** → `references/design-md-format.md` L10
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
 - **一、中文排版：为什么不是"英文换字"** → `references/chinese-design.md` L10
+- **一、判层：国际化与本地化 i18n / L10n / 翻译 / 多语言 / RTL 不是同一件事** → `references/i18n-localization.md` L11
 - **一、判据：什么时候真的需要多品牌架构** → `references/multi-brand-theming.md` L11
 - **一、总则：文字是界面的一部分，不是装饰** → `references/ux-writing.md` L10
+- **七、ICU MessageFormat：禁拼接字符串、单句完整翻译、select / plural / selectordinal** → `references/i18n-localization.md` L431
 - **七、与本技能其他文件的衔接** → `references/design-md-format.md` L182
 - **七、对话框与通知文案** → `references/ux-writing.md` L301
 - **七、运行时切换 vs 构建期编译** → `references/multi-brand-theming.md` L305
 - **三、54 品牌 DNA 速查** → `references/design-md-format.md` L44
+- **三、lang 与 dir：BCP 47 语言声明、RTL 方向、WCAG 3.1.1 / 3.1.2** → `references/i18n-localization.md` L124
 - **三、三大体系对比（选哪套取决于产品语境）** → `references/design-tokens.md` L112
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
+- **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
 - **二、Ant Design 数值体系（中文语境最完整的一套）** → `references/design-tokens.md` L26
 - **二、中文设计生态地图（平台怎么用、哪里有坑）** → `references/chinese-design.md` L121
 - **二、主题不是"换色"，是四个正交轴** → `references/multi-brand-theming.md` L28
 - **二、九章骨架（照此结构写，不增不减）** → `references/design-md-format.md` L26
 - **二、按钮与操作文案（UI Copy）** → `references/ux-writing.md` L49
+- **二、文案膨胀 text expansion：翻译后文字变长、按钮放不下，+40% 不是安全值** → `references/i18n-localization.md` L44
+- **二十、20 项自检（出海交付前逐条过）** → `references/i18n-localization.md` L863
 - **二十、可抄代码（6 段）** → `references/multi-brand-theming.md` L664
+- **二十一、6 段可抄代码** → `references/i18n-localization.md` L888
+- **二十二、数据来源（官方原文 + API 实测）** → `references/i18n-localization.md` L1024
+- **五、RTL 镜像规则：该镜像与不该镜像清单（Material Design Bidirectionality 官方）** → `references/i18n-localization.md` L298
 - **五、Token 输出格式（三种落地形态）** → `references/design-tokens.md` L156
 - **五、何时把 DESIGN.md 作为交付物** → `references/design-md-format.md` L153
 - **五、品牌色护栏：把"客户给什么用什么"变成"算过才用"** → `references/multi-brand-theming.md` L174
@@ -1559,61 +1653,74 @@ _369 行 · 快照 — · 19 节_
 - **仪表盘 Dashboard** → `references/patterns.md` L81
 - **元素覆盖矩阵** → `references/component-libraries.md` L5
 - **全景：五级台阶与对应产出** → `references/knowledge-map.md` L9
+- **八、Intl API 全表与本机实测（Node v22.22.2）** → `references/i18n-localization.md` L502
 - **八、多品牌同页共存（最容易被忽略的场景）** → `references/multi-brand-theming.md` L333
 - **八、引导与 Onboarding 文案** → `references/ux-writing.md` L346
 - **六、主题矩阵的落地：选择器与层叠策略** → `references/multi-brand-theming.md` L240
 - **六、写 DESIGN.md 的四条纪律** → `references/design-md-format.md` L173
+- **六、复数 plural：CLDR 六类、ICU 复数规则、不同语言复数形式（Node 实测）** → `references/i18n-localization.md` L365
 - **六、常见错误（逐条对照）** → `references/design-tokens.md` L218
 - **六、表单文案** → `references/ux-writing.md` L257
 - **功能特性区 Features** → `references/patterns.md` L41
 - **匹配与反馈日志（追加层，只增不改）** → `memory/design-log.md` L11
+- **十、数字 / 货币 / 单位 / 千分位格式（Node 实测）** → `references/i18n-localization.md` L593
 - **十、术语管理与一致性** → `references/ux-writing.md` L406
 - **十、语义层分叉的边界：什么时候允许"每个品牌一套 L2"** → `references/multi-brand-theming.md` L381
+- **十一、列表 / 相对时间 / DisplayNames / 排序 Collator / 中文分词 Segmenter（Node 实测）** → `references/i18n-localization.md` L622
 - **十一、大小写与标点** → `references/ux-writing.md` L434
 - **十一、配置文件结构：DTCG 多品牌写法** → `references/multi-brand-theming.md` L410
 - **十七、12 个场景速查** → `references/multi-brand-theming.md` L597
 - **十七、20 条反模式** → `references/ux-writing.md` L631
+- **十七、框架与工程落地：React / Vue / Next / MUI RTL、字体、能力检测** → `references/i18n-localization.md` L788
 - **十三、品牌注入管线：从客户填表到 CSS 生效** → `references/multi-brand-theming.md` L509
 - **十三、国际化文案注意事项** → `references/ux-writing.md` L513
+- **十三、语言协商 locale negotiation 与回退策略** → `references/i18n-localization.md` L692
 - **十三条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **十九、18 项自检（多品牌/多主题关）** → `references/multi-brand-theming.md` L641
+- **十九、20 条反模式** → `references/i18n-localization.md` L838
 - **十九、可抄代码** → `references/ux-writing.md` L683
 - **十二、Figma 侧：变量模式必须与代码轴一一对应** → `references/multi-brand-theming.md` L495
+- **十二、姓名 / 地址 / 称呼：不要 first name + last name（W3C《Personal names around the world》）** → `references/i18n-localization.md` L645
 - **十二、数字、日期与单位** → `references/ux-writing.md` L479
 - **十五、内容设计系统化** → `references/ux-writing.md` L571
 - **十五、性能成本：变量数量与切换代价** → `references/multi-brand-theming.md` L561
+- **十五、文化适配：颜色、图标、图像、示例数据与数字字形** → `references/i18n-localization.md` L755
+- **十八、12 个场景速查** → `references/i18n-localization.md` L819
 - **十八、18 项自检清单** → `references/ux-writing.md` L658
 - **十八、20 条反模式** → `references/multi-brand-theming.md` L616
 - **十六、12 场景速查** → `references/ux-writing.md` L612
 - **十六、治理：品牌准入与变更管理** → `references/multi-brand-theming.md` L582
+- **十六、给译者的交付规格：字符预算、变量说明、截图与术语表（与 handoff-collaboration.md 衔接）** → `references/i18n-localization.md` L768
+- **十四、伪本地化 pseudolocalization / 伪翻译 / 伪 locale（Microsoft Learn 官方）** → `references/i18n-localization.md` L707
 - **十四、可访问性与文案** → `references/ux-writing.md` L538
 - **十四、防闪烁：多品牌特有的 FOUC** → `references/multi-brand-theming.md` L539
 - **卡片 Card** → `references/patterns.md` L89
 - **参考来源（本文件数值的出处）** → `references/accessibility.md` L680
 - **反模式速查（任何元素通用）** → `references/patterns.md` L133
+- **四、CSS logical properties：逻辑属性 inline / block、start / end 与 RTL 自动镜像** → `references/i18n-localization.md` L237
 - **四、中文排版自检清单（交付前逐条过）** → `references/chinese-design.md` L182
 - **四、中文设计系统矩阵（GitHub 验证 · 2026-10-29）** → `references/design-tokens.md` L133
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L310
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L323
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L65
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L68
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
 - **用法** → `references/inspiration.md` L5 · `references/portfolios.md` L5 · `references/resources.md` L5 · `references/tools.md` L5
 - **登录/注册 Auth** → `references/patterns.md` L73
-- **目录** → `references/presentation-design.md` L9
+- **目录** → `references/presentation-design.md` L10
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（61 条，做到 ≥47 条即达 L2+）** → `references/knowledge-map.md` L324
-- **自我成长机制（用得越多越准）** → `SKILL.md` L592
-- **自我进化机制（知识保鲜）** → `SKILL.md` L605
+- **能力自测（69 条，做到 ≥53 条即达 L2+）** → `references/knowledge-map.md` L337
+- **自我成长机制（用得越多越准）** → `SKILL.md` L620
+- **自我进化机制（知识保鲜）** → `SKILL.md` L633
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L626
+- **边界与习惯** → `SKILL.md` L654
 - **选型规则** → `references/component-libraries.md` L24
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

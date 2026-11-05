@@ -1486,6 +1486,146 @@
     "overlay",
     "顶层动画"
    ]
+  },
+  {
+   "canonical": "国际化与本地化",
+   "aliases": [
+    "i18n",
+    "l10n",
+    "internationalization",
+    "localization",
+    "出海设计",
+    "多语言",
+    "全球化设计",
+    "语言包",
+    "翻译适配",
+    "locale"
+   ]
+  },
+  {
+   "canonical": "RTL 与双向文本",
+   "aliases": [
+    "right-to-left",
+    "bidi",
+    "bidirectional text",
+    "阿拉伯语",
+    "希伯来语",
+    "dir=rtl",
+    "从右到左",
+    "双向文字",
+    "双向排版",
+    "base direction"
+   ]
+  },
+  {
+   "canonical": "文案膨胀",
+   "aliases": [
+    "text expansion",
+    "text size in translation",
+    "翻译膨胀",
+    "字数变长",
+    "德语太长",
+    "按钮撑破",
+    "翻译后溢出",
+    "文字截断",
+    "字符余量",
+    "长度余量"
+   ]
+  },
+  {
+   "canonical": "复数规则",
+   "aliases": [
+    "plural rules",
+    "pluralization",
+    "cldr plural",
+    "Intl.PluralRules",
+    "复数类别",
+    "数量文案",
+    "one few many other",
+    "中文没有复数"
+   ]
+  },
+  {
+   "canonical": "ICU MessageFormat",
+   "aliases": [
+    "icu message",
+    "message format",
+    "formatjs",
+    "selectordinal",
+    "offset:1",
+    "字符串拼接",
+    "变量插值",
+    "整句翻译"
+   ]
+  },
+  {
+   "canonical": "Intl API 与数据格式化",
+   "aliases": [
+    "Intl.DateTimeFormat",
+    "Intl.NumberFormat",
+    "Intl.DurationFormat",
+    "日期格式",
+    "货币格式",
+    "数字格式",
+    "千分位",
+    "印度数字分组",
+    "BCP 47",
+    "zh_CN",
+    "navigator.language",
+    "localeMatcher"
+   ]
+  },
+  {
+   "canonical": "CSS 逻辑属性",
+   "aliases": [
+    "logical properties",
+    "inline-size",
+    "margin-inline-start",
+    "inset-inline-start",
+    "inline-start",
+    "block axis",
+    "逻辑属性",
+    "方向无关布局"
+   ]
+  },
+  {
+   "canonical": "伪本地化",
+   "aliases": [
+    "pseudolocalization",
+    "pseudo-localization",
+    "en-XA",
+    "en-XB",
+    "qps-ploc",
+    "qaa-qtz",
+    "加长测试",
+    "漏译检测",
+    "定界符暴露截断"
+   ]
+  },
+  {
+   "canonical": "RTL 图标镜像",
+   "aliases": [
+    "mirroring",
+    "bidi mirroring",
+    "图标翻转",
+    "方向性图标",
+    "进度条镜像",
+    "媒体控件不镜像",
+    "数字不镜像"
+   ]
+  },
+  {
+   "canonical": "姓名与地址本地化",
+   "aliases": [
+    "Full name",
+    "姓名字段",
+    "单名",
+    "双姓",
+    "patronymic",
+    "地址格式",
+    "姓名排序",
+    "given name family name"
+   ]
   }
  ]
 }

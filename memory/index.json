@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-05T19:56:11",
+ "generated": "2026-11-05T21:14:18",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 634,
-   "chars": 86026,
+   "lines": 662,
+   "chars": 96703,
    "sections": []
   },
   {
@@ -3830,6 +3830,559 @@
    ]
   },
   {
+   "path": "references/i18n-localization.md",
+   "title": "国际化与本地化设计（i18n / L10n / RTL / 多语言）",
+   "snapshot": "2026-11-05",
+   "lines": 1058,
+   "chars": 49722,
+   "sections": [
+    {
+     "id": "一-判层-国际化与本地化-i18n-l10n-翻译-多语言-rtl-不是同一件事",
+     "level": 2,
+     "title": "一、判层：国际化与本地化 i18n / L10n / 翻译 / 多语言 / RTL 不是同一件事",
+     "summary": "先分层，否则会把「加个语言包」当成全部工作。",
+     "line": 11,
+     "chars": 895
+    },
+    {
+     "id": "1-1-什么时候要读本文件",
+     "level": 3,
+     "title": "1.1 什么时候要读本文件",
+     "summary": "---",
+     "line": 29,
+     "chars": 275
+    },
+    {
+     "id": "二-文案膨胀-text-expansion-翻译后文字变长-按钮放不下-40-不是安全值",
+     "level": 2,
+     "title": "二、文案膨胀 text expansion：翻译后文字变长、按钮放不下，+40% 不是安全值",
+     "summary": "本轮最重要的一条修正。 现有 ux-writing.md §13 写「按钮和标签必须能容纳 +40% 的文字长度」，Microsoft 伪本地化也给「+40%」启发式——但对短字符串而言这是错的，而且错得刚好落在按钮、标签、tab 这些最容",
+     "line": 44,
+     "chars": 144
+    },
+    {
+     "id": "2-1-w3c-ibm-官方膨胀表-逐字取-不要自行-修正",
+     "level": 3,
+     "title": "2.1 W3C / IBM 官方膨胀表（逐字取，不要自行「修正」）",
+     "summary": "W3C《Text size in translation》转引 IBM《Guidelines to design global solutions》，给出英译欧洲语言的平均预期膨胀率：",
+     "line": 48,
+     "chars": 468
+    },
+    {
+     "id": "2-2-flickr-views-实测比例表-w3c-原文",
+     "level": 3,
+     "title": "2.2 Flickr \"views\" 实测比例表（W3C 原文）",
+     "summary": "同一个短词 views（Flickr 的「392 views」），翻译成各语言的长度比（以英文为 1）：",
+     "line": 63,
+     "chars": 505
+    },
+    {
+     "id": "2-3-裁决-40-用在哪-2-3-用在哪",
+     "level": 3,
+     "title": "2.3 裁决：+40% 用在哪、2–3× 用在哪",
+     "summary": "三个来源并不矛盾，它们说的是不同长度档：",
+     "line": 81,
+     "chars": 1123
+    },
+    {
+     "id": "2-4-四类-不只是变长-的复杂因素-w3c-原文",
+     "level": 3,
+     "title": "2.4 四类「不只是变长」的复杂因素（W3C 原文）",
+     "summary": "",
+     "line": 101,
+     "chars": 538
+    },
+    {
+     "id": "2-5-布局弹性清单-可交付给前端",
+     "level": 3,
+     "title": "2.5 布局弹性清单（可交付给前端）",
+     "summary": "- [ ] 所有文字容器用 min-inline-size / max-inline-size，不用固定 width；inline-size: fit-content + max-inline-size 是常用组合。",
+     "line": 110,
+     "chars": 518
+    },
+    {
+     "id": "三-lang-与-dir-bcp-47-语言声明-rtl-方向-wcag-3-1-1-3-1-2",
+     "level": 2,
+     "title": "三、lang 与 dir：BCP 47 语言声明、RTL 方向、WCAG 3.1.1 / 3.1.2",
+     "summary": "标记层是无障碍硬要求，不是「锦上添花的语义」。",
+     "line": 124,
+     "chars": 30
+    },
+    {
+     "id": "3-1-wcag-2-2-原文",
+     "level": 3,
+     "title": "3.1 WCAG 2.2 原文",
+     "summary": "- 3.1.1 的充分技术 H57：在 HTML 元素上使用语言属性。WAI 明确：页面多语言时，默认语言取用得最多的那种；若几种用得一样多，取最先出现的那种。",
+     "line": 128,
+     "chars": 860
+    },
+    {
+     "id": "3-2-lang-的规则与反模式-w3c-declaring-language-in-html",
+     "level": 3,
+     "title": "3.2 lang 的规则与反模式（W3C《Declaring language in HTML》）",
+     "summary": "必须：",
+     "line": 140,
+     "chars": 1251
+    },
+    {
+     "id": "3-3-dir-方向是标记层的-不是样式层-w3c-structural-markup-and-rtl-text-in-html",
+     "level": 3,
+     "title": "3.3 dir：方向是标记层的，不是样式层（W3C《Structural markup and RTL text in HTML》）",
+     "summary": "- dir 用于设置 base direction，以便 Unicode 双向算法（UBA） 正确重排文本，同时设置段落默认对齐。支持 RTL 脚本：Adlam、Arabic、Hebrew、N'Ko、Syriac、Thaana（W3C 列举",
+     "line": 169,
+     "chars": 1652
+    },
+    {
+     "id": "3-4-dir-auto-与-dirname",
+     "level": 3,
+     "title": "3.4 dir=\"auto\" 与 dirname",
+     "summary": "dir=\"auto\"（W3C）：浏览器查看元素内第一个强方向字符（first strongly typed character）决定该元素的 base direction。",
+     "line": 193,
+     "chars": 1001
+    },
+    {
+     "id": "3-5-行内双向文本-w3c-inline-markup-and-bidirectional-text-in-html",
+     "level": 3,
+     "title": "3.5 行内双向文本（W3C《Inline markup and bidirectional text in HTML》）",
+     "summary": "统一做法，不要逐例判断：把每一个反方向短语用 dir 紧包裹（tightly wrap = 元素包含整个反方向短语，且只包含它）。dir 不仅设 base direction，浏览器还会方向隔离（directionally isolate）",
+     "line": 216,
+     "chars": 938
+    },
+    {
+     "id": "四-css-logical-properties-逻辑属性-inline-block-start-end-与-rtl-自动镜像",
+     "level": 2,
+     "title": "四、CSS logical properties：逻辑属性 inline / block、start / end 与 RTL 自动镜像",
+     "summary": "MDN 定义：CSS Logical Properties and Values 模块定义「与书写方向相对」而非「与物理方向绑定」的属性。",
+     "line": 237,
+     "chars": 76
+    },
+    {
+     "id": "4-1-两根轴",
+     "level": 3,
+     "title": "4.1 两根轴",
+     "summary": "MDN 的关键句：「The start of a line is not always the left side of a line.」 流相对值：block-start / block-end / inline-start / inli",
+     "line": 241,
+     "chars": 337
+    },
+    {
+     "id": "4-2-物理-逻辑全映射-mdn-精确属性名",
+     "level": 3,
+     "title": "4.2 物理 → 逻辑全映射（MDN 精确属性名）",
+     "summary": "简写：margin-block / margin-inline、padding-block / padding-inline、border-block / border-inline、inset / inset-block / inset-",
+     "line": 250,
+     "chars": 1743
+    },
+    {
+     "id": "4-3-什么时候-仍然-用-left-right",
+     "level": 3,
+     "title": "4.3 什么时候仍然用 left / right",
+     "summary": "W3C：「Left and right values may still be useful, occasionally, if you want the item you are positioning to remain in a fi",
+     "line": 283,
+     "chars": 276
+    },
+    {
+     "id": "4-4-常见漏网点",
+     "level": 3,
+     "title": "4.4 常见漏网点",
+     "summary": "- transform: translateX(20px) / rotate() 不会自动镜像，需要按 dir 显式分支或改写成逻辑方向。",
+     "line": 287,
+     "chars": 357
+    },
+    {
+     "id": "五-rtl-镜像规则-该镜像与不该镜像清单-material-design-bidirectionality-官方",
+     "level": 2,
+     "title": "五、RTL 镜像规则：该镜像与不该镜像清单（Material Design Bidirectionality 官方）",
+     "summary": "Material 定义：把 UI 从 LTR 切到 RTL 通常叫 mirroring，RTL 布局是 LTR 布局的镜像，影响 layout / text / graphics。时间的流逝在 LTR 里表现为左→右，RTL 里表现为右→左",
+     "line": 298,
+     "chars": 132
+    },
+    {
+     "id": "5-1-应该镜像-白名单",
+     "level": 3,
+     "title": "5.1 应该镜像（白名单）",
+     "summary": "",
+     "line": 302,
+     "chars": 570
+    },
+    {
+     "id": "5-2-不应该镜像-黑名单",
+     "level": 3,
+     "title": "5.2 不应该镜像（黑名单）",
+     "summary": "",
+     "line": 321,
+     "chars": 584
+    },
+    {
+     "id": "5-3-三个最易错的边界",
+     "level": 3,
+     "title": "5.3 三个最易错的边界",
+     "summary": "1. 一般进度条 vs 媒体进度条：Material 一边说「Progress bars fill in the same direction as content is read」，一边说「Do not mirror media play",
+     "line": 336,
+     "chars": 527
+    },
+    {
+     "id": "5-4-material-2-的精确数值-rtl-前后保持相同-变化的是左右归属",
+     "level": 3,
+     "title": "5.4 Material 2 的精确数值（RTL 前后保持相同，变化的是左右归属）",
+     "summary": "平台支持（Material 官方标注）：Android / iOS / Web / Flutter 均 Available。",
+     "line": 342,
+     "chars": 289
+    },
+    {
+     "id": "5-5-rtl-页面验收动作",
+     "level": 3,
+     "title": "5.5 RTL 页面验收动作",
+     "summary": "切到 dir=\"rtl\" 后逐项看：返回箭头方向、主次按钮顺序、checkbox 在文字右侧、字段图标换边、tab 起始位置、进度条填充方向、图标镜像白名单是否误伤黑名单、数字是否仍是 LTR 且字形正确、URL/品牌名是否保持 LTR、标",
+     "line": 359,
+     "chars": 171
+    },
+    {
+     "id": "六-复数-plural-cldr-六类-icu-复数规则-不同语言复数形式-node-实测",
+     "level": 2,
+     "title": "六、复数 plural：CLDR 六类、ICU 复数规则、不同语言复数形式（Node 实测）",
+     "summary": "CLDR 使用 6 个助记标签：zero / one (singular) / two (dual) / few (paucal) / many（也用于有独立类别的分数）/ other（required — general plural f",
+     "line": 365,
+     "chars": 1
+    },
+    {
+     "id": "6-1-cldr-官方类别-逐字取",
+     "level": 3,
+     "title": "6.1 CLDR 官方类别（逐字取）",
+     "summary": "CLDR 使用 6 个助记标签：zero / one (singular) / two (dual) / few (paucal) / many（也用于有独立类别的分数）/ other（required — general plural f",
+     "line": 367,
+     "chars": 860
+    },
+    {
+     "id": "6-2-cldr-49-语言复数规则图表-各-locale-的-cardinal-类别",
+     "level": 3,
+     "title": "6.2 CLDR 49 语言复数规则图表：各 locale 的 cardinal 类别",
+     "summary": "口径：只看 cardinal（普通名词/单位复数）。图表另有 ordinal 与 range 行，例如 en 的 ordinal 有 one/two/few/other，不要混进 cardinal 的表。",
+     "line": 380,
+     "chars": 403
+    },
+    {
+     "id": "6-3-node-v22-22-2-intl-pluralrules-本机实测-本章最有价值的表",
+     "level": 3,
+     "title": "6.3 Node v22.22.2 Intl.PluralRules 本机实测（本章最有价值的表）",
+     "summary": "new Intl.PluralRules(locale).select(n) 实测输出：",
+     "line": 393,
+     "chars": 1463
+    },
+    {
+     "id": "6-4-设计含义",
+     "level": 3,
+     "title": "6.4 设计含义",
+     "summary": "- 任何含数量的 UI 文案（「已删除 N 项」「N 条未读」「N 天前」）都必须走 ICU plural / selectordinal，不能写 n === 1 ? A : B。",
+     "line": 422,
+     "chars": 400
+    },
+    {
+     "id": "七-icu-messageformat-禁拼接字符串-单句完整翻译-select-plural-selectordinal",
+     "level": 2,
+     "title": "七、ICU MessageFormat：禁拼接字符串、单句完整翻译、select / plural / selectordinal",
+     "summary": "ICU 用户指南的出发点直接点名拼接的危害：「If the user-visible string were concatenated directly from fragments and formatted elements, then",
+     "line": 431,
+     "chars": 204
+    },
+    {
+     "id": "7-1-三种复杂参数",
+     "level": 3,
+     "title": "7.1 三种复杂参数",
+     "summary": "- plural：按数值 + 该语言复数规则选子消息",
+     "line": 435,
+     "chars": 135
+    },
+    {
+     "id": "7-2-官方示例-逐字取-含-offset-与",
+     "level": 3,
+     "title": "7.2 官方示例（逐字取，含 offset 与 #）",
+     "summary": "- offset:1：把「主人本人」从计数里扣掉，# 输出的是 扣除 offset 后的值（不是原始 numguests）。",
+     "line": 442,
+     "chars": 258
+    },
+    {
+     "id": "7-3-嵌套顺序的官方建议",
+     "level": 3,
+     "title": "7.3 嵌套顺序的官方建议",
+     "summary": "「If possible, use complex arguments as the outermost structure of a message, and write full sentences in their sub-messa",
+     "line": 461,
+     "chars": 483
+    },
+    {
+     "id": "7-4-引号-转义-最容易踩的坑",
+     "level": 3,
+     "title": "7.4 引号 / 转义（最容易踩的坑）",
+     "summary": "- 语法字符在文本部分要用成对的 ASCII 撇号包起来；一对 ASCII '' 代表一个 ASCII '，类似 printf 的 %%：",
+     "line": 469,
+     "chars": 344
+    },
+    {
+     "id": "7-5-参数格式化的官方取舍",
+     "level": 3,
+     "title": "7.5 参数格式化的官方取舍",
+     "summary": "官方示例输出 At 4:34 PM on March 23, there was a disturbance in the Force on planet 7. 的模式：",
+     "line": 476,
+     "chars": 768
+    },
+    {
+     "id": "7-6-反模式速查",
+     "level": 3,
+     "title": "7.6 反模式速查",
+     "summary": "- ❌ \"Welcome \" + name + \"!\"（语序可能不同）",
+     "line": 491,
+     "chars": 240
+    },
+    {
+     "id": "八-intl-api-全表与本机实测-node-v22-22-2",
+     "level": 2,
+     "title": "八、Intl API 全表与本机实测（Node v22.22.2）",
+     "summary": "MDN 官方定义：Intl is not a constructor —— 不能用 new，也不能当函数调用；所有属性和方法都是静态的（类似 Math）。它是 namespace object，里面装的是构造器与公共能力。",
+     "line": 502,
+     "chars": 126
+    },
+    {
+     "id": "8-1-完整清单",
+     "level": 3,
+     "title": "8.1 完整清单",
+     "summary": "实测能力警告（本轮独有）：MDN 列出了 Intl.DurationFormat，但本机 Node v22.22.2 执行 new Intl.DurationFormat('zh', ...) 抛 TypeError: Intl.Durat",
+     "line": 506,
+     "chars": 1147
+    },
+    {
+     "id": "8-2-intl-locale-元数据实测-日历-数字系统-周-方向",
+     "level": 3,
+     "title": "8.2 Intl.Locale 元数据实测（日历 / 数字系统 / 周 / 方向）",
+     "summary": "设计含义：日历控件的周起始日和周末必须按 locale 取，不能写死周一或周日——实测 zh-CN 周一、en-US 周日、ar-EG 周六（firstDay 6）、he-IL 周日；ar-EG 周末是周五+周六。这也是「多语言日历」最高频",
+     "line": 528,
+     "chars": 787
+    },
+    {
+     "id": "8-3-语言协商-locale-negotiation-与-navigator",
+     "level": 3,
+     "title": "8.3 语言协商（locale negotiation）与 navigator",
+     "summary": "MDN：所有国际化构造器都接受 locales + options，用 options.localeMatcher 指定的算法，把请求的 locale 与实现支持的 locale 协商。",
+     "line": 541,
+     "chars": 1025
+    },
+    {
+     "id": "九-日期-时间-日历-时区格式-node-实测",
+     "level": 2,
+     "title": "九、日期 / 时间 / 日历 / 时区格式（Node 实测）",
+     "summary": "同一个 Date('2026-03-09T16:05:00Z')，dateStyle:'full'、timeZone:'UTC'：",
+     "line": 564,
+     "chars": 1166
+    },
+    {
+     "id": "十-数字-货币-单位-千分位格式-node-实测",
+     "level": 2,
+     "title": "十、数字 / 货币 / 单位 / 千分位格式（Node 实测）",
+     "summary": "Intl.NumberFormat 格式化 1234567.89：",
+     "line": 593,
+     "chars": 1169
+    },
+    {
+     "id": "十一-列表-相对时间-displaynames-排序-collator-中文分词-segmenter-node-实测",
+     "level": 2,
+     "title": "十一、列表 / 相对时间 / DisplayNames / 排序 Collator / 中文分词 Segmenter（Node 实测）",
+     "summary": "规则：",
+     "line": 622,
+     "chars": 1238
+    },
+    {
+     "id": "十二-姓名-地址-称呼-不要-first-name-last-name-w3c-personal-names-around-the-world",
+     "level": 2,
+     "title": "十二、姓名 / 地址 / 称呼：不要 first name + last name（W3C《Personal names around the world》）",
+     "summary": "W3C 开宗明义：设计表单/数据库/本体的人常常不知道别国姓名可以有多不同，于是假设过多。",
+     "line": 645,
+     "chars": 52
+    },
+    {
+     "id": "12-1-官方点名的反例-按类型",
+     "level": 3,
+     "title": "12.1 官方点名的反例（按类型）",
+     "summary": "",
+     "line": 649,
+     "chars": 1038
+    },
+    {
+     "id": "12-2-官方设计建议-可直接作为表单规范",
+     "level": 3,
+     "title": "12.2 官方设计建议（可直接作为表单规范）",
+     "summary": "首选：单一 Full name 字段，按用户原样输入。W3C：「it will be simpler, where it is possible, to just use the full name as the user provides",
+     "line": 664,
+     "chars": 1397
+    },
+    {
+     "id": "十三-语言协商-locale-negotiation-与回退策略",
+     "level": 2,
+     "title": "十三、语言协商 locale negotiation 与回退策略",
+     "summary": "把 §8.3 的运行时规则落到产品上：",
+     "line": 692,
+     "chars": 645
+    },
+    {
+     "id": "十四-伪本地化-pseudolocalization-伪翻译-伪-locale-microsoft-learn-官方",
+     "level": 2,
+     "title": "十四、伪本地化 pseudolocalization / 伪翻译 / 伪 locale（Microsoft Learn 官方）",
+     "summary": "定义：不真的翻译，用自动转换源文本来模拟翻译的常见副作用，在翻译开始前就能验证产品可本地化性，并贯穿整个开发周期持续回归。Microsoft 说这些手段在圈内简称 \"pseudo\"。",
+     "line": 707,
+     "chars": 102
+    },
+    {
+     "id": "14-1-伪翻译的五种变换-官方原文",
+     "level": 3,
+     "title": "14.1 伪翻译的五种变换（官方原文）",
+     "summary": "另两个官方要点：",
+     "line": 711,
+     "chars": 590
+    },
+    {
+     "id": "14-2-伪-locale-专测格式化与解析",
+     "level": 3,
+     "title": "14.2 伪 locale（专测格式化与解析）",
+     "summary": "Windows 定义三个伪 locale：",
+     "line": 727,
+     "chars": 506
+    },
+    {
+     "id": "14-3-可执行的伪本地化验收流程",
+     "level": 3,
+     "title": "14.3 可执行的伪本地化验收流程",
+     "summary": "1. 全站切到 en-XA（或自定义 40% 加长 + 音标 + ^ 定界）→ 检查截断、换行、重叠、min-inline-size 是否生效。",
+     "line": 743,
+     "chars": 340
+    },
+    {
+     "id": "十五-文化适配-颜色-图标-图像-示例数据与数字字形",
+     "level": 2,
+     "title": "十五、文化适配：颜色、图标、图像、示例数据与数字字形",
+     "summary": "- 颜色含义不通用：ux-writing.md §13 给的例子是白色在西方=婚礼、东亚=丧礼。做法不是「背一张颜色文化表」，而是为目标市场做一次调研并写进 locale brief，尤其语义色（成功/危险/警告）与营销主色。同时注意：da",
+     "line": 755,
+     "chars": 812
+    },
+    {
+     "id": "十六-给译者的交付规格-字符预算-变量说明-截图与术语表-与-handoff-collaboration-md-衔接",
+     "level": 2,
+     "title": "十六、给译者的交付规格：字符预算、变量说明、截图与术语表（与 handoff-collaboration.md 衔接）",
+     "summary": "翻译不是「把 JSON 发出去」。每条消息应带：",
+     "line": 768,
+     "chars": 665
+    },
+    {
+     "id": "十七-框架与工程落地-react-vue-next-mui-rtl-字体-能力检测",
+     "level": 2,
+     "title": "十七、框架与工程落地：React / Vue / Next / MUI RTL、字体、能力检测",
+     "summary": "NOASSERTION 表示 GitHub API 的 license.spdxid 未给出标准 SPDX 值（多为自定义/多许可/未标注），不是「无许可」；采用前须查仓库 LICENSE 原文。本表只记实测结果，不臆测。",
+     "line": 788,
+     "chars": 1
+    },
+    {
+     "id": "17-1-生态仓库-github-api-实测-2026-11-05-star-license-最近推送",
+     "level": 3,
+     "title": "17.1 生态仓库（GitHub API 实测 2026-11-05，star / license / 最近推送）",
+     "summary": "NOASSERTION 表示 GitHub API 的 license.spdxid 未给出标准 SPDX 值（多为自定义/多许可/未标注），不是「无许可」；采用前须查仓库 LICENSE 原文。本表只记实测结果，不臆测。",
+     "line": 790,
+     "chars": 981
+    },
+    {
+     "id": "17-2-落地纪律",
+     "level": 3,
+     "title": "17.2 落地纪律",
+     "summary": "- 字符串全部外置，组件内不出现面向用户的字面量；数字/日期/复数不进消息目录，交给 Intl。",
+     "line": 807,
+     "chars": 726
+    },
+    {
+     "id": "十八-12-个场景速查",
+     "level": 2,
+     "title": "十八、12 个场景速查",
+     "summary": "---",
+     "line": 819,
+     "chars": 869
+    },
+    {
+     "id": "十九-20-条反模式",
+     "level": 2,
+     "title": "十九、20 条反模式",
+     "summary": "1. 把「加个语言包」当成国际化全部工作（漏掉标记层、布局层、数据层）。",
+     "line": 838,
+     "chars": 1005
+    },
+    {
+     "id": "二十-20-项自检-出海交付前逐条过",
+     "level": 2,
+     "title": "二十、20 项自检（出海交付前逐条过）",
+     "summary": "1. <html 上有正确且完整的 lang（BCP 47 / IANA），不是 body、不是 meta？",
+     "line": 863,
+     "chars": 1405
+    },
+    {
+     "id": "二十一-6-段可抄代码",
+     "level": 2,
+     "title": "二十一、6 段可抄代码",
+     "summary": "html",
+     "line": 888,
+     "chars": 1
+    },
+    {
+     "id": "21-1-文档骨架-lang-dir-逻辑属性基线",
+     "level": 3,
+     "title": "21.1 文档骨架：lang + dir + 逻辑属性基线",
+     "summary": "",
+     "line": 890,
+     "chars": 1
+    },
+    {
+     "id": "21-2-复数-选择-icu-messageformat-完整单句-select-外层",
+     "level": 3,
+     "title": "21.2 复数/选择：ICU MessageFormat（完整单句 + select 外层）",
+     "summary": "",
+     "line": 926,
+     "chars": 1
+    },
+    {
+     "id": "21-3-按-locale-安全的格式化封装-含能力检测",
+     "level": 3,
+     "title": "21.3 按 locale 安全的格式化封装（含能力检测）",
+     "summary": "",
+     "line": 947,
+     "chars": 1
+    },
+    {
+     "id": "21-4-语言协商-周起始日-方向兜底校验",
+     "level": 3,
+     "title": "21.4 语言协商 + 周起始日 / 方向兜底校验",
+     "summary": "",
+     "line": 966,
+     "chars": 1
+    },
+    {
+     "id": "21-5-伪本地化变换-含-200-microcopy-档",
+     "level": 3,
+     "title": "21.5 伪本地化变换（含 200% microcopy 档）",
+     "summary": "",
+     "line": 984,
+     "chars": 1
+    },
+    {
+     "id": "21-6-ci-静态检查-硬编码方向-物理属性-缺失-lang",
+     "level": 3,
+     "title": "21.6 CI 静态检查：硬编码方向 / 物理属性 / 缺失 lang",
+     "summary": "---",
+     "line": 1002,
+     "chars": 6
+    },
+    {
+     "id": "二十二-数据来源-官方原文-api-实测",
+     "level": 2,
+     "title": "二十二、数据来源（官方原文 + API 实测）",
+     "summary": "W3C / WAI",
+     "line": 1024,
+     "chars": 3540
+    }
+   ]
+  },
+  {
    "path": "references/inspiration.md",
    "title": "灵感与阅读 — Inspiration",
    "snapshot": "2026-10-29",
@@ -3874,8 +4427,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 395,
-   "chars": 24290,
+   "lines": 417,
+   "chars": 28582,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -4195,23 +4748,31 @@
      "title": "支线 M · 动效编排与状态机（动效 bug 八成不在曲线，在状态没建模）",
      "summary": "- 三层分工：L1 单动效（该不该动 / 多久 / 什么曲线）走 motion-system.md；L2 编排（≥2 元素或有先后）；L3 状态机（互斥状态 / 跨视图配对 / 会被打断）走 motion-orchestration.md。",
      "line": 294,
-     "chars": 2023
+     "chars": 2018
+    },
+    {
+     "id": "支线-n-国际化与本地化-出海不是加个语言包-是三层同时改",
+     "level": 3,
+     "title": "支线 N · 国际化与本地化（出海不是加个语言包，是三层同时改）",
+     "summary": "- 先判三层：① 标记层 <html lang + dir；② 布局层 文案膨胀弹性 / CSS logical properties / RTL 镜像；③ 数据层 复数 / 日期 / 数字 / 姓名 / 排序。翻译只解决字符串，三层不动必",
+     "line": 308,
+     "chars": 3427
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 310,
+     "line": 323,
      "chars": 311
     },
     {
-     "id": "能力自测-61-条-做到-47-条即达-l2",
+     "id": "能力自测-69-条-做到-53-条即达-l2",
      "level": 2,
-     "title": "能力自测（61 条，做到 ≥47 条即达 L2+）",
+     "title": "能力自测（69 条，做到 ≥53 条即达 L2+）",
      "summary": "L0",
-     "line": 324,
-     "chars": 3330
+     "line": 337,
+     "chars": 4164
     }
    ]
   },
@@ -6096,16 +6657,16 @@
   {
    "path": "references/presentation-design.md",
    "title": "演示文稿与幻灯片版式（Presentation Design）",
-   "snapshot": "—",
-   "lines": 1128,
-   "chars": 25898,
+   "snapshot": "2026-11-05",
+   "lines": 1129,
+   "chars": 25945,
    "sections": [
     {
      "id": "目录",
      "level": 2,
      "title": "目录",
      "summary": "1. 尺寸与比例",
-     "line": 9,
+     "line": 10,
      "chars": 451
     },
     {
@@ -6113,7 +6674,7 @@
      "level": 2,
      "title": "1. 尺寸与比例",
      "summary": "- PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）",
-     "line": 32,
+     "line": 33,
      "chars": 1
     },
     {
@@ -6121,7 +6682,7 @@
      "level": 3,
      "title": "1.0 速查表",
      "summary": "",
-     "line": 34,
+     "line": 35,
      "chars": 450
     },
     {
@@ -6129,7 +6690,7 @@
      "level": 3,
      "title": "1.1 16:9 是事实标准",
      "summary": "- PowerPoint 2013+ 默认 16:9（13.333×7.5 英寸）",
-     "line": 46,
+     "line": 47,
      "chars": 152
     },
     {
@@ -6137,7 +6698,7 @@
      "level": 3,
      "title": "1.2 何时用 4:3",
      "summary": "",
-     "line": 53,
+     "line": 54,
      "chars": 161
     },
     {
@@ -6145,7 +6706,7 @@
      "level": 3,
      "title": "1.3 混合比例的坑",
      "summary": "- PowerPoint 不支持同一文件内不同比例的幻灯片——所有幻灯片必须共享同一尺寸",
-     "line": 62,
+     "line": 63,
      "chars": 120
     },
     {
@@ -6153,7 +6714,7 @@
      "level": 3,
      "title": "1.4 分辨率与导出",
      "summary": "---",
-     "line": 68,
+     "line": 69,
      "chars": 268
     },
     {
@@ -6161,7 +6722,7 @@
      "level": 2,
      "title": "2. 安全区与边距",
      "summary": "PowerPoint 无传统页边距（不像 Word），用以下方式模拟：",
-     "line": 80,
+     "line": 81,
      "chars": 1
     },
     {
@@ -6169,7 +6730,7 @@
      "level": 3,
      "title": "2.0 速查表",
      "summary": "",
-     "line": 82,
+     "line": 83,
      "chars": 335
     },
     {
@@ -6177,7 +6738,7 @@
      "level": 3,
      "title": "2.1 为什么需要安全区",
      "summary": "",
-     "line": 90,
+     "line": 91,
      "chars": 144
     },
     {
@@ -6185,7 +6746,7 @@
      "level": 3,
      "title": "2.2 边距实操",
      "summary": "PowerPoint 无传统页边距（不像 Word），用以下方式模拟：",
-     "line": 99,
+     "line": 100,
      "chars": 239
     },
     {
@@ -6193,7 +6754,7 @@
      "level": 3,
      "title": "2.3 版心推荐值（16:9 / 1920×1080）",
      "summary": "---",
-     "line": 107,
+     "line": 108,
      "chars": 326
     },
     {
@@ -6201,7 +6762,7 @@
      "level": 2,
      "title": "3. 字号体系与可读性",
      "summary": "最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）",
-     "line": 121,
+     "line": 122,
      "chars": 1
     },
     {
@@ -6209,7 +6770,7 @@
      "level": 3,
      "title": "3.0 核心铁律",
      "summary": "最小字号：24pt（现场演示）/ 18pt（无障碍底线）/ 14pt（仅阅读型讲义）",
-     "line": 123,
+     "line": 124,
      "chars": 96
     },
     {
@@ -6217,7 +6778,7 @@
      "level": 3,
      "title": "3.1 字号阶梯（现场演示型）",
      "summary": "",
-     "line": 128,
+     "line": 129,
      "chars": 328
     },
     {
@@ -6225,7 +6786,7 @@
      "level": 3,
      "title": "3.2 字号阶梯（阅读型讲义 / Slidedoc）",
      "summary": "阅读型演示文稿不是\"放大的瞬间\"，是\"缩小的文档\"。字号可以更小，但层次要更清晰。",
-     "line": 140,
+     "line": 141,
      "chars": 143
     },
     {
@@ -6233,7 +6794,7 @@
      "level": 3,
      "title": "3.3 字号阶梯（海报型 / 社媒分享）",
      "summary": "",
-     "line": 150,
+     "line": 151,
      "chars": 98
     },
     {
@@ -6241,7 +6802,7 @@
      "level": 3,
      "title": "3.4 字体选择",
      "summary": "",
-     "line": 158,
+     "line": 159,
      "chars": 349
     },
     {
@@ -6249,7 +6810,7 @@
      "level": 3,
      "title": "3.5 字体使用禁忌",
      "summary": "- ❌ 禁止 Comic Sans（\"会丧失可信度\"）",
-     "line": 167,
+     "line": 168,
      "chars": 248
     },
     {
@@ -6257,7 +6818,7 @@
      "level": 3,
      "title": "3.6 可读性验证方法（Nancy Duarte 法）",
      "summary": "测量显示器对角线英寸数 → 后退相同数值的英尺数 → 检查是否清晰",
-     "line": 179,
+     "line": 180,
      "chars": 180
     },
     {
@@ -6265,7 +6826,7 @@
      "level": 3,
      "title": "3.7 字号一致性规则",
      "summary": "- 同一层级文字全篇字号一致：所有标题同一字号，所有正文同一字号",
-     "line": 189,
+     "line": 190,
      "chars": 122
     },
     {
@@ -6273,7 +6834,7 @@
      "level": 2,
      "title": "4. 文字密度限制",
      "summary": "中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：",
-     "line": 198,
+     "line": 199,
      "chars": 1
     },
     {
@@ -6281,7 +6842,7 @@
      "level": 3,
      "title": "4.0 速查表",
      "summary": "",
-     "line": 200,
+     "line": 201,
      "chars": 296
     },
     {
@@ -6289,7 +6850,7 @@
      "level": 3,
      "title": "4.1 哪条规则该用",
      "summary": "",
-     "line": 210,
+     "line": 211,
      "chars": 242
     },
     {
@@ -6297,7 +6858,7 @@
      "level": 3,
      "title": "4.2 中文文字密度",
      "summary": "中文字符宽度约为英文单词的 1/2 到 1/3，但信息密度更高。调整规则：",
-     "line": 220,
+     "line": 221,
      "chars": 188
     },
     {
@@ -6305,7 +6866,7 @@
      "level": 3,
      "title": "4.3 项目符号（Bullet Points）使用纪律",
      "summary": "- ✅ 仅用于：规格说明、流程步骤、并列要点",
-     "line": 230,
+     "line": 231,
      "chars": 152
     },
     {
@@ -6313,7 +6874,7 @@
      "level": 3,
      "title": "4.4 一页一信息原则",
      "summary": "每张幻灯片传达一个核心信息。",
-     "line": 237,
+     "line": 238,
      "chars": 66
     },
     {
@@ -6321,7 +6882,7 @@
      "level": 2,
      "title": "5. 母版与占位符",
      "summary": "1. 视图 → 幻灯片母版",
-     "line": 245,
+     "line": 246,
      "chars": 1
     },
     {
@@ -6329,7 +6890,7 @@
      "level": 3,
      "title": "5.0 母版是什么",
      "summary": "",
-     "line": 247,
+     "line": 248,
      "chars": 197
     },
     {
@@ -6337,7 +6898,7 @@
      "level": 3,
      "title": "5.1 必备版式清单（6–8 种上限）",
      "summary": "",
-     "line": 255,
+     "line": 256,
      "chars": 319
     },
     {
@@ -6345,7 +6906,7 @@
      "level": 3,
      "title": "5.2 母版设置步骤（PowerPoint）",
      "summary": "1. 视图 → 幻灯片母版",
-     "line": 268,
+     "line": 269,
      "chars": 252
     },
     {
@@ -6353,7 +6914,7 @@
      "level": 3,
      "title": "5.3 占位符规则",
      "summary": "- ✅ 始终用占位符而非手动文本框——占位符保证阅读顺序（无障碍）",
-     "line": 281,
+     "line": 282,
      "chars": 147
     },
     {
@@ -6361,7 +6922,7 @@
      "level": 3,
      "title": "5.4 logo 放置",
      "summary": "---",
-     "line": 289,
+     "line": 290,
      "chars": 157
     },
     {
@@ -6369,7 +6930,7 @@
      "level": 2,
      "title": "6. 动画与转场",
      "summary": "1. 同一演示文稿全篇统一 1 种转场——不要每页不同",
-     "line": 300,
+     "line": 301,
      "chars": 1
     },
     {
@@ -6377,7 +6938,7 @@
      "level": 3,
      "title": "6.0 定义区分",
      "summary": "",
-     "line": 302,
+     "line": 303,
      "chars": 216
     },
     {
@@ -6385,7 +6946,7 @@
      "level": 3,
      "title": "6.1 动画四类",
      "summary": "",
-     "line": 310,
+     "line": 311,
      "chars": 250
     },
     {
@@ -6393,7 +6954,7 @@
      "level": 3,
      "title": "6.2 转场三档",
      "summary": "",
-     "line": 319,
+     "line": 320,
      "chars": 290
     },
     {
@@ -6401,7 +6962,7 @@
      "level": 3,
      "title": "6.3 动画与转场铁律",
      "summary": "1. 同一演示文稿全篇统一 1 种转场——不要每页不同",
-     "line": 327,
+     "line": 328,
      "chars": 242
     },
     {
@@ -6409,7 +6970,7 @@
      "level": 3,
      "title": "6.4 何时应完全避免动画",
      "summary": "Lumen Learning / Public Speaking 教材的立场：",
-     "line": 337,
+     "line": 338,
      "chars": 173
     },
     {
@@ -6417,7 +6978,7 @@
      "level": 3,
      "title": "6.5 Morph（变体）使用指南",
      "summary": "---",
-     "line": 345,
+     "line": 346,
      "chars": 200
     },
     {
@@ -6425,7 +6986,7 @@
      "level": 2,
      "title": "7. 投影对比度与配色",
      "summary": "bash",
-     "line": 357,
+     "line": 358,
      "chars": 1
     },
     {
@@ -6433,7 +6994,7 @@
      "level": 3,
      "title": "7.0 对比度阈值",
      "summary": "",
-     "line": 359,
+     "line": 360,
      "chars": 197
     },
     {
@@ -6441,7 +7002,7 @@
      "level": 3,
      "title": "7.1 投影 vs 屏幕的差异",
      "summary": "",
-     "line": 367,
+     "line": 368,
      "chars": 200
     },
     {
@@ -6449,7 +7010,7 @@
      "level": 3,
      "title": "7.2 安全配色策略",
      "summary": "",
-     "line": 376,
+     "line": 377,
      "chars": 185
     },
     {
@@ -6457,7 +7018,7 @@
      "level": 3,
      "title": "7.3 禁止的配色",
      "summary": "",
-     "line": 385,
+     "line": 386,
      "chars": 150
     },
     {
@@ -6465,7 +7026,7 @@
      "level": 3,
      "title": "7.4 投影对比度自检",
      "summary": "---",
-     "line": 394,
+     "line": 395,
      "chars": 6
     },
     {
@@ -6473,7 +7034,7 @@
      "level": 2,
      "title": "8. 图表在幻灯片中的规则",
      "summary": "一张幻灯片一个图表。两个图表 = 拆两页。",
-     "line": 408,
+     "line": 409,
      "chars": 1
     },
     {
@@ -6481,7 +7042,7 @@
      "level": 3,
      "title": "8.0 核心原则",
      "summary": "一张幻灯片一个图表。两个图表 = 拆两页。",
-     "line": 410,
+     "line": 411,
      "chars": 30
     },
     {
@@ -6489,7 +7050,7 @@
      "level": 3,
      "title": "8.1 图表字号",
      "summary": "",
-     "line": 414,
+     "line": 415,
      "chars": 153
     },
     {
@@ -6497,7 +7058,7 @@
      "level": 3,
      "title": "8.2 图表在幻灯片中的尺寸",
      "summary": "",
-     "line": 424,
+     "line": 425,
      "chars": 143
     },
     {
@@ -6505,7 +7066,7 @@
      "level": 3,
      "title": "8.3 图表颜色",
      "summary": "- 使用 3–4 种区分色（色盲安全）",
-     "line": 432,
+     "line": 433,
      "chars": 109
     },
     {
@@ -6513,7 +7074,7 @@
      "level": 2,
      "title": "9. 可访问性",
      "summary": "1. 用内置版式（不用手动文本框）→ 保证阅读顺序",
-     "line": 441,
+     "line": 442,
      "chars": 1
     },
     {
@@ -6521,7 +7082,7 @@
      "level": 3,
      "title": "9.0 WCAG 对演示文稿的要求",
      "summary": "",
-     "line": 443,
+     "line": 444,
      "chars": 422
     },
     {
@@ -6529,7 +7090,7 @@
      "level": 3,
      "title": "9.1 可访问性实操清单",
      "summary": "1. 用内置版式（不用手动文本框）→ 保证阅读顺序",
-     "line": 456,
+     "line": 457,
      "chars": 411
     },
     {
@@ -6537,7 +7098,7 @@
      "level": 3,
      "title": "9.2 闪烁与光敏性",
      "summary": "---",
-     "line": 469,
+     "line": 470,
      "chars": 213
     },
     {
@@ -6545,7 +7106,7 @@
      "level": 2,
      "title": "10. 远程与线上演示",
      "summary": "---",
-     "line": 480,
+     "line": 481,
      "chars": 1
     },
     {
@@ -6553,7 +7114,7 @@
      "level": 3,
      "title": "10.0 线上演示的差异",
      "summary": "",
-     "line": 482,
+     "line": 483,
      "chars": 221
     },
     {
@@ -6561,7 +7122,7 @@
      "level": 3,
      "title": "10.1 线上演示字号调整",
      "summary": "",
-     "line": 492,
+     "line": 493,
      "chars": 160
     },
     {
@@ -6569,7 +7130,7 @@
      "level": 3,
      "title": "10.2 线上演示工具适配",
      "summary": "---",
-     "line": 500,
+     "line": 501,
      "chars": 216
     },
     {
@@ -6577,7 +7138,7 @@
      "level": 2,
      "title": "11. 中文演示场景",
      "summary": "- 全角标点（，。、；：\"\"''）",
-     "line": 511,
+     "line": 512,
      "chars": 1
     },
     {
@@ -6585,7 +7146,7 @@
      "level": 3,
      "title": "11.0 中文字号调整",
      "summary": "",
-     "line": 513,
+     "line": 514,
      "chars": 211
     },
     {
@@ -6593,7 +7154,7 @@
      "level": 3,
      "title": "11.1 中文字体推荐",
      "summary": "",
-     "line": 522,
+     "line": 523,
      "chars": 171
     },
     {
@@ -6601,7 +7162,7 @@
      "level": 3,
      "title": "11.2 中文标点与排版",
      "summary": "- 全角标点（，。、；：\"\"''）",
-     "line": 530,
+     "line": 531,
      "chars": 99
     },
     {
@@ -6609,7 +7170,7 @@
      "level": 3,
      "title": "11.3 中文演示密度",
      "summary": "---",
-     "line": 538,
+     "line": 539,
      "chars": 166
     },
     {
@@ -6617,7 +7178,7 @@
      "level": 2,
      "title": "12. 版式构图法则",
      "summary": "- 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域",
-     "line": 549,
+     "line": 550,
      "chars": 1
     },
     {
@@ -6625,7 +7186,7 @@
      "level": 3,
      "title": "12.1 三分法则",
      "summary": "- 用 2 条水平 + 2 条垂直假想线将幻灯片分为 9 个区域",
-     "line": 551,
+     "line": 552,
      "chars": 109
     },
     {
@@ -6633,7 +7194,7 @@
      "level": 3,
      "title": "12.2 Z 模式阅读",
      "summary": "- 在从左到右的语言环境中：",
-     "line": 558,
+     "line": 559,
      "chars": 173
     },
     {
@@ -6641,7 +7202,7 @@
      "level": 3,
      "title": "12.3 留白规则",
      "summary": "- 留白 = 呼吸空间 → 吸引注意力到焦点",
-     "line": 568,
+     "line": 569,
      "chars": 101
     },
     {
@@ -6649,7 +7210,7 @@
      "level": 3,
      "title": "12.4 视觉引导",
      "summary": "- 所有人物和动物的朝向应面向幻灯片内部，最好朝向主焦点",
-     "line": 575,
+     "line": 576,
      "chars": 97
     },
     {
@@ -6657,7 +7218,7 @@
      "level": 3,
      "title": "12.5 一致性规则",
      "summary": "- 全篇重复使用：相同颜色、字体、图片风格、布局",
-     "line": 581,
+     "line": 582,
      "chars": 66
     },
     {
@@ -6665,7 +7226,7 @@
      "level": 2,
      "title": "13. 演示节奏与信息流",
      "summary": "Mayer (2001) 研究表明：分裂注意力影响信息保留能力。",
-     "line": 589,
+     "line": 590,
      "chars": 1
     },
     {
@@ -6673,7 +7234,7 @@
      "level": 3,
      "title": "13.0 切换节奏",
      "summary": "",
-     "line": 591,
+     "line": 592,
      "chars": 199
     },
     {
@@ -6681,7 +7242,7 @@
      "level": 3,
      "title": "13.1 演讲-幻灯片节奏",
      "summary": "Mayer (2001) 研究表明：分裂注意力影响信息保留能力。",
-     "line": 600,
+     "line": 601,
      "chars": 143
     },
     {
@@ -6689,7 +7250,7 @@
      "level": 3,
      "title": "13.2 引用语规则",
      "summary": "- ✅ 可以使用，但需满足：简短、清晰、少量使用",
-     "line": 614,
+     "line": 615,
      "chars": 96
     },
     {
@@ -6697,7 +7258,7 @@
      "level": 3,
      "title": "13.3 信息结构（倒金字塔）",
      "summary": "---",
-     "line": 620,
+     "line": 621,
      "chars": 146
     },
     {
@@ -6705,7 +7266,7 @@
      "level": 2,
      "title": "14. 工具与框架",
      "summary": "---",
-     "line": 630,
+     "line": 631,
      "chars": 1
     },
     {
@@ -6713,7 +7274,7 @@
      "level": 3,
      "title": "14.1 桌面工具",
      "summary": "",
-     "line": 632,
+     "line": 633,
      "chars": 262
     },
     {
@@ -6721,7 +7282,7 @@
      "level": 3,
      "title": "14.2 代码驱动框架",
      "summary": "",
-     "line": 641,
+     "line": 642,
      "chars": 357
     },
     {
@@ -6729,7 +7290,7 @@
      "level": 3,
      "title": "14.3 设计辅助工具",
      "summary": "",
-     "line": 651,
+     "line": 652,
      "chars": 145
     },
     {
@@ -6737,7 +7298,7 @@
      "level": 3,
      "title": "14.4 检查工具",
      "summary": "---",
-     "line": 660,
+     "line": 661,
      "chars": 278
     },
     {
@@ -6745,7 +7306,7 @@
      "level": 2,
      "title": "15. 12 场景速查",
      "summary": "---",
-     "line": 671,
+     "line": 672,
      "chars": 814
     },
     {
@@ -6753,7 +7314,7 @@
      "level": 2,
      "title": "16. 20 条反模式",
      "summary": "---",
-     "line": 690,
+     "line": 691,
      "chars": 860
     },
     {
@@ -6761,7 +7322,7 @@
      "level": 2,
      "title": "17. 18 项自检",
      "summary": "---",
-     "line": 717,
+     "line": 718,
      "chars": 661
     },
     {
@@ -6769,7 +7330,7 @@
      "level": 2,
      "title": "18. 可抄代码",
      "summary": "html",
-     "line": 742,
+     "line": 743,
      "chars": 1
     },
     {
@@ -6777,7 +7338,7 @@
      "level": 3,
      "title": "18.1 reveal.js 基础配置",
      "summary": "",
-     "line": 744,
+     "line": 745,
      "chars": 1
     },
     {
@@ -6785,7 +7346,7 @@
      "level": 3,
      "title": "18.2 PowerPoint VBA 批量设置字号",
      "summary": "",
-     "line": 799,
+     "line": 800,
      "chars": 1
     },
     {
@@ -6793,7 +7354,7 @@
      "level": 3,
      "title": "18.3 对比度检查（Python）",
      "summary": "",
-     "line": 839,
+     "line": 840,
      "chars": 1
     },
     {
@@ -6801,7 +7362,7 @@
      "level": 3,
      "title": "18.4 Slidev 基础配置（Markdown 驱动）",
      "summary": "",
-     "line": 896,
+     "line": 897,
      "chars": 1
     },
     {
@@ -6809,7 +7370,7 @@
      "level": 3,
      "title": "18.5 CSS 幻灯片安全区模拟（通用）",
      "summary": "",
-     "line": 969,
+     "line": 970,
      "chars": 1
     },
     {
@@ -6817,7 +7378,7 @@
      "level": 3,
      "title": "18.6 Python-pptx 生成幻灯片模板",
      "summary": "---",
-     "line": 1044,
+     "line": 1045,
      "chars": 270
     }
    ]
@@ -7990,8 +8551,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 369,
-   "chars": 28268,
+   "lines": 393,
+   "chars": 31542,
    "sections": []
   }
  ],

@@ -305,6 +305,19 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[MDN View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using)、[W3C CSS View Transitions L1](https://drafts.csswg.org/css-view-transitions-1/)、[Paul Lewis FLIP](https://aerotwist.com/blog/flip-your-animations/)、[Motion AnimatePresence](https://motion.dev/docs/react-animate-presence)、[React Transition Group](https://reactcommunity.org/react-transition-group/transition)、[W3C SC 2.3.3](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html)
 - → **四种时间结构 + 总时长公式 + 两代 stagger API + FLIP 算式 + 列表四策略 + VT 伪元素树与三 promise + 四态矩阵 + WAAPI 全默认值 + 16 场景 + 20 反模式 + 20 自检 + 8 段可抄代码见 `motion-orchestration.md`**
 
+### 支线 N · 国际化与本地化（出海不是加个语言包，是三层同时改）
+- **先判三层**：① **标记层** `<html lang>` + `dir`；② **布局层** 文案膨胀弹性 / CSS logical properties / RTL 镜像；③ **数据层** 复数 / 日期 / 数字 / 姓名 / 排序。翻译只解决字符串，三层不动必然在 RTL 或复数上翻车。
+- **⚠️ 修正一条自己写过的错**：`ux-writing.md` §13 的「按钮容纳 **+40%**」**对 microcopy 是错的**。W3C 转引 IBM 表：英文 **≤10 字符平均膨胀 200–300%**（Flickr `views` 实测意语 **3.0×**）、11–20 为 180–200%、21–30 为 160–180%、31–50 为 140–160%、51–70 为 151–170%（**原表非单调，照录**）、>70 为 130%。→ **microcopy 2–3× / 短文案 1.6–2.0× / 段落 1.3×**；Microsoft `+40%` 只是伪本地化测试串加长量。余量做成「能伸缩」（`min-inline-size` + 换行/省略兜底），不是「更宽的按钮」。
+- **`lang` ≠ `dir`**：WCAG **3.1.1 A**（H57 在 `html` 写 lang）+ **3.1.2 AA**（H58 局部 passage）；BCP 47 / IANA；`lang` 推不出方向（`az` 可 LTR 可 RTL）。**W3C 硬禁令「Never use CSS to apply the base direction」**，RTL 必须 `<html dir="rtl">`（连带 8 项：块右对齐 / 双向流 / 标点 / 表格列 / 表单 / alt·title / CSS 自动镜像 / overflow）。方向未知用 `dir="auto"`（看首强字符、不 foolproof）+ `dirname` + `bdi` + `&rlm;`U+200F / `&lrm;`U+200E + Unicode isolates。
+- **方向相关 CSS 全改逻辑属性**：`inline`/`block` 轴 + `start`/`end`；`margin-left→margin-inline-start`、`width→inline-size`、`left→inset-inline-start`、`text-align:left→start`。**镜像白名单**（布局 / 右对齐 / 导航按钮 / 方向图标 / 字段图标 / 进度条 / 时间线）与**黑名单**（数字 / 未翻译文本 / 时钟电话号 / 图表 / 媒体播放控件 / 顺时针刷新 / 物理对象 / 右手持物 / 斜线）；两条易错：**一般进度条镜像但媒体进度条不镜像**、**数字不镜像 ≠ 不本地化**（`ar-EG` 用 `arab` 字形）。
+- **复数不是 `n===1`**：CLDR 六类 `zero/one/two/few/many/other`，**`one` ≠ 数字 1**（法/印地语 0→`one`，俄语 21→`one` 而 11→`many`），`other` 必需，中/日/韩/印尼/越南**仅 `other`**（中文产品本地测不出分支，最易漏），`ar` 全 6 类、`ru`/`pl` 四类、`fr` 三类。
+- **ICU MessageFormat 三铁律**：禁拼接字符串 / 整句完整翻译 / `select` 外层 `plural` 内层；`offset:1`、`=0`、`=1`、`#`、ASCII 撇号转义与推荐 U+2019、skeleton `::` 优于 string pattern。
+- **`Intl` 不是构造器**：10 构造器 + 2 静态方法；本机 Node v22.22.2 实测 **`Intl.DurationFormat` 抛 TypeError（MDN 已列但运行时未实现）→ 必须能力检测 + 降级**；`zh_cn` 抛 `RangeError`，BCP 47 用 `zh-CN`；`localeMatcher` lookup / best fit。数据层记忆点：`03/09/2026` 英美歧义、`hi-IN` **12,34,567.89**、`JPY` 无小数、`ListFormat` 牛津逗号、`Collator` 德/瑞 `ä` 排序相反、`weekInfo` 周起始日（zh 一 / en-US 日 / ar-EG 六）。
+- **姓名单一 `Full name`**：W3C 反例——强制拆姓/名会让用户填 `.` 或 `Mr.`；别假设空格分隔、别假设单名不存在（南印/马/印尼）、别按 family name 排序（冰岛 patronymic 按 given name）。
+- **没翻译也要能测**：伪本地化五变换（音标 / ①–⑨ U+2460–2468 / `^` 定界暴露截断与拼接 / 唯一 id / 分档加长），`en-XA`·`en-XB`·Windows `qps-ploc*`·RFC 4646 `qaa–qtz` 私有段（**别用 `tk-TM` 会撞真实 locale**）；译者交付包 = 上下文截图 + 字符上限 + 变量说明 + 复数样例 + 术语表。
+- 材料：[W3C Text size in translation](https://www.w3.org/International/articles/article-text-size.en)、[W3C QA HTML dir](https://www.w3.org/International/questions/qa-html-dir.en.html)、[W3C Inline bidi markup](https://www.w3.org/International/articles/inline-bidi-markup/)、[MDN CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values)、[W3C WCAG 3.1.1 / 3.1.2](https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html)、[CLDR Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules.html)、[ICU MessageFormat](https://unicode-org.github.io/icu/userguide/format_parse/messages/)、[MDN Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)、[Material Bidirectionality](https://m2.material.io/design/usability/bidirectionality.html)、[W3C Personal names around the world](https://www.w3.org/International/questions/qa-personal-names)
+- → **三层判层 + 膨胀表与四因素 + `lang`/`dir` 与 H57/H58 + logical properties 全映射 + 镜像白黑名单 + CLDR 复数类别表 + ICU 嵌套范式 + `Intl` API 实测输出 + 姓名地址与文化适配 + 伪本地化可抄代码 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `i18n-localization.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -321,7 +334,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（61 条，做到 ≥47 条即达 L2+）
+## 能力自测（69 条，做到 ≥53 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -388,6 +401,15 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能写出 FLIP 的 F/L/I/P 四步与 `invertY = first.top − last.top` 算式，说明为什么预计算必须落在交互后 **100ms 响应窗口**内、以及批量为什么必须「先全读再全写」
 - [ ] 能说出 View Transitions 的 UA 默认参数（**0.25s / ease / both**），以及 `view-transition-name` 重名时 `ready` reject、`finished` fulfill、`updateCallback` 仍执行三者为何不矛盾，并解释主流程为什么不能 await `ready`
 - [ ] 能画出 `entering/entered/exiting/exited` 四态的状态×事件矩阵，说明快速连点如何从当前视觉值反向恢复，并指出为什么全局 CSS `prefers-reduced-motion` 归零管不住 Svelte / WAAPI 过渡
+
+- [ ] 能说出出海事哪三层要同时改（标记层 / 布局层 / 数据层），并解释为什么「只翻译字符串」在 RTL 与复数上必翻车
+- [ ] 能背出 W3C/IBM 膨胀表的分档（**≤10 字符 200–300%** / 11–20 / 21–30 / 31–50 / 51–70 非单调 / >70 130%），并说清为什么 `ux-writing.md` §13 的「+40%」不能用于按钮、Microsoft 的 +40% 又是什么
+- [ ] 能解释 `lang` 与 `dir` 为什么是两个东西、WCAG 3.1.1 A 与 3.1.2 AA 分别要求什么，以及 W3C 为什么明令禁止用 CSS 声明 base direction
+- [ ] 能把一段写死 `margin-left` / `width` / `left` / `text-align:left` 的 CSS 全量改写成逻辑属性，并说出 RTL 下 `start` 为什么不永远是 left
+- [ ] 能列出 Material 镜像白/黑名单各至少 5 项，并解释「媒体进度条不镜像」与「数字不镜像但要本地化字形」两条为什么容易混
+- [ ] 能解释 CLDR 复数 `one` 为什么不等于数字 1、为什么中文只有 `other` 反而最容易漏测，并写出一条带 `select` 外层 + `plural` 内层 + `offset:1` 的 ICU 消息
+- [ ] 能说出 `Intl` 为什么不是构造器、本机 Node v22.22.2 实测 `Intl.DurationFormat` 抛什么错、生产代码该怎么降级，以及 `zh_cn` 为什么会抛 `RangeError`
+- [ ] 能设计一个伪本地化用例（音标 + ①–⑨ + `^` 定界 + microcopy 3× 加长），并说出它能分别暴露哪四类缺陷；能解释为什么姓名表单应只给一个 `Full name`
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

@@ -391,3 +391,20 @@
 - 接线体检：27 文件 / **1000 章节**，未接线 0、已失联 0
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+## 2026-11-05 · 国际化与本地化设计：i18n / L10n / RTL（每日升级 #16）
+- 需求：每日深蒸馏设计知识，本轮主题取上轮候选第 1 位「国际化与本地化设计」。先用 `dp_search.py "国际化 本地化 RTL 多语言"` 与 grep 确认缺口：现有知识几乎只在 `ux-writing.md` §13 的 24 行文案速记里，缺工程实现、RTL 镜像规则、CLDR 复数、日期/货币/姓名格式、验收清单与伪本地化。
+- 升级：
+  - 新增 `references/i18n-localization.md`（22 节 / 46 小节 / 1058 行 / 49.7k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码）：三层判层、文案膨胀、`lang`/`dir`、logical properties、RTL 镜像、复数、ICU MessageFormat、`Intl` API、日期、数字、列表/排序/分词、姓名/地址、语言协商、伪本地化、文化适配、译者交付、框架落地、场景、反模式、自检、代码、来源。
+  - 取源全部为官方原文或本机实测（19 条规范/体系原文 + Node v22.22.2 `Intl` 输出 + GitHub REST API 10 仓库）：W3C Text size in translation（**原 URL 404，改走 article-text-size.en**）、Declaring language in HTML、Structural markup and RTL text in HTML、Inline markup and bidirectional text in HTML、Personal names around the world、Language tags in HTML and XML；WAI SC 3.1.1 / 3.1.2 与 H57；CLDR Plural Rules 与 Language Plural Rules chart（补取逐语言图表，才拿到「仅 `other`」的具体语言）；ICU User Guide Formatting Messages（FormatJS ICU 页只给示例，改走 ICU 官方拿 `offset`/`selectordinal`/撇号转义/嵌套建议）；MDN `Intl` 与 CSS logical properties、CSSWG Level 1；Material Design 2 Bidirectionality；Microsoft Learn Pseudolocalization；FormatJS 首页。
+  - SKILL.md **v20**：frontmatter 触发词补 i18n/L10n/RTL/复数/伪本地化/出海；版本基线段；资产表 +1 行；意图路由 **119→127**（+8：出海总判层 / RTL 双向文本 / 翻译后截断 / 复数与 ICU / 日期数字货币 / 姓名地址 / 伪本地化译者交付 / 国际化诊断）；**同时修正既有「国际化文案」路由里错误的 +40% 口径**；第 5 步新增 H4「国际化与本地化设计」12 条原则；自检 23→**24**（国际化关）。**既有路由顺序一行未动**。
+  - 其余接线点：`build_readme.py ASSETS` 25→**26**（顺手把 ux-writing 摘要里过时的「国际化 +40%」改成指向新文件）；`memory/aliases.json` 104→**114** 组（国际化与本地化 / RTL 双向文本 / 文案膨胀 / 复数规则 / ICU MessageFormat / Intl API / CSS 逻辑属性 / 伪本地化 / RTL 图标镜像 / 姓名地址）；`knowledge-map.md` 新增**支线 N**（13→14 条）、自测 **61→69** 条、门槛 **≥47→≥53**，并修正 SKILL.md 资产表里「34 条自测 + 7 条专题支线」的陈旧数字；源清单 **653→690 行**（+37：19 条官方原文 + 1 条 Node 实测 + 10 条仓库 + 4 组标题与空行）。
+- **本轮最大价值：把一条自己写错的规则公开裁决掉**。`ux-writing.md` §13 说「按钮和标签必须能容纳 +40%」，但 W3C 转引 IBM 官方表写明英文 **≤10 字符平均膨胀 200–300%**（Flickr `views` 实测意语 **3.0×**），11–20 为 180–200%、21–30 为 160–180%、31–50 为 140–160%、51–70 为 151–170%（**原表非单调，照录未平滑**）、>70 为 130%。→ 明确立场：**microcopy 2–3× / 短文案 1.6–2.0× / 段落 1.3×**；Microsoft 的 +40% 只是**伪本地化测试串加长启发式**，不是设计余量；余量要做成 `min-inline-size`+`max-inline-size`+允许换行的**伸缩能力**，不是把按钮做宽。
+- 另外三条可验证的差异化结论：
+  - **三层判层**：标记层（`lang`/`dir`）+ 布局层（弹性/逻辑属性/镜像）+ 数据层（复数/日期/数字/姓名/排序）必须同时改；W3C 硬禁令「Never use CSS to apply the base direction」，`lang` 推不出方向（WCAG 3.1.1 A / 3.1.2 AA）。
+  - **复数不是 `n===1`**：CLDR 六类、`one`≠数字 1、`other` 必需、**中/日/韩/印尼/越南仅 `other`**——中文产品在本地永远测不出分支，最易漏；ICU MessageFormat 禁拼接、`select` 外层 `plural` 内层。
+  - **文档 ≠ 运行时**：MDN 已列 `Intl.DurationFormat`，本机 Node v22.22.2 实测 `new Intl.DurationFormat(...)` 仍抛 **TypeError** → 生产必须 `typeof … === 'function'` 能力检测 + 降级；`zh_cn` 抛 `RangeError`，BCP 47 必须用 `zh-CN`。
+- 检索门槛 **16/16 PASS**（国际化与本地化 / i18n / L10n / RTL 阿拉伯语 / 双向文本 / 文案膨胀 / 翻译后按钮被截断 / 复数规则 / CLDR plural / ICU MessageFormat / Intl API / CSS 逻辑属性 / 伪本地化 / 姓名 Full name / 日期货币格式 / 图标镜像 全部命中新文件前 3）；回归 **16/16 PASS**（#15 全部动效关键词仍命中 `motion-orchestration.md`，全量复测 32/32）。顺手修一处排序退化：把 §1 标题补成「判层：国际化与本地化 i18n / L10n…」，让「国际化与本地化」从 `knowledge-map.md` 第 1 回到新文件第 1（95.3 > 85.3）。
+- 接线体检：**28 文件 / 1070 章节**，未接线 0、已失联 0
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

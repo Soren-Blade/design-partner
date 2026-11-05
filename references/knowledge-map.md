@@ -2,7 +2,7 @@
 
 > 本文件回答「**一个设计师该按什么顺序学、每个阶段读什么、怎么验收学会了**」。它不替代其他参考文件，而是给它们排顺序、定门槛。
 > 使用方式：接到任务先判断自己落在哪一级，缺什么补什么——**不要跳级**（L0 没建立视觉判断力就上 L2 做设计系统，产出必然空洞）。
-> 快照 2026-11-01
+> 快照 2026-11-05
 
 ---
 
@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十条专题支线（可与主线并行）
+## 十一条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -253,6 +253,24 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Carbon Component checklist](https://carbondesignsystem.com/getting-started/contributing/component-checklist/)、[Figma Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode)、[SemVer](https://semver.org/)、[NN/g Design Critiques](https://www.nngroup.com/articles/design-critiques/)、[Cucumber Gherkin](https://cucumber.io/docs/gherkin/reference/)
 - → **9 字段 spec、P0–P3 门禁、DTCG 管线、回归四层、六个指标、20 项自检、4 套模板见 `handoff-collaboration.md`**
 
+### 支线 K · 内容设计与 UX 文案（界面上的每个字都是设计）
+- **三级文案尺寸**：long ≥3 段（引导页/帮助） / short 2–3 段（对话框/结果说明） / micro <3 句（按钮/标签/toast/错误——**占界面 80%**）。先判尺寸再写。
+- **五条不可商量原则**：① 动词开头 ② 说会发生什么不说当前状态 ③ 不加冠词（the/a） ④ **禁用 OK**（永远写具体动作） ⑤ 保留用户输入（校验失败不清空）。
+- **扫描数据**：用户在线只读 **20%** 文字、前 **11 字符**决定是否继续读、倒金字塔是黄金法则——结论先行、细节后补。
+- **按钮文案**：动词开头 **2–4 词**（英文）/ **2–4 字**（中文）；描述结果状态而非当前操作；禁 OK/Submit/Confirm/Click here/Done；需更多信息加省略号（…）；中文不加"请"。
+- **错误文案三层结构**：① 发生了什么 ② 为什么 ③ 怎么修。**禁用词表 9 条**（invalid/非法/incorrect/请重新输入/Oops/We're having trouble/格式不正确/出错了/请稍后重试）。位置紧贴字段下方 4–8px、时机 = 失焦 + 提交（不一进来就红）。中文 **≤30 字**。10 类模板覆盖必填为空/格式错误/长度不足/已存在/不匹配/网络/权限/系统/操作失败/超时。
+- **空态五件套**（标题 + 说明 + 按钮 + 次要链接 + 视觉）与**五种空态**区分（首次/搜索无果/筛选无果/错误/完成）。**禁俏皮话、禁纯 "No data"**——失败不要伪装成无数据。
+- **语气四维**（NN/g）：正式↔随意 / 严肃↔幽默 / 尊重↔不恭 / 就事论事↔热情 + **场景矩阵**（错误禁幽默、危险确认升正式、成功可升热情）。**禁用语气 6 条**（责怪用户/道歉过多/We 指代不明/过度承诺/网络流行语/强迫语气）。
+- **表单文案**：标签名词 ≤8 字不加句号、占位符写示例**禁替代标签**、帮助文案 ≤16 字与错误共用位置、设置项说"开启后做什么"而非"是否开启"。
+- **对话框与 Toast**：标题说发生了什么 ≤1 行（禁"提示/警告"）、正文写后果、按钮具体动作。Toast 写具体什么成功 ≤20 字、成功 3s 消失错误不消失。
+- **大小写**：默认 **sentence case**（仅首字母和专有名词大写），禁全大写——Apple + Microsoft + GOV.UK + M3 **四体系共识**。全大写降可读性 10%、读屏逐字母读。
+- **数字日期**：在线用数字不用拼写（2 不用 two）、千分位（1,000）、大数用万/亿、日期不用序数词（`2 June` 不用 `2nd June`）、范围用 to 不用 `-`。
+- **国际化**：文案膨胀 **+40%**（英文→德文）、禁拼接字符串用模板变量、ICU 复数规则、RTL 镜像（不能只翻转文字方向）。
+- **可访问性**：图标按钮必须有 `aria-label` 且与可见文案一致、链接文字有意义（禁 "Click here"/"Learn more" 无上下文）、读屏测试、阅读等级 ≤Grade 8、句长 ≤20 词/≤30 字。
+- **文案系统化**：文案 token JSON 结构（`buttons`/`errors`/`empty`/`toast` 四桶）、评审清单 8 项、链接文案检查脚本。
+- 材料：[Apple HIG Writing](https://developer.apple.com/design/human-interface-guidelines/writing)、[NN/g Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/)、[NN/g UI Copy](https://www.nngroup.com/articles/ui-copy/)、[NN/g Tone of Voice 4 Dimensions](https://www.nngroup.com/articles/tone-of-voice-dimensions/)、[NN/g UX Copy Sizes](https://www.nngroup.com/articles/ux-copy-sizes/)、[Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/top-10-tips-style-voice)、[GOV.UK Style Guide A–Z](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style)、[Ant Design 反馈规范](https://ant.design/docs/spec/feedback-cn)、[优设 B 端文案规范](https://www.uisdc.com/b-product-copywriting)
+- → **三级尺寸 + 五原则 + 按钮规则 + 错误三层 + 禁用词 + 10 类模板 + 空态五件套 + 语气矩阵 + 表单/对话框/Toast/引导/导航文案 + 大小写 + 标点 + 数字 + 国际化 + 文案 token + 12 场景速查 + 20 反模式 + 18 自检 + 6 段可抄代码见 `ux-writing.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -269,7 +287,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（50 条，做到 ≥38 条即达 L2+）
+## 能力自测（54 条，做到 ≥41 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -325,6 +343,10 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能把一条模糊需求改写成 **3–5 步 Given/When/Then**，且 Then 只验用户可见结果
 - [ ] 能说出设计走查的**三遍顺序**与为什么不能从像素开始，并给出 **P0/P1** 的判定差异
 - [ ] 能判断一次 token 改名/默认值变更属于 **MAJOR 还是 PATCH**，并说明为什么后者会出事
+- [ ] 能说出文案三级尺寸（long/short/micro）各自占界面的比例，并解释为什么 micro 最重要
+- [ ] 给一条「用户名无效」的错误提示，能改写成三层结构（发生了什么+为什么+怎么修），并指出原句违反了禁用词表哪几条
+- [ ] 能解释为什么按钮禁用 OK，以及 sentence case 为什么是四体系共识（全大写降可读性 10% + 读屏逐字母读）
+- [ ] 拿到一个空态需求，能判断属于五种里的哪一种并给出对应的五件套（标题+说明+按钮+次要链接+视觉），并解释为什么失败不能伪装成无数据
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

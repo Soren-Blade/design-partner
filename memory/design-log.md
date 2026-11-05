@@ -406,5 +406,6 @@
   - **文档 ≠ 运行时**：MDN 已列 `Intl.DurationFormat`，本机 Node v22.22.2 实测 `new Intl.DurationFormat(...)` 仍抛 **TypeError** → 生产必须 `typeof … === 'function'` 能力检测 + 降级；`zh_cn` 抛 `RangeError`，BCP 47 必须用 `zh-CN`。
 - 检索门槛 **16/16 PASS**（国际化与本地化 / i18n / L10n / RTL 阿拉伯语 / 双向文本 / 文案膨胀 / 翻译后按钮被截断 / 复数规则 / CLDR plural / ICU MessageFormat / Intl API / CSS 逻辑属性 / 伪本地化 / 姓名 Full name / 日期货币格式 / 图标镜像 全部命中新文件前 3）；回归 **16/16 PASS**（#15 全部动效关键词仍命中 `motion-orchestration.md`，全量复测 32/32）。顺手修一处排序退化：把 §1 标题补成「判层：国际化与本地化 i18n / L10n…」，让「国际化与本地化」从 `knowledge-map.md` 第 1 回到新文件第 1（95.3 > 85.3）。
 - 接线体检：**28 文件 / 1070 章节**，未接线 0、已失联 0
+- **补修源头缺陷（发布后追加的第二笔提交）**：只在路由层打补丁会留下自相矛盾的知识，因此把 `ux-writing.md` §13.1 的「按钮和标签必须能容纳 +40%」整段改写为**分档弹性口径 + 指向 `i18n-localization.md` §2**，并同步 §18 自检第 16 项（改为「按钮过 2–3× 伪本地化加长测试」）；`SKILL.md` 的 ux-writing 资产行与 **v17 历史基线段落**里残留的 +40% 也加了「v20 已裁决」标注（历史基线只加标注、不篡改原文）。`build_readme.py` 的 ux-writing 摘要同样改掉。做到全仓不再有一处把 +40% 当成 microcopy 设计余量。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察

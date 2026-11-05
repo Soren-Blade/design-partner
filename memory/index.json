@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-05T22:52:40",
+ "generated": "2026-11-05T23:07:27",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
    "lines": 688,
-   "chars": 103548,
+   "chars": 103700,
    "sections": []
   },
   {
@@ -1097,7 +1097,7 @@
    "title": "组件库与设计 GitHub 地图 — Component Libraries",
    "snapshot": "2026-10-29",
    "lines": 37,
-   "chars": 2364,
+   "chars": 2367,
    "sections": [
     {
      "id": "元素覆盖矩阵",
@@ -1108,9 +1108,9 @@
      "chars": 1561
     },
     {
-     "id": "选型规则",
+     "id": "组件库选型规则",
      "level": 2,
-     "title": "选型规则",
+     "title": "组件库选型规则",
      "summary": "- 要\"复制类名就用\"（无 JS 依赖）：HyperUI TailGrids daisyUI Meraki UI",
      "line": 24,
      "chars": 379
@@ -3658,7 +3658,7 @@
    "title": "设计交付与协作 / Design Handoff & Collaboration",
    "snapshot": "2026-11-01",
    "lines": 851,
-   "chars": 29950,
+   "chars": 30229,
    "sections": [
     {
      "id": "1-一页速查-交付链的六个关卡",
@@ -4242,7 +4242,7 @@
      "title": "数据来源",
      "summary": "- Carbon · Component checklist（definition of done） — 设计规格六类要求、代码/测试/设计包四组清单、80% 覆盖率、VRT/AVT/三读屏器",
      "line": 837,
-     "chars": 2201
+     "chars": 2480
     }
    ]
   },
@@ -5936,7 +5936,7 @@
    "title": "多品牌与多主题 Token 架构 — Multi-brand & Multi-theme",
    "snapshot": "2026-11-01",
    "lines": 864,
-   "chars": 32772,
+   "chars": 32930,
    "sections": [
     {
      "id": "一-判据-什么时候真的需要多品牌架构",
@@ -6272,7 +6272,7 @@
      "title": "附：来源",
      "summary": "",
      "line": 847,
-     "chars": 1726
+     "chars": 1884
     }
    ]
   },
@@ -8976,8 +8976,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 432,
-   "chars": 39365,
+   "lines": 435,
+   "chars": 40118,
    "sections": []
   }
  ],

@@ -21,7 +21,7 @@
 | [uiverse](https://uiverse.io) | uiverse.io | 社区组件（HTML/CSS） | 部分 | — | — | 按钮✅ | ✅ | 逐组件署名 |
 | [Tailwind UI](https://tailwindui.com) | tailwindui.com | React/HTML 官方出品 | ✅ | ✅ | ✅ | ✅ | ✅ | **付费** |
 
-## 选型规则
+## 组件库选型规则
 
 - **要"复制类名就用"**（无 JS 依赖）：HyperUI > TailGrids > daisyUI > Meraki UI
 - **React 项目要设计系统级完整性**：shadcn/ui（生态最大 ★126k）> HeroUI > Park UI

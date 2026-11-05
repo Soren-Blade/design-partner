@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-05 22:52 ｜ 29 个文件 · 1124 个章节 · 734,537 字符
+> 自动生成于 2026-11-05 23:07 ｜ 29 个文件 · 1124 个章节 · 735,882 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -337,7 +337,7 @@ _195 行 · 快照 2026-10-29 · 14 节_
 _37 行 · 快照 2026-10-29 · 3 节_
 
 - **元素覆盖矩阵** `L5`
-- **选型规则** `L24` — - 要"复制类名就用"（无 JS 依赖）：HyperUI TailGrids daisyUI Meraki UI
+- **组件库选型规则** `L24` — - 要"复制类名就用"（无 JS 依赖）：HyperUI TailGrids daisyUI Meraki UI
 - **维护协议** `L34` — - 快照：2026-10-29。任何条目链接失效或用户报告质量下降时：先 GitHub API 复核该库（star/推送/许可），再决定降级或替换，并在本文件更新快照日期。
 
 ### `references/dark-mode.md` · 暗色模式体系（Dark Mode System）
@@ -1388,7 +1388,7 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.6 链接文案检查脚本** `L799` — ---
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_432 行 · 快照 — · 22 节_
+_435 行 · 快照 — · 22 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1811,6 +1811,7 @@ _432 行 · 快照 — · 22 节_
 - **登录/注册 Auth** → `references/patterns.md` L73
 - **目录** → `references/presentation-design.md` L10
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
+- **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
 - **能力自测（76 条，做到 ≥58 条即达 L2+）** → `references/knowledge-map.md` L347
 - **自我成长机制（用得越多越准）** → `SKILL.md` L646
@@ -1818,7 +1819,6 @@ _432 行 · 快照 — · 22 节_
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
 - **边界与习惯** → `SKILL.md` L680
-- **选型规则** → `references/component-libraries.md` L24
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

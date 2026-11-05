@@ -842,7 +842,7 @@ Figma Dev Mode 自带两种 diff，走查前先用它们自查：
 - [Figma · Guide to Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode) — Inspect 面板、Ready for dev 状态、Annotations、Dev resources 传播、Code Connect、导出格式
 - [Figma · Name and organize components](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components) — 斜杠命名、资产面板层级、swap 关联规则
 - [Figma · Create and use variants](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants) — 变体命名语法、默认变体=左上角、冲突/损坏判定、图标不用变体
-- [W3C DTCG · Design Tokens Format 2025.10](https://tr.designtokens.org/format/) — `$value`/`$type`/`$extends`/别名/类型表/错误条件（**预览草稿**）
+- [DTCG · Design Tokens Format published 2025.10](https://www.designtokens.org/TR/2025.10/format/) — `$value`/`$type`/`$description`/`$deprecated`/`$extensions`/别名/类型表/错误条件（**权威引用**）。`https://tr.designtokens.org/format/` 为 **preview draft**，页首明写 *"Do not reference this version as authoritative in any way"*，只作辨析对象、不可当规范依据（v21 裁决，见 `design-system-docs.md` §13.1）。原条目中的 `$extends` 属早期草案口径，已按 published 2025.10 修订
 - [Style Dictionary · Design Tokens](https://styledictionary.com/info/tokens/) — 两套格式不可混用、include→source 合并顺序、CTI、元数据
 - [Semantic Versioning 2.0.0](https://semver.org/) — 全 11 条规则、0.y.z、废弃需至少一个 MINOR
 - [Cucumber · Gherkin Reference](https://cucumber.io/docs/gherkin/reference/) — Given/When/Then 语义、3–5 步、可观测结果、Background 上限

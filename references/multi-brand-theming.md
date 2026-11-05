@@ -857,7 +857,7 @@ export default async function build() {
 | Seed/Map/Alias 三级、三算法、嵌套 Provider、`cssVar`/`zeroRuntime` | [Ant Design 定制主题](https://ant.design/docs/react/customize-theme) |
 | 腾讯蓝第 7 档、10 档功能色、14 档中性色、12% 品牌混色 | [TDesign 色彩](https://tdesign.tencent.com/design/color) |
 | Less `modifyVars` 换肤、CSS Custom Properties、不兼容 IE | [Arco 定制主题](https://arco.design/react/docs/theme) |
-| `$value`/`$type`/`$extends`/`$root`/别名两语法/预览草稿状态 | [DTCG Format 2025.10](https://tr.designtokens.org/format/) |
+| `$value`/`$type`/`$description`/`$deprecated`/`$extensions`/别名与 reference（**published 2025.10 权威口径**；原 `$extends`/`$root` 属早期草案表述） | [DTCG published 2025.10](https://www.designtokens.org/TR/2025.10/format/) · [preview drafts 仅作辨析](https://tr.designtokens.org/format/) |
 | `include`→`source` 覆盖顺序、source 内部冲突告警、`.extend()`、DTCG 不可混用 | [Style Dictionary Config](https://styledictionary.com/reference/config/) · [Tokens](https://styledictionary.com/info/tokens/) |
 | 层顺序、未分层样式优先、`!important` 反向 | [MDN @layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) |
 | 模式数上限 4 / 40 | Figma 官方插件说明（Professional + Organization 4 个，Enterprise 40 个） |

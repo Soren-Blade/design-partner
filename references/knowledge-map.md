@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十五条专题支线（可与主线并行）
+## 十六条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -328,6 +328,15 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[Diátaxis](https://diataxis.fr/)、[GOV.UK Button](https://design-system.service.gov.uk/components/button/) 与 [Contribution criteria](https://design-system.service.gov.uk/community/contribution-criteria/)、[Docusaurus Versioning](https://docusaurus.io/docs/versioning)、[Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)、[Storybook Autodocs](https://storybook.js.org/docs/writing-docs/autodocs)、[DTCG 2025.10](https://www.designtokens.org/TR/2025.10/format/)、[Google style highlights](https://developers.google.com/style/highlights)
 - → **四象限判层 + 九段式逐节表与五问验收 + 信息架构四条地基 + 完整填充范例 + 活文档四件套 + 成熟度与 semver 对照 + 版本化目录结构 + changelog 模板 + 迁移文档 + Storybook/MDX 配置 + 治理准入 + 漂移指标 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `design-system-docs.md`**
 
+### 支线 P · AI / 生成式设计工具链（产能层不是判断层）
+- **先判哪层交出去**：五层地图（意图与约束 / 生成 / 编辑 / 代码化 / 验收）每层都要有人工闸门；**三类活不交给 AI**——定受众与语气、判上线与否、担法定责任。AI 只出候选，不出结论。
+- **合规是地基不是附录**：中国《人工智能生成合成内容标识办法》**2025-09-01 施行**，显式标识（用户可感知）+ 隐式标识（文件元数据）双轨；第 4/5/6/9/10 条 → 导出·下载·复制保留标识、元数据三类要素、传播端三档文案「属于 / 可能为 / 疑似」、无标版协议与日志 ≥6 个月、**禁止提供抹除标识的功能**；与《暂行办法》令第 15 号第 7/11 条串成授权链。出海叠加 **EU AI Act Art. 50（2026-08-02）**。GB 45438-2025 的具体尺寸/时长数值未取得原文，不臆造。
+- **两条不能混的裁决**：USCO 官方解读 *"but not the mere provision of prompts"* → 提示词**不构成作者身份**，要留 brief→参考→草图→迭代→人工选择→终稿的**可举证创作链**；C2PA Content Credentials 只断言溯源清单格式良好·未篡改·签名可信·与 asset 绑定，**不证明版权归属、不判断事实真伪**。**法定内容标识 / 内容凭证 / 版权与商用授权三者互不替代**。
+- **把风格写成契约**：`DESIGN.md` 九章（第 9 章 `Agent Prompt Guide` 不可省）是**给 AI 读的约束**，设计系统文档站是**给人读的系统**（接支线 O，别混写）。提示词按 `Identity → Instructions → Examples → Context` 四区块组织，结构化输出、固定模型快照、prompt 入代码库、换版跑 eval，按 SemVer 判 MAJOR/MINOR/PATCH。
+- **验收要能判 PASS/FAIL**：AI Slop Test（三人盲测）+ 8 维 DO/DON'T + 12 类固有缺陷逐条回查 + **HAX G1–G18** 给 AI 功能界面落点（能力边界 / 可关闭且记住 / 可纠错 / 全局控制 / 变更通知）+ 4 段可运行脚本进 CI。**选型三问**先于 star：许可（GPL-3.0 / AGPL-3.0 / NOASSERTION 三红灯）、活源（pushed_at >12 个月不进生产依赖）、可验收。
+- 材料：[CAC 标识办法](https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm)、[CAC 暂行办法令第 15 号](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)、[EU AI Act Article 50](https://artificialintelligenceact.eu/article/50/)、[USCO Copyright and AI](https://copyright.gov/ai/)、[C2PA Specifications](https://c2pa.org/specifications/)、[Microsoft HAX Design Library](https://www.microsoft.com/en-us/haxtoolkit/library/)、[OpenAI Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+- → **五层地图 + 14 条设计动作 + 中欧美三法域矩阵 + 三概念分离 + 可举证创作链 + 提示词四区块与 SemVer + HAX 18 条界面落点 + AI Slop Test 与 12 类缺陷 + 18 仓库 API 实测 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `ai-design-toolchain.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -344,7 +353,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（76 条，做到 ≥58 条即达 L2+）
+## 能力自测（88 条，做到 ≥67 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -428,6 +437,19 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能写出符合 Keep a Changelog 1.1.0 的 `[Unreleased]` 段落（六类变更齐全），并解释为什么不能倒 git log、MAJOR 迁移文档为什么要能被机器校验
 - [ ] 能辨析 DTCG preview draft 与 published 2025.10 该引用哪条 URL，并说出 `$description` / `$deprecated` 如何变成 token 文档源
 - [ ] 能写出 Storybook `tags: ['autodocs']` 与 `['!autodocs']` 的差别、MDX `of={}` 的 attached/unattached 之别，并列出 GOV.UK 贡献准入 Useful/Unique 与 Usable/Consistent/Versatile 各属哪道门槛
+
+- [ ] 能说出 AI 设计五层地图每层的人工闸门，并解释为什么「定受众与语气 / 判上线与否 / 担法定责任」三类活不能交给 AI
+- [ ] 能背出中国《标识办法》的施行日期与传播端三档文案「属于 / 可能为 / 疑似」，并说出第 10 条禁止的是哪四类行为、无标版日志要留多久
+- [ ] 能区分显式标识与隐式标识、列出元数据三类要素，并解释为什么导出·下载·复制环节最容易丢标识
+- [ ] 能解释 USCO 的 *"but not the mere provision of prompts"*，并说出「可举证创作链」为什么要留档六步而不是只留一段 prompt
+- [ ] 能辨析法定内容标识 / C2PA Content Credentials / 版权归属与商用授权三者，并说出 C2PA 明确**不断言**的四类事项
+- [ ] 能说出 EU AI Act Art. 50 的适用日期，并解释「首次交互或首次暴露时告知」为什么是交互设计任务而不是一句隐私政策
+- [ ] 能写出 prompt 四区块结构，并判断「换模型快照 / 改默认措辞 / 修错别字」分别属于 MAJOR、MINOR 还是 PATCH
+- [ ] 能说出 `DESIGN.md` 九章里哪一章不可省、为什么，并区分「给 AI 读的契约」与「给人读的设计系统文档站」
+- [ ] 能用 AI Slop Test 判一份生成稿，并说出 8 维 DO/DON'T 里最容易翻车的两维与生成前必答的三问
+- [ ] 能列出 AI 生成界面的 12 类固有缺陷，并说明「九态缺失」「假数据」「token 漂移」分别接回哪份既有资产
+- [ ] 能说出 HAX 18 条里「可关闭且记住」「可纠错」「全局控制」「变更通知」对应的编号，并解释为什么官方未逐条标注阶段归属时不能臆造边界
+- [ ] 能按选型三问评估一个仓库（许可 / pushed_at / 可验收），并说明 GPL-3.0、AGPL-3.0、NOASSERTION 为什么是商用红灯
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

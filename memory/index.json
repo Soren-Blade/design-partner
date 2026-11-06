@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-05T23:07:27",
+ "generated": "2026-11-06T21:02:52",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 688,
-   "chars": 103700,
+   "lines": 704,
+   "chars": 108431,
    "sections": []
   },
   {
@@ -479,6 +479,503 @@
      "summary": "- WCAG 2.2 正式标准与 Understanding 文档：https://www.w3.org/TR/WCAG22/、https://www.w3.org/WAI/WCAG22/Understanding/（2.4.11 / 2.",
      "line": 680,
      "chars": 970
+    }
+   ]
+  },
+  {
+   "path": "references/ai-design-toolchain.md",
+   "title": "AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界",
+   "snapshot": "2026-11-06",
+   "lines": 790,
+   "chars": 38205,
+   "sections": [
+    {
+     "id": "0-与既有资产的分层-先判该读哪份",
+     "level": 2,
+     "title": "0. 与既有资产的分层（先判该读哪份）",
+     "summary": "边界纪律：本文件不重讲 WCAG 阈值、不断点数值、不 toast 时长、不色板 hex。需要数值去对应专项文件读，§12 是索引不是副本。副本必然漂移。",
+     "line": 9,
+     "chars": 855
+    },
+    {
+     "id": "1-判层-ai-在设计流程的五个位置-以及哪些活不该交出去",
+     "level": 2,
+     "title": "1. 判层：AI 在设计流程的五个位置，以及哪些活不该交出去",
+     "summary": "1. 合规判断：能不能商用、要不要打标、是否侵权、是不是 deepfake —— AI 会 confidently 编造法条。只认 §2–§5 的官方原文，并让法务复核。",
+     "line": 25,
+     "chars": 1
+    },
+    {
+     "id": "1-1-五层地图-每层都要有人工闸门",
+     "level": 3,
+     "title": "1.1 五层地图（每层都要有人工闸门）",
+     "summary": "",
+     "line": 27,
+     "chars": 504
+    },
+    {
+     "id": "1-2-三类活-不要-交给-ai-给立场-不和稀泥",
+     "level": 3,
+     "title": "1.2 三类活不要交给 AI（给立场，不和稀泥）",
+     "summary": "1. 合规判断：能不能商用、要不要打标、是否侵权、是不是 deepfake —— AI 会 confidently 编造法条。只认 §2–§5 的官方原文，并让法务复核。",
+     "line": 37,
+     "chars": 322
+    },
+    {
+     "id": "1-3-一条效率判据",
+     "level": 3,
+     "title": "1.3 一条效率判据",
+     "summary": "AI 适合\"生成可丢弃的选项\"，不适合\"生成不可回退的结论\"。",
+     "line": 43,
+     "chars": 90
+    },
+    {
+     "id": "2-合规地基-一-中国-ai-生成内容标识-是-法定义务-不是设计建议",
+     "level": 2,
+     "title": "2. 合规地基（一）：中国 AI 生成内容标识，是法定义务不是设计建议",
+     "summary": "⚠️ 口径纪律：GB 45438-2025 的具体像素、字号、音频时长等数值，本文件不臆造。国标全文未逐字取得时，只写\"标准规定了显式标识的时长、尺寸与隐式标识要素\"（此结论来自网信办 2025-09-05 专家解读原文），落地时以国标全文",
+     "line": 50,
+     "chars": 1
+    },
+    {
+     "id": "2-1-三层法规栈-日期必须记准",
+     "level": 3,
+     "title": "2.1 三层法规栈（日期必须记准）",
+     "summary": "⚠️ 口径纪律：GB 45438-2025 的具体像素、字号、音频时长等数值，本文件不臆造。国标全文未逐字取得时，只写\"标准规定了显式标识的时长、尺寸与隐式标识要素\"（此结论来自网信办 2025-09-05 专家解读原文），落地时以国标全文",
+     "line": 52,
+     "chars": 651
+    },
+    {
+     "id": "2-2-标识办法-逐条翻译成设计动作-14-条-原文口径",
+     "level": 3,
+     "title": "2.2 《标识办法》逐条翻译成设计动作（14 条，原文口径）",
+     "summary": "",
+     "line": 62,
+     "chars": 1298
+    },
+    {
+     "id": "2-3-设计交付清单-可直接贴进-spec",
+     "level": 3,
+     "title": "2.3 设计交付清单（可直接贴进 spec）",
+     "summary": "- [ ] 生成结果在界面上有显式标识（文字/声音/图形，位置按第 4 条按载体分）",
+     "line": 79,
+     "chars": 361
+    },
+    {
+     "id": "3-合规地基-二-中-欧-美三法域矩阵-出海产品必读",
+     "level": 2,
+     "title": "3. 合规地基（二）：中 / 欧 / 美三法域矩阵（出海产品必读）",
+     "summary": "",
+     "line": 93,
+     "chars": 973
+    },
+    {
+     "id": "3-1-三条落地判据",
+     "level": 3,
+     "title": "3.1 三条落地判据",
+     "summary": "1. 按最严法域做一套，不要做三套：中国要求显式（人读）+ 隐式（机读）双轨，欧盟要求机器可读标记，二者可共用同一份元数据管线；\"符合中国双轨\"是充分条件里的较强者。欧盟额外多的是\"告知在与 AI 交互\"与\"deepfake 披露\"，这是界",
+     "line": 105,
+     "chars": 467
+    },
+    {
+     "id": "4-裁决一-提示词写得再细-也不构成作者身份-本轮最重要的一条",
+     "level": 2,
+     "title": "4. 裁决一：提示词写得再细，也不构成作者身份（本轮最重要的一条）",
+     "summary": "美国版权局《Copyright and Artificial Intelligence, Part 2: Copyrightability》于 2025-01-29 发布。其官方解读（U.S. Copyright Office / Libr",
+     "line": 115,
+     "chars": 1
+    },
+    {
+     "id": "4-1-权威口径",
+     "level": 3,
+     "title": "4.1 权威口径",
+     "summary": "美国版权局《Copyright and Artificial Intelligence, Part 2: Copyrightability》于 2025-01-29 发布。其官方解读（U.S. Copyright Office / Libr",
+     "line": 117,
+     "chars": 1057
+    },
+    {
+     "id": "4-2-被纠正的常见说法",
+     "level": 3,
+     "title": "4.2 被纠正的常见说法",
+     "summary": "",
+     "line": 130,
+     "chars": 367
+    },
+    {
+     "id": "4-3-设计侧的可执行结论-留下可举证的创作链",
+     "level": 3,
+     "title": "4.3 设计侧的可执行结论：留下可举证的创作链",
+     "summary": "既然\"人类决定了足够的表达元素\"是保护门槛，交付时就要把这件事留痕：",
+     "line": 139,
+     "chars": 482
+    },
+    {
+     "id": "5-裁决二-content-credentials-打了-ai-标-版权清晰-内容为真",
+     "level": 2,
+     "title": "5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真",
+     "summary": "C2PA（Coalition for Content Provenance and Authenticity，Joint Development Foundation 项目）现行规范门户为 2.5（含 Content Credentials",
+     "line": 153,
+     "chars": 1
+    },
+    {
+     "id": "5-1-c2pa-到底断言什么",
+     "level": 3,
+     "title": "5.1 C2PA 到底断言什么",
+     "summary": "C2PA（Coalition for Content Provenance and Authenticity，Joint Development Foundation 项目）现行规范门户为 2.5（含 Content Credentials",
+     "line": 155,
+     "chars": 860
+    },
+    {
+     "id": "5-2-它-不-断言什么-原文边界",
+     "level": 3,
+     "title": "5.2 它不断言什么（原文边界）",
+     "summary": "\"Content Credentials do not provide value judgments about whether a given set of provenance data is 'true', but instead ",
+     "line": 166,
+     "chars": 785
+    },
+    {
+     "id": "5-3-三个必须分开的概念-最容易混",
+     "level": 3,
+     "title": "5.3 三个必须分开的概念（最容易混）",
+     "summary": "⚠️ 三者互不替代：一个文件可以有合规标识、有 Content Credentials，却没有可用版权（纯 AI 输出）；也可以有人类充分创作（可版权）但没打法定标识（违规）。把\"打了标\"当成\"可以商用\"是本轮要消灭的误解。",
+     "line": 176,
+     "chars": 412
+    },
+    {
+     "id": "5-4-中国隐式标识与-c2pa-的关系",
+     "level": 3,
+     "title": "5.4 中国隐式标识与 C2PA 的关系",
+     "summary": "- 中国第 5 条要求的是文件元数据中的生成合成内容属性信息 + 服务提供者名称/编码 + 内容编号；并鼓励数字水印。",
+     "line": 186,
+     "chars": 281
+    },
+    {
+     "id": "6-ai-素材的来源与授权链",
+     "level": 2,
+     "title": "6. AI 素材的来源与授权链",
+     "summary": "提供者应当依法开展预训练、优化训练等训练数据处理活动：①使用具有合法来源的数据和基础模型；②涉及知识产权的不得侵害他人依法享有的知识产权；③涉及个人信息的取得同意或符合法定情形；④提高训练数据质量，增强真实性、准确性、客观性、多样性；⑤遵守",
+     "line": 194,
+     "chars": 1
+    },
+    {
+     "id": "6-1-训练数据侧的法定要求-暂行办法-第-7-条-原文五款",
+     "level": 3,
+     "title": "6.1 训练数据侧的法定要求（《暂行办法》第 7 条，原文五款）",
+     "summary": "提供者应当依法开展预训练、优化训练等训练数据处理活动：①使用具有合法来源的数据和基础模型；②涉及知识产权的不得侵害他人依法享有的知识产权；③涉及个人信息的取得同意或符合法定情形；④提高训练数据质量，增强真实性、准确性、客观性、多样性；⑤遵守",
+     "line": 196,
+     "chars": 317
+    },
+    {
+     "id": "6-2-输入侧-别把客户的资产贴进外部模型",
+     "level": 3,
+     "title": "6.2 输入侧：别把客户的资产贴进外部模型",
+     "summary": "《暂行办法》第 11 条要求提供者不收集非必要个人信息、不非法留存可识别使用者身份的输入信息和使用记录、不非法向他人提供。对应到设计侧：",
+     "line": 202,
+     "chars": 322
+    },
+    {
+     "id": "6-3-授权四查-与-brand-identity-md-17-串联",
+     "level": 3,
+     "title": "6.3 授权四查（与 brand-identity.md §17 串联）",
+     "summary": "1. 模型/服务 ToS：商用是否允许、是否要求署名、是否有赔偿条款、输出权利归谁（注意 §4：ToS 给的是 license，不是著作权转让）。",
+     "line": 210,
+     "chars": 303
+    },
+    {
+     "id": "7-design-md-把-风格一致性-变成-ai-可读的契约",
+     "level": 2,
+     "title": "7. DESIGN.md：把\"风格一致性\"变成 AI 可读的契约",
+     "summary": "design-md-format.md 已给九章骨架；本节补的是为什么它是 AI 工具链的关键节点，而不是抄一遍骨架。",
+     "line": 219,
+     "chars": 350
+    },
+    {
+     "id": "7-1-三条纪律",
+     "level": 3,
+     "title": "7.1 三条纪律",
+     "summary": "1. 第 9 章最常被漏，但它是\"可执行\"的关键：给 agent 的 3–5 条生成指令 + 一段可直接用的 prompt 模板。没有它，前 8 章只是给人看的说明书。",
+     "line": 225,
+     "chars": 517
+    },
+    {
+     "id": "7-2-与-token-体系对齐",
+     "level": 3,
+     "title": "7.2 与 token 体系对齐",
+     "summary": "DESIGN.md 里的色值/字号/间距必须与 design-tokens.md 的三层架构和 multi-brand-theming.md 的 L0–L3 一致。AI 生成 UI 最常见的系统性故障不是\"不好看\"，而是每次生成的十六进制值",
+     "line": 231,
+     "chars": 183
+    },
+    {
+     "id": "8-提示词工程-把设计-brief-变成可复用-可评估的-prompt",
+     "level": 2,
+     "title": "8. 提示词工程：把设计 brief 变成可复用、可评估的 prompt",
+     "summary": "developer message 推荐按 Identity → Instructions → Examples → Context 组织：",
+     "line": 237,
+     "chars": 1
+    },
+    {
+     "id": "8-1-官方结构-openai-prompt-engineering-指南口径",
+     "level": 3,
+     "title": "8.1 官方结构（OpenAI Prompt Engineering 指南口径）",
+     "summary": "developer message 推荐按 Identity → Instructions → Examples → Context 组织：",
+     "line": 239,
+     "chars": 677
+    },
+    {
+     "id": "8-2-输出与评估的工程化-不是-多试几次",
+     "level": 3,
+     "title": "8.2 输出与评估的工程化（不是\"多试几次\"）",
+     "summary": "- 指定输出格式：JSON Schema / Structured Outputs、严格单值输出、\"不要 Markdown 只返回代码\"；前端场景明确 Markdown standards（inline code / fences / 表格",
+     "line": 255,
+     "chars": 904
+    },
+    {
+     "id": "8-3-设计-brief-prompt-转换表-本技能第-2-步的落地",
+     "level": 3,
+     "title": "8.3 设计 brief → prompt 转换表（本技能第 2 步的落地）",
+     "summary": "设计上下文不能靠读代码库推断（impeccable 纪律）：代码只说明\"构建了什么\"，不说明\"为谁构建 / 应该有什么感觉\"。目标受众、用例、品牌调性必须由人给，或读项目根 .impeccable.md / Design Context 段",
+     "line": 266,
+     "chars": 523
+    },
+    {
+     "id": "8-4-一段可复用模板",
+     "level": 3,
+     "title": "8.4 一段可复用模板",
+     "summary": "见 §21.2。核心是 四区块 + 硬约束清单 + 输出 schema + 自检 rubric，且把\"给立场、列反例、标不确定\"写成指令，而不是期望模型自发做到。",
+     "line": 279,
+     "chars": 93
+    },
+    {
+     "id": "9-ai-辅助设计的工作流-可直接落地的-8-步",
+     "level": 2,
+     "title": "9. AI 辅助设计的工作流（可直接落地的 8 步）",
+     "summary": "1. 写 brief（人）：受众 / 用例 / 品牌调性 / 硬约束 / 成功标准，最多 3 个澄清问题、给选项不给开放题（本技能第 2 步）。",
+     "line": 285,
+     "chars": 578
+    },
+    {
+     "id": "10-ai-功能界面-微软人机交互-18-条准则-hax-g1-g18",
+     "level": 2,
+     "title": "10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）",
+     "summary": "来源：Microsoft HAX Toolkit《Guidelines for Human-AI Interaction》，综合 20+ 年研究，2019 CHI 获奖论文；官方说明其设计模式贯穿 Initial / During inte",
+     "line": 300,
+     "chars": 344
+    },
+    {
+     "id": "准则-1-6",
+     "level": 3,
+     "title": "准则 1–6",
+     "summary": "",
+     "line": 306,
+     "chars": 551
+    },
+    {
+     "id": "准则-7-11",
+     "level": 3,
+     "title": "准则 7–11",
+     "summary": "",
+     "line": 316,
+     "chars": 422
+    },
+    {
+     "id": "准则-12-13",
+     "level": 3,
+     "title": "准则 12–13",
+     "summary": "",
+     "line": 325,
+     "chars": 187
+    },
+    {
+     "id": "准则-14-18",
+     "level": 3,
+     "title": "准则 14–18",
+     "summary": "",
+     "line": 331,
+     "chars": 463
+    },
+    {
+     "id": "接线-18-条准则接回本技能既有资产",
+     "level": 3,
+     "title": "接线：18 条准则接回本技能既有资产",
+     "summary": "- G2 / G11（不确定性披露） ↔ feedback-states.md §1 五层决策树：AI 建议属于低风险可撤销反馈，别用模态打断；但\"生成失败/内容被拦截\"属于错误，要按 §6 三级错误文案写清发生了什么 + 为什么 + 怎么",
+     "line": 340,
+     "chars": 443
+    },
+    {
+     "id": "11-ai-味验收-ai-slop-test-与-8-维-do-don-t",
+     "level": 2,
+     "title": "11. AI 味验收：AI Slop Test 与 8 维 DO/DON'T",
+     "summary": "来源：impeccable（基于 Anthropic frontend-design 技能，Apache-2.0，仓库 pbakaus/impeccable 实测 104380★ / Apache-2.0 / 2026-11-05）。",
+     "line": 350,
+     "chars": 128
+    },
+    {
+     "id": "11-1-一句话测试",
+     "level": 3,
+     "title": "11.1 一句话测试",
+     "summary": "\"如果你把这个界面展示给某人并说'这是 AI 做的'，他们会立刻相信吗？如果是，那就是问题所在。\"",
+     "line": 354,
+     "chars": 183
+    },
+    {
+     "id": "11-2-8-维-do-don-t-速查",
+     "level": 3,
+     "title": "11.2 8 维 DO / DON'T 速查",
+     "summary": "与既有资产一致性：色彩/字体的\"不用纯黑纯白\"与 dark-mode.md §3「不用纯白」同源；动效的\"不动画化布局属性\"与 performance-design.md §11「只动 transform/opacity」同源；响应式的容器",
+     "line": 361,
+     "chars": 759
+    },
+    {
+     "id": "11-3-生成前的三个必答问题-design-context",
+     "level": 3,
+     "title": "11.3 生成前的三个必答问题（Design Context）",
+     "summary": "1. Target audience：谁用？在什么情境下？",
+     "line": 376,
+     "chars": 184
+    },
+    {
+     "id": "12-ai-生成界面的-12-类固有缺陷-接回既有专项",
+     "level": 2,
+     "title": "12. AI 生成界面的 12 类固有缺陷 → 接回既有专项",
+     "summary": "本节是索引，不复制规则。每条给出「症状 → 去哪份读 → 自动检查」。",
+     "line": 386,
+     "chars": 1239
+    },
+    {
+     "id": "13-ai-设计工具链五层地图与选型-github-rest-api-实测-2026-11-06",
+     "level": 2,
+     "title": "13. AI 设计工具链五层地图与选型（GitHub REST API 实测 2026-11-06）",
+     "summary": "数据由 api.github.com/repos/{owner}/{repo} 实测（凭据经 GET /user 验证）；star 为快照值，许可取 license.spdxid，NOASSERTION 表示非标准/自定义许可，商用前必须自",
+     "line": 407,
+     "chars": 2007
+    },
+    {
+     "id": "13-1-选型三问-比-star-更重要",
+     "level": 3,
+     "title": "13.1 选型三问（比 star 更重要）",
+     "summary": "1. 许可能不能进商业项目？ GPL-3.0 / AGPL-3.0 / NOASSERTION 三个红灯，尤其 AGPL 对 SaaS 有网络交互条款；Apache-2.0 / MIT / BSD-3-Clause 相对安全。",
+     "line": 434,
+     "chars": 292
+    },
+    {
+     "id": "14-生成-代码-衔接层与三个陷阱",
+     "level": 2,
+     "title": "14. 生成 → 代码：衔接层与三个陷阱",
+     "summary": "三个陷阱：",
+     "line": 442,
+     "chars": 763
+    },
+    {
+     "id": "15-prompt-版本化-eval-与-semver",
+     "level": 2,
+     "title": "15. Prompt 版本化、eval 与 SemVer",
+     "summary": "官方 eval 纪律（§8.2）：prompt 存代码库 → 类型化输入 → representative fixtures + evaluation checks → feature flag 灰度 → 固定模型快照 → 升级前跑全量 e",
+     "line": 458,
+     "chars": 593
+    },
+    {
+     "id": "16-不确定性与披露-把-可能错-设计出来",
+     "level": 2,
+     "title": "16. 不确定性与披露：把\"可能错\"设计出来",
+     "summary": "1. AI 身份告知（欧盟 Art. 50(1)）：与人直接交互的系统须告知对方在与 AI 交互，除非对合理知情、观察、审慎的人而言显而易见；Art. 50(5) 要求最迟在首次交互/首次暴露时以清晰可区分方式提供，并符合适用无障碍要求。",
+     "line": 472,
+     "chars": 425
+    },
+    {
+     "id": "17-隐私-输入与组织边界",
+     "level": 2,
+     "title": "17. 隐私、输入与组织边界",
+     "summary": "- 《暂行办法》第 11 条：不收集非必要个人信息、不非法留存可识别身份的输入与使用记录、不非法向他人提供；须及时受理查阅/复制/更正/补充/删除请求。",
+     "line": 483,
+     "chars": 346
+    },
+    {
+     "id": "18-12-场景速查",
+     "level": 2,
+     "title": "18. 12 场景速查",
+     "summary": "---",
+     "line": 493,
+     "chars": 911
+    },
+    {
+     "id": "19-20-条反模式",
+     "level": 2,
+     "title": "19. 20 条反模式",
+     "summary": "1. 把合规判断交给模型——AI 会编法条；只认官方原文。",
+     "line": 512,
+     "chars": 829
+    },
+    {
+     "id": "20-ai-关-20-项自检-第-6-步新增-逐条可判-pass-fail",
+     "level": 2,
+     "title": "20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）",
+     "summary": "1. 判层：五个位置都标了人工闸门，最终取舍由人做（§1）。",
+     "line": 537,
+     "chars": 994
+    },
+    {
+     "id": "21-6-段可抄代码",
+     "level": 2,
+     "title": "21. 6 段可抄代码",
+     "summary": "python",
+     "line": 562,
+     "chars": 1
+    },
+    {
+     "id": "21-1-标识合规-checklist-放进-ci-纯-python-无依赖",
+     "level": 3,
+     "title": "21.1 标识合规 checklist（放进 CI，纯 Python 无依赖）",
+     "summary": "path 保留在签名里是为了接 §21.5 的「导出后元数据存活」抽检；本段只校验要素齐全与 UI 红线，不假装能判断标识是否「显著」——显著性需人工复核（对应 GB 45438-2025 的尺寸/时长要求，本资产不臆造数值）。",
+     "line": 564,
+     "chars": 121
+    },
+    {
+     "id": "21-2-设计-prompt-四区块模板-openai-指南结构",
+     "level": 3,
+     "title": "21.2 设计 prompt 四区块模板（OpenAI 指南结构）",
+     "summary": "",
+     "line": 623,
+     "chars": 1
+    },
+    {
+     "id": "21-3-design-md-最小可用骨架-九章-第-9-章不可省",
+     "level": 3,
+     "title": "21.3 DESIGN.md 最小可用骨架（九章，第 9 章不可省）",
+     "summary": "",
+     "line": 659,
+     "chars": 1
+    },
+    {
+     "id": "21-4-ai-生成界面自动验收-html-静态扫描-零依赖",
+     "level": 3,
+     "title": "21.4 AI 生成界面自动验收（HTML 静态扫描，零依赖）",
+     "summary": "这是第一道闸门，不替代 axe-core / Lighthouse / 读屏实测；对比度与真实焦点顺序仍需专项检查（accessibility.md §2/§3/§14）。",
+     "line": 675,
+     "chars": 97
+    },
+    {
+     "id": "21-5-元数据存活检查-导出-压缩-cdn-后抽检",
+     "level": 3,
+     "title": "21.5 元数据存活检查（导出 → 压缩 → CDN 后抽检）",
+     "summary": "",
+     "line": 708,
+     "chars": 1
+    },
+    {
+     "id": "21-6-ai-输出-eval-清单-yaml-换模型快照时全量跑",
+     "level": 3,
+     "title": "21.6 AI 输出 eval 清单（YAML，换模型快照时全量跑）",
+     "summary": "---",
+     "line": 734,
+     "chars": 6
+    },
+    {
+     "id": "22-数据来源-全部官方原文-上游源码-api-实测",
+     "level": 2,
+     "title": "22. 数据来源（全部官方原文 / 上游源码 / API 实测）",
+     "summary": "法规与官方解读",
+     "line": 761,
+     "chars": 2905
     }
    ]
   },
@@ -4844,8 +5341,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 435,
-   "chars": 31592,
+   "lines": 457,
+   "chars": 34254,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -5056,9 +5553,9 @@
      "chars": 43
     },
     {
-     "id": "十五条专题支线-可与主线并行",
+     "id": "十六条专题支线-可与主线并行",
      "level": 2,
-     "title": "十五条专题支线（可与主线并行）",
+     "title": "十六条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -5181,23 +5678,31 @@
      "title": "支线 O · 设计系统文档写作（给人读的系统，不是给机器读的约束）",
      "summary": "- 先分层再判层：design-md-format.md 的 DESIGN.md 是给机器读的约束清单，handoff-collaboration.md 的终点是\"开发能做出第二个页面\"，本支线的终点是\"半年后第三个团队也能自己查到、自己改",
      "line": 321,
-     "chars": 2307
+     "chars": 2302
+    },
+    {
+     "id": "支线-p-ai-生成式设计工具链-产能层不是判断层",
+     "level": 3,
+     "title": "支线 P · AI / 生成式设计工具链（产能层不是判断层）",
+     "summary": "- 先判哪层交出去：五层地图（意图与约束 / 生成 / 编辑 / 代码化 / 验收）每层都要有人工闸门；三类活不交给 AI——定受众与语气、判上线与否、担法定责任。AI 只出候选，不出结论。",
+     "line": 331,
+     "chars": 1767
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 333,
+     "line": 342,
      "chars": 311
     },
     {
-     "id": "能力自测-76-条-做到-58-条即达-l2",
+     "id": "能力自测-88-条-做到-67-条即达-l2",
      "level": 2,
-     "title": "能力自测（76 条，做到 ≥58 条即达 L2+）",
+     "title": "能力自测（88 条，做到 ≥67 条即达 L2+）",
      "summary": "L0",
-     "line": 347,
-     "chars": 4835
+     "line": 356,
+     "chars": 5701
     }
    ]
   },
@@ -5759,7 +6264,7 @@
    "title": "动效与微交互系统 — Motion System（深度蒸馏）",
    "snapshot": "2026-10-30",
    "lines": 348,
-   "chars": 14339,
+   "chars": 14343,
    "sections": [
     {
      "id": "1-决策三问-先判该不该动",
@@ -5770,9 +6275,9 @@
      "chars": 498
     },
     {
-     "id": "2-缓动曲线-easing-语义决定曲线-不是审美决定",
+     "id": "2-动效缓动曲线-easing-语义决定曲线-不是审美决定",
      "level": 2,
-     "title": "2. 缓动曲线（easing）：语义决定曲线，不是审美决定",
+     "title": "2. 动效缓动曲线（easing）：语义决定曲线，不是审美决定",
      "summary": "核心规则（90% 的人搞反的一条）：",
      "line": 30,
      "chars": 220
@@ -5794,9 +6299,9 @@
      "chars": 557
     },
     {
-     "id": "3-时长-按距离和面积取-不按心情取",
+     "id": "3-动效时长-按距离和面积取-不按心情取",
      "level": 2,
-     "title": "3. 时长：按距离和面积取，不按心情取",
+     "title": "3. 动效时长：按距离和面积取，不按心情取",
      "summary": "原理：位移距离越长、面积越大，人眼需要的追踪时间越长，时长必须递增（Carbon 原话：the larger the change in distance or size, the longer the animation）。但上限 400",
      "line": 69,
      "chars": 143
@@ -8976,8 +9481,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 435,
-   "chars": 40118,
+   "lines": 455,
+   "chars": 44183,
    "sections": []
   }
  ],

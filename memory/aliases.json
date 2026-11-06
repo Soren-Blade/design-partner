@@ -1,6 +1,6 @@
 {
  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
- "_updated": "2026-11-05",
+ "_updated": "2026-11-06",
  "_weight": 0.45,
  "groups": [
   {
@@ -1797,6 +1797,168 @@
     "45 天评论期",
     "deprecated component",
     "beta 组件"
+   ]
+  },
+  {
+   "canonical": "AI 生成设计",
+   "aliases": [
+    "AIGC",
+    "生成式设计",
+    "生成式 AI",
+    "generative design",
+    "AI 出图",
+    "AI 辅助设计",
+    "AI 做设计",
+    "文生图"
+   ]
+  },
+  {
+   "canonical": "AI 内容标识",
+   "aliases": [
+    "生成合成内容标识",
+    "显式标识",
+    "隐式标识",
+    "AI 打标",
+    "AI 水印",
+    "标识办法",
+    "国信办通字〔2025〕2 号",
+    "GB 45438-2025"
+   ]
+  },
+  {
+   "canonical": "AI 版权",
+   "aliases": [
+    "AI 著作权",
+    "提示词版权",
+    "prompt copyright",
+    "human authorship",
+    "USCO",
+    "可举证创作链",
+    "作者身份"
+   ]
+  },
+  {
+   "canonical": "AI 商用授权",
+   "aliases": [
+    "AI 素材商用",
+    "商用授权",
+    "生成素材许可",
+    "训练数据来源",
+    "素材授权链"
+   ]
+  },
+  {
+   "canonical": "Content Credentials",
+   "aliases": [
+    "C2PA",
+    "内容凭证",
+    "provenance",
+    "溯源清单",
+    "内容来源凭证",
+    "机器可读标记"
+   ]
+  },
+  {
+   "canonical": "提示词工程",
+   "aliases": [
+    "prompt engineering",
+    "prompt",
+    "提示词模板",
+    "few-shot",
+    "structured outputs",
+    "结构化输出",
+    "developer message"
+   ]
+  },
+  {
+   "canonical": "prompt 版本化",
+   "aliases": [
+    "prompt versioning",
+    "模型快照",
+    "model snapshot",
+    "eval suite",
+    "提示词回归",
+    "fixtures",
+    "rubric"
+   ]
+  },
+  {
+   "canonical": "AI 味",
+   "aliases": [
+    "AI Slop Test",
+    "AI slop",
+    "一眼 AI",
+    "紫蓝渐变",
+    "万物皆卡片",
+    "塑料感",
+    "AI 感"
+   ]
+  },
+  {
+   "canonical": "AI 生成界面验收",
+   "aliases": [
+    "生成 UI 验收",
+    "AI 页面体检",
+    "ai_ui_audit",
+    "静态扫描",
+    "九态缺失",
+    "假数据"
+   ]
+  },
+  {
+   "canonical": "AI 功能界面",
+   "aliases": [
+    "HAX",
+    "Human-AI Interaction",
+    "人机交互准则",
+    "AI 助手设计",
+    "不确定性披露",
+    "置信度展示",
+    "全局控制"
+   ]
+  },
+  {
+   "canonical": "DESIGN.md 契约",
+   "aliases": [
+    "Agent Prompt Guide",
+    "九章格式",
+    "设计契约",
+    "风格一致性",
+    "design.md for agents",
+    "给 AI 读的规范"
+   ]
+  },
+  {
+   "canonical": "AI 工具选型",
+   "aliases": [
+    "AI 工具链",
+    "ComfyUI",
+    "ControlNet",
+    "screenshot-to-code",
+    "Figma-Context-MCP",
+    "选型三问",
+    "生成工具"
+   ]
+  },
+  {
+   "canonical": "生成到代码",
+   "aliases": [
+    "截图转代码",
+    "design to code",
+    "AI 写代码",
+    "代码生成",
+    "衔接层"
+   ]
+  },
+  {
+   "canonical": "AI 合规",
+   "aliases": [
+    "AI 法规",
+    "EU AI Act Article 50",
+    "生成式 AI 暂行办法",
+    "令第 15 号",
+    "deepfake 披露",
+    "首次暴露告知"
    ]
   }
  ]

@@ -53,6 +53,8 @@ INTENTS = [
     ("错误页 / 报错文案 / 重试", "feedback-states.md §6（五级错误 + 404/500 规则 + 三段式文案）"),
     ("找工具 / 资产", "tools.md（工具）· resources.md（图标/字体/3D）· component-libraries.md（代码）"),
     ("想提升自己 / 学习路径", "knowledge-map.md L0→L4 + 20 条自测"),
+    ("AI 生成设计 / AIGC 工作流", "ai-design-toolchain.md §1 五层人工闸门 · §9 八步工作流 · §13 选型三问"),
+    ("AI 内容标识 / 合规 / 版权 / 提示词 / AI 味验收", "ai-design-toolchain.md §2 标识 · §4 USCO 裁决 · §8 提示词 · §11 AI Slop Test · §20 自检"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

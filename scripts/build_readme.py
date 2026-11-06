@@ -48,6 +48,7 @@ ASSETS = [
     ("presentation-design.md", "演示文稿与幻灯片版式", "16:9=1920×1080 / 标题 5%·动作 3% 安全区 / 字号阶梯（最小 24pt 线上 28pt）/ 文字密度四规则 / 母版 6–8 版式 / 动画与转场区分三档 / 投影对比度高 50% / 线上与中文演示 / 三分法与 Z 模式 / 12 场景 / 18 自检"),
     ("design-md-format.md", "DESIGN.md 规范", "九章骨架 + 54 品牌 DNA 速查 + 项目类型选型"),
     ("design-system-docs.md", "设计系统文档写作", "Diátaxis 四象限判层 / GOV.UK 组件页九段式与活文档四件套 / 文档信息架构四条地基与 Google 写作规范 / 完整填充范例 / 组件成熟度（USWDS 三阶段·Carbon semver）/ Docusaurus 3.10.2 版本化（<10·preview 2–3·patch 不切）/ Keep a Changelog 1.1.0 七原则六类 / MAJOR 迁移文档 / DTCG published 2025.10 与 preview draft 裁决 / Storybook Autodocs·MDX·Doc Blocks·Figma Code Connect / GOV.UK 贡献与治理 / 新鲜度与漂移自举 / 12 场景 / 20 反模式 / 20 自检"),
+    ("ai-design-toolchain.md", "AI / 生成式设计工具链", "中国《标识办法》14 条设计动作与中欧美三法域矩阵 / USCO「提示词不构成作者身份」与可举证创作链 / C2PA 三概念分离 / DESIGN.md 给 AI 读的契约 / 提示词四区块与 prompt SemVer / HAX G1–G18 界面落点 / AI Slop Test 与 8 维 DO-DON'T / 12 类固有缺陷 / 5 层工具链 18 仓库 API 实测与选型三问 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（3 段已实跑）"),
     ("chinese-design.md", "中文设计场景", "中文排版规范 + 中文设计生态地图 + 产品形态特征"),
     ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
     ("resources.md", "设计资源", "组件 / 图标 / 动效 3D / 字体配色"),

@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十六条专题支线（可与主线并行）
+## 十七条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -337,6 +337,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[CAC 标识办法](https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm)、[CAC 暂行办法令第 15 号](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)、[EU AI Act Article 50](https://artificialintelligenceact.eu/article/50/)、[USCO Copyright and AI](https://copyright.gov/ai/)、[C2PA Specifications](https://c2pa.org/specifications/)、[Microsoft HAX Design Library](https://www.microsoft.com/en-us/haxtoolkit/library/)、[OpenAI Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering)
 - → **五层地图 + 14 条设计动作 + 中欧美三法域矩阵 + 三概念分离 + 可举证创作链 + 提示词四区块与 SemVer + HAX 18 条界面落点 + AI Slop Test 与 12 类缺陷 + 18 仓库 API 实测 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `ai-design-toolchain.md`**
 
+### 支线 Q · 设计伦理与包容性（对称优先，默认值即决定）
+- **先立立场**：设计伦理不是道德劝告，是**可写进 CI 的路径长度、按钮构型、点击次数和默认值**。三条不可商量：① 对称优于说服；② 默认即决定（预勾选/沉默不构成同意）；③ **意图不是辩护理由**（CPPA §7004(c)：知情不修、刻意不知情同样可成立）。
+- **同意 UI 有测量方法**：CPPA §7004(a)(2) 规定 opt-out 步数**从点击 `Do Not Sell or Share My Personal Information` 起算到请求完成**、opt-in **从首次表示兴趣起算到完成**，拒绝路径不得更长/更难/更耗时；`Accept All + More Information / Preferences`、`Yes + Ask me later` 均被点名为不对称，正解是 `Accept All + Decline All`、`Yes + No`。另四条：易读、禁双重否定与按钮顺序反转、不捆绑不兼容用途、端到端可执行（坏链/循环/等待都算 FAIL）。
+- **中国法域五条底线**：PIPL 第 14 条（充分知情·自愿·明确，目的变更须重新同意）/ 15 条（**便捷撤回**）/ 16 条（**不得因不同意拒绝提供服务 → cookie wall 红线**）/ 17 条（显著·清晰易懂告知四项且规则便于查阅保存）/ 24 条（自动化决策须给非个性化选项或便捷拒绝、禁不合理差别待遇）。
+- **两条能直接量化的红线**：《互联网广告管理办法》第 10 条「一键关闭」→ 点击 **≤1**、**无需计时**、**同页同文档不复弹**，开屏广告同样适用；《网络交易监督管理办法》第 13/16/17 条 → 授权类 `defaultChecked` 一律 false、敏感信息逐项同意、退订显著·简便·免费且拒绝后立即停止、搭售**不继承历史默认选择**。
+- **⚠️ 反陈旧裁决（本支线最该记住的一条）**：第十八条经 **2025-03-18 总局令第 101 号修正、2025-05-01 施行**，旧版「自动续费日期**前五日**」已被现行「**等日期前**」取代；现行是**接受服务前 + 每次展期/续费日期前**两个时点显著提醒 + 服务期内**显著简便的随时取消或变更** + 不得收不合理费用。**别把旧稿、旧教程、AI 复述当现行法**；同理 `deceptive.design` 现行 **18 类**已不是 `Roach Motel / Privacy Zuckering` 那套。
+- **未成年人是另一套产品构型**：国务院令第 766 号第 42 条防沉迷制度与年度公开、43 条**时段/时长/功能/内容**四维度 + 监护人**时间/权限/消费**三类管理、44 条**单次与单日累计**双消费限额、45 条打榜/应援集资/刷量控评**整体下线**、47 条下载·注册·登录三处适龄提示。
+- **包容 ≠ 无障碍**：Microsoft 三原则（Recognize exclusion / Solve for one, extend to many / Learn from diversity）+ Persona Spectrum（永久·临时·情境）；Inclusive Design Principles 七原则；**W3C COGA 3.1–3.8 八目标**与 `Test with real users`（须包含认知与学习障碍者本人）。**无障碍审查看「能不能用」，伦理审查看「是不是被引导着用」，两张表分别签字**——情境性认知负荷正是 dark pattern 的作用面。
+- 材料：[EDPB Guidelines 03/2022 v2.0 PDF](https://www.edpb.europa.eu/system/files/documents/2023-02/edpb_03-2022_guidelines_on_deceptive_design_patterns_in_social_media_platform_interfaces_v2_en_0.pdf)、[CPPA final regs PDF](https://cppa.ca.gov/regulations/pdf/20230329_final_regs_text.pdf)、[PIPL 全文](http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html)、[未成年人网络保护条例](https://www.gov.cn/zhengce/content/202310/content_6911288.htm)、[网络交易监督管理办法 2025 修正版](http://www.hunan.gov.cn/zqt/zcsd/202508/t20250804_33757595.html)、[deceptive.design types](https://www.deceptive.design/types)、[W3C COGA](https://www.w3.org/TR/coga-usable/)、[Inclusive Design Principles](https://inclusivedesignprinciples.info/)
+- → **24 节 + 现行 18 类 + EDPB 六类机制 + §7004 五原则 + 三地法域决策矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 已实跑）见 `design-ethics-inclusion.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -353,7 +364,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（88 条，做到 ≥67 条即达 L2+）
+## 能力自测（97 条，做到 ≥74 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -450,6 +461,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能列出 AI 生成界面的 12 类固有缺陷，并说明「九态缺失」「假数据」「token 漂移」分别接回哪份既有资产
 - [ ] 能说出 HAX 18 条里「可关闭且记住」「可纠错」「全局控制」「变更通知」对应的编号，并解释为什么官方未逐条标注阶段归属时不能臆造边界
 - [ ] 能按选型三问评估一个仓库（许可 / pushed_at / 可验收），并说明 GPL-3.0、AGPL-3.0、NOASSERTION 为什么是商用红灯
+
+- [ ] 能说出 CPPA §7004(a)(2) 拒绝/接受两条路径**步数的起止点**，并列出法规点名的三种不对称按钮构型及其正解
+- [ ] 能解释为什么「管理偏好 / Preferences」不能替代拒绝按钮、为什么 `Ask me later` 在语义上等于没有拒绝，并写出 §7004(a)(3) 的三个措辞与控件陷阱
+- [ ] 能说出 PIPL 第 15/16 条为什么让 cookie wall 直接违法、第 14 条为什么要求用途变更时**重新**取得同意、第 24 条给个性化推送留了哪两条路
+- [ ] 能写出《互联网广告管理办法》第 10 条「一键关闭」的三条可测数值与五类禁止情形，并说明开屏广告为什么同样适用
+- [ ] 能裁决「自动续费须提前五日提醒」是否现行法，说出 **2025-03-18 总局令第 101 号 / 2025-05-01 施行** 与现行第十八条的**两个时点**、服务期内义务和第四十一条罚则
+- [ ] 能列出《网络交易监督管理办法》第 13/16/17 条对默认值的三条禁区，并解释「记住用户偏好」为什么在搭售场景反而违规
+- [ ] 能说出国务院令第 766 号第 42–45 条各自对应的设计动作，尤其是第 44 条「单次与单日累计」双限额与第 45 条三类功能必须整体下线
+- [ ] 能解释「无障碍达标仍可能是欺骗性设计」，说出 COGA 八目标中至少四个、以及 `Test with real users` 为什么必须由认知与学习障碍者本人参与而非团队代判
+- [ ] 能辨析 `deceptive.design` 现行 18 类与旧教程分类的差异，并解释为什么静态扫描应断言「路径对称 / 默认值为 false」而不是枚举新套路名称
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

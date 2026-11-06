@@ -55,6 +55,8 @@ INTENTS = [
     ("想提升自己 / 学习路径", "knowledge-map.md L0→L4 + 20 条自测"),
     ("AI 生成设计 / AIGC 工作流", "ai-design-toolchain.md §1 五层人工闸门 · §9 八步工作流 · §13 选型三问"),
     ("AI 内容标识 / 合规 / 版权 / 提示词 / AI 味验收", "ai-design-toolchain.md §2 标识 · §4 USCO 裁决 · §8 提示词 · §11 AI Slop Test · §20 自检"),
+    ("设计伦理 / 欺骗性设计 / 隐私同意 / 自动续费 / 一键关闭", "design-ethics-inclusion.md §1 三条立场 · §2 现行 18 类 · §4 对称选择 · §8 一键关闭 · §9 反陈旧裁决 · §21 脚本"),
+    ("包容性设计 / 认知无障碍 / 未成年人 / 成瘾设计", "design-ethics-inclusion.md §11 令第 766 号 · §12 成瘾四红线 · §14 三原则 · §15 七原则 · §16 COGA 八目标 · §17 四象限"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

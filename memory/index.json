@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-06T21:02:52",
+ "generated": "2026-11-06T22:50:01",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 704,
-   "chars": 108431,
+   "lines": 723,
+   "chars": 113273,
    "sections": []
   },
   {
@@ -2221,6 +2221,327 @@
      "summary": "- FT Visual Vocabulary — 九类数据关系与图形选型（本文件 §1 骨架，多语言版含简体中文）",
      "line": 366,
      "chars": 1066
+    }
+   ]
+  },
+  {
+   "path": "references/design-ethics-inclusion.md",
+   "title": "设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍",
+   "snapshot": "2026-11-06",
+   "lines": 799,
+   "chars": 39431,
+   "sections": [
+    {
+     "id": "0-与既有资产的分层-先判该读哪份",
+     "level": 2,
+     "title": "0. 与既有资产的分层（先判该读哪份）",
+     "summary": "边界纪律：本文件不重讲 WCAG 四档对比度、不重讲 toast 时长、不重讲断点数值。它们是必要条件不是充分条件——一个对比度 7:1 的按钮，如果「拒绝」藏在第三层设置里，依然是欺骗性设计。两套判据必须同时过。",
+     "line": 9,
+     "chars": 939
+    },
+    {
+     "id": "1-三条不可商量的原则-先给立场-不和稀泥",
+     "level": 2,
+     "title": "1. 三条不可商量的原则（先给立场，不和稀泥）",
+     "summary": "1. 对称优于说服。 同意 UI 的合法性不看主按钮多醒目，看拒绝路径与接受路径是否等长、等难、等耗时。这是 CPPA §7004(a)(2) 的法条原文，不是行业最佳实践。",
+     "line": 27,
+     "chars": 630
+    },
+    {
+     "id": "2-分类体系裁决-别再照抄旧教程的那一套-暗黑模式-dark-patterns-现行-18-类",
+     "level": 2,
+     "title": "2. 分类体系裁决：别再照抄旧教程的那一套（暗黑模式 / dark patterns 现行 18 类）",
+     "summary": "deceptive.design（原 darkpatterns.org）现行 /types 页经本轮抓取，链接共 18 类，与大量中文教程仍在流传的旧分类（Roach Motel / Privacy Zuckering / Forced C",
+     "line": 37,
+     "chars": 1969
+    },
+    {
+     "id": "3-edpb-guidelines-03-2022-v2-0-六类机制-官方-pdf-74-页-一手",
+     "level": 2,
+     "title": "3. EDPB Guidelines 03/2022 v2.0：六类机制（官方 PDF 74 页，一手）",
+     "summary": "来源：EDPB《Guidelines 03/2022 on deceptive design patterns in social media platform interfaces》Version 2.0, 14 February 202",
+     "line": 70,
+     "chars": 1641
+    },
+    {
+     "id": "4-cppa-7004-把-对称选择-写成可测量的步数-本轮最硬的规则",
+     "level": 2,
+     "title": "4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）",
+     "summary": "来源：California Privacy Protection Agency《CCPA Regulations》最终文本 20230329finalregstext.pdf（66 页）§ 7004. Requirements for Me",
+     "line": 94,
+     "chars": 232
+    },
+    {
+     "id": "4-1-a-五条设计原则-逐条翻成界面动作",
+     "level": 3,
+     "title": "4.1 (a) 五条设计原则（逐条翻成界面动作）",
+     "summary": "",
+     "line": 98,
+     "chars": 498
+    },
+    {
+     "id": "4-2-a-2-步数怎么数-法规自己给了起止点",
+     "level": 3,
+     "title": "4.2 (a)(2) 步数怎么数（法规自己给了起止点）",
+     "summary": "原文规定：opt-out 步数从用户点击 \"Do Not Sell or Share My Personal Information\" 链接起算，到请求完成；opt-in 步数从用户首次向企业表示有意 opt-in 起算，到请求完成。两者必",
+     "line": 108,
+     "chars": 593
+    },
+    {
+     "id": "4-3-a-3-措辞与控件的三个陷阱",
+     "level": 3,
+     "title": "4.3 (a)(3) 措辞与控件的三个陷阱",
+     "summary": "- 在 Do Not Sell or Share My Personal Information 这句话旁边放 Yes / No = 双重否定，法规明确列为混淆。",
+     "line": 122,
+     "chars": 281
+    },
+    {
+     "id": "4-4-a-4-选择架构-不许捆绑",
+     "level": 3,
+     "title": "4.4 (a)(4) 选择架构：不许捆绑",
+     "summary": "法规举例：提供基于位置的服务（如查附近油价）时，不得把「为提供服务所合理必要的位置使用」与「把地理位置卖给数据中介」这种不兼容用途捆成一个同意。必须给单独选项。→ 设计动作：按用途拆分同意项，每项独立开关，服务必需项不出现在同意弹窗里（它本",
+     "line": 128,
+     "chars": 202
+    },
+    {
+     "id": "4-5-a-5-易执行-功能必须真的能跑",
+     "level": 3,
+     "title": "4.5 (a)(5) 易执行：功能必须真的能跑",
+     "summary": "- 点击 Do Not Sell or Share My Personal Information 后，不得要求用户在隐私政策长文里搜索/滚动去找提交机制。",
+     "line": 134,
+     "chars": 220
+    },
+    {
+     "id": "4-6-b-c-法律效力与-意图不是决定性因素",
+     "level": 3,
+     "title": "4.6 (b)(c) 法律效力与「意图不是决定性因素」",
+     "summary": "- (b) 不符合 (a) 的方法可被认定为 dark pattern；通过 dark pattern 取得的同意不构成同意——法规举例：用 dark pattern 取得出售个人信息的同意，企业处于「从未取得过同意」的地位。",
+     "line": 142,
+     "chars": 275
+    },
+    {
+     "id": "5-cppa-7003-可读性-无障碍与-显著链接-的具体要求",
+     "level": 2,
+     "title": "5. CPPA §7003：可读性、无障碍与「显著链接」的具体要求",
+     "summary": "同一份法规 § 7003. Requirements for Disclosures and Communications to Consumers：",
+     "line": 149,
+     "chars": 755
+    },
+    {
+     "id": "6-同意-ui-的-pass-fail-构型表-可直接拿去评审",
+     "level": 2,
+     "title": "6. 同意 UI 的 PASS/FAIL 构型表（可直接拿去评审）",
+     "summary": "一条容易漏的：管理偏好 / Preferences 不是拒绝按钮。它把用户带进更长的路径，恰恰构成 §7004(a)(2)(C) 点名的不对称。允许保留它，但只能作为第三个入口。",
+     "line": 163,
+     "chars": 916
+    },
+    {
+     "id": "7-中国-个人信息保护法-五条-ui-底线-官方全文逐字",
+     "level": 2,
+     "title": "7. 中国《个人信息保护法》五条 UI 底线（官方全文逐字）",
+     "summary": "来源：全国人大 npc.gov.cn 公布的《中华人民共和国个人信息保护法》全文。以下为条文原意与逐字要点，均可直接转成 UI 验收项。",
+     "line": 184,
+     "chars": 934
+    },
+    {
+     "id": "8-中国-互联网广告管理办法-第-10-条-一键关闭的量化红线",
+     "level": 2,
+     "title": "8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线",
+     "summary": "施行：2023-05-01。第 10 条对弹出等形式发布的互联网广告，要求「显著标明关闭标志，确保一键关闭」，并明确列举禁止情形：",
+     "line": 200,
+     "chars": 509
+    },
+    {
+     "id": "9-自动续费-2025-年修正后的现行规则-以及一条必须纠正的过期口径",
+     "level": 2,
+     "title": "9. 自动续费：2025 年修正后的现行规则，以及一条必须纠正的过期口径",
+     "summary": "大量设计/合规文章、甚至地方法院普法稿仍在写：《网络交易监督管理办法》第 18 条要求自动续费日期前五日提醒。这是 2021 年旧版的表述。",
+     "line": 221,
+     "chars": 1
+    },
+    {
+     "id": "9-1-反陈旧裁决-续费前五日-已不是现行表述",
+     "level": 3,
+     "title": "9.1 ⚠️ 反陈旧裁决：「续费前五日」已不是现行表述",
+     "summary": "大量设计/合规文章、甚至地方法院普法稿仍在写：《网络交易监督管理办法》第 18 条要求自动续费日期前五日提醒。这是 2021 年旧版的表述。",
+     "line": 223,
+     "chars": 832
+    },
+    {
+     "id": "9-2-现行第十八条-四条-ui-验收项",
+     "level": 3,
+     "title": "9.2 现行第十八条 → 四条 UI 验收项",
+     "summary": "罚则（同份全文第四十一条）：违反第十八条第二款，法律、行政法规无规定的，责令限期改正，可以处三万元以下罚款；违反第十八条第一款、第二十一条的，依《消费者权益保护法实施条例》第五十条处理。",
+     "line": 246,
+     "chars": 542
+    },
+    {
+     "id": "10-默认勾选-概括授权-搭售与商业信息-同份规章的另外三条",
+     "level": 2,
+     "title": "10. 默认勾选、概括授权、搭售与商业信息：同份规章的另外三条",
+     "summary": "《网络交易监督管理办法》（2025 修正版）还有三条直接约束 UI 默认值，逐字要点：",
+     "line": 261,
+     "chars": 724
+    },
+    {
+     "id": "11-未成年人防沉迷-国务院令第-766-号第-42-45-条逐条落成设计动作",
+     "level": 2,
+     "title": "11. 未成年人防沉迷：国务院令第 766 号第 42–45 条逐条落成设计动作",
+     "summary": "来源：中国政府网《未成年人网络保护条例》，国务院令第 766 号，2023-09-20 国务院第 15 次常务会议通过，2023-10-24 发布，自 2024-01-01 起施行。",
+     "line": 276,
+     "chars": 1150
+    },
+    {
+     "id": "12-成瘾设计-机制清单与-可关闭-红线",
+     "level": 2,
+     "title": "12. 成瘾设计：机制清单与「可关闭」红线",
+     "summary": "取源纪律（重要）：U.S. Surgeon General 2023《Social Media and Youth Mental Health》advisory 官方 PDF 在本机出口多次返回 403（返回体是 473/490 字节 HT",
+     "line": 294,
+     "chars": 1200
+    },
+    {
+     "id": "13-欧盟-dsa-第-25-条与-ftc-2022-两套执法口径-别混成一句",
+     "level": 2,
+     "title": "13. 欧盟 DSA 第 25 条与 FTC 2022：两套执法口径，别混成一句",
+     "summary": "European Commission digital-strategy.ec.europa.eu 的 DSA 政策页把 \"Ban on dark patterns\" 列为平台义务：禁止以设计、组织或操作在线界面的方式欺骗或操纵用户、或实质",
+     "line": 319,
+     "chars": 1
+    },
+    {
+     "id": "13-1-dsa-article-25",
+     "level": 3,
+     "title": "13.1 DSA Article 25",
+     "summary": "European Commission digital-strategy.ec.europa.eu 的 DSA 政策页把 \"Ban on dark patterns\" 列为平台义务：禁止以设计、组织或操作在线界面的方式欺骗或操纵用户、或实质",
+     "line": 321,
+     "chars": 384
+    },
+    {
+     "id": "13-2-ftc-2022-报告的四类-tactics",
+     "level": 3,
+     "title": "13.2 FTC 2022 报告的四类 tactics",
+     "summary": "来源：FTC 官方 press release（2022-09）FTC Report Shows Rise in Sophisticated Dark Patterns Designed to Trick and Trap Consumer",
+     "line": 327,
+     "chars": 539
+    },
+    {
+     "id": "13-3-判法域的决策顺序-写进评审模板",
+     "level": 3,
+     "title": "13.3 判法域的决策顺序（写进评审模板）",
+     "summary": "---",
+     "line": 338,
+     "chars": 6
+    },
+    {
+     "id": "14-包容性设计地基-不是-无障碍的补充-是另一种起点",
+     "level": 2,
+     "title": "14. 包容性设计地基：不是「无障碍的补充」，是另一种起点",
+     "summary": "Microsoft Inclusive Design 的三条原则（官方表述）：",
+     "line": 354,
+     "chars": 640
+    },
+    {
+     "id": "15-inclusive-design-principles-七原则-逐条-设计动作",
+     "level": 2,
+     "title": "15. Inclusive Design Principles 七原则（逐条 + 设计动作）",
+     "summary": "来源：https://inclusivedesignprinciples.info/，贡献者为 Henny Swan、Ian Pouncey、Heydon Pickering、Léonie Watson。页面立场原文：\"designing ",
+     "line": 375,
+     "chars": 1024
+    },
+    {
+     "id": "16-w3c-coga-八个目标-认知无障碍的可验收问句",
+     "level": 2,
+     "title": "16. W3C COGA 八个目标：认知无障碍的可验收问句",
+     "summary": "来源：W3C《Making Content Usable for People with Cognitive and Learning Disabilities》（w3.org/TR/coga-usable/），章节 3.1–3.8，八个 ",
+     "line": 393,
+     "chars": 1572
+    },
+    {
+     "id": "17-合规达-包容-两套判据的正交关系",
+     "level": 2,
+     "title": "17. 合规达 ≠ 包容：两套判据的正交关系",
+     "summary": "给评审的一句话：「无障碍审查看能不能用，伦理审查看是不是被引导着用」。两张检查表都要签，不能互相顶替。",
+     "line": 418,
+     "chars": 373
+    },
+    {
+     "id": "18-决策矩阵-什么场景套哪套",
+     "level": 2,
+     "title": "18. 决策矩阵：什么场景套哪套",
+     "summary": "---",
+     "line": 431,
+     "chars": 939
+    },
+    {
+     "id": "19-反模式-20-条-反操纵红线与合规验收判据-每条都能判-fail",
+     "level": 2,
+     "title": "19. 反模式 20 条：反操纵红线与合规验收判据（每条都能判 FAIL）",
+     "summary": "1. Accept All 配 More Information / Preferences，把「拒绝」变成一条更长的路。",
+     "line": 450,
+     "chars": 629
+    },
+    {
+     "id": "20-上线自检-22-项",
+     "level": 2,
+     "title": "20. 上线自检 22 项",
+     "summary": "同意与隐私",
+     "line": 475,
+     "chars": 1020
+    },
+    {
+     "id": "21-可抄代码-4-段-3-段-python-已实跑",
+     "level": 2,
+     "title": "21. 可抄代码（4 段，3 段 Python 已实跑）",
+     "summary": "三段 Python 均只依赖标准库，直接从本文件复制即可跑。设计意图：把 §4 / §8 / §9 / §10 的条文变成能进 CI 的断言，而不是评审会上的口头约定。每段都自带 PASS 与 FAIL 双用例。",
+     "line": 509,
+     "chars": 115
+    },
+    {
+     "id": "21-1-同意-ui-对称性检查器-cppa-7004-pipl-15-16-edpb-mirroring",
+     "level": 3,
+     "title": "21.1 同意 UI 对称性检查器（CPPA §7004 / PIPL 15·16 / EDPB mirroring）",
+     "summary": "",
+     "line": 513,
+     "chars": 1
+    },
+    {
+     "id": "21-2-一键关闭静态扫描-互联网广告管理办法-第-10-条",
+     "level": 3,
+     "title": "21.2 一键关闭静态扫描（《互联网广告管理办法》第 10 条）",
+     "summary": "",
+     "line": 594,
+     "chars": 1
+    },
+    {
+     "id": "21-3-自动续费-ui-检查器-陈旧法条守卫-网络交易办法-18-条-2025-修正",
+     "level": 3,
+     "title": "21.3 自动续费 UI 检查器 + 陈旧法条守卫（《网络交易办法》18 条 2025 修正）",
+     "summary": "",
+     "line": 637,
+     "chars": 1
+    },
+    {
+     "id": "21-4-包容性-coga-验收清单-yaml-进-ci-或-pr-模板",
+     "level": 3,
+     "title": "21.4 包容性 / COGA 验收清单（YAML，进 CI 或 PR 模板）",
+     "summary": "实跑结果（2026-11-06，本机 Python 标准库）：consentsymmetry → good PASS 14 checks / 0 violations、bad FAIL 14 checks / 13 violations；a",
+     "line": 684,
+     "chars": 325
+    },
+    {
+     "id": "22-数据来源与取源纪律",
+     "level": 2,
+     "title": "22. 数据来源与取源纪律",
+     "summary": "一手法规 / 官方原文",
+     "line": 728,
+     "chars": 5002
+    },
+    {
+     "id": "23-本轮让哪类问题不再含糊",
+     "level": 2,
+     "title": "23. 本轮让哪类问题不再含糊",
+     "summary": "1. 「这个同意弹窗合不合规」 → 不再是审美讨论：CPPA §7004 给了步数起止点、Accept All + Decline All 的固定构型、双重否定与按钮顺序反转的明令禁止，配上 §21.1 的 14 条断言，能判 PASS/F",
+     "line": 788,
+     "chars": 1001
     }
    ]
   },
@@ -5341,8 +5662,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 457,
-   "chars": 34254,
+   "lines": 478,
+   "chars": 37429,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -5553,9 +5874,9 @@
      "chars": 43
     },
     {
-     "id": "十六条专题支线-可与主线并行",
+     "id": "十七条专题支线-可与主线并行",
      "level": 2,
-     "title": "十六条专题支线（可与主线并行）",
+     "title": "十七条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -5686,23 +6007,31 @@
      "title": "支线 P · AI / 生成式设计工具链（产能层不是判断层）",
      "summary": "- 先判哪层交出去：五层地图（意图与约束 / 生成 / 编辑 / 代码化 / 验收）每层都要有人工闸门；三类活不交给 AI——定受众与语气、判上线与否、担法定责任。AI 只出候选，不出结论。",
      "line": 331,
-     "chars": 1767
+     "chars": 1762
+    },
+    {
+     "id": "支线-q-设计伦理与包容性-对称优先-默认值即决定",
+     "level": 3,
+     "title": "支线 Q · 设计伦理与包容性（对称优先，默认值即决定）",
+     "summary": "- 先立立场：设计伦理不是道德劝告，是可写进 CI 的路径长度、按钮构型、点击次数和默认值。三条不可商量：① 对称优于说服；② 默认即决定（预勾选/沉默不构成同意）；③ 意图不是辩护理由（CPPA §7004(c)：知情不修、刻意不知情同样",
+     "line": 340,
+     "chars": 2393
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 342,
+     "line": 353,
      "chars": 311
     },
     {
-     "id": "能力自测-88-条-做到-67-条即达-l2",
+     "id": "能力自测-97-条-做到-74-条即达-l2",
      "level": 2,
-     "title": "能力自测（88 条，做到 ≥67 条即达 L2+）",
+     "title": "能力自测（97 条，做到 ≥74 条即达 L2+）",
      "summary": "L0",
-     "line": 356,
-     "chars": 5701
+     "line": 367,
+     "chars": 6456
     }
    ]
   },
@@ -9481,8 +9810,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 455,
-   "chars": 44183,
+   "lines": 476,
+   "chars": 50005,
    "sections": []
   }
  ],

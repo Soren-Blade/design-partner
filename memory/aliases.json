@@ -1960,6 +1960,165 @@
     "deepfake 披露",
     "首次暴露告知"
    ]
+  },
+  {
+   "canonical": "欺骗性设计",
+   "aliases": [
+    "dark patterns",
+    "deceptive design",
+    "暗黑模式",
+    "黑暗模式",
+    "诱导设计",
+    "操纵性界面",
+    "套路设计",
+    "confirmshaming",
+    "roach motel",
+    "privacy zuckering",
+    "设计伦理"
+   ]
+  },
+  {
+   "canonical": "对称选择",
+   "aliases": [
+    "symmetry in choice",
+    "§7004",
+    "拒绝路径",
+    "同意对称",
+    "mirroring effect",
+    "撤回同等容易",
+    "步数测量"
+   ]
+  },
+  {
+   "canonical": "隐私同意",
+   "aliases": [
+    "cookie banner",
+    "同意弹窗",
+    "cookie 同意",
+    "授权弹窗",
+    "consent UI",
+    "隐私弹窗",
+    "追踪同意",
+    "拒绝全部"
+   ]
+  },
+  {
+   "canonical": "一键关闭",
+   "aliases": [
+    "关闭标志",
+    "开屏广告",
+    "弹窗广告",
+    "两次点击",
+    "计时关闭",
+    "广告关闭",
+    "第十条"
+   ]
+  },
+  {
+   "canonical": "自动续费",
+   "aliases": [
+    "自动展期",
+    "续费提醒",
+    "第 18 条",
+    "第十八条",
+    "前五日",
+    "总局令第 101 号",
+    "等日期前"
+   ]
+  },
+  {
+   "canonical": "取消订阅",
+   "aliases": [
+    "难取消",
+    "hard to cancel",
+    "退订",
+    "解约",
+    "订阅陷阱",
+    "随时取消"
+   ]
+  },
+  {
+   "canonical": "默认勾选",
+   "aliases": [
+    "preselection",
+    "预勾选",
+    "默认授权",
+    "概括授权",
+    "捆绑授权",
+    "defaultChecked",
+    "默认值禁区"
+   ]
+  },
+  {
+   "canonical": "成瘾设计",
+   "aliases": [
+    "addictive design",
+    "无限滚动",
+    "自动播放",
+    "连胜",
+    "streak",
+    "变比率奖励",
+    "无限下拉"
+   ]
+  },
+  {
+   "canonical": "未成年人模式",
+   "aliases": [
+    "防沉迷",
+    "防沉迷制度",
+    "适龄提示",
+    "消费上限",
+    "令第 766 号",
+    "监护人控制",
+    "青少年模式",
+    "打榜"
+   ]
+  },
+  {
+   "canonical": "包容性设计",
+   "aliases": [
+    "inclusive design",
+    "Persona Spectrum",
+    "认知无障碍",
+    "COGA",
+    "认知与学习障碍",
+    "同理心提示",
+    "Solve for one"
+   ]
+  },
+  {
+   "canonical": "反操纵红线",
+   "aliases": [
+    "反模式",
+    "UI 红线",
+    "合规验收",
+    "design ethics",
+    "伦理评审",
+    "静态扫描"
+   ]
+  },
+  {
+   "canonical": "隐藏费用",
+   "aliases": [
+    "hidden costs",
+    "junk fees",
+    "埋条款",
+    "搭售",
+    "结算加价",
+    "隐藏订阅"
+   ]
+  },
+  {
+   "canonical": "PIPL 同意",
+   "aliases": [
+    "个人信息保护法",
+    "cookie wall",
+    "便捷撤回",
+    "第 16 条",
+    "自动化决策",
+    "大数据杀熟",
+    "个性化推荐开关"
+   ]
   }
  ]
 }

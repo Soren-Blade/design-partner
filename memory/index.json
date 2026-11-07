@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-06T22:50:01",
+ "generated": "2026-11-07T01:12:22",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 723,
-   "chars": 113273,
+   "lines": 746,
+   "chars": 120990,
    "sections": []
   },
   {
@@ -1586,6 +1586,351 @@
      "summary": "- [ ] 正文字号 ≥14px（内容页 ≥16px），行高 ≥1.6",
      "line": 182,
      "chars": 369
+    }
+   ]
+  },
+  {
+   "path": "references/component-api-design.md",
+   "title": "组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进",
+   "snapshot": "2026-11-07",
+   "lines": 917,
+   "chars": 49651,
+   "sections": [
+    {
+     "id": "0-与既有资产的分层-先判该读哪份",
+     "level": 2,
+     "title": "0. 与既有资产的分层（先判该读哪份）",
+     "summary": "缺口证据（升级前实测）：dpsearch.py \"组件 API 设计 组合模式 props 语义 受控 非受控\" 最高命中仅 handoff-collaboration.md §7 组件 API 与设计稿 1:1 对齐（40.0 分）与 d",
+     "line": 9,
+     "chars": 1280
+    },
+    {
+     "id": "1-组件-api-设计-三份所有权与三条不可商量的原则-先给立场-不和稀泥",
+     "level": 2,
+     "title": "1. 组件 API 设计：三份所有权与三条不可商量的原则（先给立场，不和稀泥）",
+     "summary": "1. 状态只有一个所有者。同一份值不能既在组件内部 useState 又在父级 props 里；React 官方把组件分为 controlled（\"important information is driven by props\"）与 un",
+     "line": 25,
+     "chars": 1379
+    },
+    {
+     "id": "2-受控-非受控-唯一真相源-react-官方定义-radix-上游源码",
+     "level": 2,
+     "title": "2. 受控 / 非受控：唯一真相源（React 官方定义 + Radix 上游源码）",
+     "summary": "React Sharing State Between Components 的口径：controlled 组件是「重要信息由 props 驱动」，uncontrolled 是「由自身 local state 驱动」；结论是 single ",
+     "line": 42,
+     "chars": 1
+    },
+    {
+     "id": "2-1-官方定义与三元组",
+     "level": 3,
+     "title": "2.1 官方定义与三元组",
+     "summary": "React Sharing State Between Components 的口径：controlled 组件是「重要信息由 props 驱动」，uncontrolled 是「由自身 local state 驱动」；结论是 single ",
+     "line": 44,
+     "chars": 555
+    },
+    {
+     "id": "2-2-radix-usecontrollablestate-的四条硬规则-上游源码逐字",
+     "level": 3,
+     "title": "2.2 Radix useControllableState 的四条硬规则（上游源码逐字）",
+     "summary": "取自 radix-ui/primitives → packages/react/use-controllable-state/src/use-controllable-state.tsx（官方 controlled-state 文档 URL",
+     "line": 56,
+     "chars": 1305
+    },
+    {
+     "id": "2-3-react-input-五条门禁-官方原文",
+     "level": 3,
+     "title": "2.3 React <input 五条门禁（官方原文）",
+     "summary": "1. value / checked + onChange 必须同步更新 backing value，否则输入被「弹回」。",
+     "line": 100,
+     "chars": 309
+    },
+    {
+     "id": "2-4-pass-fail-判定表",
+     "level": 3,
+     "title": "2.4 PASS / FAIL 判定表",
+     "summary": "---",
+     "line": 108,
+     "chars": 501
+    },
+    {
+     "id": "3-状态提升与派生状态-别把-state-复制两份",
+     "level": 2,
+     "title": "3. 状态提升与派生状态（别把 state 复制两份）",
+     "summary": "- 共同父级原则：把 state 放到「所有需要它的组件的最近共同祖先」，再通过 props 下传；不要在两个兄弟组件各存一份再想办法同步。",
+     "line": 122,
+     "chars": 531
+    },
+    {
+     "id": "4-组合-vs-继承-多个-洞-怎么开-react-vue-对照",
+     "level": 2,
+     "title": "4. 组合 vs 继承：多个「洞」怎么开（React + Vue 对照）",
+     "summary": "React legacy 官方 Composition vs Inheritance 给了两级结构（该页明确标注 \"These docs are old and won't be updated. Go to react.dev\"，故只取可",
+     "line": 133,
+     "chars": 1258
+    },
+    {
+     "id": "5-五种-换元素-api-的完整对照-选型先看这个-别看-star",
+     "level": 2,
+     "title": "5. 五种「换元素」API 的完整对照（选型先看这个，别看 star）",
+     "summary": "",
+     "line": 158,
+     "chars": 670
+    },
+    {
+     "id": "5-1-radix-aschild-的合并规则-slot-tsx-上游源码逐字",
+     "level": 3,
+     "title": "5.1 Radix asChild 的合并规则（slot.tsx 上游源码逐字）",
+     "summary": "官方口径：所有会渲染 DOM 元素的 Radix primitive part 都接受 asChild；组合自定义组件时 \"Your component must spread props\" 与 \"Your component must f",
+     "line": 168,
+     "chars": 1476
+    },
+    {
+     "id": "5-2-ariakit-render-的合并规则-官方原文",
+     "level": 3,
+     "title": "5.2 Ariakit render 的合并规则（官方原文）",
+     "summary": "\"The style, className, ref and event props will be automatically merged. In all other cases, defined rendered element pr",
+     "line": 204,
+     "chars": 843
+    },
+    {
+     "id": "5-3-mui-component-slots-slotprops-官方口径",
+     "level": 3,
+     "title": "5.3 MUI component / slots / slotProps（官方口径）",
+     "summary": "- component：只覆盖 root slot，且保留该 slot 的样式（这是与 slots 最关键的区别）。",
+     "line": 217,
+     "chars": 367
+    },
+    {
+     "id": "5-4-选型决策树",
+     "level": 3,
+     "title": "5.4 选型决策树",
+     "summary": "---",
+     "line": 225,
+     "chars": 6
+    },
+    {
+     "id": "6-自定义组件必须开放扩展-四条硬规则-radix-ariakit-共识",
+     "level": 2,
+     "title": "6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）",
+     "summary": "Ariakit 官方章节标题就是 \"Custom components must be open for extension\"，原文：\"it should pass the incoming props, including event l",
+     "line": 240,
+     "chars": 1386
+    },
+    {
+     "id": "7-props-合并优先级-一张能判-pass-fail-的算子表",
+     "level": 2,
+     "title": "7. props 合并优先级：一张能判 PASS/FAIL 的算子表",
+     "summary": "把 §5–§6 的三套规则统一成合并算子（slot = 组件库内部算出来的 props，child = 使用方传进来的 props）：",
+     "line": 274,
+     "chars": 1222
+    },
+    {
+     "id": "8-复合组件-compound-components-与状态共享",
+     "level": 2,
+     "title": "8. 复合组件 / Compound Components 与状态共享",
+     "summary": "- 定义：<Tabs + <Tabs.List + <Tabs.Tab + <Tabs.Panel 这类由多个 part 组成的组件，状态（当前 tab）由 root 通过 context 下发，part 只负责渲染与交互。",
+     "line": 295,
+     "chars": 711
+    },
+    {
+     "id": "9-ref-与命令式-api-react-19-反陈旧裁决-本轮第二重要的裁决",
+     "level": 2,
+     "title": "9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）",
+     "summary": "React forwardRef 参考页顶部现在挂着 ### Deprecated，逐字：",
+     "line": 308,
+     "chars": 1
+    },
+    {
+     "id": "9-1-官方现行口径",
+     "level": 3,
+     "title": "9.1 官方现行口径",
+     "summary": "React forwardRef 参考页顶部现在挂着 ### Deprecated，逐字：",
+     "line": 310,
+     "chars": 1073
+    },
+    {
+     "id": "9-2-命令式-handle-的准入清单",
+     "level": 3,
+     "title": "9.2 命令式 handle 的准入清单",
+     "summary": "可以做（官方列举的 imperative behaviors）：滚动到节点、聚焦节点、触发动画、选中文本——这些都是「无法用 props 表达」的浏览器副作用。",
+     "line": 333,
+     "chars": 500
+    },
+    {
+     "id": "9-3-ref-cleanup-与-typescript-连带变化-react-19",
+     "level": 3,
+     "title": "9.3 ref cleanup 与 TypeScript 连带变化（React 19）",
+     "summary": "- 现在 ref callback 可以返回 cleanup function，卸载时 React 调用它；对 DOM ref、class ref、useImperativeHandle 都生效。",
+     "line": 343,
+     "chars": 631
+    },
+    {
+     "id": "10-组件契约的最小字段集-api-surface-可直接当评审表",
+     "level": 2,
+     "title": "10. 组件契约的最小字段集（API surface，可直接当评审表）",
+     "summary": "以 Radix Switch 官方 API 为范例（逐字字段名与默认值）：",
+     "line": 353,
+     "chars": 1235
+    },
+    {
+     "id": "11-回调契约-onchange-到底承诺了什么",
+     "level": 2,
+     "title": "11. 回调契约：onChange 到底承诺了什么",
+     "summary": "Vue 的一条硬提醒（官方 props 页）：props 是 one-way-down，子组件不得直接 mutate；对象 / 数组类型的 prop 虽然技术上能改嵌套字段，但同样破坏单向流且难以追踪。v-model 是「语法糖 + 显式 ",
+     "line": 384,
+     "chars": 1091
+    },
+    {
+     "id": "12-无障碍不是-props-的附属品-键盘契约在-api-层怎么落",
+     "level": 2,
+     "title": "12. 无障碍不是 props 的附属品：键盘契约在 API 层怎么落",
+     "summary": "WAI-ARIA APG Developing a Keyboard Interface 的硬要求（官方原文口径）：",
+     "line": 399,
+     "chars": 1551
+    },
+    {
+     "id": "13-状态暴露-别把-9-态做成-9-个布尔-props",
+     "level": 2,
+     "title": "13. 状态暴露：别把 9 态做成 9 个布尔 props",
+     "summary": "判定：一个组件公开的布尔 props 若 5 个，基本可以断定它把内部状态当成了配置项。回到 §1 原则 1——状态只有一个所有者，内部状态不该有第二个出处。设计侧的「9 态矩阵」（default / hover / focus / act",
+     "line": 422,
+     "chars": 819
+    },
+    {
+     "id": "14-api-版本化-组件特有的破坏性判级-改默认值-major-的延伸",
+     "level": 2,
+     "title": "14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）",
+     "summary": "沿用 handoff-collaboration.md 的 SemVer 11 条，本轮补组件 API 特有的判级表：",
+     "line": 435,
+     "chars": 1180
+    },
+    {
+     "id": "15-storybook-argtypes-把-api-契约变成机器可读-可在-ci-校验的东西",
+     "level": 2,
+     "title": "15. Storybook argTypes：把 API 契约变成机器可读、可在 CI 校验的东西",
+     "summary": "官方 Controls 文档口径（/docs/essentials/controls；/docs/api/argtypes 返回 404，规范链接为 /docs/api/arg-types，见 §22）：",
+     "line": 458,
+     "chars": 694
+    },
+    {
+     "id": "15-1-把-10-十类字段映射到-argtypes",
+     "level": 3,
+     "title": "15.1 把 §10 十类字段映射到 argTypes",
+     "summary": "",
+     "line": 467,
+     "chars": 1070
+    },
+    {
+     "id": "15-2-三条可直接执行的裁决",
+     "level": 3,
+     "title": "15.2 三条可直接执行的裁决",
+     "summary": "1. control: false ≠ table.disable：前者保留文档、只关控件，后者连文档一起删。组件库里 ref、asChild 内部结构、内建 aria 注入应走 control: false——文档要能被查到，但不能被当成",
+     "line": 480,
+     "chars": 668
+    },
+    {
+     "id": "16-类型即文档-typescript-契约的四条底线",
+     "level": 2,
+     "title": "16. 类型即文档：TypeScript 契约的四条底线",
+     "summary": "1. 原生属性用 ComponentPropsWithoutRef<'button'（或 Vue 的 attrs 透传）继承，不要逐条手抄 disabled / type / title / aria-——抄不全就是 §6 的 FAIL。",
+     "line": 490,
+     "chars": 646
+    },
+    {
+     "id": "17-16-场景决策矩阵-先查表-再动手",
+     "level": 2,
+     "title": "17. 16 场景决策矩阵（先查表，再动手）",
+     "summary": "---",
+     "line": 501,
+     "chars": 1900
+    },
+    {
+     "id": "18-20-条反模式-逐条可判-fail",
+     "level": 2,
+     "title": "18. 20 条反模式（逐条可判 FAIL）",
+     "summary": "1. value 给了却没给 onChange → 输入框只读，用户以为坏了。",
+     "line": 524,
+     "chars": 1317
+    },
+    {
+     "id": "19-22-项上线自检-组件-api-关",
+     "level": 2,
+     "title": "19. 22 项上线自检（组件 API 关）",
+     "summary": "- [ ] 1. 每个有状态的组件都说得出「谁持有这个值」，且只有一处 useState / props 之一？",
+     "line": 549,
+     "chars": 1386
+    },
+    {
+     "id": "20-可抄代码-3-段-python-已实跑-含双用例断言",
+     "level": 2,
+     "title": "20. 可抄代码（3 段 Python 已实跑，含双用例断言）",
+     "summary": "把 §2 / §6 / §9 / §13 / §18 的红线做成可进 CI 的检查。输入是组件源码文本，输出 (rule, line, message) 列表；FAIL 级别即门禁不通过。",
+     "line": 576,
+     "chars": 1
+    },
+    {
+     "id": "20-1-component_api_lint-py-组件-api-契约静态检查-已实跑",
+     "level": 3,
+     "title": "20.1 componentapilint.py — 组件 API 契约静态检查（已实跑）",
+     "summary": "把 §2 / §6 / §9 / §13 / §18 的红线做成可进 CI 的检查。输入是组件源码文本，输出 (rule, line, message) 列表；FAIL 级别即门禁不通过。",
+     "line": 578,
+     "chars": 3700
+    },
+    {
+     "id": "20-2-merge_props-py-可执行的两套合并算子-已实跑",
+     "level": 3,
+     "title": "20.2 mergeprops.py — 可执行的两套合并算子（已实跑）",
+     "summary": "复刻 Radix mergeProps 语义，并加 Ariakit render 元素形态的 undefined / null 规则。组件库写自己的组合层时可直接拿去对照。",
+     "line": 656,
+     "chars": 4128
+    },
+    {
+     "id": "20-3-api_semver-py-契约-diff-与-major-门禁-已实跑",
+     "level": 3,
+     "title": "20.3 apisemver.py — 契约 diff 与 MAJOR 门禁（已实跑）",
+     "summary": "把 §14 的判级表做成可执行脚本：输入新旧两份 API 契约，输出版本级别与变更清单。MAJOR 必须附带 codemod 路径，否则 CI 拒绝发版。",
+     "line": 761,
+     "chars": 2772
+    },
+    {
+     "id": "20-4-storybook-契约模板-ts-可抄",
+     "level": 3,
+     "title": "20.4 Storybook 契约模板（TS，可抄）",
+     "summary": "把 §15 的裁决落成一份可直接用的 meta：必填项排前、内部项保留文档但关控件、高级项条件折叠。",
+     "line": 819,
+     "chars": 1284
+    },
+    {
+     "id": "21-取源清单与-github-api-实测-2026-11-07-快照",
+     "level": 2,
+     "title": "21. 取源清单与 GitHub API 实测（2026-11-07 快照）",
+     "summary": "选型三问（沿用 ai-design-toolchain.md 的口径，比 star 更重要）：① 许可——NOASSERTION / None 需人工复核后再用于商业项目；② 活源——tailwindlabs/headlessui 的 pu",
+     "line": 856,
+     "chars": 1
+    },
+    {
+     "id": "21-1-官方原文-逐字口径来源",
+     "level": 3,
+     "title": "21.1 官方原文（逐字口径来源）",
+     "summary": "",
+     "line": 858,
+     "chars": 2500
+    },
+    {
+     "id": "21-2-github-rest-api-实测-15-仓库-get-repos-owner-repo-2026-11-07",
+     "level": 3,
+     "title": "21.2 GitHub REST API 实测（15 仓库，GET /repos/{owner}/{repo}，2026-11-07）",
+     "summary": "选型三问（沿用 ai-design-toolchain.md 的口径，比 star 更重要）：① 许可——NOASSERTION / None 需人工复核后再用于商业项目；② 活源——tailwindlabs/headlessui 的 pu",
+     "line": 879,
+     "chars": 1401
+    },
+    {
+     "id": "22-取源限制与不臆造声明-本轮公开记录",
+     "level": 2,
+     "title": "22. 取源限制与不臆造声明（本轮公开记录）",
+     "summary": "1. Radix controlled-state 文档 URL 返回 404：https://www.radix-ui.com/primitives/docs/guides/controlled-state 页面为 # 404 / Thi",
+     "line": 903,
+     "chars": 1777
     }
    ]
   },
@@ -5662,8 +6007,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 478,
-   "chars": 37429,
+   "lines": 499,
+   "chars": 42198,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -5874,9 +6219,9 @@
      "chars": 43
     },
     {
-     "id": "十七条专题支线-可与主线并行",
+     "id": "十八条专题支线-可与主线并行",
      "level": 2,
-     "title": "十七条专题支线（可与主线并行）",
+     "title": "十八条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -6015,23 +6360,31 @@
      "title": "支线 Q · 设计伦理与包容性（对称优先，默认值即决定）",
      "summary": "- 先立立场：设计伦理不是道德劝告，是可写进 CI 的路径长度、按钮构型、点击次数和默认值。三条不可商量：① 对称优于说服；② 默认即决定（预勾选/沉默不构成同意）；③ 意图不是辩护理由（CPPA §7004(c)：知情不修、刻意不知情同样",
      "line": 340,
-     "chars": 2393
+     "chars": 2388
+    },
+    {
+     "id": "支线-r-组件-api-设计与组合模式-三份所有权-契约先于样式",
+     "level": 3,
+     "title": "支线 R · 组件 API 设计与组合模式（三份所有权，契约先于样式）",
+     "summary": "- 先立立场：组件 API 不是 props 清单，是三份所有权的书面划分——状态所有权（受控 / 非受控）、渲染所有权（组合 / 换元素）、契约与演进所有权（键盘无障碍 / 语义冻结 / 版本判级）。组件库\"不好用\"八成不是样式问题，而是",
+     "line": 351,
+     "chars": 3867
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 353,
+     "line": 365,
      "chars": 311
     },
     {
-     "id": "能力自测-97-条-做到-74-条即达-l2",
+     "id": "能力自测-106-条-做到-81-条即达-l2",
      "level": 2,
-     "title": "能力自测（97 条，做到 ≥74 条即达 L2+）",
+     "title": "能力自测（106 条，做到 ≥81 条即达 L2+）",
      "summary": "L0",
-     "line": 367,
-     "chars": 6456
+     "line": 379,
+     "chars": 7323
     }
    ]
   },
@@ -9810,8 +10163,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 476,
-   "chars": 50005,
+   "lines": 500,
+   "chars": 57880,
    "sections": []
   }
  ],

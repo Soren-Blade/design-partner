@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-06 22:49 ｜ 31 个文件 · 1228 个章节 · 838,731 字符
+> 自动生成于 2026-11-07 01:12 ｜ 32 个文件 · 1272 个章节 · 908,831 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -36,6 +36,8 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | AI 内容标识 / 合规 / 版权 / 提示词 / AI 味验收 | ai-design-toolchain.md §2 标识 · §4 USCO 裁决 · §8 提示词 · §11 AI Slop Test · §20 自检 |
 | 设计伦理 / 欺骗性设计 / 隐私同意 / 自动续费 / 一键关闭 | design-ethics-inclusion.md §1 三条立场 · §2 现行 18 类 · §4 对称选择 · §8 一键关闭 · §9 反陈旧裁决 · §21 脚本 |
 | 包容性设计 / 认知无障碍 / 未成年人 / 成瘾设计 | design-ethics-inclusion.md §11 令第 766 号 · §12 成瘾四红线 · §14 三原则 · §15 七原则 · §16 COGA 八目标 · §17 四象限 |
+| 组件 API / props 契约 / 受控非受控 / 组合 / 插槽 / asChild / 换元素 | component-api-design.md §1 三份所有权 · §2 受控契约 · §5 五种换元素 API · §7 合并优先级 · §8 compound components |
+| ref 转发 / React 19 forwardRef / 复合组件键盘 / roving tabindex / 组件发版 SemVer / argTypes | component-api-design.md §9 反陈旧裁决 · §12 APG 键盘契约 · §14 API SemVer 六冻结面 · §15 Storybook argTypes · §20 脚本 |
 | 不确定知识在哪 | python scripts/dp_search.py "关键词" |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
@@ -199,26 +201,40 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **反操纵红线** | 反模式 · UI 红线 · 合规验收 · design ethics · 伦理评审 · 静态扫描 |
 | **隐藏费用** | hidden costs · junk fees · 埋条款 · 搭售 · 结算加价 · 隐藏订阅 |
 | **PIPL 同意** | 个人信息保护法 · cookie wall · 便捷撤回 · 第 16 条 · 自动化决策 · 大数据杀熟 · 个性化推荐开关 |
+| **组件 API 设计** | component api · 组件契约 · props 设计 · props 语义 · API surface · 组件接口 · 组件规范 · component contract |
+| **受控组件** | controlled · controlled component · 受控 · 非受控 · uncontrolled · value onChange · useControllableState · defaultValue · defaultChecked · isControlled |
+| **状态提升** | lifting state up · 状态提升 · 单一数据源 · single source of truth · 状态所有权 · 谁持有状态 |
+| **组合模式** | composition · compound components · 复合组件 · 组合优于继承 · composition vs inheritance · children · render prop · 渲染属性 |
+| **插槽** | slot · slots · 插槽 · 具名插槽 · named slots · scoped slots · 作用域插槽 · slot outlet · Vue slot · renderless component |
+| **asChild** | asChild · 换元素 · 换标签 · Radix Slot · mergeProps · polymorphic · as prop · 渲染成别的标签 |
+| **ref 转发** | forwardRef · ref as a prop · React 19 · useImperativeHandle · 命令式 API · imperative handle · open close handle · ref 透传 |
+| **props 透传** | 透传 props · spread props · 剩余属性 · props 合并优先级 · merge priority · 开放扩展 · open for extension |
+| **v-model** | modelValue · update:modelValue · 双向绑定 · two-way binding · model modifiers · one-way data flow · props 单向流 · Boolean casting |
+| **键盘契约** | roving tabindex · aria-activedescendant · 单个 tab stop · tab sequence · 焦点管理 · keyboard interface · APG keyboard · focus vs selection |
+| **data 状态属性** | data-state · data-* 状态 · 状态属性 · data attributes · 样式钩子 · 状态暴露 |
+| **API SemVer** | 组件发版 · component semver · 改默认值 · breaking change · codemod · 迁移脚本 · 冻结面 · deprecated prop |
+| **argTypes** | Storybook Controls · controls 面板 · control false · table.disable · requiredFirst · props 文档 · autodocs |
+| **组件库** | component library · 组件库 · design system 代码 · headless ui · Radix · Ariakit · MUI slots · shadcn |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_723 行 · 快照 — · 12 节_
+_746 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L77` — 资产已 29 份参考、约 67 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L79` — 资产已 29 份参考、约 67 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L92`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L244` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L259` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L285` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L316` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L629` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L681` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L694` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L701` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L715` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L80` — 资产已 30 份参考、约 72 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L82` — 资产已 30 份参考、约 72 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L95`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L253` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L268` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L294` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L325` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L651` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L704` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L717` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L724` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L738` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -428,6 +444,52 @@ _195 行 · 快照 2026-10-29 · 14 节_
   - **2.3 检索策略（按需求类型直接跳）** `L146` — Dribbble 使用纪律（重要）：看到喜欢的 shot，问三个问题再决定要不要借鉴——
 - **三、中文产品形态的四个特征（影响设计决策）** `L167` — 中后台 vs 消费级的分野：
 - **四、中文排版自检清单（交付前逐条过）** `L182` — - [ ] 正文字号 ≥14px（内容页 ≥16px），行高 ≥1.6
+
+### `references/component-api-design.md` · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进
+_917 行 · 快照 2026-11-07 · 42 节_
+
+- **0. 与既有资产的分层（先判该读哪份）** `L9` — 缺口证据（升级前实测）：dpsearch.py "组件 API 设计 组合模式 props 语义 受控 非受控" 最高命中仅 handoff-collaboration.md §7 组件 API 与设计稿 1:1 对齐（40.0 分）与 d
+- **1. 组件 API 设计：三份所有权与三条不可商量的原则（先给立场，不和稀泥）** `L25` — 1. 状态只有一个所有者。同一份值不能既在组件内部 useState 又在父级 props 里；React 官方把组件分为 controlled（"important information is driven by props"）与 un
+- **2. 受控 / 非受控：唯一真相源（React 官方定义 + Radix 上游源码）** `L42` — React Sharing State Between Components 的口径：controlled 组件是「重要信息由 props 驱动」，uncontrolled 是「由自身 local state 驱动」；结论是 single 
+  - **2.1 官方定义与三元组** `L44` — React Sharing State Between Components 的口径：controlled 组件是「重要信息由 props 驱动」，uncontrolled 是「由自身 local state 驱动」；结论是 single 
+  - **2.2 Radix useControllableState 的四条硬规则（上游源码逐字）** `L56` — 取自 radix-ui/primitives → packages/react/use-controllable-state/src/use-controllable-state.tsx（官方 controlled-state 文档 URL
+  - **2.3 React <input 五条门禁（官方原文）** `L100` — 1. value / checked + onChange 必须同步更新 backing value，否则输入被「弹回」。
+  - **2.4 PASS / FAIL 判定表** `L108` — ---
+- **3. 状态提升与派生状态（别把 state 复制两份）** `L122` — - 共同父级原则：把 state 放到「所有需要它的组件的最近共同祖先」，再通过 props 下传；不要在两个兄弟组件各存一份再想办法同步。
+- **4. 组合 vs 继承：多个「洞」怎么开（React + Vue 对照）** `L133` — React legacy 官方 Composition vs Inheritance 给了两级结构（该页明确标注 "These docs are old and won't be updated. Go to react.dev"，故只取可
+- **5. 五种「换元素」API 的完整对照（选型先看这个，别看 star）** `L158`
+  - **5.1 Radix asChild 的合并规则（slot.tsx 上游源码逐字）** `L168` — 官方口径：所有会渲染 DOM 元素的 Radix primitive part 都接受 asChild；组合自定义组件时 "Your component must spread props" 与 "Your component must f
+  - **5.2 Ariakit render 的合并规则（官方原文）** `L204` — "The style, className, ref and event props will be automatically merged. In all other cases, defined rendered element pr
+  - **5.3 MUI component / slots / slotProps（官方口径）** `L217` — - component：只覆盖 root slot，且保留该 slot 的样式（这是与 slots 最关键的区别）。
+  - **5.4 选型决策树** `L225` — ---
+- **6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）** `L240` — Ariakit 官方章节标题就是 "Custom components must be open for extension"，原文："it should pass the incoming props, including event l
+- **7. props 合并优先级：一张能判 PASS/FAIL 的算子表** `L274` — 把 §5–§6 的三套规则统一成合并算子（slot = 组件库内部算出来的 props，child = 使用方传进来的 props）：
+- **8. 复合组件 / Compound Components 与状态共享** `L295` — - 定义：<Tabs + <Tabs.List + <Tabs.Tab + <Tabs.Panel 这类由多个 part 组成的组件，状态（当前 tab）由 root 通过 context 下发，part 只负责渲染与交互。
+- **9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）** `L308` — React forwardRef 参考页顶部现在挂着 ### Deprecated，逐字：
+  - **9.1 官方现行口径** `L310` — React forwardRef 参考页顶部现在挂着 ### Deprecated，逐字：
+  - **9.2 命令式 handle 的准入清单** `L333` — 可以做（官方列举的 imperative behaviors）：滚动到节点、聚焦节点、触发动画、选中文本——这些都是「无法用 props 表达」的浏览器副作用。
+  - **9.3 ref cleanup 与 TypeScript 连带变化（React 19）** `L343` — - 现在 ref callback 可以返回 cleanup function，卸载时 React 调用它；对 DOM ref、class ref、useImperativeHandle 都生效。
+- **10. 组件契约的最小字段集（API surface，可直接当评审表）** `L353` — 以 Radix Switch 官方 API 为范例（逐字字段名与默认值）：
+- **11. 回调契约：onChange 到底承诺了什么** `L384` — Vue 的一条硬提醒（官方 props 页）：props 是 one-way-down，子组件不得直接 mutate；对象 / 数组类型的 prop 虽然技术上能改嵌套字段，但同样破坏单向流且难以追踪。v-model 是「语法糖 + 显式 
+- **12. 无障碍不是 props 的附属品：键盘契约在 API 层怎么落** `L399` — WAI-ARIA APG Developing a Keyboard Interface 的硬要求（官方原文口径）：
+- **13. 状态暴露：别把 9 态做成 9 个布尔 props** `L422` — 判定：一个组件公开的布尔 props 若 5 个，基本可以断定它把内部状态当成了配置项。回到 §1 原则 1——状态只有一个所有者，内部状态不该有第二个出处。设计侧的「9 态矩阵」（default / hover / focus / act
+- **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** `L435` — 沿用 handoff-collaboration.md 的 SemVer 11 条，本轮补组件 API 特有的判级表：
+- **15. Storybook argTypes：把 API 契约变成机器可读、可在 CI 校验的东西** `L458` — 官方 Controls 文档口径（/docs/essentials/controls；/docs/api/argtypes 返回 404，规范链接为 /docs/api/arg-types，见 §22）：
+  - **15.1 把 §10 十类字段映射到 argTypes** `L467`
+  - **15.2 三条可直接执行的裁决** `L480` — 1. control: false ≠ table.disable：前者保留文档、只关控件，后者连文档一起删。组件库里 ref、asChild 内部结构、内建 aria 注入应走 control: false——文档要能被查到，但不能被当成
+- **16. 类型即文档：TypeScript 契约的四条底线** `L490` — 1. 原生属性用 ComponentPropsWithoutRef<'button'（或 Vue 的 attrs 透传）继承，不要逐条手抄 disabled / type / title / aria-——抄不全就是 §6 的 FAIL。
+- **17. 16 场景决策矩阵（先查表，再动手）** `L501` — ---
+- **18. 20 条反模式（逐条可判 FAIL）** `L524` — 1. value 给了却没给 onChange → 输入框只读，用户以为坏了。
+- **19. 22 项上线自检（组件 API 关）** `L549` — - [ ] 1. 每个有状态的组件都说得出「谁持有这个值」，且只有一处 useState / props 之一？
+- **20. 可抄代码（3 段 Python 已实跑，含双用例断言）** `L576` — 把 §2 / §6 / §9 / §13 / §18 的红线做成可进 CI 的检查。输入是组件源码文本，输出 (rule, line, message) 列表；FAIL 级别即门禁不通过。
+  - **20.1 componentapilint.py — 组件 API 契约静态检查（已实跑）** `L578` — 把 §2 / §6 / §9 / §13 / §18 的红线做成可进 CI 的检查。输入是组件源码文本，输出 (rule, line, message) 列表；FAIL 级别即门禁不通过。
+  - **20.2 mergeprops.py — 可执行的两套合并算子（已实跑）** `L656` — 复刻 Radix mergeProps 语义，并加 Ariakit render 元素形态的 undefined / null 规则。组件库写自己的组合层时可直接拿去对照。
+  - **20.3 apisemver.py — 契约 diff 与 MAJOR 门禁（已实跑）** `L761` — 把 §14 的判级表做成可执行脚本：输入新旧两份 API 契约，输出版本级别与变更清单。MAJOR 必须附带 codemod 路径，否则 CI 拒绝发版。
+  - **20.4 Storybook 契约模板（TS，可抄）** `L819` — 把 §15 的裁决落成一份可直接用的 meta：必填项排前、内部项保留文档但关控件、高级项条件折叠。
+- **21. 取源清单与 GitHub API 实测（2026-11-07 快照）** `L856` — 选型三问（沿用 ai-design-toolchain.md 的口径，比 star 更重要）：① 许可——NOASSERTION / None 需人工复核后再用于商业项目；② 活源——tailwindlabs/headlessui 的 pu
+  - **21.1 官方原文（逐字口径来源）** `L858`
+  - **21.2 GitHub REST API 实测（15 仓库，GET /repos/{owner}/{repo}，2026-11-07）** `L879` — 选型三问（沿用 ai-design-toolchain.md 的口径，比 star 更重要）：① 许可——NOASSERTION / None 需人工复核后再用于商业项目；② 活源——tailwindlabs/headlessui 的 pu
+- **22. 取源限制与不臆造声明（本轮公开记录）** `L903` — 1. Radix controlled-state 文档 URL 返回 404：https://www.radix-ui.com/primitives/docs/guides/controlled-state 页面为 # 404 / Thi
 
 ### `references/component-libraries.md` · 组件库与设计 GitHub 地图 — Component Libraries
 _37 行 · 快照 2026-10-29 · 3 节_
@@ -976,7 +1038,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_478 行 · 快照 2026-11-05 · 46 节_
+_499 行 · 快照 2026-11-05 · 47 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1004,7 +1066,7 @@ _478 行 · 快照 2026-11-05 · 46 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **十七条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **十八条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1022,8 +1084,9 @@ _478 行 · 快照 2026-11-05 · 46 节_
   - **支线 O · 设计系统文档写作（给人读的系统，不是给机器读的约束）** `L321` — - 先分层再判层：design-md-format.md 的 DESIGN.md 是给机器读的约束清单，handoff-collaboration.md 的终点是"开发能做出第二个页面"，本支线的终点是"半年后第三个团队也能自己查到、自己改
   - **支线 P · AI / 生成式设计工具链（产能层不是判断层）** `L331` — - 先判哪层交出去：五层地图（意图与约束 / 生成 / 编辑 / 代码化 / 验收）每层都要有人工闸门；三类活不交给 AI——定受众与语气、判上线与否、担法定责任。AI 只出候选，不出结论。
   - **支线 Q · 设计伦理与包容性（对称优先，默认值即决定）** `L340` — - 先立立场：设计伦理不是道德劝告，是可写进 CI 的路径长度、按钮构型、点击次数和默认值。三条不可商量：① 对称优于说服；② 默认即决定（预勾选/沉默不构成同意）；③ 意图不是辩护理由（CPPA §7004(c)：知情不修、刻意不知情同样
-- **学习节奏（可持续，不靠意志力）** `L353` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（97 条，做到 ≥74 条即达 L2+）** `L367` — L0
+  - **支线 R · 组件 API 设计与组合模式（三份所有权，契约先于样式）** `L351` — - 先立立场：组件 API 不是 props 清单，是三份所有权的书面划分——状态所有权（受控 / 非受控）、渲染所有权（组合 / 换元素）、契约与演进所有权（键盘无障碍 / 语义冻结 / 版本判级）。组件库"不好用"八成不是样式问题，而是
+- **学习节奏（可持续，不靠意志力）** `L365` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（106 条，做到 ≥81 条即达 L2+）** `L379` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1529,7 +1592,7 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.6 链接文案检查脚本** `L799` — ---
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_476 行 · 快照 — · 24 节_
+_500 行 · 快照 — · 25 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1555,11 +1618,12 @@ _476 行 · 快照 — · 24 节_
 - **2026-11-05 · 设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理（每日升级 #17）** `L413` — - 需求：每日深蒸馏设计知识，本轮主题取 #16 候选第 1 位「设计系统文档写作」。缺口判定：dpsearch.py "设计系统文档 文档信息架构 组件文档 版本化" + grep → 文档站点 / 组件文档 / 版本化 / 贡献指南 /
 - **2026-11-06 · AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界（每日升级 #18）** `L439` — - 需求：延续每日升级协议，第 18 轮只深挖一个主题。候选来自 #17 待挖项；dpsearch.py "AI 生成 设计 提示词 版权 内容标识" 的 8 条命中全落在 ux-writing / knowledge-map / desi
 - **2026-11-06 · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍（每日升级 #19）** `L457` — - 需求：延续每日升级协议，第 19 轮只深挖一个主题。dpsearch.py "设计伦理 dark patterns 成瘾设计 隐私 UI 包容性设计 诱导 默认勾选 一键关闭 取消订阅" 命中 8 条但最高只落在 knowledge-m
+- **2026-11-07 · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20）** `L478` — - 需求：延续每日升级协议，第 20 轮只深挖一个主题。缺口判定用 dpsearch.py "组件 API 设计 组合模式 props 语义 受控 非受控" 与 dpsearch.py "组合 配置 compound component 插
 
 ## 三、主题索引（章节标题 → 位置）
 
 - **0. 30 秒速查** → `references/form-table.md` L8
-- **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/design-ethics-inclusion.md` L9
+- **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/component-api-design.md` L9 · `references/design-ethics-inclusion.md` L9
 - **0. 与既有资产的分层（先判读哪一份，别读错）** → `references/design-system-docs.md` L7
 - **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
@@ -1574,6 +1638,7 @@ _476 行 · 快照 — · 24 节_
 - **1. 判层：AI 在设计流程的五个位置，以及哪些活不该交出去** → `references/ai-design-toolchain.md` L25
 - **1. 判层：先分清你要写的是哪一种设计系统文档（Diátaxis 四象限）** → `references/design-system-docs.md` L20
 - **1. 尺寸与比例** → `references/presentation-design.md` L33
+- **1. 组件 API 设计：三份所有权与三条不可商量的原则（先给立场，不和稀泥）** → `references/component-api-design.md` L25
 - **1. 表单（Form）的五个零件：标签·控件·帮助·错误·动作** → `references/form-table.md` L39
 - **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
@@ -1583,6 +1648,7 @@ _476 行 · 快照 — · 24 节_
 - **10. 布局梯度：按内容量选，不按审美选** → `references/form-table.md` L259
 - **10. 文档版本化（Docusaurus 3.10.2 官方规则 + SemVer 对接）** → `references/design-system-docs.md` L360
 - **10. 暗色专属的无障碍陷阱** → `references/dark-mode.md` L436
+- **10. 组件契约的最小字段集（API surface，可直接当评审表）** → `references/component-api-design.md` L353
 - **10. 表单在窄屏** → `references/responsive-layout.md` L442
 - **10. 视觉手法的性能价格表（本轮核心）** → `references/performance-design.md` L431
 - **10. 设计走查（design QA）：三遍法 + 9 字段文档** → `references/handoff-collaboration.md` L359
@@ -1595,6 +1661,7 @@ _476 行 · 快照 — · 24 节_
 - **11. 中文演示场景** → `references/presentation-design.md` L512
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
 - **11. 品牌色的边界：图表 / 大屏 / 印刷 / 多品牌** → `references/brand-identity.md` L342
+- **11. 回调契约：onChange 到底承诺了什么** → `references/component-api-design.md` L384
 - **11. 场景速查（12 个高频问题 → 直接答案）** → `references/dark-mode.md` L451
 - **11. 实现选型（GitHub API 实测 2026-10-31）** → `references/dataviz.md` L325
 - **11. 导航降级：一条标准路径** → `references/responsive-layout.md` L458
@@ -1608,6 +1675,7 @@ _476 行 · 快照 — · 24 节_
 - **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 字体系统：品牌字体与系统栈** → `references/brand-identity.md` L374
 - **12. 成瘾设计：机制清单与「可关闭」红线** → `references/design-ethics-inclusion.md` L294
+- **12. 无障碍不是 props 的附属品：键盘契约在 API 层怎么落** → `references/component-api-design.md` L399
 - **12. 版式构图法则** → `references/presentation-design.md` L550
 - **12. 版本与变更管理** → `references/handoff-collaboration.md` L442
 - **12. 素材与出处** → `references/motion-system.md` L326
@@ -1624,9 +1692,11 @@ _476 行 · 快照 — · 24 节_
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
 - **13. 欧盟 DSA 第 25 条与 FTC 2022：两套执法口径，别混成一句** → `references/design-ethics-inclusion.md` L319
 - **13. 演示节奏与信息流** → `references/presentation-design.md` L590
+- **13. 状态暴露：别把 9 态做成 9 个布尔 props** → `references/component-api-design.md` L422
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
+- **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** → `references/component-api-design.md` L435
 - **14. 代码即文档：Storybook Autodocs / MDX / Doc Blocks 精确配置** → `references/design-system-docs.md` L538
 - **14. 包容性设计地基：不是「无障碍的补充」，是另一种起点** → `references/design-ethics-inclusion.md` L354
 - **14. 可抄代码（4 段）** → `references/dark-mode.md` L535
@@ -1641,6 +1711,7 @@ _476 行 · 快照 — · 24 节_
 - **15. 12 场景速查** → `references/presentation-design.md` L672
 - **15. Inclusive Design Principles 七原则（逐条 + 设计动作）** → `references/design-ethics-inclusion.md` L375
 - **15. Prompt 版本化、eval 与 SemVer** → `references/ai-design-toolchain.md` L458
+- **15. Storybook argTypes：把 API 契约变成机器可读、可在 CI 校验的东西** → `references/component-api-design.md` L458
 - **15. 协作节奏：每次交接都要有可验收的产出** → `references/handoff-collaboration.md` L622
 - **15. 参考来源** → `references/dark-mode.md` L642
 - **15. 反模式 20 条** → `references/responsive-layout.md` L565
@@ -1657,8 +1728,10 @@ _476 行 · 快照 — · 24 节_
 - **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
 - **16. 品牌一致性的十条检查（交付前逐条过）** → `references/brand-identity.md` L506
 - **16. 场景速查（16 条，直接取结论）** → `references/motion-orchestration.md` L738
+- **16. 类型即文档：TypeScript 契约的四条底线** → `references/component-api-design.md` L490
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
 - **16. 贡献与治理：GOV.UK 的准入标准（含可量化阈值）** → `references/design-system-docs.md` L622
+- **17. 16 场景决策矩阵（先查表，再动手）** → `references/component-api-design.md` L501
 - **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 交付自检（18 项，全过才算过关）** → `references/performance-design.md` L699
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
@@ -1670,6 +1743,7 @@ _476 行 · 快照 — · 24 节_
 - **17. 文档新鲜度与漂移：可测指标 + 本技能自身的防漂移机制（自举）** → `references/design-system-docs.md` L650
 - **17. 隐私、输入与组织边界** → `references/ai-design-toolchain.md` L483
 - **18. 12 场景速查** → `references/ai-design-toolchain.md` L493
+- **18. 20 条反模式（逐条可判 FAIL）** → `references/component-api-design.md` L524
 - **18. 与其他资产的分工** → `references/responsive-layout.md` L696
 - **18. 决策矩阵：什么场景套哪套** → `references/design-ethics-inclusion.md` L431
 - **18. 出处** → `references/form-table.md` L503
@@ -1678,6 +1752,7 @@ _476 行 · 快照 — · 24 节_
 - **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L743
 - **18. 自检清单（20 条，动效编排交付前逐条过）** → `references/motion-orchestration.md` L786
 - **19. 20 条反模式** → `references/ai-design-toolchain.md` L512
+- **19. 22 项上线自检（组件 API 关）** → `references/component-api-design.md` L549
 - **19. 二十条反模式（写了等于没写）** → `references/design-system-docs.md` L703
 - **19. 反模式 20 条** → `references/brand-identity.md` L625
 - **19. 反模式 20 条：反操纵红线与合规验收判据（每条都能判 FAIL）** → `references/design-ethics-inclusion.md` L450
@@ -1688,6 +1763,7 @@ _476 行 · 快照 — · 24 节_
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
 - **2. 分类体系裁决：别再照抄旧教程的那一套（暗黑模式 / dark patterns 现行 18 类）** → `references/design-ethics-inclusion.md` L37
 - **2. 动效缓动曲线（easing）：语义决定曲线，不是审美决定** → `references/motion-system.md` L30
+- **2. 受控 / 非受控：唯一真相源（React 官方定义 + Radix 上游源码）** → `references/component-api-design.md` L42
 - **2. 合规地基（一）：中国 AI 生成内容标识，是法定义务不是设计建议** → `references/ai-design-toolchain.md` L50
 - **2. 品牌视觉的四层结构（别从 logo 开始）** → `references/brand-identity.md` L25
 - **2. 图表选型决策树（30 秒版）** → `references/dataviz.md` L43
@@ -1700,6 +1776,7 @@ _476 行 · 快照 — · 24 节_
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
 - **20. 二十项自检（组件文档上线前逐条打勾）** → `references/design-system-docs.md` L728
+- **20. 可抄代码（3 段 Python 已实跑，含双用例断言）** → `references/component-api-design.md` L576
 - **20. 四个可抄模板** → `references/handoff-collaboration.md` L780
 - **20. 素材与出处（本轮实测 / 官方原文）** → `references/motion-orchestration.md` L1005
 - **20. 自检 18 项（交付前逐条打勾）** → `references/brand-identity.md` L650
@@ -1724,10 +1801,13 @@ _476 行 · 快照 — · 24 节_
 - **2026-11-05 · 设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理（每日升级 #17）** → `memory/design-log.md` L413
 - **2026-11-06 · AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界（每日升级 #18）** → `memory/design-log.md` L439
 - **2026-11-06 · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍（每日升级 #19）** → `memory/design-log.md` L457
+- **2026-11-07 · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20）** → `memory/design-log.md` L478
 - **21. 6 段可抄代码** → `references/ai-design-toolchain.md` L562
 - **21. 六段可抄代码（文档团队直接拿去用）** → `references/design-system-docs.md` L753
+- **21. 取源清单与 GitHub API 实测（2026-11-07 快照）** → `references/component-api-design.md` L856
 - **21. 可抄代码（4 段，3 段 Python 已实跑）** → `references/design-ethics-inclusion.md` L509
 - **21. 数据来源** → `references/brand-identity.md` L673
+- **22. 取源限制与不臆造声明（本轮公开记录）** → `references/component-api-design.md` L903
 - **22. 数据来源与取源纪律** → `references/design-ethics-inclusion.md` L728
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** → `references/ai-design-toolchain.md` L761
 - **22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）** → `references/design-system-docs.md` L899
@@ -1745,6 +1825,7 @@ _476 行 · 快照 — · 24 节_
 - **3. 字段宽度：按内容长度定宽（最被忽视的一条）** → `references/form-table.md` L86
 - **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** → `references/dark-mode.md` L141
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
+- **3. 状态提升与派生状态（别把 state 复制两份）** → `references/component-api-design.md` L122
 - **4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）** → `references/design-ethics-inclusion.md` L94
 - **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** → `references/motion-orchestration.md` L151
 - **4. INP：交互延迟的三段与"设计侧预算"** → `references/performance-design.md` L126
@@ -1755,11 +1836,13 @@ _476 行 · 快照 — · 24 节_
 - **4. 文字密度限制** → `references/presentation-design.md` L199
 - **4. 标志类型学：七型与选择决策** → `references/brand-identity.md` L78
 - **4. 标注规则：标例外，不标全量** → `references/handoff-collaboration.md` L79
+- **4. 组合 vs 继承：多个「洞」怎么开（React + Vue 对照）** → `references/component-api-design.md` L133
 - **4. 裁决一：提示词写得再细，也不构成作者身份（本轮最重要的一条）** → `references/ai-design-toolchain.md` L115
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
 - **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
 - **5. CLS：公式、五个位移源、设计侧防抖清单** → `references/performance-design.md` L163
 - **5. CPPA §7003：可读性、无障碍与「显著链接」的具体要求** → `references/design-ethics-inclusion.md` L149
+- **5. 五种「换元素」API 的完整对照（选型先看这个，别看 star）** → `references/component-api-design.md` L158
 - **5. 列表增删与重排：四种操作的动画策略** → `references/motion-orchestration.md` L209
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
@@ -1772,6 +1855,7 @@ _476 行 · 快照 — · 24 节_
 - **5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真** → `references/ai-design-toolchain.md` L153
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **6. AI 素材的来源与授权链** → `references/ai-design-toolchain.md` L194
+- **6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）** → `references/component-api-design.md` L240
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
 - **6. 共享元素转场 A：View Transitions 完整机制** → `references/motion-orchestration.md` L271
 - **6. 动画与转场** → `references/presentation-design.md` L301
@@ -1785,6 +1869,7 @@ _476 行 · 快照 — · 24 节_
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **6. 示例代码的可抄性：五条硬规则（写错就没人用）** → `references/design-system-docs.md` L188
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
+- **7. props 合并优先级：一张能判 PASS/FAIL 的算子表** → `references/component-api-design.md` L274
 - **7. 中国《个人信息保护法》五条 UI 底线（官方全文逐字）** → `references/design-ethics-inclusion.md` L184
 - **7. 仪表盘布局** → `references/dataviz.md` L223
 - **7. 共享元素转场 B：layoutId 与 Motion 布局动画** → `references/motion-orchestration.md` L383
@@ -1802,6 +1887,7 @@ _476 行 · 快照 — · 24 节_
 - **8. 响应式图片：三条规则 + 一个防抖** → `references/responsive-layout.md` L336
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
 - **8. 图表在幻灯片中的规则** → `references/presentation-design.md` L409
+- **8. 复合组件 / Compound Components 与状态共享** → `references/component-api-design.md` L295
 - **8. 字体：最容易被设计师低估的成本** → `references/performance-design.md` L324
 - **8. 帮助文字、占位符、前缀后缀** → `references/form-table.md` L203
 - **8. 性能与降级** → `references/motion-system.md` L238
@@ -1812,6 +1898,7 @@ _476 行 · 快照 — · 24 节_
 - **8. 验收标准的写法：Given / When / Then** → `references/handoff-collaboration.md` L259
 - **9. AI 辅助设计的工作流（可直接落地的 8 步）** → `references/ai-design-toolchain.md` L285
 - **9. JavaScript：设计师看不见但逃不掉的那部分** → `references/performance-design.md` L399
+- **9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）** → `references/component-api-design.md` L308
 - **9. 中文场景与小程序** → `references/motion-system.md` L285
 - **9. 切换实现：四端与防闪白** → `references/dark-mode.md` L318
 - **9. 动画状态机：四态/六态模型与 XState** → `references/motion-orchestration.md` L452
@@ -1960,7 +2047,6 @@ _476 行 · 快照 — · 24 节_
 - **十七、12 个场景速查** → `references/multi-brand-theming.md` L597
 - **十七、20 条反模式** → `references/ux-writing.md` L631
 - **十七、框架与工程落地：React / Vue / Next / MUI RTL、字体、能力检测** → `references/i18n-localization.md` L788
-- **十七条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **十三、品牌注入管线：从客户填表到 CSS 生效** → `references/multi-brand-theming.md` L509
 - **十三、国际化文案注意事项** → `references/ux-writing.md` L513
 - **十三、语言协商 locale negotiation 与回退策略** → `references/i18n-localization.md` L692
@@ -1976,6 +2062,7 @@ _476 行 · 快照 — · 24 节_
 - **十八、12 个场景速查** → `references/i18n-localization.md` L819
 - **十八、18 项自检清单** → `references/ux-writing.md` L658
 - **十八、20 条反模式** → `references/multi-brand-theming.md` L616
+- **十八条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **十六、12 场景速查** → `references/ux-writing.md` L612
 - **十六、治理：品牌准入与变更管理** → `references/multi-brand-theming.md` L582
 - **十六、给译者的交付规格：字符预算、变量说明、截图与术语表（与 handoff-collaboration.md 衔接）** → `references/i18n-localization.md` L768
@@ -1991,10 +2078,10 @@ _476 行 · 快照 — · 24 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L353
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L365
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L77
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L80
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -2004,12 +2091,12 @@ _476 行 · 快照 — · 24 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（97 条，做到 ≥74 条即达 L2+）** → `references/knowledge-map.md` L367
-- **自我成长机制（用得越多越准）** → `SKILL.md` L681
-- **自我进化机制（知识保鲜）** → `SKILL.md` L694
+- **能力自测（106 条，做到 ≥81 条即达 L2+）** → `references/knowledge-map.md` L379
+- **自我成长机制（用得越多越准）** → `SKILL.md` L704
+- **自我进化机制（知识保鲜）** → `SKILL.md` L717
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L715
+- **边界与习惯** → `SKILL.md` L738
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

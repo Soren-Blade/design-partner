@@ -57,6 +57,8 @@ INTENTS = [
     ("AI 内容标识 / 合规 / 版权 / 提示词 / AI 味验收", "ai-design-toolchain.md §2 标识 · §4 USCO 裁决 · §8 提示词 · §11 AI Slop Test · §20 自检"),
     ("设计伦理 / 欺骗性设计 / 隐私同意 / 自动续费 / 一键关闭", "design-ethics-inclusion.md §1 三条立场 · §2 现行 18 类 · §4 对称选择 · §8 一键关闭 · §9 反陈旧裁决 · §21 脚本"),
     ("包容性设计 / 认知无障碍 / 未成年人 / 成瘾设计", "design-ethics-inclusion.md §11 令第 766 号 · §12 成瘾四红线 · §14 三原则 · §15 七原则 · §16 COGA 八目标 · §17 四象限"),
+    ("组件 API / props 契约 / 受控非受控 / 组合 / 插槽 / asChild / 换元素", "component-api-design.md §1 三份所有权 · §2 受控契约 · §5 五种换元素 API · §7 合并优先级 · §8 compound components"),
+    ("ref 转发 / React 19 forwardRef / 复合组件键盘 / roving tabindex / 组件发版 SemVer / argTypes", "component-api-design.md §9 反陈旧裁决 · §12 APG 键盘契约 · §14 API SemVer 六冻结面 · §15 Storybook argTypes · §20 脚本"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

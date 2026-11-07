@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十七条专题支线（可与主线并行）
+## 十八条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -348,6 +348,18 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[EDPB Guidelines 03/2022 v2.0 PDF](https://www.edpb.europa.eu/system/files/documents/2023-02/edpb_03-2022_guidelines_on_deceptive_design_patterns_in_social_media_platform_interfaces_v2_en_0.pdf)、[CPPA final regs PDF](https://cppa.ca.gov/regulations/pdf/20230329_final_regs_text.pdf)、[PIPL 全文](http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html)、[未成年人网络保护条例](https://www.gov.cn/zhengce/content/202310/content_6911288.htm)、[网络交易监督管理办法 2025 修正版](http://www.hunan.gov.cn/zqt/zcsd/202508/t20250804_33757595.html)、[deceptive.design types](https://www.deceptive.design/types)、[W3C COGA](https://www.w3.org/TR/coga-usable/)、[Inclusive Design Principles](https://inclusivedesignprinciples.info/)
 - → **24 节 + 现行 18 类 + EDPB 六类机制 + §7004 五原则 + 三地法域决策矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 已实跑）见 `design-ethics-inclusion.md`**
 
+### 支线 R · 组件 API 设计与组合模式（三份所有权，契约先于样式）
+- **先立立场**：组件 API 不是 props 清单，是**三份所有权的书面划分**——**状态所有权**（受控 / 非受控）、**渲染所有权**（组合 / 换元素）、**契约与演进所有权**（键盘无障碍 / 语义冻结 / 版本判级）。组件库"不好用"八成不是样式问题，而是状态两边都存、props 被中间层吞掉、键盘契约没人认领、改默认值却只发 PATCH。
+- **受控判定只有一条**：React 官方定义 controlled 是"重要信息由 props 驱动"、uncontrolled 是 local state 驱动；Radix 上游 `useControllableState` 源码用 `const isControlled = prop !== undefined` 判定，开发态警告**组件生命周期内不得在受控与非受控之间来回切换**；React `<input>` 契约要求 `value` / `checked` 与 `onChange` 同步更新、**无 `onChange` 即只读**、`defaultValue` / `defaultChecked` 只定义初始值、`value` 不得为 `undefined` / `null`。
+- **状态提升不是"把 state 挪上去"**：先确定谁是唯一数据源，再让兄弟组件共享；`v-model` 是 `modelValue` + `update:modelValue` 的语法糖而非双向绑定魔法，Vue props 仍是 **one-way-down**（Boolean absent cast `false`、`[String, Boolean]` 顺序影响 casting）→ `component-api-design.md` §3、§5。
+- **组合优于继承，但"换元素"有五套互不相同的 API**：Radix `asChild` + `Slot.mergeProps`（child props override / 事件串联 / `style`·`className`·`aria-describedby` 合并）、Ariakit `render={<el/>}`（元素形态自动合并 `style`/`className`/`ref`/event，含 `null` 的显式值覆盖、`undefined` 忽略；**显式 render function 不自动合并 HTML props**）、MUI `component` / `slots` / `slotProps`（`component` 保留 root slot 样式、`slots` 可能丢样式、`slotProps` 可为 callback 收 `ownerState`）、Vue `<slot>` / named / scoped slots、原生 `children` / render prop。**别把其中一套的合并规则套到另一套上**。
+- **自定义组件必须"开放扩展"**：spread 剩余 props、转发 ref、合并 `className` / `style`、事件处理器组合而非覆盖（Ariakit 官方四条规则 + "Flat is better than nested"）。中间层吞掉一个 prop，等于把用户的 `aria-*` / `data-*` / `onClick` 一次性全丢。
+- **⚠️ React 19 反陈旧裁决（本支线最该记住的一条）**：官方 `forwardRef` 页已标 `### Deprecated`，原文 *"In React 19, `forwardRef` is no longer necessary. Pass `ref` as a prop instead."*，React 19 博客写明 *"In future versions we will deprecate and remove `forwardRef`."* → **写组件 API 规范必须标注目标 React 版本**。同时官方 Pitfall *"Do not overuse refs."* / *"If you can express something as a prop, you should not use a ref."* 点名 `{ open, close }` 命令式 handle 为反例，正解 `<Modal isOpen={isOpen} />`。
+- **键盘契约是 API 的一部分**：WAI-ARIA APG 要求所有交互元素可键盘操作、**复合组件通常只让一个元素进 tab sequence**（roving `tabindex` 或 `aria-activedescendant` 二选一）、focus 与 selection 必须视觉区分、modal dialog 的 `Tab` / `Shift+Tab` 循环 + `Escape` 关闭 + 关闭后焦点返回触发元素；状态以 `data-*` 暴露给样式与测试，别让样式去猜 DOM 结构。
+- **契约要能摆到面板上、判进版本号**：Storybook 官方 *"ArgTypes encode basic metadata for args, such as name, description, and defaultValue for an arg."*，`control: false` 保留文档不给控件、`table.disable: true` 连文档删、`sort: 'requiredFirst'` + `expanded: true` 把必填项摆前；TypeScript 用可辨识联合把互斥 props 变成类型错误。**六个冻结面**（默认值 / props 合并优先级 / 受控判定 / 键盘与 tab stop 策略 / 自动 `role`·`aria-*` / ref 形状）任一被改 → **MAJOR 且必须带可执行 codemod**；新增可选 prop·slot → MINOR；文档与类型注释 → PATCH。
+- 材料：[React Composition vs Inheritance (legacy docs)](https://legacy.reactjs.org/docs/composition-vs-inheritance.html)、[React Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)、[React `<input>`](https://react.dev/reference/react-dom/components/input)、[React `forwardRef`（Deprecated）](https://react.dev/reference/react/forwardRef)、[React 19 blog](https://react.dev/blog/2024/12/05/react-19)、[Radix useControllableState 源码](https://github.com/radix-ui/primitives/blob/main/packages/react/use-controllable-state/src/use-controllable-state.tsx)、[Radix Slot 源码](https://github.com/radix-ui/primitives/blob/main/packages/react/slot/src/slot.tsx)、[Ariakit Composition](https://ariakit.org/guide/composition)、[MUI Overriding component structure](https://mui.com/material-ui/customization/overriding-component-structure/)、[Vue Slots](https://vuejs.org/guide/components/slots.html)、[Vue `v-model`](https://vuejs.org/guide/components/v-model.html)、[WAI-ARIA APG Keyboard](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/)、[Storybook Controls](https://storybook.js.org/docs/essentials/controls)
+- → **23 节 + 三份所有权框架 + 五套换元素 API 对照 + 16 场景矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 已实跑全 PASS）+ 15 仓库 GitHub API 实测见 `component-api-design.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -364,7 +376,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（97 条，做到 ≥74 条即达 L2+）
+## 能力自测（106 条，做到 ≥81 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -471,6 +483,15 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出国务院令第 766 号第 42–45 条各自对应的设计动作，尤其是第 44 条「单次与单日累计」双限额与第 45 条三类功能必须整体下线
 - [ ] 能解释「无障碍达标仍可能是欺骗性设计」，说出 COGA 八目标中至少四个、以及 `Test with real users` 为什么必须由认知与学习障碍者本人参与而非团队代判
 - [ ] 能辨析 `deceptive.design` 现行 18 类与旧教程分类的差异，并解释为什么静态扫描应断言「路径对称 / 默认值为 false」而不是枚举新套路名称
+- [ ] 能说清组件 API 的「三份所有权」分别指什么，并举出一个"样式没问题但组件就是难用"的反例归因到错误的所有权划分
+- [ ] 能写出受控 / 非受控的唯一判定式（`prop !== undefined`），并说明为什么组件生命周期内不能从受控切到非受控、为什么 `value` 不能是 `undefined` / `null`
+- [ ] 能解释 `value` + `defaultValue` 同时传、以及 `value` 无 `onChange` 分别会发生什么，并说出 `defaultChecked` 的正确用途
+- [ ] 能列出至少三套「换元素」API（`asChild` / Ariakit `render` / MUI `slots` / Vue slot），并说出各自 props 合并优先级中最容易被忽略的一条
+- [ ] 能解释 Ariakit `render` 的元素形态与显式 render function 在 HTML props 合并责任上的差别，以及 `null` 与 `undefined` 的不同待遇
+- [ ] 能说清自定义组件「开放扩展」四条，并指出中间层吞掉 `...rest` 会连带丢失哪些用户能力（aria / data / 事件）
+- [ ] 能解释 React 19 下为什么不能把「自定义组件必须 `forwardRef`」写成跨版本硬规范，并说明规范里必须标注什么；能说出 `{ open, close }` 命令式 handle 为什么是官方反例
+- [ ] 能给出复合组件单 tab stop 的两种焦点策略、focus 与 selection 的视觉区分要求，以及 modal dialog 关闭后焦点该回到哪里
+- [ ] 能判级一次组件 API 改动：改默认值 / 改 props 合并优先级 / 改受控判定 / 改键盘策略 / 新增可选 prop / 改文档注释，各属 MAJOR·MINOR·PATCH 哪一级，并说明 MAJOR 必须附带什么
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

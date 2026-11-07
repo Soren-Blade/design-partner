@@ -1,6 +1,6 @@
 {
  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
- "_updated": "2026-11-06",
+ "_updated": "2026-11-07",
  "_weight": 0.45,
  "groups": [
   {
@@ -2118,6 +2118,186 @@
     "自动化决策",
     "大数据杀熟",
     "个性化推荐开关"
+   ]
+  },
+  {
+   "canonical": "组件 API 设计",
+   "aliases": [
+    "component api",
+    "组件契约",
+    "props 设计",
+    "props 语义",
+    "API surface",
+    "组件接口",
+    "组件规范",
+    "component contract"
+   ]
+  },
+  {
+   "canonical": "受控组件",
+   "aliases": [
+    "controlled",
+    "controlled component",
+    "受控",
+    "非受控",
+    "uncontrolled",
+    "value onChange",
+    "useControllableState",
+    "defaultValue",
+    "defaultChecked",
+    "isControlled"
+   ]
+  },
+  {
+   "canonical": "状态提升",
+   "aliases": [
+    "lifting state up",
+    "状态提升",
+    "单一数据源",
+    "single source of truth",
+    "状态所有权",
+    "谁持有状态"
+   ]
+  },
+  {
+   "canonical": "组合模式",
+   "aliases": [
+    "composition",
+    "compound components",
+    "复合组件",
+    "组合优于继承",
+    "composition vs inheritance",
+    "children",
+    "render prop",
+    "渲染属性"
+   ]
+  },
+  {
+   "canonical": "插槽",
+   "aliases": [
+    "slot",
+    "slots",
+    "插槽",
+    "具名插槽",
+    "named slots",
+    "scoped slots",
+    "作用域插槽",
+    "slot outlet",
+    "Vue slot",
+    "renderless component"
+   ]
+  },
+  {
+   "canonical": "asChild",
+   "aliases": [
+    "asChild",
+    "换元素",
+    "换标签",
+    "Radix Slot",
+    "mergeProps",
+    "polymorphic",
+    "as prop",
+    "渲染成别的标签"
+   ]
+  },
+  {
+   "canonical": "ref 转发",
+   "aliases": [
+    "forwardRef",
+    "ref as a prop",
+    "React 19",
+    "useImperativeHandle",
+    "命令式 API",
+    "imperative handle",
+    "open close handle",
+    "ref 透传"
+   ]
+  },
+  {
+   "canonical": "props 透传",
+   "aliases": [
+    "透传 props",
+    "spread props",
+    "剩余属性",
+    "props 合并优先级",
+    "merge priority",
+    "开放扩展",
+    "open for extension"
+   ]
+  },
+  {
+   "canonical": "v-model",
+   "aliases": [
+    "modelValue",
+    "update:modelValue",
+    "双向绑定",
+    "two-way binding",
+    "model modifiers",
+    "one-way data flow",
+    "props 单向流",
+    "Boolean casting"
+   ]
+  },
+  {
+   "canonical": "键盘契约",
+   "aliases": [
+    "roving tabindex",
+    "aria-activedescendant",
+    "单个 tab stop",
+    "tab sequence",
+    "焦点管理",
+    "keyboard interface",
+    "APG keyboard",
+    "focus vs selection"
+   ]
+  },
+  {
+   "canonical": "data 状态属性",
+   "aliases": [
+    "data-state",
+    "data-* 状态",
+    "状态属性",
+    "data attributes",
+    "样式钩子",
+    "状态暴露"
+   ]
+  },
+  {
+   "canonical": "API SemVer",
+   "aliases": [
+    "组件发版",
+    "component semver",
+    "改默认值",
+    "breaking change",
+    "codemod",
+    "迁移脚本",
+    "冻结面",
+    "deprecated prop"
+   ]
+  },
+  {
+   "canonical": "argTypes",
+   "aliases": [
+    "Storybook Controls",
+    "controls 面板",
+    "control false",
+    "table.disable",
+    "requiredFirst",
+    "props 文档",
+    "autodocs"
+   ]
+  },
+  {
+   "canonical": "组件库",
+   "aliases": [
+    "component library",
+    "组件库",
+    "design system 代码",
+    "headless ui",
+    "Radix",
+    "Ariakit",
+    "MUI slots",
+    "shadcn"
    ]
   }
  ]

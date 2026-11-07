@@ -53,6 +53,7 @@ ASSETS = [
     ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
     ("resources.md", "设计资源", "组件 / 图标 / 动效 3D / 字体配色"),
     ("design-ethics-inclusion.md", "设计伦理与包容性", "CPPA §7004 对称选择与步数测量 / §7003 可读性与 WCAG 2.1 引用 / EDPB 03-2022 v2.0 六类机制 / PIPL 14·15·16·17·24 五条 UI 底线 / 广告办法第 10 条一键关闭三数值 / 网络交易办法第 18 条 2025 修正与「前五日」反陈旧裁决 / 未成年人条例令第 766 号 42-45·47 / deceptive.design 现行 18 类 / 成瘾机制四红线 / Inclusive Design 七原则与 COGA 八目标 / 合规×包容四象限 / 18 场景决策矩阵 / 20 反模式 / 22 自检 / 4 段可抄代码（3 段 Python 已实跑，含陈旧法条守卫）"),
+    ("component-api-design.md", "组件 API 设计与组合模式", "三份所有权（状态 / 渲染 / 契约与演进）/ Radix `prop !== undefined` 与受控生命周期告警 / React `<input>` 受控契约 / 五种换元素 API（asChild mergeProps · Ariakit render · MUI slots/slotProps · Vue slots · children） / 开放扩展四条与合并优先级 / **React 19 forwardRef 反陈旧裁决**与命令式 ref 红线 / APG 键盘契约与单 tab stop / data-* 状态暴露 / **API SemVer 六冻结面 = MAJOR + codemod** / Storybook argTypes / TypeScript 可辨识联合 / 16 场景 / 20 反模式 / 22 自检 / 4 段代码（3 段 Python 实跑全 PASS）"),
     ("component-libraries.md", "组件库地图", "14 库元素覆盖矩阵（GitHub API 验证）"),
     ("tools.md", "制作工具", "开发 / AI / 截取 / 效率工具"),
     ("portfolios.md", "作品集", "一线从业者站点，用于审美校准"),

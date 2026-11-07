@@ -533,3 +533,17 @@
 - 统计一致性：`references/*.md` **32 份 / 约 769k 字符** → README 按四舍五入写 **约 77 万**（badges v26 / 32 / 2026-11-07 / 20 支线 / 120 自测 / 30 项自检），`SKILL.md` 第 0 步保守写 **77 万**；资产表 32 行与磁盘 32 文件一一对应；`aliases.json` **184 组 / `_weight: 0.45` / `_note` 未改**；`build_readme.py` 与 `mindmap.py` 均可重复运行且输出稳定。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+
+## 2026-11-07 · 导航与信息架构（Navigation & IA，每日升级 #23）
+
+- 需求：延续每日升级协议，第 23 轮只深挖一个主题。缺口判定用 `dp_search.py "导航 导航栏 菜单 面包屑 tabs 信息架构 汉堡 skip link"` 与 `grep -ric "导航栏\|面包屑\|skip link\|aria-current\|导航可访问性"`：命中零散分布于 `patterns.md`（导航栏构型）、`ux-writing.md`（导航标签文案）、`accessibility.md`（nav landmark/skip link/focus）、`responsive-layout.md`（侧栏数值/降级路径），**没有一份把导航当作独立知识体系（四类职责/形态决策/项数铁律/信息架构地基/面包屑/ARIA Tabs/移动端降级/当前位置指示/WCAG 2.4.x 导航口径/搜索协同）系统蒸馏**；原候选列表首位「docs-as-code 落地轮」属工程化支线，本轮按用户主指令「每日定时深度蒸馏设计网站」改选更贴合知识蒸馏的高频盲区「导航与信息架构」。**说明默认选择并继续**。
+- 取源与验证（官方原文 + 权威研究）：Apple HIG · Navigation（tab bar 5 项硬上限、sidebar、split view）、Material 3 Navigation（navigation bar 3–5 项 / rail 3–7 项 / drawer 在 Expressive 中被 expanded rail 取代）、Nielsen Norman Group（信息气味 / 汉堡菜单可发现性 / 3-click 规则迷思 / 主导航项数）、WCAG 2.4.x（2.4.1 Bypass Blocks / 2.4.2 Page Titled / 2.4.3 Focus Order / 2.4.5 Multiple Ways / 2.4.6 Headings / 2.4.7 Focus Visible）、WAI-ARIA APG（Tabs pattern 键盘契约 / disclosure 下拉键盘可达）、GOV.UK Navigation 组件模式。所有数值均来自官方原文与权威研究，未凭记忆写数字。
+- 三条最重要裁决：① **项数有科学依据**：米勒法则 7±2，全局主导航 5–9 项一组；底部 tab ≤5（Apple + Material 共识），第 6 项起体验断崖；侧栏无 5 项硬上限但每 7–9 项做视觉分组。② **深度优先于广度**：3-click 规则是迷思，用户只在乎每步「信息气味」（点下去得到什么）；宁可一层多并列、不要路径深 5 层；深度 ≤3（内容）/ ≤4（工具），分组按用户心智模型而非字母/字段序。③ **可访问性是及格线**：第一个可聚焦元素是 skip link（`#main`）；每个 `<nav>` 带可区分 `aria-label`；DOM 顺序=焦点顺序、禁 `tabindex>0`；WCAG 2.4.5 要求导航+搜索 ≥2 种找路方式；当前项用 ≥2 种视觉信号且含 `aria-current`，永不只靠颜色。
+- 另：Tabs ≠ 导航（`role="tab"` 只用于同一内容区并列视图，跨页跳转用导航+链接）；面包屑末级纯文字非链接且 `aria-current="page"`；移动端底部 tab ≤5、汉堡牺牲可发现性只在真放不下时用；窄屏无横向滚动（见 responsive-layout §9）；下拉/mega menu 键盘可开、可停留、Esc 关、不挡焦点（1.4.13）。
+- 接线：新增 `references/navigation-ia.md`（**14 节 / 约 480 行 / 20 反模式 / 20 自检 / 5 段可抄代码**）；`SKILL.md` **v26→v27**（frontmatter +导航触发词、资产表 +1 行含 `references/navigation-ia.md`（满足 wiring）、意图路由**表末追加 8 条不改既有顺序**、第 5 步新增「导航与信息架构（结构先于装饰）」原则段、第 6 步新增第 **31** 条导航关自检）；`scripts/build_readme.py` ASSETS +1 且「它解决什么问题」表 +1 行（导航让人迷路）；`scripts/mindmap.py` INTENTS +8；`references/knowledge-map.md` **20→21 支线（支线 U）/ 120→124 自测 / 门槛 ≥92**；`memory/aliases.json` **组数 184→185**（新增「导航」canonical +27 别名，**`_weight: 0.45` 与 `_note` 未改，只进检索层、不改路由优先级**）；用户显式指定的外部 `Design-related websites.txt` 追加「十二、导航与信息架构」分区 10 条源，**其余文件与文件夹一律未动**。
+- 检索门槛：新主题 **8/8 PASS**（`dp_search.py "导航与信息架构"` / `导航栏 菜单 汉堡 tab` / `面包屑 当前位置 aria-current` / `ARIA Tabs 键盘契约` / `skip link 导航可访问性` / `信息架构 3-click 迷思 信息气味` / `底部 tab 移动端导航` / `导航项数 米勒法则`，全部命中 `navigation-ia.md` 前 3）；历史回归抽查 6 条（暗色模式 surface、表单校验、动效曲线、图标网格、设计伦理、中文排版）**排序零退化、新文件未污染**；`--no-alias` 下 top1 仍为新资产，别名只补召回。
+- 接线体检：`python scripts/mindmap.py --check` → **未接线 0 / 已失联 0**（上轮 34 文件）。口径纪律：体检文件数含 `SKILL.md` 与 memory 侧文档，与 README 只统计 `references/*.md` 的「33 份」口径不同、不冲突。
+- 统计一致性：`references/*.md` **33 份** → README/SKILL.md 统计由脚本实时生成，不手写；资产表 33 行与磁盘 33 文件一一对应；`aliases.json` **185 组 / `_weight: 0.45` / `_note` 未改**；`build_readme.py` 与 `mindmap.py` 均可重复运行且输出稳定。
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 
 你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
 
-**当前版本 v26 · 2026-11-07**
+**当前版本 v27 · 2026-11-07**
 
 **v26 基线**（v25→v26 新增：**图标设计系统（Iconography）**——图标是「视觉速记」不是装饰，本轮只深挖一个主题。**三条最重要裁决**：① **24×24 viewBox 是行业事实标准**，同一 keyline（圆⌀20/方18/矩20×16）同形状才视觉重量一致，跨库碎片化的根因是网格不统一。② **描边二选一且全库统一**：固定 `stroke-width=2`（Lucide 系）或光学缩放（Material 系），混用会让视觉抖动；圆头圆角、圆角 1–2px。③ **可访问性铁律**：装饰图标 `aria-hidden="true"` **且** `focusable="false"`，有意义/icon-only 必带可访问名，非文本对比度 ≥3:1，**永不只靠颜色**。另：spinner `1–1.4s linear infinite` 且 `prefers-reduced-motion` 降级；图标字体整库必须 `aria-hidden`；`currentColor` 让暗色零改图；图标-文字间距默认 8px（最小 4px）；可点图标命中区 ≥44px。22 节 / 470 行 / 19.5k 字符 / 12 场景 / 20 反模式 / 20 自检 / 4 段可抄代码；Lucide 25.6k★·Tabler 22.6k★·Fluent 11k★·Radix 2.7k★ GitHub API 实测，Material Symbols Apache-2.0（字体 295KB→1.7KB 子集化））
 
@@ -70,6 +70,7 @@ description: 设计伙伴——把模糊的想法变成有品味的设计决策�
 | `references/component-api-design.md` | **组件 API 设计与组合模式**：三份所有权（状态 / 渲染 / 契约与演进）+ Radix `useControllableState` 源码 `prop !== undefined` 与生命周期切换告警 + React `<input>` 受控契约 + 组合优于继承与**五种换元素 API**（`asChild` `mergeProps` / Ariakit `render` 元素形态与 render function 分界 / MUI `component`·`slots`·`slotProps` / Vue slots·`v-model` / children·render prop）+ 开放扩展四条与 props 合并优先级 + **React 19 `forwardRef` 反陈旧裁决**与「别暴露 open/close」命令式 ref 红线 + API surface 十类字段与回调契约 + APG 键盘契约（单 tab stop / roving tabindex / focus≠selection / dialog 焦点返回）+ `data-*` 状态暴露 + **API SemVer 六冻结面（改默认值=MAJOR，必带 codemod）** + Storybook `argTypes` + TypeScript 可辨识联合 + 16 场景矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 实跑全 PASS） + 15 仓库 GitHub API 实测 | **任何写组件 props / 受控非受控 / 组合与插槽 / asChild 换元素 / ref 转发 / 复合组件键盘契约 / 组件库发版与迁移 / Storybook Controls / 组件 API 难用诊断** |
 | `references/design-measurement-research.md` | **设计度量与用户研究**：ISO 9241-11 可用性三要素（有效性/效率/满意度）+ 任务级指标（成功率/错误率/时长/SE 满意度）+ SUS/UMUX-Lite/SEQ/SUPR-Q/NPS 计分与基准（SUS 68 基准、一致作答恒 50）+ Google HEART 五维三层落地 + 样本量公式（定性 5 人≈84%、定量 `n≈Z²p(1−p)/E²`）+ 研究方法 2×2 与卡片分类/树测试 + 可用性测试（主持/非主持、出声思考、任务脚本）+ 问卷偏差避坑 + A/B 统计（双比例 z 检验、MDE、95% CI 跨 0 即无 winner、护栏指标、序贯检验、随机单元）+ 行为分析与漏斗 + 证据分级与三角验证 + 研究 ops 与工具矩阵 + 12 场景决策矩阵 + 20 反模式 + 20 自检 + 4 段可抄代码（Python 全实跑） | **任何「这个设计到底好不好/用户会不会用/改版有没有效/该不该上线 A/B/要不要做可用性测试/样本量多少/满意度怎么量化/SUS 多少分算好/HEART 怎么落地」** |
 | `references/iconography.md` | **图标设计系统**：何时用图标/文字/两者决策树 + 24×24 viewBox 网格与 keyline（圆⌀20·方18·矩20×16）+ 描边（Lucide stroke=2 / Heroicons 1.5 / Carbon 1.5 / Material wght 100–700·GRAD −50..200·FILL 0–1，圆头圆角、固定 vs 光学缩放二选一）+ 尺寸阶梯 12/16/20/24/32/48 + 图标-文字间距 8px（最小 4px）+ 填充/描边/双色决策 + 光学对齐与过冲 + 状态图标（spinner 1–1.4s linear infinite）+ 交付格式（内联 SVG / Sprite / 字体 295KB→1.7KB 子集 / 组件）+ 可访问性（装饰 aria-hidden+focusable=false / 有意义 role=img+aria-label / 非文本对比度 ≥3:1 / 永不只靠颜色）+ 动画与 reduced-motion 降级 + kebab-case 命名与交付清单 + 库选型矩阵（Lucide 25.6k★/Tabler 22.6k★/Fluent 11k★/Radix 2.7k★ GitHub API 实测）+ 与 8 份既有参考接线 + 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码 | **任何图标设计 / Iconography / 图标系统 / 图标网格 / 图标描边 / 图标尺寸 / 图标与文字间距 / 图标字体 vs SVG / 图标可访问性 / spinner / 加载转圈 / 图标库选型（Lucide/Heroicons/Material/Tabler）** |
+| `references/navigation-ia.md` | **导航与信息架构**：四类职责谱系（全局/局部/上下文/辅助）+ 形态决策矩阵（tab/侧栏/汉堡/rail/drawer）+ 项数铁律（米勒 7±2·全局 5–9·底部 ≤5）+ 深度 vs 广度（3-click 迷思/信息气味/卡片分类·树测试）+ 面包屑三型 + ARIA Tabs 键盘契约 + 移动端降级（Apple ≤5·Material bar/rail/drawer）+ 当前位置指示（aria-current）+ WCAG 2.4.x 导航口径 + 搜索协同 + 20 反模式 + 20 自检 + 5 段可抄代码 | **任何导航栏/菜单/侧边栏/底部 tab/汉堡/面包屑/tabs/网站结构/信息架构/移动端导航/导航可访问性/skip link/搜索框/当前位置指示** |
 | `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
 | `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
 | `references/resources.md` | 组件/图标/动效3D/字体配色（201 条） | 需要设计资产 |
@@ -261,6 +262,14 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 | **图标可访问性** | "图标读屏读不出""装饰图标要 aria 吗""icon-only 按钮怎么命名""图标对比度不够" | `iconography.md` §10（装饰 `aria-hidden`+`focusable=false` / 有意义 `role=img`+`aria-label` / icon-only 按钮命名 / 非文本对比度 ≥3:1 / 永不只靠颜色） |
 | **加载转圈 / spinner / 状态图标** | "转圈怎么转""loading 图标""spinner 转太快""加载动画" | `iconography.md` §8（1–1.4s linear infinite）+ §11（`prefers-reduced-motion` 降级） |
 | **图标库选型** | "用哪个图标库""Lucide 还是 Heroicons""Material Icons 怎么用""图标库 star" | `iconography.md` §13 库选型矩阵（Lucide 25.6k★/Tabler 22.6k★/Fluent 11k★/Radix 2.7k★ GitHub API 实测）+ 选型三问 |
+| **导航 / 导航栏 / 菜单 / 信息架构** | "导航怎么设计""菜单放几个""侧边栏还是顶部""汉堡还是 tab""导航栏布局""网站结构" | **先读 `navigation-ia.md` §1 四类职责 → §2 形态决策 → §3 项数铁律 → §7 移动端降级** |
+| **信息架构 / 网站结构 / 菜单组织** | "网站结构怎么规划""菜单怎么分组""层级多深合适""栏目怎么排""导航项放几个" | `navigation-ia.md` §4（深度 vs 广度 / 3-click 迷思 / 信息气味 / 卡片分类·树测试） |
+| **面包屑 / 当前位置** | "面包屑怎么写""怎么告诉用户在第几层""当前页要不要可点" | `navigation-ia.md` §5（位置型/属性型/路径型 + 末级非链接 + aria-current） |
+| **标签页 Tabs** | "TAB 怎么设计""标签页还是侧栏""tab 键盘怎么管""ARIA tabs" | `navigation-ia.md` §6（APG tabs 键盘契约 + tabpanel + 何时用 tabs vs 侧栏） |
+| **底部 Tab / 移动端导航 / 汉堡** | "移动端导航怎么做""底部几个 tab""汉堡菜单好不好" | `navigation-ia.md` §7（Apple ≤5 项 / Material bar·rail·drawer / NN/g 可发现性）+ `responsive-layout.md` §9 降级路径 |
+| **当前位置指示 / 激活态 / you are here** | "怎么标当前页""激活态怎么设计""aria-current" | `navigation-ia.md` §8（≥2 信号 + aria-current + 聚焦态独立） |
+| **导航可访问性 / skip link / 地标** | "导航读屏怎么读""跳过导航怎么加""nav aria-label" | `navigation-ia.md` §9（2.4.1 skip link / 1.3.1 landmark / 2.4.5 multiple ways / 2.4.7 焦点）+ `accessibility.md` §3 |
+| **搜索与导航** | "要不要加搜索""搜索框怎么放""搜索零结果" | `navigation-ia.md` §10（搜索是导航备份 + 占位符写示例 + 零结果三件套） |
 
 ### 第 2 步 · 完善需求（设计 brief 澄清）
 
@@ -374,6 +383,16 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 - 描边二选一并全库统一：固定 `stroke-width=2`（Lucide 系）或光学缩放（Material 系）；圆头圆角、圆角 1–2px（`iconography.md` §3）。
 - 尺寸阶梯 **12/16/20/24/32/48** 密度驱动；图标-文字间距默认 **8px**（最小 4px）；用 `currentColor` 控色，暗色零改图（`iconography.md` §4/§5/§12）。
 - 可访问性铁律：装饰图标 `aria-hidden="true"` **且** `focusable="false"`；有意义/icon-only 必带可访问名；非文本对比度 ≥3:1；**永不只靠颜色**（`iconography.md` §10）。
+
+**导航与信息架构（结构先于装饰）**
+- **先分四类职责**：全局（跨站常驻）/ 局部（当前区域下钻）/ 上下文（内容体内相关跳转）/ 辅助（页脚·帮助）——别把页脚链接或上下文链接塞进主导航；先定性再用形态（`navigation-ia.md` §1）。
+- **项数有科学依据**：米勒法则 **7±2**，全局主导航 **5–9 项**一组；底部 tab **≤5 项**（Apple + Material 共识）；侧栏无 5 项硬上限，但每 7–9 项做一次视觉分组（`navigation-ia.md` §3）。
+- **形态按场景选**：≤5 同级顶级 → 底部 tab / 顶部水平；6–12 → 侧栏；≥13 或层级深 → 汉堡抽屉（**牺牲可发现性**，只在真放不下时用）；内容区并列视图用 tabs，**不是**主导航（`navigation-ia.md` §2）。
+- **深度优先于广度**：3-click 规则是迷思，用户只在乎每步的「信息气味」（点下去得到什么）；宁可一层多并列、不要路径深 5 层；深度 ≤3（内容）/ ≤4（工具）（`navigation-ia.md` §4）。
+- **当前位置必须有 ≥2 种信号**：颜色 + 字重 + 图标 + 左条至少两项，**永不只靠颜色**；机器端用 `aria-current="page"`，纯 CSS 高亮对读屏无效（`navigation-ia.md` §8）。
+- **可访问性是及格线**：第一个可聚焦元素是 skip link（`#main`）；每个 `<nav>` 带可区分 `aria-label`；DOM 顺序 = 焦点顺序、禁 `tabindex>0`；WCAG 2.4.5 要求导航 + 搜索 ≥2 种找路方式（`navigation-ia.md` §9）。
+- **Tabs ≠ 导航**：`role="tab"` 只用于同一内容区的并列视图，跨页跳转用导航 + 链接；面板 `role="tabpanel"` + `aria-labelledby` + 键盘 ←/→/Home/End（`navigation-ia.md` §6）。
+- 完整形态决策矩阵、项数铁律、信息架构地基、面包屑三型、Tabs 键盘契约、移动端降级、当前位置指示、WCAG 2.4.x 导航口径、搜索协同、20 反模式、20 自检、5 段可抄代码 → **`navigation-ia.md`**。
 
 **动效（有目的才动）**
 - 三种合法用途：反馈、引导（空间关系/过程）、个性（品牌表达，每页 ≤ 1 处）。纯装饰删掉。
@@ -729,6 +748,8 @@ python scripts/dp_search.py --topic       # 不确定关键词时，先看全部
 29. **度量关**（任何「这个设计好不好 / 改版有没有效 / 要不要上线 A/B / 满意度怎么量化」都要过）：先判了**要度量什么**（有效性/效率/满意度/转化/留存），三件分开度量、没有拿满意度替任务成功率？定性研究**样本量按结论需要定**（5 人≈84% 问题暴露，没为了「显得科学」硬凑 200 人问卷）？定量结论报了**样本量 + 方法 + 95% CI**，没有只甩一个百分比？SUS 用了**奇偶数反向计分 ×2.5**，知道一致作答恒为 50 是特性不是缺陷、68 是基准不是及格线？A/B 报了**相对提升 + 95% CI（CI 跨 0 即无 winner）+ 护栏指标**，随机单元=用户、序贯检验管住了 alpha，没把 p<0.05 当「值得上线」？可用性与无障碍**两张表分别签字**，没拿「我们没恶意」替已知缺陷辩护？研究方法选型对（IA 用卡片分类/树测试、发现问题用出声思考、推总体用问卷/实验），没拿问卷去发现用户说不出自己卡哪的可用性 bug？最后：`§21.1`/`§21.2`/`§21.3`/`§21.4` 四段 Python 都跑过了吗（问题暴露率/比例样本量/SUS 计分/A/B z 检验）？
 
 30. **图标关**（界面有用图标 / 图标按钮 / spinner / 图标字体时都要过）：每个图标 **viewBox 都是 `0 0 24 24`**？装饰图标 **`aria-hidden` + `focusable="false"`** 了吗、图标字体整库 **`aria-hidden`** 了吗？每个有意义 / icon-only 图标**有可访问名**？有意义图标**对比度 ≥3:1**？状态**至少有形状+颜色+文字两样**、没只靠颜色？描边策略全库统一、小尺寸**单独优化稿**非大图缩放？图标-文字间距 **≥4px（默认 8px）**？可点图标**命中区 ≥44px**？用 **`currentColor`**、暗色零改图？spinner **`1–1.4s linear infinite`** 且 **`prefers-reduced-motion` 降级**？RTL 下方向性图标**镜像**了？命名 **kebab-case** 统一？最后：`iconography.md` §17 的 20 项自检逐条过？
+
+31. **导航关**（有全局/局部/移动端导航 / 菜单 / 面包屑 / tabs / 搜索时都要过）：主导航项 ≤9 且做了视觉分组？底部 tab ≤5、核心功能没全藏抽屉？每个导航项用名词、同级平行、≤4 字？当前项用 ≥2 种视觉信号且含 `aria-current`？第一个可聚焦元素是 skip link 且指向 `#main`？每个 `<nav>` 都有可区分的 `aria-label`？面包屑末级是纯文字非链接？tabs 用 ARIA tab pattern、键盘 ←/→/Home/End 可达？下拉/mega menu 键盘可开、可停留、Esc 关、不挡焦点？焦点顺序 = DOM 顺序、无 `tabindex>0`？导航链接焦点框 ≥2px 且变化 ≥3:1？搜索与导航并存（≥2 种找路方式，2.4.5）？搜索框占位符写具体示例而非「搜索」？搜索零结果给「换词/清除/联系」三件套？信息架构深度 ≤3（内容）/ ≤4（工具）、广度靠分组而非深路径？分组按用户心智模型非字母序？窄屏导航无横向滚动？激活态与聚焦态视觉可区分？最后：`navigation-ia.md` §12 的 20 项自检逐条过？
 
 **交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
 

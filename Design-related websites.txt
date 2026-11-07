@@ -105,3 +105,15 @@
 - https://phosphoricons.com/ | Phosphor Icons：regular/bold/duotone/fill/thin 多档、React/Vue/Web 多端
 - https://tabler.io/icons | Tabler Icons：22.6k★(MIT)、stroke 2、海量 5k+ 线性图标
 - https://www.figma.com/resource-library/icon-design-guides/ | Figma 官方图标设计指南（网格/对齐/导出）
+
+## 十二、导航与信息架构（Navigation / Information Architecture）【本轮新增分区】
+- https://developer.apple.com/design/human-interface-guidelines/navigation | Apple HIG · Navigation：tab bar 5 项硬上限、split view、sidebar 规范原文
+- https://m3.material.io/foundations/navigation | Material 3 Navigation：navigation bar（3–5 项）/ navigation rail（3–7 项）/ navigation drawer（Expressive 中改由 expanded rail 取代）
+- https://www.nngroup.com/articles/navigation/ | NN/g 导航设计权威结论库（信息气味 / 汉堡菜单可发现性 / 3-click 迷思 / 主导航项数）
+- https://www.w3.org/WAI/WCAG22/Understanding/ | WCAG 2.4.x 导航类成功准则（2.4.1 Bypass Blocks / 2.4.2 Page Titled / 2.4.3 Focus Order / 2.4.5 Multiple Ways / 2.4.6 Headings / 2.4.7 Focus Visible）
+- https://www.w3.org/WAI/ARIA/apg/patterns/tabs/ | WAI-ARIA Authoring Practices · Tabs pattern（键盘契约 / tablist / tabpanel）
+- https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/ | APG disclosure（下拉/mega menu 键盘可达规范）
+- https://design-system.service.gov.uk/components/ | GOV.UK 导航与面包屑组件模式（活文档 / 信息架构）
+- https://alistapart.com/article/the-disclosure-triangle/ | 信息架构与 disclosure 模式经典文献
+- https://xd.adobe.com/ideas/principles/navigation-ux/ | Adobe XD 导航 UX 原则（项数 / 分组 / 当前位置）
+- https://www.smashingmagazine.com/2018/03/navigation-patterns-web-applications/ | 导航模式与面包屑实战

@@ -61,6 +61,14 @@ INTENTS = [
     ("ref 转发 / React 19 forwardRef / 复合组件键盘 / roving tabindex / 组件发版 SemVer / argTypes", "component-api-design.md §9 反陈旧裁决 · §12 APG 键盘契约 · §14 API SemVer 六冻结面 · §15 Storybook argTypes · §20 脚本"),
     ("设计度量 / 用户研究 / 可用性测试 / SUS / 样本量 / HEART / A-B 测试", "design-measurement-research.md §0 分层导语 · §1 度量三步法 · §3 任务级指标 · §4 SUS/UMUX · §5 问卷量表 · §7 样本量 · §11 A/B 统计"),
     ("满意度怎么量化 / 改版有没有效 / 要不要上线 A-B / 该做多少人的研究", "design-measurement-research.md §21 四段可抄代码（问题暴露率·比例样本量·SUS 计分·A/B z 检验）· §23 接线与其他资产"),
+    ("导航 / 导航栏 / 菜单 / 信息架构", "navigation-ia.md §1 四类职责 → §2 形态决策 → §3 项数铁律 → §7 移动端降级"),
+    ("信息架构 / 网站结构 / 菜单组织", "navigation-ia.md §4（深度 vs 广度 / 3-click 迷思 / 信息气味 / 卡片分类·树测试）"),
+    ("面包屑 / 当前位置", "navigation-ia.md §5（位置型/属性型/路径型 + 末级非链接 + aria-current）"),
+    ("标签页 Tabs", "navigation-ia.md §6（APG tabs 键盘契约 + tabpanel + 何时用 tabs vs 侧栏）"),
+    ("底部 Tab / 移动端导航 / 汉堡", "navigation-ia.md §7（Apple ≤5 项 / Material bar·rail·drawer / NN/g 可发现性）+ responsive-layout §9 降级路径"),
+    ("当前位置指示 / 激活态 / you are here", "navigation-ia.md §8（≥2 信号 + aria-current + 聚焦态独立）"),
+    ("导航可访问性 / skip link / 地标", "navigation-ia.md §9（2.4.1 skip link / 1.3.1 landmark / 2.4.5 multiple ways / 2.4.7 焦点）+ accessibility §3"),
+    ("搜索与导航", "navigation-ia.md §10（搜索是导航备份 + 占位符写示例 + 零结果三件套）"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

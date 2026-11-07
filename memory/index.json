@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T11:54:36",
+ "generated": "2026-11-07T12:58:03",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 779,
-   "chars": 127369,
+   "lines": 800,
+   "chars": 130399,
    "sections": []
   },
   {
@@ -6633,8 +6633,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 535,
-   "chars": 45710,
+   "lines": 548,
+   "chars": 46584,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7010,23 +7010,31 @@
      "title": "支线 T · 图标设计系统（Iconography，视觉速记不是装饰）",
      "summary": "- 先判图标还是文字：图形比文字更快被识别时才用图标；歧义或首现品牌图标配文字，正文与导航一级用文字（见 iconography.md §1 决策树）。",
      "line": 374,
-     "chars": 959
+     "chars": 954
+    },
+    {
+     "id": "支线-u-导航与信息架构-结构先于装饰-用户只问两个问题-我在这-怎么去那",
+     "level": 3,
+     "title": "支线 U · 导航与信息架构（结构先于装饰，用户只问两个问题：我在这、怎么去那）",
+     "summary": "- 先分四类职责：全局（跨站常驻）/ 局部（区域下钻）/ 上下文（内容体内跳转）/ 辅助（页脚·帮助）；把页脚或上下文链接塞进主导航是头号错配。",
+     "line": 384,
+     "chars": 668
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 386,
+     "line": 395,
      "chars": 311
     },
     {
-     "id": "能力自测-120-条-做到-92-条即达-l2",
+     "id": "能力自测-124-条-做到-92-条即达-l2",
      "level": 2,
-     "title": "能力自测（120 条，做到 ≥92 条即达 L2+）",
+     "title": "能力自测（124 条，做到 ≥92 条即达 L2+）",
      "summary": "L0",
-     "line": 400,
-     "chars": 8310
+     "line": 409,
+     "chars": 8477
     }
    ]
   },
@@ -8102,6 +8110,175 @@
      "summary": "",
      "line": 847,
      "chars": 1884
+    }
+   ]
+  },
+  {
+   "path": "references/navigation-ia.md",
+   "title": "导航与信息架构 · Navigation & Information Architecture",
+   "snapshot": "—",
+   "lines": 278,
+   "chars": 10219,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "0. 一句话立场",
+     "summary": "导航不是「放几个链接」，是「替用户画一张随时能找到自己的地图」。 任何界面在用户眼里只有两个问题：我在这、怎么去那。其余一切（菜单数量、汉堡还是 tab、面包屑、搜索）都是为这两个问题服务。可访问性是这条线的及格线——键盘到不了、读屏念不出",
+     "line": 6,
+     "chars": 142
+    },
+    {
+     "id": "1-导航的四类职责-先分清楚再用形态",
+     "level": 2,
+     "title": "1. 导航的四类职责（先分清楚再用形态）",
+     "summary": "关键判断：一个产品的导航混乱，90% 不是「链接太少/太多」，而是四类职责混在同一根线上（把 footer 链接塞进主导航、把上下文链接做成主导航项）。先给每根线定性，再选形态。",
+     "line": 12,
+     "chars": 449
+    },
+    {
+     "id": "2-形态决策矩阵-什么时候用什么",
+     "level": 2,
+     "title": "2. 形态决策矩阵（什么时候用什么）",
+     "summary": "响应式降级路径（与 responsive-layout.md 对齐）：<768 → 汉堡或底部 tab（≤5 项）；768–1023 → 顶部导航 / 图标条；≥1024 → 常驻侧栏 / 双层。折叠侧栏 64px、展开 208–240px",
+     "line": 25,
+     "chars": 764
+    },
+    {
+     "id": "3-项数铁律-数量是有科学依据的-不是审美",
+     "level": 2,
+     "title": "3. 项数铁律（数量是有科学依据的，不是审美）",
+     "summary": "- 米勒法则（Miller's Law）：工作记忆容量约 7±2；导航项按 5–9 分组是舒适上限。超过就靠视觉分组 / 二级折叠，不要硬排一行。",
+     "line": 40,
+     "chars": 397
+    },
+    {
+     "id": "4-信息架构地基-深度-vs-广度",
+     "level": 2,
+     "title": "4. 信息架构地基（深度 vs 广度）",
+     "summary": "- 3-click 规则是迷思：NN/g 反复实证——用户不在乎点击次数，只在乎每一步是否知道「点下去会得到什么」（信息气味，information scent）。把树压到 3 层但每层气味稀薄，比 5 层但气味浓更糟。",
+     "line": 51,
+     "chars": 423
+    },
+    {
+     "id": "5-面包屑-breadcrumb",
+     "level": 2,
+     "title": "5. 面包屑（Breadcrumb）",
+     "summary": "位置纪律：面包屑第一项通常是首页/全站名；当前页项禁用 href 且 aria-current=\"page\"；移动端空间不够可省略，但不能用面包屑替代主导航的可达性。responsive-layout.md 已述窄屏表格纪律，面包屑同理——",
+     "line": 61,
+     "chars": 425
+    },
+    {
+     "id": "6-标签页-tabs-aria-的正确打开方式",
+     "level": 2,
+     "title": "6. 标签页 Tabs（ARIA 的正确打开方式）",
+     "summary": "- Tabs ≠ 导航：了一个最常见的职责错配——用 ARIA role=\"tab\" 做整站主导航是错误。Tabs 表示「同一内容区内的并列视图」，切换不应改变页面 URL/上下文；跨页面的跳转用链接 + 导航 landmark。",
+     "line": 73,
+     "chars": 468
+    },
+    {
+     "id": "7-移动端导航降级",
+     "level": 2,
+     "title": "7. 移动端导航降级",
+     "summary": "- 底部 tab ≤5 项：Apple HIG 与 Material 共识；图标 + 文字标签（icon-only 在底部 tab 上可，但需 aria-label）。",
+     "line": 82,
+     "chars": 480
+    },
+    {
+     "id": "8-当前位置指示-you-are-here",
+     "level": 2,
+     "title": "8. 当前位置指示（\"You are here\"）",
+     "summary": "- 必须有激活态：当前导航项用颜色 + 字重 + 图标 + 左侧指示条至少两项组合，永不只靠颜色（WCAG 1.4.1）。",
+     "line": 91,
+     "chars": 289
+    },
+    {
+     "id": "9-可访问性导航-及格线-不是加分项",
+     "level": 2,
+     "title": "9. 可访问性导航（及格线，不是加分项）",
+     "summary": "地标纪律：一个页面最多一个 banner(<header)、一个 contentinfo(<footer)、一个 main；导航用 nav 且多 nav 各带 aria-label。读屏用户靠 landmark 跳转，「裸」div 导航等于",
+     "line": 100,
+     "chars": 1098
+    },
+    {
+     "id": "10-搜索与导航协同",
+     "level": 2,
+     "title": "10. 搜索与导航协同",
+     "summary": "- 搜索是导航的备份，不是替身：WCAG 2.4.5 要求「多种找路方式」，导航 + 搜索二者至少并存；纯靠搜索 = 用户先猜关键词。",
+     "line": 120,
+     "chars": 399
+    },
+    {
+     "id": "11-反模式-20-条",
+     "level": 2,
+     "title": "11. 反模式 20 条",
+     "summary": "1. 全局主导航塞进 9+ 项还不分组",
+     "line": 130,
+     "chars": 565
+    },
+    {
+     "id": "12-自检-20-项",
+     "level": 2,
+     "title": "12. 自检 20 项",
+     "summary": "1. [ ] 主导航项 ≤9 且做了视觉分组？",
+     "line": 155,
+     "chars": 709
+    },
+    {
+     "id": "13-可抄代码",
+     "level": 2,
+     "title": "13. 可抄代码",
+     "summary": "html",
+     "line": 180,
+     "chars": 1
+    },
+    {
+     "id": "13-1-skip-link-语义导航骨架",
+     "level": 3,
+     "title": "13.1 Skip link + 语义导航骨架",
+     "summary": "",
+     "line": 182,
+     "chars": 1
+    },
+    {
+     "id": "13-2-响应式导航-桌面侧栏-移动抽屉",
+     "level": 3,
+     "title": "13.2 响应式导航（桌面侧栏 / 移动抽屉）",
+     "summary": "",
+     "line": 213,
+     "chars": 1
+    },
+    {
+     "id": "13-3-aria-tabs-键盘处理-手动激活",
+     "level": 3,
+     "title": "13.3 ARIA Tabs 键盘处理（手动激活）",
+     "summary": "",
+     "line": 225,
+     "chars": 1
+    },
+    {
+     "id": "13-4-面包屑-位置型-末级非链接",
+     "level": 3,
+     "title": "13.4 面包屑（位置型，末级非链接）",
+     "summary": "",
+     "line": 246,
+     "chars": 1
+    },
+    {
+     "id": "13-5-搜索框-combobox-联想-apg-pattern-节选",
+     "level": 3,
+     "title": "13.5 搜索框 + combobox 联想（APG pattern 节选）",
+     "summary": "---",
+     "line": 257,
+     "chars": 6
+    },
+    {
+     "id": "14-与其他参考的接线",
+     "level": 2,
+     "title": "14. 与其他参考的接线",
+     "summary": "- 项数/分组 → 本节 §3、§4（米勒 7±2、深度≤3）",
+     "line": 269,
+     "chars": 368
     }
    ]
   },
@@ -10805,8 +10982,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 535,
-   "chars": 65637,
+   "lines": 549,
+   "chars": 68509,
    "sections": []
   }
  ],

@@ -2486,6 +2486,38 @@
     "2x2 研究方法",
     "研究设计"
    ]
+  },
+  {
+   "canonical": "导航",
+   "aliases": [
+    "navigation",
+    "nav",
+    "navbar",
+    "菜单",
+    "menu",
+    "侧边栏",
+    "sidebar",
+    "汉堡菜单",
+    "hamburger",
+    "汉堡",
+    "面包屑",
+    "breadcrumb",
+    "标签页",
+    "tabs",
+    "信息架构",
+    "IA",
+    "information architecture",
+    "当前位置",
+    "you are here",
+    "skip link",
+    "跳转链接",
+    "全局导航",
+    "底部导航",
+    "tab bar",
+    "主导航",
+    "导航栏",
+    "菜单项"
+   ]
   }
  ]
 }

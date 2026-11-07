@@ -2568,6 +2568,51 @@
         "sRGB",
         "色域"
       ]
+    },
+    {
+      "canonical": "风格",
+      "aliases": [
+        "视觉风格",
+        "风格谱系",
+        "设计运动",
+        "设计风格",
+        "视觉调性",
+        "做成XX感觉",
+        "做成XX那种感觉",
+        "高级感",
+        "复古感",
+        "科技感",
+        "温暖感",
+        "视觉语言",
+        "极简风",
+        "扁平风",
+        "拟物",
+        "skeuomorphism",
+        "玻璃拟态",
+        "glassmorphism",
+        "新拟态",
+        "neumorphism",
+        "soft ui",
+        "野兽派",
+        "brutalism",
+        "新野兽派",
+        "neo-brutalism",
+        "瑞士风格",
+        "swiss style",
+        "孟菲斯",
+        "memphis",
+        "y2k",
+        "赛博朋克",
+        "cyberpunk",
+        "极繁",
+        "maximalism",
+        "极简主义",
+        "minimalism",
+        "便当盒",
+        "bento",
+        "黏土风",
+        "claymorphism"
+      ]
     }
   ]
 }

@@ -141,3 +141,20 @@
 - https://github.com/radix-ui/colors | Radix 12 步色阶（语义档定义）
 - https://m3.material.io/styles/color/creating-a-color-scheme | M3 tonal palette 生成
 - https://github.com/adobe/leonardo | Adobe Leonardo：以目标对比度反解颜色
+
+## 十五、视觉风格谱系与设计运动（Visual Style Taxonomy）【本轮新增分区】
+- https://www.interaction-design.org/literature/topics/design-history | IxDF 设计史：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / 企业识别系统 / Skeuomorphic→Flat 编年原文
+- https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6 | Malewicz 2019-12-17 一手原文：Jason Kelley 评论区造词 Neuomorphism、Malewicz 去 "o" 定型（纠正「Malewicz 命名」二手误写）
+- https://uxplanet.org/neumorphism-design-the-future-of-ui-ux-design-d4dc01c6a382 | UX Planet：Plyuto 2019 引爆、低对比/单色/微阴影三特征、CTA 不可见等可访问性批评
+- https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking | Alexander Plyuto《Skeuomorph Mobile Banking》新拟态引爆原作
+- https://www.zcool.com.cn/article/ZMTIwNDU5Mg==.html | 站酷 UX 辞典：Glassmorphism 与新拟态关系（中文侧交叉验证）
+- https://baike.baidu.com/item/%E6%96%B0%E6%8B%9F%E6%80%81/67902981 | 百度百科「新拟态」：单光源双内阴影定义与可见性局限（中文侧交叉验证）
+- https://webflow.com/blog | Webflow Blog：网页设计风格史与趋势编年
+- https://www.canva.com/learn/design-wiki/ | Canva Design Wiki：设计风格词条释义
+- https://www.nngroup.com/articles/ | NN/g：视觉一致性、风格与可用性关系（不要用风格掩盖信息层级）
+- https://www.deceptive.design/types | 关联：风格潮流不得用于伪装操作（见 design-ethics-inclusion.md）
+- https://mobbin.com/ | 真实产品风格快照（四维信号标注的取样源）
+- https://www.awwwards.com/ | 获奖视觉校准与潮流引爆观察
+- https://github.com/Calinou/awesome-design | [GH] UI/UX 高质量资源策展（GitHub API 实测 10★，无 license 声明）
+- https://github.com/bradtraversy/design-resources-for-developers | [GH] 设计资源合集（GitHub API 实测 67,340★ / MIT）
+- https://github.com/VoltAgent/awesome-design-md | [GH] 真实产品 DESIGN.md（GitHub API 实测 MIT；风格 DNA 速查源）

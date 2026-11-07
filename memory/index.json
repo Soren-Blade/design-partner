@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T14:05:44",
+ "generated": "2026-11-07T22:21:10",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 824,
-   "chars": 134683,
+   "lines": 843,
+   "chars": 137545,
    "sections": []
   },
   {
@@ -7059,8 +7059,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 569,
-   "chars": 48373,
+   "lines": 585,
+   "chars": 49474,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7271,9 +7271,9 @@
      "chars": 43
     },
     {
-     "id": "十九条专题支线-可与主线并行",
+     "id": "二十四条专题支线-可与主线并行",
      "level": 2,
-     "title": "十九条专题支线（可与主线并行）",
+     "title": "二十四条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -7471,11 +7471,19 @@
      "chars": 311
     },
     {
-     "id": "能力自测-128-条-做到-92-条即达-l2",
-     "level": 2,
-     "title": "能力自测（128 条，做到 ≥92 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-x-视觉风格谱系与设计运动-把-感觉-翻译成信号",
+     "level": 3,
+     "title": "支线 X · 视觉风格谱系与设计运动（把\"感觉\"翻译成信号）",
+     "summary": "- 这是什么：用户说\"做成 XX 那种感觉 / 高级感 / 科技感\"时，不直接套词，而是拆成 Typography / Color / Shape&Material / Motion&Space 四维信号再落成 token。与 design",
      "line": 426,
+     "chars": 1065
+    },
+    {
+     "id": "能力自测-132-条-做到-92-条即达-l2",
+     "level": 2,
+     "title": "能力自测（132 条，做到 ≥92 条即达 L2+）",
+     "summary": "L0",
+     "line": 442,
      "chars": 8677
     }
    ]
@@ -11421,11 +11429,340 @@
    ]
   },
   {
+   "path": "references/visual-style-taxonomy.md",
+   "title": "视觉风格谱系与设计运动（Visual Style Taxonomy）",
+   "snapshot": "2026-11-07",
+   "lines": 317,
+   "chars": 13329,
+   "sections": [
+    {
+     "id": "0-什么时候读这份文件",
+     "level": 2,
+     "title": "0. 什么时候读这份文件",
+     "summary": "- 用户说\"做成 Linear / Vercel / 某站那种感觉\"\"这个风格叫什么\"\"帮我定个视觉调性\"\"想要高级感 / 复古感 / 科技感 / 温暖感\"。",
+     "line": 7,
+     "chars": 220
+    },
+    {
+     "id": "1-为什么需要风格谱系-核心立场",
+     "level": 2,
+     "title": "1. 为什么需要风格谱系（核心立场）",
+     "summary": "1. \"高级感\"\"复古感\"是结果不是方法。 追问一句：它具体是哪几组信号？说不出信号的形容词，不能作为设计指令。",
+     "line": 15,
+     "chars": 371
+    },
+    {
+     "id": "2-风格识别四维信号-拆任何风格都用这四把尺",
+     "level": 2,
+     "title": "2. 风格识别四维信号（拆任何风格都用这四把尺）",
+     "summary": "拿到一个参考图 / 一个站点 / 一个形容词，逐维标注，不要整体感受。四把尺：",
+     "line": 24,
+     "chars": 46
+    },
+    {
+     "id": "2-1-typography-字",
+     "level": 3,
+     "title": "2.1 Typography（字）",
+     "summary": "- 字族：衬线（权威 / 传统 / 编辑）· 无衬线（中性 / 现代 / 科技）· 等宽（技术 / 复古终端 / 代码感）。",
+     "line": 28,
+     "chars": 228
+    },
+    {
+     "id": "2-2-color-色",
+     "level": 3,
+     "title": "2.2 Color（色）",
+     "summary": "- 色相范围：单色相（克制，如 Vercel 近黑白）· 撞色（张扬，如 Neo-brutalism）· 全谱（玩趣，如 Memphis）。",
+     "line": 34,
+     "chars": 253
+    },
+    {
+     "id": "2-3-shape-material-形与材质",
+     "level": 3,
+     "title": "2.3 Shape & Material（形与材质）",
+     "summary": "- 圆角档：0（硬 / 工业 / 原始）· 4（微圆 / 严谨）· 8（中性）· 16（友好）· 全圆（亲和 / 可爱）。一次只主导一档。",
+     "line": 40,
+     "chars": 356
+    },
+    {
+     "id": "2-4-motion-space-动效与空间",
+     "level": 3,
+     "title": "2.4 Motion & Space（动效与空间）",
+     "summary": "- 动效密度：静态（极简 / 编辑）· 克制（轻 hover / 淡入，现代 SaaS）· 活泼（弹性 / 交错，年轻产品）。",
+     "line": 46,
+     "chars": 274
+    },
+    {
+     "id": "3-主流动派谱系-编年-视觉签名-何时用-不用-代表",
+     "level": 2,
+     "title": "3. 主流动派谱系（编年 + 视觉签名 + 何时用 / 不用 + 代表）",
+     "summary": "每条给：起源年份与关键人物、四维签名、代表、何时用、何时不用。年份与人物以权威史料为准（Swiss 1950s / Müller-Brockmann；Bauhaus 1919 / Gropius；Memphis 1981 / Sottsas",
+     "line": 55,
+     "chars": 745
+    },
+    {
+     "id": "3-1-swiss-international-typographic-style-瑞士国际主义-1950s",
+     "level": 3,
+     "title": "3.1 Swiss / International Typographic Style（瑞士国际主义，1950s）",
+     "summary": "- 签名：数学网格、无衬线（Helvetica / Akzidenz-Grotesk）、不对称构图、左对齐、大字号标题、摄影替代插画、留白即结构。",
+     "line": 61,
+     "chars": 171
+    },
+    {
+     "id": "3-2-bauhaus-1919-1933-walter-gropius",
+     "level": 3,
+     "title": "3.2 Bauhaus（1919–1933，Walter Gropius）",
+     "summary": "- 签名：几何基本形（圆 / 方 / 三角）、三原色 + 黑白、无衬线、形式跟随功能、红黄蓝撞色。",
+     "line": 66,
+     "chars": 99
+    },
+    {
+     "id": "3-3-brutalism-网页野兽派-2014",
+     "level": 3,
+     "title": "3.3 Brutalism（网页野兽派，2014+）",
+     "summary": "- 签名：近乎原始 HTML、系统默认字体、高对比单色、无圆角无阴影、露出结构、故意\"未抛光\"。",
+     "line": 70,
+     "chars": 107
+    },
+    {
+     "id": "3-3b-neo-brutalism-新野兽派-2020",
+     "level": 3,
+     "title": "3.3b Neo-brutalism（新野兽派，2020+）",
+     "summary": "- 签名：硬黑描边（2–3px）、硬投影（offset 实色块）、高饱和撞色、故意粗糙、大圆角但硬边。",
+     "line": 74,
+     "chars": 99
+    },
+    {
+     "id": "3-4-memphis-1981-ettore-sottsass",
+     "level": 3,
+     "title": "3.4 Memphis（1981，Ettore Sottsass）",
+     "summary": "- 签名：几何碎形、撞色块、黑白条纹 / 波点图案、玩趣、无统一网格。",
+     "line": 78,
+     "chars": 82
+    },
+    {
+     "id": "3-5-skeuomorphism-拟物-2007-2013-ios-6-峰值",
+     "level": 3,
+     "title": "3.5 Skeuomorphism（拟物，2007–2013，iOS 6 峰值）",
+     "summary": "- 签名：材质仿真、高光、内阴影、真实纹理（皮革 / 木纹）、强投影。",
+     "line": 82,
+     "chars": 104
+    },
+    {
+     "id": "3-6-flat-design-扁平-2013-ios-7-windows-8-metro-引爆",
+     "level": 3,
+     "title": "3.6 Flat Design（扁平，2013+，iOS 7 / Windows 8 Metro 引爆）",
+     "summary": "- 签名：纯色块、无阴影无渐变、简单几何图标、二维。",
+     "line": 86,
+     "chars": 110
+    },
+    {
+     "id": "3-7-material-design-2014-google",
+     "level": 3,
+     "title": "3.7 Material Design（2014，Google）",
+     "summary": "- 签名：8dp 栅格、elevation（z 轴阴影分层）、涟漪反馈、浮动按钮、系统化的动效曲线（见 motion-system.md）。",
+     "line": 90,
+     "chars": 145
+    },
+    {
+     "id": "3-8-neumorphism-soft-ui-新拟态-2019-2020-plyuto-引爆-kelley-造词-malewicz-定型",
+     "level": 3,
+     "title": "3.8 Neumorphism / Soft UI（新拟态，2019–2020，Plyuto 引爆 / Kelley 造词 / Malewicz 定型）",
+     "summary": "- 签名：同源双色背景 + 单光源一对方向相反的内阴影，大圆角，元素像\"从背景浮起 / 按下去\"。",
+     "line": 94,
+     "chars": 211
+    },
+    {
+     "id": "3-9-glassmorphism-玻璃拟态-2020-malewicz-命名",
+     "level": 3,
+     "title": "3.9 Glassmorphism（玻璃拟态，2020+，Malewicz 命名）",
+     "summary": "- 签名：半透明表面 + 背景模糊（backdrop-filter）+ 1px 高光描边 + 轻投影 + 饱和背景图。",
+     "line": 98,
+     "chars": 240
+    },
+    {
+     "id": "3-10-minimalism-极简-长青",
+     "level": 3,
+     "title": "3.10 Minimalism（极简，长青）",
+     "summary": "- 签名：极致留白（40–60%）、极少元素、无装饰、单一强调色、克制的字重。",
+     "line": 102,
+     "chars": 95
+    },
+    {
+     "id": "3-11-maximalism-极繁-周期",
+     "level": 3,
+     "title": "3.11 Maximalism（极繁，周期）",
+     "summary": "- 签名：满版、撞色层叠、多字体混排、强图案。",
+     "line": 106,
+     "chars": 79
+    },
+    {
+     "id": "3-12-y2k-frutiger-aero-2004-2013-近年回流",
+     "level": 3,
+     "title": "3.12 Y2K / Frutiger Aero（2004–2013，近年回流）",
+     "summary": "- 签名：气泡、高光水珠、玻璃质感、天空蓝 + 银白、圆润、乐观未来感；Frutiger Aero 是\"玻璃 + 自然 + 气泡\"子型。",
+     "line": 110,
+     "chars": 139
+    },
+    {
+     "id": "3-13-vaporwave-retro-futurism-2010s-亚文化",
+     "level": 3,
+     "title": "3.13 Vaporwave / Retro-futurism（2010s，亚文化）",
+     "summary": "- 签名：粉紫青渐变、网格地平线、故障（glitch）、罗马雕塑 / 日文假名、复古 3D。",
+     "line": 114,
+     "chars": 84
+    },
+    {
+     "id": "3-14-cyberpunk-dark-tech-暗色科技",
+     "level": 3,
+     "title": "3.14 Cyberpunk / Dark tech（暗色科技）",
+     "summary": "- 签名：暗底、霓虹（青 / 品红 / 绿）、扫描线、等宽字体、发光描边。",
+     "line": 118,
+     "chars": 119
+    },
+    {
+     "id": "3-15-bento-grid-便当盒栅格-2022-apple-linear-推动",
+     "level": 3,
+     "title": "3.15 Bento grid（便当盒栅格，2022+，Apple / Linear 推动）",
+     "summary": "- 签名：圆角卡片网格、内容块化、每格一信息、留白内嵌。",
+     "line": 122,
+     "chars": 82
+    },
+    {
+     "id": "3-16-claymorphism-黏土拟态-2022",
+     "level": 3,
+     "title": "3.16 Claymorphism（黏土拟态，2022+）",
+     "summary": "- 签名：圆润如充气、双软阴影（内暗外亮）、高光点、糖果色。",
+     "line": 126,
+     "chars": 69
+    },
+    {
+     "id": "3-17-corporate-enterprise-企业中性-长青基线",
+     "level": 3,
+     "title": "3.17 Corporate / Enterprise（企业中性，长青基线）",
+     "summary": "- 签名：中性蓝 / 灰、规整栅格、低饱和、信息密集但有序、弱投影。",
+     "line": 130,
+     "chars": 105
+    },
+    {
+     "id": "4-风格匹配决策-给定-a-感觉-怎么拆成信号",
+     "level": 2,
+     "title": "4. 风格匹配决策（给定\"A 感觉\"，怎么拆成信号）",
+     "summary": "四步：截三屏（首屏 / 列表 / 详情）→ 逐维标注（按 §2 四维表填，而不是\"好看\"）→ 抽公共信号（多个参考的交集才是真需求）→ 落成 token（圆角档 / 阴影档 / 色板基调 / 字号阶 / 字重对比 / 间距基调 / 动效密度",
+     "line": 136,
+     "chars": 1
+    },
+    {
+     "id": "4-1-用户给参考图-站点-最常见-最可靠",
+     "level": 3,
+     "title": "4.1 用户给参考图 / 站点（最常见、最可靠）",
+     "summary": "四步：截三屏（首屏 / 列表 / 详情）→ 逐维标注（按 §2 四维表填，而不是\"好看\"）→ 抽公共信号（多个参考的交集才是真需求）→ 落成 token（圆角档 / 阴影档 / 色板基调 / 字号阶 / 字重对比 / 间距基调 / 动效密度",
+     "line": 138,
+     "chars": 141
+    },
+    {
+     "id": "4-2-用户给形容词-高级-复古-科技-温暖",
+     "level": 3,
+     "title": "4.2 用户给形容词（\"高级 / 复古 / 科技 / 温暖\"）",
+     "summary": "把词翻成信号，避免空转：",
+     "line": 141,
+     "chars": 294
+    },
+    {
+     "id": "4-3-风格-vs-品牌-不替个性",
+     "level": 3,
+     "title": "4.3 风格 vs 品牌（不替个性）",
+     "summary": "先用 brand-identity.md §3 定三词定位与反义词；风格只是\"把个性翻译成视觉语言\"的若干候选之一。若风格与个性冲突（如\"温暖亲子\"却套\"硬黑边野兽派\"），回退到个性，风格让步。",
+     "line": 150,
+     "chars": 102
+    },
+    {
+     "id": "4-4-与第-4-步-l2-衔接",
+     "level": 3,
+     "title": "4.4 与第 4 步 L2 衔接",
+     "summary": "design-md-format.md §3 品牌 DNA 是长期资产；本文件是竞品 / 潮流风格的速配。匹配顺序：先 DNA（长期）→ 再本文件（临时 / 参考）。",
+     "line": 153,
+     "chars": 93
+    },
+    {
+     "id": "5-混搭的纪律-什么能混-什么冲突",
+     "level": 2,
+     "title": "5. 混搭的纪律（什么能混、什么冲突）",
+     "summary": "1. 安全混搭：材质层（轻投影 / 玻璃）可叠任意色系；栅格严格度独立于色系；圆角档与色系独立。",
+     "line": 158,
+     "chars": 426
+    },
+    {
+     "id": "6-趋势生命周期-何时该上-何时已过",
+     "level": 2,
+     "title": "6. 趋势生命周期（何时该上、何时已过）",
+     "summary": "1. 趋势曲线：引爆（Dribbble / Beh开发者奖）→ 主流采纳 → 过载（一键模板化）→ 反噬（回到克制）。纯视觉潮流通常 12–24 个月走完前两段。",
+     "line": 168,
+     "chars": 336
+    },
+    {
+     "id": "7-中文-出海场景的风格注意",
+     "level": 2,
+     "title": "7. 中文 / 出海场景的风格注意",
+     "summary": "1. 中文界面：中文笔画密度远高于拉丁字母，极简留白要更克制（别为了\"高级\"把中文压到 12px）；字重与字距调整见 chinese-design.md（禁伪粗 / 伪斜、行高 ≥1.6）。衬线中文（宋体类）在屏幕小字号下易发虚，屏幕优先用",
+     "line": 178,
+     "chars": 329
+    },
+    {
+     "id": "8-把风格转成-token-与-design-tokens-md-对接",
+     "level": 2,
+     "title": "8. 把风格转成 token（与 design-tokens.md 对接）",
+     "summary": "1. 风格 → token 映射表（一次只定一套）：",
+     "line": 186,
+     "chars": 766
+    },
+    {
+     "id": "9-12-场景速查",
+     "level": 2,
+     "title": "9. 12 场景速查",
+     "summary": "1. 用户说\"做成 Linear 那种感觉\" → §4.1 拆：暗色可选 / 克制无衬线 / 轻投影 / Bento 卡片 / 极克制动效。",
+     "line": 204,
+     "chars": 607
+    },
+    {
+     "id": "10-20-反模式",
+     "level": 2,
+     "title": "10. 20 反模式",
+     "summary": "1. 直接把\"极简 / 高级 / 科技感\"当设计指令，不拆信号。",
+     "line": 221,
+     "chars": 574
+    },
+    {
+     "id": "11-20-自检-交付前逐条过",
+     "level": 2,
+     "title": "11. 20 自检（交付前逐条过）",
+     "summary": "1. 用户的需求（参考图 / 形容词）被拆成了 §2 四维信号，不是停在\"感觉\"？",
+     "line": 246,
+     "chars": 771
+    },
+    {
+     "id": "12-可抄代码-清单",
+     "level": 2,
+     "title": "12. 可抄代码 / 清单",
+     "summary": "风格速查卡（标注参考站用）：",
+     "line": 271,
+     "chars": 834
+    },
+    {
+     "id": "13-取源与权威边界",
+     "level": 2,
+     "title": "13. 取源与权威边界",
+     "summary": "- 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph",
+     "line": 310,
+     "chars": 1918
+    }
+   ]
+  },
+  {
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 569,
-   "chars": 71844,
+   "lines": 585,
+   "chars": 76033,
    "sections": []
   }
  ],

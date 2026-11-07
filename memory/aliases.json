@@ -1,2523 +1,2548 @@
 {
- "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
- "_updated": "2026-11-07",
- "_weight": 0.45,
- "groups": [
-  {
-   "canonical": "轻提示",
-   "aliases": [
-    "toast",
-    "message",
-    "snackbar",
-    "提示条",
-    "消息提示",
-    "浮层提示",
-    "冒泡",
-    "轻提示"
-   ]
-  },
-  {
-   "canonical": "模态",
-   "aliases": [
-    "modal",
-    "dialog",
-    "弹窗",
-    "对话框",
-    "模态框",
-    "遮罩",
-    "popconfirm",
-    "确认框",
-    "气泡确认"
-   ]
-  },
-  {
-   "canonical": "加载",
-   "aliases": [
-    "loading",
-    "加载中",
-    "骨架屏",
-    "skeleton",
-    "spinner",
-    "进度条",
-    "progress",
-    "转圈",
-    "等待状态",
-    "占位"
-   ]
-  },
-  {
-   "canonical": "空态",
-   "aliases": [
-    "empty",
-    "空状态",
-    "无数据",
-    "空页面",
-    "没有内容",
-    "empty state"
-   ]
-  },
-  {
-   "canonical": "错误",
-   "aliases": [
-    "error",
-    "报错",
-    "异常",
-    "失败提示",
-    "错误页",
-    "404",
-    "500",
-    "503",
-    "服务不可用",
-    "出错"
-   ]
-  },
-  {
-   "canonical": "动效",
-   "aliases": [
-    "motion",
-    "animation",
-    "动画",
-    "微交互",
-    "过渡",
-    "transition",
-    "easing",
-    "缓动",
-    "曲线",
-    "转场"
-   ]
-  },
-  {
-   "canonical": "配色",
-   "aliases": [
-    "color",
-    "色彩",
-    "色板",
-    "palette",
-    "主题色",
-    "主色",
-    "颜色"
-   ]
-  },
-  {
-   "canonical": "排版",
-   "aliases": [
-    "typography",
-    "字体",
-    "font",
-    "字号",
-    "行高",
-    "字重",
-    "字阶",
-    "文本层级"
-   ]
-  },
-  {
-   "canonical": "间距",
-   "aliases": [
-    "spacing",
-    "留白",
-    "padding",
-    "margin",
-    "grid",
-    "节奏",
-    "8pt",
-    "4px"
-   ]
-  },
-  {
-   "canonical": "token",
-   "aliases": [
-    "design token",
-    "设计变量",
-    "变量",
-    "语义化",
-    "tokens",
-    "主题变量"
-   ]
-  },
-  {
-   "canonical": "图表",
-   "aliases": [
-    "chart",
-    "可视化",
-    "dataviz",
-    "仪表盘",
-    "dashboard",
-    "大屏",
-    "BI",
-    "KPI",
-    "折线图",
-    "柱状图",
-    "饼图",
-    "看板"
-   ]
-  },
-  {
-   "canonical": "表单",
-   "aliases": [
-    "form",
-    "输入框",
-    "校验",
-    "验证",
-    "报错文案",
-    "登录页",
-    "注册",
-    "填写",
-    "字段"
-   ]
-  },
-  {
-   "canonical": "表格",
-   "aliases": [
-    "table",
-    "列表页",
-    "数据表",
-    "分页",
-    "列宽",
-    "行高",
-    "批量操作",
-    "筛选"
-   ]
-  },
-  {
-   "canonical": "无障碍",
-   "aliases": [
-    "a11y",
-    "accessibility",
-    "可访问性",
-    "读屏",
-    "屏幕阅读器",
-    "焦点",
-    "对比度",
-    "键盘操作",
-    "色盲",
-    "适老化",
-    "WCAG"
-   ]
-  },
-  {
-   "canonical": "按钮",
-   "aliases": [
-    "button",
-    "CTA",
-    "主按钮",
-    "次按钮",
-    "操作按钮",
-    "提交按钮"
-   ]
-  },
-  {
-   "canonical": "导航",
-   "aliases": [
-    "navbar",
-    "导航栏",
-    "顶栏",
-    "菜单",
-    "侧边栏",
-    "tab bar",
-    "底部导航",
-    "面包屑"
-   ]
-  },
-  {
-   "canonical": "卡片",
-   "aliases": [
-    "card",
-    "卡片布局",
-    "容器",
-    "信息块",
-    "tile"
-   ]
-  },
-  {
-   "canonical": "中文",
-   "aliases": [
-    "chinese",
-    "汉字",
-    "中文字体",
-    "标点",
-    "全角",
-    "避头尾",
-    "中英混排",
-    "clreq"
-   ]
-  },
-  {
-   "canonical": "品牌",
-   "aliases": [
-    "brand",
-    "品牌视觉",
-    "logo",
-    "视觉识别",
-    "VI",
-    "品牌调性"
-   ]
-  },
-  {
-   "canonical": "响应式",
-   "aliases": [
-    "responsive",
-    "断点",
-    "breakpoint",
-    "移动端",
-    "适配",
-    "自适应",
-    "容器查询"
-   ]
-  },
-  {
-   "canonical": "断点",
-   "aliases": [
-    "breakpoint",
-    "媒体查询",
-    "media query",
-    "@media",
-    "屏宽",
-    "视口宽",
-    "viewport",
-    "最小宽度",
-    "min-width",
-    "max-width",
-    "响应式断点",
-    "栅格断点"
-   ]
-  },
-  {
-   "canonical": "容器查询",
-   "aliases": [
-    "container query",
-    "@container",
-    "container-type",
-    "cqw",
-    "cqi",
-    "组件自适应",
-    "按容器宽度",
-    "卡片自适应"
-   ]
-  },
-  {
-   "canonical": "版心",
-   "aliases": [
-    "container",
-    "最大宽度",
-    "max-width",
-    "内容区宽度",
-    "栅格系统",
-    "grid system",
-    "24栅格",
-    "12栅格",
-    "gutter",
-    "槽宽",
-    "column",
-    "栏宽"
-   ]
-  },
-  {
-   "canonical": "流式排版",
-   "aliases": [
-    "clamp",
-    "fluid type",
-    "流体排版",
-    "自适应字号",
-    "字号缩放",
-    "响应式字号",
-    "min()",
-    "max()",
-    "字号随屏幕变"
-   ]
-  },
-  {
-   "canonical": "视口单位",
-   "aliases": [
-    "vh",
-    "vw",
-    "100vh",
-    "dvh",
-    "svh",
-    "lvh",
-    "全屏高度",
-    "地址栏遮挡",
-    "safe-area",
-    "安全区",
-    "刘海屏",
-    "满屏"
-   ]
-  },
-  {
-   "canonical": "响应式图片",
-   "aliases": [
-    "srcset",
-    "sizes",
-    "picture",
-    "图片适配",
-    "多倍图",
-    "2x图",
-    "懒加载",
-    "lazy",
-    "图片跳动",
-    "CLS",
-    "艺术指导"
-   ]
-  },
-  {
-   "canonical": "多端适配",
-   "aliases": [
-    "多端",
-    "H5",
-    "手机端",
-    "PC端",
-    "平板",
-    "iPad",
-    "折叠屏",
-    "大屏",
-    "小屏",
-    "窄屏",
-    "中后台适配",
-    "1366",
-    "1440",
-    "1920"
-   ]
-  },
-  {
-   "canonical": "窄屏表格",
-   "aliases": [
-    "移动端表格",
-    "手机表格",
-    "表格变卡片",
-    "表格转卡片",
-    "卡片化",
-    "responsive table",
-    "横滚表格",
-    "横向滚动表格",
-    "表格太宽",
-    "表格横向滑动"
-   ]
-  },
-  {
-   "canonical": "作品集",
-   "aliases": [
-    "portfolio",
-    "案例",
-    "个人站",
-    "审美校准"
-   ]
-  },
-  {
-   "canonical": "图标",
-   "aliases": [
-    "icon",
-    "iconfont",
-    "图标设计",
-    "Iconography",
-    "图标系统",
-    "图标规范",
-    "图标库",
-    "图标字体",
-    "线性图标",
-    "面性图标",
-    "描边图标",
-    "填充图标",
-    "双色图标",
-    "duotone",
-    "图标可访问性",
-    "图标对比度",
-    "图标按钮",
-    "图标间距",
-    "图标尺寸",
-    "sprite 图标",
-    "Lucide",
-    "Heroicons",
-    "Tabler",
-    "Material Symbols",
-    "Fluent Icons",
-    "Radix Icons",
-    "Phosphor",
-    "Feather Icons",
-    "Ant Design Icons"
-   ]
-  },
-  {
-   "canonical": "工具",
-   "aliases": [
-    "tool",
-    "插件",
-    "效率工具",
-    "截图",
-    "录屏",
-    "生成器"
-   ]
-  },
-  {
-   "canonical": "学习路径",
-   "aliases": [
-    "怎么学",
-    "路线图",
-    "知识地图",
-    "入门",
-    "进阶",
-    "能力自测"
-   ]
-  },
-  {
-   "canonical": "规范文档",
-   "aliases": [
-    "DESIGN.md",
-    "设计规范",
-    "设计系统文档",
-    "风格指南",
-    "style guide"
-   ]
-  },
-  {
-   "canonical": "版式",
-   "aliases": [
-    "layout",
-    "editorial",
-    "版面",
-    "构图",
-    "网格系统",
-    "grid system",
-    "分栏",
-    "栏数",
-    "gutter",
-    "版心",
-    "页边距",
-    "margin",
-    "基线网格",
-    "baseline grid",
-    "栅格系统"
-   ]
-  },
-  {
-   "canonical": "行长",
-   "aliases": [
-    "measure",
-    "line length",
-    "每行字数",
-    "行宽",
-    "一行多少字",
-    "行距",
-    "leading",
-    "line-height",
-    "字距",
-    "tracking",
-    "缩进",
-    "段间距"
-   ]
-  },
-  {
-   "canonical": "海报",
-   "aliases": [
-    "poster",
-    "展板",
-    "主视觉",
-    "key visual",
-    "KV",
-    "活动图",
-    "宣传图",
-    "易拉宝",
-    "banner 图",
-    "三折页"
-   ]
-  },
-  {
-   "canonical": "长图",
-   "aliases": [
-    "long image",
-    "信息图",
-    "infographic",
-    "一图流",
-    "滑动长图",
-    "详情页长图",
-    "长图海报",
-    "竖长图"
-   ]
-  },
-  {
-   "canonical": "社媒图",
-   "aliases": [
-    "social image",
-    "封面图",
-    "首图",
-    "缩略图",
-    "thumbnail",
-    "OG image",
-    "og:image",
-    "分享卡",
-    "小红书封面",
-    "公众号封面",
-    "视频封面",
-    "头图"
-   ]
-  },
-  {
-   "canonical": "印刷",
-   "aliases": [
-    "print",
-    "出血",
-    "bleed",
-    "安全区",
-    "safe area",
-    "CMYK",
-    "300dpi",
-    "300ppi",
-    "印厂",
-    "交印",
-    "PDF/X",
-    "总墨量",
-    "转曲",
-    "套印",
-    "裁切线"
-   ]
-  },
-  {
-   "canonical": "竖排",
-   "aliases": [
-    "vertical writing",
-    "writing-mode",
-    "直排",
-    "竖排版",
-    "纵中横排",
-    "从右往左",
-    "繁体竖排"
-   ]
-  },
-  {
-   "canonical": "标志",
-   "aliases": [
-    "logo",
-    "logotype",
-    "wordmark",
-    "symbol mark",
-    "图形标",
-    "标徽",
-    "标志设计",
-    "标志规范",
-    "品牌符号"
-   ]
-  },
-  {
-   "canonical": "字标",
-   "aliases": [
-    "wordmark",
-    "lettermark",
-    "monogram",
-    "字母标",
-    "组合标",
-    "徽章标",
-    "emblem",
-    "文字标志",
-    "横排标",
-    "竖排标"
-   ]
-  },
-  {
-   "canonical": "清space",
-   "aliases": [
-    "clear space",
-    "clearspace",
-    "安全边距",
-    "净空",
-    "保护空间",
-    "隔离区",
-    "留白区",
-    "最小间距",
-    "clear zone"
-   ]
-  },
-  {
-   "canonical": "最小尺寸",
-   "aliases": [
-    "minimum size",
-    "最小使用尺寸",
-    "缩小极限",
-    "缩放下限",
-    "最细笔画",
-    "小尺寸版",
-    "简化版标志",
-    "响应式标志"
-   ]
-  },
-  {
-   "canonical": "品牌色",
-   "aliases": [
-    "brand color",
-    "主色",
-    "种子色",
-    "seed color",
-    "品牌主色",
-    "色阶",
-    "色阶生成",
-    "调色板生成",
-    "tonal palette",
-    "HCT",
-    "品牌调色板"
-   ]
-  },
-  {
-   "canonical": "图标网格",
-   "aliases": [
-    "icon grid",
-    "keyline",
-    "基形",
-    "图标画布",
-    "24dp",
-    "图标规范",
-    "笔画粗细",
-    "图标对齐",
-    "图标家族"
-   ]
-  },
-  {
-   "canonical": "商标",
-   "aliases": [
-    "trademark",
-    "注册商标",
-    "尼斯分类",
-    "商标注册",
-    "版权",
-    "著作权",
-    "商用授权",
-    "字体授权",
-    "素材授权",
-    "logo 侵权"
-   ]
-  },
-  {
-   "canonical": "品牌手册",
-   "aliases": [
-    "brand guidelines",
-    "品牌规范",
-    "VI 手册",
-    "视觉识别手册",
-    "brand book",
-    "品牌指南",
-    "一页式规范",
-    "brand identity"
-   ]
-  },
-  {
-   "canonical": "品牌语气",
-   "aliases": [
-    "tone of voice",
-    "语气",
-    "品牌声音",
-    "文案语气",
-    "品牌人格",
-    "语气词",
-    "反语气词",
-    "brand voice"
-   ]
-  },
-  {
-   "canonical": "favicon",
-   "aliases": [
-    "网站图标",
-    "标签页图标",
-    "app icon",
-    "应用图标",
-    "桌面图标",
-    "PWA 图标",
-    "maskable",
-    "触屏图标",
-    "apple-touch-icon"
-   ]
-  },
-  {
-   "canonical": "暗色模式",
-   "aliases": [
-    "dark mode",
-    "dark theme",
-    "深色模式",
-    "深色主题",
-    "夜间模式",
-    "暗黑模式",
-    "暗色主题",
-    "暗色版",
-    "night mode",
-    "黑色主题",
-    "深色版",
-    "暗色",
-    "暗黑"
-   ]
-  },
-  {
-   "canonical": "表面层级",
-   "aliases": [
-    "surface",
-    "surface container",
-    "表面色",
-    "层级",
-    "elevation",
-    "高度层级",
-    "卡片层级",
-    "浮层",
-    "层阶",
-    "层叠",
-    "深度",
-    "z轴",
-    "表面变亮"
-   ]
-  },
-  {
-   "canonical": "暗色底色",
-   "aliases": [
-    "纯黑",
-    "纯黑背景",
-    "深灰",
-    "底色",
-    "暗色背景",
-    "background color",
-    "#121212",
-    "#161616",
-    "黑底",
-    "背景明度"
-   ]
-  },
-  {
-   "canonical": "主题切换",
-   "aliases": [
-    "theme switch",
-    "切换主题",
-    "跟随系统",
-    "prefers-color-scheme",
-    "闪白",
-    "FOUC",
-    "主题持久化",
-    "三态",
-    "亮暗切换",
-    "换肤",
-    "theme.json",
-    "color-scheme"
-   ]
-  },
-  {
-   "canonical": "暗色文字",
-   "aliases": [
-    "白字",
-    "纯白文字",
-    "文字透明度",
-    "文字层级",
-    "晕光",
-    "halation",
-    "光渗",
-    "暗色下看不清",
-    "字发虚",
-    "刺眼"
-   ]
-  },
-  {
-   "canonical": "遮罩层",
-   "aliases": [
-    "scrim",
-    "蒙层",
-    "overlay",
-    "半透明遮罩",
-    "背景变暗",
-    "遮罩透明度"
-   ]
-  },
-  {
-   "canonical": "涨跌色",
-   "aliases": [
-    "红涨绿跌",
-    "涨跌",
-    "涨色",
-    "跌色",
-    "红绿",
-    "金融配色",
-    "股票颜色",
-    "up down color",
-    "盈亏色"
-   ]
-  },
-  {
-   "canonical": "性能",
-   "aliases": [
-    "performance",
-    "perf",
-    "加载速度",
-    "打开速度",
-    "首屏速度",
-    "网页性能",
-    "跑得慢",
-    "太慢了",
-    "性能优化",
-    "速度优化"
-   ]
-  },
-  {
-   "canonical": "LCP",
-   "aliases": [
-    "最大内容绘制",
-    "首屏渲染",
-    "首屏时间",
-    "首屏加载",
-    "最大元素",
-    "largest contentful paint",
-    "首屏大图"
-   ]
-  },
-  {
-   "canonical": "卡顿",
-   "aliases": [
-    "INP",
-    "交互延迟",
-    "点击延迟",
-    "响应慢",
-    "掉帧",
-    "帧率",
-    "长任务",
-    "主线程阻塞",
-    "FID",
-    "点了没反应"
-   ]
-  },
-  {
-   "canonical": "CLS",
-   "aliases": [
-    "布局偏移",
-    "抖动",
-    "页面跳动",
-    "内容跳",
-    "闪动",
-    "布局抖动",
-    "cumulative layout shift",
-    "跳一下"
-   ]
-  },
-  {
-   "canonical": "性能预算",
-   "aliases": [
-    "performance budget",
-    "体积上限",
-    "包体积",
-    "资源上限",
-    "KB 预算",
-    "预算表",
-    "超预算"
-   ]
-  },
-  {
-   "canonical": "图片优化",
-   "aliases": [
-    "压缩",
-    "图片格式",
-    "AVIF",
-    "WebP",
-    "图片尺寸",
-    "懒加载",
-    "lazy",
-    "srcset",
-    "图片太大",
-    "图片糊"
-   ]
-  },
-  {
-   "canonical": "字体加载",
-   "aliases": [
-    "font-display",
-    "字体闪烁",
-    "FOIT",
-    "FOUT",
-    "子集化",
-    "字体子集",
-    "WOFF2",
-    "可变字体",
-    "字体体积",
-    "字体太大"
-   ]
-  },
-  {
-   "canonical": "弱网",
-   "aliases": [
-    "慢网",
-    "2G",
-    "3G",
-    "省流",
-    "低端机",
-    "降级",
-    "Save-Data",
-    "reduced-data",
-    "弱网环境"
-   ]
-  },
-  {
-   "canonical": "小程序性能",
-   "aliases": [
-    "分包",
-    "主包",
-    "代码包",
-    "setData",
-    "小程序启动",
-    "独立分包",
-    "按需注入",
-    "包大小",
-    "小程序慢"
-   ]
-  },
-  {
-   "canonical": "设计交付",
-   "aliases": [
-    "handoff",
-    "设计交接",
-    "标注稿",
-    "标注规范",
-    "spec",
-    "设计规格",
-    "交付文档",
-    "交付物",
-    "交付清单",
-    "切图",
-    "交图",
-    "交接"
-   ]
-  },
-  {
-   "canonical": "设计走查",
-   "aliases": [
-    "走查",
-    "还原度",
-    "视觉走查",
-    "交互走查",
-    "design QA",
-    "还原度检查",
-    "视觉还原",
-    "走查表",
-    "走查清单",
-    "提测",
-    "上线前检查"
-   ]
-  },
-  {
-   "canonical": "验收标准",
-   "aliases": [
-    "acceptance criteria",
-    "验收",
-    "验收条件",
-    "完成标准",
-    "definition of done",
-    "DoD",
-    "算做完",
-    "验收口径",
-    "通过标准",
-    "given when then"
-   ]
-  },
-  {
-   "canonical": "设计评审",
-   "aliases": [
-    "评审",
-    "critique",
-    "设计评审会",
-    "评稿",
-    "design review",
-    "评审会",
-    "过稿",
-    "设计批评",
-    "方案评审"
-   ]
-  },
-  {
-   "canonical": "缺陷分级",
-   "aliases": [
-    "P0",
-    "P1",
-    "P2",
-    "P3",
-    "优先级分级",
-    "严重程度",
-    "bug 分级",
-    "阻断问题",
-    "发布门禁",
-    "能不能上线"
-   ]
-  },
-  {
-   "canonical": "组件命名",
-   "aliases": [
-    "命名规范",
-    "命名",
-    "变体命名",
-    "图层命名",
-    "naming",
-    "命名约定",
-    "组件属性",
-    "variant 属性",
-    "组件 API",
-    "属性命名"
-   ]
-  },
-  {
-   "canonical": "版本管理",
-   "aliases": [
-    "semver",
-    "语义化版本",
-    "版本号",
-    "发版",
-    "变更日志",
-    "changelog",
-    "废弃",
-    "deprecation",
-    "迁移",
-    "codemod",
-    "版本级别"
-   ]
-  },
-  {
-   "canonical": "token 交付",
-   "aliases": [
-    "dtcg",
-    "tokens.json",
-    ".tokens",
-    "style dictionary",
-    "变量导出",
-    "token 管线",
-    "变量同步",
-    "导出 token",
-    "token 格式"
-   ]
-  },
-  {
-   "canonical": "多品牌",
-   "aliases": [
-    "multi-brand",
-    "multibrand",
-    "白标",
-    "white label",
-    "whitelabel",
-    "租户主题",
-    "租户换肤",
-    "客户品牌",
-    "品牌切换",
-    "多子品牌",
-    "私有化换肤",
-    "换肤"
-   ]
-  },
-  {
-   "canonical": "主题架构",
-   "aliases": [
-    "theming",
-    "主题系统",
-    "主题矩阵",
-    "主题轴",
-    "theme matrix",
-    "多主题",
-    "主题引擎",
-    "四层 token",
-    "brand input",
-    "主题组合"
-   ]
-  },
-  {
-   "canonical": "品牌色生成",
-   "aliases": [
-    "色阶生成器",
-    "palette generation",
-    "brand ramp",
-    "种子色生成",
-    "品牌色阶",
-    "自动生成色阶",
-    "hct 生成",
-    "tonal palette",
-    "色度常量"
-   ]
-  },
-  {
-   "canonical": "对比度护栏",
-   "aliases": [
-    "品牌色校验",
-    "contrast guard",
-    "对比度边界",
-    "亮度边界",
-    "前景字色",
-    "白字还是黑字",
-    "on-brand 颜色",
-    "自动修正颜色",
-    "合规校验"
-   ]
-  },
-  {
-   "canonical": "变量作用域",
-   "aliases": [
-    "scoped variables",
-    "变量作用域",
-    "data-brand",
-    "data-theme",
-    "作用域化",
-    "多品牌同页",
-    "同页多主题",
-    "嵌套 provider",
-    "cssVar",
-    "portal 逃逸"
-   ]
-  },
-  {
-   "canonical": "层叠层",
-   "aliases": [
-    "@layer",
-    "cascade layer",
-    "层叠层",
-    "层叠优先级",
-    "未分层样式",
-    "覆盖不掉",
-    "样式优先级"
-   ]
-  },
-  {
-   "canonical": "运行时主题",
-   "aliases": [
-    "runtime theming",
-    "构建期换肤",
-    "编译期主题",
-    "modifyVars",
-    "css 变量换肤",
-    "zero runtime",
-    "预编译样式",
-    "动态换肤"
-   ]
-  },
-  {
-   "canonical": "主题治理",
-   "aliases": [
-    "品牌注册表",
-    "品牌准入",
-    "主题治理",
-    "品牌白名单",
-    "客户自定义边界",
-    "换肤审计",
-    "主题变更"
-   ]
-  },
-  {
-   "canonical": "文案",
-   "aliases": [
-    "ux writing",
-    "content design",
-    "microcopy",
-    "微文案",
-    "界面文案",
-    "ui copy",
-    "内容设计",
-    "文案设计",
-    "文案规范",
-    "界面文字"
-   ]
-  },
-  {
-   "canonical": "按钮文案",
-   "aliases": [
-    "button text",
-    "button copy",
-    "按钮文字",
-    "cta 文案",
-    "提交按钮文案",
-    "确认按钮文案",
-    "按钮该写什么"
-   ]
-  },
-  {
-   "canonical": "错误文案",
-   "aliases": [
-    "error message",
-    "error copy",
-    "报错文案",
-    "错误提示",
-    "错误信息",
-    "校验提示",
-    "验证错误",
-    "form error",
-    "错误消息"
-   ]
-  },
-  {
-   "canonical": "空态文案",
-   "aliases": [
-    "empty copy",
-    "empty state copy",
-    "空状态文案",
-    "无数据文案",
-    "空页面文案",
-    "empty text"
-   ]
-  },
-  {
-   "canonical": "语气",
-   "aliases": [
-    "tone of voice",
-    "brand voice",
-    "语气语调",
-    "品牌语气",
-    "文案语气",
-    "tone",
-    "voice",
-    "品牌人格",
-    "语气词"
-   ]
-  },
-  {
-   "canonical": "术语管理",
-   "aliases": [
-    "terminology",
-    "glossary",
-    "术语表",
-    "术语统一",
-    "词汇表",
-    "controlled vocabulary",
-    "同义词管理"
-   ]
-  },
-  {
-   "canonical": "大小写",
-   "aliases": [
-    "capitalization",
-    "sentence case",
-    "title case",
-    " casing",
-    "大写",
-    "小写",
-    "全大写",
-    "首字母大写",
-    "大小写规则"
-   ]
-  },
-  {
-   "canonical": "演示文稿",
-   "aliases": [
-    "presentation",
-    "PPT",
-    "ppt",
-    "幻灯片",
-    "slides",
-    "deck",
-    "演示",
-    "讲演",
-    "slide deck",
-    "keynote",
-    "google slides",
-    "汇报",
-    "答辩",
-    "课件"
-   ]
-  },
-  {
-   "canonical": "幻灯片母版",
-   "aliases": [
-    "slide master",
-    "master slide",
-    "母版",
-    "模板",
-    "template",
-    "版式",
-    "layout",
-    "占位符",
-    "placeholder",
-    "主题模板",
-    "potx"
-   ]
-  },
-  {
-   "canonical": "转场动画",
-   "aliases": [
-    "transition",
-    "转场",
-    "切换效果",
-    "切换",
-    "morph",
-    "变体",
-    "fade",
-    "淡入淡出",
-    "幻灯片切换",
-    "页面切换"
-   ]
-  },
-  {
-   "canonical": "幻灯片字号",
-   "aliases": [
-    "PPT字号",
-    "幻灯片字体大小",
-    "标题字号",
-    "正文字号",
-    "最小字号",
-    "投影字号",
-    "后排看不清",
-    "字太小",
-    "point size",
-    "pt"
-   ]
-  },
-  {
-   "canonical": "安全区",
-   "aliases": [
-    "safe area",
-    "safe margin",
-    "安全边距",
-    "标题安全区",
-    "动作安全区",
-    "title safe",
-    "action safe",
-    "过扫",
-    "overscan",
-    "边缘裁切",
-    "投影裁切"
-   ]
-  },
-  {
-   "canonical": "线上演示",
-   "aliases": [
-    "online presentation",
-    "remote presentation",
-    "线上汇报",
-    "远程演示",
-    "Zoom演示",
-    "Teams分享",
-    "屏幕共享",
-    " webinar",
-    "网络研讨会",
-    "视频会议演示"
-   ]
-  },
-  {
-   "canonical": "动效编排",
-   "aliases": [
-    "orchestration",
-    "编排",
-    "动画顺序",
-    "序列动画",
-    "多个动画",
-    "时间轴",
-    "timeline",
-    "动画调度",
-    "依次动画",
-    "同时动"
-   ]
-  },
-  {
-   "canonical": "交错动画",
-   "aliases": [
-    "stagger",
-    "staggerChildren",
-    "delayChildren",
-    "staggerDirection",
-    "交错",
-    "错峰",
-    "逐项入场",
-    "依次出现",
-    "瀑布式",
-    "级联动画"
-   ]
-  },
-  {
-   "canonical": "FLIP",
-   "aliases": [
-    "flip",
-    "First Last Invert Play",
-    "布局动画",
-    "layout animation",
-    "位移补间",
-    "重排动画",
-    "位置补间",
-    "getBoundingClientRect"
-   ]
-  },
-  {
-   "canonical": "共享元素转场",
-   "aliases": [
-    "shared element",
-    "shared element transition",
-    "layoutId",
-    "卡片放大",
-    "缩略图变大图",
-    "hero transition",
-    "跨视图元素",
-    "共享布局动画"
-   ]
-  },
-  {
-   "canonical": "视图过渡",
-   "aliases": [
-    "View Transitions",
-    "view transition",
-    "view-transition",
-    "startViewTransition",
-    "view-transition-name",
-    "match-element",
-    "伪元素树",
-    "快照转场",
-    "跨文档转场",
-    "MPA转场",
-    "pageswap",
-    "pagereveal"
-   ]
-  },
-  {
-   "canonical": "动画状态机",
-   "aliases": [
-    "state machine",
-    "statechart",
-    "XState",
-    "四态",
-    "entering",
-    "exiting",
-    "状态迁移",
-    "进出场状态",
-    "unmountOnExit",
-    "AnimatePresence 状态"
-   ]
-  },
-  {
-   "canonical": "动画中断",
-   "aliases": [
-    "可中断",
-    "打断",
-    "连点就乱",
-    "cancel",
-    "commitStyles",
-    "skipTransition",
-    "竞态",
-    "并发转场",
-    "动画取消",
-    "replaceState",
-    "updatePlaybackRate"
-   ]
-  },
-  {
-   "canonical": "列表增删动画",
-   "aliases": [
-    "列表动画",
-    "增删动画",
-    "AnimatePresence",
-    "TransitionGroup",
-    "list-move",
-    "popLayout",
-    "列表重排",
-    "退场动画",
-    "exit animation",
-    "LayoutGroup"
-   ]
-  },
-  {
-   "canonical": "进出场动画",
-   "aliases": [
-    "@starting-style",
-    "allow-discrete",
-    "transition-behavior",
-    "display none 动画",
-    "入场动画",
-    "退场看不见",
-    "popover 动画",
-    "overlay",
-    "顶层动画"
-   ]
-  },
-  {
-   "canonical": "国际化与本地化",
-   "aliases": [
-    "i18n",
-    "l10n",
-    "internationalization",
-    "localization",
-    "出海设计",
-    "多语言",
-    "全球化设计",
-    "语言包",
-    "翻译适配",
-    "locale"
-   ]
-  },
-  {
-   "canonical": "RTL 与双向文本",
-   "aliases": [
-    "right-to-left",
-    "bidi",
-    "bidirectional text",
-    "阿拉伯语",
-    "希伯来语",
-    "dir=rtl",
-    "从右到左",
-    "双向文字",
-    "双向排版",
-    "base direction"
-   ]
-  },
-  {
-   "canonical": "文案膨胀",
-   "aliases": [
-    "text expansion",
-    "text size in translation",
-    "翻译膨胀",
-    "字数变长",
-    "德语太长",
-    "按钮撑破",
-    "翻译后溢出",
-    "文字截断",
-    "字符余量",
-    "长度余量"
-   ]
-  },
-  {
-   "canonical": "复数规则",
-   "aliases": [
-    "plural rules",
-    "pluralization",
-    "cldr plural",
-    "Intl.PluralRules",
-    "复数类别",
-    "数量文案",
-    "one few many other",
-    "中文没有复数"
-   ]
-  },
-  {
-   "canonical": "ICU MessageFormat",
-   "aliases": [
-    "icu message",
-    "message format",
-    "formatjs",
-    "selectordinal",
-    "offset:1",
-    "字符串拼接",
-    "变量插值",
-    "整句翻译"
-   ]
-  },
-  {
-   "canonical": "Intl API 与数据格式化",
-   "aliases": [
-    "Intl.DateTimeFormat",
-    "Intl.NumberFormat",
-    "Intl.DurationFormat",
-    "日期格式",
-    "货币格式",
-    "数字格式",
-    "千分位",
-    "印度数字分组",
-    "BCP 47",
-    "zh_CN",
-    "navigator.language",
-    "localeMatcher"
-   ]
-  },
-  {
-   "canonical": "CSS 逻辑属性",
-   "aliases": [
-    "logical properties",
-    "inline-size",
-    "margin-inline-start",
-    "inset-inline-start",
-    "inline-start",
-    "block axis",
-    "逻辑属性",
-    "方向无关布局"
-   ]
-  },
-  {
-   "canonical": "伪本地化",
-   "aliases": [
-    "pseudolocalization",
-    "pseudo-localization",
-    "en-XA",
-    "en-XB",
-    "qps-ploc",
-    "qaa-qtz",
-    "加长测试",
-    "漏译检测",
-    "定界符暴露截断"
-   ]
-  },
-  {
-   "canonical": "RTL 图标镜像",
-   "aliases": [
-    "mirroring",
-    "bidi mirroring",
-    "图标翻转",
-    "方向性图标",
-    "进度条镜像",
-    "媒体控件不镜像",
-    "数字不镜像"
-   ]
-  },
-  {
-   "canonical": "姓名与地址本地化",
-   "aliases": [
-    "Full name",
-    "姓名字段",
-    "单名",
-    "双姓",
-    "patronymic",
-    "地址格式",
-    "姓名排序",
-    "given name family name"
-   ]
-  },
-  {
-   "canonical": "组件文档页",
-   "aliases": [
-    "component documentation",
-    "组件文档",
-    "组件说明",
-    "component page",
-    "组件页模板",
-    "props 表",
-    "API 文档",
-    "component docs"
-   ]
-  },
-  {
-   "canonical": "文档信息架构",
-   "aliases": [
-    "documentation IA",
-    "文档导航",
-    "文档目录",
-    "docs IA",
-    "信息架构",
-    "文档站点结构",
-    "docs navigation",
-    "sidebar"
-   ]
-  },
-  {
-   "canonical": "文档版本化",
-   "aliases": [
-    "docs versioning",
-    "versioned docs",
-    "版本化文档",
-    "多版本文档",
-    "versioned_docs",
-    "versions.json",
-    "版本化维护"
-   ]
-  },
-  {
-   "canonical": "变更日志",
-   "aliases": [
-    "changelog",
-    "CHANGELOG.md",
-    "更新日志",
-    "发版说明",
-    "release notes",
-    "版本记录",
-    "Keep a Changelog",
-    "Unreleased"
-   ]
-  },
-  {
-   "canonical": "迁移指南",
-   "aliases": [
-    "migration guide",
-    "迁移文档",
-    "升级指南",
-    "breaking changes",
-    "codemod",
-    "升级手册",
-    "migration"
-   ]
-  },
-  {
-   "canonical": "贡献指南",
-   "aliases": [
-    "contribution criteria",
-    "贡献规范",
-    "贡献指南",
-    "CONTRIBUTING",
-    "提案门槛",
-    "准入标准",
-    "contributing"
-   ]
-  },
-  {
-   "canonical": "文档治理",
-   "aliases": [
-    "governance",
-    "文档治理",
-    "文档评审",
-    "docs governance",
-    "维护责任",
-    "owner 归属",
-    "文档准入"
-   ]
-  },
-  {
-   "canonical": "活文档",
-   "aliases": [
-    "living documentation",
-    "活文档",
-    "研究证据",
-    "已知问题",
-    "近期变更",
-    "Recent changes",
-    "Research on this component",
-    "Help improve"
-   ]
-  },
-  {
-   "canonical": "文档模板",
-   "aliases": [
-    "doc template",
-    "文档模板",
-    "组件页模板",
-    "documentation template",
-    "文档骨架",
-    "文档范例"
-   ]
-  },
-  {
-   "canonical": "自动生成文档",
-   "aliases": [
-    "Autodocs",
-    "docs-as-code",
-    "MDX",
-    "Doc Blocks",
-    "Storybook docs",
-    "代码即文档",
-    "自动生成文档",
-    "Code Connect"
-   ]
-  },
-  {
-   "canonical": "文档新鲜度",
-   "aliases": [
-    "docs drift",
-    "文档漂移",
-    "文档陈旧",
-    "新鲜度",
-    "stale docs",
-    "文档一致性",
-    "文档腐烂"
-   ]
-  },
-  {
-   "canonical": "文档写作风格",
-   "aliases": [
-    "style guide",
-    "写作规范",
-    "文档写作",
-    "sentence case",
-    "descriptive link",
-    "Google style",
-    "Microsoft style",
-    "alt 文本"
-   ]
-  },
-  {
-   "canonical": "Diátaxis 四象限",
-   "aliases": [
-    "diataxis",
-    "四象限",
-    "tutorials how-to reference explanation",
-    "教程与操作指南",
-    "技术参考",
-    "解释型文档"
-   ]
-  },
-  {
-   "canonical": "文档成熟度",
-   "aliases": [
-    "lifecycle",
-    "组件状态",
-    "成熟度",
-    "USWDS",
-    "45 天评论期",
-    "deprecated component",
-    "beta 组件"
-   ]
-  },
-  {
-   "canonical": "AI 生成设计",
-   "aliases": [
-    "AIGC",
-    "生成式设计",
-    "生成式 AI",
-    "generative design",
-    "AI 出图",
-    "AI 辅助设计",
-    "AI 做设计",
-    "文生图"
-   ]
-  },
-  {
-   "canonical": "AI 内容标识",
-   "aliases": [
-    "生成合成内容标识",
-    "显式标识",
-    "隐式标识",
-    "AI 打标",
-    "AI 水印",
-    "标识办法",
-    "国信办通字〔2025〕2 号",
-    "GB 45438-2025"
-   ]
-  },
-  {
-   "canonical": "AI 版权",
-   "aliases": [
-    "AI 著作权",
-    "提示词版权",
-    "prompt copyright",
-    "human authorship",
-    "USCO",
-    "可举证创作链",
-    "作者身份"
-   ]
-  },
-  {
-   "canonical": "AI 商用授权",
-   "aliases": [
-    "AI 素材商用",
-    "商用授权",
-    "生成素材许可",
-    "训练数据来源",
-    "素材授权链"
-   ]
-  },
-  {
-   "canonical": "Content Credentials",
-   "aliases": [
-    "C2PA",
-    "内容凭证",
-    "provenance",
-    "溯源清单",
-    "内容来源凭证",
-    "机器可读标记"
-   ]
-  },
-  {
-   "canonical": "提示词工程",
-   "aliases": [
-    "prompt engineering",
-    "prompt",
-    "提示词模板",
-    "few-shot",
-    "structured outputs",
-    "结构化输出",
-    "developer message"
-   ]
-  },
-  {
-   "canonical": "prompt 版本化",
-   "aliases": [
-    "prompt versioning",
-    "模型快照",
-    "model snapshot",
-    "eval suite",
-    "提示词回归",
-    "fixtures",
-    "rubric"
-   ]
-  },
-  {
-   "canonical": "AI 味",
-   "aliases": [
-    "AI Slop Test",
-    "AI slop",
-    "一眼 AI",
-    "紫蓝渐变",
-    "万物皆卡片",
-    "塑料感",
-    "AI 感"
-   ]
-  },
-  {
-   "canonical": "AI 生成界面验收",
-   "aliases": [
-    "生成 UI 验收",
-    "AI 页面体检",
-    "ai_ui_audit",
-    "静态扫描",
-    "九态缺失",
-    "假数据"
-   ]
-  },
-  {
-   "canonical": "AI 功能界面",
-   "aliases": [
-    "HAX",
-    "Human-AI Interaction",
-    "人机交互准则",
-    "AI 助手设计",
-    "不确定性披露",
-    "置信度展示",
-    "全局控制"
-   ]
-  },
-  {
-   "canonical": "DESIGN.md 契约",
-   "aliases": [
-    "Agent Prompt Guide",
-    "九章格式",
-    "设计契约",
-    "风格一致性",
-    "design.md for agents",
-    "给 AI 读的规范"
-   ]
-  },
-  {
-   "canonical": "AI 工具选型",
-   "aliases": [
-    "AI 工具链",
-    "ComfyUI",
-    "ControlNet",
-    "screenshot-to-code",
-    "Figma-Context-MCP",
-    "选型三问",
-    "生成工具"
-   ]
-  },
-  {
-   "canonical": "生成到代码",
-   "aliases": [
-    "截图转代码",
-    "design to code",
-    "AI 写代码",
-    "代码生成",
-    "衔接层"
-   ]
-  },
-  {
-   "canonical": "AI 合规",
-   "aliases": [
-    "AI 法规",
-    "EU AI Act Article 50",
-    "生成式 AI 暂行办法",
-    "令第 15 号",
-    "deepfake 披露",
-    "首次暴露告知"
-   ]
-  },
-  {
-   "canonical": "欺骗性设计",
-   "aliases": [
-    "dark patterns",
-    "deceptive design",
-    "暗黑模式",
-    "黑暗模式",
-    "诱导设计",
-    "操纵性界面",
-    "套路设计",
-    "confirmshaming",
-    "roach motel",
-    "privacy zuckering",
-    "设计伦理"
-   ]
-  },
-  {
-   "canonical": "对称选择",
-   "aliases": [
-    "symmetry in choice",
-    "§7004",
-    "拒绝路径",
-    "同意对称",
-    "mirroring effect",
-    "撤回同等容易",
-    "步数测量"
-   ]
-  },
-  {
-   "canonical": "隐私同意",
-   "aliases": [
-    "cookie banner",
-    "同意弹窗",
-    "cookie 同意",
-    "授权弹窗",
-    "consent UI",
-    "隐私弹窗",
-    "追踪同意",
-    "拒绝全部"
-   ]
-  },
-  {
-   "canonical": "一键关闭",
-   "aliases": [
-    "关闭标志",
-    "开屏广告",
-    "弹窗广告",
-    "两次点击",
-    "计时关闭",
-    "广告关闭",
-    "第十条"
-   ]
-  },
-  {
-   "canonical": "自动续费",
-   "aliases": [
-    "自动展期",
-    "续费提醒",
-    "第 18 条",
-    "第十八条",
-    "前五日",
-    "总局令第 101 号",
-    "等日期前"
-   ]
-  },
-  {
-   "canonical": "取消订阅",
-   "aliases": [
-    "难取消",
-    "hard to cancel",
-    "退订",
-    "解约",
-    "订阅陷阱",
-    "随时取消"
-   ]
-  },
-  {
-   "canonical": "默认勾选",
-   "aliases": [
-    "preselection",
-    "预勾选",
-    "默认授权",
-    "概括授权",
-    "捆绑授权",
-    "defaultChecked",
-    "默认值禁区"
-   ]
-  },
-  {
-   "canonical": "成瘾设计",
-   "aliases": [
-    "addictive design",
-    "无限滚动",
-    "自动播放",
-    "连胜",
-    "streak",
-    "变比率奖励",
-    "无限下拉"
-   ]
-  },
-  {
-   "canonical": "未成年人模式",
-   "aliases": [
-    "防沉迷",
-    "防沉迷制度",
-    "适龄提示",
-    "消费上限",
-    "令第 766 号",
-    "监护人控制",
-    "青少年模式",
-    "打榜"
-   ]
-  },
-  {
-   "canonical": "包容性设计",
-   "aliases": [
-    "inclusive design",
-    "Persona Spectrum",
-    "认知无障碍",
-    "COGA",
-    "认知与学习障碍",
-    "同理心提示",
-    "Solve for one"
-   ]
-  },
-  {
-   "canonical": "反操纵红线",
-   "aliases": [
-    "反模式",
-    "UI 红线",
-    "合规验收",
-    "design ethics",
-    "伦理评审",
-    "静态扫描"
-   ]
-  },
-  {
-   "canonical": "隐藏费用",
-   "aliases": [
-    "hidden costs",
-    "junk fees",
-    "埋条款",
-    "搭售",
-    "结算加价",
-    "隐藏订阅"
-   ]
-  },
-  {
-   "canonical": "PIPL 同意",
-   "aliases": [
-    "个人信息保护法",
-    "cookie wall",
-    "便捷撤回",
-    "第 16 条",
-    "自动化决策",
-    "大数据杀熟",
-    "个性化推荐开关"
-   ]
-  },
-  {
-   "canonical": "组件 API 设计",
-   "aliases": [
-    "component api",
-    "组件契约",
-    "props 设计",
-    "props 语义",
-    "API surface",
-    "组件接口",
-    "组件规范",
-    "component contract"
-   ]
-  },
-  {
-   "canonical": "受控组件",
-   "aliases": [
-    "controlled",
-    "controlled component",
-    "受控",
-    "非受控",
-    "uncontrolled",
-    "value onChange",
-    "useControllableState",
-    "defaultValue",
-    "defaultChecked",
-    "isControlled"
-   ]
-  },
-  {
-   "canonical": "状态提升",
-   "aliases": [
-    "lifting state up",
-    "状态提升",
-    "单一数据源",
-    "single source of truth",
-    "状态所有权",
-    "谁持有状态"
-   ]
-  },
-  {
-   "canonical": "组合模式",
-   "aliases": [
-    "composition",
-    "compound components",
-    "复合组件",
-    "组合优于继承",
-    "composition vs inheritance",
-    "children",
-    "render prop",
-    "渲染属性"
-   ]
-  },
-  {
-   "canonical": "插槽",
-   "aliases": [
-    "slot",
-    "slots",
-    "插槽",
-    "具名插槽",
-    "named slots",
-    "scoped slots",
-    "作用域插槽",
-    "slot outlet",
-    "Vue slot",
-    "renderless component"
-   ]
-  },
-  {
-   "canonical": "asChild",
-   "aliases": [
-    "asChild",
-    "换元素",
-    "换标签",
-    "Radix Slot",
-    "mergeProps",
-    "polymorphic",
-    "as prop",
-    "渲染成别的标签"
-   ]
-  },
-  {
-   "canonical": "ref 转发",
-   "aliases": [
-    "forwardRef",
-    "ref as a prop",
-    "React 19",
-    "useImperativeHandle",
-    "命令式 API",
-    "imperative handle",
-    "open close handle",
-    "ref 透传"
-   ]
-  },
-  {
-   "canonical": "props 透传",
-   "aliases": [
-    "透传 props",
-    "spread props",
-    "剩余属性",
-    "props 合并优先级",
-    "merge priority",
-    "开放扩展",
-    "open for extension"
-   ]
-  },
-  {
-   "canonical": "v-model",
-   "aliases": [
-    "modelValue",
-    "update:modelValue",
-    "双向绑定",
-    "two-way binding",
-    "model modifiers",
-    "one-way data flow",
-    "props 单向流",
-    "Boolean casting"
-   ]
-  },
-  {
-   "canonical": "键盘契约",
-   "aliases": [
-    "roving tabindex",
-    "aria-activedescendant",
-    "单个 tab stop",
-    "tab sequence",
-    "焦点管理",
-    "keyboard interface",
-    "APG keyboard",
-    "focus vs selection"
-   ]
-  },
-  {
-   "canonical": "data 状态属性",
-   "aliases": [
-    "data-state",
-    "data-* 状态",
-    "状态属性",
-    "data attributes",
-    "样式钩子",
-    "状态暴露"
-   ]
-  },
-  {
-   "canonical": "API SemVer",
-   "aliases": [
-    "组件发版",
-    "component semver",
-    "改默认值",
-    "breaking change",
-    "codemod",
-    "迁移脚本",
-    "冻结面",
-    "deprecated prop"
-   ]
-  },
-  {
-   "canonical": "argTypes",
-   "aliases": [
-    "Storybook Controls",
-    "controls 面板",
-    "control false",
-    "table.disable",
-    "requiredFirst",
-    "props 文档",
-    "autodocs"
-   ]
-  },
-  {
-   "canonical": "组件库",
-   "aliases": [
-    "component library",
-    "组件库",
-    "design system 代码",
-    "headless ui",
-    "Radix",
-    "Ariakit",
-    "MUI slots",
-    "shadcn"
-   ]
-  },
-  {
-   "canonical": "设计度量",
-   "aliases": [
-    "设计度量",
-    "设计指标",
-    "度量设计效果",
-    "设计衡量",
-    "设计评估指标",
-    "UX 指标",
-    "UX metrics"
-   ]
-  },
-  {
-   "canonical": "用户研究",
-   "aliases": [
-    "用户研究",
-    "用研",
-    "用户调研",
-    "UXR",
-    "用户洞察",
-    "user research"
-   ]
-  },
-  {
-   "canonical": "可用性测试",
-   "aliases": [
-    "可用性测试",
-    "usability testing",
-    "出声思考",
-    "think aloud",
-    "发声思考",
-    "可用性实验",
-    "主持式测试",
-    "非主持式测试"
-   ]
-  },
-  {
-   "canonical": "SUS 系统可用性量表",
-   "aliases": [
-    "SUS",
-    "System Usability Scale",
-    "系统可用性量表",
-    "易用性量表",
-    "系统可用性"
-   ]
-  },
-  {
-   "canonical": "UMUX 微型可用性量表",
-   "aliases": [
-    "UMUX",
-    "UMUX-Lite",
-    "微型可用性量表",
-    "迷你可用性量表"
-   ]
-  },
-  {
-   "canonical": "样本量",
-   "aliases": [
-    "样本量",
-    "样本大小",
-    "多少人",
-    "sample size",
-    "多少用户",
-    "招募多少人",
-    "样本量怎么算"
-   ]
-  },
-  {
-   "canonical": "任务成功率",
-   "aliases": [
-    "任务成功率",
-    "任务完成率",
-    "completion rate",
-    "成功失败率",
-    "错误率",
-    "任务时长"
-   ]
-  },
-  {
-   "canonical": "HEART 框架",
-   "aliases": [
-    "HEART",
-    "Google HEART",
-    "幸福感参与采纳留存任务成功",
-    "heart framework"
-   ]
-  },
-  {
-   "canonical": "A-B 测试",
-   "aliases": [
-    "A/B 测试",
-    "AB 测试",
-    "灰度测试",
-    "对照实验",
-    "拆分测试",
-    "实验设计",
-    "ab test",
-    "线上实验"
-   ]
-  },
-  {
-   "canonical": "置信区间",
-   "aliases": [
-    "置信区间",
-    "95% 置信区间",
-    "confidence interval",
-    "CI",
-    "误差区间",
-    "置信度"
-   ]
-  },
-  {
-   "canonical": "问卷设计",
-   "aliases": [
-    "问卷",
-    "问卷设计",
-    "survey",
-    "量表",
-    "李克特",
-    "Likert",
-    "问卷调查"
-   ]
-  },
-  {
-   "canonical": "NPS 净推荐值",
-   "aliases": [
-    "NPS",
-    "净推荐值",
-    "净推荐分",
-    "推荐意愿"
-   ]
-  },
-  {
-   "canonical": "卡片分类",
-   "aliases": [
-    "卡片分类",
-    "card sorting",
-    "开放式分类",
-    "封闭式分类",
-    "IA 结构",
-    "信息架构分类"
-   ]
-  },
-  {
-   "canonical": "树测试",
-   "aliases": [
-    "树测试",
-    "tree testing",
-    "信息架构测试",
-    "IA 测试"
-   ]
-  },
-  {
-   "canonical": "研究方法",
-   "aliases": [
-    "研究方法",
-    "定性研究",
-    "定量研究",
-    "态度行为",
-    "2x2 研究方法",
-    "研究设计"
-   ]
-  },
-  {
-   "canonical": "导航",
-   "aliases": [
-    "navigation",
-    "nav",
-    "navbar",
-    "菜单",
-    "menu",
-    "侧边栏",
-    "sidebar",
-    "汉堡菜单",
-    "hamburger",
-    "汉堡",
-    "面包屑",
-    "breadcrumb",
-    "标签页",
-    "tabs",
-    "信息架构",
-    "IA",
-    "information architecture",
-    "当前位置",
-    "you are here",
-    "skip link",
-    "跳转链接",
-    "全局导航",
-    "底部导航",
-    "tab bar",
-    "主导航",
-    "导航栏",
-    "菜单项"
-   ]
-  }
- ]
+  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
+  "_updated": "2026-11-07",
+  "_weight": 0.45,
+  "groups": [
+    {
+      "canonical": "轻提示",
+      "aliases": [
+        "toast",
+        "message",
+        "snackbar",
+        "提示条",
+        "消息提示",
+        "浮层提示",
+        "冒泡",
+        "轻提示"
+      ]
+    },
+    {
+      "canonical": "模态",
+      "aliases": [
+        "modal",
+        "dialog",
+        "弹窗",
+        "对话框",
+        "模态框",
+        "遮罩",
+        "popconfirm",
+        "确认框",
+        "气泡确认"
+      ]
+    },
+    {
+      "canonical": "加载",
+      "aliases": [
+        "loading",
+        "加载中",
+        "骨架屏",
+        "skeleton",
+        "spinner",
+        "进度条",
+        "progress",
+        "转圈",
+        "等待状态",
+        "占位"
+      ]
+    },
+    {
+      "canonical": "空态",
+      "aliases": [
+        "empty",
+        "空状态",
+        "无数据",
+        "空页面",
+        "没有内容",
+        "empty state"
+      ]
+    },
+    {
+      "canonical": "错误",
+      "aliases": [
+        "error",
+        "报错",
+        "异常",
+        "失败提示",
+        "错误页",
+        "404",
+        "500",
+        "503",
+        "服务不可用",
+        "出错"
+      ]
+    },
+    {
+      "canonical": "动效",
+      "aliases": [
+        "motion",
+        "animation",
+        "动画",
+        "微交互",
+        "过渡",
+        "transition",
+        "easing",
+        "缓动",
+        "曲线",
+        "转场"
+      ]
+    },
+    {
+      "canonical": "配色",
+      "aliases": [
+        "color",
+        "色彩",
+        "色板",
+        "palette",
+        "主题色",
+        "主色",
+        "颜色"
+      ]
+    },
+    {
+      "canonical": "排版",
+      "aliases": [
+        "typography",
+        "字体",
+        "font",
+        "字号",
+        "行高",
+        "字重",
+        "字阶",
+        "文本层级"
+      ]
+    },
+    {
+      "canonical": "间距",
+      "aliases": [
+        "spacing",
+        "留白",
+        "padding",
+        "margin",
+        "grid",
+        "节奏",
+        "8pt",
+        "4px"
+      ]
+    },
+    {
+      "canonical": "token",
+      "aliases": [
+        "design token",
+        "设计变量",
+        "变量",
+        "语义化",
+        "tokens",
+        "主题变量"
+      ]
+    },
+    {
+      "canonical": "图表",
+      "aliases": [
+        "chart",
+        "可视化",
+        "dataviz",
+        "仪表盘",
+        "dashboard",
+        "大屏",
+        "BI",
+        "KPI",
+        "折线图",
+        "柱状图",
+        "饼图",
+        "看板"
+      ]
+    },
+    {
+      "canonical": "表单",
+      "aliases": [
+        "form",
+        "输入框",
+        "校验",
+        "验证",
+        "报错文案",
+        "登录页",
+        "注册",
+        "填写",
+        "字段"
+      ]
+    },
+    {
+      "canonical": "表格",
+      "aliases": [
+        "table",
+        "列表页",
+        "数据表",
+        "分页",
+        "列宽",
+        "行高",
+        "批量操作",
+        "筛选"
+      ]
+    },
+    {
+      "canonical": "无障碍",
+      "aliases": [
+        "a11y",
+        "accessibility",
+        "可访问性",
+        "读屏",
+        "屏幕阅读器",
+        "焦点",
+        "对比度",
+        "键盘操作",
+        "色盲",
+        "适老化",
+        "WCAG"
+      ]
+    },
+    {
+      "canonical": "按钮",
+      "aliases": [
+        "button",
+        "CTA",
+        "主按钮",
+        "次按钮",
+        "操作按钮",
+        "提交按钮"
+      ]
+    },
+    {
+      "canonical": "导航",
+      "aliases": [
+        "navbar",
+        "导航栏",
+        "顶栏",
+        "菜单",
+        "侧边栏",
+        "tab bar",
+        "底部导航",
+        "面包屑"
+      ]
+    },
+    {
+      "canonical": "卡片",
+      "aliases": [
+        "card",
+        "卡片布局",
+        "容器",
+        "信息块",
+        "tile"
+      ]
+    },
+    {
+      "canonical": "中文",
+      "aliases": [
+        "chinese",
+        "汉字",
+        "中文字体",
+        "标点",
+        "全角",
+        "避头尾",
+        "中英混排",
+        "clreq"
+      ]
+    },
+    {
+      "canonical": "品牌",
+      "aliases": [
+        "brand",
+        "品牌视觉",
+        "logo",
+        "视觉识别",
+        "VI",
+        "品牌调性"
+      ]
+    },
+    {
+      "canonical": "响应式",
+      "aliases": [
+        "responsive",
+        "断点",
+        "breakpoint",
+        "移动端",
+        "适配",
+        "自适应",
+        "容器查询"
+      ]
+    },
+    {
+      "canonical": "断点",
+      "aliases": [
+        "breakpoint",
+        "媒体查询",
+        "media query",
+        "@media",
+        "屏宽",
+        "视口宽",
+        "viewport",
+        "最小宽度",
+        "min-width",
+        "max-width",
+        "响应式断点",
+        "栅格断点"
+      ]
+    },
+    {
+      "canonical": "容器查询",
+      "aliases": [
+        "container query",
+        "@container",
+        "container-type",
+        "cqw",
+        "cqi",
+        "组件自适应",
+        "按容器宽度",
+        "卡片自适应"
+      ]
+    },
+    {
+      "canonical": "版心",
+      "aliases": [
+        "container",
+        "最大宽度",
+        "max-width",
+        "内容区宽度",
+        "栅格系统",
+        "grid system",
+        "24栅格",
+        "12栅格",
+        "gutter",
+        "槽宽",
+        "column",
+        "栏宽"
+      ]
+    },
+    {
+      "canonical": "流式排版",
+      "aliases": [
+        "clamp",
+        "fluid type",
+        "流体排版",
+        "自适应字号",
+        "字号缩放",
+        "响应式字号",
+        "min()",
+        "max()",
+        "字号随屏幕变"
+      ]
+    },
+    {
+      "canonical": "视口单位",
+      "aliases": [
+        "vh",
+        "vw",
+        "100vh",
+        "dvh",
+        "svh",
+        "lvh",
+        "全屏高度",
+        "地址栏遮挡",
+        "safe-area",
+        "安全区",
+        "刘海屏",
+        "满屏"
+      ]
+    },
+    {
+      "canonical": "响应式图片",
+      "aliases": [
+        "srcset",
+        "sizes",
+        "picture",
+        "图片适配",
+        "多倍图",
+        "2x图",
+        "懒加载",
+        "lazy",
+        "图片跳动",
+        "CLS",
+        "艺术指导"
+      ]
+    },
+    {
+      "canonical": "多端适配",
+      "aliases": [
+        "多端",
+        "H5",
+        "手机端",
+        "PC端",
+        "平板",
+        "iPad",
+        "折叠屏",
+        "大屏",
+        "小屏",
+        "窄屏",
+        "中后台适配",
+        "1366",
+        "1440",
+        "1920"
+      ]
+    },
+    {
+      "canonical": "窄屏表格",
+      "aliases": [
+        "移动端表格",
+        "手机表格",
+        "表格变卡片",
+        "表格转卡片",
+        "卡片化",
+        "responsive table",
+        "横滚表格",
+        "横向滚动表格",
+        "表格太宽",
+        "表格横向滑动"
+      ]
+    },
+    {
+      "canonical": "作品集",
+      "aliases": [
+        "portfolio",
+        "案例",
+        "个人站",
+        "审美校准"
+      ]
+    },
+    {
+      "canonical": "图标",
+      "aliases": [
+        "icon",
+        "iconfont",
+        "图标设计",
+        "Iconography",
+        "图标系统",
+        "图标规范",
+        "图标库",
+        "图标字体",
+        "线性图标",
+        "面性图标",
+        "描边图标",
+        "填充图标",
+        "双色图标",
+        "duotone",
+        "图标可访问性",
+        "图标对比度",
+        "图标按钮",
+        "图标间距",
+        "图标尺寸",
+        "sprite 图标",
+        "Lucide",
+        "Heroicons",
+        "Tabler",
+        "Material Symbols",
+        "Fluent Icons",
+        "Radix Icons",
+        "Phosphor",
+        "Feather Icons",
+        "Ant Design Icons"
+      ]
+    },
+    {
+      "canonical": "工具",
+      "aliases": [
+        "tool",
+        "插件",
+        "效率工具",
+        "截图",
+        "录屏",
+        "生成器"
+      ]
+    },
+    {
+      "canonical": "学习路径",
+      "aliases": [
+        "怎么学",
+        "路线图",
+        "知识地图",
+        "入门",
+        "进阶",
+        "能力自测"
+      ]
+    },
+    {
+      "canonical": "规范文档",
+      "aliases": [
+        "DESIGN.md",
+        "设计规范",
+        "设计系统文档",
+        "风格指南",
+        "style guide"
+      ]
+    },
+    {
+      "canonical": "版式",
+      "aliases": [
+        "layout",
+        "editorial",
+        "版面",
+        "构图",
+        "网格系统",
+        "grid system",
+        "分栏",
+        "栏数",
+        "gutter",
+        "版心",
+        "页边距",
+        "margin",
+        "基线网格",
+        "baseline grid",
+        "栅格系统"
+      ]
+    },
+    {
+      "canonical": "行长",
+      "aliases": [
+        "measure",
+        "line length",
+        "每行字数",
+        "行宽",
+        "一行多少字",
+        "行距",
+        "leading",
+        "line-height",
+        "字距",
+        "tracking",
+        "缩进",
+        "段间距"
+      ]
+    },
+    {
+      "canonical": "海报",
+      "aliases": [
+        "poster",
+        "展板",
+        "主视觉",
+        "key visual",
+        "KV",
+        "活动图",
+        "宣传图",
+        "易拉宝",
+        "banner 图",
+        "三折页"
+      ]
+    },
+    {
+      "canonical": "长图",
+      "aliases": [
+        "long image",
+        "信息图",
+        "infographic",
+        "一图流",
+        "滑动长图",
+        "详情页长图",
+        "长图海报",
+        "竖长图"
+      ]
+    },
+    {
+      "canonical": "社媒图",
+      "aliases": [
+        "social image",
+        "封面图",
+        "首图",
+        "缩略图",
+        "thumbnail",
+        "OG image",
+        "og:image",
+        "分享卡",
+        "小红书封面",
+        "公众号封面",
+        "视频封面",
+        "头图"
+      ]
+    },
+    {
+      "canonical": "印刷",
+      "aliases": [
+        "print",
+        "出血",
+        "bleed",
+        "安全区",
+        "safe area",
+        "CMYK",
+        "300dpi",
+        "300ppi",
+        "印厂",
+        "交印",
+        "PDF/X",
+        "总墨量",
+        "转曲",
+        "套印",
+        "裁切线"
+      ]
+    },
+    {
+      "canonical": "竖排",
+      "aliases": [
+        "vertical writing",
+        "writing-mode",
+        "直排",
+        "竖排版",
+        "纵中横排",
+        "从右往左",
+        "繁体竖排"
+      ]
+    },
+    {
+      "canonical": "标志",
+      "aliases": [
+        "logo",
+        "logotype",
+        "wordmark",
+        "symbol mark",
+        "图形标",
+        "标徽",
+        "标志设计",
+        "标志规范",
+        "品牌符号"
+      ]
+    },
+    {
+      "canonical": "字标",
+      "aliases": [
+        "wordmark",
+        "lettermark",
+        "monogram",
+        "字母标",
+        "组合标",
+        "徽章标",
+        "emblem",
+        "文字标志",
+        "横排标",
+        "竖排标"
+      ]
+    },
+    {
+      "canonical": "清space",
+      "aliases": [
+        "clear space",
+        "clearspace",
+        "安全边距",
+        "净空",
+        "保护空间",
+        "隔离区",
+        "留白区",
+        "最小间距",
+        "clear zone"
+      ]
+    },
+    {
+      "canonical": "最小尺寸",
+      "aliases": [
+        "minimum size",
+        "最小使用尺寸",
+        "缩小极限",
+        "缩放下限",
+        "最细笔画",
+        "小尺寸版",
+        "简化版标志",
+        "响应式标志"
+      ]
+    },
+    {
+      "canonical": "品牌色",
+      "aliases": [
+        "brand color",
+        "主色",
+        "种子色",
+        "seed color",
+        "品牌主色",
+        "色阶",
+        "色阶生成",
+        "调色板生成",
+        "tonal palette",
+        "HCT",
+        "品牌调色板"
+      ]
+    },
+    {
+      "canonical": "图标网格",
+      "aliases": [
+        "icon grid",
+        "keyline",
+        "基形",
+        "图标画布",
+        "24dp",
+        "图标规范",
+        "笔画粗细",
+        "图标对齐",
+        "图标家族"
+      ]
+    },
+    {
+      "canonical": "商标",
+      "aliases": [
+        "trademark",
+        "注册商标",
+        "尼斯分类",
+        "商标注册",
+        "版权",
+        "著作权",
+        "商用授权",
+        "字体授权",
+        "素材授权",
+        "logo 侵权"
+      ]
+    },
+    {
+      "canonical": "品牌手册",
+      "aliases": [
+        "brand guidelines",
+        "品牌规范",
+        "VI 手册",
+        "视觉识别手册",
+        "brand book",
+        "品牌指南",
+        "一页式规范",
+        "brand identity"
+      ]
+    },
+    {
+      "canonical": "品牌语气",
+      "aliases": [
+        "tone of voice",
+        "语气",
+        "品牌声音",
+        "文案语气",
+        "品牌人格",
+        "语气词",
+        "反语气词",
+        "brand voice"
+      ]
+    },
+    {
+      "canonical": "favicon",
+      "aliases": [
+        "网站图标",
+        "标签页图标",
+        "app icon",
+        "应用图标",
+        "桌面图标",
+        "PWA 图标",
+        "maskable",
+        "触屏图标",
+        "apple-touch-icon"
+      ]
+    },
+    {
+      "canonical": "暗色模式",
+      "aliases": [
+        "dark mode",
+        "dark theme",
+        "深色模式",
+        "深色主题",
+        "夜间模式",
+        "暗黑模式",
+        "暗色主题",
+        "暗色版",
+        "night mode",
+        "黑色主题",
+        "深色版",
+        "暗色",
+        "暗黑"
+      ]
+    },
+    {
+      "canonical": "表面层级",
+      "aliases": [
+        "surface",
+        "surface container",
+        "表面色",
+        "层级",
+        "elevation",
+        "高度层级",
+        "卡片层级",
+        "浮层",
+        "层阶",
+        "层叠",
+        "深度",
+        "z轴",
+        "表面变亮"
+      ]
+    },
+    {
+      "canonical": "暗色底色",
+      "aliases": [
+        "纯黑",
+        "纯黑背景",
+        "深灰",
+        "底色",
+        "暗色背景",
+        "background color",
+        "#121212",
+        "#161616",
+        "黑底",
+        "背景明度"
+      ]
+    },
+    {
+      "canonical": "主题切换",
+      "aliases": [
+        "theme switch",
+        "切换主题",
+        "跟随系统",
+        "prefers-color-scheme",
+        "闪白",
+        "FOUC",
+        "主题持久化",
+        "三态",
+        "亮暗切换",
+        "换肤",
+        "theme.json",
+        "color-scheme"
+      ]
+    },
+    {
+      "canonical": "暗色文字",
+      "aliases": [
+        "白字",
+        "纯白文字",
+        "文字透明度",
+        "文字层级",
+        "晕光",
+        "halation",
+        "光渗",
+        "暗色下看不清",
+        "字发虚",
+        "刺眼"
+      ]
+    },
+    {
+      "canonical": "遮罩层",
+      "aliases": [
+        "scrim",
+        "蒙层",
+        "overlay",
+        "半透明遮罩",
+        "背景变暗",
+        "遮罩透明度"
+      ]
+    },
+    {
+      "canonical": "涨跌色",
+      "aliases": [
+        "红涨绿跌",
+        "涨跌",
+        "涨色",
+        "跌色",
+        "红绿",
+        "金融配色",
+        "股票颜色",
+        "up down color",
+        "盈亏色"
+      ]
+    },
+    {
+      "canonical": "性能",
+      "aliases": [
+        "performance",
+        "perf",
+        "加载速度",
+        "打开速度",
+        "首屏速度",
+        "网页性能",
+        "跑得慢",
+        "太慢了",
+        "性能优化",
+        "速度优化"
+      ]
+    },
+    {
+      "canonical": "LCP",
+      "aliases": [
+        "最大内容绘制",
+        "首屏渲染",
+        "首屏时间",
+        "首屏加载",
+        "最大元素",
+        "largest contentful paint",
+        "首屏大图"
+      ]
+    },
+    {
+      "canonical": "卡顿",
+      "aliases": [
+        "INP",
+        "交互延迟",
+        "点击延迟",
+        "响应慢",
+        "掉帧",
+        "帧率",
+        "长任务",
+        "主线程阻塞",
+        "FID",
+        "点了没反应"
+      ]
+    },
+    {
+      "canonical": "CLS",
+      "aliases": [
+        "布局偏移",
+        "抖动",
+        "页面跳动",
+        "内容跳",
+        "闪动",
+        "布局抖动",
+        "cumulative layout shift",
+        "跳一下"
+      ]
+    },
+    {
+      "canonical": "性能预算",
+      "aliases": [
+        "performance budget",
+        "体积上限",
+        "包体积",
+        "资源上限",
+        "KB 预算",
+        "预算表",
+        "超预算"
+      ]
+    },
+    {
+      "canonical": "图片优化",
+      "aliases": [
+        "压缩",
+        "图片格式",
+        "AVIF",
+        "WebP",
+        "图片尺寸",
+        "懒加载",
+        "lazy",
+        "srcset",
+        "图片太大",
+        "图片糊"
+      ]
+    },
+    {
+      "canonical": "字体加载",
+      "aliases": [
+        "font-display",
+        "字体闪烁",
+        "FOIT",
+        "FOUT",
+        "子集化",
+        "字体子集",
+        "WOFF2",
+        "可变字体",
+        "字体体积",
+        "字体太大"
+      ]
+    },
+    {
+      "canonical": "弱网",
+      "aliases": [
+        "慢网",
+        "2G",
+        "3G",
+        "省流",
+        "低端机",
+        "降级",
+        "Save-Data",
+        "reduced-data",
+        "弱网环境"
+      ]
+    },
+    {
+      "canonical": "小程序性能",
+      "aliases": [
+        "分包",
+        "主包",
+        "代码包",
+        "setData",
+        "小程序启动",
+        "独立分包",
+        "按需注入",
+        "包大小",
+        "小程序慢"
+      ]
+    },
+    {
+      "canonical": "设计交付",
+      "aliases": [
+        "handoff",
+        "设计交接",
+        "标注稿",
+        "标注规范",
+        "spec",
+        "设计规格",
+        "交付文档",
+        "交付物",
+        "交付清单",
+        "切图",
+        "交图",
+        "交接"
+      ]
+    },
+    {
+      "canonical": "设计走查",
+      "aliases": [
+        "走查",
+        "还原度",
+        "视觉走查",
+        "交互走查",
+        "design QA",
+        "还原度检查",
+        "视觉还原",
+        "走查表",
+        "走查清单",
+        "提测",
+        "上线前检查"
+      ]
+    },
+    {
+      "canonical": "验收标准",
+      "aliases": [
+        "acceptance criteria",
+        "验收",
+        "验收条件",
+        "完成标准",
+        "definition of done",
+        "DoD",
+        "算做完",
+        "验收口径",
+        "通过标准",
+        "given when then"
+      ]
+    },
+    {
+      "canonical": "设计评审",
+      "aliases": [
+        "评审",
+        "critique",
+        "设计评审会",
+        "评稿",
+        "design review",
+        "评审会",
+        "过稿",
+        "设计批评",
+        "方案评审"
+      ]
+    },
+    {
+      "canonical": "缺陷分级",
+      "aliases": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "优先级分级",
+        "严重程度",
+        "bug 分级",
+        "阻断问题",
+        "发布门禁",
+        "能不能上线"
+      ]
+    },
+    {
+      "canonical": "组件命名",
+      "aliases": [
+        "命名规范",
+        "命名",
+        "变体命名",
+        "图层命名",
+        "naming",
+        "命名约定",
+        "组件属性",
+        "variant 属性",
+        "组件 API",
+        "属性命名"
+      ]
+    },
+    {
+      "canonical": "版本管理",
+      "aliases": [
+        "semver",
+        "语义化版本",
+        "版本号",
+        "发版",
+        "变更日志",
+        "changelog",
+        "废弃",
+        "deprecation",
+        "迁移",
+        "codemod",
+        "版本级别"
+      ]
+    },
+    {
+      "canonical": "token 交付",
+      "aliases": [
+        "dtcg",
+        "tokens.json",
+        ".tokens",
+        "style dictionary",
+        "变量导出",
+        "token 管线",
+        "变量同步",
+        "导出 token",
+        "token 格式"
+      ]
+    },
+    {
+      "canonical": "多品牌",
+      "aliases": [
+        "multi-brand",
+        "multibrand",
+        "白标",
+        "white label",
+        "whitelabel",
+        "租户主题",
+        "租户换肤",
+        "客户品牌",
+        "品牌切换",
+        "多子品牌",
+        "私有化换肤",
+        "换肤"
+      ]
+    },
+    {
+      "canonical": "主题架构",
+      "aliases": [
+        "theming",
+        "主题系统",
+        "主题矩阵",
+        "主题轴",
+        "theme matrix",
+        "多主题",
+        "主题引擎",
+        "四层 token",
+        "brand input",
+        "主题组合"
+      ]
+    },
+    {
+      "canonical": "品牌色生成",
+      "aliases": [
+        "色阶生成器",
+        "palette generation",
+        "brand ramp",
+        "种子色生成",
+        "品牌色阶",
+        "自动生成色阶",
+        "hct 生成",
+        "tonal palette",
+        "色度常量"
+      ]
+    },
+    {
+      "canonical": "对比度护栏",
+      "aliases": [
+        "品牌色校验",
+        "contrast guard",
+        "对比度边界",
+        "亮度边界",
+        "前景字色",
+        "白字还是黑字",
+        "on-brand 颜色",
+        "自动修正颜色",
+        "合规校验"
+      ]
+    },
+    {
+      "canonical": "变量作用域",
+      "aliases": [
+        "scoped variables",
+        "变量作用域",
+        "data-brand",
+        "data-theme",
+        "作用域化",
+        "多品牌同页",
+        "同页多主题",
+        "嵌套 provider",
+        "cssVar",
+        "portal 逃逸"
+      ]
+    },
+    {
+      "canonical": "层叠层",
+      "aliases": [
+        "@layer",
+        "cascade layer",
+        "层叠层",
+        "层叠优先级",
+        "未分层样式",
+        "覆盖不掉",
+        "样式优先级"
+      ]
+    },
+    {
+      "canonical": "运行时主题",
+      "aliases": [
+        "runtime theming",
+        "构建期换肤",
+        "编译期主题",
+        "modifyVars",
+        "css 变量换肤",
+        "zero runtime",
+        "预编译样式",
+        "动态换肤"
+      ]
+    },
+    {
+      "canonical": "主题治理",
+      "aliases": [
+        "品牌注册表",
+        "品牌准入",
+        "主题治理",
+        "品牌白名单",
+        "客户自定义边界",
+        "换肤审计",
+        "主题变更"
+      ]
+    },
+    {
+      "canonical": "文案",
+      "aliases": [
+        "ux writing",
+        "content design",
+        "microcopy",
+        "微文案",
+        "界面文案",
+        "ui copy",
+        "内容设计",
+        "文案设计",
+        "文案规范",
+        "界面文字"
+      ]
+    },
+    {
+      "canonical": "按钮文案",
+      "aliases": [
+        "button text",
+        "button copy",
+        "按钮文字",
+        "cta 文案",
+        "提交按钮文案",
+        "确认按钮文案",
+        "按钮该写什么"
+      ]
+    },
+    {
+      "canonical": "错误文案",
+      "aliases": [
+        "error message",
+        "error copy",
+        "报错文案",
+        "错误提示",
+        "错误信息",
+        "校验提示",
+        "验证错误",
+        "form error",
+        "错误消息"
+      ]
+    },
+    {
+      "canonical": "空态文案",
+      "aliases": [
+        "empty copy",
+        "empty state copy",
+        "空状态文案",
+        "无数据文案",
+        "空页面文案",
+        "empty text"
+      ]
+    },
+    {
+      "canonical": "语气",
+      "aliases": [
+        "tone of voice",
+        "brand voice",
+        "语气语调",
+        "品牌语气",
+        "文案语气",
+        "tone",
+        "voice",
+        "品牌人格",
+        "语气词"
+      ]
+    },
+    {
+      "canonical": "术语管理",
+      "aliases": [
+        "terminology",
+        "glossary",
+        "术语表",
+        "术语统一",
+        "词汇表",
+        "controlled vocabulary",
+        "同义词管理"
+      ]
+    },
+    {
+      "canonical": "大小写",
+      "aliases": [
+        "capitalization",
+        "sentence case",
+        "title case",
+        " casing",
+        "大写",
+        "小写",
+        "全大写",
+        "首字母大写",
+        "大小写规则"
+      ]
+    },
+    {
+      "canonical": "演示文稿",
+      "aliases": [
+        "presentation",
+        "PPT",
+        "ppt",
+        "幻灯片",
+        "slides",
+        "deck",
+        "演示",
+        "讲演",
+        "slide deck",
+        "keynote",
+        "google slides",
+        "汇报",
+        "答辩",
+        "课件"
+      ]
+    },
+    {
+      "canonical": "幻灯片母版",
+      "aliases": [
+        "slide master",
+        "master slide",
+        "母版",
+        "模板",
+        "template",
+        "版式",
+        "layout",
+        "占位符",
+        "placeholder",
+        "主题模板",
+        "potx"
+      ]
+    },
+    {
+      "canonical": "转场动画",
+      "aliases": [
+        "transition",
+        "转场",
+        "切换效果",
+        "切换",
+        "morph",
+        "变体",
+        "fade",
+        "淡入淡出",
+        "幻灯片切换",
+        "页面切换"
+      ]
+    },
+    {
+      "canonical": "幻灯片字号",
+      "aliases": [
+        "PPT字号",
+        "幻灯片字体大小",
+        "标题字号",
+        "正文字号",
+        "最小字号",
+        "投影字号",
+        "后排看不清",
+        "字太小",
+        "point size",
+        "pt"
+      ]
+    },
+    {
+      "canonical": "安全区",
+      "aliases": [
+        "safe area",
+        "safe margin",
+        "安全边距",
+        "标题安全区",
+        "动作安全区",
+        "title safe",
+        "action safe",
+        "过扫",
+        "overscan",
+        "边缘裁切",
+        "投影裁切"
+      ]
+    },
+    {
+      "canonical": "线上演示",
+      "aliases": [
+        "online presentation",
+        "remote presentation",
+        "线上汇报",
+        "远程演示",
+        "Zoom演示",
+        "Teams分享",
+        "屏幕共享",
+        " webinar",
+        "网络研讨会",
+        "视频会议演示"
+      ]
+    },
+    {
+      "canonical": "动效编排",
+      "aliases": [
+        "orchestration",
+        "编排",
+        "动画顺序",
+        "序列动画",
+        "多个动画",
+        "时间轴",
+        "timeline",
+        "动画调度",
+        "依次动画",
+        "同时动"
+      ]
+    },
+    {
+      "canonical": "交错动画",
+      "aliases": [
+        "stagger",
+        "staggerChildren",
+        "delayChildren",
+        "staggerDirection",
+        "交错",
+        "错峰",
+        "逐项入场",
+        "依次出现",
+        "瀑布式",
+        "级联动画"
+      ]
+    },
+    {
+      "canonical": "FLIP",
+      "aliases": [
+        "flip",
+        "First Last Invert Play",
+        "布局动画",
+        "layout animation",
+        "位移补间",
+        "重排动画",
+        "位置补间",
+        "getBoundingClientRect"
+      ]
+    },
+    {
+      "canonical": "共享元素转场",
+      "aliases": [
+        "shared element",
+        "shared element transition",
+        "layoutId",
+        "卡片放大",
+        "缩略图变大图",
+        "hero transition",
+        "跨视图元素",
+        "共享布局动画"
+      ]
+    },
+    {
+      "canonical": "视图过渡",
+      "aliases": [
+        "View Transitions",
+        "view transition",
+        "view-transition",
+        "startViewTransition",
+        "view-transition-name",
+        "match-element",
+        "伪元素树",
+        "快照转场",
+        "跨文档转场",
+        "MPA转场",
+        "pageswap",
+        "pagereveal"
+      ]
+    },
+    {
+      "canonical": "动画状态机",
+      "aliases": [
+        "state machine",
+        "statechart",
+        "XState",
+        "四态",
+        "entering",
+        "exiting",
+        "状态迁移",
+        "进出场状态",
+        "unmountOnExit",
+        "AnimatePresence 状态"
+      ]
+    },
+    {
+      "canonical": "动画中断",
+      "aliases": [
+        "可中断",
+        "打断",
+        "连点就乱",
+        "cancel",
+        "commitStyles",
+        "skipTransition",
+        "竞态",
+        "并发转场",
+        "动画取消",
+        "replaceState",
+        "updatePlaybackRate"
+      ]
+    },
+    {
+      "canonical": "列表增删动画",
+      "aliases": [
+        "列表动画",
+        "增删动画",
+        "AnimatePresence",
+        "TransitionGroup",
+        "list-move",
+        "popLayout",
+        "列表重排",
+        "退场动画",
+        "exit animation",
+        "LayoutGroup"
+      ]
+    },
+    {
+      "canonical": "进出场动画",
+      "aliases": [
+        "@starting-style",
+        "allow-discrete",
+        "transition-behavior",
+        "display none 动画",
+        "入场动画",
+        "退场看不见",
+        "popover 动画",
+        "overlay",
+        "顶层动画"
+      ]
+    },
+    {
+      "canonical": "国际化与本地化",
+      "aliases": [
+        "i18n",
+        "l10n",
+        "internationalization",
+        "localization",
+        "出海设计",
+        "多语言",
+        "全球化设计",
+        "语言包",
+        "翻译适配",
+        "locale"
+      ]
+    },
+    {
+      "canonical": "RTL 与双向文本",
+      "aliases": [
+        "right-to-left",
+        "bidi",
+        "bidirectional text",
+        "阿拉伯语",
+        "希伯来语",
+        "dir=rtl",
+        "从右到左",
+        "双向文字",
+        "双向排版",
+        "base direction"
+      ]
+    },
+    {
+      "canonical": "文案膨胀",
+      "aliases": [
+        "text expansion",
+        "text size in translation",
+        "翻译膨胀",
+        "字数变长",
+        "德语太长",
+        "按钮撑破",
+        "翻译后溢出",
+        "文字截断",
+        "字符余量",
+        "长度余量"
+      ]
+    },
+    {
+      "canonical": "复数规则",
+      "aliases": [
+        "plural rules",
+        "pluralization",
+        "cldr plural",
+        "Intl.PluralRules",
+        "复数类别",
+        "数量文案",
+        "one few many other",
+        "中文没有复数"
+      ]
+    },
+    {
+      "canonical": "ICU MessageFormat",
+      "aliases": [
+        "icu message",
+        "message format",
+        "formatjs",
+        "selectordinal",
+        "offset:1",
+        "字符串拼接",
+        "变量插值",
+        "整句翻译"
+      ]
+    },
+    {
+      "canonical": "Intl API 与数据格式化",
+      "aliases": [
+        "Intl.DateTimeFormat",
+        "Intl.NumberFormat",
+        "Intl.DurationFormat",
+        "日期格式",
+        "货币格式",
+        "数字格式",
+        "千分位",
+        "印度数字分组",
+        "BCP 47",
+        "zh_CN",
+        "navigator.language",
+        "localeMatcher"
+      ]
+    },
+    {
+      "canonical": "CSS 逻辑属性",
+      "aliases": [
+        "logical properties",
+        "inline-size",
+        "margin-inline-start",
+        "inset-inline-start",
+        "inline-start",
+        "block axis",
+        "逻辑属性",
+        "方向无关布局"
+      ]
+    },
+    {
+      "canonical": "伪本地化",
+      "aliases": [
+        "pseudolocalization",
+        "pseudo-localization",
+        "en-XA",
+        "en-XB",
+        "qps-ploc",
+        "qaa-qtz",
+        "加长测试",
+        "漏译检测",
+        "定界符暴露截断"
+      ]
+    },
+    {
+      "canonical": "RTL 图标镜像",
+      "aliases": [
+        "mirroring",
+        "bidi mirroring",
+        "图标翻转",
+        "方向性图标",
+        "进度条镜像",
+        "媒体控件不镜像",
+        "数字不镜像"
+      ]
+    },
+    {
+      "canonical": "姓名与地址本地化",
+      "aliases": [
+        "Full name",
+        "姓名字段",
+        "单名",
+        "双姓",
+        "patronymic",
+        "地址格式",
+        "姓名排序",
+        "given name family name"
+      ]
+    },
+    {
+      "canonical": "组件文档页",
+      "aliases": [
+        "component documentation",
+        "组件文档",
+        "组件说明",
+        "component page",
+        "组件页模板",
+        "props 表",
+        "API 文档",
+        "component docs"
+      ]
+    },
+    {
+      "canonical": "文档信息架构",
+      "aliases": [
+        "documentation IA",
+        "文档导航",
+        "文档目录",
+        "docs IA",
+        "信息架构",
+        "文档站点结构",
+        "docs navigation",
+        "sidebar"
+      ]
+    },
+    {
+      "canonical": "文档版本化",
+      "aliases": [
+        "docs versioning",
+        "versioned docs",
+        "版本化文档",
+        "多版本文档",
+        "versioned_docs",
+        "versions.json",
+        "版本化维护"
+      ]
+    },
+    {
+      "canonical": "变更日志",
+      "aliases": [
+        "changelog",
+        "CHANGELOG.md",
+        "更新日志",
+        "发版说明",
+        "release notes",
+        "版本记录",
+        "Keep a Changelog",
+        "Unreleased"
+      ]
+    },
+    {
+      "canonical": "迁移指南",
+      "aliases": [
+        "migration guide",
+        "迁移文档",
+        "升级指南",
+        "breaking changes",
+        "codemod",
+        "升级手册",
+        "migration"
+      ]
+    },
+    {
+      "canonical": "贡献指南",
+      "aliases": [
+        "contribution criteria",
+        "贡献规范",
+        "贡献指南",
+        "CONTRIBUTING",
+        "提案门槛",
+        "准入标准",
+        "contributing"
+      ]
+    },
+    {
+      "canonical": "文档治理",
+      "aliases": [
+        "governance",
+        "文档治理",
+        "文档评审",
+        "docs governance",
+        "维护责任",
+        "owner 归属",
+        "文档准入"
+      ]
+    },
+    {
+      "canonical": "活文档",
+      "aliases": [
+        "living documentation",
+        "活文档",
+        "研究证据",
+        "已知问题",
+        "近期变更",
+        "Recent changes",
+        "Research on this component",
+        "Help improve"
+      ]
+    },
+    {
+      "canonical": "文档模板",
+      "aliases": [
+        "doc template",
+        "文档模板",
+        "组件页模板",
+        "documentation template",
+        "文档骨架",
+        "文档范例"
+      ]
+    },
+    {
+      "canonical": "自动生成文档",
+      "aliases": [
+        "Autodocs",
+        "docs-as-code",
+        "MDX",
+        "Doc Blocks",
+        "Storybook docs",
+        "代码即文档",
+        "自动生成文档",
+        "Code Connect"
+      ]
+    },
+    {
+      "canonical": "文档新鲜度",
+      "aliases": [
+        "docs drift",
+        "文档漂移",
+        "文档陈旧",
+        "新鲜度",
+        "stale docs",
+        "文档一致性",
+        "文档腐烂"
+      ]
+    },
+    {
+      "canonical": "文档写作风格",
+      "aliases": [
+        "style guide",
+        "写作规范",
+        "文档写作",
+        "sentence case",
+        "descriptive link",
+        "Google style",
+        "Microsoft style",
+        "alt 文本"
+      ]
+    },
+    {
+      "canonical": "Diátaxis 四象限",
+      "aliases": [
+        "diataxis",
+        "四象限",
+        "tutorials how-to reference explanation",
+        "教程与操作指南",
+        "技术参考",
+        "解释型文档"
+      ]
+    },
+    {
+      "canonical": "文档成熟度",
+      "aliases": [
+        "lifecycle",
+        "组件状态",
+        "成熟度",
+        "USWDS",
+        "45 天评论期",
+        "deprecated component",
+        "beta 组件"
+      ]
+    },
+    {
+      "canonical": "AI 生成设计",
+      "aliases": [
+        "AIGC",
+        "生成式设计",
+        "生成式 AI",
+        "generative design",
+        "AI 出图",
+        "AI 辅助设计",
+        "AI 做设计",
+        "文生图"
+      ]
+    },
+    {
+      "canonical": "AI 内容标识",
+      "aliases": [
+        "生成合成内容标识",
+        "显式标识",
+        "隐式标识",
+        "AI 打标",
+        "AI 水印",
+        "标识办法",
+        "国信办通字〔2025〕2 号",
+        "GB 45438-2025"
+      ]
+    },
+    {
+      "canonical": "AI 版权",
+      "aliases": [
+        "AI 著作权",
+        "提示词版权",
+        "prompt copyright",
+        "human authorship",
+        "USCO",
+        "可举证创作链",
+        "作者身份"
+      ]
+    },
+    {
+      "canonical": "AI 商用授权",
+      "aliases": [
+        "AI 素材商用",
+        "商用授权",
+        "生成素材许可",
+        "训练数据来源",
+        "素材授权链"
+      ]
+    },
+    {
+      "canonical": "Content Credentials",
+      "aliases": [
+        "C2PA",
+        "内容凭证",
+        "provenance",
+        "溯源清单",
+        "内容来源凭证",
+        "机器可读标记"
+      ]
+    },
+    {
+      "canonical": "提示词工程",
+      "aliases": [
+        "prompt engineering",
+        "prompt",
+        "提示词模板",
+        "few-shot",
+        "structured outputs",
+        "结构化输出",
+        "developer message"
+      ]
+    },
+    {
+      "canonical": "prompt 版本化",
+      "aliases": [
+        "prompt versioning",
+        "模型快照",
+        "model snapshot",
+        "eval suite",
+        "提示词回归",
+        "fixtures",
+        "rubric"
+      ]
+    },
+    {
+      "canonical": "AI 味",
+      "aliases": [
+        "AI Slop Test",
+        "AI slop",
+        "一眼 AI",
+        "紫蓝渐变",
+        "万物皆卡片",
+        "塑料感",
+        "AI 感"
+      ]
+    },
+    {
+      "canonical": "AI 生成界面验收",
+      "aliases": [
+        "生成 UI 验收",
+        "AI 页面体检",
+        "ai_ui_audit",
+        "静态扫描",
+        "九态缺失",
+        "假数据"
+      ]
+    },
+    {
+      "canonical": "AI 功能界面",
+      "aliases": [
+        "HAX",
+        "Human-AI Interaction",
+        "人机交互准则",
+        "AI 助手设计",
+        "不确定性披露",
+        "置信度展示",
+        "全局控制"
+      ]
+    },
+    {
+      "canonical": "DESIGN.md 契约",
+      "aliases": [
+        "Agent Prompt Guide",
+        "九章格式",
+        "设计契约",
+        "风格一致性",
+        "design.md for agents",
+        "给 AI 读的规范"
+      ]
+    },
+    {
+      "canonical": "AI 工具选型",
+      "aliases": [
+        "AI 工具链",
+        "ComfyUI",
+        "ControlNet",
+        "screenshot-to-code",
+        "Figma-Context-MCP",
+        "选型三问",
+        "生成工具"
+      ]
+    },
+    {
+      "canonical": "生成到代码",
+      "aliases": [
+        "截图转代码",
+        "design to code",
+        "AI 写代码",
+        "代码生成",
+        "衔接层"
+      ]
+    },
+    {
+      "canonical": "AI 合规",
+      "aliases": [
+        "AI 法规",
+        "EU AI Act Article 50",
+        "生成式 AI 暂行办法",
+        "令第 15 号",
+        "deepfake 披露",
+        "首次暴露告知"
+      ]
+    },
+    {
+      "canonical": "欺骗性设计",
+      "aliases": [
+        "dark patterns",
+        "deceptive design",
+        "暗黑模式",
+        "黑暗模式",
+        "诱导设计",
+        "操纵性界面",
+        "套路设计",
+        "confirmshaming",
+        "roach motel",
+        "privacy zuckering",
+        "设计伦理"
+      ]
+    },
+    {
+      "canonical": "对称选择",
+      "aliases": [
+        "symmetry in choice",
+        "§7004",
+        "拒绝路径",
+        "同意对称",
+        "mirroring effect",
+        "撤回同等容易",
+        "步数测量"
+      ]
+    },
+    {
+      "canonical": "隐私同意",
+      "aliases": [
+        "cookie banner",
+        "同意弹窗",
+        "cookie 同意",
+        "授权弹窗",
+        "consent UI",
+        "隐私弹窗",
+        "追踪同意",
+        "拒绝全部"
+      ]
+    },
+    {
+      "canonical": "一键关闭",
+      "aliases": [
+        "关闭标志",
+        "开屏广告",
+        "弹窗广告",
+        "两次点击",
+        "计时关闭",
+        "广告关闭",
+        "第十条"
+      ]
+    },
+    {
+      "canonical": "自动续费",
+      "aliases": [
+        "自动展期",
+        "续费提醒",
+        "第 18 条",
+        "第十八条",
+        "前五日",
+        "总局令第 101 号",
+        "等日期前"
+      ]
+    },
+    {
+      "canonical": "取消订阅",
+      "aliases": [
+        "难取消",
+        "hard to cancel",
+        "退订",
+        "解约",
+        "订阅陷阱",
+        "随时取消"
+      ]
+    },
+    {
+      "canonical": "默认勾选",
+      "aliases": [
+        "preselection",
+        "预勾选",
+        "默认授权",
+        "概括授权",
+        "捆绑授权",
+        "defaultChecked",
+        "默认值禁区"
+      ]
+    },
+    {
+      "canonical": "成瘾设计",
+      "aliases": [
+        "addictive design",
+        "无限滚动",
+        "自动播放",
+        "连胜",
+        "streak",
+        "变比率奖励",
+        "无限下拉"
+      ]
+    },
+    {
+      "canonical": "未成年人模式",
+      "aliases": [
+        "防沉迷",
+        "防沉迷制度",
+        "适龄提示",
+        "消费上限",
+        "令第 766 号",
+        "监护人控制",
+        "青少年模式",
+        "打榜"
+      ]
+    },
+    {
+      "canonical": "包容性设计",
+      "aliases": [
+        "inclusive design",
+        "Persona Spectrum",
+        "认知无障碍",
+        "COGA",
+        "认知与学习障碍",
+        "同理心提示",
+        "Solve for one"
+      ]
+    },
+    {
+      "canonical": "反操纵红线",
+      "aliases": [
+        "反模式",
+        "UI 红线",
+        "合规验收",
+        "design ethics",
+        "伦理评审",
+        "静态扫描"
+      ]
+    },
+    {
+      "canonical": "隐藏费用",
+      "aliases": [
+        "hidden costs",
+        "junk fees",
+        "埋条款",
+        "搭售",
+        "结算加价",
+        "隐藏订阅"
+      ]
+    },
+    {
+      "canonical": "PIPL 同意",
+      "aliases": [
+        "个人信息保护法",
+        "cookie wall",
+        "便捷撤回",
+        "第 16 条",
+        "自动化决策",
+        "大数据杀熟",
+        "个性化推荐开关"
+      ]
+    },
+    {
+      "canonical": "组件 API 设计",
+      "aliases": [
+        "component api",
+        "组件契约",
+        "props 设计",
+        "props 语义",
+        "API surface",
+        "组件接口",
+        "组件规范",
+        "component contract"
+      ]
+    },
+    {
+      "canonical": "受控组件",
+      "aliases": [
+        "controlled",
+        "controlled component",
+        "受控",
+        "非受控",
+        "uncontrolled",
+        "value onChange",
+        "useControllableState",
+        "defaultValue",
+        "defaultChecked",
+        "isControlled"
+      ]
+    },
+    {
+      "canonical": "状态提升",
+      "aliases": [
+        "lifting state up",
+        "状态提升",
+        "单一数据源",
+        "single source of truth",
+        "状态所有权",
+        "谁持有状态"
+      ]
+    },
+    {
+      "canonical": "组合模式",
+      "aliases": [
+        "composition",
+        "compound components",
+        "复合组件",
+        "组合优于继承",
+        "composition vs inheritance",
+        "children",
+        "render prop",
+        "渲染属性"
+      ]
+    },
+    {
+      "canonical": "插槽",
+      "aliases": [
+        "slot",
+        "slots",
+        "插槽",
+        "具名插槽",
+        "named slots",
+        "scoped slots",
+        "作用域插槽",
+        "slot outlet",
+        "Vue slot",
+        "renderless component"
+      ]
+    },
+    {
+      "canonical": "asChild",
+      "aliases": [
+        "asChild",
+        "换元素",
+        "换标签",
+        "Radix Slot",
+        "mergeProps",
+        "polymorphic",
+        "as prop",
+        "渲染成别的标签"
+      ]
+    },
+    {
+      "canonical": "ref 转发",
+      "aliases": [
+        "forwardRef",
+        "ref as a prop",
+        "React 19",
+        "useImperativeHandle",
+        "命令式 API",
+        "imperative handle",
+        "open close handle",
+        "ref 透传"
+      ]
+    },
+    {
+      "canonical": "props 透传",
+      "aliases": [
+        "透传 props",
+        "spread props",
+        "剩余属性",
+        "props 合并优先级",
+        "merge priority",
+        "开放扩展",
+        "open for extension"
+      ]
+    },
+    {
+      "canonical": "v-model",
+      "aliases": [
+        "modelValue",
+        "update:modelValue",
+        "双向绑定",
+        "two-way binding",
+        "model modifiers",
+        "one-way data flow",
+        "props 单向流",
+        "Boolean casting"
+      ]
+    },
+    {
+      "canonical": "键盘契约",
+      "aliases": [
+        "roving tabindex",
+        "aria-activedescendant",
+        "单个 tab stop",
+        "tab sequence",
+        "焦点管理",
+        "keyboard interface",
+        "APG keyboard",
+        "focus vs selection"
+      ]
+    },
+    {
+      "canonical": "data 状态属性",
+      "aliases": [
+        "data-state",
+        "data-* 状态",
+        "状态属性",
+        "data attributes",
+        "样式钩子",
+        "状态暴露"
+      ]
+    },
+    {
+      "canonical": "API SemVer",
+      "aliases": [
+        "组件发版",
+        "component semver",
+        "改默认值",
+        "breaking change",
+        "codemod",
+        "迁移脚本",
+        "冻结面",
+        "deprecated prop"
+      ]
+    },
+    {
+      "canonical": "argTypes",
+      "aliases": [
+        "Storybook Controls",
+        "controls 面板",
+        "control false",
+        "table.disable",
+        "requiredFirst",
+        "props 文档",
+        "autodocs"
+      ]
+    },
+    {
+      "canonical": "组件库",
+      "aliases": [
+        "component library",
+        "组件库",
+        "design system 代码",
+        "headless ui",
+        "Radix",
+        "Ariakit",
+        "MUI slots",
+        "shadcn"
+      ]
+    },
+    {
+      "canonical": "设计度量",
+      "aliases": [
+        "设计度量",
+        "设计指标",
+        "度量设计效果",
+        "设计衡量",
+        "设计评估指标",
+        "UX 指标",
+        "UX metrics"
+      ]
+    },
+    {
+      "canonical": "用户研究",
+      "aliases": [
+        "用户研究",
+        "用研",
+        "用户调研",
+        "UXR",
+        "用户洞察",
+        "user research"
+      ]
+    },
+    {
+      "canonical": "可用性测试",
+      "aliases": [
+        "可用性测试",
+        "usability testing",
+        "出声思考",
+        "think aloud",
+        "发声思考",
+        "可用性实验",
+        "主持式测试",
+        "非主持式测试"
+      ]
+    },
+    {
+      "canonical": "SUS 系统可用性量表",
+      "aliases": [
+        "SUS",
+        "System Usability Scale",
+        "系统可用性量表",
+        "易用性量表",
+        "系统可用性"
+      ]
+    },
+    {
+      "canonical": "UMUX 微型可用性量表",
+      "aliases": [
+        "UMUX",
+        "UMUX-Lite",
+        "微型可用性量表",
+        "迷你可用性量表"
+      ]
+    },
+    {
+      "canonical": "样本量",
+      "aliases": [
+        "样本量",
+        "样本大小",
+        "多少人",
+        "sample size",
+        "多少用户",
+        "招募多少人",
+        "样本量怎么算"
+      ]
+    },
+    {
+      "canonical": "任务成功率",
+      "aliases": [
+        "任务成功率",
+        "任务完成率",
+        "completion rate",
+        "成功失败率",
+        "错误率",
+        "任务时长"
+      ]
+    },
+    {
+      "canonical": "HEART 框架",
+      "aliases": [
+        "HEART",
+        "Google HEART",
+        "幸福感参与采纳留存任务成功",
+        "heart framework"
+      ]
+    },
+    {
+      "canonical": "A-B 测试",
+      "aliases": [
+        "A/B 测试",
+        "AB 测试",
+        "灰度测试",
+        "对照实验",
+        "拆分测试",
+        "实验设计",
+        "ab test",
+        "线上实验"
+      ]
+    },
+    {
+      "canonical": "置信区间",
+      "aliases": [
+        "置信区间",
+        "95% 置信区间",
+        "confidence interval",
+        "CI",
+        "误差区间",
+        "置信度"
+      ]
+    },
+    {
+      "canonical": "问卷设计",
+      "aliases": [
+        "问卷",
+        "问卷设计",
+        "survey",
+        "量表",
+        "李克特",
+        "Likert",
+        "问卷调查"
+      ]
+    },
+    {
+      "canonical": "NPS 净推荐值",
+      "aliases": [
+        "NPS",
+        "净推荐值",
+        "净推荐分",
+        "推荐意愿"
+      ]
+    },
+    {
+      "canonical": "卡片分类",
+      "aliases": [
+        "卡片分类",
+        "card sorting",
+        "开放式分类",
+        "封闭式分类",
+        "IA 结构",
+        "信息架构分类"
+      ]
+    },
+    {
+      "canonical": "树测试",
+      "aliases": [
+        "树测试",
+        "tree testing",
+        "信息架构测试",
+        "IA 测试"
+      ]
+    },
+    {
+      "canonical": "研究方法",
+      "aliases": [
+        "研究方法",
+        "定性研究",
+        "定量研究",
+        "态度行为",
+        "2x2 研究方法",
+        "研究设计"
+      ]
+    },
+    {
+      "canonical": "导航",
+      "aliases": [
+        "navigation",
+        "nav",
+        "navbar",
+        "菜单",
+        "menu",
+        "侧边栏",
+        "sidebar",
+        "汉堡菜单",
+        "hamburger",
+        "汉堡",
+        "面包屑",
+        "breadcrumb",
+        "标签页",
+        "tabs",
+        "信息架构",
+        "IA",
+        "information architecture",
+        "当前位置",
+        "you are here",
+        "skip link",
+        "跳转链接",
+        "全局导航",
+        "底部导航",
+        "tab bar",
+        "主导航",
+        "导航栏",
+        "菜单项"
+      ]
+    },
+    {
+      "canonical": "设计评审",
+      "aliases": [
+        "critique",
+        "design critique",
+        "设计走查",
+        "评审",
+        "评审会",
+        "反馈",
+        "给反馈",
+        "feedback",
+        "design review",
+        "走查",
+        "i like i wish i wonder",
+        "设计by committee",
+        "design by committee",
+        "hippo",
+        "委员会改稿",
+        "决策留痕",
+        "adr",
+        "评审反馈",
+        "怎么评审",
+        "接收反馈"
+      ]
+    }
+  ]
 }

@@ -69,6 +69,12 @@ INTENTS = [
     ("当前位置指示 / 激活态 / you are here", "navigation-ia.md §8（≥2 信号 + aria-current + 聚焦态独立）"),
     ("导航可访问性 / skip link / 地标", "navigation-ia.md §9（2.4.1 skip link / 1.3.1 landmark / 2.4.5 multiple ways / 2.4.7 焦点）+ accessibility §3"),
     ("搜索与导航", "navigation-ia.md §10（搜索是导航备份 + 占位符写示例 + 零结果三件套）"),
+    ("设计评审 / critique / 设计走查", "references/design-critique.md §1 两种评审分清 + §2 三前提 + §5 RACI/远程异步"),
+    ("给反馈 / 反馈话术 / I like I wish I wonder / 2 正 1 改", "references/design-critique.md §3 给反馈七铁律"),
+    ("接收反馈 / 怎么不辩护 / 别人挑刺怎么应对", "references/design-critique.md §4 接收反馈四步"),
+    ("设计 by committee / HiPPO / 谁说了算 / 委员会改稿", "references/design-critique.md §5 Decider + §7 反模式"),
+    ("决策留痕 / ADR / 评审结论去哪了", "references/design-critique.md §8 ADR / critique notes 模板"),
+    ("评判框架 / 严重度 0–4 / NN/g 10 启发式", "references/design-critique.md §6 评判框架"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

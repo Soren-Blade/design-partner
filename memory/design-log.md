@@ -547,3 +547,16 @@
 - 统计一致性：`references/*.md` **33 份** → README/SKILL.md 统计由脚本实时生成，不手写；资产表 33 行与磁盘 33 文件一一对应；`aliases.json` **185 组 / `_weight: 0.45` / `_note` 未改**；`build_readme.py` 与 `mindmap.py` 均可重复运行且输出稳定。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+## 2026-11-07 · 设计评审与反馈（Design Critique & Feedback，每日升级 #24）
+
+- 需求：延续每日升级协议，第 24 轮只深挖一个主题。缺口判定用 `dp_search.py "评审 critique 反馈 设计走查"` 与 `grep -ric "评审\|critique\|反馈"`：命中分散在 `handoff-collaboration.md` §9（会议流程/角色/2 正 1 改/NN/g 三前提）与 `design-ethics-inclusion.md`、`design-system-docs.md`（changelog/版本化）等，但**没有一份把评审当作独立手艺体系（两种评审分清/给反馈七铁律/接收四步/评判框架 NN/g 10 启发式+严重度 0–4+DFV/15 反模式/ADR 决策留痕/异步评审/可抄模板）系统蒸馏**；`critique` 仅 2 文件、`设计评审` 仅 4 文件命中，属高频盲区。候选「手势与触控」也缺独立参考，但评审更贴「设计知识蒸馏」主指令且互补于 handoff §9（本文件明确只补手艺、不重复流程）。**说明默认选择并继续**。
+- 取源与验证（官方原文 + 权威研究）：NN/g *Design Critiques* 与 *10 Usability Heuristics*、IxDF *Design Critiques*（2026 更新）、UXPin *What is a Design Critique*、BetterUp *Constructive Criticism*、LUMA/Gamestorming 的 "I like / I wish / I wonder"、Figma critique 指南、GitHub PR review 类比；严重度 0–4 取自 Nielsen；DFV（Desirability/Feasibility/Viability）为产品三角通用框架；HiPPO 来自 NN/g。
+- 三条最重要裁决：① **评审是暴露盲点不是挑错**：目的 = 结构化对话对齐决策，产出「问题清单（带严重度）+ 决策记录」，不是批准也不是现场改稿；两场会（critique 禁决策 / review 只决策）别混。② **给反馈要可反驳**：具体非模糊、挂得上目标、分离品味与工艺（"不喜欢蓝"是品味，"对比度 3.1:1 低于 4.5:1"是工艺）、用行为化语言、I like/I wish/I wonder、先肯定再建议（2 正 1 改）、给观察不给方案跳转。③ **明确 Decider 防委员会**：HiPPO 与 design by committee 是头号反模式；无 Decider 的评审人人可否决、产出平庸；每条反馈写处置（采纳/搁置/反驳）进 ADR，没有处置结论 = 没发生。
+- 另：接收反馈四步（不辩护/追问/归类/记录）；RACI（Presenter 负责、Decider 审批、Critiquer 咨询、Facilitator 守规则）；远程同步 + 异步（Figma comment + 录屏 + 48h 窗口）；可取性测试区分"好看"与"想要"；15 反模式 + 20 自检 + 4 段可抄模板（反馈话术/评审议程/ADR/异步 checklist）。
+- 接线：新增 `references/design-critique.md`（**13 节 / 约 260 行 / 15 反模式 / 20 自检 / 4 段可抄代码**）；`SKILL.md` **v27→v28**（frontmatter +评审触发词、资产表 +1 行含 `references/design-critique.md`（满足 wiring）、意图路由**表末追加 6 条不改既有顺序**、第 5 步新增「设计评审与反馈（先对齐再动手）」原则段、第 6 步新增第 **32** 条评审关自检）；`scripts/build_readme.py` ASSETS +1 且「它解决什么问题」表 +1 行（评审变挑刺或拍板）；`scripts/mindmap.py` INTENTS +6；`references/knowledge-map.md` **21→22 支线（支线 V）/ 124→128 自测 / 门槛 ≥92**；`memory/aliases.json` **组数 185→186**（新增「设计评审」canonical +20 别名，**`_weight: 0.45` 与 `_note` 未改，只进检索层、不改路由优先级**）；用户显式指定的外部 `Design-related websites.txt` 追加「十三、设计评审与反馈」分区 8 条源，**其余文件与文件夹一律未动**。
+- 检索门槛：新主题 **8/8 PASS**（`dp_search.py "设计评审" / "给反馈 话术 critique" / "接收反馈 不辩护" / "design by committee HiPPO" / "决策留痕 ADR" / "评判框架 严重度 NN/g" / "评审会 怎么开 异步" / "I like I wish I wonder"` 全部命中 `design-critique.md` 前 3）；历史回归抽查 6 条（导航项数、暗色模式、表单校验、动效曲线、图标网格、中文排版）**排序零退化、新文件未污染**；`--no-alias` 下 top1 仍为新资产，别名只补召回。
+- 接线体检：`python scripts/mindmap.py --check` → **未接线 0 / 已失联 0**（上轮 35 文件）。口径纪律：体检文件数含 `SKILL.md` 与 memory 侧文档，与 README 只统计 `references/*.md` 的「34 份」口径不同、不冲突。
+- 统计一致性：`references/*.md` **34 份** → README/SKILL.md 统计由脚本实时生成，不手写；资产表 34 行与磁盘 34 文件一一对应；`aliases.json` **186 组 / `_weight: 0.45` / `_note` 未改**；`build_readme.py` 与 `mindmap.py` 均可重复运行且输出稳定。
+- 反馈：无真实用户反馈（自动化任务）
+- 效果：待观察

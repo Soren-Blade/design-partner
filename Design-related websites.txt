@@ -117,3 +117,13 @@
 - https://alistapart.com/article/the-disclosure-triangle/ | 信息架构与 disclosure 模式经典文献
 - https://xd.adobe.com/ideas/principles/navigation-ux/ | Adobe XD 导航 UX 原则（项数 / 分组 / 当前位置）
 - https://www.smashingmagazine.com/2018/03/navigation-patterns-web-applications/ | 导航模式与面包屑实战
+
+## 十三、设计评审与反馈（Design Critique / Feedback）【本轮新增分区】
+- https://www.nngroup.com/articles/design-critiques/ | NN/g Design Critiques：评审三前提、两种形态、给/收反馈法则原文
+- https://www.interaction-design.org/literature/topics/design-critiques | IxDF Design Critiques（2026 更新）：角色、流程、常见错误
+- https://www.uxpin.com/studio/blog/what-is-design-critique/ | UXPin：什么是设计评审、为什么能改善设计
+- https://www.betterup.com/blog/how-to-give-and-receive-constructive-criticism-at-work | BetterUp：建设性批评怎么给、怎么收（具体/可执行/不带人身）
+- https://ilikeiwish.org/ | I like / I wish / I wonder 引导式反馈法（LUMA/Gamestorming 流派）
+- https://www.nngroup.com/articles/ten-usability-heuristics/ | NN/g 10 可用性启发式（评审评判尺子）
+- https://www.figma.com/blog/how-to-run-a-design-critique/ | Figma：怎么跑一场设计评审（远程/异步）
+- https://www.nngroup.com/articles/hippo-effect/ | NN/g HiPPO 效应（最高薪者意见如何压垮决策）

@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T12:58:03",
+ "generated": "2026-11-07T13:19:39",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 800,
-   "chars": 130399,
+   "lines": 817,
+   "chars": 132751,
    "sections": []
   },
   {
@@ -2566,6 +2566,231 @@
      "summary": "- FT Visual Vocabulary — 九类数据关系与图形选型（本文件 §1 骨架，多语言版含简体中文）",
      "line": 366,
      "chars": 1066
+    }
+   ]
+  },
+  {
+   "path": "references/design-critique.md",
+   "title": "设计评审与反馈 · Design Critique & Feedback",
+   "snapshot": "2026-11-07",
+   "lines": 260,
+   "chars": 7135,
+   "sections": [
+    {
+     "id": "0-先分清-本文件补什么",
+     "level": 2,
+     "title": "0. 先分清：本文件补什么",
+     "summary": "handoff-collaboration.md §9 已经把\"一场评审会怎么开\"讲清楚了（30 分钟、2 正 1 改、Presenter/Critiquer 角色、三前提）。本文件补的是它没展开的 评审手艺与评判尺子：",
+     "line": 10,
+     "chars": 299
+    },
+    {
+     "id": "1-两种评审-别混在一场会",
+     "level": 2,
+     "title": "1. 两种评审，别混在一场会",
+     "summary": "把两者混在一个会里，结果是\"既没改进也没结论\"。 中文团队最常见的失败：名为评审会，实为汇报会 —— presenter 逐页讲，下面只点头。要拆就拆成两场，或同一场先 critique（前半段禁决策）再 review（后半段只决策）。",
+     "line": 23,
+     "chars": 357
+    },
+    {
+     "id": "2-评审前的三个前提-nn-g-原文三主题-必做",
+     "level": 2,
+     "title": "2. 评审前的三个前提（NN/g 原文三主题，必做）",
+     "summary": "1. 范围清晰：这次评什么、不评什么，必须写死。范围不清的评审 100% 跑偏（有人评配色、有人评流程，互不挨着）。",
+     "line": 36,
+     "chars": 289
+    },
+    {
+     "id": "3-给出反馈的七条铁律",
+     "level": 2,
+     "title": "3. 给出反馈的七条铁律",
+     "summary": "1. 具体非模糊：❌\"按钮太大\" → ✅\"主行动按钮 48px 高、比次按钮大 1.6×，但低于 iOS 44pt 触控下限，建议对齐 44pt 并靠间距拉开层级\"。",
+     "line": 46,
+     "chars": 690
+    },
+    {
+     "id": "4-接收反馈的四步-别辩护",
+     "level": 2,
+     "title": "4. 接收反馈的四步（别辩护）",
+     "summary": "1. 不辩护：辩解会吃掉真正讨论的时间。用\"记下来\"代替\"但是\"——哪怕你当场不同意，先落进清单，评审后逐个回应。",
+     "line": 63,
+     "chars": 276
+    },
+    {
+     "id": "5-怎么开一场评审-议程-raci-远程异步",
+     "level": 2,
+     "title": "5. 怎么开一场评审（议程 / RACI / 远程异步）",
+     "summary": "- R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。",
+     "line": 72,
+     "chars": 1
+    },
+    {
+     "id": "5-1-raci-handoff-9-讲的是角色动作-这里补权责",
+     "level": 3,
+     "title": "5.1 RACI（handoff §9 讲的是角色动作，这里补权责）",
+     "summary": "- R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。",
+     "line": 74,
+     "chars": 237
+    },
+    {
+     "id": "5-2-远程与异步",
+     "level": 3,
+     "title": "5.2 远程与异步",
+     "summary": "- 同步远程：共享屏幕 + 静音纪律；critique 阶段全员开麦，review 阶段只 Decider 说话。",
+     "line": 80,
+     "chars": 194
+    },
+    {
+     "id": "5-3-时长铁律",
+     "level": 3,
+     "title": "5.3 时长铁律",
+     "summary": "- 单场 ≤ 45 分钟；超过就拆。注意力在第 30 分钟后断崖。",
+     "line": 84,
+     "chars": 71
+    },
+    {
+     "id": "6-评判框架-把-好不好-变成可讨论的尺子",
+     "level": 2,
+     "title": "6. 评判框架（把\"好不好\"变成可讨论的尺子）",
+     "summary": "1. 系统状态可见（反馈及时）",
+     "line": 90,
+     "chars": 1
+    },
+    {
+     "id": "6-1-nn-g-10-可用性启发式-当作-critique-检查表",
+     "level": 3,
+     "title": "6.1 NN/g 10 可用性启发式（当作 critique 检查表）",
+     "summary": "1. 系统状态可见（反馈及时）",
+     "line": 92,
+     "chars": 211
+    },
+    {
+     "id": "6-2-严重度评级-nielsen-0-4",
+     "level": 3,
+     "title": "6.2 严重度评级（Nielsen 0–4）",
+     "summary": "- 0 不值得改（锦上添花）",
+     "line": 106,
+     "chars": 146
+    },
+    {
+     "id": "6-3-dfv-三问-desirability-feasibility-viability",
+     "level": 3,
+     "title": "6.3 DFV 三问（Desirability / Feasibility / Viability）",
+     "summary": "- 可取性：用户想要吗？（情感/动机）",
+     "line": 114,
+     "chars": 108
+    },
+    {
+     "id": "6-4-双轴-重要性-确定性能",
+     "level": 3,
+     "title": "6.4 双轴：重要性 × 确定性能",
+     "summary": "高重要 + 低确定 → 先验证再定（做原型/AB），别在评审桌上靠辩论定生死。低重要无论确定与否 → 放权给执行者。",
+     "line": 120,
+     "chars": 65
+    },
+    {
+     "id": "6-5-可取性测试-desirability-testing",
+     "level": 3,
+     "title": "6.5 可取性测试（desirability testing）",
+     "summary": "用语词配对（给一组形容词让用户选）测情感共鸣，区分\"好看\"和\"想要\"——好看不等于想要，评审常把两者混为一谈。",
+     "line": 123,
+     "chars": 63
+    },
+    {
+     "id": "7-反模式-15-条",
+     "level": 2,
+     "title": "7. 反模式 15 条",
+     "summary": "1. design by committee（设计委员会化 / 委员会改稿）：人人能改、无人负责，结果最安全的平庸方案；评审无 Decider 时必然滑向这里。",
+     "line": 128,
+     "chars": 656
+    },
+    {
+     "id": "8-决策记录-adr-critique-notes",
+     "level": 2,
+     "title": "8. 决策记录（ADR / critique notes）",
+     "summary": "评审中争议点 + 涉及的相关目标/启发式",
+     "line": 148,
+     "chars": 1
+    },
+    {
+     "id": "8-1-adr-模板-architecture-decision-record-套路借用到设计",
+     "level": 3,
+     "title": "8.1 ADR 模板（Architecture/Decision Record 套路借用到设计）",
+     "summary": "",
+     "line": 150,
+     "chars": 1
+    },
+    {
+     "id": "8-2-critique-notes-问题行",
+     "level": 3,
+     "title": "8.2 critique notes（问题行）",
+     "summary": "铁律：没有处置结论的反馈行 = 这条反馈没发生。",
+     "line": 165,
+     "chars": 147
+    },
+    {
+     "id": "9-工具",
+     "level": 2,
+     "title": "9. 工具",
+     "summary": "- Figma comments：原地注释 + 解决状态，异步评审主力。",
+     "line": 174,
+     "chars": 279
+    },
+    {
+     "id": "10-自检-20-项-评审前-中-后",
+     "level": 2,
+     "title": "10. 自检 20 项（评审前 / 中 / 后）",
+     "summary": "前（材料）：",
+     "line": 184,
+     "chars": 506
+    },
+    {
+     "id": "11-可抄模板-4-段",
+     "level": 2,
+     "title": "11. 可抄模板（4 段）",
+     "summary": "- like：这一屏把主行动放最右、层级清楚，一眼知道点哪。",
+     "line": 214,
+     "chars": 1
+    },
+    {
+     "id": "11-1-反馈话术清单-给反馈的人照着说",
+     "level": 3,
+     "title": "11.1 反馈话术清单（给反馈的人照着说）",
+     "summary": "",
+     "line": 216,
+     "chars": 1
+    },
+    {
+     "id": "11-2-评审议程-45-分钟",
+     "level": 3,
+     "title": "11.2 评审议程（45 分钟）",
+     "summary": "",
+     "line": 225,
+     "chars": 1
+    },
+    {
+     "id": "11-3-adr-片段",
+     "level": 3,
+     "title": "11.3 ADR 片段",
+     "summary": "",
+     "line": 234,
+     "chars": 1
+    },
+    {
+     "id": "11-4-异步评审-checklist",
+     "level": 3,
+     "title": "11.4 异步评审 checklist",
+     "summary": "---",
+     "line": 244,
+     "chars": 6
+    },
+    {
+     "id": "12-接线",
+     "level": 2,
+     "title": "12. 接线",
+     "summary": "- 配套：会议流程/角色/RACI 看 handoff-collaboration.md §9（本文件补\"评审手艺\"，不重复）。",
+     "line": 255,
+     "chars": 327
     }
    ]
   },
@@ -6633,8 +6858,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 548,
-   "chars": 46584,
+   "lines": 558,
+   "chars": 47068,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7018,23 +7243,31 @@
      "title": "支线 U · 导航与信息架构（结构先于装饰，用户只问两个问题：我在这、怎么去那）",
      "summary": "- 先分四类职责：全局（跨站常驻）/ 局部（区域下钻）/ 上下文（内容体内跳转）/ 辅助（页脚·帮助）；把页脚或上下文链接塞进主导航是头号错配。",
      "line": 384,
-     "chars": 668
+     "chars": 663
+    },
+    {
+     "id": "支线-v-设计评审与反馈-评审是暴露盲点不是挑错-先对齐再动手",
+     "level": 3,
+     "title": "支线 V · 设计评审与反馈（评审是暴露盲点不是挑错，先对齐再动手）",
+     "summary": "- 评审是结构化对话对齐决策，产出「问题清单 + 决策记录」；两种形态的评审（同伴探索 / 带决策权的评审）两场会别混。",
+     "line": 393,
+     "chars": 251
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 395,
+     "line": 401,
      "chars": 311
     },
     {
-     "id": "能力自测-124-条-做到-92-条即达-l2",
+     "id": "能力自测-128-条-做到-92-条即达-l2",
      "level": 2,
-     "title": "能力自测（124 条，做到 ≥92 条即达 L2+）",
+     "title": "能力自测（128 条，做到 ≥92 条即达 L2+）",
      "summary": "L0",
-     "line": 409,
-     "chars": 8477
+     "line": 415,
+     "chars": 8677
     }
    ]
   },
@@ -10982,8 +11215,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 549,
-   "chars": 68509,
+   "lines": 562,
+   "chars": 71212,
    "sections": []
   }
  ],

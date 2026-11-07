@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T13:19:39",
+ "generated": "2026-11-07T14:05:44",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 817,
-   "chars": 132751,
+   "lines": 824,
+   "chars": 134683,
    "sections": []
   },
   {
@@ -1586,6 +1586,207 @@
      "summary": "- [ ] 正文字号 ≥14px（内容页 ≥16px），行高 ≥1.6",
      "line": 182,
      "chars": 369
+    }
+   ]
+  },
+  {
+   "path": "references/color-science.md",
+   "title": "色彩科学（Color Science for Designers）",
+   "snapshot": "2026-11-07",
+   "lines": 399,
+   "chars": 12709,
+   "sections": [
+    {
+     "id": "1-为什么单列色彩科学",
+     "level": 2,
+     "title": "1 · 为什么单列色彩科学",
+     "summary": "配色不是纯审美，是一组有最优解的计算：",
+     "line": 9,
+     "chars": 261
+    },
+    {
+     "id": "2-色彩模型谱系-先认坐标-再谈配色",
+     "level": 2,
+     "title": "2 · 色彩模型谱系（先认坐标，再谈配色）",
+     "summary": "核心结论：凡是要「生成 / 插值 / 比较亮暗」的操作，走 OKLab/OKLCH；只在「给人类看一个直观旋钮」时用 HSL。",
+     "line": 21,
+     "chars": 639
+    },
+    {
+     "id": "3-感知均匀性-hsl-为什么撒谎",
+     "level": 2,
+     "title": "3 · 感知均匀性：HSL 为什么撒谎",
+     "summary": "HSL 的「L」是相对亮度（亮底上才亮），不是感知亮度。后果：",
+     "line": 37,
+     "chars": 303
+    },
+    {
+     "id": "4-伽马-gamma-为什么不能直接对-srgb-插值",
+     "level": 2,
+     "title": "4 · 伽马（gamma）：为什么不能直接对 sRGB 插值",
+     "summary": "sRGB 存储的是经过伽马编码的值（V = 1.055·L^0.4167 − 0.055），不是线性光。直接对两个 sRGB 十六进制做线性插值，等于在「编码后的非线性刻度」上取中点——中间会发灰、发脏、偏暗。",
+     "line": 49,
+     "chars": 274
+    },
+    {
+     "id": "5-oklab-oklch-公式与用法",
+     "level": 2,
+     "title": "5 · OKLab / OKLCH：公式与用法",
+     "summary": "Björn Ottosson（2020）公开公式，已成为 CSS Color 4/5 与主流设计工具的实践标准。",
+     "line": 59,
+     "chars": 1200
+    },
+    {
+     "id": "6-对比度-两套算法-不是只有-wcag-2-x",
+     "level": 2,
+     "title": "6 · 对比度：两套算法，不是只有 WCAG 2.x",
+     "summary": "相对亮度：",
+     "line": 104,
+     "chars": 1
+    },
+    {
+     "id": "6-1-wcag-2-x-相对亮度-现行强制标准",
+     "level": 3,
+     "title": "6.1 WCAG 2.x 相对亮度（现行强制标准）",
+     "summary": "相对亮度：",
+     "line": 106,
+     "chars": 361
+    },
+    {
+     "id": "6-2-apca-wcag-3-候选-长文-暗色更准",
+     "level": 3,
+     "title": "6.2 APCA（WCAG 3 候选，长文/暗色更准）",
+     "summary": "APCA 用 Lc（感知亮度对比，可正可负，符号表文字/背景关系），不分「正文/大文本」一刀切，而是按文本尺寸与权重给分档：",
+     "line": 121,
+     "chars": 568
+    },
+    {
+     "id": "7-色盲-三型-okabe-ito-8-色",
+     "level": 2,
+     "title": "7 · 色盲：三型 + Okabe–Ito 8 色",
+     "summary": "约 8% 男 / 0.5% 女有某种色觉缺陷。三型：",
+     "line": 143,
+     "chars": 492
+    },
+    {
+     "id": "8-色板生成科学-四条可复现路线-选一不许混",
+     "level": 2,
+     "title": "8 · 色板生成科学：四条可复现路线（选一不许混）",
+     "summary": "混用不同路线会导致色阶错序（如第 9 档比第 10 档还亮），必须选一条：",
+     "line": 162,
+     "chars": 552
+    },
+    {
+     "id": "9-渐变与插值-在-oklab-空间做",
+     "level": 2,
+     "title": "9 · 渐变与插值：在 OKLab 空间做",
+     "summary": "sRGB 直插 → 中间发灰发脏（§4）。正解：",
+     "line": 175,
+     "chars": 477
+    },
+    {
+     "id": "10-色彩无障碍-beyond-1-4-11",
+     "level": 2,
+     "title": "10 · 色彩无障碍 beyond 1.4.11",
+     "summary": "- 不只靠颜色单通道：错误 = 红 + 图标 + 文案；状态 = 颜色 + 形状 + 文字；涨跌 = 颜色 + 符号。色盲与「看不清颜色」用户都要能读（WCAG 1.4.1）。",
+     "line": 194,
+     "chars": 399
+    },
+    {
+     "id": "11-工程实现-落地要点",
+     "level": 2,
+     "title": "11 · 工程实现（落地要点）",
+     "summary": "现代 CSS（2023–2024 可用，原生无依赖）：",
+     "line": 204,
+     "chars": 1102
+    },
+    {
+     "id": "12-场景速查-12",
+     "level": 2,
+     "title": "12 · 场景速查（12）",
+     "summary": "1. 生成一套浅→深主色阶 → OKLCH 固定 H、L 从 95%→30% 步进（§8 路线 1）。",
+     "line": 234,
+     "chars": 764
+    },
+    {
+     "id": "13-反模式-20",
+     "level": 2,
+     "title": "13 · 反模式（20）",
+     "summary": "1. 在 HSL 里转色相生成色板（错序、重量不均）。",
+     "line": 251,
+     "chars": 800
+    },
+    {
+     "id": "14-自检-20",
+     "level": 2,
+     "title": "14 · 自检（20）",
+     "summary": "1. 色板是在 OKLCH/OKLab 生成的，不是 HSL 旋转？",
+     "line": 276,
+     "chars": 747
+    },
+    {
+     "id": "15-可抄代码-6-段",
+     "level": 2,
+     "title": "15 · 可抄代码（6 段）",
+     "summary": "css",
+     "line": 301,
+     "chars": 1
+    },
+    {
+     "id": "15-1-css-oklch-生成浅-深主色阶",
+     "level": 3,
+     "title": "15.1 CSS · OKLCH 生成浅→深主色阶",
+     "summary": "",
+     "line": 303,
+     "chars": 1
+    },
+    {
+     "id": "15-2-css-oklab-渐变-干净过渡",
+     "level": 3,
+     "title": "15.2 CSS · OKLab 渐变（干净过渡）",
+     "summary": "",
+     "line": 318,
+     "chars": 1
+    },
+    {
+     "id": "15-3-js-wcag-2-x-相对亮度-对比度-可直接用",
+     "level": 3,
+     "title": "15.3 JS · WCAG 2.x 相对亮度 + 对比度（可直接用）",
+     "summary": "",
+     "line": 325,
+     "chars": 1
+    },
+    {
+     "id": "15-4-js-简化-apca-lc-计算-以官方-lookup-为准校准",
+     "level": 3,
+     "title": "15.4 JS · 简化 APCA（Lc）计算（以官方 Lookup 为准校准）",
+     "summary": "",
+     "line": 346,
+     "chars": 1
+    },
+    {
+     "id": "15-5-python-oklch-色相旋转生成分类色板-culori",
+     "level": 3,
+     "title": "15.5 Python · OKLCH 色相旋转生成分类色板（culori）",
+     "summary": "",
+     "line": 360,
+     "chars": 1
+    },
+    {
+     "id": "15-6-python-反解-过-4-5-1-的最深主色-对比度优先思路",
+     "level": 3,
+     "title": "15.6 Python · 反解「过 4.5:1 的最深主色」（对比度优先思路）",
+     "summary": "15.4/15.5/15.6 为思路骨架：APCA 用官方常量校准（§6.2 取源限制），culori 以其实 API 为准；15.3 为完整可用实现。",
+     "line": 374,
+     "chars": 86
+    },
+    {
+     "id": "16-取源与限制-公开记录",
+     "level": 2,
+     "title": "16 · 取源与限制（公开记录）",
+     "summary": "- 已吸收并交叉验证：OKLab/OKLCH 公式（Björn Ottosson 2020 公开）、WCAG 2.1 相对亮度公式与阈值、Okabe–Ito 8 色 hex、sRGB γ 编码与线性化、Display P3 比 sRGB 宽",
+     "line": 392,
+     "chars": 453
     }
    ]
   },
@@ -6858,8 +7059,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 558,
-   "chars": 47068,
+   "lines": 569,
+   "chars": 48373,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7251,14 +7452,22 @@
      "title": "支线 V · 设计评审与反馈（评审是暴露盲点不是挑错，先对齐再动手）",
      "summary": "- 评审是结构化对话对齐决策，产出「问题清单 + 决策记录」；两种形态的评审（同伴探索 / 带决策权的评审）两场会别混。",
      "line": 393,
-     "chars": 251
+     "chars": 246
+    },
+    {
+     "id": "支线-w-色彩科学-配色不是审美是计算",
+     "level": 3,
+     "title": "支线 W · 色彩科学（配色不是审美是计算）",
+     "summary": "- HSL 撒谎：HSL/HSV 的 H/S/L 不是感知均匀坐标，等数值步长 ≠ 等视觉步长（蓝区 L 段比红区长 30%+），色板生成、明度梯度一律走 OKLCH/OKLab。",
+     "line": 399,
+     "chars": 1284
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 401,
+     "line": 412,
      "chars": 311
     },
     {
@@ -7266,7 +7475,7 @@
      "level": 2,
      "title": "能力自测（128 条，做到 ≥92 条即达 L2+）",
      "summary": "L0",
-     "line": 415,
+     "line": 426,
      "chars": 8677
     }
    ]
@@ -11215,8 +11424,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 562,
-   "chars": 71212,
+   "lines": 569,
+   "chars": 71844,
    "sections": []
   }
  ],

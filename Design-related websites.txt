@@ -127,3 +127,17 @@
 - https://www.nngroup.com/articles/ten-usability-heuristics/ | NN/g 10 可用性启发式（评审评判尺子）
 - https://www.figma.com/blog/how-to-run-a-design-critique/ | Figma：怎么跑一场设计评审（远程/异步）
 - https://www.nngroup.com/articles/hippo-effect/ | NN/g HiPPO 效应（最高薪者意见如何压垮决策）
+
+## 十四、色彩科学 / 色彩空间（Color Science）【本轮新增分区】
+- https://bottosson.github.io/posts/oklab/ | Björn Ottosson：OKLab/OKLCH 原文与 sRGB 转换矩阵
+- https://evilmartians.com/chronicles/oklch-css-color-please-stop-using-rgb-hsl/ | OKLCH in CSS：为什么停止用 RGB/HSL
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch | MDN oklch()（2023-05 跨浏览器广泛可用）
+- https://www.myndex.com/APCA/ | APCA 感知亮度对比算法与 Lookup
+- https://github.com/LeaVerou/color.js | colorjs.io：CSS 颜色计算库
+- https://culorijs.org/ | culori：Node/浏览器色彩空间转换
+- https://jfly.uni-koeln.de/color/ | Okabe–Ito 8 色盲安全配色（含 hex）
+- https://www.w3.org/TR/WCAG21/#dfn-contrast-minimum | WCAG 2.1 对比度定义
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color | CSS color() 与 color-mix()
+- https://github.com/radix-ui/colors | Radix 12 步色阶（语义档定义）
+- https://m3.material.io/styles/color/creating-a-color-scheme | M3 tonal palette 生成
+- https://github.com/adobe/leonardo | Adobe Leonardo：以目标对比度反解颜色

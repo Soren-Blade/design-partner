@@ -2,8 +2,8 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v28-1677ff)
-![assets](https://img.shields.io/badge/reference_files-34-2ea44f)
+![version](https://img.shields.io/badge/version-v29-1677ff)
+![assets](https://img.shields.io/badge/reference_files-35-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-07-6e7781)
 
@@ -28,10 +28,11 @@
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
 | **品牌立不住** | logo 好看但说不清为什么、缩小就糊、品牌色一进暗色模式就脏、交付缺图标尺寸、没注册商标 | `brand-identity.md` 三词定位 + 七型决策树 + 24 网格构造 + 清space 与最小尺寸 + 色阶三路线 + tone 映射 + 交付清单 + 商标合规 |
 | **暗色模式一开就脏** | 把亮色反一下就当暗色、纯白字刺眼、卡片和背景分不开、切换闪白、辅助文字看不清 | `dark-mode.md` 该不该做的证据链 + 三套表面层级精确值 + 不用纯白 + 实测对比度陷阱 + 四端实现与防闪白 |
+| **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 32 项自检 |
-| **知识找不到** | 34 份参考、78 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 33 项自检 |
+| **知识找不到** | 35 份参考、80 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -74,6 +75,7 @@
 | [组件库地图](references/component-libraries.md) | 14 库元素覆盖矩阵（GitHub API 验证） | 规则型 | 2026-10-29 |
 | [制作工具](references/tools.md) | 开发 / AI / 截取 / 效率工具 | 153 | 2026-10-29 |
 | [作品集](references/portfolios.md) | 一线从业者站点，用于审美校准 | 166 | 2026-10-29 |
+| [色彩科学](references/color-science.md) | 色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码 | 规则型 | 2026-11-07 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -84,12 +86,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  171 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  172 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  32 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、评审关）+ 交付说明三段式
+第 6 步  自检与交付    →  33 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -110,7 +112,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：186 组口语/术语/中英对应，只提升召回、不改路由优先级 |
+| `memory/aliases.json` | **检索层别名映射**：187 组口语/术语/中英对应，只提升召回、不改路由优先级 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 
@@ -128,7 +130,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 22 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈）、学习节奏表、128 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 23 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学）、学习节奏表、128 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -154,6 +156,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-07 | 每日升级 #25：色彩科学（Color Science） |
 | 2026-11-07 | 设计评审与反馈（Design Critique & Feedback，每日升级 #24） |
 | 2026-11-07 | 导航与信息架构（Navigation & IA，每日升级 #23） |
 | 2026-11-07 | 图标设计系统（Iconography，每日升级 #22） |
@@ -161,7 +164,6 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 | 2026-11-07 | 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20） |
 | 2026-11-06 | 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍（每日升级 #19） |
 | 2026-11-06 | AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界（每日升级 #18） |
-| 2026-11-05 | 设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理（每日升级 #17） |
 
 ---
 
@@ -181,6 +183,17 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 - [Datawrapper](https://www.datawrapper.de/blog/dual-axis-charts-guide) — 双轴图的适用条件与误导机制
 - [W3C clreq](https://www.w3.org/TR/clreq/) — 中文排版需求
 - [Apple HIG](https://developer.apple.com/design/human-interface-guidelines)
+- [Björn Ottosson · OKLab](https://bottosson.github.io/posts/oklab/) — OKLab/OKLCH 感知均匀色彩空间原始定义与公式
+- [Evil Martians · OKLCH in CSS](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl) — OKLCH 生产可用性、浏览器支持与 `oklch()` 实战
+- [MDN · oklch()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) — `oklch()` 语法、色域与降级
+- [APCA · W3C Community Group](https://www.w3.org/TR/apa/) — 下一代对比度算法 Lc 等级与可读性阈值
+- [color.js](https://colorjs.io/) — 现代色彩空间计算库（OKLab/OKLCH/Display P3）教学站点
+- [culori](https://github.com/EvilMartians/culori) — 轻量色彩计算库（OKLab/OKLCH 插值、色板生成）
+- [Okabe–Ito 8 色](https://jfly.uni-koeln.de/tools/colorblind/ColorUniversalDesign.pdf) — 色盲安全 8 色 hex 表（学术原版）
+- [W3C WCAG 2.1 · Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) — 4.5:1 文本对比度定义
+- [Radix Colors](https://www.radix-ui.com/colors) — 感知均匀、可访问的色阶生成器
+- [Material 3 · Tonal Palette](https://m3.material.io/styles/color/the-color-system/tonal-palettes) — HCT 色阶与品牌色派生
+- [Adobe Leonardo](https://leonardo.cc/) — 基于对比度的可访问色板生成工具
 
 ## 目录结构
 
@@ -188,7 +201,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（34 份，见上表）
+├── references/               # 知识库（35 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-07 13:14 ｜ 36 个文件 · 1403 个章节 · 987,798 字符
+> 自动生成于 2026-11-07 14:05 ｜ 37 个文件 · 1429 个章节 · 1,004,293 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -248,26 +248,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **研究方法** | 研究方法 · 定性研究 · 定量研究 · 态度行为 · 2x2 研究方法 · 研究设计 |
 | **导航** | navigation · nav · navbar · 菜单 · menu · 侧边栏 · sidebar · 汉堡菜单 · hamburger · 汉堡 · 面包屑 · breadcrumb · 标签页 · tabs · 信息架构 · IA · information architecture · 当前位置 · you are here · skip link · 跳转链接 · 全局导航 · 底部导航 · tab bar · 主导航 · 导航栏 · 菜单项 |
 | **设计评审** | critique · design critique · 设计走查 · 评审 · 评审会 · 反馈 · 给反馈 · feedback · design review · 走查 · i like i wish i wonder · 设计by committee · design by committee · hippo · 委员会改稿 · 决策留痕 · adr · 评审反馈 · 怎么评审 · 接收反馈 |
+| **色彩科学** | color science · 色彩理论 · 色彩空间 · oklch · oklab · OKLCH · OKLab · Display P3 · display-p3 · 感知均匀 · 色相旋转 · 色板生成 · 调色 · 配色方案 · 渐变插值 · APCA · 相对亮度 · HSL 撒谎 · sRGB · 色域 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_817 行 · 快照 — · 12 节_
+_824 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L90` — 资产已 34 份参考、约 78 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L92` — 资产已 34 份参考、约 78 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L105`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L281` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L296` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L322` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L353` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L715` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L775` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L788` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L795` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L809` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L93` — 资产已 34 份参考、约 78 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L95` — 资产已 34 份参考、约 78 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L108`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L285` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L300` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L326` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L357` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L720` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L782` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L795` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L802` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L816` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -478,6 +479,34 @@ _195 行 · 快照 2026-10-29 · 14 节_
 - **三、中文产品形态的四个特征（影响设计决策）** `L167` — 中后台 vs 消费级的分野：
 - **四、中文排版自检清单（交付前逐条过）** `L182` — - [ ] 正文字号 ≥14px（内容页 ≥16px），行高 ≥1.6
 
+### `references/color-science.md` · 色彩科学（Color Science for Designers）
+_399 行 · 快照 2026-11-07 · 24 节_
+
+- **1 · 为什么单列色彩科学** `L9` — 配色不是纯审美，是一组有最优解的计算：
+- **2 · 色彩模型谱系（先认坐标，再谈配色）** `L21` — 核心结论：凡是要「生成 / 插值 / 比较亮暗」的操作，走 OKLab/OKLCH；只在「给人类看一个直观旋钮」时用 HSL。
+- **3 · 感知均匀性：HSL 为什么撒谎** `L37` — HSL 的「L」是相对亮度（亮底上才亮），不是感知亮度。后果：
+- **4 · 伽马（gamma）：为什么不能直接对 sRGB 插值** `L49` — sRGB 存储的是经过伽马编码的值（V = 1.055·L^0.4167 − 0.055），不是线性光。直接对两个 sRGB 十六进制做线性插值，等于在「编码后的非线性刻度」上取中点——中间会发灰、发脏、偏暗。
+- **5 · OKLab / OKLCH：公式与用法** `L59` — Björn Ottosson（2020）公开公式，已成为 CSS Color 4/5 与主流设计工具的实践标准。
+- **6 · 对比度：两套算法，不是只有 WCAG 2.x** `L104` — 相对亮度：
+  - **6.1 WCAG 2.x 相对亮度（现行强制标准）** `L106` — 相对亮度：
+  - **6.2 APCA（WCAG 3 候选，长文/暗色更准）** `L121` — APCA 用 Lc（感知亮度对比，可正可负，符号表文字/背景关系），不分「正文/大文本」一刀切，而是按文本尺寸与权重给分档：
+- **7 · 色盲：三型 + Okabe–Ito 8 色** `L143` — 约 8% 男 / 0.5% 女有某种色觉缺陷。三型：
+- **8 · 色板生成科学：四条可复现路线（选一不许混）** `L162` — 混用不同路线会导致色阶错序（如第 9 档比第 10 档还亮），必须选一条：
+- **9 · 渐变与插值：在 OKLab 空间做** `L175` — sRGB 直插 → 中间发灰发脏（§4）。正解：
+- **10 · 色彩无障碍 beyond 1.4.11** `L194` — - 不只靠颜色单通道：错误 = 红 + 图标 + 文案；状态 = 颜色 + 形状 + 文字；涨跌 = 颜色 + 符号。色盲与「看不清颜色」用户都要能读（WCAG 1.4.1）。
+- **11 · 工程实现（落地要点）** `L204` — 现代 CSS（2023–2024 可用，原生无依赖）：
+- **12 · 场景速查（12）** `L234` — 1. 生成一套浅→深主色阶 → OKLCH 固定 H、L 从 95%→30% 步进（§8 路线 1）。
+- **13 · 反模式（20）** `L251` — 1. 在 HSL 里转色相生成色板（错序、重量不均）。
+- **14 · 自检（20）** `L276` — 1. 色板是在 OKLCH/OKLab 生成的，不是 HSL 旋转？
+- **15 · 可抄代码（6 段）** `L301` — css
+  - **15.1 CSS · OKLCH 生成浅→深主色阶** `L303`
+  - **15.2 CSS · OKLab 渐变（干净过渡）** `L318`
+  - **15.3 JS · WCAG 2.x 相对亮度 + 对比度（可直接用）** `L325`
+  - **15.4 JS · 简化 APCA（Lc）计算（以官方 Lookup 为准校准）** `L346`
+  - **15.5 Python · OKLCH 色相旋转生成分类色板（culori）** `L360`
+  - **15.6 Python · 反解「过 4.5:1 的最深主色」（对比度优先思路）** `L374` — 15.4/15.5/15.6 为思路骨架：APCA 用官方常量校准（§6.2 取源限制），culori 以其实 API 为准；15.3 为完整可用实现。
+- **16 · 取源与限制（公开记录）** `L392` — - 已吸收并交叉验证：OKLab/OKLCH 公式（Björn Ottosson 2020 公开）、WCAG 2.1 相对亮度公式与阈值、Okabe–Ito 8 色 hex、sRGB γ 编码与线性化、Display P3 比 sRGB 宽
+
 ### `references/component-api-design.md` · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进
 _917 行 · 快照 2026-11-07 · 42 节_
 
@@ -613,35 +642,35 @@ _376 行 · 快照 2026-10-31 · 26 节_
 - **13. 素材与出处** `L366` — - FT Visual Vocabulary — 九类数据关系与图形选型（本文件 §1 骨架，多语言版含简体中文）
 
 ### `references/design-critique.md` · 设计评审与反馈 · Design Critique & Feedback
-_259 行 · 快照 2026-11-07 · 27 节_
+_260 行 · 快照 2026-11-07 · 27 节_
 
-- **0. 先分清：本文件补什么** `L9` — handoff-collaboration.md §9 已经把"一场评审会怎么开"讲清楚了（30 分钟、2 正 1 改、Presenter/Critiquer 角色、三前提）。本文件补的是它没展开的 评审手艺与评判尺子：
-- **1. 两种评审，别混在一场会** `L22` — 把两者混在一个会里，结果是"既没改进也没结论"。 中文团队最常见的失败：名为评审会，实为汇报会 —— presenter 逐页讲，下面只点头。要拆就拆成两场，或同一场先 critique（前半段禁决策）再 review（后半段只决策）。
-- **2. 评审前的三个前提（NN/g 原文三主题，必做）** `L35` — 1. 范围清晰：这次评什么、不评什么，必须写死。范围不清的评审 100% 跑偏（有人评配色、有人评流程，互不挨着）。
-- **3. 给出反馈的七条铁律** `L45` — 1. 具体非模糊：❌"按钮太大" → ✅"主行动按钮 48px 高、比次按钮大 1.6×，但低于 iOS 44pt 触控下限，建议对齐 44pt 并靠间距拉开层级"。
-- **4. 接收反馈的四步（别辩护）** `L62` — 1. 不辩护：辩解会吃掉真正讨论的时间。用"记下来"代替"但是"——哪怕你当场不同意，先落进清单，评审后逐个回应。
-- **5. 运行一场评审（议程 / RACI / 远程异步）** `L71` — - R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。
-  - **5.1 RACI（handoff §9 讲的是角色动作，这里补权责）** `L73` — - R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。
-  - **5.2 远程与异步** `L79` — - 同步远程：共享屏幕 + 静音纪律；critique 阶段全员开麦，review 阶段只 Decider 说话。
-  - **5.3 时长铁律** `L83` — - 单场 ≤ 45 分钟；超过就拆。注意力在第 30 分钟后断崖。
-- **6. 评判框架（把"好不好"变成可讨论的尺子）** `L89` — 1. 系统状态可见（反馈及时）
-  - **6.1 NN/g 10 可用性启发式（当作 critique 检查表）** `L91` — 1. 系统状态可见（反馈及时）
-  - **6.2 严重度评级（Nielsen 0–4）** `L105` — - 0 不值得改（锦上添花）
-  - **6.3 DFV 三问（Desirability / Feasibility / Viability）** `L113` — - 可取性：用户想要吗？（情感/动机）
-  - **6.4 双轴：重要性 × 确定性能** `L119` — 高重要 + 低确定 → 先验证再定（做原型/AB），别在评审桌上靠辩论定生死。低重要无论确定与否 → 放权给执行者。
-  - **6.5 可取性测试（desirability testing）** `L122` — 用语词配对（给一组形容词让用户选）测情感共鸣，区分"好看"和"想要"——好看不等于想要，评审常把两者混为一谈。
-- **7. 反模式 15 条** `L127` — 1. 设计 by committee：人人能改、无人负责，结果最安全的平庸方案。
-- **8. 决策记录（ADR / critique notes）** `L147` — 评审中争议点 + 涉及的相关目标/启发式
-  - **8.1 ADR 模板（Architecture/Decision Record 套路借用到设计）** `L149`
-  - **8.2 critique notes（问题行）** `L164` — 铁律：没有处置结论的反馈行 = 这条反馈没发生。
-- **9. 工具** `L173` — - Figma comments：原地注释 + 解决状态，异步评审主力。
-- **10. 自检 20 项（评审前 / 中 / 后）** `L183` — 前（材料）：
-- **11. 可抄模板（4 段）** `L213` — - like：这一屏把主行动放最右、层级清楚，一眼知道点哪。
-  - **11.1 反馈话术清单（给反馈的人照着说）** `L215`
-  - **11.2 评审议程（45 分钟）** `L224`
-  - **11.3 ADR 片段** `L233`
-  - **11.4 异步评审 checklist** `L243` — ---
-- **12. 接线** `L254` — - 配套：会议流程/角色/RACI 看 handoff-collaboration.md §9（本文件补"评审手艺"，不重复）。
+- **0. 先分清：本文件补什么** `L10` — handoff-collaboration.md §9 已经把"一场评审会怎么开"讲清楚了（30 分钟、2 正 1 改、Presenter/Critiquer 角色、三前提）。本文件补的是它没展开的 评审手艺与评判尺子：
+- **1. 两种评审，别混在一场会** `L23` — 把两者混在一个会里，结果是"既没改进也没结论"。 中文团队最常见的失败：名为评审会，实为汇报会 —— presenter 逐页讲，下面只点头。要拆就拆成两场，或同一场先 critique（前半段禁决策）再 review（后半段只决策）。
+- **2. 评审前的三个前提（NN/g 原文三主题，必做）** `L36` — 1. 范围清晰：这次评什么、不评什么，必须写死。范围不清的评审 100% 跑偏（有人评配色、有人评流程，互不挨着）。
+- **3. 给出反馈的七条铁律** `L46` — 1. 具体非模糊：❌"按钮太大" → ✅"主行动按钮 48px 高、比次按钮大 1.6×，但低于 iOS 44pt 触控下限，建议对齐 44pt 并靠间距拉开层级"。
+- **4. 接收反馈的四步（别辩护）** `L63` — 1. 不辩护：辩解会吃掉真正讨论的时间。用"记下来"代替"但是"——哪怕你当场不同意，先落进清单，评审后逐个回应。
+- **5. 怎么开一场评审（议程 / RACI / 远程异步）** `L72` — - R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。
+  - **5.1 RACI（handoff §9 讲的是角色动作，这里补权责）** `L74` — - R Presenter：讲目标 → 讲故事（遇到什么问题、为什么这么决策）→ 明确想要哪类反馈，快速讲完。
+  - **5.2 远程与异步** `L80` — - 同步远程：共享屏幕 + 静音纪律；critique 阶段全员开麦，review 阶段只 Decider 说话。
+  - **5.3 时长铁律** `L84` — - 单场 ≤ 45 分钟；超过就拆。注意力在第 30 分钟后断崖。
+- **6. 评判框架（把"好不好"变成可讨论的尺子）** `L90` — 1. 系统状态可见（反馈及时）
+  - **6.1 NN/g 10 可用性启发式（当作 critique 检查表）** `L92` — 1. 系统状态可见（反馈及时）
+  - **6.2 严重度评级（Nielsen 0–4）** `L106` — - 0 不值得改（锦上添花）
+  - **6.3 DFV 三问（Desirability / Feasibility / Viability）** `L114` — - 可取性：用户想要吗？（情感/动机）
+  - **6.4 双轴：重要性 × 确定性能** `L120` — 高重要 + 低确定 → 先验证再定（做原型/AB），别在评审桌上靠辩论定生死。低重要无论确定与否 → 放权给执行者。
+  - **6.5 可取性测试（desirability testing）** `L123` — 用语词配对（给一组形容词让用户选）测情感共鸣，区分"好看"和"想要"——好看不等于想要，评审常把两者混为一谈。
+- **7. 反模式 15 条** `L128` — 1. design by committee（设计委员会化 / 委员会改稿）：人人能改、无人负责，结果最安全的平庸方案；评审无 Decider 时必然滑向这里。
+- **8. 决策记录（ADR / critique notes）** `L148` — 评审中争议点 + 涉及的相关目标/启发式
+  - **8.1 ADR 模板（Architecture/Decision Record 套路借用到设计）** `L150`
+  - **8.2 critique notes（问题行）** `L165` — 铁律：没有处置结论的反馈行 = 这条反馈没发生。
+- **9. 工具** `L174` — - Figma comments：原地注释 + 解决状态，异步评审主力。
+- **10. 自检 20 项（评审前 / 中 / 后）** `L184` — 前（材料）：
+- **11. 可抄模板（4 段）** `L214` — - like：这一屏把主行动放最右、层级清楚，一眼知道点哪。
+  - **11.1 反馈话术清单（给反馈的人照着说）** `L216`
+  - **11.2 评审议程（45 分钟）** `L225`
+  - **11.3 ADR 片段** `L234`
+  - **11.4 异步评审 checklist** `L244` — ---
+- **12. 接线** `L255` — - 配套：会议流程/角色/RACI 看 handoff-collaboration.md §9（本文件补"评审手艺"，不重复）。
 
 ### `references/design-ethics-inclusion.md` · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍
 _799 行 · 快照 2026-11-06 · 39 节_
@@ -1186,7 +1215,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_560 行 · 快照 2026-11-05 · 51 节_
+_569 行 · 快照 2026-11-05 · 52 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1236,9 +1265,10 @@ _560 行 · 快照 2026-11-05 · 51 节_
   - **支线 S · 设计度量与用户研究（"好不好"不能只剩「我觉得」）** `L363` — - 先判要度量什么：ISO 9241-11:2018 把可用性拆成三件独立的事——Effectiveness（任务对不对）/ Efficiency（快不快）/ Satisfaction（爽不爽）；三者分别度量、分别签字，满意度高 ≠ 任务能
   - **支线 T · 图标设计系统（Iconography，视觉速记不是装饰）** `L374` — - 先判图标还是文字：图形比文字更快被识别时才用图标；歧义或首现品牌图标配文字，正文与导航一级用文字（见 iconography.md §1 决策树）。
   - **支线 U · 导航与信息架构（结构先于装饰，用户只问两个问题：我在这、怎么去那）** `L384` — - 先分四类职责：全局（跨站常驻）/ 局部（区域下钻）/ 上下文（内容体内跳转）/ 辅助（页脚·帮助）；把页脚或上下文链接塞进主导航是头号错配。
-  - **支线 V · 设计评审与反馈（评审是暴露盲点不是挑错，先对齐再动手）** `L393` — - 两种评审分清：standalone critique（同伴、开放探索）与 design review（有 Decider、做决策）别混一场，否则既没改进也没结论。
-- **学习节奏（可持续，不靠意志力）** `L403` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
-- **能力自测（128 条，做到 ≥92 条即达 L2+）** `L417` — L0
+  - **支线 V · 设计评审与反馈（评审是暴露盲点不是挑错，先对齐再动手）** `L393` — - 评审是结构化对话对齐决策，产出「问题清单 + 决策记录」；两种形态的评审（同伴探索 / 带决策权的评审）两场会别混。
+  - **支线 W · 色彩科学（配色不是审美是计算）** `L399` — - HSL 撒谎：HSL/HSV 的 H/S/L 不是感知均匀坐标，等数值步长 ≠ 等视觉步长（蓝区 L 段比红区长 30%+），色板生成、明度梯度一律走 OKLCH/OKLab。
+- **学习节奏（可持续，不靠意志力）** `L412` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
+- **能力自测（128 条，做到 ≥92 条即达 L2+）** `L426` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1768,7 +1798,7 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.6 链接文案检查脚本** `L799` — ---
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_562 行 · 快照 — · 29 节_
+_569 行 · 快照 — · 30 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1799,6 +1829,7 @@ _562 行 · 快照 — · 29 节_
 - **2026-11-07 · 图标设计系统（Iconography，每日升级 #22）** `L524` — - 需求：延续每日升级协议，第 22 轮只深挖一个主题。缺口判定用 dpsearch.py "图标设计 图标系统 图标网格 图标可访问性 图标字体 spinner" 与 grep -ric "图标网格\keyline\aria-hidden
 - **2026-11-07 · 导航与信息架构（Navigation & IA，每日升级 #23）** `L538` — - 需求：延续每日升级协议，第 23 轮只深挖一个主题。缺口判定用 dpsearch.py "导航 导航栏 菜单 面包屑 tabs 信息架构 汉堡 skip link" 与 grep -ric "导航栏\面包屑\skip link\aria
 - **2026-11-07 · 设计评审与反馈（Design Critique & Feedback，每日升级 #24）** `L551` — - 需求：延续每日升级协议，第 24 轮只深挖一个主题。缺口判定用 dpsearch.py "评审 critique 反馈 设计走查" 与 grep -ric "评审\critique\反馈"：命中分散在 handoff-collabora
+- **2026-11-07 · 每日升级 #25：色彩科学（Color Science）** `L564` — - 升级：新增 references/color-science.md（22 节 / ~620 行）；SKILL.md 接线（资产表 + 意图路由 + 第5步色彩指针 + 第6步色彩科学关 #33）+ v29 基线；buildreadme 
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -1806,13 +1837,14 @@ _562 行 · 快照 — · 29 节_
 - **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6
 - **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/component-api-design.md` L9 · `references/design-ethics-inclusion.md` L9 · `references/design-measurement-research.md` L9
 - **0. 与既有资产的分层（先判读哪一份，别读错）** → `references/design-system-docs.md` L7
-- **0. 先分清：本文件补什么** → `references/design-critique.md` L9
+- **0. 先分清：本文件补什么** → `references/design-critique.md` L10
 - **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
+- **1 · 为什么单列色彩科学** → `references/color-science.md` L9
 - **1. 一页速查：交付链的六个关卡** → `references/handoff-collaboration.md` L9
 - **1. 一页速查：品牌视觉从零到交付** → `references/brand-identity.md` L8
 - **1. 三条不可商量的原则（先给立场，不和稀泥）** → `references/design-ethics-inclusion.md` L27
-- **1. 两种评审，别混在一场会** → `references/design-critique.md` L22
+- **1. 两种评审，别混在一场会** → `references/design-critique.md` L23
 - **1. 为什么性能是设计约束：加载速度就是设计决策** → `references/performance-design.md` L13
 - **1. 何时用图标 / 文字 / 两者（决策树）** → `references/iconography.md` L12
 - **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
@@ -1827,6 +1859,7 @@ _562 行 · 快照 — · 29 节_
 - **1. 组件 API 设计：三份所有权与三条不可商量的原则（先给立场，不和稀泥）** → `references/component-api-design.md` L25
 - **1. 表单（Form）的五个零件：标签·控件·帮助·错误·动作** → `references/form-table.md` L39
 - **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
+- **10 · 色彩无障碍 beyond 1.4.11** → `references/color-science.md` L194
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
@@ -1838,13 +1871,14 @@ _562 行 · 快照 — · 29 节_
 - **10. 文档版本化（Docusaurus 3.10.2 官方规则 + SemVer 对接）** → `references/design-system-docs.md` L360
 - **10. 暗色专属的无障碍陷阱** → `references/dark-mode.md` L436
 - **10. 组件契约的最小字段集（API surface，可直接当评审表）** → `references/component-api-design.md` L353
-- **10. 自检 20 项（评审前 / 中 / 后）** → `references/design-critique.md` L183
+- **10. 自检 20 项（评审前 / 中 / 后）** → `references/design-critique.md` L184
 - **10. 表单在窄屏** → `references/responsive-layout.md` L442
 - **10. 视觉手法的性能价格表（本轮核心）** → `references/performance-design.md` L431
 - **10. 设计走查（design QA）：三遍法 + 9 字段文档** → `references/handoff-collaboration.md` L359
 - **10. 远程与线上演示** → `references/presentation-design.md` L481
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **10. 默认勾选、概括授权、搭售与商业信息：同份规章的另外三条** → `references/design-ethics-inclusion.md` L261
+- **11 · 工程实现（落地要点）** → `references/color-science.md` L204
 - **11. AI 味验收：AI Slop Test 与 8 维 DO/DON'T** → `references/ai-design-toolchain.md` L350
 - **11. Changelog：Keep a Changelog 1.1.0 的七条指导原则与六类变更** → `references/design-system-docs.md` L404
 - **11. WAAPI 精确参数表（KeyframeEffect / Element.animate）** → `references/motion-orchestration.md` L561
@@ -1853,7 +1887,7 @@ _562 行 · 快照 — · 29 节_
 - **11. 卡片分类与树测试（信息架构验证，最被低估的两招）** → `references/design-measurement-research.md` L211
 - **11. 反模式 20 条** → `references/navigation-ia.md` L130
 - **11. 反模式（命中即扣分）** → `references/motion-system.md` L313
-- **11. 可抄模板（4 段）** → `references/design-critique.md` L213
+- **11. 可抄模板（4 段）** → `references/design-critique.md` L214
 - **11. 品牌色的边界：图表 / 大屏 / 印刷 / 多品牌** → `references/brand-identity.md` L342
 - **11. 回调契约：onChange 到底承诺了什么** → `references/component-api-design.md` L384
 - **11. 场景速查（12 个高频问题 → 直接答案）** → `references/dark-mode.md` L451
@@ -1863,6 +1897,7 @@ _562 行 · 快照 — · 29 节_
 - **11. 渲染性能：帧预算与图层内存（可算的数）** → `references/performance-design.md` L465
 - **11. 缺陷分级与发布门禁** → `references/handoff-collaboration.md` L423
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
+- **12 · 场景速查（12）** → `references/color-science.md` L234
 - **12. AI 生成界面的 12 类固有缺陷 → 接回既有专项** → `references/ai-design-toolchain.md` L386
 - **12. CSS 入场/退场状态机：@starting-style 四件套** → `references/motion-orchestration.md` L585
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
@@ -1870,7 +1905,7 @@ _562 行 · 快照 — · 29 节_
 - **12. 命名与交付清单（Naming & Delivery Checklist）** → `references/iconography.md` L167
 - **12. 字体系统：品牌字体与系统栈** → `references/brand-identity.md` L374
 - **12. 成瘾设计：机制清单与「可关闭」红线** → `references/design-ethics-inclusion.md` L294
-- **12. 接线** → `references/design-critique.md` L254
+- **12. 接线** → `references/design-critique.md` L255
 - **12. 无障碍不是 props 的附属品：键盘契约在 API 层怎么落** → `references/component-api-design.md` L399
 - **12. 版式构图法则** → `references/presentation-design.md` L550
 - **12. 版本与变更管理** → `references/handoff-collaboration.md` L442
@@ -1881,6 +1916,7 @@ _562 行 · 快照 — · 29 节_
 - **12. 设计决策分级：什么时候可以"花"性能** → `references/performance-design.md` L521
 - **12. 迁移文档：MAJOR 必带，且必须能被机器校验** → `references/design-system-docs.md` L461
 - **12. 问卷与访谈设计：偏差规避（数据垃圾进、垃圾出）** → `references/design-measurement-research.md` L227
+- **13 · 反模式（20）** → `references/color-science.md` L251
 - **13. A/B 测试统计：显著≠值得上线** → `references/design-measurement-research.md` L244
 - **13. AI 设计工具链五层地图与选型（GitHub REST API 实测 2026-11-06）** → `references/ai-design-toolchain.md` L407
 - **13. Token 交付管线：从设计变量到代码** → `references/handoff-collaboration.md` L502
@@ -1897,6 +1933,7 @@ _562 行 · 快照 — · 29 节_
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
+- **14 · 自检（20）** → `references/color-science.md` L276
 - **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** → `references/component-api-design.md` L435
 - **14. 与其他参考的接线** → `references/navigation-ia.md` L269
 - **14. 与既有参考的接线（Wiring）** → `references/iconography.md` L200
@@ -1912,6 +1949,7 @@ _562 行 · 快照 — · 29 节_
 - **14. 生成 → 代码：衔接层与三个陷阱** → `references/ai-design-toolchain.md` L442
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
+- **15 · 可抄代码（6 段）** → `references/color-science.md` L301
 - **15. 12 场景速查** → `references/presentation-design.md` L672
 - **15. 12 场景（Scenarios）** → `references/iconography.md` L213
 - **15. Inclusive Design Principles 七原则（逐条 + 设计动作）** → `references/design-ethics-inclusion.md` L375
@@ -1926,6 +1964,7 @@ _562 行 · 快照 — · 29 节_
 - **15. 证据分级与混合方法（别把噪声当信号）** → `references/design-measurement-research.md` L281
 - **15. 资产交付清单与文件格式** → `references/brand-identity.md` L469
 - **15. 跨框架实现矩阵与选型决策** → `references/motion-orchestration.md` L709
+- **16 · 取源与限制（公开记录）** → `references/color-science.md` L392
 - **16. 20 反模式（Anti-patterns）** → `references/iconography.md` L230
 - **16. 20 条反模式** → `references/presentation-design.md` L691
 - **16. W3C COGA 八个目标：认知无障碍的可验收问句** → `references/design-ethics-inclusion.md` L393
@@ -1973,6 +2012,7 @@ _562 行 · 快照 — · 29 节_
 - **19. 可抄代码（8 段）** → `references/motion-orchestration.md` L811
 - **19. 数据来源** → `references/performance-design.md` L827 · `references/responsive-layout.md` L711
 - **19. 自检 20 项（交付前逐条打勾）** → `references/handoff-collaboration.md` L755
+- **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
 - **2. 分类体系裁决：别再照抄旧教程的那一套（暗黑模式 / dark patterns 现行 18 类）** → `references/design-ethics-inclusion.md` L37
@@ -1990,7 +2030,7 @@ _562 行 · 快照 — · 29 节_
 - **2. 组件文档页九段式：GOV.UK 逐节拆解（最经得起检验的模板）** → `references/design-system-docs.md` L54
 - **2. 编排的四种时间结构与总时长公式** → `references/motion-orchestration.md` L31
 - **2. 表面层级：暗色的核心是"重排"，不是"反相"** → `references/dark-mode.md` L58
-- **2. 评审前的三个前提（NN/g 原文三主题，必做）** → `references/design-critique.md` L35
+- **2. 评审前的三个前提（NN/g 原文三主题，必做）** → `references/design-critique.md` L36
 - **20. 20 项自检（交付一份研究方案 / 看一份数据报告时逐条过）** → `references/design-measurement-research.md` L371
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
@@ -2022,6 +2062,7 @@ _562 行 · 快照 — · 29 节_
 - **2026-11-06 · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍（每日升级 #19）** → `memory/design-log.md` L457
 - **2026-11-07 · 图标设计系统（Iconography，每日升级 #22）** → `memory/design-log.md` L524
 - **2026-11-07 · 导航与信息架构（Navigation & IA，每日升级 #23）** → `memory/design-log.md` L538
+- **2026-11-07 · 每日升级 #25：色彩科学（Color Science）** → `memory/design-log.md` L564
 - **2026-11-07 · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20）** → `memory/design-log.md` L478
 - **2026-11-07 · 设计度量与用户研究：可用性指标、研究方法与统计验收（每日升级 #21）** → `memory/design-log.md` L502
 - **2026-11-07 · 设计评审与反馈（Design Critique & Feedback，每日升级 #24）** → `memory/design-log.md` L551
@@ -2038,6 +2079,7 @@ _562 行 · 快照 — · 29 节_
 - **22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）** → `references/design-system-docs.md` L899
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
+- **3 · 感知均匀性：HSL 为什么撒谎** → `references/color-science.md` L37
 - **3. EDPB Guidelines 03/2022 v2.0：六类机制（官方 PDF 74 页，一手）** → `references/design-ethics-inclusion.md` L70
 - **3. LCP：把 2.5 秒拆成四段（这是最有用的一张表）** → `references/performance-design.md` L94
 - **3. 五问验收 + 组件页字段清单（能打分才算规范）** → `references/design-system-docs.md` L106
@@ -2054,8 +2096,9 @@ _562 行 · 快照 — · 29 节_
 - **3. 文字：暗色下不能用纯白（暗色对比度与文字层级）** → `references/dark-mode.md` L141
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
 - **3. 状态提升与派生状态（别把 state 复制两份）** → `references/component-api-design.md` L122
-- **3. 给出反馈的七条铁律** → `references/design-critique.md` L45
+- **3. 给出反馈的七条铁律** → `references/design-critique.md` L46
 - **3. 项数铁律（数量是有科学依据的，不是审美）** → `references/navigation-ia.md` L40
+- **4 · 伽马（gamma）：为什么不能直接对 sRGB 插值** → `references/color-science.md` L49
 - **4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）** → `references/design-ethics-inclusion.md` L94
 - **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** → `references/motion-orchestration.md` L151
 - **4. INP：交互延迟的三段与"设计侧预算"** → `references/performance-design.md` L126
@@ -2065,7 +2108,7 @@ _562 行 · 快照 — · 29 节_
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
 - **4. 尺寸阶梯（Sizing Scale）** → `references/iconography.md` L67
-- **4. 接收反馈的四步（别辩护）** → `references/design-critique.md` L62
+- **4. 接收反馈的四步（别辩护）** → `references/design-critique.md` L63
 - **4. 控件尺寸与内边距（三体系精确值）** → `references/form-table.md` L110
 - **4. 文字密度限制** → `references/presentation-design.md` L199
 - **4. 标志类型学：七型与选择决策** → `references/brand-identity.md` L78
@@ -2074,6 +2117,7 @@ _562 行 · 快照 — · 29 节_
 - **4. 裁决一：提示词写得再细，也不构成作者身份（本轮最重要的一条）** → `references/ai-design-toolchain.md` L115
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
 - **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
+- **5 · OKLab / OKLCH：公式与用法** → `references/color-science.md` L59
 - **5. CLS：公式、五个位移源、设计侧防抖清单** → `references/performance-design.md` L163
 - **5. CPPA §7003：可读性、无障碍与「显著链接」的具体要求** → `references/design-ethics-inclusion.md` L149
 - **5. UMUX / UMUX-Lite（4 题 / 2 题 · 与 SUS 强相关）** → `references/design-measurement-research.md` L112
@@ -2082,6 +2126,7 @@ _562 行 · 快照 — · 29 节_
 - **5. 图例、标签、注释** → `references/dataviz.md` L184
 - **5. 图标与文字间距（Icon–Text Spacing）** → `references/iconography.md` L84
 - **5. 必填与可选：只标少数派** → `references/form-table.md` L140
+- **5. 怎么开一场评审（议程 / RACI / 远程异步）** → `references/design-critique.md` L72
 - **5. 文档写作规范：Google 三条参考层级 + 可直接执行的清单** → `references/design-system-docs.md` L157
 - **5. 栅格与版心：三个必须给的数值** → `references/responsive-layout.md` L226
 - **5. 标志几何构造：网格 / 基形 / 笔画 / 光学修正** → `references/brand-identity.md` L123
@@ -2089,9 +2134,9 @@ _562 行 · 快照 — · 29 节_
 - **5. 状态矩阵：9 态，别画 2ⁿ** → `references/handoff-collaboration.md` L142
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真** → `references/ai-design-toolchain.md` L153
-- **5. 运行一场评审（议程 / RACI / 远程异步）** → `references/design-critique.md` L71
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **5. 面包屑（Breadcrumb）** → `references/navigation-ia.md` L61
+- **6 · 对比度：两套算法，不是只有 WCAG 2.x** → `references/color-science.md` L104
 - **6. AI 素材的来源与授权链** → `references/ai-design-toolchain.md` L194
 - **6. SEQ 单题易用度 + SUPR-Q 标准百分等级 + NPS** → `references/design-measurement-research.md` L123
 - **6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）** → `references/component-api-design.md` L240
@@ -2109,7 +2154,8 @@ _562 行 · 快照 — · 29 节_
 - **6. 流式排版：clamp() 的正确用法** → `references/responsive-layout.md` L263
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **6. 示例代码的可抄性：五条硬规则（写错就没人用）** → `references/design-system-docs.md` L188
-- **6. 评判框架（把"好不好"变成可讨论的尺子）** → `references/design-critique.md` L89
+- **6. 评判框架（把"好不好"变成可讨论的尺子）** → `references/design-critique.md` L90
+- **7 · 色盲：三型 + Okabe–Ito 8 色** → `references/color-science.md` L143
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
 - **7. HEART 框架（Google 五指标 + 三层落地法）** → `references/design-measurement-research.md` L141
 - **7. props 合并优先级：一张能判 PASS/FAIL 的算子表** → `references/component-api-design.md` L274
@@ -2117,7 +2163,7 @@ _562 行 · 快照 — · 29 节_
 - **7. 仪表盘布局** → `references/dataviz.md` L223
 - **7. 光学对齐与修正（Optical Alignment）** → `references/iconography.md` L107
 - **7. 共享元素转场 B：layoutId 与 Motion 布局动画** → `references/motion-orchestration.md` L383
-- **7. 反模式 15 条** → `references/design-critique.md` L127
+- **7. 反模式 15 条** → `references/design-critique.md` L128
 - **7. 图像、插画、图标** → `references/dark-mode.md` L273
 - **7. 图片：设计师最直接的性能杠杆** → `references/performance-design.md` L251
 - **7. 完整填充范例：一个可直接复制的组件文档页（Button 精简版）** → `references/design-system-docs.md` L202
@@ -2128,8 +2174,9 @@ _562 行 · 快照 — · 29 节_
 - **7. 组件 API 与设计稿 1:1 对齐** → `references/handoff-collaboration.md` L224
 - **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
 - **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
+- **8 · 色板生成科学：四条可复现路线（选一不许混）** → `references/color-science.md` L162
 - **8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线** → `references/design-ethics-inclusion.md` L200
-- **8. 决策记录（ADR / critique notes）** → `references/design-critique.md` L147
+- **8. 决策记录（ADR / critique notes）** → `references/design-critique.md` L148
 - **8. 品牌色：主色怎么定（不是"选个好看的颜色"）** → `references/brand-identity.md` L229
 - **8. 响应式图片：三条规则 + 一个防抖** → `references/responsive-layout.md` L336
 - **8. 图表动效（与 motion-system.md 的关系）** → `references/dataviz.md` L242
@@ -2146,6 +2193,7 @@ _562 行 · 快照 — · 29 节_
 - **8. 状态图标（State Icons）** → `references/iconography.md` L116
 - **8. 跨文档转场（MPA）与导航方向类型** → `references/motion-orchestration.md` L418
 - **8. 验收标准的写法：Given / When / Then** → `references/handoff-collaboration.md` L259
+- **9 · 渐变与插值：在 OKLab 空间做** → `references/color-science.md` L175
 - **9. AI 辅助设计的工作流（可直接落地的 8 步）** → `references/ai-design-toolchain.md` L285
 - **9. JavaScript：设计师看不见但逃不掉的那部分** → `references/performance-design.md` L399
 - **9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）** → `references/component-api-design.md` L308
@@ -2156,7 +2204,7 @@ _562 行 · 快照 — · 29 节_
 - **9. 可访问性** → `references/presentation-design.md` L442
 - **9. 可访问性导航（及格线，不是加分项）** → `references/navigation-ia.md` L100
 - **9. 可访问性（图表最容易漏的一节）** → `references/dataviz.md` L265
-- **9. 工具** → `references/design-critique.md` L173
+- **9. 工具** → `references/design-critique.md` L174
 - **9. 控件选择矩阵（含中文特有字段）** → `references/form-table.md` L228
 - **9. 研究方法全景：先定 2×2 再选工具** → `references/design-measurement-research.md` L176
 - **9. 组件文档状态与成熟度（USWDS 生命周期 + Carbon semver 对照）** → `references/design-system-docs.md` L311
@@ -2332,10 +2380,10 @@ _562 行 · 快照 — · 29 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L403
+- **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L90
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L93
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -2345,12 +2393,12 @@ _562 行 · 快照 — · 29 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（128 条，做到 ≥92 条即达 L2+）** → `references/knowledge-map.md` L417
-- **自我成长机制（用得越多越准）** → `SKILL.md` L775
-- **自我进化机制（知识保鲜）** → `SKILL.md` L788
+- **能力自测（128 条，做到 ≥92 条即达 L2+）** → `references/knowledge-map.md` L426
+- **自我成长机制（用得越多越准）** → `SKILL.md` L782
+- **自我进化机制（知识保鲜）** → `SKILL.md` L795
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L809
+- **边界与习惯** → `SKILL.md` L816
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

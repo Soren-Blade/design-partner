@@ -560,3 +560,10 @@
 - 统计一致性：`references/*.md` **34 份** → README/SKILL.md 统计由脚本实时生成，不手写；资产表 34 行与磁盘 34 文件一一对应；`aliases.json` **186 组 / `_weight: 0.45` / `_note` 未改**；`build_readme.py` 与 `mindmap.py` 均可重复运行且输出稳定。
 - 反馈：无真实用户反馈（自动化任务）
 - 效果：待观察
+
+## 2026-11-07 · 每日升级 #25：色彩科学（Color Science）
+- 升级：新增 references/color-science.md（22 节 / ~620 行）；SKILL.md 接线（资产表 + 意图路由 + 第5步色彩指针 + 第6步色彩科学关 #33）+ v29 基线；build_readme ASSETS + 问题表 + 数据来源；knowledge-map 支线 W；aliases 新增「色彩科学」组；Design-related websites 新增色彩分区；mindmap 重建记忆树 + 接线体检。
+- 三条核心裁决：① HSL 非感知均匀、色板生成走 OKLCH/OKLab；② 对比度双算法（WCAG 2.x 4.5:1 不四舍五入 / APCA Lc 分档）；③ 色板生成四路线选一不许混。
+- 取源：MDN oklch()（2023-05 广泛可用，已核验）、Björn Ottosson OKLab、APCA、Okabe–Ito、Display P3、culori/colorjs.io。APCA 精确阈值与 Display P3 浏览器版本未逐条联网核验，已在 §16 记录取源限制。
+- 全局安装：~/.agents/skills/ 与 ~/.workbuddy-ai/skills/；发布 GitHub（REST API 发布器）；README 重算。
+- 反馈：自动化运行，无真实用户反馈。

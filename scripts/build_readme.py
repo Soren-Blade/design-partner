@@ -61,6 +61,7 @@ ASSETS = [
     ("component-libraries.md", "组件库地图", "14 库元素覆盖矩阵（GitHub API 验证）"),
     ("tools.md", "制作工具", "开发 / AI / 截取 / 效率工具"),
     ("portfolios.md", "作品集", "一线从业者站点，用于审美校准"),
+    ("color-science.md", "色彩科学", "色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -202,6 +203,7 @@ def build() -> str:
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
 | **品牌立不住** | logo 好看但说不清为什么、缩小就糊、品牌色一进暗色模式就脏、交付缺图标尺寸、没注册商标 | `brand-identity.md` 三词定位 + 七型决策树 + 24 网格构造 + 清space 与最小尺寸 + 色阶三路线 + tone 映射 + 交付清单 + 商标合规 |
 | **暗色模式一开就脏** | 把亮色反一下就当暗色、纯白字刺眼、卡片和背景分不开、切换闪白、辅助文字看不清 | `dark-mode.md` 该不该做的证据链 + 三套表面层级精确值 + 不用纯白 + 实测对比度陷阱 + 四端实现与防闪白 |
+| **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
@@ -315,6 +317,17 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 - [Datawrapper](https://www.datawrapper.de/blog/dual-axis-charts-guide) — 双轴图的适用条件与误导机制
 - [W3C clreq](https://www.w3.org/TR/clreq/) — 中文排版需求
 - [Apple HIG](https://developer.apple.com/design/human-interface-guidelines)
+- [Björn Ottosson · OKLab](https://bottosson.github.io/posts/oklab/) — OKLab/OKLCH 感知均匀色彩空间原始定义与公式
+- [Evil Martians · OKLCH in CSS](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl) — OKLCH 生产可用性、浏览器支持与 `oklch()` 实战
+- [MDN · oklch()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) — `oklch()` 语法、色域与降级
+- [APCA · W3C Community Group](https://www.w3.org/TR/apa/) — 下一代对比度算法 Lc 等级与可读性阈值
+- [color.js](https://colorjs.io/) — 现代色彩空间计算库（OKLab/OKLCH/Display P3）教学站点
+- [culori](https://github.com/EvilMartians/culori) — 轻量色彩计算库（OKLab/OKLCH 插值、色板生成）
+- [Okabe–Ito 8 色](https://jfly.uni-koeln.de/tools/colorblind/ColorUniversalDesign.pdf) — 色盲安全 8 色 hex 表（学术原版）
+- [W3C WCAG 2.1 · Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) — 4.5:1 文本对比度定义
+- [Radix Colors](https://www.radix-ui.com/colors) — 感知均匀、可访问的色阶生成器
+- [Material 3 · Tonal Palette](https://m3.material.io/styles/color/the-color-system/tonal-palettes) — HCT 色阶与品牌色派生
+- [Adobe Leonardo](https://leonardo.cc/) — 基于对比度的可访问色板生成工具
 
 ## 目录结构
 

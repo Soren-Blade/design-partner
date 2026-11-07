@@ -396,6 +396,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 评判用权威启发式 + 严重度分级；明确唯一决策人，防集体决策平庸化与最高薪者意见压垮论证。
 - → 13 节（七铁律 / 接收四步 / RACI 与远程异步 / 评判框架 / 15 反模式 / 决策记录 / 4 段模板）见 `design-critique.md`
 
+### 支线 W · 色彩科学（配色不是审美是计算）
+- **HSL 撒谎**：HSL/HSV 的 H/S/L 不是感知均匀坐标，等数值步长 ≠ 等视觉步长（蓝区 L 段比红区长 30%+），色板生成、明度梯度一律走 OKLCH/OKLab。
+- **OKLCH 已可上生产**：`oklch()` 自 2023-05 跨浏览器广泛可用；L=感知亮度（0 黑 1 白）、C=色度（100%≈0.4）、H=色相；配合相对颜色语法 `oklch(from <c> l c h)` 与 `color-mix()` 做加减/混合。
+- **对比度不止一套算法**：WCAG 2.x 相对亮度给正文 4.5:1 / 大文本 3:1 / 非文本 3:1，**不可四舍五入**；APCA 用 `Lc`（感知亮度对比）分 15/30/45/60/75 档，长文与暗色更准。
+- **色板生成四路线**：OKLCH 色相旋转 / Radix 12 步语义档 / M3 tonal palette / Leonardo 对比度优先；选一条不许混，否则色阶错序。
+- **渐变在 OKLab 插值**：sRGB 线性插值会发灰发脏，必须走 OKLab（CSS `linear-gradient(in oklab, …)` / culori / colorjs.io）。
+- **色盲用 Okabe–Ito 8 色**（含 hex），且任何状态/编码**不靠颜色单通道**；非文本对比度 ≥3:1。
+- **工程**：Display P3 多 ~25% 色域（`color(display-p3 …)` + sRGB 降级）；库选型 culori / colorjs.io / chroma.js；Figma 变量模式存 OKLCH。
+- 材料：[OKLCH in CSS](https://evilmartians.com/chronicles/oklch-css-color-please-stop-using-rgb-hsl/) · [Björn Ottosson OKLab](https://bottosson.github.io/posts/oklab/) · [APCA](https://www.myndex.com/APCA/) · [MDN oklch()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) · [Okabe–Ito](https://jfly.uni-koeln.de/color/) · [culori](https://culorijs.org/) · [colorjs.io](https://colorjs.io/)
+- → **22 节 + 色彩空间谱系 + 感知均匀性 + OKLab 公式 + 对比度双算法 + 色盲 + 色板四路线 + 渐变插值 + 色彩无障碍 + 工程实现 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码见 `color-science.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）

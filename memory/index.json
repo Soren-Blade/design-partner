@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T22:21:10",
+ "generated": "2026-11-07T22:42:34",
  "files": [
   {
    "path": "SKILL.md",
@@ -11433,7 +11433,7 @@
    "title": "视觉风格谱系与设计运动（Visual Style Taxonomy）",
    "snapshot": "2026-11-07",
    "lines": 317,
-   "chars": 13329,
+   "chars": 13438,
    "sections": [
     {
      "id": "0-什么时候读这份文件",
@@ -11567,17 +11567,17 @@
      "id": "3-8-neumorphism-soft-ui-新拟态-2019-2020-plyuto-引爆-kelley-造词-malewicz-定型",
      "level": 3,
      "title": "3.8 Neumorphism / Soft UI（新拟态，2019–2020，Plyuto 引爆 / Kelley 造词 / Malewicz 定型）",
-     "summary": "- 签名：同源双色背景 + 单光源一对方向相反的内阴影，大圆角，元素像\"从背景浮起 / 按下去\"。",
+     "summary": "- 签名：同源双色背景 + 单光源一对方向相反的内阴影，大圆角，元素像\"从背景浮起 / 按下去\"。可访问性 / 表单红线：低对比违背非文本 3:1，绝不做主操作按钮或表单输入。",
      "line": 94,
-     "chars": 211
+     "chars": 254
     },
     {
      "id": "3-9-glassmorphism-玻璃拟态-2020-malewicz-命名",
      "level": 3,
      "title": "3.9 Glassmorphism（玻璃拟态，2020+，Malewicz 命名）",
-     "summary": "- 签名：半透明表面 + 背景模糊（backdrop-filter）+ 1px 高光描边 + 轻投影 + 饱和背景图。",
+     "summary": "- 签名：半透明表面 + 背景模糊（backdrop-filter）+ 1px 高光描边 + 轻投影 + 饱和背景图。可访问性 / 对比度红线：文字 ≥4.5:1、正文密集区禁用、低端机须测 backdrop-filter 成本（详见本节）",
      "line": 98,
-     "chars": 240
+     "chars": 306
     },
     {
      "id": "3-10-minimalism-极简-长青",
@@ -11761,8 +11761,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 585,
-   "chars": 76033,
+   "lines": 587,
+   "chars": 77148,
    "sections": []
   }
  ],

@@ -2299,6 +2299,169 @@
     "MUI slots",
     "shadcn"
    ]
+  },
+  {
+   "canonical": "设计度量",
+   "aliases": [
+    "设计度量",
+    "设计指标",
+    "度量设计效果",
+    "设计衡量",
+    "设计评估指标",
+    "UX 指标",
+    "UX metrics"
+   ]
+  },
+  {
+   "canonical": "用户研究",
+   "aliases": [
+    "用户研究",
+    "用研",
+    "用户调研",
+    "UXR",
+    "用户洞察",
+    "user research"
+   ]
+  },
+  {
+   "canonical": "可用性测试",
+   "aliases": [
+    "可用性测试",
+    "usability testing",
+    "出声思考",
+    "think aloud",
+    "发声思考",
+    "可用性实验",
+    "主持式测试",
+    "非主持式测试"
+   ]
+  },
+  {
+   "canonical": "SUS 系统可用性量表",
+   "aliases": [
+    "SUS",
+    "System Usability Scale",
+    "系统可用性量表",
+    "易用性量表",
+    "系统可用性"
+   ]
+  },
+  {
+   "canonical": "UMUX 微型可用性量表",
+   "aliases": [
+    "UMUX",
+    "UMUX-Lite",
+    "微型可用性量表",
+    "迷你可用性量表"
+   ]
+  },
+  {
+   "canonical": "样本量",
+   "aliases": [
+    "样本量",
+    "样本大小",
+    "多少人",
+    "sample size",
+    "多少用户",
+    "招募多少人",
+    "样本量怎么算"
+   ]
+  },
+  {
+   "canonical": "任务成功率",
+   "aliases": [
+    "任务成功率",
+    "任务完成率",
+    "completion rate",
+    "成功失败率",
+    "错误率",
+    "任务时长"
+   ]
+  },
+  {
+   "canonical": "HEART 框架",
+   "aliases": [
+    "HEART",
+    "Google HEART",
+    "幸福感参与采纳留存任务成功",
+    "heart framework"
+   ]
+  },
+  {
+   "canonical": "A-B 测试",
+   "aliases": [
+    "A/B 测试",
+    "AB 测试",
+    "灰度测试",
+    "对照实验",
+    "拆分测试",
+    "实验设计",
+    "ab test",
+    "线上实验"
+   ]
+  },
+  {
+   "canonical": "置信区间",
+   "aliases": [
+    "置信区间",
+    "95% 置信区间",
+    "confidence interval",
+    "CI",
+    "误差区间",
+    "置信度"
+   ]
+  },
+  {
+   "canonical": "问卷设计",
+   "aliases": [
+    "问卷",
+    "问卷设计",
+    "survey",
+    "量表",
+    "李克特",
+    "Likert",
+    "问卷调查"
+   ]
+  },
+  {
+   "canonical": "NPS 净推荐值",
+   "aliases": [
+    "NPS",
+    "净推荐值",
+    "净推荐分",
+    "推荐意愿"
+   ]
+  },
+  {
+   "canonical": "卡片分类",
+   "aliases": [
+    "卡片分类",
+    "card sorting",
+    "开放式分类",
+    "封闭式分类",
+    "IA 结构",
+    "信息架构分类"
+   ]
+  },
+  {
+   "canonical": "树测试",
+   "aliases": [
+    "树测试",
+    "tree testing",
+    "信息架构测试",
+    "IA 测试"
+   ]
+  },
+  {
+   "canonical": "研究方法",
+   "aliases": [
+    "研究方法",
+    "定性研究",
+    "定量研究",
+    "态度行为",
+    "2x2 研究方法",
+    "研究设计"
+   ]
   }
  ]
 }

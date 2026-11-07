@@ -59,6 +59,8 @@ INTENTS = [
     ("包容性设计 / 认知无障碍 / 未成年人 / 成瘾设计", "design-ethics-inclusion.md §11 令第 766 号 · §12 成瘾四红线 · §14 三原则 · §15 七原则 · §16 COGA 八目标 · §17 四象限"),
     ("组件 API / props 契约 / 受控非受控 / 组合 / 插槽 / asChild / 换元素", "component-api-design.md §1 三份所有权 · §2 受控契约 · §5 五种换元素 API · §7 合并优先级 · §8 compound components"),
     ("ref 转发 / React 19 forwardRef / 复合组件键盘 / roving tabindex / 组件发版 SemVer / argTypes", "component-api-design.md §9 反陈旧裁决 · §12 APG 键盘契约 · §14 API SemVer 六冻结面 · §15 Storybook argTypes · §20 脚本"),
+    ("设计度量 / 用户研究 / 可用性测试 / SUS / 样本量 / HEART / A-B 测试", "design-measurement-research.md §0 分层导语 · §1 度量三步法 · §3 任务级指标 · §4 SUS/UMUX · §5 问卷量表 · §7 样本量 · §11 A/B 统计"),
+    ("满意度怎么量化 / 改版有没有效 / 要不要上线 A-B / 该做多少人的研究", "design-measurement-research.md §21 四段可抄代码（问题暴露率·比例样本量·SUS 计分·A/B z 检验）· §23 接线与其他资产"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

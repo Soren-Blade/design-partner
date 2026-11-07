@@ -2,8 +2,8 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v24-1677ff)
-![assets](https://img.shields.io/badge/reference_files-30-2ea44f)
+![version](https://img.shields.io/badge/version-v25-1677ff)
+![assets](https://img.shields.io/badge/reference_files-31-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-07-6e7781)
 
@@ -28,8 +28,8 @@
 | **暗色模式一开就脏** | 把亮色反一下就当暗色、纯白字刺眼、卡片和背景分不开、切换闪白、辅助文字看不清 | `dark-mode.md` 该不该做的证据链 + 三套表面层级精确值 + 不用纯白 + 实测对比度陷阱 + 四端实现与防闪白 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 28 项自检 |
-| **知识找不到** | 30 份参考、73 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 29 项自检 |
+| **知识找不到** | 31 份参考、75 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -38,7 +38,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 106 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 112 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -65,6 +65,7 @@
 | [设计资源](references/resources.md) | 组件 / 图标 / 动效 3D / 字体配色 | 201 | 2026-10-29 |
 | [设计伦理与包容性](references/design-ethics-inclusion.md) | CPPA §7004 对称选择与步数测量 / §7003 可读性与 WCAG 2.1 引用 / EDPB 03-2022 v2.0 六类机制 / PIPL 14·15·16·17·24 五条 UI 底线 / 广告办法第 10 条一键关闭三数值 / 网络交易办法第 18 条 2025 修正与「前五日」反陈旧裁决 / 未成年人条例令第 766 号 42-45·47 / deceptive.design 现行 18 类 / 成瘾机制四红线 / Inclusive Design 七原则与 COGA 八目标 / 合规×包容四象限 / 18 场景决策矩阵 / 20 反模式 / 22 自检 / 4 段可抄代码（3 段 Python 已实跑，含陈旧法条守卫） | 规则型 | 2026-11-06 |
 | [组件 API 设计与组合模式](references/component-api-design.md) | 三份所有权（状态 / 渲染 / 契约与演进）/ Radix `prop !== undefined` 与受控生命周期告警 / React `<input>` 受控契约 / 五种换元素 API（asChild mergeProps · Ariakit render · MUI slots/slotProps · Vue slots · children） / 开放扩展四条与合并优先级 / **React 19 forwardRef 反陈旧裁决**与命令式 ref 红线 / APG 键盘契约与单 tab stop / data-* 状态暴露 / **API SemVer 六冻结面 = MAJOR + codemod** / Storybook argTypes / TypeScript 可辨识联合 / 16 场景 / 20 反模式 / 22 自检 / 4 段代码（3 段 Python 实跑全 PASS） | 规则型 | 2026-11-07 |
+| [设计度量与用户研究](references/design-measurement-research.md) | ISO 9241-11 可用性三要素（有效性/效率/满意度）/ 任务级指标（成功率·错误率·时长·SE）/ SUS·UMUX-Lite·SEQ·SUPR-Q·NPS 计分与基准（SUS 68 基准·一致作答恒 50）/ Google HEART 五维三层落地 / 样本量公式（定性 5 人≈84%·定量 n≈Z²p(1−p)/E²）/ 研究方法 2×2 与卡片分类·树测试 / 可用性测试（主持·非主持·出声思考）/ 问卷偏差避坑 / A/B 统计（双比例 z 检验·MDE·95% CI 跨 0 即无 winner·护栏指标·序贯检验）/ 行为分析与漏斗 / 证据分级与三角验证 / 研究 ops 与工具矩阵 / 12 场景 / 20 反模式 / 20 自检 / 4 段可抄代码（Python 全实跑） | 规则型 | 2026-11-07 |
 | [组件库地图](references/component-libraries.md) | 14 库元素覆盖矩阵（GitHub API 验证） | 规则型 | 2026-10-29 |
 | [制作工具](references/tools.md) | 开发 / AI / 截取 / 效率工具 | 153 | 2026-10-29 |
 | [作品集](references/portfolios.md) | 一线从业者站点，用于审美校准 | 166 | 2026-10-29 |
@@ -83,7 +84,7 @@
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  28 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关）+ 交付说明三段式
+第 6 步  自检与交付    →  29 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -104,7 +105,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：169 组口语/术语/中英对应，只提升召回、不改路由优先级 |
+| `memory/aliases.json` | **检索层别名映射**：184 组口语/术语/中英对应，只提升召回、不改路由优先级 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 
@@ -122,7 +123,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 18 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式）、学习节奏表、106 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 19 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究）、学习节奏表、112 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -182,7 +183,7 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（30 份，见上表）
+├── references/               # 知识库（31 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

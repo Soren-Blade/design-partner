@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 十八条专题支线（可与主线并行）
+## 十九条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -360,6 +360,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[React Composition vs Inheritance (legacy docs)](https://legacy.reactjs.org/docs/composition-vs-inheritance.html)、[React Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)、[React `<input>`](https://react.dev/reference/react-dom/components/input)、[React `forwardRef`（Deprecated）](https://react.dev/reference/react/forwardRef)、[React 19 blog](https://react.dev/blog/2024/12/05/react-19)、[Radix useControllableState 源码](https://github.com/radix-ui/primitives/blob/main/packages/react/use-controllable-state/src/use-controllable-state.tsx)、[Radix Slot 源码](https://github.com/radix-ui/primitives/blob/main/packages/react/slot/src/slot.tsx)、[Ariakit Composition](https://ariakit.org/guide/composition)、[MUI Overriding component structure](https://mui.com/material-ui/customization/overriding-component-structure/)、[Vue Slots](https://vuejs.org/guide/components/slots.html)、[Vue `v-model`](https://vuejs.org/guide/components/v-model.html)、[WAI-ARIA APG Keyboard](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/)、[Storybook Controls](https://storybook.js.org/docs/essentials/controls)
 - → **23 节 + 三份所有权框架 + 五套换元素 API 对照 + 16 场景矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 已实跑全 PASS）+ 15 仓库 GitHub API 实测见 `component-api-design.md`**
 
+### 支线 S · 设计度量与用户研究（"好不好"不能只剩「我觉得」）
+- **先判要度量什么**：ISO 9241-11:2018 把可用性拆成三件独立的事——Effectiveness（任务对不对）/ Efficiency（快不快）/ Satisfaction（爽不爽）；三者分别度量、分别签字，满意度高 ≠ 任务能完成。
+- **样本量够检出结论就好**：定性 5 个用户约暴露 84% 的可用性问题（n=5→84% / 10→98% / 20→100%，二项暴露模型 λ≈0.31）；定量比例估计 `n ≈ Z²·p(1−p)/E²`（p=50%→97 人 / 80%→62 人 / 5%→19 人）。**不是越大越好，是够检出你要的结论**。
+- **SUS 68 是行业基准不是及格线**：10 题奇偶数反向计分 ×2.5；**一致作答恒为 50 是 SUS 的已知特性（非缺陷）**；UMUX-Lite→SUS 必须用自有数据回归校准，文献系数会出荒谬值，故只给确定性重标定 `((u+e)/2−1)/6×100`。
+- **A/B 的 p<0.05 只说明「不太可能纯巧合」**：必须同时报相对提升 + 95% CI（CI 跨 0 即无 winner）+ 护栏指标 + 随机单元=用户 + 序贯检验 alpha 消耗；MDE 先算再决定样本量。
+- **可用性与无障碍是两件事**：「能不能用」是可用性问题，「愿不愿用 / 是不是被引导着用」是伦理与体验问题；两张表分别签字，不能拿「我们没恶意」替已知缺陷辩护。
+- **研究方法按 态度/行为 × 定性/定量 2×2 选**：要 IA 结构用卡片分类/树测试，要出问题用出声思考可用性测试，要推断总体用问卷/实验，别拿问卷去发现用户说不出自己卡哪的可用性 bug。
+- **HEART 五维**（Happiness/Engagement/Adoption/Retention/Task success）用 Signal→Metric→Data Source 三层落地；漏斗与行为分析看转化与流失；证据分级与三角验证决定"结论可信到哪"。
+- 材料：[ISO 9241-11:2018](https://www.iso.org/standard/63500.html)、[NN/g 可用性指南](https://www.nngroup.com/articles/)、[Sauro & Lewis《Quantifying the User Experience》](https://measuringu.com/book/)、[Google HEART](https://library.gcrinc.co/ux/)、[Kohavi《Trustworthy Online Controlled Experiments》](https://experimentguide.com/)、[GOV.UK 度量实践](https://design-system.service.gov.uk/)、[USWDS Analytics](https://designsystem.digital.gov/)
+- → **23 节 + 度量三步法 + 任务级指标 + SUS/UMUX/SEQ/SUPR-Q/NPS + HEART 三层 + 样本量公式 + 研究方法 2×2 + 卡片分类/树测试 + 可用性测试 + 问卷偏差 + A/B 统计 + 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码（Python 全实跑）见 `design-measurement-research.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -376,7 +387,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（106 条，做到 ≥81 条即达 L2+）
+## 能力自测（112 条，做到 ≥86 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -492,6 +503,13 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能解释 React 19 下为什么不能把「自定义组件必须 `forwardRef`」写成跨版本硬规范，并说明规范里必须标注什么；能说出 `{ open, close }` 命令式 handle 为什么是官方反例
 - [ ] 能给出复合组件单 tab stop 的两种焦点策略、focus 与 selection 的视觉区分要求，以及 modal dialog 关闭后焦点该回到哪里
 - [ ] 能判级一次组件 API 改动：改默认值 / 改 props 合并优先级 / 改受控判定 / 改键盘策略 / 新增可选 prop / 改文档注释，各属 MAJOR·MINOR·PATCH 哪一级，并说明 MAJOR 必须附带什么
+
+- [ ] 能说出 ISO 9241-11 把可用性拆成的三件独立的事（有效性/效率/满意度），并解释为什么满意度高不能替你证明任务能完成
+- [ ] 能算出「5 个用户约暴露 84% 问题、10 个 98%、20 个 100%」的发现率，并解释为什么样本量不是越大越好
+- [ ] 能写出定量比例估计公式 `n ≈ Z²·p(1−p)/E²`，并算出 p=50% / 80% / 5% 各自需要多少样本
+- [ ] 能说出 SUS 的计分方式（奇偶数反向 ×2.5）、行业基准 68 是什么含义，并解释「一致作答恒为 50」为什么是特性不是缺陷
+- [ ] 能解释 A/B 里 p<0.05 只说明「不太可能纯巧合」，并说出为什么必须同时报相对提升、95% CI（CI 跨 0 即无 winner）、护栏指标与随机单元=用户
+- [ ] 能区分可用性表与无障碍表，并解释为什么「我们没恶意」不能替已知缺陷辩护
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

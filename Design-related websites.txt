@@ -1,0 +1,95 @@
+# Design-related websites / 设计相关网站与仓库（每日深蒸馏取源清单）
+#
+# 用法：每日升级协议的「取源」步骤先读这里 → 按需 WebSearch / GitHub API 复核 → 产出可执行判断规则。
+# 格式：每行一个源，可加 `| 说明`。带 [GH] 的是 GitHub 仓库（star/许可用 GitHub API 实测）。
+# 自己挖到的新站/新仓库，直接追加到对应分区，不要删旧条目。
+
+## 一、综合策展 / 灵感（General curation）
+- https://designeer.xyz/ | 按 craft/utility/clarity/relevance 人工策展的 657 条资源（刷新入口）
+- https://www.awwwards.com/ | 上限校准：获奖网站的视觉与交互
+- https://mobbin.com/ | 真实产品流程截图库（看真实取舍）
+- https://www.seesaw.website/ | 按页面区块组织的参考库
+- https://www.supahero.io/ | 首屏专库
+- https://www.refactoringui.com/ | 层级/间距/色彩的成体系读本
+- https://lawsofux.com/ | 可用性原则
+- https://practicaltypography.com/ | 排版判断力地基
+
+## 二、设计系统与规范（Design systems / specs）
+- https://ant.design/docs/spec/introduce-cn | Ant Design 中文规范原文（色彩/字体/布局/动效）
+- https://m3.material.io/ | Material 3：动态色彩、token、动效曲线与时长
+- https://carbondesignsystem.com/ | IBM Carbon：motion、data viz 色板、dark g100
+- https://fluent2.microsoft.design/motion | Fluent 2 转场与编排
+- https://design-system.service.gov.uk/ | GOV.UK：焦点样式、组件页九段式、度量实践
+- https://designsystem.digital.gov/ | USWDS：Analytics 与度量
+- https://www.designtokens.org/TR/2025.10/format/ | DTCG token 规范（published 2025.10）
+- https://diataxis.fr/ | 文档四象限
+- https://keepachangelog.com/en/1.1.0/ | changelog 规范
+
+## 三、数据可视化（Dataviz）
+- https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary | FT 九类关系选型（含简体中文版）
+- https://carbondesignsystem.com/data-visualization/color-palettes/ | 分类/顺序/发散色板精确 hex
+- https://www.datawrapper.de/blog/dual-axis-charts-guide | 双轴图误导机制
+- https://github.com/antvis/G2 | AntV G2：色板/坐标轴/图例默认值（源码实测）
+
+## 四、动效（Motion）
+- https://60fps.design/ | 动效性能
+- https://easings.net/ | 缓动曲线参考
+- https://motion-primitives.com | 动效组件
+- https://designdetails.fm/ | 动效设计播客/案例
+- https://developer.mozilla.org/ | View Transition API / scroll-driven animations / prefers-reduced-motion
+
+## 五、可访问性（Accessibility）
+- https://www.w3.org/WAI/WCAG22/ | WCAG 2.2 全部 SC
+- https://www.w3.org/WAI/ARIA/apg/ | WAI-ARIA APG 键盘交互
+- https://inclusive-components.design/ | 可访问组件实现范式
+- https://webaim.org/resources/contrastchecker/ | 对比度检查
+- https://www.w3.org/TR/clreq/ | 中文排版需求
+- https://deque.com/axe/ | axe-core 自动化可访问性
+
+## 六、AI / 生成式设计（AI / AIGC）
+- https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm | 中国《生成式 AI 合成内容标识办法》
+- https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm | 《生成式 AI 服务管理暂行办法》令第 15 号
+- https://artificialintelligenceact.eu/article/50/ | EU AI Act Article 50
+- https://copyright.gov/ai/ | USCO 版权与 AI
+- https://c2pa.org/specifications/ | C2PA Content Credentials
+- https://www.microsoft.com/en-us/haxtoolkit/library/ | Microsoft HAX 设计库（G1–G18）
+- https://platform.openai.com/docs/guides/prompt-engineering | OpenAI 提示词工程
+- https://github.com/VoltAgent/awesome-design-md | 54 个真实产品 DESIGN.md
+
+## 七、国际化 / 本地化（i18n / L10n）
+- https://www.w3.org/International/ | W3C 国际化
+- https://cldr.unicode.org/ | CLDR 复数规则
+- https://unicode-org.github.io/icu/userguide/format_parse/messages/ | ICU MessageFormat
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl | MDN Intl API
+
+## 八、设计伦理与包容性（Ethics / Inclusion）
+- https://www.deceptive.design/types | 现行 18 类欺骗性设计
+- https://www.edpb.europa.eu/ | EDPB 指南（03/2022 v2.0 等）
+- https://www.gov.cn/zhengce/content/202310/content_6911288.htm | 未成年人网络保护条例（令第 766 号）
+- https://inclusivedesignprinciples.info/ | Inclusive Design Principles
+- https://www.w3.org/TR/coga-usable/ | W3C COGA 八目标
+
+## 九、组件库 / 工程（Component libraries）
+- https://github.com/radix-ui/primitives | Radix（useControllableState / Slot 源码实测）
+- https://ariakit.org/ | Ariakit（Composition / render）
+- https://mui.com/material-ui/customization/overriding-component-structure/ | MUI slots/slotProps
+- https://vuejs.org/guide/components/slots.html | Vue Slots
+- https://vuejs.org/guide/components/v-model.html | Vue v-model
+- https://react.dev/reference/react/forwardRef | React forwardRef（Deprecated 页面）
+- https://react.dev/blog/2024/12/05/react-19 | React 19 blog
+- https://storybook.js.org/docs/essentials/controls | Storybook Controls / argTypes
+- https://github.com/dequelabs/axe-core | 可访问性自动化
+
+## 十、设计度量与用户研究（Measurement / UX research）【本轮新增分区】
+- https://www.iso.org/standard/63500.html | ISO 9241-11:2018 可用性定义（三要素）
+- https://www.nngroup.com/articles/ | NN/g：可用性研究权威结论库（样本量、SUS、研究方法）
+- https://measuringu.com/book/ | Sauro & Lewis《Quantifying the User Experience》（SUS/UMUX/样本量原始出处）
+- https://measuringu.com/ | MeasuringU：SUS 计分器、UMUX-Lite 重标定、样本量计算器
+- https://library.gcrinc.co/ux/ | Google HEART 框架原始文档与 Signal→Metric→Data Source 三层
+- https://experimentguide.com/ | Kohavi《Trustworthy Online Controlled Experiments》（A/B 统计、MDE、序贯检验）
+- https://www.evanmiller.org/ab-testing/ | Evan Miller：A/B 双比例 z 检验样本量/显著性计算器（可交叉验证文档 §21.4）
+- https://digital.gov/2015/04/21/introduction-to-a-b-testing/ | USWDS/18F A/B 实验入门
+- https://www.usability.gov/how-to-and-tools/methods/ | 可用性研究方法索引（卡片分类/树测试/出声思考）
+- https://www.surveyclub.com/ | 问卷与量表设计（NPS/SEQ/SUPR-Q）
+- https://www.optimizely.com/optimization-glossary/ab-testing/ | A/B 测试术语与护栏指标
+- https://github.com/behavioral-science/ | 行为分析与问卷偏差研究仓库（star/许可待 GitHub API 实测）

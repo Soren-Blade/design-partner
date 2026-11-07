@@ -93,3 +93,15 @@
 - https://www.surveyclub.com/ | 问卷与量表设计（NPS/SEQ/SUPR-Q）
 - https://www.optimizely.com/optimization-glossary/ab-testing/ | A/B 测试术语与护栏指标
 - https://github.com/behavioral-science/ | 行为分析与问卷偏差研究仓库（star/许可待 GitHub API 实测）
+
+## 十一、图标系统（Iconography，视觉速记不是装饰）【本轮新增分区】
+- https://lucide.dev/ | Lucide：stroke-width=2 线性系、kebab-case 命名、25.6k★(ISC) 标杆（GitHub API 实测）
+- https://fonts.google.com/icons | Material Symbols：opsz 20–48 / wght 100–700 / GRAD −50..200 / FILL 0–1 光学缩放、Apache-2.0
+- https://ant.design/components/icon | Ant Design Icons：描边/填充双轨、React 组件化交付
+- https://heroicons.com/ | Heroicons：stroke-width 1.5 / 2、圆头圆角、Tailwind 官方出品
+- https://carbondesignsystem.com/guidelines/icons/usage/ | Carbon Icons：24×24 网格 + keyline（圆⌀20/方18/矩20×16）、1.5 描边
+- https://fluent2.microsoft.design/icons | Fluent UI Icons / Fluent 2：regular/filled 双档、11k★(MIT)
+- https://www.radix-ui.com/icons | Radix Icons：2.7k★(MIT)、极简语义图标集、与 Radix Primitives 配套
+- https://phosphoricons.com/ | Phosphor Icons：regular/bold/duotone/fill/thin 多档、React/Vue/Web 多端
+- https://tabler.io/icons | Tabler Icons：22.6k★(MIT)、stroke 2、海量 5k+ 线性图标
+- https://www.figma.com/resource-library/icon-design-guides/ | Figma 官方图标设计指南（网格/对齐/导出）

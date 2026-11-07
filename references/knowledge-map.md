@@ -371,6 +371,16 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - 材料：[ISO 9241-11:2018](https://www.iso.org/standard/63500.html)、[NN/g 可用性指南](https://www.nngroup.com/articles/)、[Sauro & Lewis《Quantifying the User Experience》](https://measuringu.com/book/)、[Google HEART](https://library.gcrinc.co/ux/)、[Kohavi《Trustworthy Online Controlled Experiments》](https://experimentguide.com/)、[GOV.UK 度量实践](https://design-system.service.gov.uk/)、[USWDS Analytics](https://designsystem.digital.gov/)
 - → **23 节 + 度量三步法 + 任务级指标 + SUS/UMUX/SEQ/SUPR-Q/NPS + HEART 三层 + 样本量公式 + 研究方法 2×2 + 卡片分类/树测试 + 可用性测试 + 问卷偏差 + A/B 统计 + 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码（Python 全实跑）见 `design-measurement-research.md`**
 
+### 支线 T · 图标设计系统（Iconography，视觉速记不是装饰）
+- **先判图标还是文字**：图形比文字更快被识别时才用图标；歧义或首现品牌图标配文字，正文与导航一级用文字（见 `iconography.md` §1 决策树）。
+- **24×24 网格是事实标准**：viewBox 统一 `0 0 24 24`、活动区留 2px 边；同一 keyline（圆 ⌀20 / 方 18 / 矩 20×16）同形状，否则视觉重量飘——跨库碎片化的根因是网格不统一。
+- **描边二选一且全库统一**：固定 `stroke-width=2`（Lucide 系）或光学缩放（Material 系，opsz 自动调权重）；圆头圆角、圆角 1–2px；混用会让视觉抖动。
+- **尺寸阶梯 12/16/20/24/32/48 密度驱动**，图标-文字间距默认 8px（最小 4px）；可点图标命中区 ≥44px；用 `currentColor` 控色、暗色零改图。
+- **可访问性铁律**：装饰图标 `aria-hidden="true"` **且** `focusable="false"`；有意义/icon-only 必带可访问名；非文本对比度 ≥3:1；**永不只靠颜色**；图标字体整库 `aria-hidden`（否则读屏念乱码）。
+- **状态图标**：spinner `1–1.4s linear infinite`，`prefers-reduced-motion: reduce` 下停转；假加载 spinner 属欺骗性设计。
+- **库选型（GitHub API 实测）**：Lucide 25.6k★ / Tabler 22.6k★ / Fluent 11k★ / Radix 2.7k★ / Material Symbols Apache-2.0（字体 295KB→1.7KB 子集）+ 选型三问（框架绑定 / 风格统一 / 体积敏感）。
+- → **22 节 + 网格与 keyline + 描边 + 尺寸阶梯 + 间距 + 填充描边双色 + 光学对齐 + 状态图标 + 交付格式 + 可访问性 + 动画降级 + 命名清单 + 库选型矩阵 + 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码见 `iconography.md`**
+
 ---
 
 ## 学习节奏（可持续，不靠意志力）
@@ -387,7 +397,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 能力自测（112 条，做到 ≥86 条即达 L2+）
+## 能力自测（120 条，做到 ≥92 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素
@@ -510,6 +520,14 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出 SUS 的计分方式（奇偶数反向 ×2.5）、行业基准 68 是什么含义，并解释「一致作答恒为 50」为什么是特性不是缺陷
 - [ ] 能解释 A/B 里 p<0.05 只说明「不太可能纯巧合」，并说出为什么必须同时报相对提升、95% CI（CI 跨 0 即无 winner）、护栏指标与随机单元=用户
 - [ ] 能区分可用性表与无障碍表，并解释为什么「我们没恶意」不能替已知缺陷辩护
+- [ ] 能说出图标统一用 24×24 viewBox、活动区留 2px 边、同一 keyline 同形状的原因（视觉重量一致），并指出跨库碎片化的根因
+- [ ] 能说出描边「固定 2px」与「光学缩放」二选一并全库统一的原因，且能指出混用的后果
+- [ ] 能判断一个图标是装饰还是有意义，并分别给出 `aria-hidden`+`focusable=false` 与 `role=img`+`aria-label` 的正确写法
+- [ ] 能说出图标-文字间距默认 8px（最小 4px）、可点图标命中区 ≥44px、spinner `1–1.4s linear infinite` 且 `prefers-reduced-motion` 降级
+- [ ] 能区分内联 SVG / SVG Sprite / 图标字体 / 组件四套交付格式，并说出图标字体为何可访问性差、Material 为何必须子集化
+- [ ] 能根据框架绑定 / 风格统一 / 体积敏感三问，从 Lucide / Tabler / Fluent / Material Symbols / Radix 里选库
+- [ ] 能解释图标字体读屏念乱码的根因与整库 `aria-hidden` 的解法
+- [ ] 能说出图标「永不只靠颜色」的原因，并给出状态图标的形状+颜色+文字三样方案
 
 **L4**
 - [ ] 面对"要高级又要热闹"能给出取舍方案

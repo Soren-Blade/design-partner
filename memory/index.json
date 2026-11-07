@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T11:13:09",
+ "generated": "2026-11-07T11:54:36",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 763,
-   "chars": 124156,
+   "lines": 779,
+   "chars": 127369,
    "sections": []
   },
   {
@@ -6372,6 +6372,223 @@
    ]
   },
   {
+   "path": "references/iconography.md",
+   "title": "图标设计系统 · Iconography",
+   "snapshot": "—",
+   "lines": 338,
+   "chars": 12010,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "0. 一句话立场",
+     "summary": "图标是「视觉速记」，不是「装饰」。 它只在「图形比文字更快被识别」时胜出；其余场景要么配文字，要么直接用文字。图标系统的全部工作，是把这套「识别」做到跨尺寸可读、跨库一致、跨工具可达。",
+     "line": 6,
+     "chars": 108
+    },
+    {
+     "id": "1-何时用图标-文字-两者-决策树",
+     "level": 2,
+     "title": "1. 何时用图标 / 文字 / 两者（决策树）",
+     "summary": "反模式预警：用图标替代一切文字 = 把可用性赌在用户的「图标素养」上；国际化和首因效应都会反噬。",
+     "line": 12,
+     "chars": 380
+    },
+    {
+     "id": "2-图标网格系统-grid-keylines",
+     "level": 2,
+     "title": "2. 图标网格系统（Grid & Keylines）",
+     "summary": "- viewBox 统一 24×24（Lucide / Material / Heroicons outline / Feather / Carbon / Fluent 默认）。这是行业事实标准，导出 SVG 一律 viewBox=\"0 0",
+     "line": 25,
+     "chars": 1
+    },
+    {
+     "id": "2-1-基础网格",
+     "level": 3,
+     "title": "2.1 基础网格",
+     "summary": "- viewBox 统一 24×24（Lucide / Material / Heroicons outline / Feather / Carbon / Fluent 默认）。这是行业事实标准，导出 SVG 一律 viewBox=\"0 0",
+     "line": 27,
+     "chars": 291
+    },
+    {
+     "id": "2-2-keylines-关键形-material-体系权威取值",
+     "level": 3,
+     "title": "2.2 Keylines（关键形，Material 体系权威取值）",
+     "summary": "同一套图标里，相同语义类别的图形必须贴同一 keyline，否则视觉重量会飘。这是「跨库一致」的地基。",
+     "line": 32,
+     "chars": 231
+    },
+    {
+     "id": "3-描边与笔画-stroke",
+     "level": 2,
+     "title": "3. 描边与笔画（Stroke）",
+     "summary": "铁律：",
+     "line": 44,
+     "chars": 854
+    },
+    {
+     "id": "4-尺寸阶梯-sizing-scale",
+     "level": 2,
+     "title": "4. 尺寸阶梯（Sizing Scale）",
+     "summary": "- 密度驱动：紧凑界面默认 16，宽松默认 20–24；不要一套尺寸打天下。",
+     "line": 67,
+     "chars": 438
+    },
+    {
+     "id": "5-图标与文字间距-icon-text-spacing",
+     "level": 2,
+     "title": "5. 图标与文字间距（Icon–Text Spacing）",
+     "summary": "- 默认 8px（图标 16–20 配 14–16px 文字）。Material/Carbon/Heroicons 一致推荐 8px。",
+     "line": 84,
+     "chars": 296
+    },
+    {
+     "id": "6-填充-描边-双色-fill-stroke-duotone",
+     "level": 2,
+     "title": "6. 填充 / 描边 / 双色（Fill · Stroke · Duotone）",
+     "summary": "- 状态用填充切换：选中态把描边图标 FILL 0→1（Material），或描边→实心（Heroicons），让用户「看到」状态而非只靠颜色。",
+     "line": 93,
+     "chars": 437
+    },
+    {
+     "id": "7-光学对齐与修正-optical-alignment",
+     "level": 2,
+     "title": "7. 光学对齐与修正（Optical Alignment）",
+     "summary": "- 视觉居中 ≠ 几何居中：圆形/三角形比方形「显小」，需向中心过冲 1–2%（overshoot）才显得等大。",
+     "line": 107,
+     "chars": 269
+    },
+    {
+     "id": "8-状态图标-state-icons",
+     "level": 2,
+     "title": "8. 状态图标（State Icons）",
+     "summary": "- 加载转圈（spinner）：rotate 动画，1–1.4s linear infinite（连续无限循环，呼应 motion-system.md 持续型 ≤1.4s）。不要用 ease（会一顿一顿）。",
+     "line": 116,
+     "chars": 377
+    },
+    {
+     "id": "9-交付格式-delivery-formats",
+     "level": 2,
+     "title": "9. 交付格式（Delivery Formats）",
+     "summary": "- Material Symbols 字体体积实测：默认全量 295 KB；按 iconnames 子集化 1.7 KB；全变量轴 7.9 MB → 必须子集化，且加 &display=block 防 FOUC。",
+     "line": 126,
+     "chars": 557
+    },
+    {
+     "id": "10-可访问性-accessibility-高频翻车点",
+     "level": 2,
+     "title": "10. 可访问性（Accessibility）⚠️ 高频翻车点",
+     "summary": "图标字体最大坑：读屏会把连字念成「home settings」之类乱码 → 必须 aria-hidden 整字库，另用视觉隐藏文字兜底。",
+     "line": 140,
+     "chars": 639
+    },
+    {
+     "id": "11-动画-animation",
+     "level": 2,
+     "title": "11. 动画（Animation）",
+     "summary": "- spinner：rotate 360deg + 1–1.4s linear infinite。",
+     "line": 157,
+     "chars": 358
+    },
+    {
+     "id": "12-命名与交付清单-naming-delivery-checklist",
+     "level": 2,
+     "title": "12. 命名与交付清单（Naming & Delivery Checklist）",
+     "summary": "- 命名 kebab-case：arrow-right.svg、user-settings.svg；与库约定一致（Material 用 snakecase arrowforward，混用前先定约）。",
+     "line": 167,
+     "chars": 464
+    },
+    {
+     "id": "13-库选型矩阵-library-matrix-github-api-实测",
+     "level": 2,
+     "title": "13. 库选型矩阵（Library Matrix · GitHub API 实测）",
+     "summary": "¹ Lucide 在 GitHub API 返回 NOASSERTION（GitHub 未自动归类标准 SPDX；社区实际以 ISC 发布）——商用前以仓库 LICENSE 文件为准。",
+     "line": 179,
+     "chars": 926
+    },
+    {
+     "id": "14-与既有参考的接线-wiring",
+     "level": 2,
+     "title": "14. 与既有参考的接线（Wiring）",
+     "summary": "- patterns.md：图标是「元素设计模式」的高频项，本文补其精确数值。",
+     "line": 200,
+     "chars": 461
+    },
+    {
+     "id": "15-12-场景-scenarios",
+     "level": 2,
+     "title": "15. 12 场景（Scenarios）",
+     "summary": "1. 工具栏仅图标按钮 → icon-only + aria-label + 44 命中区",
+     "line": 213,
+     "chars": 479
+    },
+    {
+     "id": "16-20-反模式-anti-patterns",
+     "level": 2,
+     "title": "16. 20 反模式（Anti-patterns）",
+     "summary": "1. 用图标替代一切文字（赌用户图标素养）",
+     "line": 230,
+     "chars": 577
+    },
+    {
+     "id": "17-20-自检-self-checks",
+     "level": 2,
+     "title": "17. 20 自检（Self-checks）",
+     "summary": "- [ ] 每个图标 viewBox 都是 0 0 24 24？",
+     "line": 255,
+     "chars": 679
+    },
+    {
+     "id": "18-可抄代码-copy-paste",
+     "level": 2,
+     "title": "18. 可抄代码（Copy-paste）",
+     "summary": "svg",
+     "line": 280,
+     "chars": 1
+    },
+    {
+     "id": "18-1-svg-模板-24-网格-currentcolor-可访问",
+     "level": 3,
+     "title": "18.1 SVG 模板（24 网格 · currentColor · 可访问）",
+     "summary": "",
+     "line": 282,
+     "chars": 1
+    },
+    {
+     "id": "18-2-react-图标组件-tree-shaking-currentcolor",
+     "level": 3,
+     "title": "18.2 React 图标组件（tree-shaking + currentColor）",
+     "summary": "",
+     "line": 301,
+     "chars": 1
+    },
+    {
+     "id": "18-3-spinner-尊重-reduced-motion",
+     "level": 3,
+     "title": "18.3 spinner（尊重 reduced-motion）",
+     "summary": "",
+     "line": 317,
+     "chars": 1
+    },
+    {
+     "id": "18-4-material-symbols-子集化-防-295kb",
+     "level": 3,
+     "title": "18.4 Material Symbols 子集化（防 295KB）",
+     "summary": "---",
+     "line": 326,
+     "chars": 6
+    },
+    {
+     "id": "19-取源与验证-sources-verification",
+     "level": 2,
+     "title": "19. 取源与验证（Sources & Verification）",
+     "summary": "- 官方文档（读原文）：Lucide Guide、Google Material Symbols Guide、Ant Design Icons（默认 1em、Outlined/Filled/TwoTone、currentColor）、Her",
+     "line": 333,
+     "chars": 688
+    }
+   ]
+  },
+  {
    "path": "references/inspiration.md",
    "title": "灵感与阅读 — Inspiration",
    "snapshot": "2026-10-29",
@@ -6416,8 +6633,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 517,
-   "chars": 44137,
+   "lines": 535,
+   "chars": 45710,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -6785,23 +7002,31 @@
      "title": "支线 S · 设计度量与用户研究（\"好不好\"不能只剩「我觉得」）",
      "summary": "- 先判要度量什么：ISO 9241-11:2018 把可用性拆成三件独立的事——Effectiveness（任务对不对）/ Efficiency（快不快）/ Satisfaction（爽不爽）；三者分别度量、分别签字，满意度高 ≠ 任务能",
      "line": 363,
-     "chars": 1501
+     "chars": 1496
+    },
+    {
+     "id": "支线-t-图标设计系统-iconography-视觉速记不是装饰",
+     "level": 3,
+     "title": "支线 T · 图标设计系统（Iconography，视觉速记不是装饰）",
+     "summary": "- 先判图标还是文字：图形比文字更快被识别时才用图标；歧义或首现品牌图标配文字，正文与导航一级用文字（见 iconography.md §1 决策树）。",
+     "line": 374,
+     "chars": 959
     },
     {
      "id": "学习节奏-可持续-不靠意志力",
      "level": 2,
      "title": "学习节奏（可持续，不靠意志力）",
      "summary": "最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。",
-     "line": 376,
+     "line": 386,
      "chars": 311
     },
     {
-     "id": "能力自测-112-条-做到-86-条即达-l2",
+     "id": "能力自测-120-条-做到-92-条即达-l2",
      "level": 2,
-     "title": "能力自测（112 条，做到 ≥86 条即达 L2+）",
+     "title": "能力自测（120 条，做到 ≥92 条即达 L2+）",
      "summary": "L0",
-     "line": 390,
-     "chars": 7730
+     "line": 400,
+     "chars": 8310
     }
    ]
   },
@@ -10580,8 +10805,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 500,
-   "chars": 57880,
+   "lines": 535,
+   "chars": 65637,
    "sections": []
   }
  ],

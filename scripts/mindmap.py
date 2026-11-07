@@ -78,6 +78,10 @@ INTENTS = [
     ("视觉风格 / 风格匹配 / 做成 XX 那种感觉 / 高级感 / 视觉调性", "references/visual-style-taxonomy.md §2 四维信号 → §4 匹配决策（参考站四步 / 形容词先确认语境）"),
     ("风格谱系 / 设计运动 / 玻璃拟态 / 新拟态 / 野兽派 / Y2K / Bento", "references/visual-style-taxonomy.md §3 编年谱系 + §5 混搭纪律 + §6 趋势生命周期"),
     ("风格诊断 / 风格不一致 / 潮流该不该跟", "references/visual-style-taxonomy.md §10 反模式 20 条 + §11 自检 20 项 + §6 生命周期"),
+    ("字体排印 / 字号 / 行高 / 行距 / 定一套字体系统 / 排版很挤", "references/typography-system.md §2 六层模型判层 → §4 rem 阶梯（px 不可访问）→ §5 行高两档与行长 → §17 M3 五角色×三尺寸落 token"),
+    ("文本间距 / WCAG 1.4.12 / 200% 缩放 / 放大就裁切 / 表单 label 重叠 / 可访问性验收", "references/typography-system.md §6 三关硬数值 + §7 注入验收五步（§23.3 书签）+ §8 两种缩放与容器弹性 + §23.5 静态扫描"),
+    ("中文排版 / 中英混排 / 缺字 tofu / 字体回退 / 全角半角 / 字素丛", "references/typography-system.md §16 W3C clreq（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29）+ §12 逐字符回退 + §13 unicode-range 分片"),
+    ("数字抖动 / tabular-nums / 可变字体 / 字体加载闪烁 / CLS / 字体商用授权", "references/typography-system.md §10 OpenType 数字特性 + §9 五注册轴 + §14 font-display 五档 + §15 size-adjust + §18 OFL 1.1 五条件 + §19 仓库实测"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
 ]
 

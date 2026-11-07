@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 二十四条专题支线（可与主线并行）
+## 二十五条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -439,7 +439,25 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出新拟态与玻璃拟态各自的硬红线（可见性/对比度/暗色/正文区/性能），并解释为什么
 - [ ] 能把一个参考站风格落成 token 组（圆角档/阴影档/色板基调/字号阶/字重对比/间距基调/动效密度），而不是只交截图
 
-## 能力自测（132 条，做到 ≥92 条即达 L2+）
+---
+
+### 支线 Y · 字体排印系统（把字号行距从口诀变成可验收的契约）
+
+- **这是什么（六层契约）**：字体排印是与色彩科学并列的基础支柱，但**不是「挑一款好看的字体」**，而是六层契约——覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权（`typography-system.md` §2）。需求里出现「字太小 / 放大就裁切 / 字号锁死 / 文本间距被改」时，先判落在哪一层；换字体修不了第 2、3 层的缺陷。
+- **三条最重要裁决**：① **`font-size` 用 px 写正文不可访问**——MDN 原文 *"Defining font sizes in `px` is not accessible, because the user cannot change the font size in some browsers"*；正解 `rem`（`em` 会 compounding，MDN 实测外层 25.6px / 内层 40.96px）；WCAG 2.2 **SC 1.4.4** 要求文本无辅助技术放大到 **200%** 且不丢内容或功能。② **SC 1.4.12 Text Spacing 是用户覆盖抗压测试、不是默认样式表**（官方 Note 1：*"Content is not required to use these text spacing values"*）：四项 `line-height ≥1.5×` / 段后距 `≥2×` / `letter-spacing ≥0.12×` / `word-spacing ≥0.16×` font size，同时设置、不改其他属性，验收看是否裁切/重叠/丢功能；**SC 1.4.8（AAA）**另给行宽 ≤80 字符（CJK ≤40）、禁 `justify`、段内行距 1.5、200% 无横向滚动。③ **`font-family` 是逐字符回退**（缺 glyph 继续往下找，generic 放最后且不加引号），`unicode-range` **命中一个字符即整片下载**（MDN 原文）→ CJK 必须按高频字集分片。
+- **节奏与字形**：M3 `applying-type` 给大字号（display/headline/title）行高 ≈`1.2×`、小正文/标签 ≈`1.5×`；五角色 × 三尺寸 = 15 baseline（官方 2025-05 起另有 15 emphasized 变体，共 30）；表格 / 时钟 / 金额 / 实时值用 **`tabular-nums`**（不是换 `monospace`），ID/验证码加 `slashed-zero`；大文本对比度 3:1 / 小文本 4.5:1，**超链接必须带下划线**（改字号后要重判「大文本」并重算对比度）。
+- **工程链**：可变字体五注册轴 `wght/wdth/slnt/ital/opsz`（custom 轴大写，`GRAD` 不改 advance 因而 hover 不触发 reflow）→ 高层 `font-variant-*` 优先于低位 `font-feature-settings`（后者**禁用于 small caps**）→ `font-display` 三阶段（block/swap/failure）五档、初始 `auto` → `size-adjust`（初始 100%）/ `font-size-adjust`（`u=(m/m′)s`）对齐 fallback 度量压 CLS。
+- **中文与授权（W3C clreq / OFL）**：汉字与西文空白「不多于 1/4 汉字宽」且行首行尾不加、汉字与标点 1:1 正方形、文本存储层避免全角 ASCII、光标/删除/计数按 **UAX #29 字素丛**（§2.1.3 / §1.2 / §4.1 / §4.2.1）；**OFL 1.1** 可随软件 use/embed/modify/redistribute/sell，但不可单独售卖字体、衍生字体必须继续 OFL、Modified Version 不得用 RFN、每份拷贝须带版权声明与 license，**文档不受字体 license 约束**。
+- **取源限制**：M3 15 档精确 `size/line-height/weight/tracking` 表为动态渲染页未取得、clreq 标点挤压/避头尾/着重号本轮未证实 → **不臆造数值**，见 `typography-system.md` §24；`NOASSERTION` ≠ 无许可，逐字体目录读 `OFL.txt`。
+- **判学会了**：能解释为什么正文不能用 px、能当场注入 1.4.12 四项并指出哪个容器会塌、能说清逐字符回退与整片下载的关系、能用 `tabular-nums` 修数字抖动、能判断一款字体能否自托管分发 → 见 `typography-system.md` 30 节 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码。
+- 材料：[MDN font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) · [W3C WCAG 2.2 SC 1.4.12](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) · [M3 Applying type](https://m3.material.io/styles/typography/applying-type) · [W3C clreq](https://www.w3.org/TR/clreq/) · [SIL OFL 1.1](https://openfontlicense.org/open-font-license-official-text/) · [MDN unicode-range](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range) · [MDN font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display)
+
+- [ ] 能解释为什么正文 `font-size` 不能用 px、`em` 为什么会 compounding，并说出 WCAG 2.2 SC 1.4.4 的 200% 门槛
+- [ ] 能说清 WCAG 2.2 SC 1.4.12 四项数值，并解释它是「用户覆盖抗压测试」而非作者默认样式；能当场注入验收表单与按钮
+- [ ] 能说出表格数字抖动的根因与 `tabular-nums` 解法，且不把它误答成「换成等宽字体」
+- [ ] 能说清 `font-family` 逐字符回退与 `unicode-range`「命中一字即整片下载」的关系，并判断一款字体能否自托管分发
+
+## 能力自测（136 条，做到 ≥95 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

@@ -63,6 +63,7 @@ ASSETS = [
     ("portfolios.md", "作品集", "一线从业者站点，用于审美校准"),
     ("color-science.md", "色彩科学", "色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码"),
     ("visual-style-taxonomy.md", "视觉风格谱系与设计运动", "立场：风格不是名词贴标签，是四维信号的组合签名 / 四维信号表（Typography·Color·Shape&Material·Motion&Space 逐维标注）/ 17 条编年谱系（Swiss 1950s→Bauhaus→Brutalism→Memphis 1981→Skeuomorphism→Flat 2013→Material 2014→Neumorphism 2019→Glassmorphism 2020→Y2K→Vaporwave→Cyberpunk→Bento 2022→Claymorphism→企业中性，各给何时用/何时不用）/ 匹配决策（参考站四步拆解·形容词先确认语境）/ 风格 vs 品牌三词定位 / 混搭纪律（depth language 只一种主导·装饰密度只一个极端·趋势叠加上限=1）/ 趋势生命周期（技术驱动 vs 纯视觉潮流 12–24 个月）/ 中文与出海 / 风格→token 映射与 DTCG / 新拟态与玻璃拟态硬红线 / 12 场景 / 20 反模式 / 20 自检 / 3 段可抄清单或代码"),
+    ("typography-system.md", "字体排印系统", "立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描）"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -206,6 +207,7 @@ def build() -> str:
 | **暗色模式一开就脏** | 把亮色反一下就当暗色、纯白字刺眼、卡片和背景分不开、切换闪白、辅助文字看不清 | `dark-mode.md` 该不该做的证据链 + 三套表面层级精确值 + 不用纯白 + 实测对比度陷阱 + 四端实现与防闪白 |
 | **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
 | **风格说不清** | "做成 XX 那种感觉""要高级感"却拆不出做法、潮流叠满、前后页不像一个产品 | `visual-style-taxonomy.md` 四维信号拆解 + 17 条编年谱系 + 混搭纪律 + 风格→token 映射 |
+| **字号行距全凭感觉** | 正文写死 px 用户改不了字号、放大到 200% 按钮被切、WCAG 文本间距一覆盖表单就重叠、表格数字每秒抖一次、中文出现方框乱码、字体不敢自托管 | `typography-system.md` 六层契约 + rem 阶梯 + 1.4.12 注入验收 + 200% 缩放 + `tabular-nums` + 逐字符回退与 `unicode-range` 分片 + `size-adjust` 压 CLS + clreq 中文排版 + OFL 1.1 授权 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
@@ -249,15 +251,17 @@ def build() -> str:
 python scripts/dp_search.py "缓动曲线"    # → references/motion-system.md §2 (L30) + 摘要
 python scripts/dp_search.py --topic       # 全部主题总览
 python scripts/mindmap.py                 # 重建 memory/tree.md + index.json，并做接线体检
+python scripts/regression.py --baseline   # 收口门槛：新主题可发现性 + HEAD 基线 top3 零退化
 ```
 
 | 文件 | 作用 |
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：{alias_count()} 组口语/术语/中英对应，只提升召回、不改路由优先级 |
+| `memory/aliases.json` | **检索层别名映射**：{alias_count()} 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
+| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
 
 **接线体检**是自我进化的自检项：新增参考文件却忘了在 `SKILL.md` 加路由时，`mindmap.py` 会直接报「未接线」——避免"写了等于没写"。
 
@@ -283,13 +287,14 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 每日  ┌─ 取源：Design-related websites.txt + 上轮待挖项 + 知识缺口
       ├─ 验证：GitHub API 实测 star/许可；规范数值读官方原文
       ├─ 蒸馏：产出可执行判断规则（数值/构型/验收），不是链接清单
-      ├─ 接线：更新 SKILL.md 路由 + 补 memory/aliases.json 别名 + mindmap 重建记忆树（含接线体检）
-      └─ 归档：design-log 追加 → build_readme 重算 → git commit → REST API 推送
+      ├─ 接线：更新 SKILL.md 路由 + 补 memory/aliases.json 别名（单组 ≤12 词）+ mindmap 重建记忆树（含接线体检）
+      ├─ 回归：regression.py --baseline，新主题门槛全过 + 历史 top3 零退化，退出码 0 才继续
+      └─ 归档：design-log 追加 → build_readme 重算 → git commit → REST API 推送 → 双份全局安装
 ```
 
 **质量门槛**：一轮升级至少要让某类问题**不再含糊**（能给具体数值或明确立场）。只多了几条链接 = 无效升级，重做。
 
-**检索门槛**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条，否则说明标题不像索引。
+**检索门槛**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条，否则说明标题不像索引。测试集含「主题词 + 通用跨域词」组合；泛化跨域查询按 **路由边界** 单列（不计通过率但仍校验与 HEAD 一致），新权威资产上位按 **登记演进** 判定（须过 top1 不变 / 原答案仍在 top5 / `--no-alias` 仍在前 3 三条硬校验），别名抢词则拆组修掉——三类例外由 `regression.py` 统一裁定，不许拿来凑数。
 
 **记忆协议**：偏好信号出现 ≥2 次即升级为画像规则；画像优先于通用推荐；记录只增不改，保持可审计。
 
@@ -333,6 +338,14 @@ python scripts/mindmap.py                 # 重建 memory/tree.md + index.json�
 - [Michal Malewicz · Neumorphism in user interfaces](https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6) — 2019-12-17 原文：New Skeuomorphism 由 Jason Kelley 在评论区命名，Malewicz 去掉 "o" 定型
 - [UX Collective / UX Planet · Neumorphism](https://uxplanet.org/neumorphism-design-the-future-of-ui-ux-design-d4dc01c6a382) — Plyuto 2019 原作与低对比可见性缺陷
 - [Interaction Design Foundation · Design History](https://www.interaction-design.org/literature/topics/design-history) — Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorphic→Flat 编年
+- [MDN · font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) — 相对单位可访问性建议 / px not accessible / em compounding / rem 消除 compounding
+- [W3C WCAG 2.2 · Understanding SC 1.4.12 Text Spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) — 四项门槛 / Exception / Note 1「非默认样式表」/ Author Responsibility
+- [W3C WCAG 2.2 · SC 1.4.4 / 1.4.8](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html) — Resize Text 200% / Visual Presentation 行宽与禁 justify
+- [Material 3 · Applying type](https://m3.material.io/styles/typography/applying-type) — 五角色×三尺寸 / 行高 1.2×·1.5× / tabular figures / 3:1·4.5:1 / 链接下划线 / half-leading
+- [W3C clreq](https://www.w3.org/TR/clreq/) — §2.1.3 ≤1/4 汉字宽 / §1.2 1:1 正方形 / §4.1 全角 ASCII / §4.2.1 UAX #29 字素丛
+- [SIL Open Font License 1.1](https://openfontlicense.org/open-font-license-official-text/) — 官方英文原文：五条件 / RFN / 文档不受字体 license 约束
+- [MDN · font-display / unicode-range / font-variant-numeric / font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) — 字体加载三阶段五档 / 子集化 / OpenType 数字特性 / 低位 API 纪律
+- [Google Fonts](https://github.com/google/fonts) · [rsms/inter](https://github.com/rsms/inter) · [fonttools](https://github.com/fonttools/fonttools) — 字体源与子集化工具链（star / 许可 GitHub API 实测）
 - [Calinou/awesome-design](https://github.com/Calinou/awesome-design) — UI/UX 高质量资源策展（GitHub API 实测 10★）
 - [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 设计资源合集（GitHub API 实测 67,340★ · MIT）
 
@@ -350,6 +363,7 @@ design-partner/
 │   └── design-log.md         # 偏好画像 + 匹配日志（只增不改）
 └── scripts/
     ├── dp_search.py          # 章节级快捷检索
+    ├── regression.py         # 检索回归门槛（门槛 + HEAD 基线对比）
     ├── mindmap.py            # 重建记忆树 + 接线体检
     ├── refresh_catalog.py    # 重抓目录 API，重建 references
     ├── build_readme.py       # 统计并重建 README

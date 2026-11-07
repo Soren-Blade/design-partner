@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T22:42:34",
+ "generated": "2026-11-07T23:56:26",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 843,
-   "chars": 137545,
+   "lines": 857,
+   "chars": 145336,
    "sections": []
   },
   {
@@ -7059,8 +7059,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 585,
-   "chars": 49474,
+   "lines": 603,
+   "chars": 52465,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7271,9 +7271,9 @@
      "chars": 43
     },
     {
-     "id": "二十四条专题支线-可与主线并行",
+     "id": "二十五条专题支线-可与主线并行",
      "level": 2,
-     "title": "二十四条专题支线（可与主线并行）",
+     "title": "二十五条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -7476,14 +7476,22 @@
      "title": "支线 X · 视觉风格谱系与设计运动（把\"感觉\"翻译成信号）",
      "summary": "- 这是什么：用户说\"做成 XX 那种感觉 / 高级感 / 科技感\"时，不直接套词，而是拆成 Typography / Color / Shape&Material / Motion&Space 四维信号再落成 token。与 design",
      "line": 426,
-     "chars": 1065
+     "chars": 1070
     },
     {
-     "id": "能力自测-132-条-做到-92-条即达-l2",
+     "id": "支线-y-字体排印系统-把字号行距从口诀变成可验收的契约",
+     "level": 3,
+     "title": "支线 Y · 字体排印系统（把字号行距从口诀变成可验收的契约）",
+     "summary": "- 这是什么（六层契约）：字体排印是与色彩科学并列的基础支柱，但不是「挑一款好看的字体」，而是六层契约——覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权（typography-system.md §2）。需求里出现「字太小 / 放大",
+     "line": 444,
+     "chars": 2950
+    },
+    {
+     "id": "能力自测-136-条-做到-95-条即达-l2",
      "level": 2,
-     "title": "能力自测（132 条，做到 ≥92 条即达 L2+）",
+     "title": "能力自测（136 条，做到 ≥95 条即达 L2+）",
      "summary": "L0",
-     "line": 442,
+     "line": 460,
      "chars": 8677
     }
    ]
@@ -10828,6 +10836,255 @@
    ]
   },
   {
+   "path": "references/typography-system.md",
+   "title": "字体排印系统（Typography System）",
+   "snapshot": "2026-11-07",
+   "lines": 588,
+   "chars": 35541,
+   "sections": [
+    {
+     "id": "1-为什么单列字体排印系统",
+     "level": 2,
+     "title": "1 · 为什么单列字体排印系统",
+     "summary": "字体排印是和色彩科学并列的基础设计支柱，但此前本知识库没有独立文件：字体知识散落在 performance-design.md（19 行，讲加载）、brand-identity.md（13 行，讲人格）、visual-style-taxon",
+     "line": 11,
+     "chars": 1451
+    },
+    {
+     "id": "2-排印决策的六层模型-先判层-再谈审美",
+     "level": 2,
+     "title": "2 · 排印决策的六层模型（先判层，再谈审美）",
+     "summary": "需求里出现「字体 / 字号 / 行距 / 排版」时，先定位是哪一层出问题，不要一上来换字体。可访问性、对比度、表单与验收问题往往落在第 2/3 层，换一款字体根本修不了。",
+     "line": 25,
+     "chars": 750
+    },
+    {
+     "id": "3-字体选型-覆盖-回退-授权三个前置-而不是-挑好看的",
+     "level": 2,
+     "title": "3 · 字体选型：覆盖 / 回退 / 授权三个前置，而不是「挑好看的」",
+     "summary": "选型的可访问性、加载性能与合规验收都从这三个前置开始；「好不好看」是三关全过之后才允许问的第四个问题。缺字、锁死缩放、授权不清，都会让界面在特定用户或分发场景下直接失效。",
+     "line": 42,
+     "chars": 756
+    },
+    {
+     "id": "4-字号阶梯与相对单位-px-不可访问裁决",
+     "level": 2,
+     "title": "4 · 字号阶梯与相对单位（px 不可访问裁决）",
+     "summary": "「正文用多大字号」「排版很挤该调哪里」先落到这一层：字号是可访问性与验收问题，用户在浏览器里改默认字号、改到 200%，界面必须还能读、不裁切、不重叠，表单与按钮不能丢功能。这一层出错，后面所有排印细节都没有意义。",
+     "line": 54,
+     "chars": 1256
+    },
+    {
+     "id": "5-行高-行长与段落节奏-可计算-不靠感觉",
+     "level": 2,
+     "title": "5 · 行高、行长与段落节奏（可计算，不靠感觉）",
+     "summary": "行高与行长决定长文可读性，也是对比度、可访问性与验收里最常被跳过的一组数值；三段式节奏（行内 / 段间 / 块间）必须分开定，不能一个 line-height 打天下。",
+     "line": 67,
+     "chars": 1151
+    },
+    {
+     "id": "6-wcag-2-2-三关硬数值-1-4-4-1-4-8-1-4-12",
+     "level": 2,
+     "title": "6 · WCAG 2.2 三关硬数值（1.4.4 / 1.4.8 / 1.4.12）",
+     "summary": "字体排印在 WCAG 2.2 里有三条独立准则（Resize Text / Visual Presentation / Text Spacing）；把字号放大不等于过关，三条各有自己的门槛与例外，混成一句「字号够大就行」会漏掉文本间距与行宽",
+     "line": 80,
+     "chars": 1657
+    },
+    {
+     "id": "7-文本间距覆盖验收-注入式实测五步",
+     "level": 2,
+     "title": "7 · 文本间距覆盖验收（注入式实测五步）",
+     "summary": "这条是 1.4.12 的可执行脚本：把四项间距一次性注入页面，检查按钮、卡片与输入框是否裁切、重叠、丢功能。不改其他属性是条文硬要求，注入时别顺手改 font-size 或 padding。",
+     "line": 98,
+     "chars": 788
+    },
+    {
+     "id": "8-200-缩放与容器弹性-按钮-输入框-卡片",
+     "level": 2,
+     "title": "8 · 200% 缩放与容器弹性（按钮 / 输入框 / 卡片）",
+     "summary": "200% 文本缩放与 1.4.12 间距覆盖是两次独立测试：一个改字号，一个改间距，两者都会让固定高度的表单与按钮失效。只测其中一次等于没验收。",
+     "line": 114,
+     "chars": 700
+    },
+    {
+     "id": "9-variable-fonts-与五个注册轴",
+     "level": 2,
+     "title": "9 · Variable Fonts 与五个注册轴",
+     "summary": "可变字体把「一款字重一个文件」变成连续轴，能同时解决加载体积与 CLS：但轴用错会破坏对比度与视觉层级，且必须遵守「高层 CSS 属性优先」。",
+     "line": 126,
+     "chars": 927
+    },
+    {
+     "id": "10-数字特性与-tabular-nums-表格-时钟-频繁变化数值",
+     "level": 2,
+     "title": "10 · 数字特性与 tabular-nums（表格 / 时钟 / 频繁变化数值）",
+     "summary": "数字是排印里最容易被忽略的布局稳定性与对比度问题：比例数字让表格列歪、让计时器每跳一秒抖一次；这不是审美，是缺陷。",
+     "line": 139,
+     "chars": 1187
+    },
+    {
+     "id": "11-高位属性优先-低位-api-兜底",
+     "level": 2,
+     "title": "11 · 高位属性优先，低位 API 兜底",
+     "summary": "OpenType 特性的可访问性与验收风险在于「写错层级」：低位 API 会绕过继承与级联，导致同一段文字在不同组件里表现不一致，且难以被用户样式覆盖。",
+     "line": 163,
+     "chars": 1044
+    },
+    {
+     "id": "12-font-family-逐字符回退算法-加载-缺字-验收",
+     "level": 2,
+     "title": "12 · font-family 逐字符回退算法（加载 / 缺字 / 验收）",
+     "summary": "font-family 的回退不是「找第一款已安装字体」，而是逐字符匹配；这条机制决定了 CJK 混排、缺字 tofu 与字体加载量的全部行为，也是 CLS 与验收的常见盲区。",
+     "line": 174,
+     "chars": 844
+    },
+    {
+     "id": "13-unicode-range-子集化与-cjk-分片-性能-cls-验收",
+     "level": 2,
+     "title": "13 · unicode-range 子集化与 CJK 分片（性能 / CLS / 验收）",
+     "summary": "「中文字体太大」「字库太大」的正解是 CJK 分片，不是缩字号：字体子集化直接决定加载体积与 LCP/CLS，也是 CJK 站点最有效的性能手段；但「分片粒度」与「下载触发条件」写错会让优化完全失效。",
+     "line": 186,
+     "chars": 964
+    },
+    {
+     "id": "14-font-display-时间线与五档选择-性能-cls-验收",
+     "level": 2,
+     "title": "14 · font-display 时间线与五档选择（性能 / CLS / 验收）",
+     "summary": "字体加载策略决定 FOIT/FOUT 与 CLS，是排印与性能的交界；五档不是「哪个更好」，是「哪个能接受字体不出现」。",
+     "line": 199,
+     "chars": 1120
+    },
+    {
+     "id": "15-size-adjust-font-size-adjust-度量对齐-fout-不跳版",
+     "level": 2,
+     "title": "15 · size-adjust / font-size-adjust 度量对齐（FOUT 不跳版）",
+     "summary": "FOUT 的 CLS 根因不是「换字体」，是两款字体的度量不同；把度量对齐后，swap 才能既保品牌又保布局稳定，这是可访问性与验收里最划算的一处工程修复。",
+     "line": 220,
+     "chars": 981
+    },
+    {
+     "id": "16-中文排版-w3c-clreq-原文核验",
+     "level": 2,
+     "title": "16 · 中文排版（W3C clreq 原文核验）",
+     "summary": "中文排版的区域/locale 差异大于简繁差异；把视觉排版需求写进文本存储层、或按码位处理光标，都会在 CJK 与 emoji 场景下出错。以下四条均取自 W3C《Requirements for Chinese Text Layout》原",
+     "line": 232,
+     "chars": 1676
+    },
+    {
+     "id": "17-m3-type-scale-与-token-化-可复现-不抄二手数值表",
+     "level": 2,
+     "title": "17 · M3 type scale 与 token 化（可复现，不抄二手数值表）",
+     "summary": "M3 提供的是角色结构 + 行高比率 + 命名约定，不是一张可以照抄的 15 行数值表；把它落成 token 时，角色与比率可复现，精确数值必须回官方动态页或源码复核。",
+     "line": 244,
+     "chars": 1742
+    },
+    {
+     "id": "18-字体授权-ofl-1-1-能做与不能做",
+     "level": 2,
+     "title": "18 · 字体授权（OFL 1.1）：能做与不能做",
+     "summary": "授权不合规会让整个产品无法分发；这一层先于审美，且逐字体检查而不是看仓库级 license。以下取自 SIL OFL 1.1 官方英文原文（Preamble + PERMISSION & CONDITIONS 五条件）。",
+     "line": 258,
+     "chars": 1599
+    },
+    {
+     "id": "19-工具链与-github-api-实测数据-2026-11-07",
+     "level": 2,
+     "title": "19 · 工具链与 GitHub API 实测数据（2026-11-07）",
+     "summary": "凡涉及 star / 许可 / 更新时间一律用 GitHub REST API 实测，不凭记忆写数字；NOASSERTION 不等于「无许可」，只代表 API 未自动识别，需进仓库读许可文件。",
+     "line": 281,
+     "chars": 1361
+    },
+    {
+     "id": "20-场景速查-12",
+     "level": 2,
+     "title": "20 · 场景速查（12）",
+     "summary": "---",
+     "line": 303,
+     "chars": 1059
+    },
+    {
+     "id": "21-反模式-20",
+     "level": 2,
+     "title": "21 · 反模式（20）",
+     "summary": "1. 正文 font-size: 14px 写死 → 用户改不了默认字号，MDN 判为 not accessible（§4）。",
+     "line": 322,
+     "chars": 1271
+    },
+    {
+     "id": "22-自检-20",
+     "level": 2,
+     "title": "22 · 自检（20）",
+     "summary": "- [ ] 正文字号是 rem 而非 px，且能说清 MDN「Defining font sizes in px is not accessible」的理由？",
+     "line": 347,
+     "chars": 1277
+    },
+    {
+     "id": "23-可抄代码-6-段",
+     "level": 2,
+     "title": "23 · 可抄代码（6 段）",
+     "summary": "css",
+     "line": 372,
+     "chars": 1
+    },
+    {
+     "id": "23-1-css-rem-字号阶梯与两档行高-可抄",
+     "level": 3,
+     "title": "23.1 CSS · rem 字号阶梯与两档行高（可抄）",
+     "summary": "",
+     "line": 374,
+     "chars": 1
+    },
+    {
+     "id": "23-2-css-font-face-三件套-font-display-unicode-range-size-adjust",
+     "level": 3,
+     "title": "23.2 CSS · @font-face 三件套（font-display / unicode-range / size-adjust）",
+     "summary": "",
+     "line": 422,
+     "chars": 1
+    },
+    {
+     "id": "23-3-css-wcag-2-2-sc-1-4-12-文本间距覆盖验收书签",
+     "level": 3,
+     "title": "23.3 CSS · WCAG 2.2 SC 1.4.12 文本间距覆盖验收书签",
+     "summary": "",
+     "line": 454,
+     "chars": 1
+    },
+    {
+     "id": "23-4-css-可变字体-高层属性优先-custom-轴兜底",
+     "level": 3,
+     "title": "23.4 CSS · 可变字体：高层属性优先 + custom 轴兜底",
+     "summary": "",
+     "line": 474,
+     "chars": 1
+    },
+    {
+     "id": "23-5-python-排印静态扫描-lint-含自测用例",
+     "level": 3,
+     "title": "23.5 Python · 排印静态扫描 lint（含自测用例）",
+     "summary": "",
+     "line": 498,
+     "chars": 1
+    },
+    {
+     "id": "23-6-css-中文混排与字素丛友好的输入层",
+     "level": 3,
+     "title": "23.6 CSS · 中文混排与字素丛友好的输入层",
+     "summary": "---",
+     "line": 549,
+     "chars": 6
+    },
+    {
+     "id": "24-取源与限制-公开记录",
+     "level": 2,
+     "title": "24 · 取源与限制（公开记录）",
+     "summary": "- 已逐条联网核验（官方原文）：W3C WCAG 2.2 Understanding SC 1.4.12（四项数值、Exception、Note 1/2、Applicability、Author/User Responsibility）；M",
+     "line": 575,
+     "chars": 1956
+    }
+   ]
+  },
+  {
    "path": "references/ux-writing.md",
    "title": "内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏）",
    "snapshot": "2026-11-05",
@@ -11761,8 +12018,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 587,
-   "chars": 77148,
+   "lines": 602,
+   "chars": 82949,
    "sections": []
   }
  ],

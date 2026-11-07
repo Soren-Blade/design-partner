@@ -158,3 +158,31 @@
 - https://github.com/Calinou/awesome-design | [GH] UI/UX 高质量资源策展（GitHub API 实测 10★，无 license 声明）
 - https://github.com/bradtraversy/design-resources-for-developers | [GH] 设计资源合集（GitHub API 实测 67,340★ / MIT）
 - https://github.com/VoltAgent/awesome-design-md | [GH] 真实产品 DESIGN.md（GitHub API 实测 MIT；风格 DNA 速查源）
+
+## 十六、字体排印系统（Typography System / Web Fonts）【本轮新增分区】
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-size | MDN font-size：相对单位建议、px not accessible、em compounding 25.6/40.96px、rem 消除 compounding（已逐条核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html | W3C WCAG 2.2 SC 1.4.12 Text Spacing：四项门槛 / Exception / Note 1「非默认样式表」/ Author Responsibility（已逐条核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html | WCAG 2.2 SC 1.4.4 Resize Text：200% 且无内容功能损失
+- https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html | WCAG 2.2 SC 1.4.8 Visual Presentation：≤80 字符（CJK ≤40）/ Text is not justified / 1.5 行距 / 200% 无横向滚动
+- https://m3.material.io/styles/typography/applying-type | M3 Applying type：五角色×三尺寸、行高 1.2×/1.5×、tabular figures、3:1·4.5:1、链接必须下划线、half-leading（已逐条核验）
+- https://m3.material.io/styles/typography/overview | M3 Typography overview：type scale 结构（动态页，15 档精确数值未取得 → 取源限制）
+- https://m3.material.io/styles/typography/type-scale-tokens | M3 type scale tokens（动态渲染页，未取得逐档字面数值）
+- https://www.w3.org/TR/clreq/ | W3C 中文排版需求：§2.1.3 不多于 1/4 汉字宽、§1.2 1:1 正方形、§4.1 全角 ASCII 不入存储层、§4.2.1 UAX #29 字素丛（已逐条核验）
+- https://openfontlicense.org/open-font-license-official-text/ | SIL OFL 1.1 官方英文原文：Preamble + 五条件 + TERMINATION + 文档不受约束（已逐条核验）
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display | MDN font-display：五档、三阶段、初始 auto、Baseline 2020-01
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range | MDN unicode-range：命中一个字符即整片下载、三种语法、初始 U+0-10FFFF
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric | MDN font-variant-numeric：8 个值 ↔ OpenType tag 全表
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings | MDN font-feature-settings：高层 font-variant-* 优先、4 字符 ASCII tag、on/off=1/0、禁用于 small caps
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust | MDN size-adjust：初始 100%，缩放 glyph outlines / advances / baseline tables
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust | MDN font-size-adjust：u=(m/m′)s 与 ex-height / cap-height / ch-width / ic-width / ic-height / from-font
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings | MDN font-variation-settings：注册轴小写 / custom 轴大写、高层属性优先
+- https://developer.mozilla.org/en-US/docs/Web/CSS/font-family | MDN font-family：逐字符回退与 generic family 列表（serif/sans-serif/system-ui/ui-*/fangsong/math…）
+- https://github.com/google/fonts | [GH] Google Fonts 字体源与 CJK unicode-range 分片参考（GitHub API 实测 20,734★ / NOASSERTION 混合许可 / pushed 2026-11-07）
+- https://github.com/rsms/inter | [GH] Inter：UI 可变字体、数字特性齐（GitHub API 实测 20,043★ / OFL-1.1 / pushed 2024-11-19）
+- https://github.com/adobe-fonts/source-han-sans | [GH] 思源黑体 / 泛 CJK 子集（GitHub API 实测 17,450★ / NOASSERTION / pushed 2025-06-25）
+- https://github.com/notofonts/noto-cjk | [GH] Noto CJK 语言子集与字形差异（GitHub API 实测 4,142★ / NOASSERTION / pushed 2025-12-16）
+- https://github.com/opentypejs/opentype.js | [GH] 读字体表、验证可变轴与 tnum/lnum 等 feature tag 是否真的存在（GitHub API 实测 5,043★ / MIT / pushed 2026-08-08）
+- https://github.com/fonttools/fonttools | [GH] pyftsubset 子集化 / 改名 / 度量检查（GitHub API 实测 5,311★ / MIT / pushed 2026-11-05）
+- https://github.com/system-fonts/modern-font-stacks | [GH] 系统字体回退链，找度量接近的 fallback（GitHub API 实测 3,540★ / CC0-1.0 / pushed 2026-03-10）
+- https://github.com/googlefonts/fontations | [GH] Rust 字体解析工具链活源（GitHub API 实测 854★ / Apache-2.0 / pushed 2026-11-06）
+- https://github.com/unicode-org/icu | [GH] UAX #29 字素丛 / 断行 / 区域数据（GitHub API 实测 3,637★ / NOASSERTION / pushed 2026-11-07）

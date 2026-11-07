@@ -1,5 +1,5 @@
 {
-  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。",
+  "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
   "_updated": "2026-11-07",
   "_weight": 0.45,
   "groups": [
@@ -2612,6 +2612,132 @@
         "bento",
         "黏土风",
         "claymorphism"
+      ]
+    },
+    {
+      "canonical": "字体排印",
+      "aliases": [
+        "typography system",
+        "字体排印系统",
+        "排印",
+        "type scale",
+        "字号阶梯",
+        "font-size",
+        "font size",
+        "font-weight"
+      ]
+    },
+    {
+      "canonical": "行距节奏",
+      "aliases": [
+        "line height",
+        "字间距",
+        "letter-spacing",
+        "词间距",
+        "word-spacing",
+        "段距",
+        "行长太长",
+        "行长多少"
+      ]
+    },
+    {
+      "canonical": "中文混排",
+      "aliases": [
+        "中文排版",
+        "中西文混排",
+        "全角半角",
+        "全角 ASCII",
+        "字素丛",
+        "grapheme cluster"
+      ]
+    },
+    {
+      "canonical": "逐字符回退",
+      "aliases": [
+        "字体回退",
+        "fallback 字体",
+        "font-family",
+        "generic family",
+        "缺字",
+        "tofu",
+        "方框乱码",
+        "字体覆盖"
+      ]
+    },
+    {
+      "canonical": "可变字体轴",
+      "aliases": [
+        "variable font",
+        "variable fonts",
+        "变体轴",
+        "注册轴",
+        "wght",
+        "wdth",
+        "slnt",
+        "ital",
+        "opsz",
+        "GRAD",
+        "font-variation-settings"
+      ]
+    },
+    {
+      "canonical": "数字特性",
+      "aliases": [
+        "等宽数字",
+        "数字抖动",
+        "数字会跳",
+        "tabular-nums",
+        "tabular figures",
+        "tnum",
+        "linum",
+        "onum",
+        "pnum",
+        "slashed-zero"
+      ]
+    },
+    {
+      "canonical": "OpenType 特性",
+      "aliases": [
+        "font-variant-numeric",
+        "font-feature-settings",
+        "font-variant-caps",
+        "small caps",
+        "小型大写"
+      ]
+    },
+    {
+      "canonical": "字体交付",
+      "aliases": [
+        "size-adjust",
+        "font-size-adjust",
+        "unicode-range",
+        "web font",
+        "webfont",
+        "自托管字体"
+      ]
+    },
+    {
+      "canonical": "字体许可",
+      "aliases": [
+        "字体商用",
+        "字体版权",
+        "OFL",
+        "SIL OFL",
+        "Reserved Font Name",
+        "RFN"
+      ]
+    },
+    {
+      "canonical": "文本间距覆盖",
+      "aliases": [
+        "文本间距",
+        "文字间距",
+        "text spacing",
+        "WCAG 1.4.12",
+        "1.4.12",
+        "200% 缩放",
+        "放大文字",
+        "resize text"
       ]
     }
   ]

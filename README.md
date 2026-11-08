@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v31-1677ff)
-![assets](https://img.shields.io/badge/reference_files-37-2ea44f)
+![version](https://img.shields.io/badge/version-v32-1677ff)
+![assets](https://img.shields.io/badge/reference_files-38-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-07-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-08-6e7781)
 
 ---
 
@@ -31,10 +31,11 @@
 | **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
 | **风格说不清** | "做成 XX 那种感觉""要高级感"却拆不出做法、潮流叠满、前后页不像一个产品 | `visual-style-taxonomy.md` 四维信号拆解 + 17 条编年谱系 + 混搭纪律 + 风格→token 映射 |
 | **字号行距全凭感觉** | 正文写死 px 用户改不了字号、放大到 200% 按钮被切、WCAG 文本间距一覆盖表单就重叠、表格数字每秒抖一次、中文出现方框乱码、字体不敢自托管 | `typography-system.md` 六层契约 + rem 阶梯 + 1.4.12 注入验收 + 200% 缩放 + `tabular-nums` + 逐字符回退与 `unicode-range` 分片 + `size-adjust` 压 CLS + clreq 中文排版 + OFL 1.1 授权 |
+| **圆角阴影全凭感觉** | 白底白卡只加浅阴影、写了 50px 圆角却没变、卡片套卡片弧线错位、弹窗在暗色下浮不起来、顶栏毛玻璃上字发虚、z-index 写到 9999 | `shape-elevation.md` 三条裁决 + 五层模型 + 七体系精确 token + 几何校验器 + 语义 z-index 刻度 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 35 项自检 |
-| **知识找不到** | 37 份参考、85 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 36 项自检 |
+| **知识找不到** | 38 份参考、89 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -43,7 +44,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 136 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 140 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -80,6 +81,7 @@
 | [色彩科学](references/color-science.md) | 色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码 | 规则型 | 2026-11-07 |
 | [视觉风格谱系与设计运动](references/visual-style-taxonomy.md) | 立场：风格不是名词贴标签，是四维信号的组合签名 / 四维信号表（Typography·Color·Shape&Material·Motion&Space 逐维标注）/ 17 条编年谱系（Swiss 1950s→Bauhaus→Brutalism→Memphis 1981→Skeuomorphism→Flat 2013→Material 2014→Neumorphism 2019→Glassmorphism 2020→Y2K→Vaporwave→Cyberpunk→Bento 2022→Claymorphism→企业中性，各给何时用/何时不用）/ 匹配决策（参考站四步拆解·形容词先确认语境）/ 风格 vs 品牌三词定位 / 混搭纪律（depth language 只一种主导·装饰密度只一个极端·趋势叠加上限=1）/ 趋势生命周期（技术驱动 vs 纯视觉潮流 12–24 个月）/ 中文与出海 / 风格→token 映射与 DTCG / 新拟态与玻璃拟态硬红线 / 12 场景 / 20 反模式 / 20 自检 / 3 段可抄清单或代码 | 规则型 | 2026-11-07 |
 | [字体排印系统](references/typography-system.md) | 立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描） | 规则型 | 2026-11-07 |
+| [形状与深度系统](references/shape-elevation.md) | 立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑） | 规则型 | 2026-11-08 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -90,12 +92,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  180 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  185 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  35 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关）+ 交付说明三段式
+第 6 步  自检与交付    →  36 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -117,7 +119,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：198 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：204 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
@@ -136,7 +138,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 25 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统）、学习节奏表、136 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 26 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统）、学习节奏表、140 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -163,6 +165,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-08 | 每日升级 #28：形状与深度系统（Shape & Elevation） |
 | 2026-11-07 | 每日升级 #27：字体排印系统（Typography System） |
 | 2026-11-07 | 每日升级 #26：视觉风格谱系与设计运动（Visual Style Taxonomy） |
 | 2026-11-07 | 每日升级 #25：色彩科学（Color Science） |
@@ -170,7 +173,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-07 | 导航与信息架构（Navigation & IA，每日升级 #23） |
 | 2026-11-07 | 图标设计系统（Iconography，每日升级 #22） |
 | 2026-11-07 | 设计度量与用户研究：可用性指标、研究方法与统计验收（每日升级 #21） |
-| 2026-11-07 | 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20） |
 
 ---
 
@@ -214,6 +216,22 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Google Fonts](https://github.com/google/fonts) · [rsms/inter](https://github.com/rsms/inter) · [fonttools](https://github.com/fonttools/fonttools) — 字体源与子集化工具链（star / 许可 GitHub API 实测）
 - [Calinou/awesome-design](https://github.com/Calinou/awesome-design) — UI/UX 高质量资源策展（GitHub API 实测 10★）
 - [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 设计资源合集（GitHub API 实测 67,340★ · MIT）
+- [Material 3 · Component elevation](https://m3.material.io/styles/elevation/overview) — 六级 `0/1/3/6/8/12 dp` / *"Elevation has no shadow or value of its own by default."* / *"Surface tint color is deprecated."*
+- [Material 3 · Shape overview](https://m3.material.io/styles/shape/overview) — M3 Expressive 2025-05：35 shapes / morphing / `full` 取代 50% / Web not currently available
+- [material-foundation/material-tokens](https://github.com/material-foundation/material-tokens) — `css/shape.css` 与 `css/elevation.css` 静态 token 精确值（GitHub raw 实测）
+- [MDN · box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) — 2/3/4 `<length>` 正式语法 / 逗号顺序 / 不影响 box model / 跟随圆角
+- [MDN · border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) — `<length-percentage[0,∞]>(1, 4)` / 百分比参照 width·height / 负值无效 / elliptical corners
+- [MDN · corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) — Experimental / 依赖有效 `border-radius` / round·squircle·scoop·bevel·notch·superellipse()
+- [W3C WCAG 2.2 · Understanding SC 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) — 非文本 3:1 adjacent color(s) / 3D drop-shadow 例外 / focus 仍需对比度
+- [CSS Backgrounds 3 · corner overlap](https://drafts.csswg.org/css-backgrounds-3/#corner-overlap) — `f = min(L_i/S_i)` 等比缩减（TR 页被 Cloudflare 拦截，本轮仅以公式 + Python 实跑验证）
+- [Tailwind CSS v4 · box-shadow](https://tailwindcss.com/docs/box-shadow) — `shadow-2xs` 至 `shadow-2xl` 八个默认值逐字
+- [MUI · shadows.js](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/shadows.js) — umbra 0.2 / penumbra 0.14 / ambient 0.12 三层 25 档源码
+- [Ant Design 5 · Customize Theme](https://ant.design/docs/react/customize-theme) — `borderRadius` 系列与 `boxShadow` 逐字默认值
+- [TDesign · design token](https://tdesign.tencent.com/design/token) — 五类 token；精确值见 `Tencent/tdesign-common` `_radius.less` / `_light.less`
+- [Arco Design · Design Token](https://arco.design/react/docs/token) — 边框圆角五档与四类 shadow token
+- [Carbon · Color / Layering](https://carbondesignsystem.com/elements/color/overview/) — `White ↔ Gray 10` 交替、暗色逐级变浅、`2px border` focus 与 3:1
+- [Apple HIG · Materials](https://developer.apple.com/design/human-interface-guidelines/materials) — Liquid Glass vs standard materials / functional layer / `clear` 35% dimming / `quaternary` 禁配
+- [pbakaus/impeccable · spatial-design.md](https://github.com/pbakaus/impeccable) — semantic z-index scale 与 `sm→md→lg→xl` elevation scale / *"if you can clearly see it, it's probably too strong"*
 
 ## 目录结构
 
@@ -221,7 +239,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（37 份，见上表）
+├── references/               # 知识库（38 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

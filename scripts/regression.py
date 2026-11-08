@@ -14,6 +14,8 @@
   * 别名只补召回；巨型组一旦触发会注入整组带权词，把浓缩摘要章节顶到不该有的位置。
     新增别名组的规模纪律写在 aliases.json 的 _note 里。
   * 本脚本只读检索，不改索引；收口时须先显式跑 mindmap.py 定格时间戳，再提交/发布/同步。
+  * 每轮换轮只改 EXPECT_FILE / NEW_QUERIES / BOUNDARY / EXPECTED_EVOLUTION 四块；
+    上一轮主题查询沉淀进 HIST_QUERIES 后按「与 HEAD 逐字一致」验收，不删除。
 """
 
 import argparse
@@ -31,27 +33,28 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 typography-system.md 前 3。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 shape-elevation.md 前 3。
 NEW_QUERIES = [
-    "正文用多大字号 行高多少 排版很挤",
-    "定一套字体系统 字号阶梯 token",
-    "px 字号不可访问 rem 相对单位",
-    "行距 段距 行长 长文可读性",
-    "WCAG 1.4.12 文本间距 覆盖 验收",
-    "200% 缩放 放大就裁切 按钮 输入框",
-    "中文字体太大 字库太大 CJK 分片",
-    "缺字 tofu 方框乱码 字体回退",
-    "表格 数字抖动 频繁变化数值 对齐",
-    "可变字体 字重 注册轴 hover",
-    "首屏没字 字体加载闪烁 性能 CLS",
-    "字体商用 授权 自托管 分发",
-    "字体 对比度 大文本 3:1 下划线",  # → BOUNDARY，见下
+    "卡片圆角用多大 阴影加多重 浮起来",
+    "定一套圆角 token 形状尺度",
+    "border-radius 50px 实际生效 圆角重叠",
+    "box-shadow 三层阴影 umbra penumbra ambient",
+    "elevation level3 6dp 阴影值 误用",
+    "阴影能不能当边界 3:1 非文本对比度",
+    "嵌套圆角 同心 r=R-p padding",
+    "弹窗 层级 z-index 语义刻度 表面顺序",
+    "毛玻璃 backdrop-filter 性能 Liquid Glass",
+    "M3 shape scale 圆角精确值 4px 8px",
+    "Tailwind shadow-md 默认值 Ant Design 圆角",
+    "暗色模式 阴影 表面色阶 深度语言",
+    "squircle corner-shape 实验性 渐进增强",
 ]
 
 # 照 #26 P1 判例：「风格 对比度 验收」判为泛化对比度查询的正确路由边界，不凑 11/11。
 # 这条 5 个词里 4 个是对比度专属词，正确答案归 accessibility.md / color-science.md 系，
 # 不是字体文档；要求 typography-system.md 进 top3 属于测试集标签错误。
 BOUNDARY = {
+    # #27 判例样本，本轮继续作为历史路由边界校验（strict 比对 top3 与 HEAD 一致）。
     "字体 对比度 大文本 3:1 下划线":
         "泛化对比度查询；正确答案归 accessibility.md §2 / color-science.md §6，"
         "照 #26 判例不凑通过率，但仍校验 top3 与 HEAD 一致",
@@ -79,17 +82,26 @@ HIST_QUERIES = [
     "文案 语气 大小写 标点",
     "演示 PPT 投影 对比度 字号",
     "留白 网格 版面 编辑设计",
+    # #28 沉淀：#27 主题门槛查询转为历史样本，验收「新增 shape-elevation.md 后不退化」。
+    "正文用多大字号 行高多少 排版很挤",
+    "定一套字体系统 字号阶梯 token",
+    "缺字 tofu 方框乱码 字体回退",
+    "WCAG 1.4.12 文本间距 覆盖 验收",
 ]
 
-EXPECT_FILE = "typography-system.md"
+EXPECT_FILE = "shape-elevation.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
 EXPECTED_EVOLUTION = {
-    "字体 行高 中文排版":
-        "typography-system.md §16「中文排版（W3C clreq 原文核验）」以原词命中上位；"
-        "--no-alias 下仍在前 3，说明不是别名污染；原 top1 与 editorial-layout 均未丢失",
+    # #27 的「字体 行高 中文排版」演进已被 HEAD 吸收，本轮正式归档为普通历史查询：
+    # HEAD 基线本身已含 typography-system.md，NOW 与 HEAD 应逐字一致。
+    "玻璃拟态 对比度 可访问性":
+        "#28 登记演进：shape-elevation.md §17「玻璃拟态的合成开销与降级顺序」凭原词标题命中上位，"
+        "属新权威资产在跨域查询里可见（#26 P1 曾专门修这条的可发现性），非别名污染；"
+        "HEAD top1 visual-style-taxonomy.md 不变、HEAD top3 三个文件全在 NOW top5、"
+        "--no-alias 下新资产仍排 #2。三条硬校验见 check_evolution()。",
 }
 
 

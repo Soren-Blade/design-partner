@@ -83,6 +83,11 @@ INTENTS = [
     ("中文排版 / 中英混排 / 缺字 tofu / 字体回退 / 全角半角 / 字素丛", "references/typography-system.md §16 W3C clreq（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29）+ §12 逐字符回退 + §13 unicode-range 分片"),
     ("数字抖动 / tabular-nums / 可变字体 / 字体加载闪烁 / CLS / 字体商用授权", "references/typography-system.md §10 OpenType 数字特性 + §9 五注册轴 + §14 font-display 五档 + §15 size-adjust + §18 OFL 1.1 五条件 + §19 仓库实测"),
     ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
+    ("圆角 / 形状 / 半径", "shape-elevation.md §10 语法 · §11 corner overlap · §12 同心 r=R−p · §13 七体系精确值"),
+    ("阴影 / 投影 / 三层阴影", "shape-elevation.md §7 box-shadow 语法 · §8 七体系对照 · §9 物理分解 · §23.1 token"),
+    ("高度层级 / elevation / 表面浮起", "shape-elevation.md §3 语义裁决 · §4 六级 dp · §15 Carbon Layering · §19 深度语言"),
+    ("边界看不见 / 阴影当 3:1", "shape-elevation.md §5 实跑对比度 · §6 非文本 3:1 正确落点 · accessibility.md §2"),
+    ("材质 / 毛玻璃 / z-index", "shape-elevation.md §16 Apple Materials · §17 性能红线 · §18 语义 z-index · §23.6 渐进增强"),
 ]
 
 

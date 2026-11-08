@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-07",
+  "_updated": "2026-11-08",
   "_weight": 0.45,
   "groups": [
     {
@@ -2738,6 +2738,90 @@
         "200% 缩放",
         "放大文字",
         "resize text"
+      ]
+    },
+    {
+      "canonical": "圆角",
+      "aliases": [
+        "圆角",
+        "radius",
+        "border-radius",
+        "倒角",
+        "圆角半径",
+        "胶囊",
+        "pill",
+        "全圆角",
+        "方角",
+        "直角"
+      ]
+    },
+    {
+      "canonical": "阴影",
+      "aliases": [
+        "阴影",
+        "box-shadow",
+        "drop-shadow",
+        "投影",
+        "三层阴影",
+        "阴影token",
+        "blur-radius",
+        "spread-radius",
+        "inset"
+      ]
+    },
+    {
+      "canonical": "形状尺度",
+      "aliases": [
+        "shape scale",
+        "形状",
+        "corner",
+        "几何",
+        "轮廓",
+        "圆角阶",
+        "shape token",
+        "形状系统"
+      ]
+    },
+    {
+      "canonical": "材质层",
+      "aliases": [
+        "毛玻璃",
+        "backdrop-filter",
+        "材质",
+        "Liquid Glass",
+        "blur",
+        "模糊",
+        "半透明",
+        "vibrancy",
+        "dimming layer"
+      ]
+    },
+    {
+      "canonical": "层叠刻度",
+      "aliases": [
+        "z-index",
+        "层叠顺序",
+        "层叠上下文",
+        "stacking context",
+        "浮起",
+        "抬起",
+        "dp",
+        "elevation scale"
+      ]
+    },
+    {
+      "canonical": "圆角几何",
+      "aliases": [
+        "嵌套圆角",
+        "同心圆角",
+        "concentric radius",
+        "内外圆角",
+        "圆角重叠",
+        "corner overlap",
+        "squircle",
+        "corner-shape",
+        "superellipse",
+        "连续圆角"
       ]
     }
   ]

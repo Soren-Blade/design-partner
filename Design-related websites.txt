@@ -186,3 +186,31 @@
 - https://github.com/system-fonts/modern-font-stacks | [GH] 系统字体回退链，找度量接近的 fallback（GitHub API 实测 3,540★ / CC0-1.0 / pushed 2026-03-10）
 - https://github.com/googlefonts/fontations | [GH] Rust 字体解析工具链活源（GitHub API 实测 854★ / Apache-2.0 / pushed 2026-11-06）
 - https://github.com/unicode-org/icu | [GH] UAX #29 字素丛 / 断行 / 区域数据（GitHub API 实测 3,637★ / NOASSERTION / pushed 2026-11-07）
+
+
+## 十七、形状与深度系统（Shape & Elevation）【本轮新增分区】
+- https://m3.material.io/styles/elevation/overview | M3 Component elevation：六级 0/1/3/6/8/12 dp、*"Elevation has no shadow or value of its own by default."*、*"Surface tint color is deprecated."*（已核验）
+- https://m3.material.io/styles/shape/overview | M3 Shape overview：2025-05 Expressive 35 shapes / shape morphing / Large 20dp·Extra large 32dp·Extra extra large 48dp / `full` 取代 50% / Web not currently available
+- https://m3.material.io/styles/shape/shape-scale-tokens | M3 shape scale tokens（动态渲染页，本轮未取得精确字面量表 → 取源限制）
+- https://github.com/material-foundation/material-tokens | [GH] `css/shape.css` 与 `css/elevation.css` 静态 token 精确值（GitHub raw 实测）
+- https://github.com/material-components/material-web | [GH] `tokens/_md-sys-shape.scss` `$supported-tokens` 七项与 `*-top` shorthand（GitHub API 实测 11,417★ / Apache-2.0）
+- https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow | MDN：2/3/4 `<length>`、逗号顺序第一个在最上、不影响 box model、跟随 border-radius（已核验）
+- https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius | MDN：`<length-percentage[0,∞]>{1,4} [ / ... ]?`、百分比水平参照 width 垂直参照 height、负值无效、elliptical corners（已核验）
+- https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape | MDN corner-shape：Experimental、依赖有效 border-radius、round/squircle/scoop/bevel/notch/square/superellipse()
+- https://www.w3.org/TR/css-backgrounds-3/#corner-overlap | W3C corner overlap §4.5（本轮 TR 页被 Cloudflare 拦截，仅按公式 + Python 实跑验证，下轮换镜像逐字复核）
+- https://drafts.csswg.org/css-backgrounds-3/#corner-overlap | CSSWG Editor's Draft 备用镜像
+- https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html | WCAG 2.2 SC 1.4.11：3:1 adjacent color(s)、3D drop-shadow 例外、focus 仍需对比度（已核验）
+- https://tailwindcss.com/docs/box-shadow | Tailwind CSS v4：shadow-2xs ~ shadow-2xl 八个默认值逐字（已核验）
+- https://github.com/mui/material-ui | [GH] `packages/mui-material/src/styles/shadows.js`：umbra 0.20 / penumbra 0.14 / ambient 0.12 三层 25 档（API 实测 99,301★ / MIT）
+- https://ant.design/docs/react/customize-theme | Ant Design 5 Seed/Map/Alias Token：borderRadius 2/4/6/8·controlHeight 32·boxShadow 三层逐字字符串（已核验）
+- https://github.com/Tencent/tdesign-common | [GH] `style/web/theme/_radius.less` 七值与 `_light.less` `--td-shadow-1/2/3` 三层逐字（GitHub raw 实测）
+- https://tdesign.tencent.com/design/token | TDesign 官方：*"5 kinds of Design Token, including colro、font、border-radius、box-shadow and size"*
+- https://arco.design/react/docs/token | Arco Design token：圆角 0/2/4/8/50% 与 shadow-special·shadow1~3-center（阴影逐字字符串本轮未取得）
+- https://carbondesignsystem.com/elements/color/overview/ | Carbon Color / Layering：White ↔ Gray 10 交替、暗色逐级变浅、2px focus border 与 3:1
+- https://developer.apple.com/design/human-interface-guidelines/materials | Apple HIG Materials：Liquid Glass vs standard materials、regular/clear、functional layer 边界、35% dimming、quaternary 禁配
+- https://github.com/pbakaus/impeccable | [GH] `spatial-design.md` Depth & Elevation：semantic z-index scale、sm→md→lg→xl、*"if you can clearly see it, it's probably too strong"*（API 实测 105,892★ / Apache-2.0）
+- https://github.com/carbon-design-system/carbon | [GH] Carbon 层叠色阶实现（API 实测 9,609★ / Apache-2.0）
+- https://github.com/shadcn-ui/ui | [GH] radius / shadow token 消费方式（API 实测 127,614★ / MIT）
+- https://github.com/primer/primitives | [GH] Primer 尺寸与阴影原始 token（API 实测 417★ / MIT，深挖候选）
+- https://github.com/radix-ui/themes | [GH] Radix shape/elevation token（本轮目录路径 404，精确值未纳入，下轮候选；API 实测 8,825★ / MIT）
+- https://fluent2.microsoft.design/depth | Fluent 2 Depth（本轮 404，未取得任何数值；已有 Motion 条目保持不动）

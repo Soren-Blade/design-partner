@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-07T23:56:26",
+ "generated": "2026-11-08T21:40:22",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 857,
-   "chars": 145336,
+   "lines": 879,
+   "chars": 150886,
    "sections": []
   },
   {
@@ -7059,8 +7059,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 603,
-   "chars": 52465,
+   "lines": 617,
+   "chars": 54756,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7487,11 +7487,19 @@
      "chars": 2950
     },
     {
-     "id": "能力自测-136-条-做到-95-条即达-l2",
-     "level": 2,
-     "title": "能力自测（136 条，做到 ≥95 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-z-形状与深度系统-把圆角与阴影从口诀变成几何契约",
+     "level": 3,
+     "title": "支线 Z · 形状与深度系统（把圆角与阴影从口诀变成几何契约）",
+     "summary": "- 这是什么（第三根基础支柱）：与「色彩科学」「字体排印」并列，但此前 37 份参考里零独立文件，圆角/阴影/高度/材质只散落在 dark-mode.md §2/§5、design-tokens.md §2.4、visual-style-t",
      "line": 460,
+     "chars": 2255
+    },
+    {
+     "id": "能力自测-140-条-做到-98-条即达-l2",
+     "level": 2,
+     "title": "能力自测（140 条，做到 ≥98 条即达 L2+）",
+     "summary": "L0",
+     "line": 474,
      "chars": 8677
     }
    ]
@@ -10771,6 +10779,335 @@
    ]
   },
   {
+   "path": "references/shape-elevation.md",
+   "title": "形状与深度系统（Shape & Elevation）",
+   "snapshot": "2026-11-08",
+   "lines": 819,
+   "chars": 37521,
+   "sections": [
+    {
+     "id": "1-为什么单列形状与深度系统",
+     "level": 2,
+     "title": "1 · 为什么单列形状与深度系统",
+     "summary": "圆角 阴影 高度 材质 形状 elevation 是和色彩、排印并列的基础支柱，但此前 37 份参考里零独立文件；缺口用 dpsearch.py 与词频统计判定为结构性空白而非覆盖不足。",
+     "line": 17,
+     "chars": 986
+    },
+    {
+     "id": "2-五层模型-先判层-再谈审美",
+     "level": 2,
+     "title": "2 · 五层模型：先判层，再谈审美",
+     "summary": "需求里出现「圆角 阴影 高度 材质 形状 elevation」时先定位是哪一层坏了；层叠与边界问题往往在 L5/L3，换圆角半径根本修不了。",
+     "line": 31,
+     "chars": 730
+    },
+    {
+     "id": "3-裁决一-elevation-是语义-z-height-不是可直接抄写的阴影值",
+     "level": 2,
+     "title": "3 · 裁决一：elevation 是语义 z-height，不是可直接抄写的阴影值",
+     "summary": "M3 官方 elevation 原文与 elevation.css 的单长度 box-shadow 存在误读风险；把高度 token 当 CSS 阴影抄进项目会产出无效声明。",
+     "line": 47,
+     "chars": 1326
+    },
+    {
+     "id": "4-m3-elevation-六级精确表与组件映射",
+     "level": 2,
+     "title": "4 · M3 Elevation 六级精确表与组件映射",
+     "summary": "M3 component elevation 官方表给出 6 级高度 level0–level5 / dp：0 / 1 / 3 / 6 / 8 / 12；这是层级顺序不是阴影参数。",
+     "line": 78,
+     "chars": 955
+    },
+    {
+     "id": "5-裁决二-阴影不能充当-wcag-1-4-11-的-3-1-识别边界",
+     "level": 2,
+     "title": "5 · 裁决二：阴影不能充当 WCAG 1.4.11 的 3:1 识别边界",
+     "summary": "WCAG 2.2 SC 1.4.11 非文本对比度要求组件边界对相邻色至少 3:1；本轮用 WCAG 相对亮度公式实跑证明常用半透明阴影只到 1.1–1.3:1，不能算边界。",
+     "line": 99,
+     "chars": 1419
+    },
+    {
+     "id": "6-非文本-3-1-的正确落点-边界-焦点-状态",
+     "level": 2,
+     "title": "6 · 非文本 3:1 的正确落点（边界 / 焦点 / 状态）",
+     "summary": "输入框 按钮 开关 边界线 焦点框 阴影 对比度 3:1 的合规信号必须是独立元素；阴影只做叠加氛围，不承担识别责任。",
+     "line": 125,
+     "chars": 820
+    },
+    {
+     "id": "7-box-shadow-正式语法-mdn-逐条核验",
+     "level": 2,
+     "title": "7 · box-shadow 正式语法（MDN 逐条核验）",
+     "summary": "box-shadow 需要 2/3/4 个 <length：offset-x offset-y [blur-radius [spread-radius]]；多阴影逗号分隔且第一个在最上，不占布局空间，跟随圆角。",
+     "line": 144,
+     "chars": 801
+    },
+    {
+     "id": "8-七体系阴影-token-精确对照-源码-官方文档实测",
+     "level": 2,
+     "title": "8 · 七体系阴影 token 精确对照（源码 / 官方文档实测）",
+     "summary": "真实说法：「Tailwind shadow-md 默认值到底是多少」「Ant Design 圆角和阴影默认值抄哪」——下表把 Tailwind v4 / MUI / Ant Design 5 / TDesign / Arco / Carbo",
+     "line": 167,
+     "chars": 173
+    },
+    {
+     "id": "8-1-tailwind-css-v4-box-shadow-官方文档逐字",
+     "level": 3,
+     "title": "8.1 Tailwind CSS v4（box-shadow 官方文档逐字）",
+     "summary": "v4 把这些值放在 --shadow- 自定义属性里，可用 shadow-(<custom-property) 直接接自己的变量——这是把深度 token 化的最低成本路径。注意 shadow-2xl 的 alpha 跳到 0.25，跨档不",
+     "line": 171,
+     "chars": 697
+    },
+    {
+     "id": "8-2-mui-packages-mui-material-src-styles-shadows-js-源码实测",
+     "level": 3,
+     "title": "8.2 MUI（packages/mui-material/src/styles/shadows.js 源码实测）",
+     "summary": "共 25 档（shadows[0] = 'none'，其后 24 档）。三个固定 alpha 对应物理分解：umbra（本影，最紧最暗 0.20）、penumbra（半影 0.14）、ambient（环境光 0.12）。这解释了\"为什么专业",
+     "line": 186,
+     "chars": 196
+    },
+    {
+     "id": "8-3-ant-design-5-customize-theme-官方表逐字",
+     "level": 3,
+     "title": "8.3 Ant Design 5（customize-theme 官方表逐字）",
+     "summary": "同为三层，alpha 分别 0.08 / 0.12 / 0.05，比 MUI 更淡。注意 spread 一负一正（-4px / 8px）：第三层用正 spread 做大范围柔光，这是\"淡但不糊\"的关键。",
+     "line": 198,
+     "chars": 305
+    },
+    {
+     "id": "8-4-tdesign-tencent-tdesign-common-style-web-theme-_light-less-源码实测",
+     "level": 3,
+     "title": "8.4 TDesign（Tencent/tdesign-common/style/web/theme/light.less 源码实测）",
+     "summary": "TDesign 只有 3 档，且档位越高 alpha 反而越淡（5%→4%）——靠更大的 blur / spread 拉开距离感，而不是把阴影加黑。这是与 MUI/Tailwind 不同的思路，直接混用两套会打架。官方设计 token 页原",
+     "line": 207,
+     "chars": 199
+    },
+    {
+     "id": "8-5-arco-design-官方-token-页",
+     "level": 3,
+     "title": "8.5 Arco Design（官方 token 页）",
+     "summary": "阴影 token 名为 shadow-special、shadow1-center、shadow2-center、shadow3-center（\"center\" 表示无 y 偏移的四周扩散型）。取源限制：本轮抓取返回的是变量名与分类，未取得",
+     "line": 217,
+     "chars": 211
+    },
+    {
+     "id": "8-6-carbon-不用阴影表达层级",
+     "level": 3,
+     "title": "8.6 Carbon（不用阴影表达层级）",
+     "summary": "Carbon Layering 明确用 neutral gray palette 的 layered colors 表达 depth / spatial association，而非投影：light themes 在 White ↔ Gra",
+     "line": 221,
+     "chars": 239
+    },
+    {
+     "id": "8-7-m3-语义高度-已废弃的-surface-tint",
+     "level": 3,
+     "title": "8.7 M3（语义高度 + 已废弃的 surface tint）",
+     "summary": "见 §3 §4。M3 现代表达是\"语义 level + 表面色角色\"，Surface tint color is deprecated.。",
+     "line": 225,
+     "chars": 74
+    },
+    {
+     "id": "8-8-横向结论",
+     "level": 3,
+     "title": "8.8 横向结论",
+     "summary": "没有一套是\"通用正确\"的。选型先定语言（§19），再从这一套里取完整值；把 Tailwind 的 shadow-sm 和 TDesign 的 --td-shadow-3 混在同一页面，等于两套光源模型打架。",
+     "line": 229,
+     "chars": 481
+    },
+    {
+     "id": "9-三层阴影为什么够-物理分解与克制原则",
+     "level": 2,
+     "title": "9 · 三层阴影为什么够：物理分解与克制原则",
+     "summary": "三层阴影 umbra penumbra ambient 对应一个光源的三种遮挡；阴影应当 subtle，看得清就说明太重——这是 impeccable/spatial-design.md 的原文立场。",
+     "line": 245,
+     "chars": 824
+    },
+    {
+     "id": "10-裁决三-圆角是几何契约-不是装饰常数",
+     "level": 2,
+     "title": "10 · 裁决三：圆角是几何契约，不是装饰常数",
+     "summary": "border-radius 正式语法是 <length-percentage[0,∞]{1,4} [ / <length-percentage[0,∞]{1,4} ]?；百分比水平轴参照 width、垂直轴参照 height，负值无效。",
+     "line": 259,
+     "chars": 761
+    },
+    {
+     "id": "11-corner-overlap-半径按比例缩减的规范公式",
+     "level": 2,
+     "title": "11 · Corner overlap：半径按比例缩减的规范公式",
+     "summary": "圆角重叠 corner overlap 的规范处理是 f = min(Li / Si)，f < 1 时所有角半径乘 f 等比缩减；实跑验证 100×40 写 30px 只生效 20px。",
+     "line": 275,
+     "chars": 1045
+    },
+    {
+     "id": "12-嵌套同心圆角-r-r-p-与失效条件",
+     "level": 2,
+     "title": "12 · 嵌套同心圆角 r = R − p 与失效条件",
+     "summary": "嵌套圆角 同心圆角 concentric radius 的规则是内圆角 r = R − p；r ≤ 0 时公式失效，不能硬套负数。",
+     "line": 303,
+     "chars": 655
+    },
+    {
+     "id": "13-七体系圆角-token-精确对照与-m3-expressive-更新",
+     "level": 2,
+     "title": "13 · 七体系圆角 token 精确对照与 M3 Expressive 更新",
+     "summary": "真实说法：「定一套圆角 token 该有几档」「形状尺度怎么定」——圆角 token 对照：M3 4/8/12/16/28、TDesign 2/3/6/9/12/999、Ant 2/4/6/8、Arco 0/2/4/8；M3 Express",
+     "line": 329,
+     "chars": 167
+    },
+    {
+     "id": "13-1-精确值-官方原文-源码实测",
+     "level": 3,
+     "title": "13.1 精确值（官方原文 / 源码实测）",
+     "summary": "观察：国内体系（Ant 6 / TDesign 3 / Arco 4）的默认圆角明显小于 M3（medium 12 / large 16）。这不是\"谁更现代\"，是信息密度不同：中后台表格、表单密集，大圆角会吞掉可用空间并让相邻控件看起来松散",
+     "line": 333,
+     "chars": 1195
+    },
+    {
+     "id": "13-2-m3-expressive-2025-05-更新要点",
+     "level": 3,
+     "title": "13.2 M3 Expressive（2025-05）更新要点",
+     "summary": "- 新增 35 个 shapes 与 shape morphing（形状在状态间平滑变形）。",
+     "line": 347,
+     "chars": 517
+    },
+    {
+     "id": "14-corner-shape-与-squircle-实验特性-不进生产",
+     "level": 2,
+     "title": "14 · corner-shape 与 squircle：实验特性，不进生产",
+     "summary": "corner-shape 是 MDN 标记为 Experimental 的属性，依赖 border-radius；没有有效 border-radius 或解析为 0 时完全不生效。",
+     "line": 358,
+     "chars": 566
+    },
+    {
+     "id": "15-表面层级-不用阴影也能表达深度-carbon-与暗色重排",
+     "level": 2,
+     "title": "15 · 表面层级：不用阴影也能表达深度（Carbon 与暗色重排）",
+     "summary": "表面层级 surface layering 的第二条路线是用中性灰色阶交替，而非投影；亮色 White ↔ Gray 10 交替、暗色每加一层变浅一个 step。",
+     "line": 376,
+     "chars": 709
+    },
+    {
+     "id": "16-材质与玻璃-apple-hig-materials-liquid-glass-的分层边界",
+     "level": 2,
+     "title": "16 · 材质与玻璃：Apple HIG Materials / Liquid Glass 的分层边界",
+     "summary": "材质 毛玻璃 Liquid Glass 只用于 controls / navigation 的 functional layer，不要用于 content layer；clear 变体在明亮背景上建议加 35% 暗色 dimming lay",
+     "line": 392,
+     "chars": 831
+    },
+    {
+     "id": "17-玻璃拟态的合成开销与降级顺序",
+     "level": 2,
+     "title": "17 · 玻璃拟态的合成开销与降级顺序",
+     "summary": "玻璃拟态的真实代价在每帧对背景区域重采样；降级顺序是「减层数与半径 → 加暗色遮罩 → 换实色表面」，不是只去掉透明度。",
+     "line": 410,
+     "chars": 632
+    },
+    {
+     "id": "18-z-index-语义刻度与-stacking-context",
+     "level": 2,
+     "title": "18 · z-index 语义刻度与 stacking context",
+     "summary": "z-index 不该写魔法数；用 dropdown → sticky → modal-backdrop → modal → toast → tooltip 的语义刻度，并检查父级 stacking context。",
+     "line": 426,
+     "chars": 969
+    },
+    {
+     "id": "19-深度语言三选一-阴影-表面色-材质",
+     "level": 2,
+     "title": "19 · 深度语言三选一：阴影 / 表面色 / 材质",
+     "summary": "深度语言 阴影 表面色 材质 必须三选一做主导；混用三套等于给界面三套互相矛盾的光源与物理规则。",
+     "line": 450,
+     "chars": 605
+    },
+    {
+     "id": "20-场景速查-12",
+     "level": 2,
+     "title": "20 · 场景速查（12）",
+     "summary": "---",
+     "line": 466,
+     "chars": 1063
+    },
+    {
+     "id": "21-反模式-20",
+     "level": 2,
+     "title": "21 · 反模式（20）",
+     "summary": "1. 把阴影当 3:1 边界——白底白卡只加 rgba(0,0,0,.1)，实测 1.248:1，验收必挂。",
+     "line": 485,
+     "chars": 1154
+    },
+    {
+     "id": "22-自检-20",
+     "level": 2,
+     "title": "22 · 自检（20）",
+     "summary": "1. 项目里所有 box-shadow 都至少含 2 个 <length 吗？",
+     "line": 510,
+     "chars": 868
+    },
+    {
+     "id": "23-可抄代码-6-段",
+     "level": 2,
+     "title": "23 · 可抄代码（6 段）",
+     "summary": "css",
+     "line": 535,
+     "chars": 1
+    },
+    {
+     "id": "23-1-css-形状与深度-token-系统-可直接落项目",
+     "level": 3,
+     "title": "23.1 CSS · 形状与深度 token 系统（可直接落项目）",
+     "summary": "",
+     "line": 537,
+     "chars": 1
+    },
+    {
+     "id": "23-2-python-阴影-alpha-wcag-对比度计算器-实跑-pass",
+     "level": 3,
+     "title": "23.2 Python · 阴影 alpha → WCAG 对比度计算器（实跑 PASS）",
+     "summary": "实跑输出：",
+     "line": 592,
+     "chars": 392
+    },
+    {
+     "id": "23-3-python-corner-overlap-与同心圆角校验器-实跑-pass",
+     "level": 3,
+     "title": "23.3 Python · corner overlap 与同心圆角校验器（实跑 PASS）",
+     "summary": "实跑输出：",
+     "line": 644,
+     "chars": 428
+    },
+    {
+     "id": "23-4-python-深度系统静态扫描器-实跑-pass",
+     "level": 3,
+     "title": "23.4 Python · 深度系统静态扫描器（实跑 PASS）",
+     "summary": "实跑输出：bad issues: 4（单长度 / elevation token / 负半径 / 魔法 z-index）· good issues: 0 · self-test PASS。",
+     "line": 679,
+     "chars": 103
+    },
+    {
+     "id": "23-5-css-亮暗双主题的同-level-表达-不照搬阴影",
+     "level": 3,
+     "title": "23.5 CSS · 亮暗双主题的同 level 表达（不照搬阴影）",
+     "summary": "",
+     "line": 734,
+     "chars": 1
+    },
+    {
+     "id": "23-6-css-材质层的渐进增强与可访问性降级",
+     "level": 3,
+     "title": "23.6 CSS · 材质层的渐进增强与可访问性降级",
+     "summary": "---",
+     "line": 757,
+     "chars": 6
+    },
+    {
+     "id": "24-取源与限制-公开记录",
+     "level": 2,
+     "title": "24 · 取源与限制（公开记录）",
+     "summary": "本轮 shape elevation 取源均标注了可核验位置与不可核验处；以下限制不臆造、不补齐，供后续轮次继续深挖。",
+     "line": 782,
+     "chars": 3573
+    }
+   ]
+  },
+  {
    "path": "references/tools.md",
    "title": "制作工具 — Tools",
    "snapshot": "2026-10-29",
@@ -12018,8 +12355,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 602,
-   "chars": 82949,
+   "lines": 617,
+   "chars": 89626,
    "sections": []
   }
  ],

@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-07 23:56 ｜ 39 个文件 · 1503 个章节 · 1,079,122 字符
+> 自动生成于 2026-11-08 21:40 ｜ 40 个文件 · 1545 个章节 · 1,131,161 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -62,6 +62,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 中文排版 / 中英混排 / 缺字 tofu / 字体回退 / 全角半角 / 字素丛 | references/typography-system.md §16 W3C clreq（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29）+ §12 逐字符回退 + §13 unicode-range 分片 |
 | 数字抖动 / tabular-nums / 可变字体 / 字体加载闪烁 / CLS / 字体商用授权 | references/typography-system.md §10 OpenType 数字特性 + §9 五注册轴 + §14 font-display 五档 + §15 size-adjust + §18 OFL 1.1 五条件 + §19 仓库实测 |
 | 不确定知识在哪 | python scripts/dp_search.py "关键词" |
+| 圆角 / 形状 / 半径 | shape-elevation.md §10 语法 · §11 corner overlap · §12 同心 r=R−p · §13 七体系精确值 |
+| 阴影 / 投影 / 三层阴影 | shape-elevation.md §7 box-shadow 语法 · §8 七体系对照 · §9 物理分解 · §23.1 token |
+| 高度层级 / elevation / 表面浮起 | shape-elevation.md §3 语义裁决 · §4 六级 dp · §15 Carbon Layering · §19 深度语言 |
+| 边界看不见 / 阴影当 3:1 | shape-elevation.md §5 实跑对比度 · §6 非文本 3:1 正确落点 · accessibility.md §2 |
+| 材质 / 毛玻璃 / z-index | shape-elevation.md §16 Apple Materials · §17 性能红线 · §18 语义 z-index · §23.6 渐进增强 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -267,26 +272,32 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **字体交付** | size-adjust · font-size-adjust · unicode-range · web font · webfont · 自托管字体 |
 | **字体许可** | 字体商用 · 字体版权 · OFL · SIL OFL · Reserved Font Name · RFN |
 | **文本间距覆盖** | 文本间距 · 文字间距 · text spacing · WCAG 1.4.12 · 1.4.12 · 200% 缩放 · 放大文字 · resize text |
+| **圆角** | 圆角 · radius · border-radius · 倒角 · 圆角半径 · 胶囊 · pill · 全圆角 · 方角 · 直角 |
+| **阴影** | 阴影 · box-shadow · drop-shadow · 投影 · 三层阴影 · 阴影token · blur-radius · spread-radius · inset |
+| **形状尺度** | shape scale · 形状 · corner · 几何 · 轮廓 · 圆角阶 · shape token · 形状系统 |
+| **材质层** | 毛玻璃 · backdrop-filter · 材质 · Liquid Glass · blur · 模糊 · 半透明 · vibrancy · dimming layer |
+| **层叠刻度** | z-index · 层叠顺序 · 层叠上下文 · stacking context · 浮起 · 抬起 · dp · elevation scale |
+| **圆角几何** | 嵌套圆角 · 同心圆角 · concentric radius · 内外圆角 · 圆角重叠 · corner overlap · squircle · corner-shape · superellipse · 连续圆角 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_857 行 · 快照 — · 12 节_
+_879 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L98` — 资产已 37 份参考、约 85 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L100` — 资产已 37 份参考、约 85 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L113`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L299` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L314` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L340` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L371` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L747` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L813` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L826` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L833` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L849` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L101` — 资产已 38 份参考、约 89 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L103` — 资产已 38 份参考、约 89 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L116`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L308` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L323` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L349` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L380` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L767` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L835` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L848` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L855` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L871` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1233,7 +1244,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_603 行 · 快照 2026-11-05 · 54 节_
+_617 行 · 快照 2026-11-05 · 55 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1288,7 +1299,8 @@ _603 行 · 快照 2026-11-05 · 54 节_
 - **学习节奏（可持续，不靠意志力）** `L412` — 最后一条最重要：能看出自己旧作的毛病，是能力增长唯一可靠的证据。
   - **支线 X · 视觉风格谱系与设计运动（把"感觉"翻译成信号）** `L426` — - 这是什么：用户说"做成 XX 那种感觉 / 高级感 / 科技感"时，不直接套词，而是拆成 Typography / Color / Shape&Material / Motion&Space 四维信号再落成 token。与 design
   - **支线 Y · 字体排印系统（把字号行距从口诀变成可验收的契约）** `L444` — - 这是什么（六层契约）：字体排印是与色彩科学并列的基础支柱，但不是「挑一款好看的字体」，而是六层契约——覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权（typography-system.md §2）。需求里出现「字太小 / 放大
-- **能力自测（136 条，做到 ≥95 条即达 L2+）** `L460` — L0
+  - **支线 Z · 形状与深度系统（把圆角与阴影从口诀变成几何契约）** `L460` — - 这是什么（第三根基础支柱）：与「色彩科学」「字体排印」并列，但此前 37 份参考里零独立文件，圆角/阴影/高度/材质只散落在 dark-mode.md §2/§5、design-tokens.md §2.4、visual-style-t
+- **能力自测（140 条，做到 ≥98 条即达 L2+）** `L474` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1728,6 +1740,50 @@ _726 行 · 快照 2026-11-01 · 55 节_
 - **18. 与其他资产的分工** `L696` — ---
 - **19. 数据来源** `L711` — - Ant Design Grid（24 栅格与 xs→xxxl 精确值）：https://ant.design/components/grid
 
+### `references/shape-elevation.md` · 形状与深度系统（Shape & Elevation）
+_819 行 · 快照 2026-11-08 · 40 节_
+
+- **1 · 为什么单列形状与深度系统** `L17` — 圆角 阴影 高度 材质 形状 elevation 是和色彩、排印并列的基础支柱，但此前 37 份参考里零独立文件；缺口用 dpsearch.py 与词频统计判定为结构性空白而非覆盖不足。
+- **2 · 五层模型：先判层，再谈审美** `L31` — 需求里出现「圆角 阴影 高度 材质 形状 elevation」时先定位是哪一层坏了；层叠与边界问题往往在 L5/L3，换圆角半径根本修不了。
+- **3 · 裁决一：elevation 是语义 z-height，不是可直接抄写的阴影值** `L47` — M3 官方 elevation 原文与 elevation.css 的单长度 box-shadow 存在误读风险；把高度 token 当 CSS 阴影抄进项目会产出无效声明。
+- **4 · M3 Elevation 六级精确表与组件映射** `L78` — M3 component elevation 官方表给出 6 级高度 level0–level5 / dp：0 / 1 / 3 / 6 / 8 / 12；这是层级顺序不是阴影参数。
+- **5 · 裁决二：阴影不能充当 WCAG 1.4.11 的 3:1 识别边界** `L99` — WCAG 2.2 SC 1.4.11 非文本对比度要求组件边界对相邻色至少 3:1；本轮用 WCAG 相对亮度公式实跑证明常用半透明阴影只到 1.1–1.3:1，不能算边界。
+- **6 · 非文本 3:1 的正确落点（边界 / 焦点 / 状态）** `L125` — 输入框 按钮 开关 边界线 焦点框 阴影 对比度 3:1 的合规信号必须是独立元素；阴影只做叠加氛围，不承担识别责任。
+- **7 · box-shadow 正式语法（MDN 逐条核验）** `L144` — box-shadow 需要 2/3/4 个 <length：offset-x offset-y [blur-radius [spread-radius]]；多阴影逗号分隔且第一个在最上，不占布局空间，跟随圆角。
+- **8 · 七体系阴影 token 精确对照（源码 / 官方文档实测）** `L167` — 真实说法：「Tailwind shadow-md 默认值到底是多少」「Ant Design 圆角和阴影默认值抄哪」——下表把 Tailwind v4 / MUI / Ant Design 5 / TDesign / Arco / Carbo
+  - **8.1 Tailwind CSS v4（box-shadow 官方文档逐字）** `L171` — v4 把这些值放在 --shadow- 自定义属性里，可用 shadow-(<custom-property) 直接接自己的变量——这是把深度 token 化的最低成本路径。注意 shadow-2xl 的 alpha 跳到 0.25，跨档不
+  - **8.2 MUI（packages/mui-material/src/styles/shadows.js 源码实测）** `L186` — 共 25 档（shadows[0] = 'none'，其后 24 档）。三个固定 alpha 对应物理分解：umbra（本影，最紧最暗 0.20）、penumbra（半影 0.14）、ambient（环境光 0.12）。这解释了"为什么专业
+  - **8.3 Ant Design 5（customize-theme 官方表逐字）** `L198` — 同为三层，alpha 分别 0.08 / 0.12 / 0.05，比 MUI 更淡。注意 spread 一负一正（-4px / 8px）：第三层用正 spread 做大范围柔光，这是"淡但不糊"的关键。
+  - **8.4 TDesign（Tencent/tdesign-common/style/web/theme/light.less 源码实测）** `L207` — TDesign 只有 3 档，且档位越高 alpha 反而越淡（5%→4%）——靠更大的 blur / spread 拉开距离感，而不是把阴影加黑。这是与 MUI/Tailwind 不同的思路，直接混用两套会打架。官方设计 token 页原
+  - **8.5 Arco Design（官方 token 页）** `L217` — 阴影 token 名为 shadow-special、shadow1-center、shadow2-center、shadow3-center（"center" 表示无 y 偏移的四周扩散型）。取源限制：本轮抓取返回的是变量名与分类，未取得
+  - **8.6 Carbon（不用阴影表达层级）** `L221` — Carbon Layering 明确用 neutral gray palette 的 layered colors 表达 depth / spatial association，而非投影：light themes 在 White ↔ Gra
+  - **8.7 M3（语义高度 + 已废弃的 surface tint）** `L225` — 见 §3 §4。M3 现代表达是"语义 level + 表面色角色"，Surface tint color is deprecated.。
+  - **8.8 横向结论** `L229` — 没有一套是"通用正确"的。选型先定语言（§19），再从这一套里取完整值；把 Tailwind 的 shadow-sm 和 TDesign 的 --td-shadow-3 混在同一页面，等于两套光源模型打架。
+- **9 · 三层阴影为什么够：物理分解与克制原则** `L245` — 三层阴影 umbra penumbra ambient 对应一个光源的三种遮挡；阴影应当 subtle，看得清就说明太重——这是 impeccable/spatial-design.md 的原文立场。
+- **10 · 裁决三：圆角是几何契约，不是装饰常数** `L259` — border-radius 正式语法是 <length-percentage[0,∞]{1,4} [ / <length-percentage[0,∞]{1,4} ]?；百分比水平轴参照 width、垂直轴参照 height，负值无效。
+- **11 · Corner overlap：半径按比例缩减的规范公式** `L275` — 圆角重叠 corner overlap 的规范处理是 f = min(Li / Si)，f < 1 时所有角半径乘 f 等比缩减；实跑验证 100×40 写 30px 只生效 20px。
+- **12 · 嵌套同心圆角 r = R − p 与失效条件** `L303` — 嵌套圆角 同心圆角 concentric radius 的规则是内圆角 r = R − p；r ≤ 0 时公式失效，不能硬套负数。
+- **13 · 七体系圆角 token 精确对照与 M3 Expressive 更新** `L329` — 真实说法：「定一套圆角 token 该有几档」「形状尺度怎么定」——圆角 token 对照：M3 4/8/12/16/28、TDesign 2/3/6/9/12/999、Ant 2/4/6/8、Arco 0/2/4/8；M3 Express
+  - **13.1 精确值（官方原文 / 源码实测）** `L333` — 观察：国内体系（Ant 6 / TDesign 3 / Arco 4）的默认圆角明显小于 M3（medium 12 / large 16）。这不是"谁更现代"，是信息密度不同：中后台表格、表单密集，大圆角会吞掉可用空间并让相邻控件看起来松散
+  - **13.2 M3 Expressive（2025-05）更新要点** `L347` — - 新增 35 个 shapes 与 shape morphing（形状在状态间平滑变形）。
+- **14 · corner-shape 与 squircle：实验特性，不进生产** `L358` — corner-shape 是 MDN 标记为 Experimental 的属性，依赖 border-radius；没有有效 border-radius 或解析为 0 时完全不生效。
+- **15 · 表面层级：不用阴影也能表达深度（Carbon 与暗色重排）** `L376` — 表面层级 surface layering 的第二条路线是用中性灰色阶交替，而非投影；亮色 White ↔ Gray 10 交替、暗色每加一层变浅一个 step。
+- **16 · 材质与玻璃：Apple HIG Materials / Liquid Glass 的分层边界** `L392` — 材质 毛玻璃 Liquid Glass 只用于 controls / navigation 的 functional layer，不要用于 content layer；clear 变体在明亮背景上建议加 35% 暗色 dimming lay
+- **17 · 玻璃拟态的合成开销与降级顺序** `L410` — 玻璃拟态的真实代价在每帧对背景区域重采样；降级顺序是「减层数与半径 → 加暗色遮罩 → 换实色表面」，不是只去掉透明度。
+- **18 · z-index 语义刻度与 stacking context** `L426` — z-index 不该写魔法数；用 dropdown → sticky → modal-backdrop → modal → toast → tooltip 的语义刻度，并检查父级 stacking context。
+- **19 · 深度语言三选一：阴影 / 表面色 / 材质** `L450` — 深度语言 阴影 表面色 材质 必须三选一做主导；混用三套等于给界面三套互相矛盾的光源与物理规则。
+- **20 · 场景速查（12）** `L466` — ---
+- **21 · 反模式（20）** `L485` — 1. 把阴影当 3:1 边界——白底白卡只加 rgba(0,0,0,.1)，实测 1.248:1，验收必挂。
+- **22 · 自检（20）** `L510` — 1. 项目里所有 box-shadow 都至少含 2 个 <length 吗？
+- **23 · 可抄代码（6 段）** `L535` — css
+  - **23.1 CSS · 形状与深度 token 系统（可直接落项目）** `L537`
+  - **23.2 Python · 阴影 alpha → WCAG 对比度计算器（实跑 PASS）** `L592` — 实跑输出：
+  - **23.3 Python · corner overlap 与同心圆角校验器（实跑 PASS）** `L644` — 实跑输出：
+  - **23.4 Python · 深度系统静态扫描器（实跑 PASS）** `L679` — 实跑输出：bad issues: 4（单长度 / elevation token / 负半径 / 魔法 z-index）· good issues: 0 · self-test PASS。
+  - **23.5 CSS · 亮暗双主题的同 level 表达（不照搬阴影）** `L734`
+  - **23.6 CSS · 材质层的渐进增强与可访问性降级** `L757` — ---
+- **24 · 取源与限制（公开记录）** `L782` — 本轮 shape elevation 取源均标注了可核验位置与不可核验处；以下限制不臆造、不补齐，供后续轮次继续深挖。
+
 ### `references/tools.md` · 制作工具 — Tools
 _182 行 · 快照 2026-10-29 · 7 节_
 
@@ -1896,7 +1952,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_602 行 · 快照 — · 32 节_
+_617 行 · 快照 — · 33 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -1930,6 +1986,7 @@ _602 行 · 快照 — · 32 节_
 - **2026-11-07 · 每日升级 #25：色彩科学（Color Science）** `L564` — - 升级：新增 references/color-science.md（22 节 / ~620 行）；SKILL.md 接线（资产表 + 意图路由 + 第5步色彩指针 + 第6步色彩科学关 #33）+ v29 基线；buildreadme 
 - **2026-11-07 · 每日升级 #26：视觉风格谱系与设计运动（Visual Style Taxonomy）** `L571` — - 本轮性质：续跑 + 收口。定时触发时发现上一轮（#26 / v29→v30）已完成「蒸馏 + 4 处接线」但未收口：references/visual-style-taxonomy.md（312 行 / 13 节）为 untracked
 - **2026-11-07 · 每日升级 #27：字体排印系统（Typography System）** `L589` — - 本轮性质：v30→v31 新增基础支柱域。触发时基线干净（HEAD 5246fb3，v30 / 36 参考 / 175 路由 / 34 自检 / 188 别名 / 24 支线 / 132 自测），候选清单首位是「docs-as-code
+- **2026-11-08 · 每日升级 #28：形状与深度系统（Shape & Elevation）** `L604` — - 本轮性质：v31→v32 补齐第三根基础支柱域。触发时基线干净（HEAD 945572f、v31 / 37 参考 / 850,837 字符 / 180 路由 / 35 自检 / 198 别名 / 25 支线 / 136 自测）。用 dp
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -1942,6 +1999,7 @@ _602 行 · 快照 — · 32 节_
 - **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
 - **1 · 为什么单列字体排印系统** → `references/typography-system.md` L11
+- **1 · 为什么单列形状与深度系统** → `references/shape-elevation.md` L17
 - **1 · 为什么单列色彩科学** → `references/color-science.md` L9
 - **1. 一页速查：交付链的六个关卡** → `references/handoff-collaboration.md` L9
 - **1. 一页速查：品牌视觉从零到交付** → `references/brand-identity.md` L8
@@ -1964,6 +2022,7 @@ _602 行 · 快照 — · 32 节_
 - **1. 视口断点 vs 容器断点：先选对工具** → `references/responsive-layout.md` L22
 - **10 · 数字特性与 tabular-nums（表格 / 时钟 / 频繁变化数值）** → `references/typography-system.md` L139
 - **10 · 色彩无障碍 beyond 1.4.11** → `references/color-science.md` L194
+- **10 · 裁决三：圆角是几何契约，不是装饰常数** → `references/shape-elevation.md` L259
 - **10. 20 反模式** → `references/visual-style-taxonomy.md` L221
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
@@ -1983,6 +2042,7 @@ _602 行 · 快照 — · 32 节_
 - **10. 远程与线上演示** → `references/presentation-design.md` L481
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **10. 默认勾选、概括授权、搭售与商业信息：同份规章的另外三条** → `references/design-ethics-inclusion.md` L261
+- **11 · Corner overlap：半径按比例缩减的规范公式** → `references/shape-elevation.md` L275
 - **11 · 工程实现（落地要点）** → `references/color-science.md` L204
 - **11 · 高位属性优先，低位 API 兜底** → `references/typography-system.md` L163
 - **11. 20 自检（交付前逐条过）** → `references/visual-style-taxonomy.md` L246
@@ -2006,6 +2066,7 @@ _602 行 · 快照 — · 32 节_
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
 - **12 · font-family 逐字符回退算法（加载 / 缺字 / 验收）** → `references/typography-system.md` L174
 - **12 · 场景速查（12）** → `references/color-science.md` L234
+- **12 · 嵌套同心圆角 r = R − p 与失效条件** → `references/shape-elevation.md` L303
 - **12. AI 生成界面的 12 类固有缺陷 → 接回既有专项** → `references/ai-design-toolchain.md` L386
 - **12. CSS 入场/退场状态机：@starting-style 四件套** → `references/motion-orchestration.md` L585
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
@@ -2026,6 +2087,7 @@ _602 行 · 快照 — · 32 节_
 - **12. 迁移文档：MAJOR 必带，且必须能被机器校验** → `references/design-system-docs.md` L461
 - **12. 问卷与访谈设计：偏差规避（数据垃圾进、垃圾出）** → `references/design-measurement-research.md` L227
 - **13 · unicode-range 子集化与 CJK 分片（性能 / CLS / 验收）** → `references/typography-system.md` L186
+- **13 · 七体系圆角 token 精确对照与 M3 Expressive 更新** → `references/shape-elevation.md` L329
 - **13 · 反模式（20）** → `references/color-science.md` L251
 - **13. A/B 测试统计：显著≠值得上线** → `references/design-measurement-research.md` L244
 - **13. AI 设计工具链五层地图与选型（GitHub REST API 实测 2026-11-06）** → `references/ai-design-toolchain.md` L407
@@ -2044,6 +2106,7 @@ _602 行 · 快照 — · 32 节_
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
 - **13. 触控与鼠标：两套输入不能共用一套假设** → `references/responsive-layout.md` L504
+- **14 · corner-shape 与 squircle：实验特性，不进生产** → `references/shape-elevation.md` L358
 - **14 · font-display 时间线与五档选择（性能 / CLS / 验收）** → `references/typography-system.md` L199
 - **14 · 自检（20）** → `references/color-science.md` L276
 - **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** → `references/component-api-design.md` L435
@@ -2063,6 +2126,7 @@ _602 行 · 快照 — · 32 节_
 - **14. 调试与验收** → `references/responsive-layout.md` L530
 - **15 · size-adjust / font-size-adjust 度量对齐（FOUT 不跳版）** → `references/typography-system.md` L220
 - **15 · 可抄代码（6 段）** → `references/color-science.md` L301
+- **15 · 表面层级：不用阴影也能表达深度（Carbon 与暗色重排）** → `references/shape-elevation.md` L376
 - **15. 12 场景速查** → `references/presentation-design.md` L672
 - **15. 12 场景（Scenarios）** → `references/iconography.md` L213
 - **15. Inclusive Design Principles 七原则（逐条 + 设计动作）** → `references/design-ethics-inclusion.md` L375
@@ -2079,6 +2143,7 @@ _602 行 · 快照 — · 32 节_
 - **15. 跨框架实现矩阵与选型决策** → `references/motion-orchestration.md` L709
 - **16 · 中文排版（W3C clreq 原文核验）** → `references/typography-system.md` L232
 - **16 · 取源与限制（公开记录）** → `references/color-science.md` L392
+- **16 · 材质与玻璃：Apple HIG Materials / Liquid Glass 的分层边界** → `references/shape-elevation.md` L392
 - **16. 20 反模式（Anti-patterns）** → `references/iconography.md` L230
 - **16. 20 条反模式** → `references/presentation-design.md` L691
 - **16. W3C COGA 八个目标：认知无障碍的可验收问句** → `references/design-ethics-inclusion.md` L393
@@ -2093,6 +2158,7 @@ _602 行 · 快照 — · 32 节_
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
 - **16. 贡献与治理：GOV.UK 的准入标准（含可量化阈值）** → `references/design-system-docs.md` L622
 - **17 · M3 type scale 与 token 化（可复现，不抄二手数值表）** → `references/typography-system.md` L244
+- **17 · 玻璃拟态的合成开销与降级顺序** → `references/shape-elevation.md` L410
 - **17. 16 场景决策矩阵（先查表，再动手）** → `references/component-api-design.md` L501
 - **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 20 自检（Self-checks）** → `references/iconography.md` L255
@@ -2106,6 +2172,7 @@ _602 行 · 快照 — · 32 节_
 - **17. 度量：交付质量的六个指标** → `references/handoff-collaboration.md` L710
 - **17. 文档新鲜度与漂移：可测指标 + 本技能自身的防漂移机制（自举）** → `references/design-system-docs.md` L650
 - **17. 隐私、输入与组织边界** → `references/ai-design-toolchain.md` L483
+- **18 · z-index 语义刻度与 stacking context** → `references/shape-elevation.md` L426
 - **18 · 字体授权（OFL 1.1）：能做与不能做** → `references/typography-system.md` L258
 - **18. 12 场景速查** → `references/ai-design-toolchain.md` L493
 - **18. 20 条反模式（逐条可判 FAIL）** → `references/component-api-design.md` L524
@@ -2119,6 +2186,7 @@ _602 行 · 快照 — · 32 节_
 - **18. 场景决策矩阵（12 场景：凭问题选度量方案）** → `references/design-measurement-research.md` L327
 - **18. 自检清单（20 条，动效编排交付前逐条过）** → `references/motion-orchestration.md` L786
 - **19 · 工具链与 GitHub API 实测数据（2026-11-07）** → `references/typography-system.md` L281
+- **19 · 深度语言三选一：阴影 / 表面色 / 材质** → `references/shape-elevation.md` L450
 - **19. 20 条反模式** → `references/ai-design-toolchain.md` L512
 - **19. 20 条反模式（研究者与设计师都容易犯）** → `references/design-measurement-research.md` L346
 - **19. 22 项上线自检（组件 API 关）** → `references/component-api-design.md` L549
@@ -2129,6 +2197,7 @@ _602 行 · 快照 — · 32 节_
 - **19. 可抄代码（8 段）** → `references/motion-orchestration.md` L811
 - **19. 数据来源** → `references/performance-design.md` L827 · `references/responsive-layout.md` L711
 - **19. 自检 20 项（交付前逐条打勾）** → `references/handoff-collaboration.md` L755
+- **2 · 五层模型：先判层，再谈审美** → `references/shape-elevation.md` L31
 - **2 · 排印决策的六层模型（先判层，再谈审美）** → `references/typography-system.md` L25
 - **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
@@ -2150,7 +2219,7 @@ _602 行 · 快照 — · 32 节_
 - **2. 表面层级：暗色的核心是"重排"，不是"反相"** → `references/dark-mode.md` L58
 - **2. 评审前的三个前提（NN/g 原文三主题，必做）** → `references/design-critique.md` L36
 - **2. 风格识别四维信号（拆任何风格都用这四把尺）** → `references/visual-style-taxonomy.md` L24
-- **20 · 场景速查（12）** → `references/typography-system.md` L303
+- **20 · 场景速查（12）** → `references/shape-elevation.md` L466 · `references/typography-system.md` L303
 - **20. 20 项自检（交付一份研究方案 / 看一份数据报告时逐条过）** → `references/design-measurement-research.md` L371
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
@@ -2188,25 +2257,27 @@ _602 行 · 快照 — · 32 节_
 - **2026-11-07 · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进（每日升级 #20）** → `memory/design-log.md` L478
 - **2026-11-07 · 设计度量与用户研究：可用性指标、研究方法与统计验收（每日升级 #21）** → `memory/design-log.md` L502
 - **2026-11-07 · 设计评审与反馈（Design Critique & Feedback，每日升级 #24）** → `memory/design-log.md` L551
-- **21 · 反模式（20）** → `references/typography-system.md` L322
+- **2026-11-08 · 每日升级 #28：形状与深度系统（Shape & Elevation）** → `memory/design-log.md` L604
+- **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322
 - **21. 6 段可抄代码** → `references/ai-design-toolchain.md` L562
 - **21. 六段可抄代码（文档团队直接拿去用）** → `references/design-system-docs.md` L753
 - **21. 取源清单与 GitHub API 实测（2026-11-07 快照）** → `references/component-api-design.md` L856
 - **21. 可抄代码（4 段 Python，已实跑）** → `references/design-measurement-research.md` L396
 - **21. 可抄代码（4 段，3 段 Python 已实跑）** → `references/design-ethics-inclusion.md` L509
 - **21. 数据来源** → `references/brand-identity.md` L673
-- **22 · 自检（20）** → `references/typography-system.md` L347
+- **22 · 自检（20）** → `references/shape-elevation.md` L510 · `references/typography-system.md` L347
 - **22. 取源限制与不臆造声明（本轮公开记录）** → `references/component-api-design.md` L903
 - **22. 数据来源与取源纪律** → `references/design-ethics-inclusion.md` L728
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** → `references/ai-design-toolchain.md` L761
 - **22. 来源与取源限制（公开记录）** → `references/design-measurement-research.md` L480
 - **22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）** → `references/design-system-docs.md` L899
-- **23 · 可抄代码（6 段）** → `references/typography-system.md` L372
+- **23 · 可抄代码（6 段）** → `references/shape-elevation.md` L535 · `references/typography-system.md` L372
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
-- **24 · 取源与限制（公开记录）** → `references/typography-system.md` L575
+- **24 · 取源与限制（公开记录）** → `references/shape-elevation.md` L782 · `references/typography-system.md` L575
 - **3 · 字体选型：覆盖 / 回退 / 授权三个前置，而不是「挑好看的」** → `references/typography-system.md` L42
 - **3 · 感知均匀性：HSL 为什么撒谎** → `references/color-science.md` L37
+- **3 · 裁决一：elevation 是语义 z-height，不是可直接抄写的阴影值** → `references/shape-elevation.md` L47
 - **3. EDPB Guidelines 03/2022 v2.0：六类机制（官方 PDF 74 页，一手）** → `references/design-ethics-inclusion.md` L70
 - **3. LCP：把 2.5 秒拆成四段（这是最有用的一张表）** → `references/performance-design.md` L94
 - **3. 主流动派谱系（编年 + 视觉签名 + 何时用 / 不用 + 代表）** → `references/visual-style-taxonomy.md` L55
@@ -2226,6 +2297,7 @@ _602 行 · 快照 — · 32 节_
 - **3. 状态提升与派生状态（别把 state 复制两份）** → `references/component-api-design.md` L122
 - **3. 给出反馈的七条铁律** → `references/design-critique.md` L46
 - **3. 项数铁律（数量是有科学依据的，不是审美）** → `references/navigation-ia.md` L40
+- **4 · M3 Elevation 六级精确表与组件映射** → `references/shape-elevation.md` L78
 - **4 · 伽马（gamma）：为什么不能直接对 sRGB 插值** → `references/color-science.md` L49
 - **4 · 字号阶梯与相对单位（px 不可访问裁决）** → `references/typography-system.md` L54
 - **4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）** → `references/design-ethics-inclusion.md` L94
@@ -2249,6 +2321,7 @@ _602 行 · 快照 — · 32 节_
 - **4. 风格匹配决策（给定"A 感觉"，怎么拆成信号）** → `references/visual-style-taxonomy.md` L136
 - **5 · OKLab / OKLCH：公式与用法** → `references/color-science.md` L59
 - **5 · 行高、行长与段落节奏（可计算，不靠感觉）** → `references/typography-system.md` L67
+- **5 · 裁决二：阴影不能充当 WCAG 1.4.11 的 3:1 识别边界** → `references/shape-elevation.md` L99
 - **5. CLS：公式、五个位移源、设计侧防抖清单** → `references/performance-design.md` L163
 - **5. CPPA §7003：可读性、无障碍与「显著链接」的具体要求** → `references/design-ethics-inclusion.md` L149
 - **5. UMUX / UMUX-Lite（4 题 / 2 题 · 与 SUS 强相关）** → `references/design-measurement-research.md` L112
@@ -2270,6 +2343,7 @@ _602 行 · 快照 — · 32 节_
 - **5. 面包屑（Breadcrumb）** → `references/navigation-ia.md` L61
 - **6 · WCAG 2.2 三关硬数值（1.4.4 / 1.4.8 / 1.4.12）** → `references/typography-system.md` L80
 - **6 · 对比度：两套算法，不是只有 WCAG 2.x** → `references/color-science.md` L104
+- **6 · 非文本 3:1 的正确落点（边界 / 焦点 / 状态）** → `references/shape-elevation.md` L125
 - **6. AI 素材的来源与授权链** → `references/ai-design-toolchain.md` L194
 - **6. SEQ 单题易用度 + SUPR-Q 标准百分等级 + NPS** → `references/design-measurement-research.md` L123
 - **6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）** → `references/component-api-design.md` L240
@@ -2289,6 +2363,7 @@ _602 行 · 快照 — · 32 节_
 - **6. 示例代码的可抄性：五条硬规则（写错就没人用）** → `references/design-system-docs.md` L188
 - **6. 评判框架（把"好不好"变成可讨论的尺子）** → `references/design-critique.md` L90
 - **6. 趋势生命周期（何时该上、何时已过）** → `references/visual-style-taxonomy.md` L168
+- **7 · box-shadow 正式语法（MDN 逐条核验）** → `references/shape-elevation.md` L144
 - **7 · 文本间距覆盖验收（注入式实测五步）** → `references/typography-system.md` L98
 - **7 · 色盲：三型 + Okabe–Ito 8 色** → `references/color-science.md` L143
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
@@ -2311,6 +2386,7 @@ _602 行 · 快照 — · 32 节_
 - **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
 - **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
 - **8 · 200% 缩放与容器弹性（按钮 / 输入框 / 卡片）** → `references/typography-system.md` L114
+- **8 · 七体系阴影 token 精确对照（源码 / 官方文档实测）** → `references/shape-elevation.md` L167
 - **8 · 色板生成科学：四条可复现路线（选一不许混）** → `references/color-science.md` L162
 - **8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线** → `references/design-ethics-inclusion.md` L200
 - **8. 决策记录（ADR / critique notes）** → `references/design-critique.md` L148
@@ -2332,6 +2408,7 @@ _602 行 · 快照 — · 32 节_
 - **8. 跨文档转场（MPA）与导航方向类型** → `references/motion-orchestration.md` L418
 - **8. 验收标准的写法：Given / When / Then** → `references/handoff-collaboration.md` L259
 - **9 · Variable Fonts 与五个注册轴** → `references/typography-system.md` L126
+- **9 · 三层阴影为什么够：物理分解与克制原则** → `references/shape-elevation.md` L245
 - **9 · 渐变与插值：在 OKLab 空间做** → `references/color-science.md` L175
 - **9. 12 场景速查** → `references/visual-style-taxonomy.md` L204
 - **9. AI 辅助设计的工作流（可直接落地的 8 步）** → `references/ai-design-toolchain.md` L285
@@ -2523,7 +2600,7 @@ _602 行 · 快照 — · 32 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L98
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L101
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -2533,12 +2610,12 @@ _602 行 · 快照 — · 32 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（136 条，做到 ≥95 条即达 L2+）** → `references/knowledge-map.md` L460
-- **自我成长机制（用得越多越准）** → `SKILL.md` L813
-- **自我进化机制（知识保鲜）** → `SKILL.md` L826
+- **能力自测（140 条，做到 ≥98 条即达 L2+）** → `references/knowledge-map.md` L474
+- **自我成长机制（用得越多越准）** → `SKILL.md` L835
+- **自我进化机制（知识保鲜）** → `SKILL.md` L848
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L849
+- **边界与习惯** → `SKILL.md` L871
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

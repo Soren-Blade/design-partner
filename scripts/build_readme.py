@@ -64,6 +64,7 @@ ASSETS = [
     ("color-science.md", "色彩科学", "色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码"),
     ("visual-style-taxonomy.md", "视觉风格谱系与设计运动", "立场：风格不是名词贴标签，是四维信号的组合签名 / 四维信号表（Typography·Color·Shape&Material·Motion&Space 逐维标注）/ 17 条编年谱系（Swiss 1950s→Bauhaus→Brutalism→Memphis 1981→Skeuomorphism→Flat 2013→Material 2014→Neumorphism 2019→Glassmorphism 2020→Y2K→Vaporwave→Cyberpunk→Bento 2022→Claymorphism→企业中性，各给何时用/何时不用）/ 匹配决策（参考站四步拆解·形容词先确认语境）/ 风格 vs 品牌三词定位 / 混搭纪律（depth language 只一种主导·装饰密度只一个极端·趋势叠加上限=1）/ 趋势生命周期（技术驱动 vs 纯视觉潮流 12–24 个月）/ 中文与出海 / 风格→token 映射与 DTCG / 新拟态与玻璃拟态硬红线 / 12 场景 / 20 反模式 / 20 自检 / 3 段可抄清单或代码"),
     ("typography-system.md", "字体排印系统", "立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描）"),
+    ("shape-elevation.md", "形状与深度系统", "立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑）"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -208,6 +209,7 @@ def build() -> str:
 | **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
 | **风格说不清** | "做成 XX 那种感觉""要高级感"却拆不出做法、潮流叠满、前后页不像一个产品 | `visual-style-taxonomy.md` 四维信号拆解 + 17 条编年谱系 + 混搭纪律 + 风格→token 映射 |
 | **字号行距全凭感觉** | 正文写死 px 用户改不了字号、放大到 200% 按钮被切、WCAG 文本间距一覆盖表单就重叠、表格数字每秒抖一次、中文出现方框乱码、字体不敢自托管 | `typography-system.md` 六层契约 + rem 阶梯 + 1.4.12 注入验收 + 200% 缩放 + `tabular-nums` + 逐字符回退与 `unicode-range` 分片 + `size-adjust` 压 CLS + clreq 中文排版 + OFL 1.1 授权 |
+| **圆角阴影全凭感觉** | 白底白卡只加浅阴影、写了 50px 圆角却没变、卡片套卡片弧线错位、弹窗在暗色下浮不起来、顶栏毛玻璃上字发虚、z-index 写到 9999 | `shape-elevation.md` 三条裁决 + 五层模型 + 七体系精确 token + 几何校验器 + 语义 z-index 刻度 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
@@ -348,6 +350,22 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Google Fonts](https://github.com/google/fonts) · [rsms/inter](https://github.com/rsms/inter) · [fonttools](https://github.com/fonttools/fonttools) — 字体源与子集化工具链（star / 许可 GitHub API 实测）
 - [Calinou/awesome-design](https://github.com/Calinou/awesome-design) — UI/UX 高质量资源策展（GitHub API 实测 10★）
 - [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 设计资源合集（GitHub API 实测 67,340★ · MIT）
+- [Material 3 · Component elevation](https://m3.material.io/styles/elevation/overview) — 六级 `0/1/3/6/8/12 dp` / *"Elevation has no shadow or value of its own by default."* / *"Surface tint color is deprecated."*
+- [Material 3 · Shape overview](https://m3.material.io/styles/shape/overview) — M3 Expressive 2025-05：35 shapes / morphing / `full` 取代 50% / Web not currently available
+- [material-foundation/material-tokens](https://github.com/material-foundation/material-tokens) — `css/shape.css` 与 `css/elevation.css` 静态 token 精确值（GitHub raw 实测）
+- [MDN · box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) — 2/3/4 `<length>` 正式语法 / 逗号顺序 / 不影响 box model / 跟随圆角
+- [MDN · border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) — `<length-percentage[0,∞]>{1,4}` / 百分比参照 width·height / 负值无效 / elliptical corners
+- [MDN · corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) — Experimental / 依赖有效 `border-radius` / round·squircle·scoop·bevel·notch·superellipse()
+- [W3C WCAG 2.2 · Understanding SC 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) — 非文本 3:1 adjacent color(s) / 3D drop-shadow 例外 / focus 仍需对比度
+- [CSS Backgrounds 3 · corner overlap](https://drafts.csswg.org/css-backgrounds-3/#corner-overlap) — `f = min(L_i/S_i)` 等比缩减（TR 页被 Cloudflare 拦截，本轮仅以公式 + Python 实跑验证）
+- [Tailwind CSS v4 · box-shadow](https://tailwindcss.com/docs/box-shadow) — `shadow-2xs` 至 `shadow-2xl` 八个默认值逐字
+- [MUI · shadows.js](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/shadows.js) — umbra 0.2 / penumbra 0.14 / ambient 0.12 三层 25 档源码
+- [Ant Design 5 · Customize Theme](https://ant.design/docs/react/customize-theme) — `borderRadius` 系列与 `boxShadow` 逐字默认值
+- [TDesign · design token](https://tdesign.tencent.com/design/token) — 五类 token；精确值见 `Tencent/tdesign-common` `_radius.less` / `_light.less`
+- [Arco Design · Design Token](https://arco.design/react/docs/token) — 边框圆角五档与四类 shadow token
+- [Carbon · Color / Layering](https://carbondesignsystem.com/elements/color/overview/) — `White ↔ Gray 10` 交替、暗色逐级变浅、`2px border` focus 与 3:1
+- [Apple HIG · Materials](https://developer.apple.com/design/human-interface-guidelines/materials) — Liquid Glass vs standard materials / functional layer / `clear` 35% dimming / `quaternary` 禁配
+- [pbakaus/impeccable · spatial-design.md](https://github.com/pbakaus/impeccable) — semantic z-index scale 与 `sm→md→lg→xl` elevation scale / *"if you can clearly see it, it's probably too strong"*
 
 ## 目录结构
 

@@ -457,7 +457,21 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出表格数字抖动的根因与 `tabular-nums` 解法，且不把它误答成「换成等宽字体」
 - [ ] 能说清 `font-family` 逐字符回退与 `unicode-range`「命中一字即整片下载」的关系，并判断一款字体能否自托管分发
 
-## 能力自测（136 条，做到 ≥95 条即达 L2+）
+### 支线 Z · 形状与深度系统（把圆角与阴影从口诀变成几何契约）
+
+- **这是什么（第三根基础支柱）**：与「色彩科学」「字体排印」并列，但此前 37 份参考里零独立文件，圆角/阴影/高度/材质只散落在 `dark-mode.md §2/§5`、`design-tokens.md §2.4`、`visual-style-taxonomy.md §2.3` 等边角。先按 `shape-elevation.md` §2 **五层模型**（几何 / 高度 / 表面 / 材质 / 层叠）判层，再取数值。
+- **三条最重要裁决**：① **elevation 是语义 z-height 不是可抄阴影值**——M3 原文 *"Elevation has no shadow or value of its own by default."*，而 `elevation.css` 的 `box-shadow: var(--md-sys-elevation-level1)` 展开为单长度 `1px`，MDN 要求 2/3/4 `<length>`；六级 `0/1/3/6/8/12 dp` 是层级顺序不是 CSS 参数。② **阴影不算 WCAG 2.2 SC 1.4.11 的 3:1 边界**——Python 实跑白底 `5%/8%/10%/12%` 黑阴影仅 `1.119/1.192/1.248/1.320:1`，3:1 需 `alpha≈0.4176`；正解是独立边界线 / focus ring / 状态形状。③ **圆角是几何契约**——百分比水平参照 width、垂直参照 height，corner overlap 按 `f=min(L_i/S_i)` 整体缩减（`100×40` 写 30 与 50 都只生效 20px），嵌套 `r=R−p` 且 `r≤0` 时失效。
+- **精确值怎么取**：七体系圆角（M3 `0/4/8/12/16/28` · TDesign `2/3/6/9/12/999` · Ant `2/4/6/8` · Arco `0/2/4/8`）与七体系阴影（Tailwind v4 八值逐字 · MUI `0.2/0.14/0.12` 三层 25 档 · Ant `boxShadow` 三层 · TDesign `--td-shadow-1~3` · Carbon 表面色阶 · Apple 材质）见 `shape-elevation.md §8 §13`；**一个项目只选一套**，别混两套光源模型。
+- **深度语言三选一**：阴影（浅色消费级）/ 表面色阶（中后台·暗色·可测边界）/ 材质（仅覆盖内容的 functional layer，一个视图 ≤1 处）；暗色靠表面提亮重排而非照搬亮色阴影；`z-index` 用 `dropdown → sticky → backdrop → modal → toast → tooltip` 语义刻度，不写 `9999` → §15 §16 §18 §19。
+- **判学会了**：能解释为什么 `box-shadow: 1px` 无效、能当场算出 10% 黑阴影的对比度并说明为什么不能当边界、能算出 `100×40` 写 50px 圆角的实际生效值、能判断 `R=12, p=16` 该改哪里、能说出为什么 Liquid Glass 不能用在内容层 → 见 `shape-elevation.md` §22 的 20 项自检。
+- 材料：[M3 Elevation](https://m3.material.io/styles/elevation/overview) · [MDN box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) · [MDN border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) · [WCAG 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) · [Apple HIG Materials](https://developer.apple.com/design/human-interface-guidelines/materials) · [Tailwind box-shadow](https://tailwindcss.com/docs/box-shadow)
+
+- [ ] 能说出 `box-shadow` 需要几个 `<length>`，并解释为什么把 M3 `level3=6dp` 写成 `box-shadow: 0 6px 6px` 是误读
+- [ ] 能算出白底 10% 黑阴影的对比度，并说明为什么它不能充当 WCAG 1.4.11 的 3:1 识别边界、正确落点是什么
+- [ ] 能算出 `100×40` 盒子写 `border-radius: 50px` 的实际生效值，并说出 `r = R − p` 在 `R=12, p=16` 时该怎么处置
+- [ ] 能区分阴影 / 表面色阶 / 材质三种深度语言，说出 Apple Liquid Glass 为何只属 functional layer，并写出语义 z-index 刻度
+
+## 能力自测（140 条，做到 ≥98 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

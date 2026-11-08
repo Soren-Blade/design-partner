@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-08T21:40:22",
+ "generated": "2026-11-08T23:01:16",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 879,
-   "chars": 150886,
+   "lines": 901,
+   "chars": 158389,
    "sections": []
   },
   {
@@ -7059,8 +7059,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 617,
-   "chars": 54756,
+   "lines": 630,
+   "chars": 57224,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7271,9 +7271,9 @@
      "chars": 43
     },
     {
-     "id": "二十五条专题支线-可与主线并行",
+     "id": "二十七条专题支线-可与主线并行",
      "level": 2,
-     "title": "二十五条专题支线（可与主线并行）",
+     "title": "二十七条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -7495,11 +7495,19 @@
      "chars": 2255
     },
     {
-     "id": "能力自测-140-条-做到-98-条即达-l2",
-     "level": 2,
-     "title": "能力自测（140 条，做到 ≥98 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-aa-视觉层级与格式塔组织律-把-放大加粗-翻译成注意力分配契约",
+     "level": 3,
+     "title": "支线 AA · 视觉层级与格式塔组织律（把\"放大加粗\"翻译成注意力分配契约）",
+     "summary": "- 这是什么（第四根基础支柱）：与「色彩科学」「字体排印」「形状与深度」并列，但此前 38 份参考里零独立文件，格式塔/眼动/认知负荷只散落在 editorial-layout.md §8、navigation-ia.md、design-e",
      "line": 474,
+     "chars": 2425
+    },
+    {
+     "id": "能力自测-144-条-做到-98-条即达-l2",
+     "level": 2,
+     "title": "能力自测（144 条，做到 ≥98 条即达 L2+）",
+     "summary": "L0",
+     "line": 487,
      "chars": 8677
     }
    ]
@@ -12023,6 +12031,287 @@
    ]
   },
   {
+   "path": "references/visual-hierarchy-gestalt.md",
+   "title": "视觉层级与格式塔组织律（Visual Hierarchy & Gestalt / Attention & Cognitive Load）",
+   "snapshot": "2026-11-08",
+   "lines": 670,
+   "chars": 42215,
+   "sections": [
+    {
+     "id": "1-为什么单列视觉层级与格式塔",
+     "level": 2,
+     "title": "1 · 为什么单列视觉层级与格式塔",
+     "summary": "圆角、阴影、字号、色彩都已有独立资产，唯独「用户先看哪、看完往哪走、走完累不累」始终散在边角。缺口用 dpsearch.py 与全域词频统计判定为结构性空白而非覆盖不足。",
+     "line": 19,
+     "chars": 878
+    },
+    {
+     "id": "2-三层模型-先判层-再谈放大加粗",
+     "level": 2,
+     "title": "2 · 三层模型：先判层，再谈放大加粗",
+     "summary": "任何「重点不突出 / 信息太乱 / 用户找不到」的问题，先判落在哪一层，不要一上来就改字号。",
+     "line": 31,
+     "chars": 611
+    },
+    {
+     "id": "3-裁决一-f-型是默认行为-不是设计目标",
+     "level": 2,
+     "title": "3 · 裁决一：F 型是默认行为，不是设计目标",
+     "summary": "来源：NN/g F-Shaped Pattern of Reading on the Web: Misunderstood, But Still Relevant (Even on Mobile)，Kara Pernice，2017-11-",
+     "line": 45,
+     "chars": 1713
+    },
+    {
+     "id": "4-扫描模式全表-f-只是其中一种",
+     "level": 2,
+     "title": "4 · 扫描模式全表：F 只是其中一种",
+     "summary": "NN/g 2017 原文命名/描述的模式（逐项核对，未标\"命名\"的是描述性表述）：",
+     "line": 67,
+     "chars": 1054
+    },
+    {
+     "id": "5-裁决二-四条-wcag-准则构成的顺序契约",
+     "level": 2,
+     "title": "5 · 裁决二：四条 WCAG 准则构成的顺序契约",
+     "summary": "视觉层级若只存在于渲染结果里，对读屏与键盘用户就不存在。以下四条均取自 W3C WAI《Understanding WCAG 2.2》原文。",
+     "line": 87,
+     "chars": 73
+    },
+    {
+     "id": "5-1-sc-1-3-2-meaningful-sequence-level-a",
+     "level": 3,
+     "title": "5.1 SC 1.3.2 Meaningful Sequence（Level A）",
+     "summary": "\"When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically",
+     "line": 91,
+     "chars": 821
+    },
+    {
+     "id": "5-2-sc-2-4-3-focus-order-level-a",
+     "level": 3,
+     "title": "5.2 SC 2.4.3 Focus Order（Level A）",
+     "summary": "\"If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable compone",
+     "line": 101,
+     "chars": 1209
+    },
+    {
+     "id": "5-3-sc-2-4-6-headings-and-labels-level-aa",
+     "level": 3,
+     "title": "5.3 SC 2.4.6 Headings and Labels（Level AA）",
+     "summary": "\"Headings and labels describe topic or purpose.\"",
+     "line": 111,
+     "chars": 206
+    },
+    {
+     "id": "5-4-sc-2-4-10-section-headings-level-aaa",
+     "level": 3,
+     "title": "5.4 SC 2.4.10 Section Headings（Level AAA）",
+     "summary": "\"Section headings are used to organize the content.\"",
+     "line": 117,
+     "chars": 508
+    },
+    {
+     "id": "5-5-四条准则的分工表",
+     "level": 3,
+     "title": "5.5 四条准则的分工表",
+     "summary": "---",
+     "line": 123,
+     "chars": 423
+    },
+    {
+     "id": "6-三顺序一致性验收-dom-焦点-标题树",
+     "level": 2,
+     "title": "6 · 三顺序一致性验收：DOM / 焦点 / 标题树",
+     "summary": "核心检查：同一个页面，把三份「顺序」分别导出，看是否指向同一个故事。",
+     "line": 134,
+     "chars": 1048
+    },
+    {
+     "id": "7-格式塔-12-条组织律全表-ixdf-逐条核对",
+     "level": 2,
+     "title": "7 · 格式塔 12 条组织律全表（IxDF 逐条核对）",
+     "summary": "来源：Interaction Design Foundation《The Gestalt Principles》（页面标注 updated 2026）。原文：\"Gestalt\" is German for \"unified whole\"；由",
+     "line": 155,
+     "chars": 2950
+    },
+    {
+     "id": "8-组织律里可验收的四个部分",
+     "level": 2,
+     "title": "8 · 组织律里可验收的四个部分",
+     "summary": "格式塔常被讲成\"看图说话\"，但其中四条能落成可检查的构型规则。以下比值是本知识库的工程约定（便于评审时有一致口径），不是实验测得的感知常数，不要当研究结论引用。",
+     "line": 180,
+     "chars": 1156
+    },
+    {
+     "id": "9-前注意属性-为什么-单特征差异-才会-pop-out",
+     "level": 2,
+     "title": "9 · 前注意属性：为什么\"单特征差异\"才会 pop-out",
+     "summary": "来源：Wikipedia《Feature integration theory》，Anne Treisman 与 Garry Gelade 1980，原始论文 \"A feature-integration theory of attenti",
+     "line": 201,
+     "chars": 2624
+    },
+    {
+     "id": "10-图形-背景与多稳态-不要做歧义层级",
+     "level": 2,
+     "title": "10 · 图形/背景与多稳态：不要做歧义层级",
+     "summary": "IxDF 把 Figure/Ground 与 Multistability 分列，并明确指出二者常被混淆：\"In most cases, background and foreground are stable, but in some c",
+     "line": 221,
+     "chars": 762
+    },
+    {
+     "id": "11-裁决三-认知负荷分三类-7-2-不是菜单上限",
+     "level": 2,
+     "title": "11 · 裁决三：认知负荷分三类，7±2 不是菜单上限",
+     "summary": "来源：Laws of UX《Cognitive Load》与《Miller's Law》逐字页 + Wikipedia《Cognitiveload》。",
+     "line": 231,
+     "chars": 2285
+    },
+    {
+     "id": "12-hick-hyman-law-决策时间的公式与失效条件",
+     "level": 2,
+     "title": "12 · Hick–Hyman Law：决策时间的公式与失效条件",
+     "summary": "定义（Laws of UX 逐字）：\"The time it takes to make a decision increases with the number and complexity of choices.\" 起源：William",
+     "line": 251,
+     "chars": 1081
+    },
+    {
+     "id": "13-fitts-s-law-目标尺寸与距离的三种写法",
+     "level": 2,
+     "title": "13 · Fitts's Law：目标尺寸与距离的三种写法",
+     "summary": "定义（Laws of UX 逐字）：\"The time to acquire a target is a function of the distance to and size of the target.\" 起源：Paul Fitts ",
+     "line": 273,
+     "chars": 1341
+    },
+    {
+     "id": "14-工作记忆-chunking-与渐进披露",
+     "level": 2,
+     "title": "14 · 工作记忆、chunking 与渐进披露",
+     "summary": "- 工作记忆（Laws of UX 逐字）：\"A cognitive system that temporarily holds and manipulates information needed to complete tasks.\"；",
+     "line": 295,
+     "chars": 846
+    },
+    {
+     "id": "15-序列位置效应与-von-restorff-位置与差异如何改变记忆",
+     "level": 2,
+     "title": "15 · 序列位置效应与 Von Restorff：位置与差异如何改变记忆",
+     "summary": "来源：Wikipedia《Serialpositioneffect》《VonRestorffeffect》+ Laws of UX 同名条目。",
+     "line": 304,
+     "chars": 1258
+    },
+    {
+     "id": "16-laws-of-ux-中注意力-负荷相关的-12-条速查",
+     "level": 2,
+     "title": "16 · Laws of UX 中注意力/负荷相关的 12 条速查",
+     "summary": "站点首页共列 31 条。以下 12 条与 L2/L3 直接相关，定义均为首页逐字，未做二次演绎；未在本轮逐页核验的条目只收录首页那一句定义，不补造出处与年份。",
+     "line": 316,
+     "chars": 2598
+    },
+    {
+     "id": "17-从内容到视觉的六步构建流程",
+     "level": 2,
+     "title": "17 · 从内容到视觉的六步构建流程",
+     "summary": "顺序不可颠倒——多数\"层级乱\"是跳过了前 3 步直接做第 4 步。",
+     "line": 339,
+     "chars": 589
+    },
+    {
+     "id": "18-三关度量与验收",
+     "level": 2,
+     "title": "18 · 三关度量与验收",
+     "summary": "不生产玄学评分，只做三道可复现的检查；任何一道不过，回到 §2 对应层修。",
+     "line": 354,
+     "chars": 615
+    },
+    {
+     "id": "19-与既有资产的边界矩阵",
+     "level": 2,
+     "title": "19 · 与既有资产的边界矩阵",
+     "summary": "---",
+     "line": 368,
+     "chars": 742
+    },
+    {
+     "id": "20-场景速查-12",
+     "level": 2,
+     "title": "20 · 场景速查（12）",
+     "summary": "---",
+     "line": 384,
+     "chars": 697
+    },
+    {
+     "id": "21-反模式-20",
+     "level": 2,
+     "title": "21 · 反模式（20）",
+     "summary": "1. 把 F 型当版式模板主动\"设计\"，而不是当作缺引导的诊断信号。",
+     "line": 403,
+     "chars": 874
+    },
+    {
+     "id": "22-自检-20",
+     "level": 2,
+     "title": "22 · 自检（20）",
+     "summary": "1. 说过\"F 型是默认扫描而非设计目标\"，并能引用 NN/g 那句 default pattern 原文？",
+     "line": 428,
+     "chars": 1244
+    },
+    {
+     "id": "23-可抄代码-5-段-3-段-python-已实跑",
+     "level": 2,
+     "title": "23 · 可抄代码（5 段，3 段 Python 已实跑）",
+     "summary": "只用于方案 A/B 的相对比较；a、b 是占位常数，真实秒数需实测标定。",
+     "line": 453,
+     "chars": 1
+    },
+    {
+     "id": "23-1-python-hick-fitts-相对成本计算器-实跑-pass",
+     "level": 3,
+     "title": "23.1 Python · Hick / Fitts 相对成本计算器（实跑 PASS）",
+     "summary": "只用于方案 A/B 的相对比较；a、b 是占位常数，真实秒数需实测标定。",
+     "line": 455,
+     "chars": 1126
+    },
+    {
+     "id": "23-2-python-三顺序静态扫描器-实跑-pass",
+     "level": 3,
+     "title": "23.2 Python · 三顺序静态扫描器（实跑 PASS）",
+     "summary": "对一段 HTML 检查标题跳级、正 tabindex、CSS order / row-reverse / position: absolute 造成的视觉顺序搬移，输出可直接贴进评审记录。",
+     "line": 494,
+     "chars": 2057
+    },
+    {
+     "id": "23-3-python-邻近性间距比校验器-实跑-pass",
+     "level": 3,
+     "title": "23.3 Python · 邻近性间距比校验器（实跑 PASS）",
+     "summary": "1.5 是 §8 声明的工程约定，改成一个常量便于团队按自己设计系统调整，不伪装成感知实验结论。",
+     "line": 565,
+     "chars": 658
+    },
+    {
+     "id": "23-4-css-层级信号-token-不靠-一路放大加粗",
+     "level": 3,
+     "title": "23.4 CSS · 层级信号 token（不靠\"一路放大加粗\"）",
+     "summary": "",
+     "line": 590,
+     "chars": 1
+    },
+    {
+     "id": "23-5-html-c27-正例与-f1-反例对照",
+     "level": 3,
+     "title": "23.5 HTML · C27 正例与 F1 反例对照",
+     "summary": "---",
+     "line": 620,
+     "chars": 6
+    },
+    {
+     "id": "24-取源与限制-公开记录",
+     "level": 2,
+     "title": "24 · 取源与限制（公开记录）",
+     "summary": "本轮深蒸馏的官方/权威原文（逐字引用均已在前文标注出处）：",
+     "line": 647,
+     "chars": 3036
+    }
+   ]
+  },
+  {
    "path": "references/visual-style-taxonomy.md",
    "title": "视觉风格谱系与设计运动（Visual Style Taxonomy）",
    "snapshot": "2026-11-07",
@@ -12355,8 +12644,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 617,
-   "chars": 89626,
+   "lines": 631,
+   "chars": 97731,
    "sections": []
   }
  ],

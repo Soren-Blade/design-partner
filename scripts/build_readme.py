@@ -65,6 +65,7 @@ ASSETS = [
     ("visual-style-taxonomy.md", "视觉风格谱系与设计运动", "立场：风格不是名词贴标签，是四维信号的组合签名 / 四维信号表（Typography·Color·Shape&Material·Motion&Space 逐维标注）/ 17 条编年谱系（Swiss 1950s→Bauhaus→Brutalism→Memphis 1981→Skeuomorphism→Flat 2013→Material 2014→Neumorphism 2019→Glassmorphism 2020→Y2K→Vaporwave→Cyberpunk→Bento 2022→Claymorphism→企业中性，各给何时用/何时不用）/ 匹配决策（参考站四步拆解·形容词先确认语境）/ 风格 vs 品牌三词定位 / 混搭纪律（depth language 只一种主导·装饰密度只一个极端·趋势叠加上限=1）/ 趋势生命周期（技术驱动 vs 纯视觉潮流 12–24 个月）/ 中文与出海 / 风格→token 映射与 DTCG / 新拟态与玻璃拟态硬红线 / 12 场景 / 20 反模式 / 20 自检 / 3 段可抄清单或代码"),
     ("typography-system.md", "字体排印系统", "立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描）"),
     ("shape-elevation.md", "形状与深度系统", "立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑）"),
+    ("visual-hierarchy-gestalt.md", "视觉层级与格式塔组织律", "立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑）"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -130,8 +131,9 @@ def skill_facts() -> dict:
         kt = km.read_text(encoding="utf-8")
         facts["selftests"] = len(re.findall(r"^- \[ \]", kt, re.M))
         # 专题支线：`### 支线 X · 名称（…）` → 只取名称部分
+        # 支线 ID 已用到双字母（Z 之后是 AA），必须用 [A-Z]+ 否则会漏掉 AA 及之后所有支线
         facts["branches"] = [re.sub(r"（.*$", "", b).strip()
-                             for b in re.findall(r"^### 支线 [A-Z] · (.+)$", kt, re.M)]
+                             for b in re.findall(r"^### 支线 [A-Z]+ · (.+)$", kt, re.M)]
 
     sk = ROOT / "SKILL.md"
     if not sk.exists():
@@ -210,6 +212,7 @@ def build() -> str:
 | **风格说不清** | "做成 XX 那种感觉""要高级感"却拆不出做法、潮流叠满、前后页不像一个产品 | `visual-style-taxonomy.md` 四维信号拆解 + 17 条编年谱系 + 混搭纪律 + 风格→token 映射 |
 | **字号行距全凭感觉** | 正文写死 px 用户改不了字号、放大到 200% 按钮被切、WCAG 文本间距一覆盖表单就重叠、表格数字每秒抖一次、中文出现方框乱码、字体不敢自托管 | `typography-system.md` 六层契约 + rem 阶梯 + 1.4.12 注入验收 + 200% 缩放 + `tabular-nums` + 逐字符回退与 `unicode-range` 分片 + `size-adjust` 压 CLS + clreq 中文排版 + OFL 1.1 授权 |
 | **圆角阴影全凭感觉** | 白底白卡只加浅阴影、写了 50px 圆角却没变、卡片套卡片弧线错位、弹窗在暗色下浮不起来、顶栏毛玻璃上字发虚、z-index 写到 9999 | `shape-elevation.md` 三条裁决 + 五层模型 + 七体系精确 token + 几何校验器 + 语义 z-index 刻度 |
+| **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |

@@ -88,6 +88,11 @@ INTENTS = [
     ("高度层级 / elevation / 表面浮起", "shape-elevation.md §3 语义裁决 · §4 六级 dp · §15 Carbon Layering · §19 深度语言"),
     ("边界看不见 / 阴影当 3:1", "shape-elevation.md §5 实跑对比度 · §6 非文本 3:1 正确落点 · accessibility.md §2"),
     ("材质 / 毛玻璃 / z-index", "shape-elevation.md §16 Apple Materials · §17 性能红线 · §18 语义 z-index · §23.6 渐进增强"),
+    ("格式塔 / 完形 / 组织律 / 邻近性 / 分组", "visual-hierarchy-gestalt.md §7 IxDF 12 条全表 · §8 可验收四规则 · §9 前注意 pop-out"),
+    ("视觉层级 / 重点不突出 / 主次不清 / 眯眼测试 / 单焦点", "visual-hierarchy-gestalt.md §2 三层模型判层 · §3 F 型非目标 · §10 图形背景与多稳态 · §15 Von Restorff"),
+    ("眼动 / F 型 / 扫描模式 / RTL 动线 / 用户只看标题", "visual-hierarchy-gestalt.md §3 NN/g 逐字裁决 · §4 八种扫描模式诊断表 · §6 RTL 与断点复核"),
+    ("认知负荷 / 7±2 / 选项太多 / 希克定律 / 菲茨定律 / 组块", "visual-hierarchy-gestalt.md §11 三分与 7±2 误用 · §12 Hick 公式与失效条件 · §13 Fitts 三形式 · §14 chunking"),
+    ("DOM 顺序 / 焦点顺序 / 标题结构 / tabindex / 三顺序一致性", "visual-hierarchy-gestalt.md §5 四条 WCAG 准则逐字原文 · §6 一致性验收 · §23.2 静态扫描器 · §23.5 C27 正例"),
 ]
 
 

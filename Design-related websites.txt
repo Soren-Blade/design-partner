@@ -214,3 +214,35 @@
 - https://github.com/primer/primitives | [GH] Primer 尺寸与阴影原始 token（API 实测 417★ / MIT，深挖候选）
 - https://github.com/radix-ui/themes | [GH] Radix shape/elevation token（本轮目录路径 404，精确值未纳入，下轮候选；API 实测 8,825★ / MIT）
 - https://fluent2.microsoft.design/depth | Fluent 2 Depth（本轮 404，未取得任何数值；已有 Motion 条目保持不动）
+
+## 十八、视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）【本轮新增分区】
+- https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html | W3C SC 1.3.2 Meaningful Sequence（Level A）原文 + G57 / C27 / C6 / F1 / F49 技术表（已逐字核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html | W3C SC 2.4.3 Focus Order（Level A）原文 + G59 / C27 / SCR26 / SCR27（已逐字核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html | W3C SC 2.4.6 Headings and Labels（Level AA）：*"Headings and labels describe topic or purpose."*（已逐字核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html | W3C SC 2.4.10 Section Headings（Level AAA）：*"visual presentation is not sufficient to identify document sections"*（已逐字核验）
+- https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/ | NN/g F-Shaped Pattern of Reading（Kara Pernice, 2017-11-12 / 2026-08-19 复审）：default pattern 原文 + 8 种扫描模式 + RTL flipped F + 移动端（已逐字核验）
+- https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/ | NN/g 2006 原始 F 型眼动研究（2017 文内链接，本轮未逐页深取，登记下轮）
+- https://www.nngroup.com/articles/ten-usability-heuristics/ | NN/g 10 Usability Heuristics（Jakob Nielsen；1990 开发 / 1994-04-24 发布 / 2020 更新 / 2024-01-30 最后审阅，10 条逐字）
+- https://www.interaction-design.org/literature/topics/gestalt-principles | IxDF The Gestalt Principles（updated 2026）：12 条原则 + Koffka *"The whole is other than the sum of the parts."* + 1920s 三人（已逐字核验）
+- https://lawsofux.com/ | Laws of UX 首页 31 条定义（注意力/负荷相关 12 条已入本轮速查表）
+- https://lawsofux.com/hicks-law/ | Hick's Law：5 条 Takeaways + Hick & Hyman 1952 起源（已逐字核验）
+- https://lawsofux.com/fittss-law/ | Fitts's Law：3 条 Takeaways + Paul Fitts 1954 与 speed-accuracy trade-off（已逐字核验）
+- https://lawsofux.com/millers-law/ | Miller's Law：*"Don't use the 'magical number seven' to justify unnecessary design limitations."* + 1956 bit / channel capacity（已逐字核验）
+- https://lawsofux.com/cognitive-load/ | Cognitive Load：定义 + intrinsic/extraneous 逐字 + Sweller 1988 论文（已逐字核验）
+- https://en.wikipedia.org/wiki/Cognitive_load | Wikipedia：Sweller 1988 与 intrinsic / extraneous / germane 三分（germane 出处，Laws of UX 页未含）
+- https://en.wikipedia.org/wiki/Hick%27s_law | Wikipedia：`RT = a + b·log₂(n+1)` 与 `+1` 的不确定性解释
+- https://en.wikipedia.org/wiki/Fitts%27s_law | Wikipedia：original `log₂(2D/W)` / Shannon `log₂(D/W+1)` / `TP = ID_e/MT` 与 `W` 沿运动轴定义
+- https://en.wikipedia.org/wiki/Serial_position_effect | Wikipedia：primacy / recency 与 15–30 秒干扰任务抵消 recency
+- https://en.wikipedia.org/wiki/Von_Restorff_effect | Wikipedia：isolation effect（von Restorff 1933）与 size/shape/color/spacing/underlining
+- https://en.wikipedia.org/wiki/Feature_integration_theory | Wikipedia：Treisman & Gelade 1980 前注意阶段、feature vs conjunction search、18% / 23% 实验（本轮 `Preattentive_processing` 条目不存在，改用此权威源）
+- https://github.com/pinterest/gestalt | [GH] 设计系统名即取自格式塔原则（API 实测 4,384★ / Apache-2.0，深挖候选）
+- https://github.com/primer/primitives | [GH] Primer 原始 token（API 实测 417★ / MIT）
+- https://github.com/radix-ui/themes | [GH] Radix Themes（API 实测 8,825★ / MIT；shape/elevation token 源码定位沿用下轮候选）
+- https://github.com/mui/material-ui | [GH] MUI 组件库（API 实测 99,301★ / MIT）
+- https://github.com/tailwindlabs/tailwindcss | [GH] Tailwind CSS（API 实测 98,646★ / MIT）
+- https://www.uisdc.com/gestalt-principle | 优设：格式塔原则中文解读（本轮仅搜索结果级，未逐字核验）
+- https://www.uisdc.com/7-visual-principles-of-gestalt | 优设：格式塔七原则（本轮仅搜索结果级，未逐字核验）
+- https://zhuanlan.zhihu.com/p/337506743 | 知乎：格式塔与界面组织（本轮仅搜索结果级，未逐字核验）
+- https://www.hxsd.com/information/8071/ | 火星时代：格式塔/视觉层级中文资料（本轮仅搜索结果级，未逐字核验）
+- https://www.woshipm.com/open/5978930.html | 人人都是产品经理：视觉层级中文资料（本轮仅搜索结果级，未逐字核验）
+- https://www.smashingmagazine.com/2024/04/f-shape-pattern-how-users-read/ | Smashing Magazine 2024：F 型与用户阅读（搜索结果级，下轮候选）

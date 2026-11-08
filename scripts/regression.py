@@ -33,21 +33,21 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 shape-elevation.md 前 3。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 visual-hierarchy-gestalt.md 前 3。
 NEW_QUERIES = [
-    "卡片圆角用多大 阴影加多重 浮起来",
-    "定一套圆角 token 形状尺度",
-    "border-radius 50px 实际生效 圆角重叠",
-    "box-shadow 三层阴影 umbra penumbra ambient",
-    "elevation level3 6dp 阴影值 误用",
-    "阴影能不能当边界 3:1 非文本对比度",
-    "嵌套圆角 同心 r=R-p padding",
-    "弹窗 层级 z-index 语义刻度 表面顺序",
-    "毛玻璃 backdrop-filter 性能 Liquid Glass",
-    "M3 shape scale 圆角精确值 4px 8px",
-    "Tailwind shadow-md 默认值 Ant Design 圆角",
-    "暗色模式 阴影 表面色阶 深度语言",
-    "squircle corner-shape 实验性 渐进增强",
+    "格式塔 完形 邻近性 相似性 怎么分组",
+    "重点不突出 主次不清 眯眼测试 单焦点",
+    "F 型扫描 眼动 用户只看标题 扫描模式",
+    "视觉层级 视觉动线 信息层级 层级不清",
+    "DOM 顺序 焦点顺序 标题结构 三顺序一致性",
+    "order -1 搬主内容 读屏先读侧栏 tabindex",
+    "认知负荷 工作记忆 组块 chunking 信息过载",
+    "7±2 米勒定律 导航项数 菜单上限",
+    "希克定律 Hick 决策时间 选项太多",
+    "菲茨定律 Fitts 目标尺寸 按钮太小 点不到",
+    "前注意 pop-out 特征整合 Treisman 图形背景",
+    "序列位置 首因效应 近因效应 Von Restorff 孤立效应",
+    "WCAG 1.3.2 2.4.3 2.4.10 C27 F1 顺序契约",
 ]
 
 # 照 #26 P1 判例：「风格 对比度 验收」判为泛化对比度查询的正确路由边界，不凑 11/11。
@@ -87,22 +87,31 @@ HIST_QUERIES = [
     "定一套字体系统 字号阶梯 token",
     "缺字 tofu 方框乱码 字体回退",
     "WCAG 1.4.12 文本间距 覆盖 验收",
+    # #29 沉淀：#28 主题门槛查询转为历史样本，验收「新增 visual-hierarchy-gestalt.md 后不退化」。
+    "卡片圆角用多大 阴影加多重 浮起来",
+    "定一套圆角 token 形状尺度",
+    "border-radius 50px 实际生效 圆角重叠",
+    "box-shadow 三层阴影 umbra penumbra ambient",
+    "elevation level3 6dp 阴影值 误用",
+    "阴影能不能当边界 3:1 非文本对比度",
+    "嵌套圆角 同心 r=R-p padding",
+    "弹窗 层级 z-index 语义刻度 表面顺序",
+    "毛玻璃 backdrop-filter 性能 Liquid Glass",
+    "M3 shape scale 圆角精确值 4px 8px",
+    "Tailwind shadow-md 默认值 Ant Design 圆角",
+    "暗色模式 阴影 表面色阶 深度语言",
+    "squircle corner-shape 实验性 渐进增强",
 ]
 
-EXPECT_FILE = "shape-elevation.md"
+EXPECT_FILE = "visual-hierarchy-gestalt.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-EXPECTED_EVOLUTION = {
-    # #27 的「字体 行高 中文排版」演进已被 HEAD 吸收，本轮正式归档为普通历史查询：
-    # HEAD 基线本身已含 typography-system.md，NOW 与 HEAD 应逐字一致。
-    "玻璃拟态 对比度 可访问性":
-        "#28 登记演进：shape-elevation.md §17「玻璃拟态的合成开销与降级顺序」凭原词标题命中上位，"
-        "属新权威资产在跨域查询里可见（#26 P1 曾专门修这条的可发现性），非别名污染；"
-        "HEAD top1 visual-style-taxonomy.md 不变、HEAD top3 三个文件全在 NOW top5、"
-        "--no-alias 下新资产仍排 #2。三条硬校验见 check_evolution()。",
-}
+# #29：#28 的「玻璃拟态 对比度 可访问性」演进已被 HEAD 吸收（HEAD 已含 shape-elevation.md），
+# 正式归档为普通历史查询，NOW 与 HEAD 应逐字一致；本轮暂不登记新演进，
+# 若新资产在历史查询中上位，先按 #28 判例做内容层收敛，不靠登记凑通过率。
+EXPECTED_EVOLUTION = {}
 
 
 def topn(search_py: Path, query: str, n: int = 3, no_alias: bool = False) -> list:

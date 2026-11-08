@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 二十五条专题支线（可与主线并行）
+## 二十七条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -471,7 +471,20 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能算出 `100×40` 盒子写 `border-radius: 50px` 的实际生效值，并说出 `r = R − p` 在 `R=12, p=16` 时该怎么处置
 - [ ] 能区分阴影 / 表面色阶 / 材质三种深度语言，说出 Apple Liquid Glass 为何只属 functional layer，并写出语义 z-index 刻度
 
-## 能力自测（140 条，做到 ≥98 条即达 L2+）
+### 支线 AA · 视觉层级与格式塔组织律（把"放大加粗"翻译成注意力分配契约）
+
+- **这是什么（第四根基础支柱）**：与「色彩科学」「字体排印」「形状与深度」并列，但此前 38 份参考里零独立文件，格式塔/眼动/认知负荷只散落在 `editorial-layout.md §8`、`navigation-ia.md`、`design-ethics-inclusion.md`、`iconography.md` 的边角。先按 `visual-hierarchy-gestalt.md` §2 **三层模型**（组织 L1 / 引导 L2 / 负荷 L3）判层，别一上来就改字号。
+- **三条最重要裁决**：① **F 型不是设计目标**——NN/g（Kara Pernice, 2017）逐字 *"The F-pattern is the default pattern when there are no strong cues to attract the eyes towards meaningful information."*，用户走的是 *"path of minimum effort"*；F 之外还有 Layer-cake / Spotted / Marking / Bypassing / Commitment，RTL 语言翻转，移动端仍成立。② **视觉呈现不构成结构**——W3C SC 1.3.2（A）+ C27 / F1、SC 2.4.3（A）、SC 2.4.6（AA）、SC 2.4.10（AAA）逐字 *"visual presentation is not sufficient to identify document sections"*；DOM 阅读顺序、键盘焦点顺序、标题树必须讲同一个故事。③ **7±2 不是菜单上限**——Laws of UX 逐字 *"Don't use the 'magical number seven' to justify unnecessary design limitations."*；Sweller 1988 拆 intrinsic/extraneous/germane，Hick `log₂` 只对可逐层排除的选项成立，Fitts Shannon 形式 `ID = log₂(D/W+1)` 的 `W` 是沿运动轴宽度。
+- **精确值怎么取**：IxDF 12 条格式塔原则（Emergence→Common Fate，Koffka 原话是 *"other than"* 不是 *"greater than"*）、Treisman & Gelade 1980 前注意阶段与 feature/conjunction search（18% / 23% 两个实验，**FIT 页面无视觉搜索斜率数值**）、四条 WCAG 准则原文、Hick 五条 Takeaways、Fitts 三形式、序列位置的 15–30 秒干扰抵消 recency、Von Restorff 的"相对差异"限定 → `visual-hierarchy-gestalt.md §5 §7 §9 §12 §13 §15`。**§8 的间距比 1.5× 是工程约定不是实验常数**，别写成"研究证明"。
+- **判学会了**：能说出为什么 F 型不能当版式模板、能解释 `order: -1` 搬主内容为什么伤读屏用户、能用四条 SC 的级别与分工判一次顺序缺陷、能说清为什么 7±2 不能论证导航项数、能写出 Hick 与 Fitts 的公式并说出各自失效条件、能按 §6 导出三顺序并讲同一个故事 → 见 `visual-hierarchy-gestalt.md §22` 的 20 项自检与 §23.2 静态扫描器。
+- 材料：[NN/g F-Shaped Pattern](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/) · [W3C SC 1.3.2](https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html) · [W3C SC 2.4.3](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html) · [W3C SC 2.4.10](https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html) · [IxDF Gestalt Principles](https://www.interaction-design.org/literature/topics/gestalt-principles) · [Laws of UX](https://lawsofux.com/) · [Wikipedia: Feature integration theory](https://en.wikipedia.org/wiki/Feature_integration_theory)
+
+- [ ] 能引用 NN/g 的 default pattern 原文，说明 F 型是诊断信号而非设计目标，并列出至少 5 种其他扫描模式
+- [ ] 能逐字写出 SC 1.3.2 与 SC 2.4.3 的条文、说出 C27 / F1 各管什么，并判断一次 `order: -1` 缺陷
+- [ ] 能说清 7±2 的真实含义（Miller 1956 的即时记忆广度与 bit 定义）与为什么不能用来限制导航项数
+- [ ] 能写出 `RT = a + b·log₂(n+1)` 与 `ID = log₂(D/W+1)`，说出 `+1`、`W` 的含义与两条失效条件
+
+## 能力自测（144 条，做到 ≥98 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

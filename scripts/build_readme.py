@@ -66,6 +66,7 @@ ASSETS = [
     ("typography-system.md", "字体排印系统", "立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描）"),
     ("shape-elevation.md", "形状与深度系统", "立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑）"),
     ("visual-hierarchy-gestalt.md", "视觉层级与格式塔组织律", "立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑）"),
+    ("content-findability.md", "内容可发现性与可扫读性", "立场：可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度 / 四层链路模型（L1 有路·L2 认得出·L3 读得动·L4 走得出，先判层再改文案）/ 三条裁决（SC 2.4.5 AA 至少两条找路路径·G161 只是六项充分技术之一 / 链接目的脱离上下文仍成立·SC 2.4.4 A·2.4.9 AAA·3.2.4 AA·NN/g 前 11 字符 / SC 3.1.5 AAA 门槛是九年学校教育·FRE/FKGL/SMOG 精确系数且不可换算·音节公式禁套中文）/ APG combobox 全套 aria 与 DOM focus 契约 / M3 Search specs 精确尺寸 / 信息气味与 nano-content / NN/g 79%·16% 与 58/47/27/124% 口径边界 / GOV.UK 404 四条禁令 / tree testing 的 findability·directness / Plain Writing Act 2010 与中文六个代理指标（工程约定）/ 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -203,6 +204,7 @@ def build() -> str:
 | **无障碍过不了验收** | 焦点框被 `outline:none` 杀掉、只靠颜色表状态、读屏念不出、适老化尺寸不够 | `accessibility.md` 四档阈值 + 焦点三层 + 24/44/60 三档 + 25 条自检 |
 | **反馈要么吵要么没** | 保存成功弹一堆 toast、严重错误 3 秒就消失、加载转圈 15 秒没进度、空态只放插画 | `feedback-states.md` 五层决策树 + toast 精确时长 + 五种空态 + 五级错误 |
 | **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
+| **内容找不到 / 全是"了解更多"** | 只放一个搜索框就当导航、搜索藏进放大镜、链接全是 Learn More、零结果只写"没有结果"、404 讲俏皮话、长文案没人看 | `content-findability.md` 四层链路判层 + SC 2.4.5 至少两条路 + 链接目的契约族 + APG combobox + 零结果三件套 + 阅读等级门槛 + 树测试度量 |
 | **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
 | **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
@@ -369,6 +371,27 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Carbon · Color / Layering](https://carbondesignsystem.com/elements/color/overview/) — `White ↔ Gray 10` 交替、暗色逐级变浅、`2px border` focus 与 3:1
 - [Apple HIG · Materials](https://developer.apple.com/design/human-interface-guidelines/materials) — Liquid Glass vs standard materials / functional layer / `clear` 35% dimming / `quaternary` 禁配
 - [pbakaus/impeccable · spatial-design.md](https://github.com/pbakaus/impeccable) — semantic z-index scale 与 `sm→md→lg→xl` elevation scale / *"if you can clearly see it, it's probably too strong"*
+- [W3C SC 2.4.5 Multiple Ways](https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html) — 逐字条文 / In Brief「至少两条路」/ G125·G64·G63·G161·G126·G185 六项充分技术 / process 例外
+- [W3C SC 2.4.4 Link Purpose (In Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html) — A 级：link text + programmatically determined context / F63·F89 失败例
+- [W3C SC 2.4.9 Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html) — AAA 级：*"from link text alone"*
+- [W3C SC 3.1.5 Reading Level](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html) — AAA 级：*"more than nine years of school"* / 5% 多语言规则 / G86·G103·G79·G153·G160
+- [W3C SC 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html) — A 级：placeholder 不是 label / persistently available
+- [W3C SC 3.2.4 Consistent Identification](https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html) — AA 级：同功能同标识
+- [W3C SC 2.4.8 Location](https://www.w3.org/WAI/WCAG22/Understanding/location.html) — AAA 级：G65·G63·G128·ARIA26·G127（与 404 禁面包屑的张力裁决）
+- [W3C ARIA APG · Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) — `role=combobox` / `aria-expanded`·`aria-controls`·`aria-activedescendant`·`aria-autocomplete` 三档 / DOM focus 留在 combobox / selection follows focus / dialog 例外
+- [NN/g · How Users Read on the Web](https://www.nngroup.com/articles/how-users-read-on-the-web/) — 1997-09-30：*"79 percent ... always scanned"* / *"only 16 percent read word-by-word"* / 五版本 58·47·27·124%（单站点相对提升）
+- [NN/g · First 2 Words: A Signal for Scanning](https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/) — 2009-04-06：前 11 字符 / 80 人 20 站 / 35% 不可预测 / Ann Taylor 85%→100%
+- [NN/g · "Learn More" Links](https://www.nngroup.com/articles/learn-more-links/) — 2015-12-13：三种改法与读屏 links list 理由
+- [NN/g · Search: Visible and Simple](https://www.nngroup.com/articles/search-visible-and-simple/) — 2001-05-12：搜索常驻每页 / 首次·二次·三次查询 51·32·18% / 平均 2.0 词
+- [NN/g · Information Scent](https://www.nngroup.com/articles/information-scent/) — 2020-02-02：信息气味是相对量 / 小屏上下文警告
+- [NN/g · Tree Testing](https://www.nngroup.com/articles/tree-testing/) — findability / directness / 定性结果不可冒充百分比
+- [GOV.UK · Page not found pages](https://design-system.service.gov.uk/patterns/page-not-found-pages/) — 禁面包屑 / 禁 404·Bad Request / 禁 oops / 禁红字
+- [Material 3 · Search specs](https://m3.material.io/components/search/specs) — 56dp / 360–720dp / 24→12dp / 16dp / 30dp / docked 240dp–2/3 屏高
+- [Digital.gov · Plain Language](https://digital.gov/guides/plain-language/) — Plain Writing Act of 2010 与四份官方指南
+- [ReadabilityFormulas.com](https://readabilityformulas.com/flesch-reading-ease-readability-formula.php) — FRE / FKGL / SMOG 精确系数与 30 句采样约定（逐字页）
+- [Wikipedia · Flesch–Kincaid readability tests](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) — FRE 最高 121.22 / FKGL 理论最低 −3.40 / *"not directly comparable and cannot be converted"*
+- [Ant Design · AutoComplete（中文）](https://ant.design/components/auto-complete-cn) — 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 `onSearch` 无法输入中文 FAQ
+- [Algolia autocomplete](https://github.com/algolia/autocomplete) · [Algolia DocSearch](https://github.com/algolia/docsearch) · [textstat](https://github.com/textstat/textstat) — 搜索 UX 与可读性实现（GitHub API 实测 star / 许可 / archived）
 
 ## 目录结构
 

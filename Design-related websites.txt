@@ -246,3 +246,39 @@
 - https://www.hxsd.com/information/8071/ | 火星时代：格式塔/视觉层级中文资料（本轮仅搜索结果级，未逐字核验）
 - https://www.woshipm.com/open/5978930.html | 人人都是产品经理：视觉层级中文资料（本轮仅搜索结果级，未逐字核验）
 - https://www.smashingmagazine.com/2024/04/f-shape-pattern-how-users-read/ | Smashing Magazine 2024：F 型与用户阅读（搜索结果级，下轮候选）
+
+## 十九、内容可发现性与可扫读性（Content Findability / Search UX / Scannability）【本轮新增分区】
+
+- https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html | W3C SC 2.4.5 AA：逐字条文 / In Brief 三行 / G125·G64·G63·G161·G126·G185 六项充分技术 / process 例外与搜索结果页例（本轮逐字核验）
+- https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html | W3C SC 2.4.4 A：link text + programmatically determined context / 16 项 Sufficient / F63·F89
+- https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html | W3C SC 2.4.9 AAA：from link text alone / mechanism 段
+- https://www.w3.org/WAI/WCAG22/Understanding/location.html | W3C SC 2.4.8 AAA：G65·G63·G128·ARIA26·G127（与 404 不给面包屑的张力裁决）
+- https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html | W3C SC 2.4.6 AA：标题与标签描述主题或用途 / 放大镜图标「Search」例
+- https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html | W3C SC 3.2.4 AA：一致识别三条 Intent Note
+- https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html | W3C SC 3.3.2 A：placeholder 不是 label / persistently available / requires 的 Note
+- https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html | W3C SC 3.1.5 AAA：九年学校教育门槛 / 5% 多语言规则 / G86·G103·G79·G153·G160（本轮逐字核验）
+- https://www.w3.org/WAI/ARIA/apg/patterns/combobox/ | W3C APG Combobox：role=combobox / aria-expanded·controls·activedescendant·autocomplete / popup 四角色 / DOM focus 留在 combobox / selection follows focus / dialog 例外（本轮逐字核验）
+- https://www.nngroup.com/articles/how-users-read-on-the-web/ | NN/g 1997-09-30：79% 总扫读 / 16% 逐字读 / 五版本 58·47·27·124% 单站点相对提升（本轮逐字核验）
+- https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/ | NN/g 2009-04-06：前 11 字符 / 80 人 20 站 / 35% 完全无法预测 / Ann Taylor 85→100%
+- https://www.nngroup.com/articles/learn-more-links/ | NN/g 2015-12-13：Learn More 三种改法与读屏 links list 理由
+- https://www.nngroup.com/articles/search-visible-and-simple/ | NN/g 2001-05-12：搜索常驻每页 / 91% / 51·32·18% / 平均 2.0 词
+- https://www.nngroup.com/articles/information-scent/ | NN/g 2020-02-02：信息气味定义与相对性 / 小屏上下文警告
+- https://www.nngroup.com/articles/tree-testing/ | NN/g 2023-08-06（2026-08-19 复审）：findability / directness / 定性结果不可冒充百分比
+- https://design-system.service.gov.uk/patterns/page-not-found-pages/ | GOV.UK 404 pattern：禁面包屑 / 禁 404·Bad Request / 禁 oops / 禁红字
+- https://m3.material.io/components/search/specs | Material 3 Search specs：56dp / 360–720dp / 24→12dp / 16dp / 30dp / docked 240dp–2/3 屏高
+- https://digital.gov/guides/plain-language/ | Digital.gov 简明语言：Plain Writing Act of 2010 与四份官方指南
+- https://readabilityformulas.com/flesch-reading-ease-readability-formula.php | FRE 系数 206.835 − 1.015×ASL − 84.6×ASW（逐字页）
+- https://readabilityformulas.com/flesch-kincaid-grade-level.php | FKGL 系数 0.39×ASL + 11.8×ASW − 15.59（逐字页）
+- https://readabilityformulas.com/smog-readability-formula.php | SMOG 1.043×√(n_poly×30/n_sent)+3.1291 与 30 句采样约定（逐字页）
+- https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests | Wikipedia：FRE 最高 121.22 / FKGL 理论最低 −3.40 / not directly comparable and cannot be converted / Limitations
+- https://ant.design/components/auto-complete-cn | Ant Design 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 onSearch 无法输入中文 FAQ（本轮逐字核验，中文侧补充源）
+- https://github.com/algolia/autocomplete | [GH] 自动补全（API 实测 5,270★ / MIT）
+- https://github.com/algolia/docsearch | [GH] 文档搜索（API 实测 4,388★ / MIT）
+- https://github.com/algolia/instantsearch.js | [GH] 搜索 UI（API 实测 4,067★ / MIT）
+- https://github.com/textstat/textstat | [GH] 可读性公式实现（API 实测 1,393★ / MIT）
+- https://github.com/krisk/Fuse | [GH] 模糊搜索（API 实测 20,526★ / Apache-2.0；fusejs/Fuse 为 404 错名）
+- https://github.com/w3c/aria-practices | [GH] APG 源仓库（API 实测 1,362★ / NOASSERTION）
+- https://github.com/alphagov/govuk-design-system | [GH] GOV.UK 404 pattern 源仓库（API 实测 688★ / MIT）
+- https://github.com/gsa/plainlanguage.gov | [GH] 简明语言源仓库（API 实测 228★ / NOASSERTION，archived=true 2025-09-23）
+- https://github.com/mdn/yari | [GH] MDN 内容平台（API 实测 1,301★ / MPL-2.0，archived=true 2026-10-13）
+- https://github.com/facebook/docusaurus | [GH] 文档站可发现性（API 实测 66,684★ / MIT）

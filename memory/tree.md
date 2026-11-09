@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-08 23:01 ｜ 41 个文件 · 1581 个章节 · 1,191,452 字符
+> 自动生成于 2026-11-09 23:15 ｜ 42 个文件 · 1615 个章节 · 1,275,548 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -72,6 +72,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 眼动 / F 型 / 扫描模式 / RTL 动线 / 用户只看标题 | visual-hierarchy-gestalt.md §3 NN/g 逐字裁决 · §4 八种扫描模式诊断表 · §6 RTL 与断点复核 |
 | 认知负荷 / 7±2 / 选项太多 / 希克定律 / 菲茨定律 / 组块 | visual-hierarchy-gestalt.md §11 三分与 7±2 误用 · §12 Hick 公式与失效条件 · §13 Fitts 三形式 · §14 chunking |
 | DOM 顺序 / 焦点顺序 / 标题结构 / tabindex / 三顺序一致性 | visual-hierarchy-gestalt.md §5 四条 WCAG 准则逐字原文 · §6 一致性验收 · §23.2 静态扫描器 · §23.5 C27 正例 |
+| 内容找不到 / 搜不到 / 可发现性 / 多路径 / 站点地图 | content-findability.md §2 四层链路判层 → §3 SC 2.4.5 至少两条路 → §4 搜索入口 → §19 位置感清单 |
+| 链接文案 / Learn More / 信息气味 / 前 11 个字符 | content-findability.md §10 SC 2.4.4 A · 2.4.9 AAA · 3.2.4 AA → §9 信息气味 → §12 nano-content → §13 三种改法 → §26.2 扫描器 |
+| 可扫读 / 阅读等级 / 简明语言 / Flesch / 中文 | content-findability.md §11 NN/g 79%/16% → §14 SC 3.1.5 九年门槛 → §15 三公式不可换算 → §16 中文代理指标 → §17 Plain Writing Act → §26.1 计算器 |
+| 零结果 / 404 / 自动补全 combobox / placeholder 不是 label | content-findability.md §5 SC 3.3.2 → §6 APG combobox 契约 → §18 零结果与 GOV.UK 404 四条禁令 → §26.3 契约检查器 |
+| 树测试 / findability / directness / 卡片分类 | content-findability.md §20 度量口径（定性结果不可冒充百分比）→ §21 六步构建流程 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -291,26 +296,32 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **菲茨定律** | Fitts · Fitts's Law · 目标尺寸 · 按钮太小 · 点不到 · 命中区域 · 边缘角落 · 运动距离 |
 | **前注意属性** | 选择性注意 · pop-out · 弹出效应 · 特征整合 · Treisman · 图形背景 · 多稳态 · 孤立效应 · Von Restorff · 序列位置 |
 | **顺序一致性** | DOM 顺序 · dom · 视觉顺序 · 焦点顺序 · 标题结构 · tabindex · 阅读顺序 · 语义顺序 · CSS 重排 |
+| **内容可发现性** | 可发现性 · findability · 内容找不到 · 找不到内容 · 搜不到 · 找路 · 站点可发现性 · 内容线索 |
+| **搜索体验** | 搜索框 · 站内搜索 · 搜索体验 · site search · search UX · 自动补全 · autocomplete · 联想词 · 搜索建议 · 搜索结果页 · combobox |
+| **链接目的** | 链接文案 · link purpose · Learn More · 了解更多 · 点击这里 · 描述性链接 · 脱离上下文 · 重复链接文本 · 链接可预测性 |
+| **可扫读性** | 可扫读 · scannability · 扫读 · 阅读等级 · reading level · Flesch · FKGL · SMOG · 简明语言 · plain language · 前置关键词 · front-loading |
+| **信息气味** | 信息气味 · information scent · 线索密度 · 首词 · 前 11 个字符 · nano-content |
+| **零结果** | 零结果 · no results · 没有结果 · 无搜索结果 · 搜索无结果 · 空结果 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_901 行 · 快照 — · 12 节_
+_922 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L104` — 资产已 39 份参考、约 93 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L106` — 资产已 39 份参考、约 93 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L119`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L317` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L332` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L358` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L389` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L787` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L857` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L870` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L877` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L893` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L107` — 资产已 40 份参考、约 100 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L109` — 资产已 40 份参考、约 100 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L122`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L325` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L340` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L366` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L397` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L806` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L878` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L891` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L898` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L914` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -601,6 +612,42 @@ _37 行 · 快照 2026-10-29 · 3 节_
 - **元素覆盖矩阵** `L5`
 - **组件库选型规则** `L24` — - 要"复制类名就用"（无 JS 依赖）：HyperUI TailGrids daisyUI Meraki UI
 - **维护协议** `L34` — - 快照：2026-10-29。任何条目链接失效或用户报告质量下降时：先 GitHub API 复核该库（star/推送/许可），再决定降级或替换，并在本文件更新快照日期。
+
+### `references/content-findability.md` · 内容可发现性与可扫读性（Content Findability / Search UX / Scannability）
+_956 行 · 快照 2026-11-09 · 32 节_
+
+- **1 · 为什么单列「内容可发现性」** `L19` — 39 份参考里，「搜索体验 / 内容可发现性」没有独立资产。缺口用 dpsearch.py 与全域词频统计判定为结构性空白，不是覆盖不足。
+- **2 · 四层链路模型：先判哪一层断，再谈改文案** `L31` — 任何「找不到 / 搜不到 / 看不下去 / 用户流失」的问题，先判落在哪一层。
+- **3 · 裁决一：SC 2.4.5 是「至少两条路」，不是「有个搜索就行」** `L46` — W3C《Understanding SC 2.4.5 Multiple Ways》（Level AA）逐字：
+- **4 · 搜索入口的可发现性：位置、形态、宽度** `L66` — NN/g《Search: Visible and Simple》（Jakob Nielsen, 2001-05-12）是本节的实证底座，以下数值均来自该文正文：
+- **5 · 搜索框的标签契约：placeholder 不是 label** `L87` — 「把 placeholder 当 label 用」「输入提示一打字就消失」「表单可访问性过不了关」——这三种真实投诉都落在同一处：搜索框的标签契约。三条 W3C 准则在这一处交汇：
+- **6 · APG combobox 契约：自动补全不是「弹个下拉」** `L99` — W3C《ARIA Authoring Practices Guide — Combobox Pattern》逐字契约，本轮核验：
+- **7 · 联想、筛选与结果：第一次查询基本就是决战** `L130` — NN/g《Search: Visible and Simple》的电商研究数值（同一段落逐字）：
+- **8 · 决策一图流：从入口到死胡同** `L151` — ---
+- **9 · 信息气味：一个相对量，不是一个形容词** `L173` — NN/g《Information Scent: How Users Decide Where to Go Next》（Raluca Budiu, 2020-02-02）逐字定义：
+- **10 · 裁决二：链接目的的 WCAG 契约族（五条准则）** `L198` — 2.4.4 的「可程序化上下文」到底是什么：Key Terms 定义 "additional information that can be programmatically determined from relationships wi
+- **11 · 可扫读性：79% / 16% 与 124% 的原文口径** `L220` — NN/g《How Users Read on the Web》（Jakob Nielsen, 1997-09-30）逐字：
+- **12 · nano-content：前 11 个字符决定要不要读下去** `L245` — NN/g《First 2 Words: A Signal for the Scanning Eye》（Jakob Nielsen, 2009-04-06）：
+- **13 · 「Learn More」的三种改法与信息气味的重合** `L272` — NN/g《"Learn More" Links: You Can Do Better》（Katie Sherwin, 2015-12-13）Summary 逐字："The phrase 'Learn More' is increasingl
+- **14 · 裁决三：阅读等级的合规门槛是「九年学校教育」** `L288` — 「Flesch / FKGL / SMOG 算到多少分才算合规？」——先记住裁决：分数不是合规门槛，SC 3.1.5 要的是「九年学校教育」。W3C《Understanding SC 3.1.5 Reading Level》（Level A
+- **15 · 三条可读性公式、精确系数与「不可换算」** `L310` — 以下系数来自 ReadabilityFormulas.com 两个逐字核验页（Brian Scott，2025-11-14 / 2025-02-07），解释表与限制来自 Wikipedia《Flesch–Kincaid readabilit
+- **16 · 中文可读性：音节公式失效，改用可解释的代理指标** `L346` — 为什么不能直接套：FRE / FKGL / SMOG 的输入全是「英文音节数 / 英文词数」。中文一字一音节，词边界需分词，成语与专业术语的难度不随字数线性增长；把 ASW 硬套到中文几乎恒为 1.0，公式会退化成纯句长函数，输出数值看似精
+- **17 · 简明语言：Plain Writing Act 与四份官方指南** `L365` — Digital.gov《Plain language guide series》（内容改编自 PlainLanguage.gov）逐字：
+- **18 · L4 死胡同治理：零结果与 404** `L379` — 零结果不是「没有结果」四个字。NN/g 的数据说明它代价极高：首次查询失败后 "almost half the users whose first search failed gave up immediately"，第二/三次成功率掉到 
+- **19 · 多条路径与当前所在指示的落地清单** `L398` — L4 的位置感（SC 2.4.8）与 L1 的多条路径（SC 2.4.5）合并为一张落地清单，逐项标明权威依据与归属资产：
+- **20 · 可发现性的度量：tree testing 与 findability** `L415` — NN/g《Tree Testing: Evaluate Menu Labels and Categories》（Page Laubheimer, 2023-08-06，Last reviewed 2026-08-19）逐字定义：
+- **21 · 六步构建流程** `L439` — 1. 盘路径（L1）：列出目标页全部可达路径，确认 ≥2 条互不依赖（§3 §19），标出流程产物例外页。
+- **22 · 与既有资产的边界矩阵** `L450` — ---
+- **23 · 场景速查（12）** `L467` — 1. 「我们网站有搜索啊，为什么还说我不可访问」 → §3 SC 2.4.5 要 ≥2 条；搜索只算 G161 一条，补目录/站点地图/全页链接。
+- **24 · 反模式（20）** `L484` — 1. 把「有搜索框」当成满足 SC 2.4.5。
+- **25 · 自检（20）** `L509` — 1. 目标页有 ≥2 条互不依赖的可达路径，且没有把流程产物例外扩大到全站？
+- **26 · 可抄代码（5 段；§26.1–§26.3 为 Python，本轮已实跑 PASS）** `L534` — python
+  - **26.1 英文可读性计算器 + 中文守卫（Python，已实跑）** `L536` — 本轮实跑输出（python 执行，非手写）：
+  - **26.2 链接文本静态扫描器（Python，已实跑）** `L618` — 本轮实跑输出：
+  - **26.3 可发现性契约静态检查器（Python，已实跑）** `L713` — 本轮实跑输出：
+  - **26.4 符合 APG 契约的搜索框骨架（HTML，契约示意）** `L838`
+  - **26.5 中文可扫读代理指标（JS，工程约定）** `L872` — const clean = text.replace(/ /g, '');
+- **27 · 取源与限制（公开记录）** `L908` — W3C / WAI（本轮逐页逐字核验）：Understanding WCAG 2.2 的 link-purpose-in-context.html（SC 2.4.4 A，含 Key Terms、16 项 Sufficient、F63/F89
 
 ### `references/dark-mode.md` · 暗色模式体系（Dark Mode System）
 _656 行 · 快照 2026-11-01 · 47 节_
@@ -1257,7 +1304,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_630 行 · 快照 2026-11-05 · 56 节_
+_643 行 · 快照 2026-11-05 · 57 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1285,7 +1332,7 @@ _630 行 · 快照 2026-11-05 · 56 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **二十七条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **二十八条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1314,7 +1361,8 @@ _630 行 · 快照 2026-11-05 · 56 节_
   - **支线 Y · 字体排印系统（把字号行距从口诀变成可验收的契约）** `L444` — - 这是什么（六层契约）：字体排印是与色彩科学并列的基础支柱，但不是「挑一款好看的字体」，而是六层契约——覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权（typography-system.md §2）。需求里出现「字太小 / 放大
   - **支线 Z · 形状与深度系统（把圆角与阴影从口诀变成几何契约）** `L460` — - 这是什么（第三根基础支柱）：与「色彩科学」「字体排印」并列，但此前 37 份参考里零独立文件，圆角/阴影/高度/材质只散落在 dark-mode.md §2/§5、design-tokens.md §2.4、visual-style-t
   - **支线 AA · 视觉层级与格式塔组织律（把"放大加粗"翻译成注意力分配契约）** `L474` — - 这是什么（第四根基础支柱）：与「色彩科学」「字体排印」「形状与深度」并列，但此前 38 份参考里零独立文件，格式塔/眼动/认知负荷只散落在 editorial-layout.md §8、navigation-ia.md、design-e
-- **能力自测（144 条，做到 ≥98 条即达 L2+）** `L487` — L0
+  - **支线 AB · 内容可发现性与可扫读性（把"搜得到"翻译成四层链路的线索密度）** `L487` — - 这是什么（注意力链路的下游环节）：与「视觉层级（目光先看哪）」「字体排印（字怎么排）」「导航与信息架构（结构怎么搭）」相邻但问题不同；此前 39 份参考里零独立资产，站内搜索链路、链接目的契约族、阅读等级与可发现性度量只在 naviga
+- **能力自测（148 条，做到 ≥102 条即达 L2+）** `L500` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2004,7 +2052,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_631 行 · 快照 — · 34 节_
+_645 行 · 快照 — · 35 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2040,6 +2088,7 @@ _631 行 · 快照 — · 34 节_
 - **2026-11-07 · 每日升级 #27：字体排印系统（Typography System）** `L589` — - 本轮性质：v30→v31 新增基础支柱域。触发时基线干净（HEAD 5246fb3，v30 / 36 参考 / 175 路由 / 34 自检 / 188 别名 / 24 支线 / 132 自测），候选清单首位是「docs-as-code
 - **2026-11-08 · 每日升级 #28：形状与深度系统（Shape & Elevation）** `L604` — - 本轮性质：v31→v32 补齐第三根基础支柱域。触发时基线干净（HEAD 945572f、v31 / 37 参考 / 850,837 字符 / 180 路由 / 35 自检 / 198 别名 / 25 支线 / 136 自测）。用 dp
 - **2026-11-08 · 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）** `L619` — - 本轮性质：v32→v33 补齐第四根基础支柱域。触发时基线干净（HEAD 005226f、v32 / 38 参考 / 890,649 字符 / 185 路由 / 36 自检 / 204 别名组 / 26 支线 / 140 自测 / 17
+- **2026-11-09 · 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability）** `L633` — - 本轮性质：v33→v34 补齐「内容链路」域，并按 #26 判例先交付在途轮次。触发时工作区不是干净基线：HEAD 740f27e（v33 / 39 参考 / 935,332 字符 / 190 路由 / 37 自检 / 212 别名组 
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -2051,6 +2100,7 @@ _631 行 · 快照 — · 34 节_
 - **0. 先分清：本文件补什么** → `references/design-critique.md` L10
 - **0. 先定策略，再谈数值** → `references/responsive-layout.md` L8
 - **0. 四条总原则（AntV 官方，可直接引用）** → `references/dataviz.md` L8
+- **1 · 为什么单列「内容可发现性」** → `references/content-findability.md` L19
 - **1 · 为什么单列字体排印系统** → `references/typography-system.md` L11
 - **1 · 为什么单列形状与深度系统** → `references/shape-elevation.md` L17
 - **1 · 为什么单列色彩科学** → `references/color-science.md` L9
@@ -2078,6 +2128,7 @@ _631 行 · 快照 — · 34 节_
 - **10 · 数字特性与 tabular-nums（表格 / 时钟 / 频繁变化数值）** → `references/typography-system.md` L139
 - **10 · 色彩无障碍 beyond 1.4.11** → `references/color-science.md` L194
 - **10 · 裁决三：圆角是几何契约，不是装饰常数** → `references/shape-elevation.md` L259
+- **10 · 裁决二：链接目的的 WCAG 契约族（五条准则）** → `references/content-findability.md` L198
 - **10. 20 反模式** → `references/visual-style-taxonomy.md` L221
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
@@ -2098,6 +2149,7 @@ _631 行 · 快照 — · 34 节_
 - **10. 验收清单（10 条，交付前逐条过）** → `references/motion-system.md` L298
 - **10. 默认勾选、概括授权、搭售与商业信息：同份规章的另外三条** → `references/design-ethics-inclusion.md` L261
 - **11 · Corner overlap：半径按比例缩减的规范公式** → `references/shape-elevation.md` L275
+- **11 · 可扫读性：79% / 16% 与 124% 的原文口径** → `references/content-findability.md` L220
 - **11 · 工程实现（落地要点）** → `references/color-science.md` L204
 - **11 · 裁决三：认知负荷分三类，7±2 不是菜单上限** → `references/visual-hierarchy-gestalt.md` L231
 - **11 · 高位属性优先，低位 API 兜底** → `references/typography-system.md` L163
@@ -2122,6 +2174,7 @@ _631 行 · 快照 — · 34 节_
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
 - **12 · Hick–Hyman Law：决策时间的公式与失效条件** → `references/visual-hierarchy-gestalt.md` L251
 - **12 · font-family 逐字符回退算法（加载 / 缺字 / 验收）** → `references/typography-system.md` L174
+- **12 · nano-content：前 11 个字符决定要不要读下去** → `references/content-findability.md` L245
 - **12 · 场景速查（12）** → `references/color-science.md` L234
 - **12 · 嵌套同心圆角 r = R − p 与失效条件** → `references/shape-elevation.md` L303
 - **12. AI 生成界面的 12 类固有缺陷 → 接回既有专项** → `references/ai-design-toolchain.md` L386
@@ -2145,6 +2198,7 @@ _631 行 · 快照 — · 34 节_
 - **12. 问卷与访谈设计：偏差规避（数据垃圾进、垃圾出）** → `references/design-measurement-research.md` L227
 - **13 · Fitts's Law：目标尺寸与距离的三种写法** → `references/visual-hierarchy-gestalt.md` L273
 - **13 · unicode-range 子集化与 CJK 分片（性能 / CLS / 验收）** → `references/typography-system.md` L186
+- **13 · 「Learn More」的三种改法与信息气味的重合** → `references/content-findability.md` L272
 - **13 · 七体系圆角 token 精确对照与 M3 Expressive 更新** → `references/shape-elevation.md` L329
 - **13 · 反模式（20）** → `references/color-science.md` L251
 - **13. A/B 测试统计：显著≠值得上线** → `references/design-measurement-research.md` L244
@@ -2168,6 +2222,7 @@ _631 行 · 快照 — · 34 节_
 - **14 · font-display 时间线与五档选择（性能 / CLS / 验收）** → `references/typography-system.md` L199
 - **14 · 工作记忆、chunking 与渐进披露** → `references/visual-hierarchy-gestalt.md` L295
 - **14 · 自检（20）** → `references/color-science.md` L276
+- **14 · 裁决三：阅读等级的合规门槛是「九年学校教育」** → `references/content-findability.md` L288
 - **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** → `references/component-api-design.md` L435
 - **14. 与其他参考的接线** → `references/navigation-ia.md` L269
 - **14. 与既有参考的接线（Wiring）** → `references/iconography.md` L200
@@ -2184,6 +2239,7 @@ _631 行 · 快照 — · 34 节_
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
 - **15 · size-adjust / font-size-adjust 度量对齐（FOUT 不跳版）** → `references/typography-system.md` L220
+- **15 · 三条可读性公式、精确系数与「不可换算」** → `references/content-findability.md` L310
 - **15 · 可抄代码（6 段）** → `references/color-science.md` L301
 - **15 · 序列位置效应与 Von Restorff：位置与差异如何改变记忆** → `references/visual-hierarchy-gestalt.md` L304
 - **15 · 表面层级：不用阴影也能表达深度（Carbon 与暗色重排）** → `references/shape-elevation.md` L376
@@ -2202,6 +2258,7 @@ _631 行 · 快照 — · 34 节_
 - **15. 资产交付清单与文件格式** → `references/brand-identity.md` L469
 - **15. 跨框架实现矩阵与选型决策** → `references/motion-orchestration.md` L709
 - **16 · Laws of UX 中注意力/负荷相关的 12 条速查** → `references/visual-hierarchy-gestalt.md` L316
+- **16 · 中文可读性：音节公式失效，改用可解释的代理指标** → `references/content-findability.md` L346
 - **16 · 中文排版（W3C clreq 原文核验）** → `references/typography-system.md` L232
 - **16 · 取源与限制（公开记录）** → `references/color-science.md` L392
 - **16 · 材质与玻璃：Apple HIG Materials / Liquid Glass 的分层边界** → `references/shape-elevation.md` L392
@@ -2221,6 +2278,7 @@ _631 行 · 快照 — · 34 节_
 - **17 · M3 type scale 与 token 化（可复现，不抄二手数值表）** → `references/typography-system.md` L244
 - **17 · 从内容到视觉的六步构建流程** → `references/visual-hierarchy-gestalt.md` L339
 - **17 · 玻璃拟态的合成开销与降级顺序** → `references/shape-elevation.md` L410
+- **17 · 简明语言：Plain Writing Act 与四份官方指南** → `references/content-findability.md` L365
 - **17. 16 场景决策矩阵（先查表，再动手）** → `references/component-api-design.md` L501
 - **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 20 自检（Self-checks）** → `references/iconography.md` L255
@@ -2234,6 +2292,7 @@ _631 行 · 快照 — · 34 节_
 - **17. 度量：交付质量的六个指标** → `references/handoff-collaboration.md` L710
 - **17. 文档新鲜度与漂移：可测指标 + 本技能自身的防漂移机制（自举）** → `references/design-system-docs.md` L650
 - **17. 隐私、输入与组织边界** → `references/ai-design-toolchain.md` L483
+- **18 · L4 死胡同治理：零结果与 404** → `references/content-findability.md` L379
 - **18 · z-index 语义刻度与 stacking context** → `references/shape-elevation.md` L426
 - **18 · 三关度量与验收** → `references/visual-hierarchy-gestalt.md` L354
 - **18 · 字体授权（OFL 1.1）：能做与不能做** → `references/typography-system.md` L258
@@ -2249,6 +2308,7 @@ _631 行 · 快照 — · 34 节_
 - **18. 场景决策矩阵（12 场景：凭问题选度量方案）** → `references/design-measurement-research.md` L327
 - **18. 自检清单（20 条，动效编排交付前逐条过）** → `references/motion-orchestration.md` L786
 - **19 · 与既有资产的边界矩阵** → `references/visual-hierarchy-gestalt.md` L368
+- **19 · 多条路径与当前所在指示的落地清单** → `references/content-findability.md` L398
 - **19 · 工具链与 GitHub API 实测数据（2026-11-07）** → `references/typography-system.md` L281
 - **19 · 深度语言三选一：阴影 / 表面色 / 材质** → `references/shape-elevation.md` L450
 - **19. 20 条反模式** → `references/ai-design-toolchain.md` L512
@@ -2263,6 +2323,7 @@ _631 行 · 快照 — · 34 节_
 - **19. 自检 20 项（交付前逐条打勾）** → `references/handoff-collaboration.md` L755
 - **2 · 三层模型：先判层，再谈放大加粗** → `references/visual-hierarchy-gestalt.md` L31
 - **2 · 五层模型：先判层，再谈审美** → `references/shape-elevation.md` L31
+- **2 · 四层链路模型：先判哪一层断，再谈改文案** → `references/content-findability.md` L31
 - **2 · 排印决策的六层模型（先判层，再谈审美）** → `references/typography-system.md` L25
 - **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
@@ -2284,6 +2345,7 @@ _631 行 · 快照 — · 34 节_
 - **2. 表面层级：暗色的核心是"重排"，不是"反相"** → `references/dark-mode.md` L58
 - **2. 评审前的三个前提（NN/g 原文三主题，必做）** → `references/design-critique.md` L36
 - **2. 风格识别四维信号（拆任何风格都用这四把尺）** → `references/visual-style-taxonomy.md` L24
+- **20 · 可发现性的度量：tree testing 与 findability** → `references/content-findability.md` L415
 - **20 · 场景速查（12）** → `references/shape-elevation.md` L466 · `references/typography-system.md` L303 · `references/visual-hierarchy-gestalt.md` L384
 - **20. 20 项自检（交付一份研究方案 / 看一份数据报告时逐条过）** → `references/design-measurement-research.md` L371
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
@@ -2324,6 +2386,8 @@ _631 行 · 快照 — · 34 节_
 - **2026-11-07 · 设计评审与反馈（Design Critique & Feedback，每日升级 #24）** → `memory/design-log.md` L551
 - **2026-11-08 · 每日升级 #28：形状与深度系统（Shape & Elevation）** → `memory/design-log.md` L604
 - **2026-11-08 · 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）** → `memory/design-log.md` L619
+- **2026-11-09 · 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability）** → `memory/design-log.md` L633
+- **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
 - **21. 6 段可抄代码** → `references/ai-design-toolchain.md` L562
 - **21. 六段可抄代码（文档团队直接拿去用）** → `references/design-system-docs.md` L753
@@ -2331,6 +2395,7 @@ _631 行 · 快照 — · 34 节_
 - **21. 可抄代码（4 段 Python，已实跑）** → `references/design-measurement-research.md` L396
 - **21. 可抄代码（4 段，3 段 Python 已实跑）** → `references/design-ethics-inclusion.md` L509
 - **21. 数据来源** → `references/brand-identity.md` L673
+- **22 · 与既有资产的边界矩阵** → `references/content-findability.md` L450
 - **22 · 自检（20）** → `references/shape-elevation.md` L510 · `references/typography-system.md` L347 · `references/visual-hierarchy-gestalt.md` L428
 - **22. 取源限制与不臆造声明（本轮公开记录）** → `references/component-api-design.md` L903
 - **22. 数据来源与取源纪律** → `references/design-ethics-inclusion.md` L728
@@ -2339,12 +2404,18 @@ _631 行 · 快照 — · 34 节_
 - **22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）** → `references/design-system-docs.md` L899
 - **23 · 可抄代码（5 段，3 段 Python 已实跑）** → `references/visual-hierarchy-gestalt.md` L453
 - **23 · 可抄代码（6 段）** → `references/shape-elevation.md` L535 · `references/typography-system.md` L372
+- **23 · 场景速查（12）** → `references/content-findability.md` L467
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
+- **24 · 反模式（20）** → `references/content-findability.md` L484
 - **24 · 取源与限制（公开记录）** → `references/shape-elevation.md` L782 · `references/typography-system.md` L575 · `references/visual-hierarchy-gestalt.md` L647
+- **25 · 自检（20）** → `references/content-findability.md` L509
+- **26 · 可抄代码（5 段；§26.1–§26.3 为 Python，本轮已实跑 PASS）** → `references/content-findability.md` L534
+- **27 · 取源与限制（公开记录）** → `references/content-findability.md` L908
 - **3 · 字体选型：覆盖 / 回退 / 授权三个前置，而不是「挑好看的」** → `references/typography-system.md` L42
 - **3 · 感知均匀性：HSL 为什么撒谎** → `references/color-science.md` L37
 - **3 · 裁决一：F 型是默认行为，不是设计目标** → `references/visual-hierarchy-gestalt.md` L45
+- **3 · 裁决一：SC 2.4.5 是「至少两条路」，不是「有个搜索就行」** → `references/content-findability.md` L46
 - **3 · 裁决一：elevation 是语义 z-height，不是可直接抄写的阴影值** → `references/shape-elevation.md` L47
 - **3. EDPB Guidelines 03/2022 v2.0：六类机制（官方 PDF 74 页，一手）** → `references/design-ethics-inclusion.md` L70
 - **3. LCP：把 2.5 秒拆成四段（这是最有用的一张表）** → `references/performance-design.md` L94
@@ -2369,6 +2440,7 @@ _631 行 · 快照 — · 34 节_
 - **4 · 伽马（gamma）：为什么不能直接对 sRGB 插值** → `references/color-science.md` L49
 - **4 · 字号阶梯与相对单位（px 不可访问裁决）** → `references/typography-system.md` L54
 - **4 · 扫描模式全表：F 只是其中一种** → `references/visual-hierarchy-gestalt.md` L67
+- **4 · 搜索入口的可发现性：位置、形态、宽度** → `references/content-findability.md` L66
 - **4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）** → `references/design-ethics-inclusion.md` L94
 - **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** → `references/motion-orchestration.md` L151
 - **4. INP：交互延迟的三段与"设计侧预算"** → `references/performance-design.md` L126
@@ -2389,6 +2461,7 @@ _631 行 · 快照 — · 34 节_
 - **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
 - **4. 风格匹配决策（给定"A 感觉"，怎么拆成信号）** → `references/visual-style-taxonomy.md` L136
 - **5 · OKLab / OKLCH：公式与用法** → `references/color-science.md` L59
+- **5 · 搜索框的标签契约：placeholder 不是 label** → `references/content-findability.md` L87
 - **5 · 行高、行长与段落节奏（可计算，不靠感觉）** → `references/typography-system.md` L67
 - **5 · 裁决二：四条 WCAG 准则构成的顺序契约** → `references/visual-hierarchy-gestalt.md` L87
 - **5 · 裁决二：阴影不能充当 WCAG 1.4.11 的 3:1 识别边界** → `references/shape-elevation.md` L99
@@ -2411,6 +2484,7 @@ _631 行 · 快照 — · 34 节_
 - **5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真** → `references/ai-design-toolchain.md` L153
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **5. 面包屑（Breadcrumb）** → `references/navigation-ia.md` L61
+- **6 · APG combobox 契约：自动补全不是「弹个下拉」** → `references/content-findability.md` L99
 - **6 · WCAG 2.2 三关硬数值（1.4.4 / 1.4.8 / 1.4.12）** → `references/typography-system.md` L80
 - **6 · 三顺序一致性验收：DOM / 焦点 / 标题树** → `references/visual-hierarchy-gestalt.md` L134
 - **6 · 对比度：两套算法，不是只有 WCAG 2.x** → `references/color-science.md` L104
@@ -2437,6 +2511,7 @@ _631 行 · 快照 — · 34 节_
 - **7 · box-shadow 正式语法（MDN 逐条核验）** → `references/shape-elevation.md` L144
 - **7 · 文本间距覆盖验收（注入式实测五步）** → `references/typography-system.md` L98
 - **7 · 格式塔 12 条组织律全表（IxDF 逐条核对）** → `references/visual-hierarchy-gestalt.md` L155
+- **7 · 联想、筛选与结果：第一次查询基本就是决战** → `references/content-findability.md` L130
 - **7 · 色盲：三型 + Okabe–Ito 8 色** → `references/color-science.md` L143
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
 - **7. HEART 框架（Google 五指标 + 三层落地法）** → `references/design-measurement-research.md` L141
@@ -2459,6 +2534,7 @@ _631 行 · 快照 — · 34 节_
 - **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
 - **8 · 200% 缩放与容器弹性（按钮 / 输入框 / 卡片）** → `references/typography-system.md` L114
 - **8 · 七体系阴影 token 精确对照（源码 / 官方文档实测）** → `references/shape-elevation.md` L167
+- **8 · 决策一图流：从入口到死胡同** → `references/content-findability.md` L151
 - **8 · 组织律里可验收的四个部分** → `references/visual-hierarchy-gestalt.md` L180
 - **8 · 色板生成科学：四条可复现路线（选一不许混）** → `references/color-science.md` L162
 - **8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线** → `references/design-ethics-inclusion.md` L200
@@ -2482,6 +2558,7 @@ _631 行 · 快照 — · 34 节_
 - **8. 验收标准的写法：Given / When / Then** → `references/handoff-collaboration.md` L259
 - **9 · Variable Fonts 与五个注册轴** → `references/typography-system.md` L126
 - **9 · 三层阴影为什么够：物理分解与克制原则** → `references/shape-elevation.md` L245
+- **9 · 信息气味：一个相对量，不是一个形容词** → `references/content-findability.md` L173
 - **9 · 前注意属性：为什么"单特征差异"才会 pop-out** → `references/visual-hierarchy-gestalt.md` L201
 - **9 · 渐变与插值：在 OKLab 空间做** → `references/color-science.md` L175
 - **9. 12 场景速查** → `references/visual-style-taxonomy.md` L204
@@ -2612,8 +2689,8 @@ _631 行 · 快照 — · 34 节_
 - **二十、20 项自检（出海交付前逐条过）** → `references/i18n-localization.md` L863
 - **二十、可抄代码（6 段）** → `references/multi-brand-theming.md` L664
 - **二十一、6 段可抄代码** → `references/i18n-localization.md` L888
-- **二十七条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **二十二、数据来源（官方原文 + API 实测）** → `references/i18n-localization.md` L1024
+- **二十八条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **五、RTL 镜像规则：该镜像与不该镜像清单（Material Design Bidirectionality 官方）** → `references/i18n-localization.md` L298
 - **五、Token 输出格式（三种落地形态）** → `references/design-tokens.md` L156
 - **五、何时把 DESIGN.md 作为交付物** → `references/design-md-format.md` L153
@@ -2674,7 +2751,7 @@ _631 行 · 快照 — · 34 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L104
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L107
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -2684,12 +2761,12 @@ _631 行 · 快照 — · 34 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（144 条，做到 ≥98 条即达 L2+）** → `references/knowledge-map.md` L487
-- **自我成长机制（用得越多越准）** → `SKILL.md` L857
-- **自我进化机制（知识保鲜）** → `SKILL.md` L870
+- **能力自测（148 条，做到 ≥102 条即达 L2+）** → `references/knowledge-map.md` L500
+- **自我成长机制（用得越多越准）** → `SKILL.md` L878
+- **自我进化机制（知识保鲜）** → `SKILL.md` L891
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L893
+- **边界与习惯** → `SKILL.md` L914
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

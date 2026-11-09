@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-08",
+  "_updated": "2026-11-09",
   "_weight": 0.45,
   "groups": [
     {
@@ -2934,6 +2934,88 @@
         "阅读顺序",
         "语义顺序",
         "CSS 重排"
+      ]
+    },
+    {
+      "canonical": "内容可发现性",
+      "aliases": [
+        "可发现性",
+        "findability",
+        "内容找不到",
+        "找不到内容",
+        "搜不到",
+        "找路",
+        "站点可发现性",
+        "内容线索"
+      ]
+    },
+    {
+      "canonical": "搜索体验",
+      "aliases": [
+        "搜索框",
+        "站内搜索",
+        "搜索体验",
+        "site search",
+        "search UX",
+        "自动补全",
+        "autocomplete",
+        "联想词",
+        "搜索建议",
+        "搜索结果页",
+        "combobox"
+      ]
+    },
+    {
+      "canonical": "链接目的",
+      "aliases": [
+        "链接文案",
+        "link purpose",
+        "Learn More",
+        "了解更多",
+        "点击这里",
+        "描述性链接",
+        "脱离上下文",
+        "重复链接文本",
+        "链接可预测性"
+      ]
+    },
+    {
+      "canonical": "可扫读性",
+      "aliases": [
+        "可扫读",
+        "scannability",
+        "扫读",
+        "阅读等级",
+        "reading level",
+        "Flesch",
+        "FKGL",
+        "SMOG",
+        "简明语言",
+        "plain language",
+        "前置关键词",
+        "front-loading"
+      ]
+    },
+    {
+      "canonical": "信息气味",
+      "aliases": [
+        "信息气味",
+        "information scent",
+        "线索密度",
+        "首词",
+        "前 11 个字符",
+        "nano-content"
+      ]
+    },
+    {
+      "canonical": "零结果",
+      "aliases": [
+        "零结果",
+        "no results",
+        "没有结果",
+        "无搜索结果",
+        "搜索无结果",
+        "空结果"
       ]
     }
   ]

@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v33-1677ff)
-![assets](https://img.shields.io/badge/reference_files-39-2ea44f)
+![version](https://img.shields.io/badge/version-v34-1677ff)
+![assets](https://img.shields.io/badge/reference_files-40-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-08-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-09-6e7781)
 
 ---
 
@@ -23,6 +23,7 @@
 | **无障碍过不了验收** | 焦点框被 `outline:none` 杀掉、只靠颜色表状态、读屏念不出、适老化尺寸不够 | `accessibility.md` 四档阈值 + 焦点三层 + 24/44/60 三档 + 25 条自检 |
 | **反馈要么吵要么没** | 保存成功弹一堆 toast、严重错误 3 秒就消失、加载转圈 15 秒没进度、空态只放插画 | `feedback-states.md` 五层决策树 + toast 精确时长 + 五种空态 + 五级错误 |
 | **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
+| **内容找不到 / 全是"了解更多"** | 只放一个搜索框就当导航、搜索藏进放大镜、链接全是 Learn More、零结果只写"没有结果"、404 讲俏皮话、长文案没人看 | `content-findability.md` 四层链路判层 + SC 2.4.5 至少两条路 + 链接目的契约族 + APG combobox + 零结果三件套 + 阅读等级门槛 + 树测试度量 |
 | **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
 | **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
@@ -35,8 +36,8 @@
 | **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 37 项自检 |
-| **知识找不到** | 39 份参考、94 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 38 项自检 |
+| **知识找不到** | 40 份参考、100 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -45,7 +46,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 144 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 148 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -84,6 +85,7 @@
 | [字体排印系统](references/typography-system.md) | 立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描） | 规则型 | 2026-11-07 |
 | [形状与深度系统](references/shape-elevation.md) | 立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑） | 规则型 | 2026-11-08 |
 | [视觉层级与格式塔组织律](references/visual-hierarchy-gestalt.md) | 立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑） | 规则型 | 2026-11-08 |
+| [内容可发现性与可扫读性](references/content-findability.md) | 立场：可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度 / 四层链路模型（L1 有路·L2 认得出·L3 读得动·L4 走得出，先判层再改文案）/ 三条裁决（SC 2.4.5 AA 至少两条找路路径·G161 只是六项充分技术之一 / 链接目的脱离上下文仍成立·SC 2.4.4 A·2.4.9 AAA·3.2.4 AA·NN/g 前 11 字符 / SC 3.1.5 AAA 门槛是九年学校教育·FRE/FKGL/SMOG 精确系数且不可换算·音节公式禁套中文）/ APG combobox 全套 aria 与 DOM focus 契约 / M3 Search specs 精确尺寸 / 信息气味与 nano-content / NN/g 79%·16% 与 58/47/27/124% 口径边界 / GOV.UK 404 四条禁令 / tree testing 的 findability·directness / Plain Writing Act 2010 与中文六个代理指标（工程约定）/ 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-09 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -94,12 +96,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  190 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  195 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  37 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关）+ 交付说明三段式
+第 6 步  自检与交付    →  38 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -121,7 +123,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：212 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：218 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
@@ -140,7 +142,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 27 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律）、学习节奏表、144 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 28 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性）、学习节奏表、148 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -167,6 +169,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-09 | 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability） |
 | 2026-11-08 | 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt） |
 | 2026-11-08 | 每日升级 #28：形状与深度系统（Shape & Elevation） |
 | 2026-11-07 | 每日升级 #27：字体排印系统（Typography System） |
@@ -174,7 +177,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-07 | 每日升级 #25：色彩科学（Color Science） |
 | 2026-11-07 | 设计评审与反馈（Design Critique & Feedback，每日升级 #24） |
 | 2026-11-07 | 导航与信息架构（Navigation & IA，每日升级 #23） |
-| 2026-11-07 | 图标设计系统（Iconography，每日升级 #22） |
 
 ---
 
@@ -234,6 +236,27 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Carbon · Color / Layering](https://carbondesignsystem.com/elements/color/overview/) — `White ↔ Gray 10` 交替、暗色逐级变浅、`2px border` focus 与 3:1
 - [Apple HIG · Materials](https://developer.apple.com/design/human-interface-guidelines/materials) — Liquid Glass vs standard materials / functional layer / `clear` 35% dimming / `quaternary` 禁配
 - [pbakaus/impeccable · spatial-design.md](https://github.com/pbakaus/impeccable) — semantic z-index scale 与 `sm→md→lg→xl` elevation scale / *"if you can clearly see it, it's probably too strong"*
+- [W3C SC 2.4.5 Multiple Ways](https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html) — 逐字条文 / In Brief「至少两条路」/ G125·G64·G63·G161·G126·G185 六项充分技术 / process 例外
+- [W3C SC 2.4.4 Link Purpose (In Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html) — A 级：link text + programmatically determined context / F63·F89 失败例
+- [W3C SC 2.4.9 Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html) — AAA 级：*"from link text alone"*
+- [W3C SC 3.1.5 Reading Level](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html) — AAA 级：*"more than nine years of school"* / 5% 多语言规则 / G86·G103·G79·G153·G160
+- [W3C SC 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html) — A 级：placeholder 不是 label / persistently available
+- [W3C SC 3.2.4 Consistent Identification](https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html) — AA 级：同功能同标识
+- [W3C SC 2.4.8 Location](https://www.w3.org/WAI/WCAG22/Understanding/location.html) — AAA 级：G65·G63·G128·ARIA26·G127（与 404 禁面包屑的张力裁决）
+- [W3C ARIA APG · Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) — `role=combobox` / `aria-expanded`·`aria-controls`·`aria-activedescendant`·`aria-autocomplete` 三档 / DOM focus 留在 combobox / selection follows focus / dialog 例外
+- [NN/g · How Users Read on the Web](https://www.nngroup.com/articles/how-users-read-on-the-web/) — 1997-09-30：*"79 percent ... always scanned"* / *"only 16 percent read word-by-word"* / 五版本 58·47·27·124%（单站点相对提升）
+- [NN/g · First 2 Words: A Signal for Scanning](https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/) — 2009-04-06：前 11 字符 / 80 人 20 站 / 35% 不可预测 / Ann Taylor 85%→100%
+- [NN/g · "Learn More" Links](https://www.nngroup.com/articles/learn-more-links/) — 2015-12-13：三种改法与读屏 links list 理由
+- [NN/g · Search: Visible and Simple](https://www.nngroup.com/articles/search-visible-and-simple/) — 2001-05-12：搜索常驻每页 / 首次·二次·三次查询 51·32·18% / 平均 2.0 词
+- [NN/g · Information Scent](https://www.nngroup.com/articles/information-scent/) — 2020-02-02：信息气味是相对量 / 小屏上下文警告
+- [NN/g · Tree Testing](https://www.nngroup.com/articles/tree-testing/) — findability / directness / 定性结果不可冒充百分比
+- [GOV.UK · Page not found pages](https://design-system.service.gov.uk/patterns/page-not-found-pages/) — 禁面包屑 / 禁 404·Bad Request / 禁 oops / 禁红字
+- [Material 3 · Search specs](https://m3.material.io/components/search/specs) — 56dp / 360–720dp / 24→12dp / 16dp / 30dp / docked 240dp–2/3 屏高
+- [Digital.gov · Plain Language](https://digital.gov/guides/plain-language/) — Plain Writing Act of 2010 与四份官方指南
+- [ReadabilityFormulas.com](https://readabilityformulas.com/flesch-reading-ease-readability-formula.php) — FRE / FKGL / SMOG 精确系数与 30 句采样约定（逐字页）
+- [Wikipedia · Flesch–Kincaid readability tests](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) — FRE 最高 121.22 / FKGL 理论最低 −3.40 / *"not directly comparable and cannot be converted"*
+- [Ant Design · AutoComplete（中文）](https://ant.design/components/auto-complete-cn) — 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 `onSearch` 无法输入中文 FAQ
+- [Algolia autocomplete](https://github.com/algolia/autocomplete) · [Algolia DocSearch](https://github.com/algolia/docsearch) · [textstat](https://github.com/textstat/textstat) — 搜索 UX 与可读性实现（GitHub API 实测 star / 许可 / archived）
 
 ## 目录结构
 
@@ -241,7 +264,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（39 份，见上表）
+├── references/               # 知识库（40 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

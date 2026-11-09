@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-08T23:01:16",
+ "generated": "2026-11-09T23:15:23",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 901,
-   "chars": 158389,
+   "lines": 922,
+   "chars": 166273,
    "sections": []
   },
   {
@@ -2165,6 +2165,271 @@
      "summary": "- 快照：2026-10-29。任何条目链接失效或用户报告质量下降时：先 GitHub API 复核该库（star/推送/许可），再决定降级或替换，并在本文件更新快照日期。",
      "line": 34,
      "chars": 234
+    }
+   ]
+  },
+  {
+   "path": "references/content-findability.md",
+   "title": "内容可发现性与可扫读性（Content Findability / Search UX / Scannability）",
+   "snapshot": "2026-11-09",
+   "lines": 956,
+   "chars": 66005,
+   "sections": [
+    {
+     "id": "1-为什么单列-内容可发现性",
+     "level": 2,
+     "title": "1 · 为什么单列「内容可发现性」",
+     "summary": "39 份参考里，「搜索体验 / 内容可发现性」没有独立资产。缺口用 dpsearch.py 与全域词频统计判定为结构性空白，不是覆盖不足。",
+     "line": 19,
+     "chars": 1126
+    },
+    {
+     "id": "2-四层链路模型-先判哪一层断-再谈改文案",
+     "level": 2,
+     "title": "2 · 四层链路模型：先判哪一层断，再谈改文案",
+     "summary": "任何「找不到 / 搜不到 / 看不下去 / 用户流失」的问题，先判落在哪一层。",
+     "line": 31,
+     "chars": 785
+    },
+    {
+     "id": "3-裁决一-sc-2-4-5-是-至少两条路-不是-有个搜索就行",
+     "level": 2,
+     "title": "3 · 裁决一：SC 2.4.5 是「至少两条路」，不是「有个搜索就行」",
+     "summary": "W3C《Understanding SC 2.4.5 Multiple Ways》（Level AA）逐字：",
+     "line": 46,
+     "chars": 1881
+    },
+    {
+     "id": "4-搜索入口的可发现性-位置-形态-宽度",
+     "level": 2,
+     "title": "4 · 搜索入口的可发现性：位置、形态、宽度",
+     "summary": "NN/g《Search: Visible and Simple》（Jakob Nielsen, 2001-05-12）是本节的实证底座，以下数值均来自该文正文：",
+     "line": 66,
+     "chars": 2241
+    },
+    {
+     "id": "5-搜索框的标签契约-placeholder-不是-label",
+     "level": 2,
+     "title": "5 · 搜索框的标签契约：placeholder 不是 label",
+     "summary": "「把 placeholder 当 label 用」「输入提示一打字就消失」「表单可访问性过不了关」——这三种真实投诉都落在同一处：搜索框的标签契约。三条 W3C 准则在这一处交汇：",
+     "line": 87,
+     "chars": 1893
+    },
+    {
+     "id": "6-apg-combobox-契约-自动补全不是-弹个下拉",
+     "level": 2,
+     "title": "6 · APG combobox 契约：自动补全不是「弹个下拉」",
+     "summary": "W3C《ARIA Authoring Practices Guide — Combobox Pattern》逐字契约，本轮核验：",
+     "line": 99,
+     "chars": 4102
+    },
+    {
+     "id": "7-联想-筛选与结果-第一次查询基本就是决战",
+     "level": 2,
+     "title": "7 · 联想、筛选与结果：第一次查询基本就是决战",
+     "summary": "NN/g《Search: Visible and Simple》的电商研究数值（同一段落逐字）：",
+     "line": 130,
+     "chars": 1825
+    },
+    {
+     "id": "8-决策一图流-从入口到死胡同",
+     "level": 2,
+     "title": "8 · 决策一图流：从入口到死胡同",
+     "summary": "---",
+     "line": 151,
+     "chars": 6
+    },
+    {
+     "id": "9-信息气味-一个相对量-不是一个形容词",
+     "level": 2,
+     "title": "9 · 信息气味：一个相对量，不是一个形容词",
+     "summary": "NN/g《Information Scent: How Users Decide Where to Go Next》（Raluca Budiu, 2020-02-02）逐字定义：",
+     "line": 173,
+     "chars": 2445
+    },
+    {
+     "id": "10-裁决二-链接目的的-wcag-契约族-五条准则",
+     "level": 2,
+     "title": "10 · 裁决二：链接目的的 WCAG 契约族（五条准则）",
+     "summary": "2.4.4 的「可程序化上下文」到底是什么：Key Terms 定义 \"additional information that can be programmatically determined from relationships wi",
+     "line": 198,
+     "chars": 3267
+    },
+    {
+     "id": "11-可扫读性-79-16-与-124-的原文口径",
+     "level": 2,
+     "title": "11 · 可扫读性：79% / 16% 与 124% 的原文口径",
+     "summary": "NN/g《How Users Read on the Web》（Jakob Nielsen, 1997-09-30）逐字：",
+     "line": 220,
+     "chars": 1494
+    },
+    {
+     "id": "12-nano-content-前-11-个字符决定要不要读下去",
+     "level": 2,
+     "title": "12 · nano-content：前 11 个字符决定要不要读下去",
+     "summary": "NN/g《First 2 Words: A Signal for the Scanning Eye》（Jakob Nielsen, 2009-04-06）：",
+     "line": 245,
+     "chars": 2289
+    },
+    {
+     "id": "13-learn-more-的三种改法与信息气味的重合",
+     "level": 2,
+     "title": "13 · 「Learn More」的三种改法与信息气味的重合",
+     "summary": "NN/g《\"Learn More\" Links: You Can Do Better》（Katie Sherwin, 2015-12-13）Summary 逐字：\"The phrase 'Learn More' is increasingl",
+     "line": 272,
+     "chars": 2028
+    },
+    {
+     "id": "14-裁决三-阅读等级的合规门槛是-九年学校教育",
+     "level": 2,
+     "title": "14 · 裁决三：阅读等级的合规门槛是「九年学校教育」",
+     "summary": "「Flesch / FKGL / SMOG 算到多少分才算合规？」——先记住裁决：分数不是合规门槛，SC 3.1.5 要的是「九年学校教育」。W3C《Understanding SC 3.1.5 Reading Level》（Level A",
+     "line": 288,
+     "chars": 2604
+    },
+    {
+     "id": "15-三条可读性公式-精确系数与-不可换算",
+     "level": 2,
+     "title": "15 · 三条可读性公式、精确系数与「不可换算」",
+     "summary": "以下系数来自 ReadabilityFormulas.com 两个逐字核验页（Brian Scott，2025-11-14 / 2025-02-07），解释表与限制来自 Wikipedia《Flesch–Kincaid readabilit",
+     "line": 310,
+     "chars": 2622
+    },
+    {
+     "id": "16-中文可读性-音节公式失效-改用可解释的代理指标",
+     "level": 2,
+     "title": "16 · 中文可读性：音节公式失效，改用可解释的代理指标",
+     "summary": "为什么不能直接套：FRE / FKGL / SMOG 的输入全是「英文音节数 / 英文词数」。中文一字一音节，词边界需分词，成语与专业术语的难度不随字数线性增长；把 ASW 硬套到中文几乎恒为 1.0，公式会退化成纯句长函数，输出数值看似精",
+     "line": 346,
+     "chars": 1033
+    },
+    {
+     "id": "17-简明语言-plain-writing-act-与四份官方指南",
+     "level": 2,
+     "title": "17 · 简明语言：Plain Writing Act 与四份官方指南",
+     "summary": "Digital.gov《Plain language guide series》（内容改编自 PlainLanguage.gov）逐字：",
+     "line": 365,
+     "chars": 1085
+    },
+    {
+     "id": "18-l4-死胡同治理-零结果与-404",
+     "level": 2,
+     "title": "18 · L4 死胡同治理：零结果与 404",
+     "summary": "零结果不是「没有结果」四个字。NN/g 的数据说明它代价极高：首次查询失败后 \"almost half the users whose first search failed gave up immediately\"，第二/三次成功率掉到 ",
+     "line": 379,
+     "chars": 2191
+    },
+    {
+     "id": "19-多条路径与当前所在指示的落地清单",
+     "level": 2,
+     "title": "19 · 多条路径与当前所在指示的落地清单",
+     "summary": "L4 的位置感（SC 2.4.8）与 L1 的多条路径（SC 2.4.5）合并为一张落地清单，逐项标明权威依据与归属资产：",
+     "line": 398,
+     "chars": 581
+    },
+    {
+     "id": "20-可发现性的度量-tree-testing-与-findability",
+     "level": 2,
+     "title": "20 · 可发现性的度量：tree testing 与 findability",
+     "summary": "NN/g《Tree Testing: Evaluate Menu Labels and Categories》（Page Laubheimer, 2023-08-06，Last reviewed 2026-08-19）逐字定义：",
+     "line": 415,
+     "chars": 3151
+    },
+    {
+     "id": "21-六步构建流程",
+     "level": 2,
+     "title": "21 · 六步构建流程",
+     "summary": "1. 盘路径（L1）：列出目标页全部可达路径，确认 ≥2 条互不依赖（§3 §19），标出流程产物例外页。",
+     "line": 439,
+     "chars": 513
+    },
+    {
+     "id": "22-与既有资产的边界矩阵",
+     "level": 2,
+     "title": "22 · 与既有资产的边界矩阵",
+     "summary": "---",
+     "line": 450,
+     "chars": 747
+    },
+    {
+     "id": "23-场景速查-12",
+     "level": 2,
+     "title": "23 · 场景速查（12）",
+     "summary": "1. 「我们网站有搜索啊，为什么还说我不可访问」 → §3 SC 2.4.5 要 ≥2 条；搜索只算 G161 一条，补目录/站点地图/全页链接。",
+     "line": 467,
+     "chars": 946
+    },
+    {
+     "id": "24-反模式-20",
+     "level": 2,
+     "title": "24 · 反模式（20）",
+     "summary": "1. 把「有搜索框」当成满足 SC 2.4.5。",
+     "line": 484,
+     "chars": 702
+    },
+    {
+     "id": "25-自检-20",
+     "level": 2,
+     "title": "25 · 自检（20）",
+     "summary": "1. 目标页有 ≥2 条互不依赖的可达路径，且没有把流程产物例外扩大到全站？",
+     "line": 509,
+     "chars": 1098
+    },
+    {
+     "id": "26-可抄代码-5-段-26-1-26-3-为-python-本轮已实跑-pass",
+     "level": 2,
+     "title": "26 · 可抄代码（5 段；§26.1–§26.3 为 Python，本轮已实跑 PASS）",
+     "summary": "python",
+     "line": 534,
+     "chars": 1
+    },
+    {
+     "id": "26-1-英文可读性计算器-中文守卫-python-已实跑",
+     "level": 3,
+     "title": "26.1 英文可读性计算器 + 中文守卫（Python，已实跑）",
+     "summary": "本轮实跑输出（python 执行，非手写）：",
+     "line": 536,
+     "chars": 908
+    },
+    {
+     "id": "26-2-链接文本静态扫描器-python-已实跑",
+     "level": 3,
+     "title": "26.2 链接文本静态扫描器（Python，已实跑）",
+     "summary": "本轮实跑输出：",
+     "line": 618,
+     "chars": 721
+    },
+    {
+     "id": "26-3-可发现性契约静态检查器-python-已实跑",
+     "level": 3,
+     "title": "26.3 可发现性契约静态检查器（Python，已实跑）",
+     "summary": "本轮实跑输出：",
+     "line": 713,
+     "chars": 408
+    },
+    {
+     "id": "26-4-符合-apg-契约的搜索框骨架-html-契约示意",
+     "level": 3,
+     "title": "26.4 符合 APG 契约的搜索框骨架（HTML，契约示意）",
+     "summary": "",
+     "line": 838,
+     "chars": 1
+    },
+    {
+     "id": "26-5-中文可扫读代理指标-js-工程约定",
+     "level": 3,
+     "title": "26.5 中文可扫读代理指标（JS，工程约定）",
+     "summary": "const clean = text.replace(/ /g, '');",
+     "line": 872,
+     "chars": 1326
+    },
+    {
+     "id": "27-取源与限制-公开记录",
+     "level": 2,
+     "title": "27 · 取源与限制（公开记录）",
+     "summary": "W3C / WAI（本轮逐页逐字核验）：Understanding WCAG 2.2 的 link-purpose-in-context.html（SC 2.4.4 A，含 Key Terms、16 项 Sufficient、F63/F89",
+     "line": 908,
+     "chars": 4768
     }
    ]
   },
@@ -7059,8 +7324,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 630,
-   "chars": 57224,
+   "lines": 643,
+   "chars": 60145,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7271,9 +7536,9 @@
      "chars": 43
     },
     {
-     "id": "二十七条专题支线-可与主线并行",
+     "id": "二十八条专题支线-可与主线并行",
      "level": 2,
-     "title": "二十七条专题支线（可与主线并行）",
+     "title": "二十八条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -7503,11 +7768,19 @@
      "chars": 2425
     },
     {
-     "id": "能力自测-144-条-做到-98-条即达-l2",
-     "level": 2,
-     "title": "能力自测（144 条，做到 ≥98 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ab-内容可发现性与可扫读性-把-搜得到-翻译成四层链路的线索密度",
+     "level": 3,
+     "title": "支线 AB · 内容可发现性与可扫读性（把\"搜得到\"翻译成四层链路的线索密度）",
+     "summary": "- 这是什么（注意力链路的下游环节）：与「视觉层级（目光先看哪）」「字体排印（字怎么排）」「导航与信息架构（结构怎么搭）」相邻但问题不同；此前 39 份参考里零独立资产，站内搜索链路、链接目的契约族、阅读等级与可发现性度量只在 naviga",
      "line": 487,
+     "chars": 2876
+    },
+    {
+     "id": "能力自测-148-条-做到-102-条即达-l2",
+     "level": 2,
+     "title": "能力自测（148 条，做到 ≥102 条即达 L2+）",
+     "summary": "L0",
+     "line": 500,
      "chars": 8677
     }
    ]
@@ -12644,8 +12917,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 631,
-   "chars": 97731,
+   "lines": 645,
+   "chars": 105017,
    "sections": []
   }
  ],

@@ -93,6 +93,11 @@ INTENTS = [
     ("眼动 / F 型 / 扫描模式 / RTL 动线 / 用户只看标题", "visual-hierarchy-gestalt.md §3 NN/g 逐字裁决 · §4 八种扫描模式诊断表 · §6 RTL 与断点复核"),
     ("认知负荷 / 7±2 / 选项太多 / 希克定律 / 菲茨定律 / 组块", "visual-hierarchy-gestalt.md §11 三分与 7±2 误用 · §12 Hick 公式与失效条件 · §13 Fitts 三形式 · §14 chunking"),
     ("DOM 顺序 / 焦点顺序 / 标题结构 / tabindex / 三顺序一致性", "visual-hierarchy-gestalt.md §5 四条 WCAG 准则逐字原文 · §6 一致性验收 · §23.2 静态扫描器 · §23.5 C27 正例"),
+    ("内容找不到 / 搜不到 / 可发现性 / 多路径 / 站点地图", "content-findability.md §2 四层链路判层 → §3 SC 2.4.5 至少两条路 → §4 搜索入口 → §19 位置感清单"),
+    ("链接文案 / Learn More / 信息气味 / 前 11 个字符", "content-findability.md §10 SC 2.4.4 A · 2.4.9 AAA · 3.2.4 AA → §9 信息气味 → §12 nano-content → §13 三种改法 → §26.2 扫描器"),
+    ("可扫读 / 阅读等级 / 简明语言 / Flesch / 中文", "content-findability.md §11 NN/g 79%/16% → §14 SC 3.1.5 九年门槛 → §15 三公式不可换算 → §16 中文代理指标 → §17 Plain Writing Act → §26.1 计算器"),
+    ("零结果 / 404 / 自动补全 combobox / placeholder 不是 label", "content-findability.md §5 SC 3.3.2 → §6 APG combobox 契约 → §18 零结果与 GOV.UK 404 四条禁令 → §26.3 契约检查器"),
+    ("树测试 / findability / directness / 卡片分类", "content-findability.md §20 度量口径（定性结果不可冒充百分比）→ §21 六步构建流程"),
 ]
 
 

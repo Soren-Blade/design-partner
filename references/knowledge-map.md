@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 二十七条专题支线（可与主线并行）
+## 二十八条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -484,7 +484,20 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说清 7±2 的真实含义（Miller 1956 的即时记忆广度与 bit 定义）与为什么不能用来限制导航项数
 - [ ] 能写出 `RT = a + b·log₂(n+1)` 与 `ID = log₂(D/W+1)`，说出 `+1`、`W` 的含义与两条失效条件
 
-## 能力自测（144 条，做到 ≥98 条即达 L2+）
+### 支线 AB · 内容可发现性与可扫读性（把"搜得到"翻译成四层链路的线索密度）
+
+- **这是什么（注意力链路的下游环节）**：与「视觉层级（目光先看哪）」「字体排印（字怎么排）」「导航与信息架构（结构怎么搭）」相邻但问题不同；此前 39 份参考里零独立资产，站内搜索链路、链接目的契约族、阅读等级与可发现性度量只在 `navigation-ia.md §4/§10`、`feedback-states.md §5/§6`、`ux-writing.md §14.3` 局部出现。先按 `content-findability.md` §2 **四层链路模型**（L1 有路 / L2 认得出 / L3 读得动 / L4 走得出）判层，别一上来就改文案。
+- **三条最重要裁决**：① **多种找路方式是 WCAG AA 硬要求，搜索不是导航的替身**——SC 2.4.5 逐字 *"More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process."*，In Brief *"Provide at least two options for reaching the same content."*，充分技术要求是 *"Using two or more of the following techniques"* 六项（G161 搜索只算一条）；搜索结果页是 process 例外，产品详情页不是。② **链接目的要能脱离上下文成立**——SC 2.4.4（A）/ 2.4.9（AAA）/ 3.2.4（AA）；NN/g 11 字符研究 80 人 / 20 站 / 35% 完全无法预测、Ann Taylor 85%→100%；`how-users-read-on-the-web` *"79 percent ... always scanned"* / *"only 16 percent read word-by-word"* 与 58/47/27/124% 是**单站点相对提升，不是通用 ROI**。③ **阅读等级门槛是「九年学校教育」不是 Flesch 分数**——SC 3.1.5（AAA）Intent 逐字 *"more than nine years of school"*；FRE `206.835 − 1.015×ASL − 84.6×ASW`、FKGL `0.39×ASL + 11.8×ASW − 15.59`、SMOG `1.043×√(n_poly×30/n_sent)+3.1291` 系数逐字取自 ReadabilityFormulas.com，Wikipedia 明确两者 *"not directly comparable and cannot be converted"*；音节公式不能套中文，§16 六个代理指标是**工程约定非标准**。
+- **精确值怎么取**：APG combobox（`role=combobox` + `aria-expanded` / `aria-controls` / `aria-activedescendant` / `aria-autocomplete` 三档、popup 四角色、DOM focus 留在 combobox、selection follows focus、dialog 例外）、M3 Search specs（56dp / 360–720dp / 24→12dp / 16dp / 30dp）、NN/g 首次/二次/三次查询 51/32/18% 与平均 2.0 词、GOV.UK 404 四条禁令、tree testing 的 findability / directness（**定性结果不可冒充百分比**）、Plain Writing Act of 2010 → `content-findability.md §3 §6 §11 §15 §18 §20`。**§16 中文代理指标与「前 6–8 汉字」是工程约定，别写成"研究证明"**。
+- **判学会了**：能说出为什么「只放一个搜索框」不达 SC 2.4.5、能解释「Learn More ×8」在读屏 links list 里为何不可辨、能判「零结果只写没有结果」落在 L4 哪一步、能说清为什么不能用 Flesch 分数当合规门槛、能写出 APG combobox 的 focus 与 aria 契约 → 见 `content-findability.md §25` 的 20 项自检与 §26 三段可抄扫描器。
+- 材料：[W3C SC 2.4.5](https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html) · [W3C SC 3.1.5](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html) · [W3C APG Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) · [NN/g How Users Read](https://www.nngroup.com/articles/how-users-read-on-the-web/) · [NN/g First 2 Words](https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/) · [GOV.UK 404](https://design-system.service.gov.uk/patterns/page-not-found-pages/) · [M3 Search specs](https://m3.material.io/components/search/specs) · [Digital.gov Plain Language](https://digital.gov/guides/plain-language/)
+
+- [ ] 能逐字写出 SC 2.4.5 的条文与 In Brief「至少两条路」，并列出六项充分技术里除 G161 搜索外的至少三条
+- [ ] 能说清 SC 2.4.4（A）/ 2.4.9（AAA）/ 3.2.4（AA）的分工，并解释为什么「Learn More」在读屏 links list 里失效
+- [ ] 能判一次「找不到内容」落在 L1–L4 哪一层，并说明为什么四层都靠「文案写短点」会越改越糟
+- [ ] 能说出 SC 3.1.5 的合规门槛是「九年学校教育」而非 Flesch 分数，并解释音节公式为什么不能套中文
+
+## 能力自测（148 条，做到 ≥102 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

@@ -33,28 +33,29 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 visual-hierarchy-gestalt.md 前 3。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 content-findability.md 前 3。
+# #30 换轮：13 条覆盖四层链路 / SC 契约族 / 阅读等级 / 度量，且刻意混入
+# 「可访问性 / 读屏 / 键盘 / 验收 / 表单 / 中文」等跨域词（#26 P1 教训）。
 NEW_QUERIES = [
-    "格式塔 完形 邻近性 相似性 怎么分组",
-    "重点不突出 主次不清 眯眼测试 单焦点",
-    "F 型扫描 眼动 用户只看标题 扫描模式",
-    "视觉层级 视觉动线 信息层级 层级不清",
-    "DOM 顺序 焦点顺序 标题结构 三顺序一致性",
-    "order -1 搬主内容 读屏先读侧栏 tabindex",
-    "认知负荷 工作记忆 组块 chunking 信息过载",
-    "7±2 米勒定律 导航项数 菜单上限",
-    "希克定律 Hick 决策时间 选项太多",
-    "菲茨定律 Fitts 目标尺寸 按钮太小 点不到",
-    "前注意 pop-out 特征整合 Treisman 图形背景",
-    "序列位置 首因效应 近因效应 Von Restorff 孤立效应",
-    "WCAG 1.3.2 2.4.3 2.4.10 C27 F1 顺序契约",
+    "内容找不到 搜不到 只有搜索框 多路径 WCAG 2.4.5",
+    "搜索框放哪 放大镜图标 搜索入口 可发现性 验收",
+    "placeholder 当 label 输入提示消失 可访问性 表单",
+    "自动补全 combobox aria-activedescendant 读屏 键盘",
+    "零结果 无搜索结果 404 页面 可访问性 出路",
+    "信息气味 链接标签 前 11 个字符 可预测性",
+    "Learn More 了解更多 描述性链接 读屏 links list",
+    "可扫读 79% 扫读 倒金字塔 阅读等级 文案",
+    "Flesch FKGL SMOG 阅读等级 中文 可访问性",
+    "SC 3.1.5 九年学校教育 简明语言 Plain Writing Act",
+    "tree testing 树测试 findability directness 度量 验收",
+    "搜索建议 首次查询 51% 32% 联想词 结果页",
+    "内容可发现性 站点地图 目录 位置感 验收",
 ]
 
-# 照 #26 P1 判例：「风格 对比度 验收」判为泛化对比度查询的正确路由边界，不凑 11/11。
-# 这条 5 个词里 4 个是对比度专属词，正确答案归 accessibility.md / color-science.md 系，
-# 不是字体文档；要求 typography-system.md 进 top3 属于测试集标签错误。
+# 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
+# #27 判例样本「字体 对比度 大文本 3:1 下划线」沿用至今：5 词里 4 个是对比度专属词，
+# 正确答案归 accessibility.md §2 / color-science.md §6，不是内容可发现性文档。
 BOUNDARY = {
-    # #27 判例样本，本轮继续作为历史路由边界校验（strict 比对 top3 与 HEAD 一致）。
     "字体 对比度 大文本 3:1 下划线":
         "泛化对比度查询；正确答案归 accessibility.md §2 / color-science.md §6，"
         "照 #26 判例不凑通过率，但仍校验 top3 与 HEAD 一致",
@@ -101,16 +102,29 @@ HIST_QUERIES = [
     "Tailwind shadow-md 默认值 Ant Design 圆角",
     "暗色模式 阴影 表面色阶 深度语言",
     "squircle corner-shape 实验性 渐进增强",
+    # #30 沉淀：#29 主题门槛查询转为历史样本，验收「新增 content-findability.md 后不退化」。
+    "格式塔 完形 邻近性 相似性 怎么分组",
+    "重点不突出 主次不清 眯眼测试 单焦点",
+    "F 型扫描 眼动 用户只看标题 扫描模式",
+    "视觉层级 视觉动线 信息层级 层级不清",
+    "DOM 顺序 焦点顺序 标题结构 三顺序一致性",
+    "order -1 搬主内容 读屏先读侧栏 tabindex",
+    "认知负荷 工作记忆 组块 chunking 信息过载",
+    "7±2 米勒定律 导航项数 菜单上限",
+    "希克定律 Hick 决策时间 选项太多",
+    "菲茨定律 Fitts 目标尺寸 按钮太小 点不到",
+    "前注意 pop-out 特征整合 Treisman 图形背景",
+    "序列位置 首因效应 近因效应 Von Restorff 孤立效应",
+    "WCAG 1.3.2 2.4.3 2.4.10 C27 F1 顺序契约",
 ]
 
-EXPECT_FILE = "visual-hierarchy-gestalt.md"
+EXPECT_FILE = "content-findability.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #29：#28 的「玻璃拟态 对比度 可访问性」演进已被 HEAD 吸收（HEAD 已含 shape-elevation.md），
-# 正式归档为普通历史查询，NOW 与 HEAD 应逐字一致；本轮暂不登记新演进，
-# 若新资产在历史查询中上位，先按 #28 判例做内容层收敛，不靠登记凑通过率。
+# #30：#29 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
+# 先按 #28 判例做内容层收敛（章节首行 / 标题措辞），不靠登记凑通过率。
 EXPECTED_EVOLUTION = {}
 
 

@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-09",
+  "_updated": "2026-11-10",
   "_weight": 0.45,
   "groups": [
     {
@@ -3016,6 +3016,88 @@
         "无搜索结果",
         "搜索无结果",
         "空结果"
+      ]
+    },
+    {
+      "canonical": "拖拽交互",
+      "aliases": [
+        "拖拽",
+        "拖放",
+        "拖动",
+        "drag and drop",
+        "direct manipulation",
+        "直接操纵",
+        "拖动排序",
+        "拖动重排",
+        "dnd"
+      ]
+    },
+    {
+      "canonical": "指针事件",
+      "aliases": [
+        "Pointer Events",
+        "pointercancel",
+        "setPointerCapture",
+        "releasePointerCapture",
+        "hasPointerCapture",
+        "pointerdown",
+        "pointermove",
+        "pointerType",
+        "isPrimary",
+        "隐式指针捕获"
+      ]
+    },
+    {
+      "canonical": "拖动替代路径",
+      "aliases": [
+        "单指针无拖动",
+        "G219",
+        "点击目标位置",
+        "移动到下拉菜单",
+        "箭头逐步移动",
+        "数字位置输入",
+        "拖动取消"
+      ]
+    },
+    {
+      "canonical": "触控目标尺寸",
+      "aliases": [
+        "24×24 CSS px",
+        "44×44 CSS px",
+        "48 x 48 dp",
+        "8dp 间距",
+        "spacing 例外",
+        "24 CSS px 直径圆",
+        "touch target",
+        "WCAG 2.5.8",
+        "WCAG 2.5.5"
+      ]
+    },
+    {
+      "canonical": "手势与取消",
+      "aliases": [
+        "path-based gesture",
+        "路径手势",
+        "touch-action",
+        "G210",
+        "No Down-Event",
+        "Up Reversal",
+        "Abort or Undo",
+        "path-based",
+        "手势取消"
+      ]
+    },
+    {
+      "canonical": "拖放库",
+      "aliases": [
+        "dnd-kit",
+        "react-dnd",
+        "SortableJS",
+        "pragmatic-drag-and-drop",
+        "interact.js",
+        "use-gesture",
+        "25px 位移",
+        "aria-roledescription"
       ]
     }
   ]

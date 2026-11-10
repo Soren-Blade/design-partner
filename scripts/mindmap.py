@@ -98,6 +98,11 @@ INTENTS = [
     ("可扫读 / 阅读等级 / 简明语言 / Flesch / 中文", "content-findability.md §11 NN/g 79%/16% → §14 SC 3.1.5 九年门槛 → §15 三公式不可换算 → §16 中文代理指标 → §17 Plain Writing Act → §26.1 计算器"),
     ("零结果 / 404 / 自动补全 combobox / placeholder 不是 label", "content-findability.md §5 SC 3.3.2 → §6 APG combobox 契约 → §18 零结果与 GOV.UK 404 四条禁令 → §26.3 契约检查器"),
     ("树测试 / findability / directness / 卡片分类", "content-findability.md §20 度量口径（定性结果不可冒充百分比）→ §21 六步构建流程"),
+    ("拖拽 / 拖放 / 列表重排 / 排序 / 直接操纵", "direct-manipulation.md §2 四段链路判层 → §3 SC 2.5.7 单指针无拖动 → §4 G219 四类替代 → §7 完整状态机"),
+    ("指针事件 / pointercancel / setPointerCapture / touch-action", "direct-manipulation.md §9 PE3 规范性抑制链 → §10 MDN 工程契约 → §11 touch-action 全值表 → §12 HTML DnD 七事件"),
+    ("拖动无障碍 / 键盘拖放 / 读屏播报 / Escape 取消", "direct-manipulation.md §5 SC 2.5.1 交叉约束 → §6 SC 2.5.2 与 G210 → §13 dnd-kit 键盘默认 → §14 live region"),
+    ("目标尺寸 / 点击区 / 触控目标 / 24×24 / 44×44 / 48dp", "direct-manipulation.md §8 三口径裁决表 → §17 阈值与时序决策表 → §25.1 目标尺寸判定器"),
+    ("手势 / 路径手势 / 长按 / 触屏拖动 / 磁吸", "direct-manipulation.md §5 SC 2.5.1 路径手势 → §15 NN/g signifier → §16 1cm×1cm 与约 100ms → §19 替代路径矩阵 → §20 库生态选型"),
 ]
 
 

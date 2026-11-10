@@ -33,23 +33,23 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 content-findability.md 前 3。
-# #30 换轮：13 条覆盖四层链路 / SC 契约族 / 阅读等级 / 度量，且刻意混入
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 direct-manipulation.md 前 3。
+# #31 换轮：13 条覆盖四段链路 / SC 2.5.x 契约族 / 事件与取消 / 目标尺寸，，且刻意混入
 # 「可访问性 / 读屏 / 键盘 / 验收 / 表单 / 中文」等跨域词（#26 P1 教训）。
 NEW_QUERIES = [
-    "内容找不到 搜不到 只有搜索框 多路径 WCAG 2.4.5",
-    "搜索框放哪 放大镜图标 搜索入口 可发现性 验收",
-    "placeholder 当 label 输入提示消失 可访问性 表单",
-    "自动补全 combobox aria-activedescendant 读屏 键盘",
-    "零结果 无搜索结果 404 页面 可访问性 出路",
-    "信息气味 链接标签 前 11 个字符 可预测性",
-    "Learn More 了解更多 描述性链接 读屏 links list",
-    "可扫读 79% 扫读 倒金字塔 阅读等级 文案",
-    "Flesch FKGL SMOG 阅读等级 中文 可访问性",
-    "SC 3.1.5 九年学校教育 简明语言 Plain Writing Act",
-    "tree testing 树测试 findability directness 度量 验收",
-    "搜索建议 首次查询 51% 32% 联想词 结果页",
-    "内容可发现性 站点地图 目录 位置感 验收",
+    "拖拽 拖放 列表重排 单指针无拖动 WCAG 2.5.7",
+    "拖拽排序 只有鼠标能拖 G219 替代 箭头逐步移动",
+    "pointercancel 什么时候触发 pointermove 断掉 浏览器接管滚动",
+    "setPointerCapture 指针移出手柄 隐式捕获 验收",
+    "touch-action 该写什么 拖动时页面跟着滚 缩放 1.4.4",
+    "dragover preventDefault drop 不触发 DataTransfer 读写窗口",
+    "补个键盘快捷键 算不算无障碍 键盘拖放 Space Escape",
+    "读屏播报 live region position index aria-roledescription",
+    "按钮 24px 够吗 24×24 44×44 48dp 目标尺寸 验收",
+    "SC 2.5.5 AAA 44×44 spacing 例外 目标尺寸",
+    "path-based gesture 画个 Z 手势 2.5.1 路径手势 替代",
+    "SC 2.5.2 No Down-Event Up Reversal Abort Undo 取消",
+    "dnd-kit 25px 位移 NN/g 1cm 约 100ms 触屏拖拽",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -102,7 +102,7 @@ HIST_QUERIES = [
     "Tailwind shadow-md 默认值 Ant Design 圆角",
     "暗色模式 阴影 表面色阶 深度语言",
     "squircle corner-shape 实验性 渐进增强",
-    # #30 沉淀：#29 主题门槛查询转为历史样本，验收「新增 content-findability.md 后不退化」。
+    # #30 沉淀：#29 主题门槛查询转为历史样本，验收「新增 direct-manipulation.md 后不退化」。
     "格式塔 完形 邻近性 相似性 怎么分组",
     "重点不突出 主次不清 眯眼测试 单焦点",
     "F 型扫描 眼动 用户只看标题 扫描模式",
@@ -116,14 +116,28 @@ HIST_QUERIES = [
     "前注意 pop-out 特征整合 Treisman 图形背景",
     "序列位置 首因效应 近因效应 Von Restorff 孤立效应",
     "WCAG 1.3.2 2.4.3 2.4.10 C27 F1 顺序契约",
+    # #31 沉淀：#30 主题门槛查询转为历史样本，验收「新增 direct-manipulation.md 后不退化」。
+    "内容找不到 搜不到 只有搜索框 多路径 WCAG 2.4.5",
+    "搜索框放哪 放大镜图标 搜索入口 可发现性 验收",
+    "placeholder 当 label 输入提示消失 可访问性 表单",
+    "自动补全 combobox aria-activedescendant 读屏 键盘",
+    "零结果 无搜索结果 404 页面 可访问性 出路",
+    "信息气味 链接标签 前 11 个字符 可预测性",
+    "Learn More 了解更多 描述性链接 读屏 links list",
+    "可扫读 79% 扫读 倒金字塔 阅读等级 文案",
+    "Flesch FKGL SMOG 阅读等级 中文 可访问性",
+    "SC 3.1.5 九年学校教育 简明语言 Plain Writing Act",
+    "tree testing 树测试 findability directness 度量 验收",
+    "搜索建议 首次查询 51% 32% 联想词 结果页",
+    "内容可发现性 站点地图 目录 位置感 验收",
 ]
 
-EXPECT_FILE = "content-findability.md"
+EXPECT_FILE = "direct-manipulation.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #30：#29 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
+# #31：#30 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
 # 先按 #28 判例做内容层收敛（章节首行 / 标题措辞），不靠登记凑通过率。
 EXPECTED_EVOLUTION = {}
 

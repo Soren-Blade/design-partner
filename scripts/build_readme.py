@@ -67,6 +67,7 @@ ASSETS = [
     ("shape-elevation.md", "形状与深度系统", "立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑）"),
     ("visual-hierarchy-gestalt.md", "视觉层级与格式塔组织律", "立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑）"),
     ("content-findability.md", "内容可发现性与可扫读性", "立场：可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度 / 四层链路模型（L1 有路·L2 认得出·L3 读得动·L4 走得出，先判层再改文案）/ 三条裁决（SC 2.4.5 AA 至少两条找路路径·G161 只是六项充分技术之一 / 链接目的脱离上下文仍成立·SC 2.4.4 A·2.4.9 AAA·3.2.4 AA·NN/g 前 11 字符 / SC 3.1.5 AAA 门槛是九年学校教育·FRE/FKGL/SMOG 精确系数且不可换算·音节公式禁套中文）/ APG combobox 全套 aria 与 DOM focus 契约 / M3 Search specs 精确尺寸 / 信息气味与 nano-content / NN/g 79%·16% 与 58/47/27/124% 口径边界 / GOV.UK 404 四条禁令 / tree testing 的 findability·directness / Plain Writing Act 2010 与中文六个代理指标（工程约定）/ 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
+    ("direct-manipulation.md", "直接操纵与指针交互", "立场：直接操纵不是把对象跟着指针走，而是四条并存且互不替代的完成路径 / 四段链路模型（单指针无拖动·指针取消·键盘·读屏播报）/ 三条裁决（补键盘快捷键不满足 SC 2.5.7·2.5.1·G219 四类无拖动替代 / pointercancel 是 PE3 规范性必达事件·MUST suppress a pointer event stream 四步链·touch-action 因果 / 目标尺寸三口径·2.5.8 AA 24×24 含圆 spacing 例外·2.5.5 AAA 44×44·M2 48dp）/ PE3 事件契约与 capture 三方法 / touch-action 形式语法与三条陷阱 / HTML DnD 七事件与 DataTransfer 读写窗口 / dnd-kit 键盘默认 25px（自述 arbitrary）/ live region 播报 position 而非 index / NN/g signifier 双义·1cm×1cm·约 100ms / GitHub API 实测 10 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -205,6 +206,7 @@ def build() -> str:
 | **反馈要么吵要么没** | 保存成功弹一堆 toast、严重错误 3 秒就消失、加载转圈 15 秒没进度、空态只放插画 | `feedback-states.md` 五层决策树 + toast 精确时长 + 五种空态 + 五级错误 |
 | **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
 | **内容找不到 / 全是"了解更多"** | 只放一个搜索框就当导航、搜索藏进放大镜、链接全是 Learn More、零结果只写"没有结果"、404 讲俏皮话、长文案没人看 | `content-findability.md` 四层链路判层 + SC 2.4.5 至少两条路 + 链接目的契约族 + APG combobox + 零结果三件套 + 阅读等级门槛 + 树测试度量 |
+| **拖拽不好用 / 拖到一半断了** | 只有鼠标能拖、手指一拖页面就滚、补个键盘快捷键就当无障碍、pointercancel 没回滚、按钮 24px 当成推荐点击区、读屏播报 index | `direct-manipulation.md` 四段链路 + SC 2.5.7 单指针无拖动 + G219 四类替代 + PE3 pointercancel 因果链 + 目标尺寸三口径 + dnd-kit 键盘与播报契约 |
 | **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
 | **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
@@ -392,6 +394,19 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Wikipedia · Flesch–Kincaid readability tests](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) — FRE 最高 121.22 / FKGL 理论最低 −3.40 / *"not directly comparable and cannot be converted"*
 - [Ant Design · AutoComplete（中文）](https://ant.design/components/auto-complete-cn) — 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 `onSearch` 无法输入中文 FAQ
 - [Algolia autocomplete](https://github.com/algolia/autocomplete) · [Algolia DocSearch](https://github.com/algolia/docsearch) · [textstat](https://github.com/textstat/textstat) — 搜索 UX 与可读性实现（GitHub API 实测 star / 许可 / archived）
+- [W3C SC 2.5.7 Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) — AA：*"single pointer without dragging"* / essential 与 UA 例外
+- [W3C G219](https://www.w3.org/WAI/WCAG22/Techniques/general/G219) — 四类无拖动替代：箭头逐步 / 数字位置 / 移动到下拉 / 点击目标位置
+- [W3C SC 2.5.1 Pointer Gestures](https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html) — A：*"keyboard operability is not sufficient"* 与 2.5.7 交叉引用
+- [W3C SC 2.5.2 Pointer Cancellation](https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html) · [G210](https://www.w3.org/WAI/WCAG22/Techniques/general/G210) — A：四选一与 up-event 激活
+- [W3C SC 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — AA：24×24 CSS px 与 24 CSS px 直径圆 spacing 例外
+- [W3C SC 2.5.5 Target Size (Enhanced)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html) — AAA：44×44 CSS px，无 spacing 例外
+- [W3C Pointer Events Level 3](https://www.w3.org/TR/pointerevents3/) — *"MUST suppress a pointer event stream"* 四步链 / capture 三方法 / implicit pointer capture
+- [MDN · Pointer events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) · [touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) · [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) — 统一模型 / 形式语法与祖先求交 / 七事件与 data store 读写窗口
+- [W3C ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) — 焦点可见 / 快捷键不替代导航 / 单 tab stop / roving tabindex
+- [dnd-kit · Accessibility](https://docs.dndkit.com/guides/accessibility) — Keyboard sensor 默认 25 px（自述 arbitrary）/ Space·Enter·方向键·Escape / 四段 defaultAnnouncements / position 优于 index
+- [NN/g · Drag-and-Drop](https://www.nngroup.com/articles/drag-drop/) — 2020-02-23：signifier 双义 / 1cm×1cm / a few milliseconds（未量化）/ roughly 100 ms / 触屏 only-when 两条件
+- [Material 2 · Accessibility](https://m2.material.io/design/usability/accessibility.html) · [Gestures](https://m2.material.io/design/interaction/gestures.html) — 48×48 dp / about 9mm / 7–10mm / iOS 44×44 pt / pointer 44×44 dp / 8dp（M3 accessibility-basics 本轮 404）
+- [dnd-kit](https://github.com/clauderic/dnd-kit) · [react-dnd](https://github.com/react-dnd/react-dnd) · [Sortable](https://github.com/SortableJS/Sortable) · [pragmatic-drag-and-drop](https://github.com/atlassian/pragmatic-drag-and-drop) · [interact.js](https://github.com/taye/interact.js) · [use-gesture](https://github.com/pmndrs/use-gesture) — 拖放 / 手势库生态（star / license / pushed_at 均 GitHub API 实测）
 
 ## 目录结构
 

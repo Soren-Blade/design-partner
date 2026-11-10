@@ -497,7 +497,20 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能判一次「找不到内容」落在 L1–L4 哪一层，并说明为什么四层都靠「文案写短点」会越改越糟
 - [ ] 能说出 SC 3.1.5 的合规门槛是「九年学校教育」而非 Flesch 分数，并解释音节公式为什么不能套中文
 
-## 能力自测（148 条，做到 ≥102 条即达 L2+）
+### 支线 AC · 直接操纵与指针交互（把"跟着指针走"翻译成四条并存的完成路径）
+
+- **这是什么（认知链路下游的执行端）**：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」相邻但问题不同；此前 40 份参考零独立资产，`dp_search.py "拖拽 手势 指针交互"` 首位返回 `performance-design.md` / `design-system-docs.md` / `ai-design-toolchain.md`，全域词频实测 `Drag and drop` / `Pointer Events` / `setPointerCapture` / dnd 库名几乎零命中。上游 `motion-orchestration.md` 讲列表让位动画却不给拖拽状态机、`component-api-design.md §12` 讲 APG 键盘契约却不给拖放拿起 / 移动 / 取消、`form-table.md` 讲滑块却不给 down-event / up-event 的取消要求。
+- **三条最重要裁决**：① **补键盘快捷键不满足 SC 2.5.7 / 2.5.1**——逐字条文要求 *"single pointer without dragging"*，Intent 逐字 *"keyboard operability is not sufficient..."*，充分技术是 G219 四类替代；② **`pointercancel` 是规范性必达事件**——PE3 *"MUST suppress a pointer event stream"* 四步链 + `touch-action` 因果；③ **目标尺寸是三套口径**——24×24 AA 法条（含 24 CSS px 圆 spacing 例外）/ 44×44 AAA 与 iOS / 48×48 dp 平台设计值。
+- **精确值怎么取**：PE3 事件与 capture 三方法、MDN `touch-action` 形式语法与祖先求交、HTML DnD 七事件与 `dragover` 的 `preventDefault()`、dnd-kit Keyboard sensor 默认 `25` pixels（自述 arbitrary）、NN/g `at least 1cm x 1cm` / `a timing delay of a few milliseconds`（未量化）/ roughly `100 ms` 让位动画、Material 2 `48 x 48 dp` / `about 9mm` / `7-10mm` / `8dp`、GitHub API 实测 10 库 star / license / pushed_at。
+- **判学会了**：能说出为什么键盘快捷键不算 SC 2.5.7 的替代、能复述 `pointercancel` 的 PE3 四步抑制链、能判「按钮 24px 达标吗」落在哪套口径、能解释读屏为什么播报 position 而不是 index。
+- 材料：[W3C SC 2.5.7](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) · [W3C G219](https://www.w3.org/WAI/WCAG22/Techniques/general/G219) · [W3C Pointer Events Level 3](https://www.w3.org/TR/pointerevents3/) · [MDN touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) · [dnd-kit Accessibility](https://docs.dndkit.com/guides/accessibility) · [NN/g Drag-and-Drop](https://www.nngroup.com/articles/drag-drop/)
+
+- [ ] 能逐字写出 SC 2.5.7 的条文，并解释为什么「键盘快捷键」不是 *single pointer without dragging*
+- [ ] 能列出 G219 的四类无拖动替代，并说出 SC 2.5.1 与 2.5.7 的交叉约束为什么禁止「另一种拖法」
+- [ ] 能复述 PE3 `MUST suppress a pointer event stream` 的四步链，并写出 `pointercancel` 回滚里必须做的五件事
+- [ ] 能区分 24×24（AA，含圆 spacing 例外）/ 44×44（AAA，无例外）/ 48×48 dp（M2 设计值），并说出把 24 当推荐值的错在哪
+
+## 能力自测（152 条，做到 ≥106 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

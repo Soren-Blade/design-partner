@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-09T23:15:23",
+ "generated": "2026-11-10T21:40:47",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 922,
-   "chars": 166273,
+   "lines": 942,
+   "chars": 174454,
    "sections": []
   },
   {
@@ -4634,6 +4634,263 @@
    ]
   },
   {
+   "path": "references/direct-manipulation.md",
+   "title": "直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）",
+   "snapshot": "2026-11-10",
+   "lines": 893,
+   "chars": 66430,
+   "sections": [
+    {
+     "id": "1-为什么单列-直接操纵与指针交互",
+     "level": 2,
+     "title": "1 · 为什么单列「直接操纵与指针交互」",
+     "summary": "40 份参考里，「拖拽 / 手势 / 指针 / 拖放」没有独立资产。缺口用 dpsearch.py 与全域词频统计判定为结构性空白，不是覆盖不足。",
+     "line": 19,
+     "chars": 1239
+    },
+    {
+     "id": "2-四段链路模型-先判哪一段断-再谈改动画",
+     "level": 2,
+     "title": "2 · 四段链路模型：先判哪一段断，再谈改动画",
+     "summary": "任何「拖不动 / 拖到一半飞了 / 手机上不生效 / 读屏用户完全用不了 / 放错位置回不来」的问题，先判落在哪一段。",
+     "line": 31,
+     "chars": 972
+    },
+    {
+     "id": "3-裁决一-sc-2-5-7-要的是-单指针无拖动-不是-键盘也能拖",
+     "level": 2,
+     "title": "3 · 裁决一：SC 2.5.7 要的是「单指针无拖动」，不是「键盘也能拖」",
+     "summary": "W3C《Understanding SC 2.5.7 Dragging Movements》（Level AA）逐字：",
+     "line": 46,
+     "chars": 2855
+    },
+    {
+     "id": "4-g219-的四类无拖动替代与两步验收",
+     "level": 2,
+     "title": "4 · G219 的四类无拖动替代与两步验收",
+     "summary": "W3C Technique G219（Sufficient for 2.5.7）逐字描述目标：\"ensure that people with motor impairments who cannot carry out dragging ",
+     "line": 64,
+     "chars": 2053
+    },
+    {
+     "id": "5-裁决二-路径手势-拖动-指针取消是三条不同的准则",
+     "level": 2,
+     "title": "5 · 裁决二：路径手势、拖动、指针取消是三条不同的准则",
+     "summary": "三者常被混成一句「手势要可访问」，但 W3C 分了三条不同级别、不同判据的准则。",
+     "line": 85,
+     "chars": 2650
+    },
+    {
+     "id": "6-sc-2-5-2-与-g210-取消是硬要求-撤销不是可选项",
+     "level": 2,
+     "title": "6 · SC 2.5.2 与 G210：取消是硬要求，撤销不是可选项",
+     "summary": "W3C《Understanding SC 2.5.2 Pointer Cancellation》（Level A）逐字四选一：",
+     "line": 108,
+     "chars": 2812
+    },
+    {
+     "id": "7-拖放的完整状态机-从-down-event-到可撤销",
+     "level": 2,
+     "title": "7 · 拖放的完整状态机：从 down-event 到可撤销",
+     "summary": "把 §3–§6 的条文落到同一套状态机，避免「合规条款各自看过、代码里还是 pointerdown 提交」。",
+     "line": 126,
+     "chars": 1176
+    },
+    {
+     "id": "8-裁决三-目标尺寸三套口径-24-24-是-aa-下限不是设计值",
+     "level": 2,
+     "title": "8 · 裁决三：目标尺寸三套口径，24×24 是 AA 下限不是设计值",
+     "summary": "W3C SC 2.5.8 Target Size (Minimum)（AA） 逐字：",
+     "line": 143,
+     "chars": 3021
+    },
+    {
+     "id": "9-w3c-pointer-events-level-3-的规范性因果链-pointercancel-什么时候必然触发",
+     "level": 2,
+     "title": "9 · W3C Pointer Events Level 3 的规范性因果链：pointercancel 什么时候必然触发",
+     "summary": "touch-action 为什么不能用 preventDefault() 代替（PE3 §4.1.3.1 逐字）：",
+     "line": 179,
+     "chars": 3358
+    },
+    {
+     "id": "10-mdn-pointerevent-工程契约-设备-事件-捕获-取消",
+     "level": 2,
+     "title": "10 · MDN PointerEvent 工程契约：设备、事件、捕获、取消",
+     "summary": "MDN《Pointer events》逐字定义：\"Pointer events are DOM events that are fired for a pointing device. They are designed to create",
+     "line": 207,
+     "chars": 2826
+    },
+    {
+     "id": "11-touch-action-全值表-形式语法与三条工程陷阱",
+     "level": 2,
+     "title": "11 · touch-action 全值表、形式语法与三条工程陷阱",
+     "summary": "MDN《touch-action》正式语法（逐字）：",
+     "line": 233,
+     "chars": 2634
+    },
+    {
+     "id": "12-html-drag-and-drop-api-七事件-datatransfer-与-drop-target-规则",
+     "level": 2,
+     "title": "12 · HTML Drag and Drop API：七事件、DataTransfer 与 drop target 规则",
+     "summary": "MDN《HTML Drag and Drop API》逐字：\"The user may select draggable elements with a mouse, drag those elements to a droppable e",
+     "line": 267,
+     "chars": 3066
+    },
+    {
+     "id": "13-键盘拖放契约-dnd-kit-的逐字键盘参数",
+     "level": 2,
+     "title": "13 · 键盘拖放契约：dnd-kit 的逐字键盘参数",
+     "summary": "W3C APG 的通用键盘原则先立地基（《ARIA Authoring Practices Guide — Keyboard Interface》本轮逐字核验）：\"The visual focus indicator must always",
+     "line": 297,
+     "chars": 2944
+    },
+    {
+     "id": "14-读屏指令-live-region-播报与中文-announcements",
+     "level": 2,
+     "title": "14 · 读屏指令、live region 播报与中文 announcements",
+     "summary": "dnd-kit 的三问框架（逐字）：\"1. Identity: What element is the user interacting with? 2. Operation: How can the user interact with ",
+     "line": 326,
+     "chars": 2626
+    },
+    {
+     "id": "15-signifier-与两类反馈-nn-g-的可发现性裁决",
+     "level": 2,
+     "title": "15 · signifier 与两类反馈：NN/g 的可发现性裁决",
+     "summary": "NN/g《Drag-and-Drop: How to Design for Intuitive Interactions》（2020-02-23）Summary 逐字：\"Clear signifiers and clear feedback",
+     "line": 373,
+     "chars": 3069
+    },
+    {
+     "id": "16-触屏拖放的硬性前提-1cm-1cm-几毫秒-约-100ms",
+     "level": 2,
+     "title": "16 · 触屏拖放的硬性前提：1cm×1cm、几毫秒、约 100ms",
+     "summary": "NN/g 对触屏的判断是本主题最强的「别做」依据。逐字：",
+     "line": 393,
+     "chars": 2288
+    },
+    {
+     "id": "17-阈值与时序决策表",
+     "level": 2,
+     "title": "17 · 阈值与时序决策表",
+     "summary": "把散落在各源的数值收成一张可执行表；「工程约定」列一律不是标准。",
+     "line": 417,
+     "chars": 1107
+    },
+    {
+     "id": "18-决策一图流",
+     "level": 2,
+     "title": "18 · 决策一图流",
+     "summary": "---",
+     "line": 439,
+     "chars": 6
+    },
+    {
+     "id": "19-替代路径矩阵-四种输入各自满足哪条-sc",
+     "level": 2,
+     "title": "19 · 替代路径矩阵：四种输入各自满足哪条 SC",
+     "summary": "这张表用来回答「我们做了键盘模式，为什么还不过审」。",
+     "line": 472,
+     "chars": 775
+    },
+    {
+     "id": "20-库生态实测与选型",
+     "level": 2,
+     "title": "20 · 库生态实测与选型",
+     "summary": "GitHub API 实测（2026-11-10，GET /repos/{owner}/{repo}，star / license / pushedat / archived 均为实测值）：",
+     "line": 488,
+     "chars": 1177
+    },
+    {
+     "id": "21-与既有资产的边界矩阵",
+     "level": 2,
+     "title": "21 · 与既有资产的边界矩阵",
+     "summary": "---",
+     "line": 509,
+     "chars": 822
+    },
+    {
+     "id": "22-场景速查-12",
+     "level": 2,
+     "title": "22 · 场景速查（12）",
+     "summary": "---",
+     "line": 526,
+     "chars": 823
+    },
+    {
+     "id": "23-反模式-20",
+     "level": 2,
+     "title": "23 · 反模式（20）",
+     "summary": "1. 用「补了 Space + 方向键」申报 SC 2.5.7 合规（键盘不是 single pointer）。",
+     "line": 545,
+     "chars": 994
+    },
+    {
+     "id": "24-自检-20",
+     "level": 2,
+     "title": "24 · 自检（20）",
+     "summary": "1. 所有「元素跟随指针」的功能都列出来了吗？逐个有单指针无拖动路径吗（2.5.7 / G219）？",
+     "line": 570,
+     "chars": 1271
+    },
+    {
+     "id": "25-可抄代码-5-段-25-1-25-3-为-python-本轮已实跑-pass",
+     "level": 2,
+     "title": "25 · 可抄代码（5 段；§25.1–§25.3 为 Python，本轮已实跑 PASS）",
+     "summary": "python",
+     "line": 595,
+     "chars": 1
+    },
+    {
+     "id": "25-1-wcag-2-5-8-目标尺寸与-24px-圆间距判定器",
+     "level": 3,
+     "title": "25.1 · WCAG 2.5.8 目标尺寸与 24px 圆间距判定器",
+     "summary": "",
+     "line": 597,
+     "chars": 1
+    },
+    {
+     "id": "25-2-三体系目标尺寸对照-css-静态风险扫描",
+     "level": 3,
+     "title": "25.2 · 三体系目标尺寸对照 + CSS 静态风险扫描",
+     "summary": "",
+     "line": 668,
+     "chars": 1
+    },
+    {
+     "id": "25-3-拖拽可访问性契约静态扫描器",
+     "level": 3,
+     "title": "25.3 · 拖拽可访问性契约静态扫描器",
+     "summary": "",
+     "line": 729,
+     "chars": 1
+    },
+    {
+     "id": "25-4-pointer-events-touch-action-capture-esc-取消骨架-js-css",
+     "level": 3,
+     "title": "25.4 · Pointer Events + touch-action + capture + Esc 取消骨架（JS/CSS）",
+     "summary": "",
+     "line": 792,
+     "chars": 1
+    },
+    {
+     "id": "25-5-dnd-kit-中文指令与-position-播报-js-模板见-14",
+     "level": 3,
+     "title": "25.5 · dnd-kit 中文指令与 position 播报（JS，模板见 §14）",
+     "summary": "---",
+     "line": 839,
+     "chars": 6
+    },
+    {
+     "id": "26-取源与限制-公开记录",
+     "level": 2,
+     "title": "26 · 取源与限制（公开记录）",
+     "summary": "W3C / WAI（本轮逐页逐字核验）：Understanding WCAG 2.2 的 pointer-gestures.html（SC 2.5.1 A、path-based 定义、slider/carousel 三态判例、keyboar",
+     "line": 863,
+     "chars": 4760
+    }
+   ]
+  },
+  {
    "path": "references/editorial-layout.md",
    "title": "版式与网格（Editorial Layout）",
    "snapshot": "2026-11-01",
@@ -7324,8 +7581,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 643,
-   "chars": 60145,
+   "lines": 656,
+   "chars": 62210,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7776,11 +8033,19 @@
      "chars": 2876
     },
     {
-     "id": "能力自测-148-条-做到-102-条即达-l2",
-     "level": 2,
-     "title": "能力自测（148 条，做到 ≥102 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ac-直接操纵与指针交互-把-跟着指针走-翻译成四条并存的完成路径",
+     "level": 3,
+     "title": "支线 AC · 直接操纵与指针交互（把\"跟着指针走\"翻译成四条并存的完成路径）",
+     "summary": "- 这是什么（认知链路下游的执行端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」相邻但问题不同；此前 40 份参考零独立资产，dpsearch.py \"拖拽 手势 指针交互\" 首位返回 performance-design.",
      "line": 500,
+     "chars": 2021
+    },
+    {
+     "id": "能力自测-152-条-做到-106-条即达-l2",
+     "level": 2,
+     "title": "能力自测（152 条，做到 ≥106 条即达 L2+）",
+     "summary": "L0",
+     "line": 513,
      "chars": 8677
     }
    ]
@@ -12917,8 +13182,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 645,
-   "chars": 105017,
+   "lines": 659,
+   "chars": 108938,
    "sections": []
   }
  ],

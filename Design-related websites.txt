@@ -282,3 +282,34 @@
 - https://github.com/gsa/plainlanguage.gov | [GH] 简明语言源仓库（API 实测 228★ / NOASSERTION，archived=true 2025-09-23）
 - https://github.com/mdn/yari | [GH] MDN 内容平台（API 实测 1,301★ / MPL-2.0，archived=true 2026-10-13）
 - https://github.com/facebook/docusaurus | [GH] 文档站可发现性（API 实测 66,684★ / MIT）
+
+## 二十、直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）【本轮新增分区】
+
+- https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html | W3C SC 2.5.7 AA 逐字条文 / In Brief / essential 与 UA 例外
+- https://www.w3.org/WAI/WCAG22/Techniques/general/G219 | W3C G219：四类单指针无拖动替代（箭头逐步 / 数字位置 / 移动到下拉 / 点击目标位置）
+- https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html | W3C SC 2.5.1 A：path-based / multipoint 与 *"keyboard operability is not sufficient"* / 2.5.7 交叉引用
+- https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html | W3C SC 2.5.2 A：No Down-Event / Abort or Undo / Up Reversal / Essential
+- https://www.w3.org/WAI/WCAG22/Techniques/general/G210 | W3C G210：up-event 激活与 AT 手势消费警告
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html | W3C SC 2.5.5 AAA：44 by 44 CSS pixels，无 spacing 例外
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html | W3C SC 2.5.8 AA：24 by 24 CSS pixels 与 24 CSS px 直径圆 spacing 例外 / 五类例外
+- https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html | W3C SC 2.5.3 A：可见标签与可访问名称
+- https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html | W3C SC 2.5.4 A：设备动效与 UI 等价 / disable
+- https://www.w3.org/TR/pointerevents3/ | W3C Pointer Events Level 3：MUST suppress a pointer event stream 四步链 / pointerType / isPrimary / capture 三方法 / implicit pointer capture / 只 supersedes [PointerEvents2]
+- https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events | MDN Pointer events：统一模型 / 事件表 / capture / pointercancel / compatibility mouse events
+- https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action | MDN touch-action：全值表 / 形式语法 / manipulation 别名 / 祖先求交 / 手势开始后改值无效 / none 的 1.4.4 风险
+- https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API | MDN HTML DnD：七事件 / DataTransfer / data store 读写窗口 / dragover 的 preventDefault() / draggable 破坏选文本
+- https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/ | W3C APG Keyboard Interface：焦点可见 / 快捷键不替代导航 / 单 tab stop / 正 tabindex 不推荐 / roving tabindex 与 aria-activedescendant
+- https://docs.dndkit.com/guides/accessibility | dnd-kit Accessibility：Keyboard sensor 默认 25 px（自述 arbitrary）/ Space·Enter·方向键·Escape / role=button / aria-roledescription=draggable / aria-describedby / 四段 defaultAnnouncements / position 优于 index
+- https://www.nngroup.com/articles/drag-drop/ | NN/g 2020-02-23 Drag-and-Drop：signifier 双义 / 两类视觉 signifier 与两类反馈 / 约 100ms 让位动画 / 至少 1cm×1cm / a few milliseconds（未量化）/ 触屏 only-when 两条件 / Gmail 移动端菜单 / 磁吸·snapping·haptics
+- https://m2.material.io/design/usability/accessibility.html | Material 2：48×48 dp / about 9mm / 7–10mm / iOS 44×44 pt / pointer 44×44 dp / Android 48×48 dp / 8dp 间距（注意是 M2，M3 accessibility-basics 本轮 404）
+- https://m2.material.io/design/interaction/gestures.html | Material 2 Gestures：手势分类
+- https://github.com/clauderic/dnd-kit | [GH] dnd-kit（API 实测 17,787★ / MIT / pushed 2026-10-31）
+- https://github.com/react-dnd/react-dnd | [GH] react-dnd（API 实测 21,625★ / MIT / 2025-07-06）
+- https://github.com/SortableJS/Sortable | [GH] Sortable（API 实测 31,207★ / MIT / 2026-03-24）
+- https://github.com/atlassian/pragmatic-drag-and-drop | [GH] Atlassian pragmatic DnD（API 实测 12,795★ / NOASSERTION / 2026-11-10）
+- https://github.com/taye/interact.js | [GH] interact.js（API 实测 12,941★ / MIT / 2026-08-01）
+- https://github.com/pmndrs/use-gesture | [GH] use-gesture（API 实测 9,627★ / MIT / 2024-07-15）
+- https://github.com/motiondivision/motion | [GH] Motion（API 实测 35,046★ / MIT / 2026-11-10）
+- https://github.com/FormidableLabs/react-swipeable | [GH] react-swipeable（API 实测 2,111★ / MIT / 2024-12-23）
+- https://github.com/w3c/pointerevents | [GH] W3C Pointer Events 源仓库（API 实测 83★ / NOASSERTION / 2026-10-08）
+- https://github.com/reactjs/rfcs | [GH] React RFCs（API 实测 5,820★ / MIT / 2024-06-11）

@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-10 21:37 ｜ 43 个文件 · 1648 个章节 · 1,356,145 字符
+> 自动生成于 2026-11-11 21:22 ｜ 44 个文件 · 1681 个章节 · 1,409,378 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -82,6 +82,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 拖动无障碍 / 键盘拖放 / 读屏播报 / Escape 取消 | direct-manipulation.md §5 SC 2.5.1 交叉约束 → §6 SC 2.5.2 与 G210 → §13 dnd-kit 键盘默认 → §14 live region |
 | 目标尺寸 / 点击区 / 触控目标 / 24×24 / 44×44 / 48dp | direct-manipulation.md §8 三口径裁决表 → §17 阈值与时序决策表 → §25.1 目标尺寸判定器 |
 | 手势 / 路径手势 / 长按 / 触屏拖动 / 磁吸 | direct-manipulation.md §5 SC 2.5.1 路径手势 → §15 NN/g signifier → §16 1cm×1cm 与约 100ms → §19 替代路径矩阵 → §20 库生态选型 |
+| 对话式界面 / 聊天 UI / chatbot / 流式输出 / 打字机效果 | conversational-generative-ui.md §2 五段链路判层 → §3 SC 4.1.3 裁决一 → §4 ARIA23 role=log → §5 live region 契约 → §12 状态边界播报一次 |
+| 生成式界面 / GenUI / streamUI / 组件白名单 / 动态组件 | conversational-generative-ui.md §6 裁决二 → §7 RSC experimental 与生产路径 → §8 message.parts → §20 代码 4 白名单分派 |
+| 对话状态机 / useChat / message.parts / AG-UI 事件 | conversational-generative-ui.md §8 四态逐字 → §9 AG-UI 三模式与生命周期边界 → §13 状态归位表 → §20 代码 1 事件流校验器 |
+| AI 答错了 / 停止生成 / 重新生成 / 纠错 / 撤销自动化动作 | 先读 conversational-generative-ui.md §11 HAX G9 四档恢复链 → §12 → §13；HAX 原则层 18 条归 ai-design-toolchain.md §10 |
+| 混合界面 / Hybrid UI / RICH 范式 / 读屏刷屏 / aria-busy | conversational-generative-ui.md §10 RICH 四要素与 WIMP 判型 → §5 aria-busy 三出口 → §16 来源与引用 → §17 场景 7/8 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -313,26 +318,32 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **触控目标尺寸** | 24×24 CSS px · 44×44 CSS px · 48 x 48 dp · 8dp 间距 · spacing 例外 · 24 CSS px 直径圆 · touch target · WCAG 2.5.8 · WCAG 2.5.5 |
 | **手势与取消** | path-based gesture · 路径手势 · touch-action · G210 · No Down-Event · Up Reversal · Abort or Undo · path-based · 手势取消 |
 | **拖放库** | dnd-kit · react-dnd · SortableJS · pragmatic-drag-and-drop · interact.js · use-gesture · 25px 位移 · aria-roledescription |
+| **对话式界面** | chatbot · 聊天机器人 · 聊天 UI · 对话 UI · AI 助手 · 对话式界面 · 聊天气泡 · 会话界面 · Copilot · 助手面板 |
+| **流式输出** | streaming · 流式输出 · 逐字输出 · 打字机效果 · 逐字蹦 · token 流 · SSE · 边生成边显示 · 流式渲染 |
+| **生成式界面** | Generative UI · GenUI · streamUI · 生成式 UI · 生成式组件 · 组件白名单 · 动态组件路由 · AI SDK RSC |
+| **对话状态机** | useChat · message.parts · AG-UI · RunStarted · RunFinished · TextMessageStart · ToolCallStart · 四态状态机 |
+| **聊天无障碍** | role=log · ARIA23 · aria-live · aria-busy · aria-atomic · SC 4.1.3 · Status Messages · 读屏刷屏 · polite |
+| **AI 纠错** | 停止生成 · 重新生成 · regenerate · 编辑原消息重放 · 撤销自动化动作 · HAX G9 · 四档恢复链 · Hybrid UI · RICH 范式 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_942 行 · 快照 — · 12 节_
+_964 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L110` — 资产已 41 份参考、约 107 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L112` — 资产已 41 份参考、约 107 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L125`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L333` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L348` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L374` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L405` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L824` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L898` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L911` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L918` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L934` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L113` — 资产已 42 份参考、约 111 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L115` — 资产已 42 份参考、约 111 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L128`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L343` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L358` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L384` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L415` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L844` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L920` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L933` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L940` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L956` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -659,6 +670,41 @@ _956 行 · 快照 2026-11-09 · 32 节_
   - **26.4 符合 APG 契约的搜索框骨架（HTML，契约示意）** `L838`
   - **26.5 中文可扫读代理指标（JS，工程约定）** `L872` — const clean = text.replace(/ /g, '');
 - **27 · 取源与限制（公开记录）** `L908` — W3C / WAI（本轮逐页逐字核验）：Understanding WCAG 2.2 的 link-purpose-in-context.html（SC 2.4.4 A，含 Key Terms、16 项 Sufficient、F63/F89
+
+### `references/conversational-generative-ui.md` · 对话式与生成式界面：流式输出、混合界面与可纠错契约
+_747 行 · 快照 2026-11-11 · 31 节_
+
+- **0. 一句话立场与三条裁决** `L10` — 对话式与生成式界面（Conversational & Generative UI）不是「把聊天气泡套个皮」，而是一条五段并存且每一段都会失败的链路：发得出 → 等得住 → 读得动 → 改得动 → 收得回；任何一段没建模，界面就会在「模型正在
+- **1. 为什么这是结构性空白（缺口实测）** `L24` — 结构性空白是指：不是覆盖不足，而是全域没有独立资产，检索会把问题路由到完全不相干的文件。本轮用 scripts/dpsearch.py 与全域词频实测（v35 基线，41 份参考）判定。
+- **2. 五段链路判层模型（L1 发得出 → L5 收得回）** `L43` — 先判问题落在哪一段，再动手改界面；一上来改气泡样式是典型的判层失败。
+- **3. 裁决一：流式文本不是状态消息，状态边界才播报（SC 4.1.3 逐字）** `L59` — WCAG 2.2 SC 4.1.3 Status Messages (Level AA) 规范条文逐字：
+- **4. ARIA23 role=log 与隐性 aria-live=polite / aria-atomic=false** `L92` — W3C Technique ARIA23《Using role=log to identify sequential information updates》是 SC 4.1.3 Situation C 的充分技术（Techniques a
+- **5. 聊天界面播报工程契约：chatbot 流式输出的状态边界（空容器、aria-busy、aria-relevant、assertive 双播）** `L118` — 以下为工程约定（规范未强制逐条），但每条都能追溯到官方机制，验收时按此清单过：
+- **6. 裁决二：生成式界面 streamUI 是组件白名单里的路由，不是任意组件** `L137` — Vercel AI SDK RSC《Streaming React Components》官方原文逐字：
+- **7. AI SDK RSC experimental 与生产推荐路径（口径不张冠李戴）** `L182` — RSC 文档页首逐字（这句话只在这一页）：
+- **8. useChat 四态状态机与 message.parts（parts 不是 content）** `L207` — AI SDK UI Chatbot 官方对 useChat 的定位逐字：
+- **9. AG-UI 对话状态机：RunStarted / RunError / TextMessageStart 与 messageId 归属** `L240` — AG-UI（Agent-User Interaction Protocol）官方逐字：
+- **10. Hybrid UI 混合界面与 RICH 范式（WIMP 不是唯一解）** `L282` — Ant Design X 官方 RICH 设计范式四要素：Intention（意图）、Role（角色）、Conversation（会话）、Hybrid UI（混合界面）。其官方立场是：AI 对话不是要取代 WIMP（Window / Ico
+- **11. 裁决三：AI 答错了要高效纠错（HAX G9）——四档恢复链，不是重新生成按钮** `L302` — Microsoft HAX Design Library G9 逐字：
+- **12. stop / regenerate / setMessages 与状态边界播报一次（含清空队列）** `L337` — 把 §11 落成事件-动作对照，供实现直接抄：
+- **13. 状态归位表：每个动作后哪些状态必须复位** `L358` — 收口（L5）是「模型输出不确定」带来的特有缺陷域：传统界面状态由用户操作驱动，AI 界面状态由远端事件驱动，事件丢失就永久错位。
+- **14. 流式渲染工程：增量 Markdown、未闭合块、节流、自动滚动纪律** `L378` — 流式 Markdown 不是「把字符串拼起来交给 renderer」——任意切分点都可能落在代码块、表格、链接、加粗标记中间。§20 代码 3 实跑证明：同一段含代码围栏的 Markdown，按 7 / 13 / 29 字符切分，处于未闭合
+- **15. L1 输入与发送：Enter / Shift+Enter、禁用提交、队列、中文场景** `L391` — ---
+- **16. 来源、引用与置信度呈现（与 HAX 18 条的边界）** `L405` — 本文件不重列 HAX G1–G18，但要把三条界面落点说清，避免与 ai-design-toolchain.md §10 互相抢路由：
+- **17. 12 个高频场景速查** `L417` — ---
+- **18. 反模式 20 条** `L436` — 1. 把每个 token 塞进 aria-live="assertive" —— 官方 Failure 族 + chatty 风险。
+- **19. 自检 20 项（交付前逐条过）** `L461` — 1. [ ] 对话容器是 role="log" 且有 accessible name？隐性 polite / atomic=false 有没有被手动改坏？
+- **20. 可抄代码 5 段（3 段 Python 实跑，输出为本轮实测）** `L486` — 校验 RunStarted / RunError 生命周期边界、Start-Content-End 三元组闭合、messageId 归属。
+  - **代码 1 · AG-UI 事件流校验器（Python，实跑）** `L488` — 校验 RunStarted / RunError 生命周期边界、Start-Content-End 三元组闭合、messageId 归属。
+  - **代码 2 · live region 契约扫描器（Python，实跑）** `L546` — 静态扫描 role=log / role=status / assertive 滥用 / aria-busy 未复位。
+  - **代码 3 · 流式 Markdown 分片鲁棒性（Python，实跑）** `L584` — 证明任意切分点会落在未闭合围栏内，必须 hold。
+  - **代码 4 · 生成式 UI 组件白名单分派（TypeScript / React）** `L610`
+  - **代码 5 · 对话容器的无障碍骨架（HTML）** `L639` — ---
+- **21. GitHub API 实测仓库（2026-11-11 经 GitHub API）** `L666` — star / license / pushedat / archived 均为本轮 api.github.com/repos/... 实测，不凭记忆写数字；NOASSERTION 表示 GitHub 未检出明确 SPDX，不代表「无许可」。
+- **22. 与其他资产的边界（避免重复与抢路由）** `L684` — ai-design-toolchain.md 的分流表已同步修正：原则层（HAX 18 条）仍归该文件，链路层（流式 / 混合界面 / 纠错）归本文件。
+- **23. 取源限制（公开记录，不臆造）** `L702` — 1. W3C WAI-ARIA 1.2 TR #log 被 Cloudflare 拦截：只返回 Just a moment...，未取得 normative definition / Superclass Role / Implicit V
+- **24. 数据来源清单** `L715` — - W3C WCAG 2.2 Understanding SC 4.1.3 Status Messages — https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html
+- **25. 术语与口径速记** `L732` — ---
 
 ### `references/dark-mode.md` · 暗色模式体系（Dark Mode System）
 _656 行 · 快照 2026-11-01 · 47 节_
@@ -1350,7 +1396,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_656 行 · 快照 2026-11-05 · 58 节_
+_671 行 · 快照 2026-11-05 · 59 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1378,7 +1424,7 @@ _656 行 · 快照 2026-11-05 · 58 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **二十八条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **三十条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1409,7 +1455,8 @@ _656 行 · 快照 2026-11-05 · 58 节_
   - **支线 AA · 视觉层级与格式塔组织律（把"放大加粗"翻译成注意力分配契约）** `L474` — - 这是什么（第四根基础支柱）：与「色彩科学」「字体排印」「形状与深度」并列，但此前 38 份参考里零独立文件，格式塔/眼动/认知负荷只散落在 editorial-layout.md §8、navigation-ia.md、design-e
   - **支线 AB · 内容可发现性与可扫读性（把"搜得到"翻译成四层链路的线索密度）** `L487` — - 这是什么（注意力链路的下游环节）：与「视觉层级（目光先看哪）」「字体排印（字怎么排）」「导航与信息架构（结构怎么搭）」相邻但问题不同；此前 39 份参考里零独立资产，站内搜索链路、链接目的契约族、阅读等级与可发现性度量只在 naviga
   - **支线 AC · 直接操纵与指针交互（把"跟着指针走"翻译成四条并存的完成路径）** `L500` — - 这是什么（认知链路下游的执行端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」相邻但问题不同；此前 40 份参考零独立资产，dpsearch.py "拖拽 手势 指针交互" 首位返回 performance-design.
-- **能力自测（152 条，做到 ≥106 条即达 L2+）** `L513` — L0
+  - **支线 AD · 对话式与生成式界面（把"边生成边变化"翻译成五段链路的完成路径）** `L513` — - 这是什么（认知链路下游的输出端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」「直接操纵（按下指针之后）」相邻但问题不同——前三份都假设内容是确定的，本支线处理输出本身在流动、可能出错、可能带副作用。此前 41 份参考零独
+- **能力自测（157 条，做到 ≥106 条即达 L2+）** `L528` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2099,7 +2146,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_659 行 · 快照 — · 36 节_
+_673 行 · 快照 — · 37 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2137,11 +2184,13 @@ _659 行 · 快照 — · 36 节_
 - **2026-11-08 · 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）** `L619` — - 本轮性质：v32→v33 补齐第四根基础支柱域。触发时基线干净（HEAD 005226f、v32 / 38 参考 / 890,649 字符 / 185 路由 / 36 自检 / 204 别名组 / 26 支线 / 140 自测 / 17
 - **2026-11-09 · 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability）** `L633` — - 本轮性质：v33→v34 补齐「内容链路」域，并按 #26 判例先交付在途轮次。触发时工作区不是干净基线：HEAD 740f27e（v33 / 39 参考 / 935,332 字符 / 190 路由 / 37 自检 / 212 别名组 
 - **2026-11-10 · 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）** `L647` — - 本轮性质：v34→v35 补齐「交互执行端」域。触发时工作区是干净基线：HEAD cddf02b（v34 / 40 参考 / 1,004,258 字符 / 195 路由 / 38 自检 / 218 别名组 / 28 支线 · 148 自
+- **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** `L661` — - 本轮性质：v35→v36 补齐「AI 产品交互链路」域。触发时工作区是干净基线：HEAD 77c2f40（v35 / 41 参考 / 1,072,753 字符 / 200 路由 / 39 自检 / 224 别名组 / 29 支线 · 1
 
 ## 三、主题索引（章节标题 → 位置）
 
 - **0. 30 秒速查** → `references/form-table.md` L8
 - **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6
+- **0. 一句话立场与三条裁决** → `references/conversational-generative-ui.md` L10
 - **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/component-api-design.md` L9 · `references/design-ethics-inclusion.md` L9 · `references/design-measurement-research.md` L9
 - **0. 与既有资产的分层（先判读哪一份，别读错）** → `references/design-system-docs.md` L7
 - **0. 什么时候读这份文件** → `references/visual-style-taxonomy.md` L7
@@ -2159,6 +2208,7 @@ _659 行 · 快照 — · 36 节_
 - **1. 三条不可商量的原则（先给立场，不和稀泥）** → `references/design-ethics-inclusion.md` L27
 - **1. 两种评审，别混在一场会** → `references/design-critique.md` L23
 - **1. 为什么性能是设计约束：加载速度就是设计决策** → `references/performance-design.md` L13
+- **1. 为什么这是结构性空白（缺口实测）** → `references/conversational-generative-ui.md` L24
 - **1. 为什么需要风格谱系（核心立场）** → `references/visual-style-taxonomy.md` L15
 - **1. 何时用图标 / 文字 / 两者（决策树）** → `references/iconography.md` L12
 - **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
@@ -2181,6 +2231,7 @@ _659 行 · 快照 — · 36 节_
 - **10 · 裁决二：链接目的的 WCAG 契约族（五条准则）** → `references/content-findability.md` L198
 - **10. 20 反模式** → `references/visual-style-taxonomy.md` L221
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
+- **10. Hybrid UI 混合界面与 RICH 范式（WIMP 不是唯一解）** → `references/conversational-generative-ui.md` L282
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
 - **10. 可用性测试：moderated / unmoderated 与出声思考** → `references/design-measurement-research.md` L194
@@ -2223,6 +2274,7 @@ _659 行 · 快照 — · 36 节_
 - **11. 渲染性能：帧预算与图层内存（可算的数）** → `references/performance-design.md` L465
 - **11. 缺陷分级与发布门禁** → `references/handoff-collaboration.md` L423
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
+- **11. 裁决三：AI 答错了要高效纠错（HAX G9）——四档恢复链，不是重新生成按钮** → `references/conversational-generative-ui.md` L302
 - **12 · HTML Drag and Drop API：七事件、DataTransfer 与 drop target 规则** → `references/direct-manipulation.md` L267
 - **12 · Hick–Hyman Law：决策时间的公式与失效条件** → `references/visual-hierarchy-gestalt.md` L251
 - **12 · font-family 逐字符回退算法（加载 / 缺字 / 验收）** → `references/typography-system.md` L174
@@ -2231,6 +2283,7 @@ _659 行 · 快照 — · 36 节_
 - **12 · 嵌套同心圆角 r = R − p 与失效条件** → `references/shape-elevation.md` L303
 - **12. AI 生成界面的 12 类固有缺陷 → 接回既有专项** → `references/ai-design-toolchain.md` L386
 - **12. CSS 入场/退场状态机：@starting-style 四件套** → `references/motion-orchestration.md` L585
+- **12. stop / regenerate / setMessages 与状态边界播报一次（含清空队列）** → `references/conversational-generative-ui.md` L337
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
 - **12. 中后台适配（中文场景专用）** → `references/responsive-layout.md` L473
 - **12. 可抄代码 / 清单** → `references/visual-style-taxonomy.md` L271
@@ -2267,6 +2320,7 @@ _659 行 · 快照 — · 36 节_
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
 - **13. 欧盟 DSA 第 25 条与 FTC 2022：两套执法口径，别混成一句** → `references/design-ethics-inclusion.md` L319
 - **13. 演示节奏与信息流** → `references/presentation-design.md` L590
+- **13. 状态归位表：每个动作后哪些状态必须复位** → `references/conversational-generative-ui.md` L358
 - **13. 状态暴露：别把 9 态做成 9 个布尔 props** → `references/component-api-design.md` L422
 - **13. 素材与出处** → `references/dataviz.md` L366
 - **13. 编排层编排的无障碍降级（WCAG 2.3.3 / 2.2.2 / prefers-reduced-motion）** → `references/motion-orchestration.md` L646
@@ -2289,6 +2343,7 @@ _659 行 · 快照 — · 36 节_
 - **14. 工具与框架** → `references/presentation-design.md` L631
 - **14. 微信小程序：另一套物理规律** → `references/performance-design.md` L589
 - **14. 性能：100ms 响应窗口、读写分离与快照开销** → `references/motion-orchestration.md` L680
+- **14. 流式渲染工程：增量 Markdown、未闭合块、节流、自动滚动纪律** → `references/conversational-generative-ui.md` L378
 - **14. 生成 → 代码：衔接层与三个陷阱** → `references/ai-design-toolchain.md` L442
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
 - **14. 调试与验收** → `references/responsive-layout.md` L530
@@ -2301,6 +2356,7 @@ _659 行 · 快照 — · 36 节_
 - **15. 12 场景速查** → `references/presentation-design.md` L672
 - **15. 12 场景（Scenarios）** → `references/iconography.md` L213
 - **15. Inclusive Design Principles 七原则（逐条 + 设计动作）** → `references/design-ethics-inclusion.md` L375
+- **15. L1 输入与发送：Enter / Shift+Enter、禁用提交、队列、中文场景** → `references/conversational-generative-ui.md` L391
 - **15. Prompt 版本化、eval 与 SemVer** → `references/ai-design-toolchain.md` L458
 - **15. Storybook argTypes：把 API 契约变成机器可读、可在 CI 校验的东西** → `references/component-api-design.md` L458
 - **15. 协作节奏：每次交接都要有可验收的产出** → `references/handoff-collaboration.md` L622
@@ -2327,6 +2383,7 @@ _659 行 · 快照 — · 36 节_
 - **16. 反模式清单（逐条给改法）** → `references/form-table.md` L452
 - **16. 品牌一致性的十条检查（交付前逐条过）** → `references/brand-identity.md` L506
 - **16. 场景速查（16 条，直接取结论）** → `references/motion-orchestration.md` L738
+- **16. 来源、引用与置信度呈现（与 HAX 18 条的边界）** → `references/conversational-generative-ui.md` L405
 - **16. 研究运营与研究库（Research Ops / Repository）** → `references/design-measurement-research.md` L298
 - **16. 类型即文档：TypeScript 契约的四条底线** → `references/component-api-design.md` L490
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
@@ -2336,6 +2393,7 @@ _659 行 · 快照 — · 36 节_
 - **17 · 玻璃拟态的合成开销与降级顺序** → `references/shape-elevation.md` L410
 - **17 · 简明语言：Plain Writing Act 与四份官方指南** → `references/content-findability.md` L365
 - **17 · 阈值与时序决策表** → `references/direct-manipulation.md` L417
+- **17. 12 个高频场景速查** → `references/conversational-generative-ui.md` L417
 - **17. 16 场景决策矩阵（先查表，再动手）** → `references/component-api-design.md` L501
 - **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 20 自检（Self-checks）** → `references/iconography.md` L255
@@ -2360,7 +2418,7 @@ _659 行 · 快照 — · 36 节_
 - **18. 决策矩阵：什么场景套哪套** → `references/design-ethics-inclusion.md` L431
 - **18. 出处** → `references/form-table.md` L503
 - **18. 十二场景速查（设计系统文档写作）** → `references/design-system-docs.md` L684
-- **18. 反模式 20 条** → `references/handoff-collaboration.md` L730
+- **18. 反模式 20 条** → `references/conversational-generative-ui.md` L436 · `references/handoff-collaboration.md` L730
 - **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L743
 - **18. 可抄代码（Copy-paste）** → `references/iconography.md` L280
 - **18. 场景决策矩阵（12 场景：凭问题选度量方案）** → `references/design-measurement-research.md` L327
@@ -2380,12 +2438,14 @@ _659 行 · 快照 — · 36 节_
 - **19. 可抄代码（8 段）** → `references/motion-orchestration.md` L811
 - **19. 数据来源** → `references/performance-design.md` L827 · `references/responsive-layout.md` L711
 - **19. 自检 20 项（交付前逐条打勾）** → `references/handoff-collaboration.md` L755
+- **19. 自检 20 项（交付前逐条过）** → `references/conversational-generative-ui.md` L461
 - **2 · 三层模型：先判层，再谈放大加粗** → `references/visual-hierarchy-gestalt.md` L31
 - **2 · 五层模型：先判层，再谈审美** → `references/shape-elevation.md` L31
 - **2 · 四层链路模型：先判哪一层断，再谈改文案** → `references/content-findability.md` L31
 - **2 · 四段链路模型：先判哪一段断，再谈改动画** → `references/direct-manipulation.md` L31
 - **2 · 排印决策的六层模型（先判层，再谈审美）** → `references/typography-system.md` L25
 - **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
+- **2. 五段链路判层模型（L1 发得出 → L5 收得回）** → `references/conversational-generative-ui.md` L43
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
 - **2. 分类体系裁决：别再照抄旧教程的那一套（暗黑模式 / dark patterns 现行 18 类）** → `references/design-ethics-inclusion.md` L37
@@ -2412,6 +2472,7 @@ _659 行 · 快照 — · 36 节_
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
 - **20. 二十项自检（组件文档上线前逐条打勾）** → `references/design-system-docs.md` L728
+- **20. 可抄代码 5 段（3 段 Python 实跑，输出为本轮实测）** → `references/conversational-generative-ui.md` L486
 - **20. 可抄代码（3 段 Python 已实跑，含双用例断言）** → `references/component-api-design.md` L576
 - **20. 四个可抄模板** → `references/handoff-collaboration.md` L780
 - **20. 素材与出处（本轮实测 / 官方原文）** → `references/motion-orchestration.md` L1005
@@ -2449,10 +2510,12 @@ _659 行 · 快照 — · 36 节_
 - **2026-11-08 · 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）** → `memory/design-log.md` L619
 - **2026-11-09 · 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability）** → `memory/design-log.md` L633
 - **2026-11-10 · 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）** → `memory/design-log.md` L647
+- **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** → `memory/design-log.md` L661
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
 - **21. 6 段可抄代码** → `references/ai-design-toolchain.md` L562
+- **21. GitHub API 实测仓库（2026-11-11 经 GitHub API）** → `references/conversational-generative-ui.md` L666
 - **21. 六段可抄代码（文档团队直接拿去用）** → `references/design-system-docs.md` L753
 - **21. 取源清单与 GitHub API 实测（2026-11-07 快照）** → `references/component-api-design.md` L856
 - **21. 可抄代码（4 段 Python，已实跑）** → `references/design-measurement-research.md` L396
@@ -2461,6 +2524,7 @@ _659 行 · 快照 — · 36 节_
 - **22 · 与既有资产的边界矩阵** → `references/content-findability.md` L450
 - **22 · 场景速查（12）** → `references/direct-manipulation.md` L526
 - **22 · 自检（20）** → `references/shape-elevation.md` L510 · `references/typography-system.md` L347 · `references/visual-hierarchy-gestalt.md` L428
+- **22. 与其他资产的边界（避免重复与抢路由）** → `references/conversational-generative-ui.md` L684
 - **22. 取源限制与不臆造声明（本轮公开记录）** → `references/component-api-design.md` L903
 - **22. 数据来源与取源纪律** → `references/design-ethics-inclusion.md` L728
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** → `references/ai-design-toolchain.md` L761
@@ -2471,12 +2535,15 @@ _659 行 · 快照 — · 36 节_
 - **23 · 可抄代码（6 段）** → `references/shape-elevation.md` L535 · `references/typography-system.md` L372
 - **23 · 场景速查（12）** → `references/content-findability.md` L467
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
+- **23. 取源限制（公开记录，不臆造）** → `references/conversational-generative-ui.md` L702
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
 - **24 · 反模式（20）** → `references/content-findability.md` L484
 - **24 · 取源与限制（公开记录）** → `references/shape-elevation.md` L782 · `references/typography-system.md` L575 · `references/visual-hierarchy-gestalt.md` L647
 - **24 · 自检（20）** → `references/direct-manipulation.md` L570
+- **24. 数据来源清单** → `references/conversational-generative-ui.md` L715
 - **25 · 可抄代码（5 段；§25.1–§25.3 为 Python，本轮已实跑 PASS）** → `references/direct-manipulation.md` L595
 - **25 · 自检（20）** → `references/content-findability.md` L509
+- **25. 术语与口径速记** → `references/conversational-generative-ui.md` L732
 - **26 · 取源与限制（公开记录）** → `references/direct-manipulation.md` L863
 - **26 · 可抄代码（5 段；§26.1–§26.3 为 Python，本轮已实跑 PASS）** → `references/content-findability.md` L534
 - **27 · 取源与限制（公开记录）** → `references/content-findability.md` L908
@@ -2504,6 +2571,7 @@ _659 行 · 快照 — · 36 节_
 - **3. 断点该定在哪：内容断，不是设备断** → `references/responsive-layout.md` L160
 - **3. 状态提升与派生状态（别把 state 复制两份）** → `references/component-api-design.md` L122
 - **3. 给出反馈的七条铁律** → `references/design-critique.md` L46
+- **3. 裁决一：流式文本不是状态消息，状态边界才播报（SC 4.1.3 逐字）** → `references/conversational-generative-ui.md` L59
 - **3. 项数铁律（数量是有科学依据的，不是审美）** → `references/navigation-ia.md` L40
 - **4 · G219 的四类无拖动替代与两步验收** → `references/direct-manipulation.md` L64
 - **4 · M3 Elevation 六级精确表与组件映射** → `references/shape-elevation.md` L78
@@ -2511,6 +2579,7 @@ _659 行 · 快照 — · 36 节_
 - **4 · 字号阶梯与相对单位（px 不可访问裁决）** → `references/typography-system.md` L54
 - **4 · 扫描模式全表：F 只是其中一种** → `references/visual-hierarchy-gestalt.md` L67
 - **4 · 搜索入口的可发现性：位置、形态、宽度** → `references/content-findability.md` L66
+- **4. ARIA23 role=log 与隐性 aria-live=polite / aria-atomic=false** → `references/conversational-generative-ui.md` L92
 - **4. CPPA §7004：把「对称选择」写成可测量的步数（本轮最硬的规则）** → `references/design-ethics-inclusion.md` L94
 - **4. FLIP：共享元素位移的通用算法（First · Last · Invert · Play）** → `references/motion-orchestration.md` L151
 - **4. INP：交互延迟的三段与"设计侧预算"** → `references/performance-design.md` L126
@@ -2552,6 +2621,7 @@ _659 行 · 快照 — · 36 节_
 - **5. 混搭的纪律（什么能混、什么冲突）** → `references/visual-style-taxonomy.md` L158
 - **5. 状态矩阵：9 态，别画 2ⁿ** → `references/handoff-collaboration.md` L142
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
+- **5. 聊天界面播报工程契约：chatbot 流式输出的状态边界（空容器、aria-busy、aria-relevant、assertive 双播）** → `references/conversational-generative-ui.md` L118
 - **5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真** → `references/ai-design-toolchain.md` L153
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **5. 面包屑（Breadcrumb）** → `references/navigation-ia.md` L61
@@ -2578,6 +2648,7 @@ _659 行 · 快照 — · 36 节_
 - **6. 流式排版：clamp() 的正确用法** → `references/responsive-layout.md` L263
 - **6. 物理感：什么时候用弹簧，什么时候用曲线** → `references/motion-system.md` L141
 - **6. 示例代码的可抄性：五条硬规则（写错就没人用）** → `references/design-system-docs.md` L188
+- **6. 裁决二：生成式界面 streamUI 是组件白名单里的路由，不是任意组件** → `references/conversational-generative-ui.md` L137
 - **6. 评判框架（把"好不好"变成可讨论的尺子）** → `references/design-critique.md` L90
 - **6. 趋势生命周期（何时该上、何时已过）** → `references/visual-style-taxonomy.md` L168
 - **7 · box-shadow 正式语法（MDN 逐条核验）** → `references/shape-elevation.md` L144
@@ -2586,6 +2657,7 @@ _659 行 · 快照 — · 36 节_
 - **7 · 格式塔 12 条组织律全表（IxDF 逐条核对）** → `references/visual-hierarchy-gestalt.md` L155
 - **7 · 联想、筛选与结果：第一次查询基本就是决战** → `references/content-findability.md` L130
 - **7 · 色盲：三型 + Okabe–Ito 8 色** → `references/color-science.md` L143
+- **7. AI SDK RSC experimental 与生产推荐路径（口径不张冠李戴）** → `references/conversational-generative-ui.md` L182
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
 - **7. HEART 框架（Google 五指标 + 三层落地法）** → `references/design-measurement-research.md` L141
 - **7. props 合并优先级：一张能判 PASS/FAIL 的算子表** → `references/component-api-design.md` L274
@@ -2611,6 +2683,7 @@ _659 行 · 快照 — · 36 节_
 - **8 · 组织律里可验收的四个部分** → `references/visual-hierarchy-gestalt.md` L180
 - **8 · 色板生成科学：四条可复现路线（选一不许混）** → `references/color-science.md` L162
 - **8 · 裁决三：目标尺寸三套口径，24×24 是 AA 下限不是设计值** → `references/direct-manipulation.md` L143
+- **8. useChat 四态状态机与 message.parts（parts 不是 content）** → `references/conversational-generative-ui.md` L207
 - **8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线** → `references/design-ethics-inclusion.md` L200
 - **8. 决策记录（ADR / critique notes）** → `references/design-critique.md` L148
 - **8. 品牌色：主色怎么定（不是"选个好看的颜色"）** → `references/brand-identity.md` L229
@@ -2637,6 +2710,7 @@ _659 行 · 快照 — · 36 节_
 - **9 · 前注意属性：为什么"单特征差异"才会 pop-out** → `references/visual-hierarchy-gestalt.md` L201
 - **9 · 渐变与插值：在 OKLab 空间做** → `references/color-science.md` L175
 - **9. 12 场景速查** → `references/visual-style-taxonomy.md` L204
+- **9. AG-UI 对话状态机：RunStarted / RunError / TextMessageStart 与 messageId 归属** → `references/conversational-generative-ui.md` L240
 - **9. AI 辅助设计的工作流（可直接落地的 8 步）** → `references/ai-design-toolchain.md` L285
 - **9. JavaScript：设计师看不见但逃不掉的那部分** → `references/performance-design.md` L399
 - **9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）** → `references/component-api-design.md` L308
@@ -2752,6 +2826,7 @@ _659 行 · 快照 — · 36 节_
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
+- **三十条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
 - **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
@@ -2765,7 +2840,6 @@ _659 行 · 快照 — · 36 节_
 - **二十、可抄代码（6 段）** → `references/multi-brand-theming.md` L664
 - **二十一、6 段可抄代码** → `references/i18n-localization.md` L888
 - **二十二、数据来源（官方原文 + API 实测）** → `references/i18n-localization.md` L1024
-- **二十八条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **五、RTL 镜像规则：该镜像与不该镜像清单（Material Design Bidirectionality 官方）** → `references/i18n-localization.md` L298
 - **五、Token 输出格式（三种落地形态）** → `references/design-tokens.md` L156
 - **五、何时把 DESIGN.md 作为交付物** → `references/design-md-format.md` L153
@@ -2826,7 +2900,7 @@ _659 行 · 快照 — · 36 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L110
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L113
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -2836,12 +2910,12 @@ _659 行 · 快照 — · 36 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（152 条，做到 ≥106 条即达 L2+）** → `references/knowledge-map.md` L513
-- **自我成长机制（用得越多越准）** → `SKILL.md` L898
-- **自我进化机制（知识保鲜）** → `SKILL.md` L911
+- **能力自测（157 条，做到 ≥106 条即达 L2+）** → `references/knowledge-map.md` L528
+- **自我成长机制（用得越多越准）** → `SKILL.md` L920
+- **自我进化机制（知识保鲜）** → `SKILL.md` L933
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L934
+- **边界与习惯** → `SKILL.md` L956
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

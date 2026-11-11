@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-10",
+  "_updated": "2026-11-11",
   "_weight": 0.45,
   "groups": [
     {
@@ -3098,6 +3098,89 @@
         "use-gesture",
         "25px 位移",
         "aria-roledescription"
+      ]
+    },
+    {
+      "canonical": "对话式界面",
+      "aliases": [
+        "chatbot",
+        "聊天机器人",
+        "聊天 UI",
+        "对话 UI",
+        "AI 助手",
+        "对话式界面",
+        "聊天气泡",
+        "会话界面",
+        "Copilot",
+        "助手面板"
+      ]
+    },
+    {
+      "canonical": "流式输出",
+      "aliases": [
+        "streaming",
+        "流式输出",
+        "逐字输出",
+        "打字机效果",
+        "逐字蹦",
+        "token 流",
+        "SSE",
+        "边生成边显示",
+        "流式渲染"
+      ]
+    },
+    {
+      "canonical": "生成式界面",
+      "aliases": [
+        "Generative UI",
+        "GenUI",
+        "streamUI",
+        "生成式 UI",
+        "生成式组件",
+        "组件白名单",
+        "动态组件路由",
+        "AI SDK RSC"
+      ]
+    },
+    {
+      "canonical": "对话状态机",
+      "aliases": [
+        "useChat",
+        "message.parts",
+        "AG-UI",
+        "RunStarted",
+        "RunFinished",
+        "TextMessageStart",
+        "ToolCallStart",
+        "四态状态机"
+      ]
+    },
+    {
+      "canonical": "聊天无障碍",
+      "aliases": [
+        "role=log",
+        "ARIA23",
+        "aria-live",
+        "aria-busy",
+        "aria-atomic",
+        "SC 4.1.3",
+        "Status Messages",
+        "读屏刷屏",
+        "polite"
+      ]
+    },
+    {
+      "canonical": "AI 纠错",
+      "aliases": [
+        "停止生成",
+        "重新生成",
+        "regenerate",
+        "编辑原消息重放",
+        "撤销自动化动作",
+        "HAX G9",
+        "四档恢复链",
+        "Hybrid UI",
+        "RICH 范式"
       ]
     }
   ]

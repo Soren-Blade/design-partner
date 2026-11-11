@@ -33,23 +33,24 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 direct-manipulation.md 前 3。
-# #31 换轮：13 条覆盖四段链路 / SC 2.5.x 契约族 / 事件与取消 / 目标尺寸，，且刻意混入
-# 「可访问性 / 读屏 / 键盘 / 验收 / 表单 / 中文」等跨域词（#26 P1 教训）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 conversational-generative-ui.md 前 3。
+# #32 换轮：13 条覆盖五段链路 / SC 4.1.3 与 ARIA23 / 生成式 UI 白名单 / 状态机与归位 /
+# 四档纠错 / Hybrid UI，且刻意混入「可访问性 / 读屏 / 键盘 / 验收 / 表单 / 中文 / 性能」等
+# 跨域词（#26 P1 教训）。#31 的 13 条已全部沉淀进 HIST_QUERIES。
 NEW_QUERIES = [
-    "拖拽 拖放 列表重排 单指针无拖动 WCAG 2.5.7",
-    "拖拽排序 只有鼠标能拖 G219 替代 箭头逐步移动",
-    "pointercancel 什么时候触发 pointermove 断掉 浏览器接管滚动",
-    "setPointerCapture 指针移出手柄 隐式捕获 验收",
-    "touch-action 该写什么 拖动时页面跟着滚 缩放 1.4.4",
-    "dragover preventDefault drop 不触发 DataTransfer 读写窗口",
-    "补个键盘快捷键 算不算无障碍 键盘拖放 Space Escape",
-    "读屏播报 live region position index aria-roledescription",
-    "按钮 24px 够吗 24×24 44×44 48dp 目标尺寸 验收",
-    "SC 2.5.5 AAA 44×44 spacing 例外 目标尺寸",
-    "path-based gesture 画个 Z 手势 2.5.1 路径手势 替代",
-    "SC 2.5.2 No Down-Event Up Reversal Abort Undo 取消",
-    "dnd-kit 25px 位移 NN/g 1cm 约 100ms 触屏拖拽",
+    "chatbot 聊天界面 流式输出 读屏一直刷屏 可访问性",
+    "流式回答正文 算不算 SC 4.1.3 状态消息 验收",
+    "role=log aria-live polite aria-atomic false ARIA23 读屏",
+    "aria-busy 什么时候复位 停止生成 出错 生成完毕 验收",
+    "生成式界面 streamUI 模型返回任意组件 组件白名单 安全",
+    "AI SDK RSC experimental 生产推荐 AI SDK UI 选型",
+    "useChat submitted streaming ready error 四态 message.parts 工具调用",
+    "AG-UI RunStarted RunFinished TextMessageStart Content End 事件顺序 验收",
+    "Hybrid UI RICH 范式 自然语言模糊意图 图形控件精确操作",
+    "AI 答错了 四档恢复链 HAX G9 撤销自动化动作 重新生成",
+    "停止生成 重新生成 setMessages 状态归位 队列清空 键盘",
+    "流式 Markdown 代码围栏未闭合 分片 节流 自动滚动 性能",
+    "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -130,14 +131,28 @@ HIST_QUERIES = [
     "tree testing 树测试 findability directness 度量 验收",
     "搜索建议 首次查询 51% 32% 联想词 结果页",
     "内容可发现性 站点地图 目录 位置感 验收",
+    # #32 沉淀：#31 主题门槛查询转为历史样本，验收「新增 conversational-generative-ui.md 后不退化」。
+    "拖拽 拖放 列表重排 单指针无拖动 WCAG 2.5.7",
+    "拖拽排序 只有鼠标能拖 G219 替代 箭头逐步移动",
+    "pointercancel 什么时候触发 pointermove 断掉 浏览器接管滚动",
+    "setPointerCapture 指针移出手柄 隐式捕获 验收",
+    "touch-action 该写什么 拖动时页面跟着滚 缩放 1.4.4",
+    "dragover preventDefault drop 不触发 DataTransfer 读写窗口",
+    "补个键盘快捷键 算不算无障碍 键盘拖放 Space Escape",
+    "读屏播报 live region position index aria-roledescription",
+    "按钮 24px 够吗 24×24 44×44 48dp 目标尺寸 验收",
+    "SC 2.5.5 AAA 44×44 spacing 例外 目标尺寸",
+    "path-based gesture 画个 Z 手势 2.5.1 路径手势 替代",
+    "SC 2.5.2 No Down-Event Up Reversal Abort Undo 取消",
+    "dnd-kit 25px 位移 NN/g 1cm 约 100ms 触屏拖拽",
 ]
 
-EXPECT_FILE = "direct-manipulation.md"
+EXPECT_FILE = "conversational-generative-ui.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #31：#30 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
+# #32：#31 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
 # 先按 #28 判例做内容层收敛（章节首行 / 标题措辞），不靠登记凑通过率。
 EXPECTED_EVOLUTION = {}
 

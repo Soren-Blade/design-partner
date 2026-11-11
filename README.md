@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v35-1677ff)
-![assets](https://img.shields.io/badge/reference_files-41-2ea44f)
+![version](https://img.shields.io/badge/version-v36-1677ff)
+![assets](https://img.shields.io/badge/reference_files-42-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-10-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-11-6e7781)
 
 ---
 
@@ -25,6 +25,7 @@
 | **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
 | **内容找不到 / 全是"了解更多"** | 只放一个搜索框就当导航、搜索藏进放大镜、链接全是 Learn More、零结果只写"没有结果"、404 讲俏皮话、长文案没人看 | `content-findability.md` 四层链路判层 + SC 2.4.5 至少两条路 + 链接目的契约族 + APG combobox + 零结果三件套 + 阅读等级门槛 + 树测试度量 |
 | **拖拽不好用 / 拖到一半断了** | 只有鼠标能拖、手指一拖页面就滚、补个键盘快捷键就当无障碍、pointercancel 没回滚、按钮 24px 当成推荐点击区、读屏播报 index | `direct-manipulation.md` 四段链路 + SC 2.5.7 单指针无拖动 + G219 四类替代 + PE3 pointercancel 因果链 + 目标尺寸三口径 + dnd-kit 键盘与播报契约 |
+| **AI 聊天界面难用 / 生成到一半收不回来** | 逐字输出把读屏刷到停不下来、「正在生成」没有状态播报、生成式卡片直接执行模型返回的任意组件、答错了只有一个重新生成按钮、停止之后按钮还在转圈、纯 chat 不给精确操作 | `conversational-generative-ui.md` 五段链路判层 + SC 4.1.3 状态边界 + ARIA23 `role=log` + `aria-busy` 三出口复位 + 组件白名单路由 + HAX G9 四档恢复链 + 状态归位表 + Hybrid UI 判型 |
 | **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
 | **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
@@ -37,8 +38,8 @@
 | **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 39 项自检 |
-| **知识找不到** | 41 份参考、107 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 40 项自检 |
+| **知识找不到** | 42 份参考、111 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -47,7 +48,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 152 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 157 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -88,6 +89,7 @@
 | [视觉层级与格式塔组织律](references/visual-hierarchy-gestalt.md) | 立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑） | 规则型 | 2026-11-08 |
 | [内容可发现性与可扫读性](references/content-findability.md) | 立场：可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度 / 四层链路模型（L1 有路·L2 认得出·L3 读得动·L4 走得出，先判层再改文案）/ 三条裁决（SC 2.4.5 AA 至少两条找路路径·G161 只是六项充分技术之一 / 链接目的脱离上下文仍成立·SC 2.4.4 A·2.4.9 AAA·3.2.4 AA·NN/g 前 11 字符 / SC 3.1.5 AAA 门槛是九年学校教育·FRE/FKGL/SMOG 精确系数且不可换算·音节公式禁套中文）/ APG combobox 全套 aria 与 DOM focus 契约 / M3 Search specs 精确尺寸 / 信息气味与 nano-content / NN/g 79%·16% 与 58/47/27/124% 口径边界 / GOV.UK 404 四条禁令 / tree testing 的 findability·directness / Plain Writing Act 2010 与中文六个代理指标（工程约定）/ 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-09 |
 | [直接操纵与指针交互](references/direct-manipulation.md) | 立场：直接操纵不是把对象跟着指针走，而是四条并存且互不替代的完成路径 / 四段链路模型（单指针无拖动·指针取消·键盘·读屏播报）/ 三条裁决（补键盘快捷键不满足 SC 2.5.7·2.5.1·G219 四类无拖动替代 / pointercancel 是 PE3 规范性必达事件·MUST suppress a pointer event stream 四步链·touch-action 因果 / 目标尺寸三口径·2.5.8 AA 24×24 含圆 spacing 例外·2.5.5 AAA 44×44·M2 48dp）/ PE3 事件契约与 capture 三方法 / touch-action 形式语法与三条陷阱 / HTML DnD 七事件与 DataTransfer 读写窗口 / dnd-kit 键盘默认 25px（自述 arbitrary）/ live region 播报 position 而非 index / NN/g signifier 双义·1cm×1cm·约 100ms / GitHub API 实测 10 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-10 |
+| [对话式与生成式界面](references/conversational-generative-ui.md) | 立场：对话式与生成式界面不是把聊天气泡套皮，是五段并存且每段都会失败的链路 / 五段判层模型（L1 发得出·L2 等得住·L3 读得动·L4 改得动·L5 收得回）/ 三条裁决（流式回答正文不是 SC 4.1.3 状态消息·状态边界才播报一次 / 生成式 UI 是组件白名单里的路由而非模型返回任意组件·streamUI tools 返回 React components / 纠错是停止·重试·编辑原消息重放·撤销自动化动作四档恢复链，不是单个重新生成按钮）/ W3C ARIA23 role=log 隐性 aria-live=polite 与 aria-atomic=false / F103 失败族与 assertive 双播 / aria-busy 三出口复位与空容器契约 / AI SDK RSC experimental 逐字句只在该页的口径纪律 / useChat submitted·streaming·ready·error 四态与 message.parts 优先于 content / AG-UI RunStarted·RunFinished|RunError 强制边界与 Start-Content-End 三模式 / Ant Design X RICH 四要素与 Hybrid UI 判型 / HAX G9 与原则层 18 条分流 / 状态归位表 / 流式 Markdown 未闭合围栏分片 / 来源引用与置信度 / GitHub API 实测 7 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-11 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -98,12 +100,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  200 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  205 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  39 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关）+ 交付说明三段式
+第 6 步  自检与交付    →  40 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -125,7 +127,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：224 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：230 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
@@ -144,7 +146,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 29 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互）、学习节奏表、152 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 30 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面）、学习节奏表、157 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -171,6 +173,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-11 | 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互） |
 | 2026-11-10 | 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） |
 | 2026-11-09 | 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability） |
 | 2026-11-08 | 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt） |
@@ -178,7 +181,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-07 | 每日升级 #27：字体排印系统（Typography System） |
 | 2026-11-07 | 每日升级 #26：视觉风格谱系与设计运动（Visual Style Taxonomy） |
 | 2026-11-07 | 每日升级 #25：色彩科学（Color Science） |
-| 2026-11-07 | 设计评审与反馈（Design Critique & Feedback，每日升级 #24） |
 
 ---
 
@@ -272,6 +274,21 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [NN/g · Drag-and-Drop](https://www.nngroup.com/articles/drag-drop/) — 2020-02-23：signifier 双义 / 1cm×1cm / a few milliseconds（未量化）/ roughly 100 ms / 触屏 only-when 两条件
 - [Material 2 · Accessibility](https://m2.material.io/design/usability/accessibility.html) · [Gestures](https://m2.material.io/design/interaction/gestures.html) — 48×48 dp / about 9mm / 7–10mm / iOS 44×44 pt / pointer 44×44 dp / 8dp（M3 accessibility-basics 本轮 404）
 - [dnd-kit](https://github.com/clauderic/dnd-kit) · [react-dnd](https://github.com/react-dnd/react-dnd) · [Sortable](https://github.com/SortableJS/Sortable) · [pragmatic-drag-and-drop](https://github.com/atlassian/pragmatic-drag-and-drop) · [interact.js](https://github.com/taye/interact.js) · [use-gesture](https://github.com/pmndrs/use-gesture) — 拖放 / 手势库生态（star / license / pushed_at 均 GitHub API 实测）
+- [W3C WCAG 2.2 · Understanding SC 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) — AA 逐字条文 / 搜索结果列表不是 status update / too chatty 风险 / F103 失败族
+- [W3C · ARIA23 Using role=log](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA23) — 隐性 `aria-live=polite` 与 `aria-atomic=false` / 聊天记录官方示例
+- [W3C · ARIA22 / ARIA19 / ARIA25 / ARIA27](https://www.w3.org/WAI/WCAG22/Techniques/aria/) — status / error / alert / region 各自的 live region 适用边界
+- [W3C · F103 Failure of SC 4.1.3](https://www.w3.org/WAI/WCAG22/Techniques/failures/F103) — `aria-live=assertive` 用于非紧急内容的失败判定
+- [MDN · ARIA log role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/log_role) · [Live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) · [aria-busy](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy) — 隐性值 / polite 排队 / busy 期间暂停播报
+- [Microsoft · Guidelines for Human-AI Interaction G9](https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/) — *"Make it easy to edit, refine, or recover when the AI system is wrong."* / G9-A~E 落地清单
+- [Microsoft HAX Design Library](https://www.microsoft.com/en-us/haxtoolkit/design-library/) — 18 条原则的模式库（原则层，链路层归本轮新资产）
+- [arXiv:2010.11761v1 · Human-AI Interaction Guidelines 综述](https://arxiv.org/html/2010.11761v1) — Google PAIR 6 章 113 条 / Microsoft 18 条 / Apple 59 条的统一分类与差异（HTML 版，PDF 未取）
+- [Ant Design X · RICH 设计范式](https://x.ant.design/docs/spec/introduce) — Intention / Role / Conversation / Hybrid UI 四要素与 WIMP 边界
+- [Ant Design X · Components Overview](https://x.ant.design/components/overview/) — Bubble / Sender / ThoughtChain / Prompts / Sources 组件分组
+- [Vercel AI SDK UI · Chatbot](https://ai-sdk.dev/docs/ai-sdk-ui/chatbot) — `useChat` 四态 `submitted·streaming·ready·error` / `message.parts` 优先于 `content` / `stop`·`regenerate`·`setMessages`
+- [Vercel AI SDK RSC · Streaming React Components](https://sdk.vercel.ai/docs/ai-sdk-rsc/streaming-react-components) — *"AI SDK RSC is currently experimental. We recommend using AI SDK UI for production."* / `streamUI` 的 tools 返回 React components（该逐字句只在此页）
+- [AG-UI · Events](https://docs.ag-ui.com/concepts/events) · [Reasoning](https://docs.ag-ui.com/concepts/reasoning) — `RunStarted` + `RunFinished|RunError` 强制边界 / Start-Content-End 与 Snapshot-Delta / `THINKING_*` 弃用迁移
+- [GitHub · vercel/ai](https://github.com/vercel/ai) · [ant-design/x](https://github.com/ant-design/x) · [assistant-ui/assistant-ui](https://github.com/assistant-ui/assistant-ui) · [CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit) — 对话式 UI 与生成式 UI 实现（star / license / pushed_at 均 GitHub API 实测）
+- [GitHub · open-webui/open-webui](https://github.com/open-webui/open-webui) · [ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui) · [vercel/streamdown](https://github.com/vercel/streamdown) — 聊天前端 / 事件协议 / 流式 Markdown 渲染（GitHub API 实测 7 库）
 
 ## 目录结构
 
@@ -279,7 +296,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（41 份，见上表）
+├── references/               # 知识库（42 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

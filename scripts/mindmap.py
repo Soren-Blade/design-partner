@@ -103,6 +103,11 @@ INTENTS = [
     ("拖动无障碍 / 键盘拖放 / 读屏播报 / Escape 取消", "direct-manipulation.md §5 SC 2.5.1 交叉约束 → §6 SC 2.5.2 与 G210 → §13 dnd-kit 键盘默认 → §14 live region"),
     ("目标尺寸 / 点击区 / 触控目标 / 24×24 / 44×44 / 48dp", "direct-manipulation.md §8 三口径裁决表 → §17 阈值与时序决策表 → §25.1 目标尺寸判定器"),
     ("手势 / 路径手势 / 长按 / 触屏拖动 / 磁吸", "direct-manipulation.md §5 SC 2.5.1 路径手势 → §15 NN/g signifier → §16 1cm×1cm 与约 100ms → §19 替代路径矩阵 → §20 库生态选型"),
+    ("对话式界面 / 聊天 UI / chatbot / 流式输出 / 打字机效果", "conversational-generative-ui.md §2 五段链路判层 → §3 SC 4.1.3 裁决一 → §4 ARIA23 role=log → §5 live region 契约 → §12 状态边界播报一次"),
+    ("生成式界面 / GenUI / streamUI / 组件白名单 / 动态组件", "conversational-generative-ui.md §6 裁决二 → §7 RSC experimental 与生产路径 → §8 message.parts → §20 代码 4 白名单分派"),
+    ("对话状态机 / useChat / message.parts / AG-UI 事件", "conversational-generative-ui.md §8 四态逐字 → §9 AG-UI 三模式与生命周期边界 → §13 状态归位表 → §20 代码 1 事件流校验器"),
+    ("AI 答错了 / 停止生成 / 重新生成 / 纠错 / 撤销自动化动作", "先读 conversational-generative-ui.md §11 HAX G9 四档恢复链 → §12 → §13；HAX 原则层 18 条归 ai-design-toolchain.md §10"),
+    ("混合界面 / Hybrid UI / RICH 范式 / 读屏刷屏 / aria-busy", "conversational-generative-ui.md §10 RICH 四要素与 WIMP 判型 → §5 aria-busy 三出口 → §16 来源与引用 → §17 场景 7/8"),
 ]
 
 

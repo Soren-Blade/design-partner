@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-10T21:40:47",
+ "generated": "2026-11-11T21:22:48",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 942,
-   "chars": 174454,
+   "lines": 964,
+   "chars": 178787,
    "sections": []
   },
   {
@@ -487,7 +487,7 @@
    "title": "AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界",
    "snapshot": "2026-11-06",
    "lines": 790,
-   "chars": 38205,
+   "chars": 38323,
    "sections": [
     {
      "id": "0-与既有资产的分层-先判该读哪份",
@@ -495,7 +495,7 @@
      "title": "0. 与既有资产的分层（先判该读哪份）",
      "summary": "边界纪律：本文件不重讲 WCAG 阈值、不断点数值、不 toast 时长、不色板 hex。需要数值去对应专项文件读，§12 是索引不是副本。副本必然漂移。",
      "line": 9,
-     "chars": 855
+     "chars": 973
     },
     {
      "id": "1-判层-ai-在设计流程的五个位置-以及哪些活不该交出去",
@@ -2430,6 +2430,263 @@
      "summary": "W3C / WAI（本轮逐页逐字核验）：Understanding WCAG 2.2 的 link-purpose-in-context.html（SC 2.4.4 A，含 Key Terms、16 项 Sufficient、F63/F89",
      "line": 908,
      "chars": 4768
+    }
+   ]
+  },
+  {
+   "path": "references/conversational-generative-ui.md",
+   "title": "对话式与生成式界面：流式输出、混合界面与可纠错契约",
+   "snapshot": "2026-11-11",
+   "lines": 747,
+   "chars": 39318,
+   "sections": [
+    {
+     "id": "0-一句话立场与三条裁决",
+     "level": 2,
+     "title": "0. 一句话立场与三条裁决",
+     "summary": "对话式与生成式界面（Conversational & Generative UI）不是「把聊天气泡套个皮」，而是一条五段并存且每一段都会失败的链路：发得出 → 等得住 → 读得动 → 改得动 → 收得回；任何一段没建模，界面就会在「模型正在",
+     "line": 10,
+     "chars": 1136
+    },
+    {
+     "id": "1-为什么这是结构性空白-缺口实测",
+     "level": 2,
+     "title": "1. 为什么这是结构性空白（缺口实测）",
+     "summary": "结构性空白是指：不是覆盖不足，而是全域没有独立资产，检索会把问题路由到完全不相干的文件。本轮用 scripts/dpsearch.py 与全域词频实测（v35 基线，41 份参考）判定。",
+     "line": 24,
+     "chars": 844
+    },
+    {
+     "id": "2-五段链路判层模型-l1-发得出-l5-收得回",
+     "level": 2,
+     "title": "2. 五段链路判层模型（L1 发得出 → L5 收得回）",
+     "summary": "先判问题落在哪一段，再动手改界面；一上来改气泡样式是典型的判层失败。",
+     "line": 43,
+     "chars": 638
+    },
+    {
+     "id": "3-裁决一-流式文本不是状态消息-状态边界才播报-sc-4-1-3-逐字",
+     "level": 2,
+     "title": "3. 裁决一：流式文本不是状态消息，状态边界才播报（SC 4.1.3 逐字）",
+     "summary": "WCAG 2.2 SC 4.1.3 Status Messages (Level AA) 规范条文逐字：",
+     "line": 59,
+     "chars": 2340
+    },
+    {
+     "id": "4-aria23-role-log-与隐性-aria-live-polite-aria-atomic-false",
+     "level": 2,
+     "title": "4. ARIA23 role=log 与隐性 aria-live=polite / aria-atomic=false",
+     "summary": "W3C Technique ARIA23《Using role=log to identify sequential information updates》是 SC 4.1.3 Situation C 的充分技术（Techniques a",
+     "line": 92,
+     "chars": 1765
+    },
+    {
+     "id": "5-聊天界面播报工程契约-chatbot-流式输出的状态边界-空容器-aria-busy-aria-relevant-assertive-双播",
+     "level": 2,
+     "title": "5. 聊天界面播报工程契约：chatbot 流式输出的状态边界（空容器、aria-busy、aria-relevant、assertive 双播）",
+     "summary": "以下为工程约定（规范未强制逐条），但每条都能追溯到官方机制，验收时按此清单过：",
+     "line": 118,
+     "chars": 1085
+    },
+    {
+     "id": "6-裁决二-生成式界面-streamui-是组件白名单里的路由-不是任意组件",
+     "level": 2,
+     "title": "6. 裁决二：生成式界面 streamUI 是组件白名单里的路由，不是任意组件",
+     "summary": "Vercel AI SDK RSC《Streaming React Components》官方原文逐字：",
+     "line": 137,
+     "chars": 2328
+    },
+    {
+     "id": "7-ai-sdk-rsc-experimental-与生产推荐路径-口径不张冠李戴",
+     "level": 2,
+     "title": "7. AI SDK RSC experimental 与生产推荐路径（口径不张冠李戴）",
+     "summary": "RSC 文档页首逐字（这句话只在这一页）：",
+     "line": 182,
+     "chars": 1067
+    },
+    {
+     "id": "8-usechat-四态状态机与-message-parts-parts-不是-content",
+     "level": 2,
+     "title": "8. useChat 四态状态机与 message.parts（parts 不是 content）",
+     "summary": "AI SDK UI Chatbot 官方对 useChat 的定位逐字：",
+     "line": 207,
+     "chars": 2807
+    },
+    {
+     "id": "9-ag-ui-对话状态机-runstarted-runerror-textmessagestart-与-messageid-归属",
+     "level": 2,
+     "title": "9. AG-UI 对话状态机：RunStarted / RunError / TextMessageStart 与 messageId 归属",
+     "summary": "AG-UI（Agent-User Interaction Protocol）官方逐字：",
+     "line": 240,
+     "chars": 2850
+    },
+    {
+     "id": "10-hybrid-ui-混合界面与-rich-范式-wimp-不是唯一解",
+     "level": 2,
+     "title": "10. Hybrid UI 混合界面与 RICH 范式（WIMP 不是唯一解）",
+     "summary": "Ant Design X 官方 RICH 设计范式四要素：Intention（意图）、Role（角色）、Conversation（会话）、Hybrid UI（混合界面）。其官方立场是：AI 对话不是要取代 WIMP（Window / Ico",
+     "line": 282,
+     "chars": 923
+    },
+    {
+     "id": "11-裁决三-ai-答错了要高效纠错-hax-g9-四档恢复链-不是重新生成按钮",
+     "level": 2,
+     "title": "11. 裁决三：AI 答错了要高效纠错（HAX G9）——四档恢复链，不是重新生成按钮",
+     "summary": "Microsoft HAX Design Library G9 逐字：",
+     "line": 302,
+     "chars": 2012
+    },
+    {
+     "id": "12-stop-regenerate-setmessages-与状态边界播报一次-含清空队列",
+     "level": 2,
+     "title": "12. stop / regenerate / setMessages 与状态边界播报一次（含清空队列）",
+     "summary": "把 §11 落成事件-动作对照，供实现直接抄：",
+     "line": 337,
+     "chars": 1027
+    },
+    {
+     "id": "13-状态归位表-每个动作后哪些状态必须复位",
+     "level": 2,
+     "title": "13. 状态归位表：每个动作后哪些状态必须复位",
+     "summary": "收口（L5）是「模型输出不确定」带来的特有缺陷域：传统界面状态由用户操作驱动，AI 界面状态由远端事件驱动，事件丢失就永久错位。",
+     "line": 358,
+     "chars": 779
+    },
+    {
+     "id": "14-流式渲染工程-增量-markdown-未闭合块-节流-自动滚动纪律",
+     "level": 2,
+     "title": "14. 流式渲染工程：增量 Markdown、未闭合块、节流、自动滚动纪律",
+     "summary": "流式 Markdown 不是「把字符串拼起来交给 renderer」——任意切分点都可能落在代码块、表格、链接、加粗标记中间。§20 代码 3 实跑证明：同一段含代码围栏的 Markdown，按 7 / 13 / 29 字符切分，处于未闭合",
+     "line": 378,
+     "chars": 700
+    },
+    {
+     "id": "15-l1-输入与发送-enter-shift-enter-禁用提交-队列-中文场景",
+     "level": 2,
+     "title": "15. L1 输入与发送：Enter / Shift+Enter、禁用提交、队列、中文场景",
+     "summary": "---",
+     "line": 391,
+     "chars": 565
+    },
+    {
+     "id": "16-来源-引用与置信度呈现-与-hax-18-条的边界",
+     "level": 2,
+     "title": "16. 来源、引用与置信度呈现（与 HAX 18 条的边界）",
+     "summary": "本文件不重列 HAX G1–G18，但要把三条界面落点说清，避免与 ai-design-toolchain.md §10 互相抢路由：",
+     "line": 405,
+     "chars": 442
+    },
+    {
+     "id": "17-12-个高频场景速查",
+     "level": 2,
+     "title": "17. 12 个高频场景速查",
+     "summary": "---",
+     "line": 417,
+     "chars": 920
+    },
+    {
+     "id": "18-反模式-20-条",
+     "level": 2,
+     "title": "18. 反模式 20 条",
+     "summary": "1. 把每个 token 塞进 aria-live=\"assertive\" —— 官方 Failure 族 + chatty 风险。",
+     "line": 436,
+     "chars": 1092
+    },
+    {
+     "id": "19-自检-20-项-交付前逐条过",
+     "level": 2,
+     "title": "19. 自检 20 项（交付前逐条过）",
+     "summary": "1. [ ] 对话容器是 role=\"log\" 且有 accessible name？隐性 polite / atomic=false 有没有被手动改坏？",
+     "line": 461,
+     "chars": 935
+    },
+    {
+     "id": "20-可抄代码-5-段-3-段-python-实跑-输出为本轮实测",
+     "level": 2,
+     "title": "20. 可抄代码 5 段（3 段 Python 实跑，输出为本轮实测）",
+     "summary": "校验 RunStarted / RunError 生命周期边界、Start-Content-End 三元组闭合、messageId 归属。",
+     "line": 486,
+     "chars": 1
+    },
+    {
+     "id": "代码-1-ag-ui-事件流校验器-python-实跑",
+     "level": 3,
+     "title": "代码 1 · AG-UI 事件流校验器（Python，实跑）",
+     "summary": "校验 RunStarted / RunError 生命周期边界、Start-Content-End 三元组闭合、messageId 归属。",
+     "line": 488,
+     "chars": 2193
+    },
+    {
+     "id": "代码-2-live-region-契约扫描器-python-实跑",
+     "level": 3,
+     "title": "代码 2 · live region 契约扫描器（Python，实跑）",
+     "summary": "静态扫描 role=log / role=status / assertive 滥用 / aria-busy 未复位。",
+     "line": 546,
+     "chars": 1129
+    },
+    {
+     "id": "代码-3-流式-markdown-分片鲁棒性-python-实跑",
+     "level": 3,
+     "title": "代码 3 · 流式 Markdown 分片鲁棒性（Python，实跑）",
+     "summary": "证明任意切分点会落在未闭合围栏内，必须 hold。",
+     "line": 584,
+     "chars": 615
+    },
+    {
+     "id": "代码-4-生成式-ui-组件白名单分派-typescript-react",
+     "level": 3,
+     "title": "代码 4 · 生成式 UI 组件白名单分派（TypeScript / React）",
+     "summary": "",
+     "line": 610,
+     "chars": 1
+    },
+    {
+     "id": "代码-5-对话容器的无障碍骨架-html",
+     "level": 3,
+     "title": "代码 5 · 对话容器的无障碍骨架（HTML）",
+     "summary": "---",
+     "line": 639,
+     "chars": 6
+    },
+    {
+     "id": "21-github-api-实测仓库-2026-11-11-经-github-api",
+     "level": 2,
+     "title": "21. GitHub API 实测仓库（2026-11-11 经 GitHub API）",
+     "summary": "star / license / pushedat / archived 均为本轮 api.github.com/repos/... 实测，不凭记忆写数字；NOASSERTION 表示 GitHub 未检出明确 SPDX，不代表「无许可」。",
+     "line": 666,
+     "chars": 1381
+    },
+    {
+     "id": "22-与其他资产的边界-避免重复与抢路由",
+     "level": 2,
+     "title": "22. 与其他资产的边界（避免重复与抢路由）",
+     "summary": "ai-design-toolchain.md 的分流表已同步修正：原则层（HAX 18 条）仍归该文件，链路层（流式 / 混合界面 / 纠错）归本文件。",
+     "line": 684,
+     "chars": 736
+    },
+    {
+     "id": "23-取源限制-公开记录-不臆造",
+     "level": 2,
+     "title": "23. 取源限制（公开记录，不臆造）",
+     "summary": "1. W3C WAI-ARIA 1.2 TR #log 被 Cloudflare 拦截：只返回 Just a moment...，未取得 normative definition / Superclass Role / Implicit V",
+     "line": 702,
+     "chars": 1457
+    },
+    {
+     "id": "24-数据来源清单",
+     "level": 2,
+     "title": "24. 数据来源清单",
+     "summary": "- W3C WCAG 2.2 Understanding SC 4.1.3 Status Messages — https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+     "line": 715,
+     "chars": 1324
+    },
+    {
+     "id": "25-术语与口径速记",
+     "level": 2,
+     "title": "25. 术语与口径速记",
+     "summary": "---",
+     "line": 732,
+     "chars": 739
     }
    ]
   },
@@ -7581,8 +7838,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 656,
-   "chars": 62210,
+   "lines": 671,
+   "chars": 64233,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -7793,9 +8050,9 @@
      "chars": 43
     },
     {
-     "id": "二十八条专题支线-可与主线并行",
+     "id": "三十条专题支线-可与主线并行",
      "level": 2,
-     "title": "二十八条专题支线（可与主线并行）",
+     "title": "三十条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -8041,11 +8298,19 @@
      "chars": 2021
     },
     {
-     "id": "能力自测-152-条-做到-106-条即达-l2",
-     "level": 2,
-     "title": "能力自测（152 条，做到 ≥106 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ad-对话式与生成式界面-把-边生成边变化-翻译成五段链路的完成路径",
+     "level": 3,
+     "title": "支线 AD · 对话式与生成式界面（把\"边生成边变化\"翻译成五段链路的完成路径）",
+     "summary": "- 这是什么（认知链路下游的输出端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」「直接操纵（按下指针之后）」相邻但问题不同——前三份都假设内容是确定的，本支线处理输出本身在流动、可能出错、可能带副作用。此前 41 份参考零独",
      "line": 513,
+     "chars": 1979
+    },
+    {
+     "id": "能力自测-157-条-做到-106-条即达-l2",
+     "level": 2,
+     "title": "能力自测（157 条，做到 ≥106 条即达 L2+）",
+     "summary": "L0",
+     "line": 528,
      "chars": 8677
     }
    ]
@@ -13182,8 +13447,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 659,
-   "chars": 108938,
+   "lines": 673,
+   "chars": 116379,
    "sections": []
   }
  ],

@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 二十八条专题支线（可与主线并行）
+## 三十条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -510,7 +510,22 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能复述 PE3 `MUST suppress a pointer event stream` 的四步链，并写出 `pointercancel` 回滚里必须做的五件事
 - [ ] 能区分 24×24（AA，含圆 spacing 例外）/ 44×44（AAA，无例外）/ 48×48 dp（M2 设计值），并说出把 24 当推荐值的错在哪
 
-## 能力自测（152 条，做到 ≥106 条即达 L2+）
+### 支线 AD · 对话式与生成式界面（把"边生成边变化"翻译成五段链路的完成路径）
+
+- **这是什么（认知链路下游的输出端）**：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」「直接操纵（按下指针之后）」相邻但问题不同——前三份都假设内容是确定的，本支线处理**输出本身在流动、可能出错、可能带副作用**。此前 41 份参考零独立资产，`dp_search.py "对话式界面 聊天 UI 流式输出"` 首位落到提示词工程与加载态，判定为结构性空白。
+- **三条最重要裁决**：① **流式回答正文不是 status message**——SC 4.1.3 逐字只管 *status messages*，官方明确「搜索结果列表不是 status update」，回答正文与结果同类；逐 chunk 进 `aria-live="assertive"` 属官方 Failure 族 + too "chatty" 风险；② **生成式 UI 是模型在受控组件目录里做路由**——Vercel 逐字 *"the model is akin to a dynamic router"*，组件名必须查白名单、`props` 必须过 `inputSchema`，RSC 页自述 *"currently experimental"* 并推荐 AI SDK UI 用于生产；③ **纠错是四档恢复链**——HAX G9 逐字 *"Make it easy to edit, refine, or recover when the AI system is wrong."*，停止 / 重试 / 编辑原消息 / 撤销自动化动作，不是一个「重新生成」按钮。
+- **精确值怎么取**：`role=log` 隐性 `aria-live="polite"` 与 `aria-atomic="false"`（W3C ARIA23 逐字，官方示例 1 即聊天记录）；`useChat.status` 四态 `submitted` / `streaming` / `ready` / `error`（官方逐字释义）；AG-UI `RunStarted` 与 `RunFinished|RunError` 是 mandatory boundaries、`RunError` 后 no further processing；`message.parts` 支持 text / tool invocation / tool result。
+- **判学会了**：能说出为什么逐 token 播报是错的、能复述 `aria-busy` 的三个必须复位出口、能判「让模型直接吐 JSX」错在哪、能列出编辑原消息时必须清空队列与截断分支的原因。
+- 材料：[W3C ARIA23](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA23) · [W3C SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) · [Microsoft HAX G9](https://www.microsoft.com/en-us/haxtoolkit/guideline/support-efficient-correction/) · [Ant Design X RICH](https://x.ant.design/docs/spec/introduce) · [Vercel AI SDK RSC](https://sdk.vercel.ai/docs/ai-sdk-rsc/streaming-react-components) · [AG-UI Events](https://docs.ag-ui.com/concepts/events)
+
+- [ ] 能逐字写出 SC 4.1.3 条文，并解释为什么回答正文不是 status message、逐 chunk 播报为什么踩 too "chatty" 风险
+- [ ] 能说出 `role=log` 的两个隐性值（polite / atomic=false），并解释为什么 `aria-busy` 不能挂在容器上且三个出口都必须复位
+- [ ] 能复述 `streamUI` 的「模型当路由 + 组件白名单 + `inputSchema`」三件套，并说出 RSC 页自述 experimental 的选型后果
+- [ ] 能列出四档恢复链（停止 / 重试 / 编辑原消息 / 撤销副作用），并说出编辑与重生成为什么必须清空队列
+- [ ] 能列出 `useChat` 四态与 AG-UI 三模式的映射，并判出「`RunError` 之后仍收到 chunk」属于哪一层失败
+
+
+## 能力自测（157 条，做到 ≥106 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

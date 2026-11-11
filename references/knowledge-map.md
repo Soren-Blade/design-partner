@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三十条专题支线（可与主线并行）
+## 三十一条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -525,7 +525,22 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能列出 `useChat` 四态与 AG-UI 三模式的映射，并判出「`RunError` 之后仍收到 chunk」属于哪一层失败
 
 
-## 能力自测（157 条，做到 ≥106 条即达 L2+）
+### 支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）
+
+- **这是什么（交互契约的边界端）**：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、`aria-modal` 能否标、Tab 是否越界、Escape 是否闭合、以及 2.4.11 下 focused component 会不会被完全遮住。此前 42 份参考对 `Popover API` / `closedby` / `top layer` / `inert` / 2.4.11 零独立资产，判定为结构性空白。
+- **三条最重要裁决**：① **模态由 inert 定义，不由遮罩定义**——W3C APG 逐字 *"Windows under a modal dialog are inert."* / *"Tab and Shift + Tab do not move focus outside the dialog."* / *"Escape: Closes the dialog."*，且 `aria-modal="true"` 只在「代码阻止一切外部交互」且「视觉遮蔽外内容」双条件齐备时才标（*"mark a dialog modal only when both"*）；② **Popover API 永远非模态**——MDN 逐字 *"Popovers created using the Popover API are always non-modal."*，`<dialog>` 只有 `showModal()` 才进 top layer 并由浏览器提供 inert，三态 `auto`/`hint`/`manual` 是三套关闭与堆叠契约而非三种动画；③ **伪模态是四条款合取的最坏形态**——SC 2.4.11 *"A properly constructed modal dialog will always pass this SC"*，而「不接管焦点、不约束交互、不失焦自关」的 dialog-like overlay *"will be at risk of failing"*；SC 1.4.13 / 2.1.2 / 3.2.1 分别管 hover 内容消隐、标准退出法与 focus 触发 change of context。
+- **精确值怎么取**：APG 初始焦点四种情形与关闭后 *"focus returns to the element that invoked the dialog"*；MDN 明令**禁止**在 `<dialog>` 容器上加 `tabindex`；`closedby` 三值 `any`/`closerequest`/`none`；`popovertargetaction` 三值 `hide`/`show`/`toggle`；`beforetoggle` / `toggle` 两事件；SC 2.4.11 是 **AA**，检查对象是 focused component 而非 focus indicator；C43 `scroll-padding`、F110 sticky footer。
+- **判学会了**：能用四问判出某个「弹窗」到底是模态 dialog、非模态 popover 还是伪模态；能解释为什么 `z-index: 9999` 修不好 Tab 穿透；能说出 Note 2 三条「不推进键盘焦点即可显形」的出路；能判出「字段一获焦就弹帮助框」同时踩了哪两条准则。
+- 材料：[W3C APG Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) · [MDN `<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) · [MDN Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) · [WCAG 2.2 · SC 2.4.11](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html) · [WCAG 2.2 · SC 1.4.13](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html) · [Apple HIG Modality](https://developer.apple.com/design/human-interface-guidelines/modality) · [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)
+
+- [ ] 能逐字写出 APG 的四条键盘契约（打开时焦点进层 / Tab / Shift+Tab / Escape），并说明关闭后焦点去哪
+- [ ] 能说出 `aria-modal="true"` 的双条件，并解释为什么「声明」不能替代 inert 实现
+- [ ] 能区分 `showModal()` / `show()` / `open` 属性 / CSS `display` 四种打开方式的模态性，并复述 `closedby` 三值
+- [ ] 能列出 Popover 三态与 auto·hint 双栈的六条规则，并解释为什么 `<dialog popover>` 叠加后仍非模态
+- [ ] 能列出 SC 1.4.13 三条件与 SC 2.4.11 Note 2 三条出路，并判出「持久浮层只能 Tab 回去点 X」属于 RISK 还是 FAIL
+
+
+## 能力自测（162 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

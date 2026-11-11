@@ -339,3 +339,38 @@
 - https://github.com/open-webui/open-webui | [GH] open-webui（API 实测 158,371★ / NOASSERTION / 2026-11-11 / 未归档）
 - https://github.com/ag-ui-protocol/ag-ui | [GH] AG-UI Protocol（API 实测 17,110★ / MIT / 2026-11-11 / 未归档）
 - https://github.com/vercel/streamdown | [GH] streamdown（API 实测 5,754★ / NOASSERTION / 2026-11-10 / 未归档）
+
+## 二十二、叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）【本轮新增分区】
+
+- https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/ | W3C APG Dialog (Modal) Pattern 逐字：Windows under a modal dialog are inert / Tab 与 Shift+Tab 不越界 / Escape: Closes the dialog / focus returns to the element that invoked the dialog / aria-modal 仅在「代码阻止一切外部交互 + 视觉遮蔽外内容」双条件时才标 true / 初始焦点四种情形 / 强推荐可见关闭按钮
+- https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/ | W3C APG Alert and Message Dialogs：role=alertdialog / aria-modal=true / aria-describedby 指向 alert message（与 dialog 的关键差异）
+- https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/ | W3C APG Tooltip Pattern（页面自述 WIP、未达 task force consensus）：Tooltip widgets do not receive focus / Escape 关闭 / 焦点留在触发元素 / 含可聚焦元素的 hover 应改用 non-modal dialog
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog | MDN dialog 逐字：showModal() 模态 / show() 与 open 属性非模态 / 隐式 aria-modal=true / closedby=any·closerequest·none 三值 / autofocus 与首个可聚焦元素 / 禁在 dialog 上加 tabindex / Escape 只关最后一层 / cancel 事件与 returnValue / @starting-style + overlay + allow-discrete
+- https://developer.mozilla.org/en-US/docs/Web/API/Popover_API | MDN Popover API 逐字：Popovers created using the Popover API are always non-modal / popover=auto·hint·manual / popovertargetaction=hide·show·toggle / showPopover·hidePopover·togglePopover / beforetoggle·toggle / interestfor 与 interest invokers
+- https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using | MDN Using：auto stack 与 hint stack 双栈 / 六条交互规则 / light dismiss / 打开时只更新 tab 顺序不移焦点、键盘关闭时 focus is shifted back to the invoker / 嵌套 auto / hint 父级降级 / showModal() 会 dismiss auto popovers
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert | MDN inert：外部内容 inert 的浏览器原生语义
+- https://developer.mozilla.org/en-US/docs/Glossary/Top_layer | MDN Top layer：顶层不是 z-index 的延伸，是独立绘制层
+- https://html.spec.whatwg.org/multipage/popover.html | WHATWG HTML Popover 规范章节（MDN Specifications 指向）
+- https://open-ui.org/components/popover.research.explainer/ | Open UI Popover Explainer：Popover API 提案来源与 auto/manual 语义沿革
+- https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html | W3C SC 1.4.13 AA 逐字：Dismissible / Hoverable / Persistent 三条定义 + Exception（UA 控制）+ Note 1/2/3 + Modal dialogs are out of scope for this criterion because they must take keyboard focus and thus should not appear on hover or focus.
+- https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html | W3C SC 2.4.11 AA 逐字：the component is not entirely hidden due to author-created content + Note 1 初始位置 + Note 2 用户打开内容 / Modal dialogs: A properly constructed modal dialog will always pass this SC. / dialog-like overlay 失败风险 / sticky footer 与 chat window 例 / semi-transparent overlays 与 1.4.11 交叉
+- https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html | W3C SC 2.4.12 AAA：none of the component receiving focus should be obscured（AA 与 AAA 的分界）
+- https://www.w3.org/WAI/WCAG22/Techniques/css/C43 | W3C C43 scroll-padding：让 sticky 层不遮住焦点项的充分技术
+- https://www.w3.org/WAI/WCAG22/Techniques/failures/F110 | W3C F110：sticky footer/header 完全遮住焦点元素的 Failure
+- https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html | W3C SC 2.1.2 A 逐字：焦点限制在 modal dialog or popover 内不算陷阱，条件是用户知道如何退出 / Esc 是常见 standard exit method
+- https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html | W3C SC 3.2.1 A 逐字：focus 不触发 change of context / Example of a Failure: A help dialog / G107 用 activate 而非 focus
+- https://developer.apple.com/design/human-interface-guidelines/modality | Apple HIG Modality 逐字定义与 Best practices：Present content modally only when there's a clear benefit / keep modal tasks simple, short, and streamlined / Always give people an obvious way to dismiss a modal view / Let people dismiss a modal view before presenting another one / 关闭前防数据丢失
+- https://m3.material.io/components/dialogs/overview | Material 3 Dialogs（JS 渲染，本轮只取 200 可达性，不引未经逐字核验的数值）
+- https://m3.material.io/components/bottom-sheets/overview | Material 3 Bottom sheets（同上，仅登记取源入口，具体数值不写入）
+- https://www.radix-ui.com/primitives/docs/components/dialog | Radix Dialog：modal 默认 true / Focus is automatically trapped within modal / Esc closes the component automatically / Overlay「covers the inert portion of the view」/ Title·Description 的 aria-describedby 告警 / onOpenAutoFocus·onCloseAutoFocus·onPointerDownOutside
+- https://www.radix-ui.com/primitives/docs/components/popover | Radix Popover：非模态侧的组件契约入口
+- https://github.com/radix-ui/primitives | [GH] Radix Primitives（API 实测 19,493★ / MIT / pushed 2026-10-14 / 未归档）
+- https://github.com/floating-ui/floating-ui | [GH] Floating UI（API 实测 32,800★ / MIT / 2026-11-04 / 未归档）
+- https://github.com/adobe/react-spectrum | [GH] React Spectrum（API 实测 16,025★ / Apache-2.0 / 2026-11-11 / 未归档）
+- https://github.com/ariakit/ariakit | [GH] Ariakit（API 实测 8,632★ / 未检出 SPDX / 2026-11-11 / 未归档）
+- https://github.com/tailwindlabs/headlessui | [GH] Headless UI（API 实测 28,823★ / MIT / 2026-04-13 / 未归档）
+- https://github.com/openui/open-ui | [GH] Open UI（API 实测 4,540★ / NOASSERTION / 2026-11-10 / 未归档）
+- https://github.com/w3c/aria-practices | [GH] W3C ARIA APG 源仓库（API 实测 1,362★ / NOASSERTION / 2026-11-11 / 未归档）
+- https://github.com/KittyGiraudel/a11y-dialog | [GH] a11y-dialog（API 实测 2,492★ / MIT / 2026-11-09 / 未归档）
+- https://github.com/focus-trap/focus-trap | [GH] focus-trap（API 实测 1,564★ / MIT / 2026-11-11 / 未归档）
+- https://github.com/reactjs/react-modal | [GH] react-modal（API 实测 7,405★ / MIT / 2026-03-02 / 未归档）

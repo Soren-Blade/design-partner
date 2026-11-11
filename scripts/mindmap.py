@@ -108,6 +108,11 @@ INTENTS = [
     ("对话状态机 / useChat / message.parts / AG-UI 事件", "conversational-generative-ui.md §8 四态逐字 → §9 AG-UI 三模式与生命周期边界 → §13 状态归位表 → §20 代码 1 事件流校验器"),
     ("AI 答错了 / 停止生成 / 重新生成 / 纠错 / 撤销自动化动作", "先读 conversational-generative-ui.md §11 HAX G9 四档恢复链 → §12 → §13；HAX 原则层 18 条归 ai-design-toolchain.md §10"),
     ("混合界面 / Hybrid UI / RICH 范式 / 读屏刷屏 / aria-busy", "conversational-generative-ui.md §10 RICH 四要素与 WIMP 判型 → §5 aria-busy 三出口 → §16 来源与引用 → §17 场景 7/8"),
+    ("模态判型 / 焦点陷阱 / inert / aria-modal / 四问判型", "overlays-modality.md §1 四问判型 → §3 APG 焦点契约 → §4 aria-modal 双条件 → §20.1 判型器"),
+    ("原生 dialog / showModal / closedby / ::backdrop / returnValue", "overlays-modality.md §5 showModal 与 top layer → §7 ::backdrop 与 z-index 分界 → §13 关闭契约 → §20.4 原生骨架"),
+    ("Popover API / popover 三态 / auto hint manual / 顶层栈", "overlays-modality.md §6 always non-modal 与双栈六规则 → §7 top layer → §14 层叠嵌套 → §15 组件族谱"),
+    ("hover 浮层 / tooltip / SC 1.4.13 / Dismissible Hoverable Persistent", "overlays-modality.md §9 三条件 → §12 SC 3.2.1 help dialog 失败例 → §20.2 校验器"),
+    ("浮层遮挡 / SC 2.4.11 / F110 / C43 / 退出契约", "overlays-modality.md §10 modal always pass 与 Note 2 三出路 → §11 SC 2.1.2 → §13 关闭契约 → §20.3 遮挡裁决器"),
 ]
 
 

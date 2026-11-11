@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-11T21:22:48",
+ "generated": "2026-11-11T23:12:49",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 964,
-   "chars": 178787,
+   "lines": 985,
+   "chars": 185309,
    "sections": []
   },
   {
@@ -7838,8 +7838,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 671,
-   "chars": 64233,
+   "lines": 686,
+   "chars": 66794,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8050,9 +8050,9 @@
      "chars": 43
     },
     {
-     "id": "三十条专题支线-可与主线并行",
+     "id": "三十一条专题支线-可与主线并行",
      "level": 2,
-     "title": "三十条专题支线（可与主线并行）",
+     "title": "三十一条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -8306,11 +8306,19 @@
      "chars": 1979
     },
     {
-     "id": "能力自测-157-条-做到-106-条即达-l2",
-     "level": 2,
-     "title": "能力自测（157 条，做到 ≥106 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ae-叠加层交互契约-把-inert-与顶层栈翻译成四问判型的完成路径",
+     "level": 3,
+     "title": "支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）",
+     "summary": "- 这是什么（交互契约的边界端）：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、aria-modal 能否标、Tab 是否",
      "line": 528,
+     "chars": 2514
+    },
+    {
+     "id": "能力自测-162-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（162 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 543,
      "chars": 8677
     }
    ]
@@ -9556,6 +9564,455 @@
      "summary": "- 项数/分组 → 本节 §3、§4（米勒 7±2、深度≤3）",
      "line": 269,
      "chars": 368
+    }
+   ]
+  },
+  {
+   "path": "references/overlays-modality.md",
+   "title": "叠加层与模态性：判型、焦点契约、顶层栈与非模态消隐",
+   "snapshot": "2026-11-11",
+   "lines": 926,
+   "chars": 64653,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "0. 一句话立场",
+     "summary": "模态不是一层半透明黑色遮罩，是一份「外部还能不能被操作」的交互契约。 一个界面可以没有遮罩却是模态（代码阻止了外部交互），也可以有遮罩却不是模态（外部仍可点、Tab 仍能走出去）。把模态当成视觉效果来做，就会同时踩中四条独立规范：APG 焦",
+     "line": 10,
+     "chars": 381
+    },
+    {
+     "id": "1-四问判型决策树-inert-焦点-触发-退出",
+     "level": 2,
+     "title": "1. 四问判型决策树：inert / 焦点 / 触发 / 退出",
+     "summary": "先答四问，不要先看设计稿长什么样：",
+     "line": 18,
+     "chars": 1238
+    },
+    {
+     "id": "2-三条最重要裁决",
+     "level": 2,
+     "title": "2. 三条最重要裁决",
+     "summary": "W3C APG 逐字：\"A dialog is a window overlaid on either the primary window or another dialog window. Windows under a modal d",
+     "line": 40,
+     "chars": 1
+    },
+    {
+     "id": "裁决一-模态性由-inert-定义-不由遮罩定义-aria-modal-是-声明-不是-实现",
+     "level": 3,
+     "title": "裁决一 · 模态性由 inert 定义，不由遮罩定义；aria-modal 是「声明」不是「实现」",
+     "summary": "W3C APG 逐字：\"A dialog is a window overlaid on either the primary window or another dialog window. Windows under a modal d",
+     "line": 42,
+     "chars": 1046
+    },
+    {
+     "id": "裁决二-popover-api-永远非模态-它与-dialog-是两套机制-不是彼此的轻量替代",
+     "level": 3,
+     "title": "裁决二 · Popover API 永远非模态；它与 <dialog 是两套机制，不是彼此的轻量替代",
+     "summary": "MDN 逐字：\"Popovers created using the Popover API are always non-modal. If you want to create a modal popover, a <dialog el",
+     "line": 50,
+     "chars": 654
+    },
+    {
+     "id": "裁决三-浮层不挡焦点-是-wcag-2-2-新增的-aa-硬要求-模态天然通过-伪模态最危险",
+     "level": 3,
+     "title": "裁决三 · 「浮层不挡焦点」是 WCAG 2.2 新增的 AA 硬要求，模态天然通过、伪模态最危险",
+     "summary": "SC 2.4.11 Focus Not Obscured (Minimum)（Level AA）逐字：\"When a user interface component receives keyboard focus, the compone",
+     "line": 58,
+     "chars": 1095
+    },
+    {
+     "id": "3-apg-对话框契约逐字条文-初始焦点-tab-循环-escape-关闭后归位",
+     "level": 2,
+     "title": "3. APG 对话框契约逐字条文：初始焦点、Tab 循环、Escape、关闭后归位",
+     "summary": "W3C APG《Dialog (Modal) Pattern》Keyboard Interaction 逐字（这是实现验收清单，不是建议）：",
+     "line": 68,
+     "chars": 830
+    },
+    {
+     "id": "3-1-初始焦点的四种情形-apg-note-1-逐字要点-按内容选-不是一律聚焦第一个按钮",
+     "level": 3,
+     "title": "3.1 初始焦点的四种情形（APG Note 1 逐字要点，按内容选，不是一律聚焦第一个按钮）",
+     "summary": "1. 内容含列表 / 表格 / 多段语义结构 → 给开头静态元素 tabindex=\"-1\" 并聚焦它，this makes it easier for assistive technology users to read the cont",
+     "line": 79,
+     "chars": 1425
+    },
+    {
+     "id": "3-2-关闭后焦点归位-apg-note-2-逐字",
+     "level": 3,
+     "title": "3.2 关闭后焦点归位（APG Note 2 逐字）",
+     "summary": "When a dialog closes, focus returns to the element that invoked the dialog unless either:",
+     "line": 90,
+     "chars": 826
+    },
+    {
+     "id": "3-3-语义清单-apg-wai-aria-roles-states-and-properties",
+     "level": 3,
+     "title": "3.3 语义清单（APG WAI-ARIA Roles, States, and Properties）",
+     "summary": "- 容器 role=\"dialog\"；操作该 dialog 所需的全部元素必须是该容器的后代。",
+     "line": 98,
+     "chars": 613
+    },
+    {
+     "id": "3-4-关于-aria-hidden-的历史包袱",
+     "level": 3,
+     "title": "3.4 关于 aria-hidden 的历史包袱",
+     "summary": "APG Note 逐字：\"The aria-modal property introduced by ARIA 1.1 replaces aria-hidden for informing assistive technologies th",
+     "line": 106,
+     "chars": 512
+    },
+    {
+     "id": "4-aria-modal-true-双条件与误标后果",
+     "level": 2,
+     "title": "4. aria-modal=\"true\" 双条件与误标后果",
+     "summary": "APG 逐字（两处：Dialog Modal Pattern 与 Alert Dialog Pattern 措辞完全一致）：",
+     "line": 112,
+     "chars": 1000
+    },
+    {
+     "id": "5-原生-dialog-的浏览器代劳清单-showmodal-show-open-closedby",
+     "level": 2,
+     "title": "5. 原生 <dialog 的浏览器代劳清单：showModal / show / open / closedby",
+     "summary": "MDN 逐字：\"The HTML <dialog element is used to create both modal and non-modal dialog boxes.\" 三种打开方式对应三种交互契约：",
+     "line": 134,
+     "chars": 1006
+    },
+    {
+     "id": "5-1-closedby-三值-mdn-逐字",
+     "level": 3,
+     "title": "5.1 closedby 三值（MDN 逐字）",
+     "summary": "closedby 区分三类关闭动作：\"A light dismiss user action, in which the <dialog is closed when the user clicks or taps outside it\"、",
+     "line": 146,
+     "chars": 1449
+    },
+    {
+     "id": "5-2-其余必须记住的逐字点",
+     "level": 3,
+     "title": "5.2 其余必须记住的逐字点",
+     "summary": "- 多个模态层：\"If multiple modal dialogs are open, pressing the Esc key should close only the last shown dialog. When using <d",
+     "line": 160,
+     "chars": 1727
+    },
+    {
+     "id": "6-popover-api-三态-always-non-modal-与-auto-hint-manual-双栈",
+     "level": 2,
+     "title": "6. Popover API 三态：always non-modal 与 auto · hint · manual 双栈",
+     "summary": "MDN：\"Popovers created using the Popover API are always non-modal.\" 同一页把术语分清楚：\"This content can take several different na",
+     "line": 171,
+     "chars": 1
+    },
+    {
+     "id": "6-1-逐字定调",
+     "level": 3,
+     "title": "6.1 逐字定调",
+     "summary": "MDN：\"Popovers created using the Popover API are always non-modal.\" 同一页把术语分清楚：\"This content can take several different na",
+     "line": 173,
+     "chars": 394
+    },
+    {
+     "id": "6-2-三态契约-mdn-using-逐字",
+     "level": 3,
+     "title": "6.2 三态契约（MDN Using 逐字）",
+     "summary": "逐字注意：\"Note also that popover=\"hint\" falls back to popover=\"manual\" in unsupporting browsers.\" —— 用 hint 必须做能力检测与降级，降级后「多",
+     "line": 177,
+     "chars": 969
+    },
+    {
+     "id": "6-3-双栈六条交互规则-mdn-逐字",
+     "level": 3,
+     "title": "6.3 双栈六条交互规则（MDN 逐字）",
+     "summary": "The browser maintains two independent stacks of open popovers: an auto stack for auto popovers, and a hint stack for hin",
+     "line": 187,
+     "chars": 1235
+    },
+    {
+     "id": "6-4-焦点与-aria-最容易与-dialog-混淆的一节",
+     "level": 3,
+     "title": "6.4 焦点与 ARIA（最容易与 dialog 混淆的一节）",
+     "summary": "MDN 逐字：\"When a relationship is established between a popover and its control (invoker) via the popovertarget attribute, ",
+     "line": 199,
+     "chars": 856
+    },
+    {
+     "id": "6-5-声明式与命令式-api-速查",
+     "level": 3,
+     "title": "6.5 声明式与命令式 API 速查",
+     "summary": "HTML：popover（auto / hint / manual）、popovertarget（指向 id）、popovertargetaction（hide / show / toggle，缺省 toggle）、interestfor（",
+     "line": 208,
+     "chars": 766
+    },
+    {
+     "id": "7-top-layer-inert-backdrop-与-z-index-的分界",
+     "level": 2,
+     "title": "7. top layer、inert、::backdrop 与 z-index 的分界",
+     "summary": "- top layer 是独立绘制层，不是更大的 z-index。MDN 逐字：<dialog \"being removed from / added to the top layer and the accessibility tree\"",
+     "line": 219,
+     "chars": 2030
+    },
+    {
+     "id": "8-wcag-2-2-四条款矩阵-谁管叠加层的哪一段",
+     "level": 2,
+     "title": "8. WCAG 2.2 四条款矩阵：谁管叠加层的哪一段",
+     "summary": "配套但不在本文件主线的：SC 2.4.12 Focus Not Obscured (Enhanced)（AAA，\"none of the component receiving focus should be obscured\"）、SC 2",
+     "line": 229,
+     "chars": 1048
+    },
+    {
+     "id": "9-sc-1-4-13-三条件-dismissible-hoverable-persistent-逐字与可执行判定",
+     "level": 2,
+     "title": "9. SC 1.4.13 三条件：Dismissible / Hoverable / Persistent 逐字与可执行判定",
+     "summary": "《Understanding SC 1.4.13 Content on Hover or Focus》（Level AA）规范性条文逐字：",
+     "line": 244,
+     "chars": 1579
+    },
+    {
+     "id": "9-1-范围裁决-模态明确不适用",
+     "level": 3,
+     "title": "9.1 范围裁决：模态明确不适用",
+     "summary": "W3C Additional Notes 逐字：\"Modal dialogs are out of scope for this criterion because they must take keyboard focus and thu",
+     "line": 264,
+     "chars": 327
+    },
+    {
+     "id": "9-2-三条的可执行判定-工程约定-验收时逐条给证据",
+     "level": 3,
+     "title": "9.2 三条的可执行判定（工程约定，验收时逐条给证据）",
+     "summary": "- Dismissible：在不移动鼠标、不移动键盘焦点的前提下能关掉。W3C Intent 逐字给了标准做法：\"such as pressing the Esc key\"；并给两项豁免 \"The additional content co",
+     "line": 270,
+     "chars": 1148
+    },
+    {
+     "id": "9-3-tooltip-的正确形态-apg-tooltip-pattern",
+     "level": 3,
+     "title": "9.3 tooltip 的正确形态（APG Tooltip Pattern）",
+     "summary": "APG 逐字：\"A tooltip is a popup that displays information related to an element when the element receives keyboard focus or",
+     "line": 276,
+     "chars": 1093
+    },
+    {
+     "id": "10-浮层遮挡裁决-2-4-11-的四类官方判词-两条例外-通过手段与-f110",
+     "level": 2,
+     "title": "10. 浮层遮挡裁决：2.4.11 的四类官方判词、两条例外、通过手段与 F110",
+     "summary": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created cont",
+     "line": 290,
+     "chars": 1
+    },
+    {
+     "id": "10-1-条文与两条-note-逐字",
+     "level": 3,
+     "title": "10.1 条文与两条 Note 逐字",
+     "summary": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created cont",
+     "line": 292,
+     "chars": 1018
+    },
+    {
+     "id": "10-2-四类叠加层的官方裁决表",
+     "level": 3,
+     "title": "10.2 四类叠加层的官方裁决表",
+     "summary": "",
+     "line": 302,
+     "chars": 1289
+    },
+    {
+     "id": "10-3-note-2-的三条合法出路-w3c-逐字示例",
+     "level": 3,
+     "title": "10.3 Note 2 的三条合法出路（W3C 逐字示例）",
+     "summary": "keyboard actions that may allow the item with focus to be revealed include: using the Escape key to dismiss the obscurin",
+     "line": 312,
+     "chars": 462
+    },
+    {
+     "id": "10-4-通过手段-官方与工程分列",
+     "level": 3,
+     "title": "10.4 通过手段（官方与工程分列）",
+     "summary": "- 官方充分技术 C43：\"Using CSS scroll-padding to un-obscure content\"；官方 Failure F110：\"due to a sticky footer or header complete",
+     "line": 318,
+     "chars": 916
+    },
+    {
+     "id": "11-sc-2-1-2-no-keyboard-trap-焦点循环允许的前提是-退出可知-可达",
+     "level": 2,
+     "title": "11. SC 2.1.2 No Keyboard Trap：焦点循环允许的前提是「退出可知、可达」",
+     "summary": "条文（Level A）逐字：",
+     "line": 329,
+     "chars": 1866
+    },
+    {
+     "id": "12-sc-3-2-1-on-focus-focus-不得触发-change-of-context-hover-触发也不等于可以抢焦点",
+     "level": 2,
+     "title": "12. SC 3.2.1 On Focus：focus 不得触发 change of context，hover 触发也不等于可以抢焦点",
+     "summary": "条文（Level A）逐字：\"When any user interface component receives focus, it does not initiate a change of context.\"",
+     "line": 349,
+     "chars": 1559
+    },
+    {
+     "id": "13-关闭契约矩阵-closedby-三值与七条退出路径",
+     "level": 2,
+     "title": "13. 关闭契约矩阵：closedby 三值与七条退出路径",
+     "summary": "关闭状态归位表（工程约定，逐项都要复位，缺一项就是「关了但没关干净」）：",
+     "line": 367,
+     "chars": 1693
+    },
+    {
+     "id": "14-层叠与嵌套-一次一个-双栈-escape-只关最后一层",
+     "level": 2,
+     "title": "14. 层叠与嵌套：一次一个、双栈、Escape 只关最后一层",
+     "summary": "- Apple HIG 逐字：\"Let people dismiss a modal view before presenting another one. Allowing multiple modal views to be visib",
+     "line": 395,
+     "chars": 1499
+    },
+    {
+     "id": "15-组件族谱判型表-12-类-先判型再选实现",
+     "level": 2,
+     "title": "15. 组件族谱判型表（12 类；先判型再选实现）",
+     "summary": "一条速记：要不要模态，只取决于「用户此刻是否必须处理完才能回到原任务」；Apple HIG 逐字 \"Present content modally only when there's a clear benefit. A modal exp",
+     "line": 405,
+     "chars": 1677
+    },
+    {
+     "id": "16-平台与设计系统口径-原文-vs-工程约定分列",
+     "level": 2,
+     "title": "16. 平台与设计系统口径（原文 vs 工程约定分列）",
+     "summary": "定义：\"Modality is a design technique that presents content in a separate, dedicated mode that prevents interaction with th",
+     "line": 426,
+     "chars": 1
+    },
+    {
+     "id": "16-1-apple-hig-modality-逐字",
+     "level": 3,
+     "title": "16.1 Apple HIG Modality（逐字）",
+     "summary": "定义：\"Modality is a design technique that presents content in a separate, dedicated mode that prevents interaction with th",
+     "line": 428,
+     "chars": 996
+    },
+    {
+     "id": "16-2-radix-primitives-dialog-逐字",
+     "level": 3,
+     "title": "16.2 Radix Primitives Dialog（逐字）",
+     "summary": "Features 逐字：\"Supports modal and non-modal modes.\" / \"Focus is automatically trapped within modal.\" / \"Manages screen rea",
+     "line": 434,
+     "chars": 1178
+    },
+    {
+     "id": "16-3-material-3-open-ui-口径限制",
+     "level": 3,
+     "title": "16.3 Material 3 / Open UI（口径限制）",
+     "summary": "M3 components/dialogs/overview 与 components/bottom-sheets/overview 本轮均返回 200，但内容为 JS 动态渲染，未取得可逐字核验的尺寸 / 时长 / 行为数值，因此本文件不",
+     "line": 443,
+     "chars": 281
+    },
+    {
+     "id": "16-4-github-api-实测-10-库-2026-11-11",
+     "level": 3,
+     "title": "16.4 GitHub API 实测 10 库（2026-11-11）",
+     "summary": "口径纪律：NOASSERTION ≠ 无许可、未检出 SPDX ≠ 未授权；ariakit/ariakit 与 openui/open-ui 的具体许可须到仓库 LICENSE 文件逐字核验，本表只记录 API 返回的字段，不做推断。★ 与",
+     "line": 447,
+     "chars": 888
+    },
+    {
+     "id": "17-12-场景决策速查",
+     "level": 2,
+     "title": "17. 12 场景决策速查",
+     "summary": "1. 删除确认：role=\"alertdialog\" + 模态 + aria-describedby 指向后果说明；初始焦点落「取消」（APG 最不破坏性动作）；Esc / 取消 / 确认三条路径都归位焦点。",
+     "line": 466,
+     "chars": 1334
+    },
+    {
+     "id": "18-20-反模式-每条都给出违反的契约",
+     "level": 2,
+     "title": "18. 20 反模式（每条都给出违反的契约）",
+     "summary": "1. 用 position: fixed + z-index: 9999 + 半透明遮罩冒充 inert 层：没有 top layer、Tab 跑到背景 → §2 裁决二 / §7。",
+     "line": 483,
+     "chars": 1377
+    },
+    {
+     "id": "19-20-项自检-交付前逐条给证据",
+     "level": 2,
+     "title": "19. 20 项自检（交付前逐条给证据）",
+     "summary": "- [ ] 四问答完并写进组件 API（inert / 焦点 / 触发 / 退出），没有「先画遮罩再补逻辑」？",
+     "line": 508,
+     "chars": 1442
+    },
+    {
+     "id": "20-5-段可抄代码-20-1-20-3-为-python-实跑",
+     "level": 2,
+     "title": "20. 5 段可抄代码（§20.1–§20.3 为 Python 实跑）",
+     "summary": "把 §1 四问 + §4 双条件 + §2 裁决三编译成可执行断言。输入是组件声明，输出是应走的契约与违规项。",
+     "line": 533,
+     "chars": 1
+    },
+    {
+     "id": "20-1-模态性判型器-python-实跑-pass",
+     "level": 3,
+     "title": "20.1 模态性判型器（Python，实跑 PASS）",
+     "summary": "把 §1 四问 + §4 双条件 + §2 裁决三编译成可执行断言。输入是组件声明，输出是应走的契约与违规项。",
+     "line": 535,
+     "chars": 4168
+    },
+    {
+     "id": "20-2-sc-1-4-13-三条件校验器-python-实跑-pass",
+     "level": 3,
+     "title": "20.2 SC 1.4.13 三条件校验器（Python，实跑 PASS）",
+     "summary": "",
+     "line": 643,
+     "chars": 1
+    },
+    {
+     "id": "20-3-sc-2-4-11-遮挡裁决器-python-实跑-pass",
+     "level": 3,
+     "title": "20.3 SC 2.4.11 遮挡裁决器（Python，实跑 PASS）",
+     "summary": "",
+     "line": 704,
+     "chars": 1
+    },
+    {
+     "id": "20-4-原生-html-css-契约骨架-可抄",
+     "level": 3,
+     "title": "20.4 原生 HTML / CSS 契约骨架（可抄）",
+     "summary": "提醒：closedby=\"none\" 时 Esc / 点外部都不关，必须靠表单里的「取消」按钮；若要拦数据丢失，用 cancel 事件 preventDefault() + 确认，不要全局屏蔽 Esc。<dialog 上加 tabindex",
+     "line": 776,
+     "chars": 149
+    },
+    {
+     "id": "20-5-自定义实现的关闭契约状态机-typescript-可抄",
+     "level": 3,
+     "title": "20.5 自定义实现的关闭契约状态机（TypeScript，可抄）",
+     "summary": "这是工程约定骨架，不是规范实现。原生 showModal() 已代劳 inert / top layer / Escape / 隐式 aria-modal，能用原生就不要自己写；这段只用于必须自定义（如跨框架 portal、非 HTML 渲",
+     "line": 816,
+     "chars": 239
+    },
+    {
+     "id": "21-来源与引用-含置信度",
+     "level": 2,
+     "title": "21. 来源与引用（含置信度）",
+     "summary": "引用纪律：逐字英文只在本文件出现一次，SKILL.md / README 的转述不得升格为条文；popover 术语的「上位概念 vs 具体 API」差异（§6.1）在转述时必须保留，否则会把「always non-modal」误读成「所有",
+     "line": 868,
+     "chars": 1999
+    },
+    {
+     "id": "22-取源限制-公开记录-不臆造",
+     "level": 2,
+     "title": "22. 取源限制（公开记录，不臆造）",
+     "summary": "1. M3 两页为 JS 动态渲染：components/dialogs/overview 与 components/bottom-sheets/overview 均 200，但无可逐字核验的尺寸 / 时长 / 交互数值，故本文件不含任何 ",
+     "line": 891,
+     "chars": 1673
+    },
+    {
+     "id": "23-与既有资产边界矩阵",
+     "level": 2,
+     "title": "23. 与既有资产边界矩阵",
+     "summary": "---",
+     "line": 907,
+     "chars": 1220
+    },
+    {
+     "id": "24-接线",
+     "level": 2,
+     "title": "24. 接线",
+     "summary": "接线：SKILL.md 资产表 / 意图路由 / 第 5 步 / 第 41 条自检 · mindmap INTENTS · regression NEWQUERIES · knowledge-map 支线 AE · memory/alias",
+     "line": 924,
+     "chars": 167
     }
    ]
   },
@@ -13447,8 +13904,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 673,
-   "chars": 116379,
+   "lines": 688,
+   "chars": 124017,
    "sections": []
   }
  ],

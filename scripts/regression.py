@@ -33,24 +33,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 conversational-generative-ui.md 前 3。
-# #32 换轮：13 条覆盖五段链路 / SC 4.1.3 与 ARIA23 / 生成式 UI 白名单 / 状态机与归位 /
-# 四档纠错 / Hybrid UI，且刻意混入「可访问性 / 读屏 / 键盘 / 验收 / 表单 / 中文 / 性能」等
-# 跨域词（#26 P1 教训）。#31 的 13 条已全部沉淀进 HIST_QUERIES。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 overlays-modality.md 前 3。
+# #33 换轮：13 条覆盖四问判型 / APG 焦点契约与 aria-modal 双条件 / 原生 dialog 与
+# Popover 三态双栈 / top layer 与 z-index 分界 / WCAG 四条款 / 关闭契约与组件族谱，
+# 且刻意混入「验收 / 键盘 / 层级 / 可访问性 / 表单」等跨域词（#26 P1 教训）。
+# #32 的 13 条已全部沉淀进 HIST_QUERIES。
 NEW_QUERIES = [
-    "chatbot 聊天界面 流式输出 读屏一直刷屏 可访问性",
-    "流式回答正文 算不算 SC 4.1.3 状态消息 验收",
-    "role=log aria-live polite aria-atomic false ARIA23 读屏",
-    "aria-busy 什么时候复位 停止生成 出错 生成完毕 验收",
-    "生成式界面 streamUI 模型返回任意组件 组件白名单 安全",
-    "AI SDK RSC experimental 生产推荐 AI SDK UI 选型",
-    "useChat submitted streaming ready error 四态 message.parts 工具调用",
-    "AG-UI RunStarted RunFinished TextMessageStart Content End 事件顺序 验收",
-    "Hybrid UI RICH 范式 自然语言模糊意图 图形控件精确操作",
-    "AI 答错了 四档恢复链 HAX G9 撤销自动化动作 重新生成",
-    "停止生成 重新生成 setMessages 状态归位 队列清空 键盘",
-    "流式 Markdown 代码围栏未闭合 分片 节流 自动滚动 性能",
-    "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单",
+    "模态 dialog 焦点陷阱 Tab 不越界 Escape 关闭 验收",
+    "showModal aria-modal inert 背景不可交互 双条件",
+    "Popover API popover auto hint manual 三态 非模态",
+    "top layer ::backdrop z-index inert 层级 遮罩",
+    "SC 1.4.13 Dismissible Hoverable Persistent tooltip 验收",
+    "SC 2.4.11 Focus Not Obscured F110 C43 sticky footer",
+    "SC 2.1.2 No Keyboard Trap 焦点循环 Escape 退出",
+    "SC 3.2.1 On Focus help dialog 打开就抢焦点",
+    "closedby any closerequest none 轻量关闭 light dismiss",
+    "bottom sheet 底部抽屉 命令面板 判型 非模态",
+    "焦点返回触发元素 关闭契约 无鼠标退出 F6 切层",
+    "aria-modal=true 只在双条件满足时 视觉遮蔽",
+    "叠加层嵌套 auto stack hint stack 层叠顺序",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -145,14 +146,28 @@ HIST_QUERIES = [
     "path-based gesture 画个 Z 手势 2.5.1 路径手势 替代",
     "SC 2.5.2 No Down-Event Up Reversal Abort Undo 取消",
     "dnd-kit 25px 位移 NN/g 1cm 约 100ms 触屏拖拽",
+    # #33 沉淀：#32 主题门槛查询转为历史样本，验收「新增 overlays-modality.md 后不退化」。
+    "chatbot 聊天界面 流式输出 读屏一直刷屏 可访问性",
+    "流式回答正文 算不算 SC 4.1.3 状态消息 验收",
+    "role=log aria-live polite aria-atomic false ARIA23 读屏",
+    "aria-busy 什么时候复位 停止生成 出错 生成完毕 验收",
+    "生成式界面 streamUI 模型返回任意组件 组件白名单 安全",
+    "AI SDK RSC experimental 生产推荐 AI SDK UI 选型",
+    "useChat submitted streaming ready error 四态 message.parts 工具调用",
+    "AG-UI RunStarted RunFinished TextMessageStart Content End 事件顺序 验收",
+    "Hybrid UI RICH 范式 自然语言模糊意图 图形控件精确操作",
+    "AI 答错了 四档恢复链 HAX G9 撤销自动化动作 重新生成",
+    "停止生成 重新生成 setMessages 状态归位 队列清空 键盘",
+    "流式 Markdown 代码围栏未闭合 分片 节流 自动滚动 性能",
+    "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单",
 ]
 
-EXPECT_FILE = "conversational-generative-ui.md"
+EXPECT_FILE = "overlays-modality.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #32：#31 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
+# #33：#32 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
 # 先按 #28 判例做内容层收敛（章节首行 / 标题措辞），不靠登记凑通过率。
 EXPECTED_EVOLUTION = {}
 

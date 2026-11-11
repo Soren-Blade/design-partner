@@ -3182,6 +3182,97 @@
         "Hybrid UI",
         "RICH 范式"
       ]
+    },
+    {
+      "canonical": "模态判型",
+      "aliases": [
+        "模态性",
+        "modality",
+        "焦点陷阱",
+        "focus trap",
+        "inert",
+        "背景不可交互",
+        "aria-modal",
+        "非模态",
+        "modeless",
+        "top layer",
+        "顶层栈"
+      ]
+    },
+    {
+      "canonical": "原生对话框",
+      "aliases": [
+        "showModal",
+        "HTML dialog",
+        "closedby",
+        "::backdrop",
+        "returnValue",
+        "autofocus",
+        "焦点返回",
+        "dialog 元素",
+        "show()"
+      ]
+    },
+    {
+      "canonical": "Popover API",
+      "aliases": [
+        "popover",
+        "popovertarget",
+        "popovertargetaction",
+        "showPopover",
+        "hidePopover",
+        "togglePopover",
+        "beforetoggle",
+        "auto state",
+        "hint state",
+        "manual state",
+        "auto stack",
+        "hint stack"
+      ]
+    },
+    {
+      "canonical": "WCAG 遮挡",
+      "aliases": [
+        "SC 1.4.13",
+        "Dismissible",
+        "Hoverable",
+        "Persistent",
+        "SC 2.4.11",
+        "Focus Not Obscured",
+        "F110",
+        "C43",
+        "scroll-padding",
+        "SC 2.1.2",
+        "No Keyboard Trap",
+        "SC 3.2.1"
+      ]
+    },
+    {
+      "canonical": "浮层组件族",
+      "aliases": [
+        "bottom sheet",
+        "底部抽屉",
+        "drawer",
+        "command palette",
+        "命令面板",
+        "气泡卡片",
+        "非模态浮层",
+        "date picker",
+        "mega menu"
+      ]
+    },
+    {
+      "canonical": "退出契约",
+      "aliases": [
+        "Escape 关闭",
+        "点击外部关闭",
+        "light dismiss",
+        "关闭契约",
+        "焦点返回触发元素",
+        "无鼠标退出",
+        "F6 切层",
+        "退出路径"
+      ]
     }
   ]
 }

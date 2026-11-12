@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三十一条专题支线（可与主线并行）
+## 三十二条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -539,8 +539,21 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能列出 Popover 三态与 auto·hint 双栈的六条规则，并解释为什么 `<dialog popover>` 叠加后仍非模态
 - [ ] 能列出 SC 1.4.13 三条件与 SC 2.4.11 Note 2 三条出路，并判出「持久浮层只能 Tab 回去点 X」属于 RISK 还是 FAIL
 
+### 支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）
 
-## 能力自测（162 条，做到 ≥110 条即达 L2+）
+- **这是什么（链路的起点端）**：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧明细；本支线管 FTUE 这条**有时间起止的路径**：`Launch → First-run → Teach → Activate → Return`，判「该不该教、教什么、什么时候教、什么时候要权限、什么时候算成功」。此前 43 份参考对 `first-run` / `progressive disclosure` / `coach mark` / `aha moment` / `Splash screen` / `SC 2.2.1` 等 25 个主题词全域零命中，`onboarding` 仅零散落在 4 份文件、无独立资产，判定为结构性空白。
+- **三条最重要裁决**：① **默认不加教程**——NN/g《Mobile Tutorials》(A. Kendrick, 2020-03-08) 70 人 / 4 apps 逐字：91% vs 94%（p=0.443 不显著）、93.49s vs 85.17s（p>0.1 不显著），唯一显著项 SEQ 4.92 vs 5.49（p=0.047）且方向对教程不利；Apple HIG *"Teach through interactivity."* / *"Consider providing a collection of context-specific tips instead of a single onboarding flow."*，NN/g *"Instructional onboarding should not be used to supplement poor design."*，落成「先测无引导 → 先改界面 → 才原型化引导 → 有成功率提升才上线」四步闸门。② **权限按功能时机请求，不按会话起点批发**——Apple HIG Privacy *"Request permission only when your app clearly needs access to the data or resource."* / *"Avoid requesting permission at launch unless the data or resource is required for your app to function."*；Onboarding 页允许整合权限的硬前置条件是 *"before it can function"*；purpose string 四标准「brief / complete sentence / sentence case / avoid passive voice / 句末句号」；pre-alert 单按钮·禁 `Allow`·禁 cancel·禁 close 是**平台特定规则**，禁止外推到 Web cookie 同意层。③ **四条款合取**——SC 3.3.7（浏览器 `autocomplete` 不足够，站点须自己回填或提供可选）、SC 3.3.8（**明确不覆盖账号创建**，但注册建议照做；OTP 手动转录不合规）、SC 3.2.1（官方失败例恰是抢走 focus 的 help dialog，G107 改用 activate）、SC 2.2.1（六选项 / 20 seconds / ten times / 10x / 20 hours，且 OTP 靠 essential 豁免后仍要过 3.3.8）。
+- **精确值怎么取**：NN/g 研究的限定条件必须随数值一起给（4 个简单 iOS App、仅测 deck-of-cards 教程、耗时不含阅读时间、geometric mean、剔除 13 trials = 5%）；Material 1 `m2.material.io` 是**归档版、非现行 M3**：`fewer than ten choices` / `90% of the way through the first session` / `up to three benefits` / 2–3 秒 / 24sp·32sp·15sp·16sp·56dp·24dp·48dp；Apple tips 阈值 `>3 actions` 不宜 / 1–2 句 / `once every 24 hours` / 60–75 字符；Ant Design Tour 的 `mask` / `disabledInteraction` / `keyboard` / `gap` / `zIndex` 是**实现默认值**不是规范刻度；Carbon 的 starter content 与 in-line documentation 无逐字数值，相关建议一律标「工程约定」。`push revelation` / `pull revelation` 是 Laubheimer 2023 篇的成对术语，本文件 §4 的 push/pull 是另一套工程简称，二者不等价（见该资产 §22 第 4 条勘误）。
+- **判学会了**：能用六问判型（Q4「先测无引导版本」是闸门）判出该不该做、做哪一种；能说清 `launch screen ≠ splash screen ≠ onboarding` 三分界；能把 purpose string 写成句末带句号的主动具体完整句，并说出 pre-alert 为什么不能搬到 Web 同意层；能解释「注册成功」不等于 activation、跳过率下降为什么不是好转信号；能把四类可延后设置从首启移走。
+- 材料：[Apple HIG · Onboarding](https://developer.apple.com/design/human-interface-guidelines/onboarding) · [Apple HIG · Launching](https://developer.apple.com/design/human-interface-guidelines/launching) · [Apple HIG · Offering help](https://developer.apple.com/design/human-interface-guidelines/offering-help) · [Apple HIG · Privacy](https://developer.apple.com/design/human-interface-guidelines/privacy) · [NN/g · Mobile Tutorials](https://www.nngroup.com/articles/mobile-tutorials/) · [NN/g · Mobile-App Onboarding](https://www.nngroup.com/articles/mobile-app-onboarding/) · [NN/g · Onboarding Tutorials vs. Contextual Help](https://www.nngroup.com/articles/onboarding-tutorials/) · [Material 1 · Onboarding（归档）](https://m2.material.io/design/communication/onboarding.html) · [W3C · SC 3.3.7](https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html) · [W3C · SC 3.3.8](https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html) · [W3C · SC 2.2.1](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) · [Ant Design · Tour](https://ant.design/components/tour) · [Carbon · Empty states](https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states)
+
+- [ ] 能写出六问判型并解释为什么 Q4「先测无引导」是闸门而不是建议，以及 Q3 + Q1 为什么不能叠加成五屏轮播的理由
+- [ ] 能完整复述 NN/g 70 人研究的四项数值与四条限制，并说明唯一显著的 SEQ 为什么方向对教程不利
+- [ ] 能区分 `launch screen` / `splash screen` / onboarding 三者职责，并说出 Material 1 三模型为什么 Self-Select 与 Top User Benefits 不得组合、以及这些数值为什么不能当 M3 合规值
+- [ ] 能写出 purpose string 的四条逐字标准与三行正反例，并解释 pre-alert 的「单按钮 / 禁 cancel / 禁 close」为什么只作用于受保护资源的系统权限弹窗之前
+- [ ] 能列出 SC 3.3.7 / 3.3.8 / 3.2.1 / 2.2.1 的合取验收点，判出「第三步重复要邮箱」「禁粘贴验证码」「聚焦即弹帮助框」「超时清空整张表」各踩了哪一条
+
+## 能力自测（167 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

@@ -374,3 +374,39 @@
 - https://github.com/KittyGiraudel/a11y-dialog | [GH] a11y-dialog（API 实测 2,492★ / MIT / 2026-11-09 / 未归档）
 - https://github.com/focus-trap/focus-trap | [GH] focus-trap（API 实测 1,564★ / MIT / 2026-11-11 / 未归档）
 - https://github.com/reactjs/react-modal | [GH] react-modal（API 实测 7,405★ / MIT / 2026-03-02 / 未归档）
+
+## 二十三、首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）【本轮新增分区】
+- https://developer.apple.com/design/human-interface-guidelines/onboarding | Apple HIG Onboarding：五条 best practices / Teach through interactivity / context-specific tips 取代单一 onboarding flow / 非必要设置后置 / 权限整合硬前置条件 before it can function / 跳过后不再出现且帮助区可找回 / Change log 2024-06-10 · 2023-06-21
+- https://developer.apple.com/design/human-interface-guidelines/launching | Apple HIG Launching：Launch instantly / Downplay / launch screen 与首屏 nearly identical / Don't advertise / 避免文字 / 状态恢复 / splash 归属
+- https://developer.apple.com/design/human-interface-guidelines/offering-help | Apple HIG Offering help：>3 actions 不宜 / 1–2 句 / once every 24 hours / 60–75 字符 / 动词开头 / sentence case / Creating tips
+- https://developer.apple.com/design/human-interface-guidelines/privacy | Apple HIG Privacy：Requesting permission 时机两铁律 / purpose string 四标准（brief·complete sentence·sentence case·avoid passive voice·句号结尾）与三行正反例 / Pre-alert 单按钮·禁 Allow·禁 cancel·禁 close（**平台特定规则，禁止外推到 Web cookie 同意层**）/ Tracking requests 四禁令
+- https://developer.apple.com/design/human-interface-guidelines/requesting-permission | Apple HIG Requesting permission 独立页（与 Privacy 章交叉核对）
+- https://developer.apple.com/documentation/TipKit | Apple TipKit 开发者文档入口（替代本轮 404 的 apple/swiftui-tipkit 仓库猜测）
+- https://www.nngroup.com/articles/mobile-tutorials/ | NN/g《Mobile Tutorials: Wasted Effort or Efficiency Boost?》A. Kendrick 2020-03-08 **一手实证**：70 人 / 35+35 / 4 apps / 91% vs 94% p=0.443 / SEQ 4.92 vs 5.49 p=0.047 / 93.49s vs 85.17s p>0.1 / geometric mean / 剔除 13 trials (5%) / 研究限制四条（任务耗时不含读教程时间）
+- https://www.nngroup.com/articles/mobile-app-onboarding/ | NN/g《Mobile-App Onboarding: An Analysis of Components and Techniques》A. Kendrick 2020-06-21：逐字 *"Instructional onboarding should not be used to supplement poor design."* / 三种正当情形 / 先测无引导四步 / 视觉 vs 内容定制 / feature onboarding 只对现有用户
+- https://www.nngroup.com/articles/mobile-instructional-overlay/ | NN/g Mobile Instructional Overlay：brief·optional·minimum / 情境化 overlay 常属 nice-to-have / popup tip 一触即达（交叉核对）
+- https://www.nngroup.com/articles/onboarding-tutorials/ | NN/g《Onboarding Tutorials vs. Contextual Help》P. Laubheimer 2023-02-12：**定稿前补取并触发勘误**——`push revelation` / `pull revelation` 逐字定义与 Implementing Pull Revelations 五条；初版误判「非 NN/g 术语」已作废，见新资产 §4 / §22 第 4 条
+- https://www.nngroup.com/articles/progressive-disclosure/ | NN/g Progressive disclosure：staged disclosure / applications vs websites / usability criteria（交叉核对，未作数值依据）
+- https://m2.material.io/design/communication/onboarding.html | Material Design 1 **归档版** Onboarding：Quickstart / Self-Select / Top User Benefits 三模型与组合禁令 / first seven days / fewer than ten choices / 90% of the way through the first session / up to three benefits / 2–3 秒 / 24sp·32sp·15sp·16sp·56dp·24dp·48dp（**历史规范，非现行 M3；M3 onboarding 页 JS 动态渲染本轮未取到逐字数值**）
+- https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html | W3C SC 3.3.7 Redundant Entry（A）：三例外 / 浏览器 autocomplete 不足够，站点须自己回填或提供可选 / process 定义 / same page / G221
+- https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html | W3C SC 3.3.8 Accessible Authentication (Minimum)（AA）：四选项 / Note 2 / **明确不覆盖账号创建** / OTP 手动转录不合规 / G218·H100
+- https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html | W3C SC 3.2.1 On Focus（A）：changes of context 定义 / help dialog 官方失败例 / G107 用 activate 而非 focus / F55
+- https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html | W3C SC 2.2.1 Timing Adjustable（A）：六选项 / 20 seconds·ten times·10x·20 hours / essential·real-time 例外 / 超时不清空表单 / 与 3.3.7·3.3.8 联动
+- https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html | W3C SC 1.4.13：仅登记与 coach mark 的合取关系，条文归第二十二分区
+- https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html | W3C SC 2.4.11：同上，coach mark 遮挡裁决归 `overlays-modality.md`
+- https://ant.design/components/tour | Ant Design Tour：`mask` / `disabledInteraction` / `keyboard` / `gap` / `zIndex` 默认值与版本、`non-modal` 用法、token 精确值（实现默认值，非设计规范刻度）
+- https://ant.design/components/empty | Ant Design Empty：首启教学型零数据位组件锚点
+- https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states | IBM Carbon Empty states：anatomy 五件套 / 替换原本要显示的元素 / 单主行动 / tertiary 降级 / 左对齐与例外 / starter content 与 in-line documentation（无逐字数值）
+- https://github.com/kamranahmedse/driver.js | [GH] driver.js（API 实测 27,054★ / MIT / 2026-11-12 / 未归档）轻量 product tour
+- https://github.com/usablica/intro.js | [GH] intro.js（API 实测 23,454★ / NOASSERTION / 2026-11-12 / 未归档）步骤式导览
+- https://github.com/shipshapecode/shepherd | [GH] Shepherd（API 实测 13,829★ / NOASSERTION / 2026-11-12 / 未归档）基于 floating-ui 的 tour；`tether/shepherd` 为旧组织名 404
+- https://github.com/openreplay/openreplay | [GH] OpenReplay（API 实测 13,138★ / NOASSERTION / 2026-11-12 / 未归档）会话回放定位首启流失，非引导组件
+- https://github.com/gilbarbara/react-joyride | [GH] React Joyride（API 实测 7,896★ / MIT / 2026-07-09 / 未归档）
+- https://github.com/elrumordelaluz/reactour | [GH] Reactour（API 实测 4,097★ / MIT / 2026-05-19 / 未归档）；`reactour/reactour` 404
+- https://github.com/focus-trap/focus-trap | [GH] focus-trap（API 实测 1,564★ / MIT / 2026-11-11 / 未归档）配合 `overlays-modality.md`
+- https://github.com/ant-design/ant-design | [GH] Ant Design（API 实测 100,173★ / MIT / 2026-11-12 / 未归档）`Tour` / `Empty`
+- https://github.com/mui/material-ui | [GH] MUI（API 实测 99,333★ / MIT / 2026-11-12 / 未归档）组件基线
+- https://github.com/radix-ui/primitives | [GH] Radix Primitives（API 实测 19,493★ / MIT / 2026-10-14 / 未归档）无样式原语
+- https://github.com/carbon-design-system/carbon | [GH] Carbon（API 实测 9,616★ / Apache-2.0 / 2026-11-12 / 未归档）Empty states pattern
+- https://github.com/coryhouse/react-slingshot | [GH] react-slingshot（API 实测 9,623★ / MIT / 2023-09-26 / 未归档）**仅供对照：三年未推送，不推荐新项目**
+- 取源限制：三个 404 路径 `tether/shepherd` / `reactour/reactour` / `apple/swiftui-tipkit` 已改走正确路径或 Apple 文档，仅登记不推断「库不存在」；`NOASSERTION` 不等于无许可；★ 与 pushed_at 为 2026-11-12 快照

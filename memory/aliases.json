@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-11",
+  "_updated": "2026-11-12",
   "_weight": 0.45,
   "groups": [
     {
@@ -2890,8 +2890,7 @@
         "选项太多",
         "决策时间",
         "选择耗时",
-        "菜单项数",
-        "渐进披露"
+        "菜单项数"
       ]
     },
     {
@@ -3272,6 +3271,85 @@
         "无鼠标退出",
         "F6 切层",
         "退出路径"
+      ]
+    },
+    {
+      "canonical": "首次体验",
+      "aliases": [
+        "onboarding",
+        "first-run",
+        "first run",
+        "首运行",
+        "首次使用",
+        "新手引导",
+        "首启",
+        "FTUE",
+        "first-time user experience"
+      ]
+    },
+    {
+      "canonical": "引导教程",
+      "aliases": [
+        "deck-of-cards tutorial",
+        "教程",
+        "walkthrough",
+        "交互式演练",
+        "instructional onboarding",
+        "instructional overlay",
+        "coach mark",
+        "产品导览",
+        "product tour"
+      ]
+    },
+    {
+      "canonical": "渐进披露",
+      "aliases": [
+        "progressive disclosure",
+        "staged disclosure",
+        "按需揭示",
+        "contextual help",
+        "情境提示",
+        "context-specific tips",
+        "tips in context",
+        "popup tip"
+      ]
+    },
+    {
+      "canonical": "权限时机",
+      "aliases": [
+        "purpose string",
+        "usage description string",
+        "pre-alert",
+        "授权文案",
+        "requesting permission",
+        "permission timing",
+        "追踪请求",
+        "tracking request"
+      ]
+    },
+    {
+      "canonical": "激活",
+      "aliases": [
+        "activation",
+        "aha moment",
+        "time to value",
+        "TTV",
+        "首个价值动作",
+        "first key action",
+        "starter content",
+        "quickstart"
+      ]
+    },
+    {
+      "canonical": "首启形态",
+      "aliases": [
+        "self-select",
+        "top user benefits",
+        "splash screen",
+        "launch screen",
+        "welcome screen",
+        "setup postponement",
+        "引导轮播"
       ]
     }
   ]

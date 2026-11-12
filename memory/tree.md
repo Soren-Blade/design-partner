@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-11 23:12 ｜ 45 个文件 · 1738 个章节 · 1,490,752 字符
+> 自动生成于 2026-11-12 22:04 ｜ 46 个文件 · 1777 个章节 · 1,569,780 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -92,6 +92,12 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | Popover API / popover 三态 / auto hint manual / 顶层栈 | overlays-modality.md §6 always non-modal 与双栈六规则 → §7 top layer → §14 层叠嵌套 → §15 组件族谱 |
 | hover 浮层 / tooltip / SC 1.4.13 / Dismissible Hoverable Persistent | overlays-modality.md §9 三条件 → §12 SC 3.2.1 help dialog 失败例 → §20.2 校验器 |
 | 浮层遮挡 / SC 2.4.11 / F110 / C43 / 退出契约 | overlays-modality.md §10 modal always pass 与 Note 2 三出路 → §11 SC 2.1.2 → §13 关闭契约 → §20.3 遮挡裁决器 |
+| 首次体验 / onboarding / 新手引导 / 要不要做教程 | onboarding-first-run.md §0 一句话立场 → §3 六问判型（Q4 先测无引导是闸门）→ §7 NN/g 实证全表与四条限制 → §20.1 判型器 |
+| 教程 / coach mark / 产品导览 / 首启轮播 / 跳过后又弹 | onboarding-first-run.md §4 六类形态矩阵 → §9 Apple tips 阈值 → §12 Tour 精确 props 与叠加层契约 → §18 反模式 |
+| 权限时机 / purpose string / pre-alert / 追踪弹窗 / 授权文案 | onboarding-first-run.md §2 裁决二 → §10 时机矩阵与 purpose string 三行正反例 + pre-alert 作用域警告 → §20.2 验收器 |
+| 注册向导 / 重复输入 / 验证码 / 超时 / SC 3.3.7 3.3.8 3.2.1 2.2.1 | onboarding-first-run.md §2 裁决三 → §11 四条款合取表 → §20.3 检查器；条款明细归 form-table.md / accessibility.md |
+| 激活 / aha moment / time to value / 跳过率 / 零数据位 | onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md |
+| 渐进披露 / splash / launch screen / 首启性能 / 设置后置 | onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -307,7 +313,7 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **视觉层级** | 视觉层次 · 信息层级 · 视觉动线 · 主次不清 · 重点不突出 · 焦点不清晰 · 层级不清 · 视觉重量 · 眯眼测试 |
 | **扫描模式** | 眼动 · F型 · F 型 · F-pattern · Z型 · 层叠蛋糕 · layer-cake · spotted · bypassing · commitment |
 | **认知负荷** | 工作记忆 · 组块 · chunking · 7±2 · 米勒定律 · 选择过载 · 心智负担 · 信息过载 · 记不住 |
-| **希克定律** | Hick · Hick's Law · 选项太多 · 决策时间 · 选择耗时 · 菜单项数 · 渐进披露 |
+| **希克定律** | Hick · Hick's Law · 选项太多 · 决策时间 · 选择耗时 · 菜单项数 |
 | **菲茨定律** | Fitts · Fitts's Law · 目标尺寸 · 按钮太小 · 点不到 · 命中区域 · 边缘角落 · 运动距离 |
 | **前注意属性** | 选择性注意 · pop-out · 弹出效应 · 特征整合 · Treisman · 图形背景 · 多稳态 · 孤立效应 · Von Restorff · 序列位置 |
 | **顺序一致性** | DOM 顺序 · dom · 视觉顺序 · 焦点顺序 · 标题结构 · tabindex · 阅读顺序 · 语义顺序 · CSS 重排 |
@@ -335,26 +341,32 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **WCAG 遮挡** | SC 1.4.13 · Dismissible · Hoverable · Persistent · SC 2.4.11 · Focus Not Obscured · F110 · C43 · scroll-padding · SC 2.1.2 · No Keyboard Trap · SC 3.2.1 |
 | **浮层组件族** | bottom sheet · 底部抽屉 · drawer · command palette · 命令面板 · 气泡卡片 · 非模态浮层 · date picker · mega menu |
 | **退出契约** | Escape 关闭 · 点击外部关闭 · light dismiss · 关闭契约 · 焦点返回触发元素 · 无鼠标退出 · F6 切层 · 退出路径 |
+| **首次体验** | onboarding · first-run · first run · 首运行 · 首次使用 · 新手引导 · 首启 · FTUE · first-time user experience |
+| **引导教程** | deck-of-cards tutorial · 教程 · walkthrough · 交互式演练 · instructional onboarding · instructional overlay · coach mark · 产品导览 · product tour |
+| **渐进披露** | progressive disclosure · staged disclosure · 按需揭示 · contextual help · 情境提示 · context-specific tips · tips in context · popup tip |
+| **权限时机** | purpose string · usage description string · pre-alert · 授权文案 · requesting permission · permission timing · 追踪请求 · tracking request |
+| **激活** | activation · aha moment · time to value · TTV · 首个价值动作 · first key action · starter content · quickstart |
+| **首启形态** | self-select · top user benefits · splash screen · launch screen · welcome screen · setup postponement · 引导轮播 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_985 行 · 快照 — · 12 节_
+_1006 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L116` — 资产已 43 份参考、约 118 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L118` — 资产已 43 份参考、约 118 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L131`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L353` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L368` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L394` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L425` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L863` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L941` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L954` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L961` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L977` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L119` — 资产已 44 份参考、约 124 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L121` — 资产已 44 份参考、约 124 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L134`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L362` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L377` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L403` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L434` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L882` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L962` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L975` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L982` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L998` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1407,7 +1419,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_686 行 · 快照 2026-11-05 · 60 节_
+_699 行 · 快照 2026-11-05 · 61 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1435,7 +1447,7 @@ _686 行 · 快照 2026-11-05 · 60 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **三十一条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **三十二条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1468,7 +1480,8 @@ _686 行 · 快照 2026-11-05 · 60 节_
   - **支线 AC · 直接操纵与指针交互（把"跟着指针走"翻译成四条并存的完成路径）** `L500` — - 这是什么（认知链路下游的执行端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」相邻但问题不同；此前 40 份参考零独立资产，dpsearch.py "拖拽 手势 指针交互" 首位返回 performance-design.
   - **支线 AD · 对话式与生成式界面（把"边生成边变化"翻译成五段链路的完成路径）** `L513` — - 这是什么（认知链路下游的输出端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」「直接操纵（按下指针之后）」相邻但问题不同——前三份都假设内容是确定的，本支线处理输出本身在流动、可能出错、可能带副作用。此前 41 份参考零独
   - **支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）** `L528` — - 这是什么（交互契约的边界端）：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、aria-modal 能否标、Tab 是否
-- **能力自测（162 条，做到 ≥110 条即达 L2+）** `L543` — L0
+  - **支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）** `L542` — - 这是什么（链路的起点端）：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧
+- **能力自测（167 条，做到 ≥110 条即达 L2+）** `L556` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1636,6 +1649,47 @@ _278 行 · 快照 — · 20 节_
   - **13.4 面包屑（位置型，末级非链接）** `L246`
   - **13.5 搜索框 + combobox 联想（APG pattern 节选）** `L257` — ---
 - **14. 与其他参考的接线** `L269` — - 项数/分组 → 本节 §3、§4（米勒 7±2、深度≤3）
+
+### `references/onboarding-first-run.md` · 首次体验与用户引导：从启动到 Aha Moment 的判型、时机与可访问性契约
+_900 行 · 快照 2026-11-12 · 37 节_
+
+- **0. 一句话立场** `L10` — Onboarding 不是「第一次打开时播放的介绍」，是「从启动到第一个保留相关动作的路径设计」；教程只是这条路径上最不该默认选的那一段。 一个产品可以完全没有引导页却有极好的首次体验（把界面改到不用解释），也可以有五屏精美的欢迎轮播却让用
+- **1. 五段链路判层：Launch → First-run → Teach → Activate → Return** `L20` — 首次体验是一条有时间起止的链路，不是一个页面。把问题定位到具体段位，才知道该改界面、改文案、还是改权限时机。
+- **2. 三条最重要裁决** `L39` — NN/g《Mobile Tutorials: Wasted Effort or Efficiency Boost?》（Alita Kendrick，2020-03-08）逐字摘要："Our research shows that tutor
+  - **裁决一 · 教程是最不该默认的引导形态；实证上它不提速、不提成功率，只提高「 perceived difficulty」** `L41` — NN/g《Mobile Tutorials: Wasted Effort or Efficiency Boost?》（Alita Kendrick，2020-03-08）逐字摘要："Our research shows that tutor
+  - **裁决二 · 权限按功能时机请求，不按会话起点批发；onboarding 不是授权窗口** `L55` — Apple HIG Privacy「Requesting permission」逐字：
+  - **裁决三 · 首次体验的可访问性是四条 WCAG 条款的合取，不是「加个跳过按钮」** `L68` — 关键辨析（最容易误判的一处）：SC 3.3.8 逐字写明 "This success criterion is focused on authentication of existing users. It does not cover c
+- **3. 六问判型决策树：要不要做、做哪一种** `L83` — 先答六问，不要先看设计稿长什么样：
+- **4. 六类引导形态选型矩阵** `L105` — 三条组合禁令（Material 1 逐字）："Don't combine Self-Select with Top User Benefits"、"Don't combine Top User Benefits with Self-Sele
+- **5. 设置后置与首启减负：把「以后再问」写成默认** `L122` — 渐进披露（progressive disclosure / staged disclosure）在首次体验里的落地不是「把教程拆成几步」，而是把与第一个价值动作无关的事全部移出首启路径。
+- **6. 启动三分界：launch screen ≠ splash screen ≠ onboarding** `L148` — Apple HIG 把三者分得很开，混用会同时踩性能与体验两条线：
+- **7. NN/g 实证全表与研究限制（数值只从一手原文取）** `L164` — 《Mobile Tutorials: Wasted Effort or Efficiency Boost?》，Alita Kendrick，2020-03-08，nngroup.com/articles/mobile-tutorials/。
+- **8. Material 1 三模型与精确数值（历史规范，不是现行 M3）** `L191` — 版本纪律：本节数值取自 m2.material.io（Material Design 1 / Material 2 归档页），不是 Material 3 现行规范。它可用作「有出处的历史基线」，不可当作今天 M3 的合规值；M3 现行组件规
+- **9. Apple HIG 引导、按需帮助与 tips 的可验收条文** `L216` — Onboarding 五条 best practices（逐字要点）："Teach through interactivity." / "Consider providing a collection of context-specific
+- **10. 权限时机矩阵与 purpose string 验收** `L239` — 时机矩阵（工程约定，依据 §2 裁决二）：
+- **11. WCAG 四条款矩阵：首次体验的合取验收** `L272` — 条文逐字："Information previously entered by or provided to the user that is required to be entered again in the same process
+  - **11.1 重复输入与自动回填：autocomplete 不足够的 3.3.7 裁决（Level A）** `L274` — 条文逐字："Information previously entered by or provided to the user that is required to be entered again in the same process
+  - **11.2 SC 3.3.8 Accessible Authentication (Minimum)（Level AA）** `L286` — 条文逐字见 §2 表格；四选项 Alternative / Mechanism / Object Recognition / Personal Content。Note 2 逐字："Examples of mechanisms that s
+  - **11.3 聚焦即弹帮助框的禁令：G107 与 3.2.1 合取裁决（Level A）** `L298` — 条文逐字："When any user interface component receives focus, it does not initiate a change of context." 官方失败例逐字："Example of a
+  - **11.4 SC 2.2.1 Timing Adjustable（Level A）** `L306` — 六选项逐字：Turn off / Adjust（"at least ten times the length of the default setting"）/ Extend（"given at least 20 seconds to ex
+- **12. Coach mark 与 Tour 的叠加层契约、Tour 组件精确 props 与冻结面** `L326` — 本文件不重复 overlays-modality.md：coach mark 作为一层内容盖在界面上时，inert / 焦点循环 / aria-modal 双条件 / top layer / Escape / 焦点归位 / SC 1.4.1
+- **13. 教学型 starter content：首启教学分量与单主行动** `L360` — 首次进入尚无内容时，零数据位本身就是最短的教学位：先替换原本要显示的元素，再按主次分配教学分量，别用尚未学会的行话。
+- **14. Activation / Aha Moment / Time to Value 的口径** `L385` — 这一节只定义口径与常见误判，统计方法归 design-measurement-research.md（SUS、样本量、A-B 检验都在那里）。
+- **15. 引导文案与本地化的最小约束** `L404` — 措辞体系归 ux-writing.md，这里只登记三条首次体验专属约束：
+- **16. 组件库生态实测（GitHub REST API，2026-11-12 快照）** `L414` — 选型裁决：库只解决「怎么画高亮与步骤」，不解决「该不该引导」。因此先过 §3 六问，再选库；选库时把 mask / disabledInteraction / keyboard / closeIcon / 焦点归位当作冻结的验收面（改动按 
+- **17. 十二个场景（判型 → 动作）** `L437` — ---
+- **18. 二十条反模式** `L456` — 1. 首启五屏 deck-of-cards 轮播，教的是界面上已经写着的标签。
+- **19. 二十项自检（交付前逐条过）** `L481` — 1. 有没有测过完全无引导的版本？卡点有记录吗？
+- **20. 五段可抄代码（严格模式，实跑 5/5 rc=0）** `L506` — 以下脚本是本知识库的工程裁决编码，不是 W3C / Apple / NN/g 提供的判定程序；把逐字条文简化成布尔断言，不能替代真机、读屏器与键盘走查。均以 python references/tmpxxx.py 方式独立运行，标准库即可，
+  - **20.1 六问判型器：onboardingdecide.py** `L510`
+  - **20.2 权限时机与 purpose string 验收器：permissiongate.py** `L574`
+  - **20.3 WCAG 四条款合取检查器：firstruna11ygate.py** `L661`
+  - **20.4 NN/g 数值复核器：nngtutorialguard.py** `L727`
+  - **20.5 首启问项归位器：firstrunquestions.py** `L785` — ---
+- **21. 来源与引用（含置信度）** `L835` — 引用纪律：逐字英文只在本文件出现一次，SKILL.md / README 的转述不得升格为条文；NN/g 的结论必须连同「4 个简单 iOS App / deck-of-cards 教程」限定一起给；Material 1 数值必须连同「归档
+- **22. 取源限制（公开记录，不臆造）** `L861` — 1. NN/g 教程研究外推边界：4 个 iPhone App、均为简单应用、仅测 deck-of-cards 教程；原文自列两条泛化风险。本文件不据此断言 Android、复杂企业软件、交互式 walkthrough 或情境提示无效。
+- **23. 与既有资产边界矩阵** `L879` — ---
+- **24. 接线** `L898` — 接线：SKILL.md 资产表 / 意图路由 / 第 5 步 / 第 42 条自检 · mindmap INTENTS · regression NEWQUERIES · knowledge-map 支线 AF · memory/alias
 
 ### `references/overlays-modality.md` · 叠加层与模态性：判型、焦点契约、顶层栈与非模态消隐
 _926 行 · 快照 2026-11-11 · 55 节_
@@ -2217,7 +2271,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_688 行 · 快照 — · 38 节_
+_703 行 · 快照 — · 39 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2257,11 +2311,12 @@ _688 行 · 快照 — · 38 节_
 - **2026-11-10 · 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）** `L647` — - 本轮性质：v34→v35 补齐「交互执行端」域。触发时工作区是干净基线：HEAD cddf02b（v34 / 40 参考 / 1,004,258 字符 / 195 路由 / 38 自检 / 218 别名组 / 28 支线 · 148 自
 - **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** `L661` — - 本轮性质：v35→v36 补齐「AI 产品交互链路」域。触发时工作区是干净基线：HEAD 77c2f40（v35 / 41 参考 / 1,072,753 字符 / 200 路由 / 39 自检 / 224 别名组 / 29 支线 · 1
 - **2026-11-11 · 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）** `L675` — - 本轮性质：v36→v37 补齐「层的交互契约」域，并按 #26 判例先交付在途轮次。触发时工作区不是干净基线：HEAD 7d3bdbc（v36 / 42 参考 / 1,114,212 字符 / 205 路由 / 40 自检 / 230 
+- **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** `L690` — - 本轮性质：v37→v38 补齐「首次体验链路」域，并按 #26 判例先完整交付在途轮次。触发时工作区是干净基线：HEAD 80a9610（v37 / 43 参考 / 1,181,426 字符 / 210 路由 / 41 自检 / 236
 
 ## 三、主题索引（章节标题 → 位置）
 
 - **0. 30 秒速查** → `references/form-table.md` L8
-- **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6 · `references/overlays-modality.md` L10
+- **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6 · `references/onboarding-first-run.md` L10 · `references/overlays-modality.md` L10
 - **0. 一句话立场与三条裁决** → `references/conversational-generative-ui.md` L10
 - **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/component-api-design.md` L9 · `references/design-ethics-inclusion.md` L9 · `references/design-measurement-research.md` L9
 - **0. 与既有资产的分层（先判读哪一份，别读错）** → `references/design-system-docs.md` L7
@@ -2282,6 +2337,7 @@ _688 行 · 快照 — · 38 节_
 - **1. 为什么性能是设计约束：加载速度就是设计决策** → `references/performance-design.md` L13
 - **1. 为什么这是结构性空白（缺口实测）** → `references/conversational-generative-ui.md` L24
 - **1. 为什么需要风格谱系（核心立场）** → `references/visual-style-taxonomy.md` L15
+- **1. 五段链路判层：Launch → First-run → Teach → Activate → Return** → `references/onboarding-first-run.md` L20
 - **1. 何时用图标 / 文字 / 两者（决策树）** → `references/iconography.md` L12
 - **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
@@ -2314,6 +2370,7 @@ _688 行 · 快照 — · 38 节_
 - **10. 搜索与导航协同** → `references/navigation-ia.md` L120
 - **10. 文档版本化（Docusaurus 3.10.2 官方规则 + SemVer 对接）** → `references/design-system-docs.md` L360
 - **10. 暗色专属的无障碍陷阱** → `references/dark-mode.md` L436
+- **10. 权限时机矩阵与 purpose string 验收** → `references/onboarding-first-run.md` L239
 - **10. 浮层遮挡裁决：2.4.11 的四类官方判词、两条例外、通过手段与 F110** → `references/overlays-modality.md` L290
 - **10. 组件契约的最小字段集（API surface，可直接当评审表）** → `references/component-api-design.md` L353
 - **10. 自检 20 项（评审前 / 中 / 后）** → `references/design-critique.md` L184
@@ -2334,6 +2391,7 @@ _688 行 · 快照 — · 38 节_
 - **11. Changelog：Keep a Changelog 1.1.0 的七条指导原则与六类变更** → `references/design-system-docs.md` L404
 - **11. SC 2.1.2 No Keyboard Trap：焦点循环允许的前提是「退出可知、可达」** → `references/overlays-modality.md` L329
 - **11. WAAPI 精确参数表（KeyframeEffect / Element.animate）** → `references/motion-orchestration.md` L561
+- **11. WCAG 四条款矩阵：首次体验的合取验收** → `references/onboarding-first-run.md` L272
 - **11. 中文演示场景** → `references/presentation-design.md` L512
 - **11. 动画（Animation）** → `references/iconography.md` L157
 - **11. 卡片分类与树测试（信息架构验证，最被低估的两招）** → `references/design-measurement-research.md` L211
@@ -2358,6 +2416,7 @@ _688 行 · 快照 — · 38 节_
 - **12 · 嵌套同心圆角 r = R − p 与失效条件** → `references/shape-elevation.md` L303
 - **12. AI 生成界面的 12 类固有缺陷 → 接回既有专项** → `references/ai-design-toolchain.md` L386
 - **12. CSS 入场/退场状态机：@starting-style 四件套** → `references/motion-orchestration.md` L585
+- **12. Coach mark 与 Tour 的叠加层契约、Tour 组件精确 props 与冻结面** → `references/onboarding-first-run.md` L326
 - **12. SC 3.2.1 On Focus：focus 不得触发 change of context，hover 触发也不等于可以抢焦点** → `references/overlays-modality.md` L349
 - **12. stop / regenerate / setMessages 与状态边界播报一次（含清空队列）** → `references/conversational-generative-ui.md` L337
 - **12. 上线自检（22 项，逐条打勾）** → `references/dark-mode.md` L470
@@ -2395,6 +2454,7 @@ _688 行 · 快照 — · 38 节_
 - **13. 图形语言：图标网格三体系 + 插画五参数** → `references/brand-identity.md` L404
 - **13. 库选型矩阵（Library Matrix · GitHub API 实测）** → `references/iconography.md` L179
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
+- **13. 教学型 starter content：首启教学分量与单主行动** → `references/onboarding-first-run.md` L360
 - **13. 欧盟 DSA 第 25 条与 FTC 2022：两套执法口径，别混成一句** → `references/design-ethics-inclusion.md` L319
 - **13. 演示节奏与信息流** → `references/presentation-design.md` L590
 - **13. 状态归位表：每个动作后哪些状态必须复位** → `references/conversational-generative-ui.md` L358
@@ -2409,6 +2469,7 @@ _688 行 · 快照 — · 38 节_
 - **14 · 裁决三：阅读等级的合规门槛是「九年学校教育」** → `references/content-findability.md` L288
 - **14 · 读屏指令、live region 播报与中文 announcements** → `references/direct-manipulation.md` L326
 - **14. API 版本化：组件特有的破坏性判级（改默认值 = MAJOR 的延伸）** → `references/component-api-design.md` L435
+- **14. Activation / Aha Moment / Time to Value 的口径** → `references/onboarding-first-run.md` L385
 - **14. 与其他参考的接线** → `references/navigation-ia.md` L269
 - **14. 与既有参考的接线（Wiring）** → `references/iconography.md` L200
 - **14. 代码即文档：Storybook Autodocs / MDX / Doc Blocks 精确配置** → `references/design-system-docs.md` L538
@@ -2441,6 +2502,7 @@ _688 行 · 快照 — · 38 节_
 - **15. 参考来源** → `references/dark-mode.md` L642
 - **15. 反模式 20 条** → `references/responsive-layout.md` L565
 - **15. 度量与验收：看哪个数、在哪看** → `references/performance-design.md` L628
+- **15. 引导文案与本地化的最小约束** → `references/onboarding-first-run.md` L404
 - **15. 组件族谱判型表（12 类；先判型再选实现）** → `references/overlays-modality.md` L405
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **15. 设计稿 ↔ 文档 ↔ 代码：Figma Code Connect 与命名一致性** → `references/design-system-docs.md` L599
@@ -2466,6 +2528,7 @@ _688 行 · 快照 — · 38 节_
 - **16. 来源、引用与置信度呈现（与 HAX 18 条的边界）** → `references/conversational-generative-ui.md` L405
 - **16. 研究运营与研究库（Research Ops / Repository）** → `references/design-measurement-research.md` L298
 - **16. 类型即文档：TypeScript 契约的四条底线** → `references/component-api-design.md` L490
+- **16. 组件库生态实测（GitHub REST API，2026-11-12 快照）** → `references/onboarding-first-run.md` L414
 - **16. 自检 15 项（有响应式要求时逐条过）** → `references/responsive-layout.md` L590
 - **16. 贡献与治理：GOV.UK 的准入标准（含可量化阈值）** → `references/design-system-docs.md` L622
 - **17 · M3 type scale 与 token 化（可复现，不抄二手数值表）** → `references/typography-system.md` L244
@@ -2480,6 +2543,7 @@ _688 行 · 快照 — · 38 节_
 - **17. 20 自检（Self-checks）** → `references/iconography.md` L255
 - **17. 交付自检（18 项，全过才算过关）** → `references/performance-design.md` L699
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
+- **17. 十二个场景（判型 → 动作）** → `references/onboarding-first-run.md` L437
 - **17. 反模式（20 条，命中即扣分）** → `references/motion-orchestration.md` L761
 - **17. 可抄代码** → `references/responsive-layout.md` L610
 - **17. 合规达 ≠ 包容：两套判据的正交关系** → `references/design-ethics-inclusion.md` L418
@@ -2497,6 +2561,7 @@ _688 行 · 快照 — · 38 节_
 - **18. 20 反模式（每条都给出违反的契约）** → `references/overlays-modality.md` L483
 - **18. 20 条反模式（逐条可判 FAIL）** → `references/component-api-design.md` L524
 - **18. 与其他资产的分工** → `references/responsive-layout.md` L696
+- **18. 二十条反模式** → `references/onboarding-first-run.md` L456
 - **18. 决策矩阵：什么场景套哪套** → `references/design-ethics-inclusion.md` L431
 - **18. 出处** → `references/form-table.md` L503
 - **18. 十二场景速查（设计系统文档写作）** → `references/design-system-docs.md` L684
@@ -2515,6 +2580,7 @@ _688 行 · 快照 — · 38 节_
 - **19. 20 项自检（交付前逐条给证据）** → `references/overlays-modality.md` L508
 - **19. 22 项上线自检（组件 API 关）** → `references/component-api-design.md` L549
 - **19. 二十条反模式（写了等于没写）** → `references/design-system-docs.md` L703
+- **19. 二十项自检（交付前逐条过）** → `references/onboarding-first-run.md` L481
 - **19. 反模式 20 条** → `references/brand-identity.md` L625
 - **19. 反模式 20 条：反操纵红线与合规验收判据（每条都能判 FAIL）** → `references/design-ethics-inclusion.md` L450
 - **19. 取源与验证（Sources & Verification）** → `references/iconography.md` L333
@@ -2528,7 +2594,7 @@ _688 行 · 快照 — · 38 节_
 - **2 · 四段链路模型：先判哪一段断，再谈改动画** → `references/direct-manipulation.md` L31
 - **2 · 排印决策的六层模型（先判层，再谈审美）** → `references/typography-system.md` L25
 - **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
-- **2. 三条最重要裁决** → `references/overlays-modality.md` L40
+- **2. 三条最重要裁决** → `references/onboarding-first-run.md` L39 · `references/overlays-modality.md` L40
 - **2. 五段链路判层模型（L1 发得出 → L5 收得回）** → `references/conversational-generative-ui.md` L43
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
@@ -2557,6 +2623,7 @@ _688 行 · 快照 — · 38 节_
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
 - **20. 二十项自检（组件文档上线前逐条打勾）** → `references/design-system-docs.md` L728
+- **20. 五段可抄代码（严格模式，实跑 5/5 rc=0）** → `references/onboarding-first-run.md` L506
 - **20. 可抄代码 5 段（3 段 Python 实跑，输出为本轮实测）** → `references/conversational-generative-ui.md` L486
 - **20. 可抄代码（3 段 Python 已实跑，含双用例断言）** → `references/component-api-design.md` L576
 - **20. 四个可抄模板** → `references/handoff-collaboration.md` L780
@@ -2597,6 +2664,7 @@ _688 行 · 快照 — · 38 节_
 - **2026-11-10 · 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）** → `memory/design-log.md` L647
 - **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** → `memory/design-log.md` L661
 - **2026-11-11 · 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）** → `memory/design-log.md` L675
+- **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** → `memory/design-log.md` L690
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -2607,13 +2675,13 @@ _688 行 · 快照 — · 38 节_
 - **21. 可抄代码（4 段 Python，已实跑）** → `references/design-measurement-research.md` L396
 - **21. 可抄代码（4 段，3 段 Python 已实跑）** → `references/design-ethics-inclusion.md` L509
 - **21. 数据来源** → `references/brand-identity.md` L673
-- **21. 来源与引用（含置信度）** → `references/overlays-modality.md` L868
+- **21. 来源与引用（含置信度）** → `references/onboarding-first-run.md` L835 · `references/overlays-modality.md` L868
 - **22 · 与既有资产的边界矩阵** → `references/content-findability.md` L450
 - **22 · 场景速查（12）** → `references/direct-manipulation.md` L526
 - **22 · 自检（20）** → `references/shape-elevation.md` L510 · `references/typography-system.md` L347 · `references/visual-hierarchy-gestalt.md` L428
 - **22. 与其他资产的边界（避免重复与抢路由）** → `references/conversational-generative-ui.md` L684
 - **22. 取源限制与不臆造声明（本轮公开记录）** → `references/component-api-design.md` L903
-- **22. 取源限制（公开记录，不臆造）** → `references/overlays-modality.md` L891
+- **22. 取源限制（公开记录，不臆造）** → `references/onboarding-first-run.md` L861 · `references/overlays-modality.md` L891
 - **22. 数据来源与取源纪律** → `references/design-ethics-inclusion.md` L728
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** → `references/ai-design-toolchain.md` L761
 - **22. 来源与取源限制（公开记录）** → `references/design-measurement-research.md` L480
@@ -2623,13 +2691,13 @@ _688 行 · 快照 — · 38 节_
 - **23 · 可抄代码（6 段）** → `references/shape-elevation.md` L535 · `references/typography-system.md` L372
 - **23 · 场景速查（12）** → `references/content-findability.md` L467
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
-- **23. 与既有资产边界矩阵** → `references/overlays-modality.md` L907
+- **23. 与既有资产边界矩阵** → `references/onboarding-first-run.md` L879 · `references/overlays-modality.md` L907
 - **23. 取源限制（公开记录，不臆造）** → `references/conversational-generative-ui.md` L702
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
 - **24 · 反模式（20）** → `references/content-findability.md` L484
 - **24 · 取源与限制（公开记录）** → `references/shape-elevation.md` L782 · `references/typography-system.md` L575 · `references/visual-hierarchy-gestalt.md` L647
 - **24 · 自检（20）** → `references/direct-manipulation.md` L570
-- **24. 接线** → `references/overlays-modality.md` L924
+- **24. 接线** → `references/onboarding-first-run.md` L898 · `references/overlays-modality.md` L924
 - **24. 数据来源清单** → `references/conversational-generative-ui.md` L715
 - **25 · 可抄代码（5 段；§25.1–§25.3 为 Python，本轮已实跑 PASS）** → `references/direct-manipulation.md` L595
 - **25 · 自检（20）** → `references/content-findability.md` L509
@@ -2652,6 +2720,7 @@ _688 行 · 快照 — · 38 节_
 - **3. 交错编排 stagger：variants 传播与多框架实现** → `references/motion-orchestration.md` L72
 - **3. 从三个词到视觉：定位翻译表** → `references/brand-identity.md` L47
 - **3. 任务级指标：成功率、任务时间、错误率（最容易落地的三类）** → `references/design-measurement-research.md` L55
+- **3. 六问判型决策树：要不要做、做哪一种** → `references/onboarding-first-run.md` L83
 - **3. 动效时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
 - **3. 合规地基（二）：中 / 欧 / 美三法域矩阵（出海产品必读）** → `references/ai-design-toolchain.md` L93
 - **3. 图表色板：三类用途（分类 / 顺序 / 发散），不许混用** → `references/dataviz.md` L76
@@ -2678,6 +2747,7 @@ _688 行 · 快照 — · 38 节_
 - **4. aria-modal="true" 双条件与误标后果** → `references/overlays-modality.md` L112
 - **4. 信息架构地基（深度 vs 广度）** → `references/navigation-ia.md` L51
 - **4. 信息架构：目录、命名、链接、检索（文档写作的四条地基）** → `references/design-system-docs.md` L140
+- **4. 六类引导形态选型矩阵** → `references/onboarding-first-run.md` L105
 - **4. 场景速查表（直接取值，不用再算）** → `references/motion-system.md` L101
 - **4. 坐标轴铁律（含 G2 精确数值）** → `references/dataviz.md` L152
 - **4. 尺寸阶梯（Sizing Scale）** → `references/iconography.md` L67
@@ -2716,6 +2786,7 @@ _688 行 · 快照 — · 38 节_
 - **5. 编排：多个元素一起动时的顺序** → `references/motion-system.md` L131
 - **5. 聊天界面播报工程契约：chatbot 流式输出的状态边界（空容器、aria-busy、aria-relevant、assertive 双播）** → `references/conversational-generative-ui.md` L118
 - **5. 裁决二：Content Credentials / 打了 AI 标 ≠ 版权清晰 ≠ 内容为真** → `references/ai-design-toolchain.md` L153
+- **5. 设置后置与首启减负：把「以后再问」写成默认** → `references/onboarding-first-run.md` L122
 - **5. 阴影与高度：两派做法与正确用法** → `references/dark-mode.md` L203
 - **5. 面包屑（Breadcrumb）** → `references/navigation-ia.md` L61
 - **6 · APG combobox 契约：自动补全不是「弹个下拉」** → `references/content-findability.md` L99
@@ -2732,6 +2803,7 @@ _688 行 · 快照 — · 38 节_
 - **6. 共享元素转场 A：View Transitions 完整机制** → `references/motion-orchestration.md` L271
 - **6. 动画与转场** → `references/presentation-design.md` L301
 - **6. 同意 UI 的 PASS/FAIL 构型表（可直接拿去评审）** → `references/design-ethics-inclusion.md` L163
+- **6. 启动三分界：launch screen ≠ splash screen ≠ onboarding** → `references/onboarding-first-run.md` L148
 - **6. 命名四套：图层 / 组件 / 变体 / token** → `references/handoff-collaboration.md` L176
 - **6. 品牌色与语义色：降饱和，不是反相** → `references/dark-mode.md` L230
 - **6. 填充 / 描边 / 双色（Fill · Stroke · Duotone）** → `references/iconography.md` L93
@@ -2754,6 +2826,7 @@ _688 行 · 快照 — · 38 节_
 - **7. AI SDK RSC experimental 与生产推荐路径（口径不张冠李戴）** → `references/conversational-generative-ui.md` L182
 - **7. DESIGN.md：把"风格一致性"变成 AI 可读的契约** → `references/ai-design-toolchain.md` L219
 - **7. HEART 框架（Google 五指标 + 三层落地法）** → `references/design-measurement-research.md` L141
+- **7. NN/g 实证全表与研究限制（数值只从一手原文取）** → `references/onboarding-first-run.md` L164
 - **7. props 合并优先级：一张能判 PASS/FAIL 的算子表** → `references/component-api-design.md` L274
 - **7. top layer、inert、::backdrop 与 z-index 的分界** → `references/overlays-modality.md` L219
 - **7. 中国《个人信息保护法》五条 UI 底线（官方全文逐字）** → `references/design-ethics-inclusion.md` L184
@@ -2778,6 +2851,7 @@ _688 行 · 快照 — · 38 节_
 - **8 · 组织律里可验收的四个部分** → `references/visual-hierarchy-gestalt.md` L180
 - **8 · 色板生成科学：四条可复现路线（选一不许混）** → `references/color-science.md` L162
 - **8 · 裁决三：目标尺寸三套口径，24×24 是 AA 下限不是设计值** → `references/direct-manipulation.md` L143
+- **8. Material 1 三模型与精确数值（历史规范，不是现行 M3）** → `references/onboarding-first-run.md` L191
 - **8. WCAG 2.2 四条款矩阵：谁管叠加层的哪一段** → `references/overlays-modality.md` L229
 - **8. useChat 四态状态机与 message.parts（parts 不是 content）** → `references/conversational-generative-ui.md` L207
 - **8. 中国《互联网广告管理办法》第 10 条：一键关闭的量化红线** → `references/design-ethics-inclusion.md` L200
@@ -2808,6 +2882,7 @@ _688 行 · 快照 — · 38 节_
 - **9. 12 场景速查** → `references/visual-style-taxonomy.md` L204
 - **9. AG-UI 对话状态机：RunStarted / RunError / TextMessageStart 与 messageId 归属** → `references/conversational-generative-ui.md` L240
 - **9. AI 辅助设计的工作流（可直接落地的 8 步）** → `references/ai-design-toolchain.md` L285
+- **9. Apple HIG 引导、按需帮助与 tips 的可验收条文** → `references/onboarding-first-run.md` L216
 - **9. JavaScript：设计师看不见但逃不掉的那部分** → `references/performance-design.md` L399
 - **9. SC 1.4.13 三条件：Dismissible / Hoverable / Persistent 逐字与可执行判定** → `references/overlays-modality.md` L244
 - **9. ref 与命令式 API：React 19 反陈旧裁决（本轮第二重要的裁决）** → `references/component-api-design.md` L308
@@ -2923,7 +2998,7 @@ _688 行 · 快照 — · 38 节_
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
-- **三十一条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
+- **三十二条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
 - **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
@@ -2997,7 +3072,7 @@ _688 行 · 快照 — · 38 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L116
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L119
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3007,12 +3082,12 @@ _688 行 · 快照 — · 38 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（162 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L543
-- **自我成长机制（用得越多越准）** → `SKILL.md` L941
-- **自我进化机制（知识保鲜）** → `SKILL.md` L954
+- **能力自测（167 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L556
+- **自我成长机制（用得越多越准）** → `SKILL.md` L962
+- **自我进化机制（知识保鲜）** → `SKILL.md` L975
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L977
+- **边界与习惯** → `SKILL.md` L998
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

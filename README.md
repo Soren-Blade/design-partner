@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v37-1677ff)
-![assets](https://img.shields.io/badge/reference_files-43-2ea44f)
+![version](https://img.shields.io/badge/version-v38-1677ff)
+![assets](https://img.shields.io/badge/reference_files-44-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-11-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-12-6e7781)
 
 ---
 
@@ -27,6 +27,7 @@
 | **拖拽不好用 / 拖到一半断了** | 只有鼠标能拖、手指一拖页面就滚、补个键盘快捷键就当无障碍、pointercancel 没回滚、按钮 24px 当成推荐点击区、读屏播报 index | `direct-manipulation.md` 四段链路 + SC 2.5.7 单指针无拖动 + G219 四类替代 + PE3 pointercancel 因果链 + 目标尺寸三口径 + dnd-kit 键盘与播报契约 |
 | **AI 聊天界面难用 / 生成到一半收不回来** | 逐字输出把读屏刷到停不下来、「正在生成」没有状态播报、生成式卡片直接执行模型返回的任意组件、答错了只有一个重新生成按钮、停止之后按钮还在转圈、纯 chat 不给精确操作 | `conversational-generative-ui.md` 五段链路判层 + SC 4.1.3 状态边界 + ARIA23 `role=log` + `aria-busy` 三出口复位 + 组件白名单路由 + HAX G9 四档恢复链 + 状态归位表 + Hybrid UI 判型 |
 | **弹窗盖上去就管不住焦点 / 浮层把焦点项挡死** | 加了遮罩 Tab 还能点到背后、`aria-modal` 随手就标、`z-index: 9999` 修不好滚动穿透、popover 被当成「轻量模态」、Escape 关不掉或关掉焦点不返回、hover 内容一秒消失、底部 banner 把焦点项完全盖住 | `overlays-modality.md` 四问判型 + APG inert 与焦点契约 + `aria-modal` 双条件 + `showModal()` 与 Popover 三态双栈 + WCAG 四条款矩阵（1.4.13 / 2.4.11 / 2.1.2 / 3.2.1）+ 关闭契约与焦点归位 + C43·F110 |
+| **首启引导该不该做 / 权限一启动就要 / 教程没人看** | 第一次打开先塞五屏欢迎轮播、把教程当界面缺陷的补丁、一启动就批发通知定位追踪、授权文案写「需要访问麦克风以提升体验」、跳过之后下次又弹、第三步又要填一遍邮箱、禁止粘贴验证码、超时把整张表清空、把「注册成功」当激活、把跳过率下降当好消息 | `onboarding-first-run.md` 六问判型（Q4 先测无引导是闸门）+ 默认不加教程的 NN/g 实证全表 + 权限时机矩阵与 purpose string 四标准 + WCAG 四条款合取表 + coach mark 非模态契约 + activation/TTV 口径与跳过率陷阱 |
 | **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
 | **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
 | **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
@@ -39,8 +40,8 @@
 | **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 41 项自检 |
-| **知识找不到** | 43 份参考、118 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 42 项自检 |
+| **知识找不到** | 44 份参考、124 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -49,7 +50,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 162 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 167 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -92,6 +93,7 @@
 | [直接操纵与指针交互](references/direct-manipulation.md) | 立场：直接操纵不是把对象跟着指针走，而是四条并存且互不替代的完成路径 / 四段链路模型（单指针无拖动·指针取消·键盘·读屏播报）/ 三条裁决（补键盘快捷键不满足 SC 2.5.7·2.5.1·G219 四类无拖动替代 / pointercancel 是 PE3 规范性必达事件·MUST suppress a pointer event stream 四步链·touch-action 因果 / 目标尺寸三口径·2.5.8 AA 24×24 含圆 spacing 例外·2.5.5 AAA 44×44·M2 48dp）/ PE3 事件契约与 capture 三方法 / touch-action 形式语法与三条陷阱 / HTML DnD 七事件与 DataTransfer 读写窗口 / dnd-kit 键盘默认 25px（自述 arbitrary）/ live region 播报 position 而非 index / NN/g signifier 双义·1cm×1cm·约 100ms / GitHub API 实测 10 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-10 |
 | [对话式与生成式界面](references/conversational-generative-ui.md) | 立场：对话式与生成式界面不是把聊天气泡套皮，是五段并存且每段都会失败的链路 / 五段判层模型（L1 发得出·L2 等得住·L3 读得动·L4 改得动·L5 收得回）/ 三条裁决（流式回答正文不是 SC 4.1.3 状态消息·状态边界才播报一次 / 生成式 UI 是组件白名单里的路由而非模型返回任意组件·streamUI tools 返回 React components / 纠错是停止·重试·编辑原消息重放·撤销自动化动作四档恢复链，不是单个重新生成按钮）/ W3C ARIA23 role=log 隐性 aria-live=polite 与 aria-atomic=false / F103 失败族与 assertive 双播 / aria-busy 三出口复位与空容器契约 / AI SDK RSC experimental 逐字句只在该页的口径纪律 / useChat submitted·streaming·ready·error 四态与 message.parts 优先于 content / AG-UI RunStarted·RunFinished|RunError 强制边界与 Start-Content-End 三模式 / Ant Design X RICH 四要素与 Hybrid UI 判型 / HAX G9 与原则层 18 条分流 / 状态归位表 / 流式 Markdown 未闭合围栏分片 / 来源引用与置信度 / GitHub API 实测 7 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑） | 规则型 | 2026-11-11 |
 | [叠加层与模态性](references/overlays-modality.md) | 立场：模态不是一层半透明遮罩，是「外部还能不能被操作」的交互契约 / 四问判型决策树（Q1 背景 inert·Q2 焦点进层且 Tab 不越界·Q3 显式 activate 还是 hover/focus·Q4 无鼠标无物理键盘也能退出）/ 三条裁决（APG Windows under a modal dialog are inert + Escape 关闭 + 焦点归位·aria-modal 双条件 / MDN Popovers created using the Popover API are always non-modal·showModal 才模态·closedby 三值 / WCAG 2.2 正确构建的 modal dialog will always pass SC 2.4.11·伪模态 dialog-like overlay 风险最高·F110）/ Popover 三态 auto·hint·manual 与双栈六规则 / top layer·::backdrop 与 z-index 分界 / WCAG 四条款矩阵（1.4.13 三条件·2.4.11 Note 2 三出路与 C43·F110·2.1.2 标准退出法·3.2.1 禁 focus 抢焦点）/ 关闭契约矩阵与层叠嵌套 / 12 类组件族谱判型 / Apple HIG·Radix·GitHub API 实测 10 库 / 取源限制与边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3） | 规则型 | 2026-11-11 |
+| [首次体验与用户引导](references/onboarding-first-run.md) | 立场：Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计 / 五段链路（Launch·First-run·Teach·Activate·Return）/ 三条裁决（默认不加教程：NN/g 70 人 4 app 逐字 91% vs 94% p=0.443·93.49s vs 85.17s p>0.1·SEQ 4.92 vs 5.49 p=0.047 + Apple Teach through interactivity + 先测无引导四步闸门 / 权限按功能时机不按会话起点：purpose string 四标准·pre-alert 平台特定禁外推 Web 同意层·tracking 四禁令 / SC 3.3.7·3.3.8·3.2.1·2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 autocomplete 不算满足 3.3.7）/ 六问判型决策树与四条硬约束 / 六类引导形态矩阵与 push·pull 用词勘误 / 渐进披露与设置后置 / launch≠splash≠onboarding 三分界 / NN/g 实证全表与四条研究限制 / Material 1 **归档**精确值（非现行 M3）/ Apple tips 阈值 / 权限时机矩阵 / WCAG 四条款合取表 / Ant Design Tour 精确 props / 教学型零数据位与 Carbon 五件套 / activation·TTV 口径与跳过率陷阱 / 12 库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（5/5 Python 严格模式实跑 rc=0）/ 取源限制与边界矩阵 | 规则型 | 2026-11-12 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -102,12 +104,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  210 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  216 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  41 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关）+ 交付说明三段式
+第 6 步  自检与交付    →  42 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -129,7 +131,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：236 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：242 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
@@ -148,7 +150,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 31 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约）、学习节奏表、162 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 32 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路）、学习节奏表、167 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -175,6 +177,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-12 | 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure） |
 | 2026-11-11 | 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer） |
 | 2026-11-11 | 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互） |
 | 2026-11-10 | 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） |
@@ -182,7 +185,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-08 | 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt） |
 | 2026-11-08 | 每日升级 #28：形状与深度系统（Shape & Elevation） |
 | 2026-11-07 | 每日升级 #27：字体排印系统（Typography System） |
-| 2026-11-07 | 每日升级 #26：视觉风格谱系与设计运动（Visual Style Taxonomy） |
 
 ---
 
@@ -296,6 +298,16 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [W3C WCAG 2.2 · SC 1.4.13](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html) · [SC 2.4.11](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html) · [SC 2.1.2](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html) · [SC 3.2.1](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) · [C43](https://www.w3.org/WAI/WCAG22/Techniques/css/C43) · [F110](https://www.w3.org/WAI/WCAG22/Techniques/failures/F110) — Dismissible·Hoverable·Persistent / modal always pass 与 Note 2 三出路 / 标准退出法 / help dialog 失败例
 - [Apple HIG · Modality](https://developer.apple.com/design/human-interface-guidelines/modality) · [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) — *"prevents interaction with the parent view and requires an explicit action to dismiss"* / `modal` 默认 true 与焦点自动捕获
 - [WHATWG HTML · Popover](https://html.spec.whatwg.org/multipage/popover.html) · [Open UI · Popover Explainer](https://open-ui.org/components/popover.research.explainer/) · [GitHub · radix-ui/primitives](https://github.com/radix-ui/primitives) · [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui) — 规范与提案入口 / overlay·dialog·popover 实现（star / license / pushed_at 均 GitHub API 实测 10 库）
+- [Apple HIG · Onboarding](https://developer.apple.com/design/human-interface-guidelines/onboarding) · [Launching](https://developer.apple.com/design/human-interface-guidelines/launching) · [Offering help](https://developer.apple.com/design/human-interface-guidelines/offering-help) · [Privacy](https://developer.apple.com/design/human-interface-guidelines/privacy) — *"Teach through interactivity."* / launch screen 与首屏 nearly identical / tips 60–75 字符·once every 24 hours / *"Request permission only when your app clearly needs access"* / purpose string 四标准 / pre-alert 平台特定规则
+- [NN/g · Mobile Tutorials: Wasted Effort or Efficiency Boost?](https://www.nngroup.com/articles/mobile-tutorials/) — A. Kendrick 2020-03-08 一手实证：70 人 / 35+35 / 4 apps / 91% vs 94% p=0.443 / SEQ 4.92 vs 5.49 p=0.047 / 93.49s vs 85.17s p>0.1 / geometric mean / 剔除 13 trials (5%) / 四条研究限制
+- [NN/g · Mobile-App Onboarding](https://www.nngroup.com/articles/mobile-app-onboarding/) · [Onboarding Tutorials vs. Contextual Help](https://www.nngroup.com/articles/onboarding-tutorials/) — *"Instructional onboarding should not be used to supplement poor design."* / 先测无引导四步；P. Laubheimer 2023-02-12 逐字 `push revelation` / `pull revelation` 定义与 Implementing Pull Revelations 五条（本轮勘误源）
+- [NN/g · Mobile Instructional Overlay](https://www.nngroup.com/articles/mobile-instructional-overlay/) · [Progressive Disclosure](https://www.nngroup.com/articles/progressive-disclosure/) — brief·optional·minimum / staged disclosure / 交叉核对，未作数值依据
+- [Material Design 1 · Onboarding（归档版）](https://m2.material.io/design/communication/onboarding.html) — Quickstart / Self-Select / Top User Benefits 三模型与组合禁令 / fewer than ten choices / 90% of the way through the first session / up to three benefits / 2–3 秒 / 24sp·32sp·56dp·48dp（**历史规范，非现行 M3**）
+- [W3C WCAG 2.2 · SC 3.3.7 Redundant Entry](https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html) · [SC 3.3.8 Accessible Authentication (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html) — A / AA 逐字条文与三例外 / 浏览器 autocomplete 不足够 / **3.3.8 不覆盖账号创建** / OTP 手动转录不合规
+- [W3C WCAG 2.2 · SC 3.2.1 On Focus](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) · [SC 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) — help dialog 官方失败例与 G107 / 六选项·20 seconds·ten times·10x·20 hours / essential 豁免后仍要过 3.3.8
+- [Ant Design · Tour](https://ant.design/components/tour) · [Empty](https://ant.design/components/empty) — `mask` / `disabledInteraction` / `keyboard` / `gap` / `zIndex` 默认值与版本、非模态用法、token 精确值（实现默认值，非设计规范刻度）
+- [IBM Carbon · Empty states](https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states) — anatomy 五件套 / 替换原本要显示的元素 / 单主行动 / starter content 与 in-line documentation（无逐字数值）
+- [GitHub · kamranahmedse/driver.js](https://github.com/kamranahmedse/driver.js) · [usablica/intro.js](https://github.com/usablica/intro.js) · [shipshapecode/shepherd](https://github.com/shipshapecode/shepherd) · [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride) · [elrumordelaluz/reactour](https://github.com/elrumordelaluz/reactour) — product tour / coach mark 实现（star / license / pushed_at / archived 均 GitHub API 2026-11-12 实测 12 库）
 
 ## 目录结构
 
@@ -303,7 +315,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（43 份，见上表）
+├── references/               # 知识库（44 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

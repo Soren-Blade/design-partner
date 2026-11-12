@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-11T23:12:49",
+ "generated": "2026-11-12T22:04:23",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 985,
-   "chars": 185309,
+   "lines": 1006,
+   "chars": 191707,
    "sections": []
   },
   {
@@ -7838,8 +7838,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 686,
-   "chars": 66794,
+   "lines": 699,
+   "chars": 70957,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8050,9 +8050,9 @@
      "chars": 43
     },
     {
-     "id": "三十一条专题支线-可与主线并行",
+     "id": "三十二条专题支线-可与主线并行",
      "level": 2,
-     "title": "三十一条专题支线（可与主线并行）",
+     "title": "三十二条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -8311,14 +8311,22 @@
      "title": "支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）",
      "summary": "- 这是什么（交互契约的边界端）：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、aria-modal 能否标、Tab 是否",
      "line": 528,
-     "chars": 2514
+     "chars": 2513
     },
     {
-     "id": "能力自测-162-条-做到-110-条即达-l2",
+     "id": "支线-af-首次体验链路-把-first-run-到-activation-翻译成六问判型的完成路径",
+     "level": 3,
+     "title": "支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）",
+     "summary": "- 这是什么（链路的起点端）：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧",
+     "line": 542,
+     "chars": 4106
+    },
+    {
+     "id": "能力自测-167-条-做到-110-条即达-l2",
      "level": 2,
-     "title": "能力自测（162 条，做到 ≥110 条即达 L2+）",
+     "title": "能力自测（167 条，做到 ≥110 条即达 L2+）",
      "summary": "L0",
-     "line": 543,
+     "line": 556,
      "chars": 8677
     }
    ]
@@ -9564,6 +9572,311 @@
      "summary": "- 项数/分组 → 本节 §3、§4（米勒 7±2、深度≤3）",
      "line": 269,
      "chars": 368
+    }
+   ]
+  },
+  {
+   "path": "references/onboarding-first-run.md",
+   "title": "首次体验与用户引导：从启动到 Aha Moment 的判型、时机与可访问性契约",
+   "snapshot": "2026-11-12",
+   "lines": 900,
+   "chars": 59177,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "0. 一句话立场",
+     "summary": "Onboarding 不是「第一次打开时播放的介绍」，是「从启动到第一个保留相关动作的路径设计」；教程只是这条路径上最不该默认选的那一段。 一个产品可以完全没有引导页却有极好的首次体验（把界面改到不用解释），也可以有五屏精美的欢迎轮播却让用",
+     "line": 10,
+     "chars": 473
+    },
+    {
+     "id": "1-五段链路判层-launch-first-run-teach-activate-return",
+     "level": 2,
+     "title": "1. 五段链路判层：Launch → First-run → Teach → Activate → Return",
+     "summary": "首次体验是一条有时间起止的链路，不是一个页面。把问题定位到具体段位，才知道该改界面、改文案、还是改权限时机。",
+     "line": 20,
+     "chars": 1091
+    },
+    {
+     "id": "2-三条最重要裁决",
+     "level": 2,
+     "title": "2. 三条最重要裁决",
+     "summary": "NN/g《Mobile Tutorials: Wasted Effort or Efficiency Boost?》（Alita Kendrick，2020-03-08）逐字摘要：\"Our research shows that tutor",
+     "line": 39,
+     "chars": 1
+    },
+    {
+     "id": "裁决一-教程是最不该默认的引导形态-实证上它不提速-不提成功率-只提高-perceived-difficulty",
+     "level": 3,
+     "title": "裁决一 · 教程是最不该默认的引导形态；实证上它不提速、不提成功率，只提高「 perceived difficulty」",
+     "summary": "NN/g《Mobile Tutorials: Wasted Effort or Efficiency Boost?》（Alita Kendrick，2020-03-08）逐字摘要：\"Our research shows that tutor",
+     "line": 41,
+     "chars": 1303
+    },
+    {
+     "id": "裁决二-权限按功能时机请求-不按会话起点批发-onboarding-不是授权窗口",
+     "level": 3,
+     "title": "裁决二 · 权限按功能时机请求，不按会话起点批发；onboarding 不是授权窗口",
+     "summary": "Apple HIG Privacy「Requesting permission」逐字：",
+     "line": 55,
+     "chars": 1251
+    },
+    {
+     "id": "裁决三-首次体验的可访问性是四条-wcag-条款的合取-不是-加个跳过按钮",
+     "level": 3,
+     "title": "裁决三 · 首次体验的可访问性是四条 WCAG 条款的合取，不是「加个跳过按钮」",
+     "summary": "关键辨析（最容易误判的一处）：SC 3.3.8 逐字写明 \"This success criterion is focused on authentication of existing users. It does not cover c",
+     "line": 68,
+     "chars": 1572
+    },
+    {
+     "id": "3-六问判型决策树-要不要做-做哪一种",
+     "level": 2,
+     "title": "3. 六问判型决策树：要不要做、做哪一种",
+     "summary": "先答六问，不要先看设计稿长什么样：",
+     "line": 83,
+     "chars": 1161
+    },
+    {
+     "id": "4-六类引导形态选型矩阵",
+     "level": 2,
+     "title": "4. 六类引导形态选型矩阵",
+     "summary": "三条组合禁令（Material 1 逐字）：\"Don't combine Self-Select with Top User Benefits\"、\"Don't combine Top User Benefits with Self-Sele",
+     "line": 105,
+     "chars": 2425
+    },
+    {
+     "id": "5-设置后置与首启减负-把-以后再问-写成默认",
+     "level": 2,
+     "title": "5. 设置后置与首启减负：把「以后再问」写成默认",
+     "summary": "渐进披露（progressive disclosure / staged disclosure）在首次体验里的落地不是「把教程拆成几步」，而是把与第一个价值动作无关的事全部移出首启路径。",
+     "line": 122,
+     "chars": 1642
+    },
+    {
+     "id": "6-启动三分界-launch-screen-splash-screen-onboarding",
+     "level": 2,
+     "title": "6. 启动三分界：launch screen ≠ splash screen ≠ onboarding",
+     "summary": "Apple HIG 把三者分得很开，混用会同时踩性能与体验两条线：",
+     "line": 148,
+     "chars": 1662
+    },
+    {
+     "id": "7-nn-g-实证全表与研究限制-数值只从一手原文取",
+     "level": 2,
+     "title": "7. NN/g 实证全表与研究限制（数值只从一手原文取）",
+     "summary": "《Mobile Tutorials: Wasted Effort or Efficiency Boost?》，Alita Kendrick，2020-03-08，nngroup.com/articles/mobile-tutorials/。",
+     "line": 164,
+     "chars": 2001
+    },
+    {
+     "id": "8-material-1-三模型与精确数值-历史规范-不是现行-m3",
+     "level": 2,
+     "title": "8. Material 1 三模型与精确数值（历史规范，不是现行 M3）",
+     "summary": "版本纪律：本节数值取自 m2.material.io（Material Design 1 / Material 2 归档页），不是 Material 3 现行规范。它可用作「有出处的历史基线」，不可当作今天 M3 的合规值；M3 现行组件规",
+     "line": 191,
+     "chars": 3430
+    },
+    {
+     "id": "9-apple-hig-引导-按需帮助与-tips-的可验收条文",
+     "level": 2,
+     "title": "9. Apple HIG 引导、按需帮助与 tips 的可验收条文",
+     "summary": "Onboarding 五条 best practices（逐字要点）：\"Teach through interactivity.\" / \"Consider providing a collection of context-specific",
+     "line": 216,
+     "chars": 2432
+    },
+    {
+     "id": "10-权限时机矩阵与-purpose-string-验收",
+     "level": 2,
+     "title": "10. 权限时机矩阵与 purpose string 验收",
+     "summary": "时机矩阵（工程约定，依据 §2 裁决二）：",
+     "line": 239,
+     "chars": 2707
+    },
+    {
+     "id": "11-wcag-四条款矩阵-首次体验的合取验收",
+     "level": 2,
+     "title": "11. WCAG 四条款矩阵：首次体验的合取验收",
+     "summary": "条文逐字：\"Information previously entered by or provided to the user that is required to be entered again in the same process",
+     "line": 272,
+     "chars": 1
+    },
+    {
+     "id": "11-1-重复输入与自动回填-autocomplete-不足够的-3-3-7-裁决-level-a",
+     "level": 3,
+     "title": "11.1 重复输入与自动回填：autocomplete 不足够的 3.3.7 裁决（Level A）",
+     "summary": "条文逐字：\"Information previously entered by or provided to the user that is required to be entered again in the same process",
+     "line": 274,
+     "chars": 969
+    },
+    {
+     "id": "11-2-sc-3-3-8-accessible-authentication-minimum-level-aa",
+     "level": 3,
+     "title": "11.2 SC 3.3.8 Accessible Authentication (Minimum)（Level AA）",
+     "summary": "条文逐字见 §2 表格；四选项 Alternative / Mechanism / Object Recognition / Personal Content。Note 2 逐字：\"Examples of mechanisms that s",
+     "line": 286,
+     "chars": 1279
+    },
+    {
+     "id": "11-3-聚焦即弹帮助框的禁令-g107-与-3-2-1-合取裁决-level-a",
+     "level": 3,
+     "title": "11.3 聚焦即弹帮助框的禁令：G107 与 3.2.1 合取裁决（Level A）",
+     "summary": "条文逐字：\"When any user interface component receives focus, it does not initiate a change of context.\" 官方失败例逐字：\"Example of a",
+     "line": 298,
+     "chars": 779
+    },
+    {
+     "id": "11-4-sc-2-2-1-timing-adjustable-level-a",
+     "level": 3,
+     "title": "11.4 SC 2.2.1 Timing Adjustable（Level A）",
+     "summary": "六选项逐字：Turn off / Adjust（\"at least ten times the length of the default setting\"）/ Extend（\"given at least 20 seconds to ex",
+     "line": 306,
+     "chars": 1120
+    },
+    {
+     "id": "12-coach-mark-与-tour-的叠加层契约-tour-组件精确-props-与冻结面",
+     "level": 2,
+     "title": "12. Coach mark 与 Tour 的叠加层契约、Tour 组件精确 props 与冻结面",
+     "summary": "本文件不重复 overlays-modality.md：coach mark 作为一层内容盖在界面上时，inert / 焦点循环 / aria-modal 双条件 / top layer / Escape / 焦点归位 / SC 1.4.1",
+     "line": 326,
+     "chars": 2502
+    },
+    {
+     "id": "13-教学型-starter-content-首启教学分量与单主行动",
+     "level": 2,
+     "title": "13. 教学型 starter content：首启教学分量与单主行动",
+     "summary": "首次进入尚无内容时，零数据位本身就是最短的教学位：先替换原本要显示的元素，再按主次分配教学分量，别用尚未学会的行话。",
+     "line": 360,
+     "chars": 2768
+    },
+    {
+     "id": "14-activation-aha-moment-time-to-value-的口径",
+     "level": 2,
+     "title": "14. Activation / Aha Moment / Time to Value 的口径",
+     "summary": "这一节只定义口径与常见误判，统计方法归 design-measurement-research.md（SUS、样本量、A-B 检验都在那里）。",
+     "line": 385,
+     "chars": 1008
+    },
+    {
+     "id": "15-引导文案与本地化的最小约束",
+     "level": 2,
+     "title": "15. 引导文案与本地化的最小约束",
+     "summary": "措辞体系归 ux-writing.md，这里只登记三条首次体验专属约束：",
+     "line": 404,
+     "chars": 889
+    },
+    {
+     "id": "16-组件库生态实测-github-rest-api-2026-11-12-快照",
+     "level": 2,
+     "title": "16. 组件库生态实测（GitHub REST API，2026-11-12 快照）",
+     "summary": "选型裁决：库只解决「怎么画高亮与步骤」，不解决「该不该引导」。因此先过 §3 六问，再选库；选库时把 mask / disabledInteraction / keyboard / closeIcon / 焦点归位当作冻结的验收面（改动按 ",
+     "line": 414,
+     "chars": 1557
+    },
+    {
+     "id": "17-十二个场景-判型-动作",
+     "level": 2,
+     "title": "17. 十二个场景（判型 → 动作）",
+     "summary": "---",
+     "line": 437,
+     "chars": 944
+    },
+    {
+     "id": "18-二十条反模式",
+     "level": 2,
+     "title": "18. 二十条反模式",
+     "summary": "1. 首启五屏 deck-of-cards 轮播，教的是界面上已经写着的标签。",
+     "line": 456,
+     "chars": 824
+    },
+    {
+     "id": "19-二十项自检-交付前逐条过",
+     "level": 2,
+     "title": "19. 二十项自检（交付前逐条过）",
+     "summary": "1. 有没有测过完全无引导的版本？卡点有记录吗？",
+     "line": 481,
+     "chars": 683
+    },
+    {
+     "id": "20-五段可抄代码-严格模式-实跑-5-5-rc-0",
+     "level": 2,
+     "title": "20. 五段可抄代码（严格模式，实跑 5/5 rc=0）",
+     "summary": "以下脚本是本知识库的工程裁决编码，不是 W3C / Apple / NN/g 提供的判定程序；把逐字条文简化成布尔断言，不能替代真机、读屏器与键盘走查。均以 python references/tmpxxx.py 方式独立运行，标准库即可，",
+     "line": 506,
+     "chars": 142
+    },
+    {
+     "id": "20-1-六问判型器-onboarding_decide-py",
+     "level": 3,
+     "title": "20.1 六问判型器：onboardingdecide.py",
+     "summary": "",
+     "line": 510,
+     "chars": 1
+    },
+    {
+     "id": "20-2-权限时机与-purpose-string-验收器-permission_gate-py",
+     "level": 3,
+     "title": "20.2 权限时机与 purpose string 验收器：permissiongate.py",
+     "summary": "",
+     "line": 574,
+     "chars": 1
+    },
+    {
+     "id": "20-3-wcag-四条款合取检查器-first_run_a11y_gate-py",
+     "level": 3,
+     "title": "20.3 WCAG 四条款合取检查器：firstruna11ygate.py",
+     "summary": "",
+     "line": 661,
+     "chars": 1
+    },
+    {
+     "id": "20-4-nn-g-数值复核器-nng_tutorial_guard-py",
+     "level": 3,
+     "title": "20.4 NN/g 数值复核器：nngtutorialguard.py",
+     "summary": "",
+     "line": 727,
+     "chars": 1
+    },
+    {
+     "id": "20-5-首启问项归位器-first_run_questions-py",
+     "level": 3,
+     "title": "20.5 首启问项归位器：firstrunquestions.py",
+     "summary": "---",
+     "line": 785,
+     "chars": 6
+    },
+    {
+     "id": "21-来源与引用-含置信度",
+     "level": 2,
+     "title": "21. 来源与引用（含置信度）",
+     "summary": "引用纪律：逐字英文只在本文件出现一次，SKILL.md / README 的转述不得升格为条文；NN/g 的结论必须连同「4 个简单 iOS App / deck-of-cards 教程」限定一起给；Material 1 数值必须连同「归档",
+     "line": 835,
+     "chars": 2908
+    },
+    {
+     "id": "22-取源限制-公开记录-不臆造",
+     "level": 2,
+     "title": "22. 取源限制（公开记录，不臆造）",
+     "summary": "1. NN/g 教程研究外推边界：4 个 iPhone App、均为简单应用、仅测 deck-of-cards 教程；原文自列两条泛化风险。本文件不据此断言 Android、复杂企业软件、交互式 walkthrough 或情境提示无效。",
+     "line": 861,
+     "chars": 1808
+    },
+    {
+     "id": "23-与既有资产边界矩阵",
+     "level": 2,
+     "title": "23. 与既有资产边界矩阵",
+     "summary": "---",
+     "line": 879,
+     "chars": 1359
+    },
+    {
+     "id": "24-接线",
+     "level": 2,
+     "title": "24. 接线",
+     "summary": "接线：SKILL.md 资产表 / 意图路由 / 第 5 步 / 第 42 条自检 · mindmap INTENTS · regression NEWQUERIES · knowledge-map 支线 AF · memory/alias",
+     "line": 898,
+     "chars": 206
     }
    ]
   },
@@ -13904,8 +14217,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 688,
-   "chars": 124017,
+   "lines": 703,
+   "chars": 133307,
    "sections": []
   }
  ],

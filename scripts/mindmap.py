@@ -113,6 +113,12 @@ INTENTS = [
     ("Popover API / popover 三态 / auto hint manual / 顶层栈", "overlays-modality.md §6 always non-modal 与双栈六规则 → §7 top layer → §14 层叠嵌套 → §15 组件族谱"),
     ("hover 浮层 / tooltip / SC 1.4.13 / Dismissible Hoverable Persistent", "overlays-modality.md §9 三条件 → §12 SC 3.2.1 help dialog 失败例 → §20.2 校验器"),
     ("浮层遮挡 / SC 2.4.11 / F110 / C43 / 退出契约", "overlays-modality.md §10 modal always pass 与 Note 2 三出路 → §11 SC 2.1.2 → §13 关闭契约 → §20.3 遮挡裁决器"),
+    ("首次体验 / onboarding / 新手引导 / 要不要做教程", "onboarding-first-run.md §0 一句话立场 → §3 六问判型（Q4 先测无引导是闸门）→ §7 NN/g 实证全表与四条限制 → §20.1 判型器"),
+    ("教程 / coach mark / 产品导览 / 首启轮播 / 跳过后又弹", "onboarding-first-run.md §4 六类形态矩阵 → §9 Apple tips 阈值 → §12 Tour 精确 props 与叠加层契约 → §18 反模式"),
+    ("权限时机 / purpose string / pre-alert / 追踪弹窗 / 授权文案", "onboarding-first-run.md §2 裁决二 → §10 时机矩阵与 purpose string 三行正反例 + pre-alert 作用域警告 → §20.2 验收器"),
+    ("注册向导 / 重复输入 / 验证码 / 超时 / SC 3.3.7 3.3.8 3.2.1 2.2.1", "onboarding-first-run.md §2 裁决三 → §11 四条款合取表 → §20.3 检查器；条款明细归 form-table.md / accessibility.md"),
+    ("激活 / aha moment / time to value / 跳过率 / 零数据位", "onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md"),
+    ("渐进披露 / splash / launch screen / 首启性能 / 设置后置", "onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md"),
 ]
 
 

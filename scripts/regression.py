@@ -33,25 +33,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 overlays-modality.md 前 3。
-# #33 换轮：13 条覆盖四问判型 / APG 焦点契约与 aria-modal 双条件 / 原生 dialog 与
-# Popover 三态双栈 / top layer 与 z-index 分界 / WCAG 四条款 / 关闭契约与组件族谱，
-# 且刻意混入「验收 / 键盘 / 层级 / 可访问性 / 表单」等跨域词（#26 P1 教训）。
-# #32 的 13 条已全部沉淀进 HIST_QUERIES。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 onboarding-first-run.md 前 3。
+# #34 换轮：13 条覆盖六问判型 / NN/g 实证数值 / 六类引导形态 / 权限时机与 purpose
+# string / WCAG 四条款合取 / 渐进披露与启动三分界 / activation 口径 / 教学型零数据位 /
+# Material 1 归档数值，且刻意混入「验收 / 键盘 / 文案 / 表单 / 性能 / 度量」等跨域词
+# （#26 P1 教训）。#33 的 13 条已全部沉淀进 HIST_QUERIES。
 NEW_QUERIES = [
-    "模态 dialog 焦点陷阱 Tab 不越界 Escape 关闭 验收",
-    "showModal aria-modal inert 背景不可交互 双条件",
-    "Popover API popover auto hint manual 三态 非模态",
-    "top layer ::backdrop z-index inert 层级 遮罩",
-    "SC 1.4.13 Dismissible Hoverable Persistent tooltip 验收",
-    "SC 2.4.11 Focus Not Obscured F110 C43 sticky footer",
-    "SC 2.1.2 No Keyboard Trap 焦点循环 Escape 退出",
-    "SC 3.2.1 On Focus help dialog 打开就抢焦点",
-    "closedby any closerequest none 轻量关闭 light dismiss",
-    "bottom sheet 底部抽屉 命令面板 判型 非模态",
-    "焦点返回触发元素 关闭契约 无鼠标退出 F6 切层",
-    "aria-modal=true 只在双条件满足时 视觉遮蔽",
-    "叠加层嵌套 auto stack hint stack 层叠顺序",
+    "新手引导 教程 首启 要不要做 验收",
+    "onboarding deck-of-cards tutorial 91% 94% SEQ p 值",
+    "coach mark 产品导览 遮罩 非模态 键盘",
+    "权限 purpose string 时机 pre-alert 追踪请求 文案",
+    "SC 3.3.7 重复输入 自动回填 autocomplete 不够",
+    "SC 3.3.8 注册 不覆盖 OTP 粘贴 验证码",
+    "SC 3.2.1 help dialog 聚焦即弹 抢焦点 G107",
+    "SC 2.2.1 限时 20 秒 六选项 超时清空 表单",
+    "渐进披露 progressive disclosure 设置后置 首启问项",
+    "launch screen splash screen 首启 品牌动画 性能",
+    "activation aha moment time to value 跳过率 度量",
+    "零数据位 starter content 空态 首启 教学 单主行动",
+    "Material 1 fewer than ten choices 90% Self-Select 三模型",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -160,15 +160,29 @@ HIST_QUERIES = [
     "停止生成 重新生成 setMessages 状态归位 队列清空 键盘",
     "流式 Markdown 代码围栏未闭合 分片 节流 自动滚动 性能",
     "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单",
+    # #34 沉淀：#33 主题门槛查询转为历史样本，验收「新增 onboarding-first-run.md 后不退化」。
+    "模态 dialog 焦点陷阱 Tab 不越界 Escape 关闭 验收",
+    "showModal aria-modal inert 背景不可交互 双条件",
+    "Popover API popover auto hint manual 三态 非模态",
+    "top layer ::backdrop z-index inert 层级 遮罩",
+    "SC 1.4.13 Dismissible Hoverable Persistent tooltip 验收",
+    "SC 2.4.11 Focus Not Obscured F110 C43 sticky footer",
+    "SC 2.1.2 No Keyboard Trap 焦点循环 Escape 退出",
+    "SC 3.2.1 On Focus help dialog 打开就抢焦点",
+    "closedby any closerequest none 轻量关闭 light dismiss",
+    "bottom sheet 底部抽屉 命令面板 判型 非模态",
+    "焦点返回触发元素 关闭契约 无鼠标退出 F6 切层",
+    "aria-modal=true 只在双条件满足时 视觉遮蔽",
+    "叠加层嵌套 auto stack hint stack 层叠顺序",
 ]
 
-EXPECT_FILE = "overlays-modality.md"
+EXPECT_FILE = "onboarding-first-run.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #33：#32 未登记演进，本轮同样先以空白名单跑全量回归；若新资产在历史查询中上位，
-# 先按 #28 判例做内容层收敛（章节首行 / 标题措辞），不靠登记凑通过率。
+# #34：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
+# 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
 EXPECTED_EVOLUTION = {}
 
 

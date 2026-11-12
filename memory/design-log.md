@@ -701,3 +701,4 @@
 - **发布纪律**：沿用 `scripts/publish_github.py` 走 GitHub REST Git Data API（blobs → tree → commit → ref）单 commit 整树替换并做远端 blob SHA 校验（比对前先归一化 CRLF）；凭据按 `--token → GITHUB_TOKEN → 密钥文件 → git credential fill` 降级链，本机 `git push` 不可用。双份全局安装 `~/.agents/skills/design-partner/` 与 `~/.workbuddy-ai/skills/design-partner/` 同步，保留各自 `.git` / `.workbuddy-ai/memory/` / `_stale/` 等运行时与历史文件，安装副本只做**只读 raw 字节差异校验**；**发布/同步后不再跑 `mindmap.py` 或 `--check`**，避免刷新 `index.json` 时间戳造成副本不一致。
 - 反馈：无真实用户反馈（每日自动化升级，无人值守）。
 - 效果：待观察
+- **取源补充（本轮收口）**：第二十三分区追加 7 个 [GH] 库（uixmat/onborda · bytedance/guide[已归档] · arco-design · tdesign-react · semi-design · primer/react · w3c/wcag），均为 #34 蒸馏时 GitHub API 实测、与首次体验主题直接相关（组件库 Tour/Guide 实现 + WCAG 规范源）；取源清单 356→363 条目。**主资产 `onboarding-first-run.md` GitHub API 实测仍 12 库（核心 onboarding 引导组件口径），上述 7 库作为取源清单扩充与后续深挖候选，不计入主资产实证；故 SKILL.md / README / 主资产 / build_readme.py 的「12 库」措辞保持不变**。（按 #29 纪律纯 LF 末尾追加，不改历史数字）

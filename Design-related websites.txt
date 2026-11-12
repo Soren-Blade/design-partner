@@ -409,4 +409,11 @@
 - https://github.com/radix-ui/primitives | [GH] Radix Primitives（API 实测 19,493★ / MIT / 2026-10-14 / 未归档）无样式原语
 - https://github.com/carbon-design-system/carbon | [GH] Carbon（API 实测 9,616★ / Apache-2.0 / 2026-11-12 / 未归档）Empty states pattern
 - https://github.com/coryhouse/react-slingshot | [GH] react-slingshot（API 实测 9,623★ / MIT / 2023-09-26 / 未归档）**仅供对照：三年未推送，不推荐新项目**
+- https://github.com/uixmat/onborda | [GH] onborda（API 实测 1,412★ / 未检出 SPDX / 2026-06-08 / 未归档）Next.js onboarding 引导组件，与首次体验主题直接相关
+- https://github.com/bytedance/guide | [GH] bytedance/guide（API 实测 658★ / NOASSERTION / 2023-09-27 / 已归档）字节 onboarding 引导库，**已归档，仅作历史对照不推荐新项目**
+- https://github.com/arco-design/arco-design | [GH] Arco Design（API 实测 5,764★ / MIT / 2026-11-06 / 未归档）`Tour` / `Guide` 组件，国内设计系统 onboarding 生态
+- https://github.com/Tencent/tdesign-react | [GH] TDesign React（API 实测 975★ / MIT / 2026-11-12 / 未归档）`Tour` 组件，腾讯设计体系
+- https://github.com/DouyinFE/semi-design | [GH] Semi Design（API 实测 10,484★ / NOASSERTION / 2026-11-12 / 未归档）`Tour` 组件，字节跳动设计体系
+- https://github.com/primer/react | [GH] Primer React（API 实测 3,933★ / MIT / 2026-11-12 / 未归档）GitHub 官方设计系统，可访问性基线参照
+- https://github.com/w3c/wcag | [GH] w3c/wcag（API 实测 1,524★ / NOASSERTION / 2026-11-12 / 未归档）WCAG 规范源仓库，与 SC 3.3.7/3.3.8/3.2.1/2.2.1 合取验收同源
 - 取源限制：三个 404 路径 `tether/shepherd` / `reactour/reactour` / `apple/swiftui-tipkit` 已改走正确路径或 Apple 文档，仅登记不推断「库不存在」；`NOASSERTION` 不等于无许可；★ 与 pushed_at 为 2026-11-12 快照

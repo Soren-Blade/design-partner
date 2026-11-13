@@ -120,6 +120,9 @@ INTENTS = [
     ("激活 / aha moment / time to value / 跳过率 / 零数据位", "onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md"),
     ("渐进披露 / splash / launch screen / 首启性能 / 设置后置", "onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md"),
     ("空状态 / 零数据位 / 装饰插画 / starter content / 空状态文案矩阵", "empty-states.md §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量"),
+    ("定价页 / 三档套餐 / 月年切换 / 推荐档 / 价格数字排版", "pricing-checkout.md §2 四种构型 → §3 价格数字表 → §6 月年切换器 → §5 对比表与 CTA"),
+    ("结账流程 / checkout / 结算页 / 复核页 / 承诺闸门", "pricing-checkout.md §7 结账三型 → GOV.UK check answers 七条 → §11 SC 3.3.4 三选一（AA）→ §16 自检"),
+    ("划线价 / 原价折扣 / 运费税费 / 总价披露 / 隐藏费用", "pricing-checkout.md §4 FTC 464 total price → §10 费用三级披露 → §17.2 validate_was_price → §18 取源限制"),
 ]
 
 

@@ -33,25 +33,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 empty-states.md 前 3。
-# #35 换轮：13 条覆盖五种空态判型 / 装饰插画无障碍 / 单主行动 CTA 纪律 / 零数据位四模式 /
-# 失败空态≠无数据 / 首次操作率度量 / 移动端小程序 / 反模式 / 结构五件套 / 中英抄写矩阵，
-# 且刻意混入「验收 / 文案 / 可访问性 / 性能 / 度量 / 组件」等跨域词（#26 P1 教训）。
-# #34 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #35 沉淀块）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 pricing-checkout.md 前 3。
+# #36 换轮：13 条覆盖三种定价页判型 / 价格数字排版 / 月年切换 / 划线价与合规 / 结账三型 /
+# 复核页与 Change 链接 / SC 3.3.4 承诺闸门 / SC 3.3.7 重复填写 / 费用披露与信任 / 支付标记规范 /
+# autocomplete token / 移动端结账，且刻意混入「可访问性 / 性能 / 度量 / 组件 / 验收」等跨域词（#26 P1 教训）。
+# #35 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #36 沉淀块）。
 NEW_QUERIES = [
-    "空状态 五种类型 判型 插图 引导",
-    "零数据位 starter content 示例数据 预填 首启",
-    "装饰插画 空状态 无障碍 aria-hidden alt 装饰性",
-    "单主行动 空状态 CTA 一个主按钮 引导 文案",
-    "失败空态 不等于 无数据 错误 伪装 验收",
-    "空状态文案 引导 不道歉 祈使动词 语气",
-    "首次操作率 空状态 度量 激活 转化",
-    "空状态 移动端 小程序 紧凑 适配 性能",
-    "空状态 反模式 20 条 空白页 死胡同 可访问性",
-    "空状态 结构 五件套 标题 描述 插图 动作 footer",
-    "blank slate 空状态 零数据位 设计模式 抄写",
-    "空状态 装饰插画 取舍 何时不用 插图 干扰",
-    "空状态 自检 清单 20 项 验收 对照",
+    "定价页 三档 套餐 推荐档 中档 抬升 布局",
+    "价格数字 排版 货币符号 tabular-nums 字号",
+    "月付 年付 切换器 折扣 折后价 显示 性能",
+    "划线价 原价 划掉 折扣百分比 计算 合规",
+    "结账流程 checkout 结算页 步骤 字段 组件",
+    "复核页 check answers 确认 Change 链接 预填",
+    "承诺闸门 不可撤销 可逆 确认 金融 可访问性",
+    "重复填写 自动填充 同一进程 第三方支付 验收",
+    "运费 税费 总价 披露 隐藏费用 度量",
+    "Apple Pay 按钮 标记 留白 规范 支付",
+    "autocomplete 字段 token 收货地址 账单地址",
+    "购物车 放弃 信任 徽章 社会证明 文案",
+    "结账 移动端 键盘 数字键盘 输入 验收",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -190,24 +190,32 @@ HIST_QUERIES = [
     "activation aha moment time to value 跳过率 度量",
     "新手引导 首启 教学 激活 onboarding 验收 度量",
     "Material 1 fewer than ten choices 90% Self-Select 三模型",
+    # #36 沉淀：#35（空状态）的 13 条新主题查询，换轮后固定为历史回归集。
+    "空状态 五种类型 判型 插图 引导",
+    "零数据位 starter content 示例数据 预填 首启",
+    "装饰插画 空状态 无障碍 aria-hidden alt 装饰性",
+    "单主行动 空状态 CTA 一个主按钮 引导 文案",
+    "失败空态 不等于 无数据 错误 伪装 验收",
+    "空状态文案 引导 不道歉 祈使动词 语气",
+    "首次操作率 空状态 度量 激活 转化",
+    "空状态 移动端 小程序 紧凑 适配 性能",
+    "空状态 反模式 20 条 空白页 死胡同 可访问性",
+    "空状态 结构 五件套 标题 描述 插图 动作 footer",
+    "blank slate 空状态 零数据位 设计模式 抄写",
+    "空状态 装饰插画 取舍 何时不用 插图 干扰",
+    "空状态 自检 清单 20 项 验收 对照",
 ]
 
-EXPECT_FILE = "empty-states.md"
+EXPECT_FILE = "pricing-checkout.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #35：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
+# #36：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
 # 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
-# #35 登记演进：空状态资产上位「空态 无数据 插图 引导」属合理——该通用空态查询此前由
-# feedback-states §5（概述/速查）作答，本轮新增 empty-states.md 为同主题的权威深挖资产，二者
-# 并存：top1 文件仍是 feedback-states.md（§5 43.5 > empty §0 39.6），旧答案仍落 top5，且新资
-# 产经 --no-alias 仍进前 3（非别名污染，见 check_evolution 三硬校验）。同理由「序列位置…孤立效应」。
 EXPECTED_EVOLUTION = {
-    "空态 无数据 插图 引导":
-        "empty-states.md 上位为同主题权威深挖（top1 文件仍是 feedback-states.md §5；旧答案仍落 top5；--no-alias 仍进前 3）",
-    "序列位置 首因效应 近因效应 Von Restorff 孤立效应":
-        "empty-states.md §8 变体与承载位置（位置感/承载位相邻，合理上位；top1 仍是 visual-hierarchy-gestalt；--no-alias 仍进前 3）",
+    "SC 3.3.7 重复输入 自动回填 autocomplete 不够":
+        "pricing-checkout.md §8.3 上位为 SC 3.3.7 的深挖正文（top1 仍是 onboarding-first-run §11.1；HEAD top3 中 content-findability 仍落 top5；--no-alias 下仍进前 3）",
 }
 
 

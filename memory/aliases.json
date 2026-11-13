@@ -3378,6 +3378,88 @@
         "一个主按钮",
         "单一行动点"
       ]
+    },
+    {
+      "canonical": "定价页",
+      "aliases": [
+        "pricing page",
+        "价格页",
+        "套餐页",
+        "方案对比",
+        "版本对比",
+        "资费"
+      ]
+    },
+    {
+      "canonical": "结账",
+      "aliases": [
+        "checkout",
+        "结算页",
+        "下单页",
+        "收银台",
+        "付款流程",
+        "支付流程"
+      ]
+    },
+    {
+      "canonical": "总价",
+      "aliases": [
+        "total price",
+        "到手价",
+        "应付金额",
+        "实付金额",
+        "合计金额",
+        "最终价格"
+      ]
+    },
+    {
+      "canonical": "划线价",
+      "aliases": [
+        "was price",
+        "原价",
+        "参考价",
+        "折后价",
+        "优惠价"
+      ]
+    },
+    {
+      "canonical": "运费",
+      "aliases": [
+        "shipping fee",
+        "配送费",
+        "邮费",
+        "物流费用"
+      ]
+    },
+    {
+      "canonical": "税费",
+      "aliases": [
+        "tax",
+        "销售税",
+        "增值税",
+        "VAT",
+        "含税价"
+      ]
+    },
+    {
+      "canonical": "重复填写",
+      "aliases": [
+        "redundant entry",
+        "重复录入",
+        "重复输入",
+        "再填一遍",
+        "二次填写"
+      ]
+    },
+    {
+      "canonical": "自动填充",
+      "aliases": [
+        "autofill",
+        "input purpose",
+        "输入用途",
+        "字段语义",
+        "浏览器填充"
+      ]
     }
   ]
 }

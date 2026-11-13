@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-13 19:28 ｜ 47 个文件 · 1795 个章节 · 1,588,664 字符
+> 自动生成于 2026-11-13 21:16 ｜ 48 个文件 · 1826 个章节 · 1,636,260 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -99,6 +99,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 激活 / aha moment / time to value / 跳过率 / 零数据位 | onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md |
 | 渐进披露 / splash / launch screen / 首启性能 / 设置后置 | onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md |
 | 空状态 / 零数据位 / 装饰插画 / starter content / 空状态文案矩阵 | empty-states.md §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量 |
+| 定价页 / 三档套餐 / 月年切换 / 推荐档 / 价格数字排版 | pricing-checkout.md §2 四种构型 → §3 价格数字表 → §6 月年切换器 → §5 对比表与 CTA |
+| 结账流程 / checkout / 结算页 / 复核页 / 承诺闸门 | pricing-checkout.md §7 结账三型 → GOV.UK check answers 七条 → §11 SC 3.3.4 三选一（AA）→ §16 自检 |
+| 划线价 / 原价折扣 / 运费税费 / 总价披露 / 隐藏费用 | pricing-checkout.md §4 FTC 464 total price → §10 费用三级披露 → §17.2 validate_was_price → §18 取源限制 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -351,26 +354,34 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **零数据位** | blank slate · 示例数据 · 样本数据 · 预填内容 · 零内容 |
 | **装饰插画** | illustration · 空状态插画 · 装饰图 · deco illustration |
 | **单主行动** | single primary action · 一个主按钮 · 单一行动点 |
+| **定价页** | pricing page · 价格页 · 套餐页 · 方案对比 · 版本对比 · 资费 |
+| **结账** | checkout · 结算页 · 下单页 · 收银台 · 付款流程 · 支付流程 |
+| **总价** | total price · 到手价 · 应付金额 · 实付金额 · 合计金额 · 最终价格 |
+| **划线价** | was price · 原价 · 参考价 · 折后价 · 优惠价 |
+| **运费** | shipping fee · 配送费 · 邮费 · 物流费用 |
+| **税费** | tax · 销售税 · 增值税 · VAT · 含税价 |
+| **重复填写** | redundant entry · 重复录入 · 重复输入 · 再填一遍 · 二次填写 |
+| **自动填充** | autofill · input purpose · 输入用途 · 字段语义 · 浏览器填充 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1011 行 · 快照 — · 12 节_
+_1019 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L122` — 资产已 45 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L124` — 资产已 45 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L137`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L366` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L381` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L407` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L438` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L887` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L967` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L980` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L987` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1003` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L125` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L127` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L140`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L372` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L387` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L413` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L444` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L893` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L975` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L988` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L995` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1011` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1444,7 +1455,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_709 行 · 快照 2026-11-05 · 62 节_
+_719 行 · 快照 2026-11-05 · 63 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1507,7 +1518,8 @@ _709 行 · 快照 2026-11-05 · 62 节_
   - **支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）** `L528` — - 这是什么（交互契约的边界端）：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、aria-modal 能否标、Tab 是否
   - **支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）** `L542` — - 这是什么（链路的起点端）：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧
   - **支线 AG · 空状态与零数据位（把"没有数据"翻译成五件套与可抄矩阵的完成路径）** `L556` — - 这是什么（链路的内容端）：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问
-- **能力自测（169 条，做到 ≥110 条即达 L2+）** `L566` — L0
+  - **支线 AH · 定价页与结账流程（把"敢不敢付"翻译成总价锁定与承诺闸门的完成路径）** `L566` — - 这是什么（链路的内容端）：与表单与表格（form-table：字段/校验/错误文案）、可访问性（accessibility：SC 阈值与焦点）、设计伦理（design-ethics-inclusion：附加费 sneaking）、反馈与
+- **能力自测（171 条，做到 ≥110 条即达 L2+）** `L576` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1979,6 +1991,38 @@ _1129 行 · 快照 2026-11-05 · 90 节_
   - **18.5 CSS 幻灯片安全区模拟（通用）** `L970`
   - **18.6 Python-pptx 生成幻灯片模板** `L1045` — ---
 
+### `references/pricing-checkout.md` · 定价页与结账流程（Pricing & Checkout）
+_562 行 · 快照 — · 28 节_
+
+- **§0 一句话立场** `L6` — 定价页的目标不是把价格说清楚，是让人敢点；结账的目标不是收集信息，是让人敢付完。
+- **§1 判层：你被问的是哪一类** `L18` — 先分流，别一上来就画定价页。六问定位：
+- **§2 定价页构型谱系（先选构型，再调尺寸）** `L33` — 尺寸与对齐（可直接抄）：卡片内边距 32px；三档并排时容器宽 ≥ 960px，< 768px 转纵向堆叠且推荐档置顶；三张卡的功能行必须同一行号对齐（用 grid 行轨道或统一行高，不用各自 margin）；卡片等高，CTA 底对齐。
+- **§3 价格数字排版（照数值抄）** `L48` — 价格的排版目标只有一个：让三个数字能被竖向扫描比较。所以纵向对齐优先于美观。
+- **§4 划线价、折扣与"原价"的合规红线** `L65` — 价格呈现不是纯审美问题——被比较的价格有法律含义。三条纪律先给，再给一手依据。
+- **§5 对比表与 CTA** `L132` — - 推荐档的语义不能只靠颜色：角标文字（"最受欢迎"/"推荐"）+ aria-label；只给强调色 = 对色觉障碍用户与读屏用户同时失效（SC 1.4.1 Use of Color）。
+- **§6 月付 / 年付切换器** `L140` — - 控件选型：两个选项互斥且两个标签必须同时可见 → 用 radio group（<input type="radio" + <label 并排），不要用 switch。switch 的语义是"开/关一个状态"，用户看不出"关"等于月付还是
+- **§7 结账骨架：单页 / 分段 / 多步** `L148` — 步骤数 ≤ 3 是经验上限：信息、支付、（确认）。步骤指示器要如实——不要显示 4 步却在第 2 步收完所有信息。
+- **§8 表单字段与自动填充** `L173` — 要求"每个收集用户信息的字段的用途能被程序判定"。三条常见误解，逐条破：
+  - **8.1 字段计划表（结账最小集）** `L175`
+  - **8.2 SC 1.3.5 Identify Input Purpose（Level AA）** `L193` — 要求"每个收集用户信息的字段的用途能被程序判定"。三条常见误解，逐条破：
+  - **8.3 SC 3.3.7 Redundant Entry（Level A）** `L203` — 同一条交易进程内，已经提供过的信息不得要求再填，除非：①重填是必要的（如"确认新密码"）②安全原因（如重新验证）③此前信息已失效。
+  - **8.4 标签、错误与输入便利** `L216` — - 可见 label + for，placeholder 只做示例不做标签（SC 3.3.2）。
+- **§9 支付方式与钱包按钮** `L224` — - Apple Pay 标记规范（逐字）："The Apple Pay mark is available only in white with an outline rule. Other color options aren't ava
+- **§10 费用透明：运费、税费、附加费** `L236` — 铁律：用户在填地址之前能看到费用政策（运费区间/税费规则/是否含税），在付款之前锁定最终总额。中间任何一步"突然多出一笔"，都是 §0 铁律一被破。
+- **§11 承诺闸门：SC 3.3.4（Level AA）** `L257` — SC 3.3.4 Error Prevention (Legal, Financial, Data) 管的就是结账。适用条件：页面会导致法律承诺或金融交易、修改/删除用户数据、或提交测试答案。满足方式三选一（原文）：
+- **§12 总价变化与无障碍播报** `L274` — 结账页里金额会随运费、优惠、数量变化。静默更新对读屏用户等于"什么都没发生"，对视力用户也容易漏看。
+- **§13 信任与社会证明** `L285` — - 只放可验证的信号：支付方式标识、退货/退款政策、客服入口、实体信息（公司名/地址/联系方式）、HTTPS 与隐私链接。
+- **§14 移动端结账** `L293` — - 单列，字段高 44–48px（触摸目标 ≥ 44×44，SC 2.5.5 AAA；最低 24×24，SC 2.5.8 AA）。
+- **§15 反模式清单（20 条）** `L302` — 1. 结账最后一步才出现运费或"服务费"。
+- **§16 自检清单（20 条）** `L325` — - [ ] 填地址之前能看到运费/税费政策。
+- **§17 可抄代码（5 段，均可在标准库下直接跑）** `L348` — python
+  - **17.1 价格排版生成器（字号/等宽数字/货币符号/周期）** `L350`
+  - **17.2 划线价台账校验（"原价"是否有依据）** `L381`
+  - **17.3 结账字段计划器（autocomplete token + 地址复用）** `L422`
+  - **17.4 总价对账器（三处一致 + 加项透明）** `L471`
+  - **17.5 SC 3.3.4 承诺闸门验收器 + 总额播报片段** `L513`
+- **§18 取源限制（公开记录，不臆造）** `L553` — 1. Baymard 购物车放弃率榜单全文不可得：baymard.com/blog/cart-abandonment-rate（标题 "Cart Abandonment Rate: 50 Statistics (2026)"）两次抓取均被站
+
 ### `references/resources.md` · 设计资源 — Resources
 _225 行 · 快照 2026-10-29 · 5 节_
 
@@ -2297,7 +2341,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_704 行 · 快照 — · 39 节_
+_733 行 · 快照 — · 41 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2338,6 +2382,8 @@ _704 行 · 快照 — · 39 节_
 - **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** `L661` — - 本轮性质：v35→v36 补齐「AI 产品交互链路」域。触发时工作区是干净基线：HEAD 77c2f40（v35 / 41 参考 / 1,072,753 字符 / 200 路由 / 39 自检 / 224 别名组 / 29 支线 · 1
 - **2026-11-11 · 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）** `L675` — - 本轮性质：v36→v37 补齐「层的交互契约」域，并按 #26 判例先交付在途轮次。触发时工作区不是干净基线：HEAD 7d3bdbc（v36 / 42 参考 / 1,114,212 字符 / 205 路由 / 40 自检 / 230 
 - **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** `L690` — - 本轮性质：v37→v38 补齐「首次体验链路」域，并按 #26 判例先完整交付在途轮次。触发时工作区是干净基线：HEAD 80a9610（v37 / 43 参考 / 1,181,426 字符 / 210 路由 / 41 自检 / 236
+- **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** `L706` — - 本轮性质：v38→v39 补齐「空状态与零数据位」域，沿用 #34 定稿后的干净基线与 #26 判例纪律。触发时工作区为 #34 定稿的 HEAD；缺口判定沿用实证口径：全域词频实测 empty state / blank slate 
+- **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** `L718` — - 本轮性质：v39→v40 补齐「决定买之后」这条链路——价格怎么呈现、钱怎么付出去。触发时工作区为 #35 定稿的干净基线 HEAD cff6d94（v39 / 45 参考 / 1,260,776 字符 / 217 路由 / 42 自检
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -2691,6 +2737,8 @@ _704 行 · 快照 — · 39 节_
 - **2026-11-11 · 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互）** → `memory/design-log.md` L661
 - **2026-11-11 · 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）** → `memory/design-log.md` L675
 - **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** → `memory/design-log.md` L690
+- **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** → `memory/design-log.md` L706
+- **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** → `memory/design-log.md` L718
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -2953,75 +3001,93 @@ _704 行 · 快照 — · 39 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/empty-states.md` L5
+- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
+- **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
+- **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
 - **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
+- **§11 承诺闸门：SC 3.3.4（Level AA）** → `references/pricing-checkout.md` L257
 - **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
+- **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
+- **§13 信任与社会证明** → `references/pricing-checkout.md` L285
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 反模式 20 条** → `references/empty-states.md` L208
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 可抄代码** → `references/feedback-states.md` L485
+- **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
 - **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
+- **§15 反模式清单（20 条）** → `references/pricing-checkout.md` L302
 - **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
 - **§15 工具与库（2026-11-01 GitHub API 实测）** → `references/feedback-states.md` L573
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
 - **§16 来源与取源限制** → `references/empty-states.md` L315
+- **§16 自检清单（20 条）** → `references/pricing-checkout.md` L325
 - **§17 上线前自检：25 条（按可判定性排序）** → `references/accessibility.md` L607
 - **§17 反模式（20 条，逐条对照）** → `references/editorial-layout.md` L621
+- **§17 可抄代码（5 段，均可在标准库下直接跑）** → `references/pricing-checkout.md` L348
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
+- **§18 取源限制（公开记录，不臆造）** → `references/pricing-checkout.md` L553
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
+- **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
 - **§20 与其他文件的分工** → `references/editorial-layout.md` L756
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
+- **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
+- **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
+- **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
+- **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
+- **§7 结账骨架：单页 / 分段 / 多步** → `references/pricing-checkout.md` L148
 - **§7 零数据位 / starter content：用示例教，而不是用文字讲** → `references/empty-states.md` L132
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
 - **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
+- **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
+- **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
 - **§9 空状态可访问性清单** → `references/empty-states.md` L164
 - **§9 表单无障碍：只补 form-table.md 没说的** → `references/accessibility.md` L330
@@ -3115,7 +3181,7 @@ _704 行 · 快照 — · 39 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L122
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L125
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3125,12 +3191,12 @@ _704 行 · 快照 — · 39 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（169 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L566
-- **自我成长机制（用得越多越准）** → `SKILL.md` L967
-- **自我进化机制（知识保鲜）** → `SKILL.md` L980
+- **能力自测（171 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L576
+- **自我成长机制（用得越多越准）** → `SKILL.md` L975
+- **自我进化机制（知识保鲜）** → `SKILL.md` L988
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1003
+- **边界与习惯** → `SKILL.md` L1011
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

@@ -2,8 +2,8 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v39-1677ff)
-![assets](https://img.shields.io/badge/reference_files-45-2ea44f)
+![version](https://img.shields.io/badge/version-v40-1677ff)
+![assets](https://img.shields.io/badge/reference_files-46-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-13-6e7781)
 
@@ -40,8 +40,9 @@
 | **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 42 项自检 |
-| **知识找不到** | 45 份参考、126 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 43 项自检 |
+| **知识找不到** | 46 份参考、129 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -50,7 +51,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 169 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 171 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -60,6 +61,7 @@
 | [可访问性实操](references/accessibility.md) | WCAG 2.2 四档阈值 / 焦点三层标准与可抄样式 / 24px 圆间距例外 / ARIA 纪律 / aria-live / 读屏实测 / GB/T 37668 与适老化 / 25 条自检 | 规则型 | 2026-11-01 |
 | [反馈与状态设计](references/feedback-states.md) | 五层反馈决策树 / 0.1·1·10s 阈值 / 四体系 toast 时长与宽度 / 加载三形态 / 进度六铁律 / 五种空态 / 五级错误 / 确认框八条 / 五态模型 / WCAG 4.1.3 / 15 项自检 | 规则型 | 2026-11-01 |
 | [空状态与零数据位](references/empty-states.md) | 立场三裁决（引导不道歉 / 装饰插画 aria-hidden / 失败态≠缺省态·禁止伪装）/ 结构五件套一手解剖（Ant colorTextDescription · PRESENTED_IMAGE_SIMPLE·DEFAULT · margin 8·16·32 · footer action slot；Atlassian Anatomy wide 464 / narrow 304 / h600 / CTA imperative verbs / 装饰图 alt 规则）/ 五种空态判型器 / 中英抄写矩阵 8 类可抄 / 装饰插画取舍与无障碍清单 / 零数据位 starter content 四模式 / 单主行动 CTA 纪律 / 失败态≠缺省态 / 首次操作率度量 / 移动端小程序 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑） | 规则型 | 2026-11-13 |
+| [定价页与结账流程](references/pricing-checkout.md) | 立场三铁律（总价先行 / 结账是承诺不是表单 / 同一进程不重复索要）/ 判层六问 / 四种定价页构型与尺寸（卡内边距 32px · 价格 40–48px · 货币符号 0.5em 上移 0.13em · tabular-nums）/ 划线价合规（FTC 16 CFR 464 total price 逐字 + clear and conspicuous 八款 + 实际只覆盖票务与短租）/ 月年切换器 / 结账三型 / GOV.UK check answers 七条（two-thirds · Change 带 visually-hidden · 返回必预填 · Not provided）/ 13 字段 autocomplete token 表 / SC 1.3.5 AA · 3.3.7 A · 3.3.4 AA 三条款合取 / Apple Pay 标记规范（仅白色描边版 · 清space 1/4 · 不与其它按钮共享边框）/ 费用三级披露与一致性 / role=status 金额播报 / 移动端 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）/ 8 条取源限制 | 规则型 | — |
 | [响应式与断点体系](references/responsive-layout.md) | 六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式 | 规则型 | 2026-11-01 |
 | [版式与网格（Editorial）](references/editorial-layout.md) | 五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检 | 规则型 | 2026-11-01 |
 | [品牌视觉与 Logo 逻辑](references/brand-identity.md) | 四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检 | 规则型 | 2026-11-01 |
@@ -105,12 +107,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  217 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  220 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  42 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关）+ 交付说明三段式
+第 6 步  自检与交付    →  43 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -132,7 +134,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：245 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：253 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
@@ -151,7 +153,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 33 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位）、学习节奏表、169 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 34 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程）、学习节奏表、171 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -178,6 +180,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-13 | 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers） |
 | 2026-11-13 | 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画） |
 | 2026-11-12 | 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure） |
 | 2026-11-11 | 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer） |
@@ -185,7 +188,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-10 | 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） |
 | 2026-11-09 | 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability） |
 | 2026-11-08 | 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt） |
-| 2026-11-08 | 每日升级 #28：形状与深度系统（Shape & Elevation） |
 
 ---
 
@@ -308,6 +310,14 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [W3C WCAG 2.2 · SC 3.2.1 On Focus](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) · [SC 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) — help dialog 官方失败例与 G107 / 六选项·20 seconds·ten times·10x·20 hours / essential 豁免后仍要过 3.3.8
 - [Ant Design · Tour](https://ant.design/components/tour) · [Empty](https://ant.design/components/empty) — `mask` / `disabledInteraction` / `keyboard` / `gap` / `zIndex` 默认值与版本、非模态用法、token 精确值（实现默认值，非设计规范刻度）
 - [IBM Carbon · Empty states](https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states) — anatomy 五件套 / 替换原本要显示的元素 / 单主行动 / starter content 与 in-line documentation（无逐字数值）
+- [W3C WCAG 2.2 · SC 3.3.4 Error Prevention (Legal, Financial, Data)](https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html) · [SC 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html) — 3.3.4 为 **AA** 且三选一（Reversible / Checked / Confirmed）+ G164·G98·G155；1.3.5 autocomplete Input Purposes token、H98 / F107、`transaction-amount` 例外
+- [GOV.UK Design System · Check answers](https://design-system.service.gov.uk/patterns/check-answers/) — two-thirds 布局 / 每段 `Change` 带 `govuk-visually-hidden` / 返回必预填 / 未答可选 "Not provided" / 提交按钮写清动作 / `govuk-summary-list` 与 `dl·dt·dd`
+- [FTC 16 CFR Part 464 · Rule on Unfair or Deceptive Fees](https://ecfr.io/Title-16/Part-464) — §464.1 total price 与 clear and conspicuous 八款（含 interactive electronic medium 的 unavoidable）/ §464.2(a)(b)(c) 隐藏费禁止 / 实际覆盖品类仅 live-event tickets 与 short-term lodging（Daily eCFR 2026-10-30，Source 90 FR 2166）
+- [Apple · Apple Pay Marketing Guidelines](https://developer.apple.com/apple-pay/marketing/) · [`canMakePayments`](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaysession/1778027-canmakepayments/) — 标记仅白色描边版 / 清space ≥ 标记高度 1/4 / 不与其它按钮共享边框 / 浅色背景优先
+- [Directive (EU) 2019/2161 · Article 6a（价格标示指令 98/6/EC）](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L2161) — prior price = 不少于 30 天内的最低价 / 渐进加码取首次加码前价 / 上市 <30 天可另定短周期（EUR-Lex 对脚本返回 202 + WAF，经 headless Chrome 渲染取证）
+- [中国 · 明码标价和禁止价格欺诈规定（总局令第 56 号）](https://www.gov.cn/gongbao/content/2022/content_5699926.htm) · [市场监管总局同文](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/jls/art/2023/art_72865dc294a14432aff931038b02c210.html) — 第十六条前七日最低成交价兜底 / 第十七条禁止折价前临时提价 / 第十九条八项价格欺诈 / 第二十一条三类除外；该规章不用“原价”一词
+- [消费者权益保护法实施条例（国务院令第 778 号）](https://www.gov.cn/zhengce/content/202403/content_6940158.htm) — 第十条第二款：自动展期/自动续费须在接受服务前与每次续费日期前以显著方式提请注意
+- [Baymard · Cart Abandonment Rate](https://baymard.com/blog/cart-abandonment-rate) — 取源限制：两次抓取均被站点导航超截断，**未引用其任何百分比**；Google Pay 品牌规范两次 `fetch failed`、Apple HIG 为 JS 渲染，均未引用条文
 - [GitHub · kamranahmedse/driver.js](https://github.com/kamranahmedse/driver.js) · [usablica/intro.js](https://github.com/usablica/intro.js) · [shipshapecode/shepherd](https://github.com/shipshapecode/shepherd) · [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride) · [elrumordelaluz/reactour](https://github.com/elrumordelaluz/reactour) — product tour / coach mark 实现（star / license / pushed_at / archived 均 GitHub API 2026-11-12 实测 12 库）
 
 ## 目录结构
@@ -316,7 +326,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（45 份，见上表）
+├── references/               # 知识库（46 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

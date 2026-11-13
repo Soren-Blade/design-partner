@@ -563,7 +563,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能用判型器三问把任意空状态归入五种之一，并说出把失败渲染成无数据为什么会让用户不再重试
 - [ ] 能写出空状态文案公式（标题≤12/说明≤30/按钮≤6）并给中英两版，且装饰插画在纯装饰时给出 `aria-hidden` + `alt=""` 的写法
 
-## 能力自测（169 条，做到 ≥110 条即达 L2+）
+### 支线 AH · 定价页与结账流程（把"敢不敢付"翻译成总价锁定与承诺闸门的完成路径）
+
+- **这是什么（链路的内容端）**：与表单与表格（`form-table`：字段/校验/错误文案）、可访问性（`accessibility`：SC 阈值与焦点）、设计伦理（`design-ethics-inclusion`：附加费 sneaking）、反馈与状态（`feedback-states §6`：`role="status"`）相邻但问题不同——它们分别管字段怎么排、条款怎么判、附加项合不合伦理、状态怎么播报；本支线管**钱的两端**：定价页怎么让人选得明白、结账页怎么让人敢付完，核心是「总价锁定」与「承诺闸门」。此前 45 份参考对 `结账`=0 / `checkout`=2 / `运费`=0 / `税费`=0 / `PSD2`=0 近乎零命中，`定价`/`价格表` 仅落在 `patterns.md §定价表` 五行速记，判定为结构性空白。
+- **三条最重要裁决**：① **总价先行且不可变**——FTC 16 CFR 464 §464.1 total price 逐字 *"the maximum total of all fees or charges a consumer must pay for any good(s) or service(s) and any mandatory ancillary good or service…"*，§464.2(b) 要求总价比任何其他价格信息更显著，§464.1(4) 要求电子媒介披露 *"must be unavoidable"*；② **结账是承诺不是表单**——SC 3.3.4（**Level AA**）三选一 Reversible / Checked / Confirmed，充分技术 G164 / G98 / G155，复核页照 GOV.UK check answers；③ **同一进程内不重复索要**——SC 3.3.7（Level A）*"The autocomplete feature of browsers is not considered sufficient…"*，且 *"if a check-out process includes a 3rd party payment provider, that would be in scope"*，配套 SC 1.3.5 要求 `autocomplete` token 暴露用途。
+- **精确值怎么取**：FTC 16 CFR 464 §464.1/§464.2 经 eCFR 镜像逐字核验（2026-11-13，Daily eCFR 版 2026-10-30，Source 90 FR 2166, Jan. 10, 2025）；欧盟 (EU) 2019/2161 新增 **Article 6a** 五款与我国《明码标价和禁止价格欺诈规定》第十六/十七/十九/二十一条、消保法实施条例第十条第二款经官方页核验（前者需 headless Chrome 过 WAF，见该资产 §18 第 4 条）；WCAG 2.2 SC 3.3.4 AA（Updated 16 September 2025）/ SC 3.3.7 A / SC 1.3.5 AA W3C 官方页逐字核验；GOV.UK check answers 与 Apple Pay Marketing Guidelines 逐字核验；Baymard 正文被导航超截断、Google Pay 品牌规范 `fetch failed`、Apple HIG JS 渲染 → 取源限制（见该资产 §18）。
+- **判学会了**：能三问定位"选哪个 vs 敢不敢付"；能说出四种定价页构型的适用与尺寸（卡内边距 32px / 价格 40–48px / `tabular-nums` / 货币符号 0.5em 上移 0.13em）；能判划线价有没有成交依据、折扣率能不能从两个价格算回；能写出结账三型与复核页七条；能列出 13 个字段的 `autocomplete` token（含 `shipping`/`billing` 前缀）；能验 SC 3.3.4 三选一与金额变化播报；材料见 `references/pricing-checkout.md`。
+
+- [ ] 能说出为什么"总价"必须在用户同意付款前锁定，并指出 FTC 464 的 total price 定义里哪两类费用可以被排除，以及该规则实际只覆盖哪两类商品
+- [ ] 能对一个结账页做三项验收：SC 3.3.4 三选一是否成立、复核页每个 `Change` 是否带视觉隐藏文本、返回后已填内容是否仍预填
+
+## 能力自测（171 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

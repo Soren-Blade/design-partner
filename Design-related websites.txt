@@ -433,3 +433,27 @@
 - https://github.com/carbon-design-system/carbon | [GH]（已在二十三区列；v39 复核 `Empty states` pattern 同源：9,616★ / Apache-2.0 / 2026-11-12 / 未归档）
 
 - 取源限制（v39 空状态蒸馏）：NN/g 空状态文章 URL 404、Material 3 / Apple HIG 空状态页为 JS 渲染动态文档无法全文抓取，三者仅登记为取源限制，结论不依赖其正文；立场裁决（引导不道歉 / 装饰插画 aria-hidden / 失败空态不伪装）以 Atlassian + Ant Design 一手源为准。
+
+## 二十五、定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）【v40 本轮新增分区】
+- https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html | WCAG 2.2 SC 3.3.4 Error Prevention (Legal, Financial, Data)（v40 一手源：**Level AA**；三选一 Reversible / Checked / Confirmed；充分技术 G164 / G98 / G155；「order confirmation」示例）
+- https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html | WCAG 2.2 SC 3.3.7 Redundant Entry（v40 一手源：Level A；*"The autocomplete feature of browsers is not considered sufficient…"*；结账含第三方支付商仍在 process 范围内；技术 G221；PII 泄露提醒）
+- https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html | WCAG 2.2 SC 1.3.5 Identify Input Purpose（v40 一手源：Level AA；`autocomplete` Input Purposes token；*"Whether or not user agents actually autofill inputs is not relevant…"*；H98 / F107）
+- https://design-system.service.gov.uk/patterns/check-answers/ | GOV.UK Design System · Check answers（v40 一手源：two-thirds 布局、每段 Change + `govuk-visually-hidden`、返回必预填、未答可选 "Not provided"、提交按钮写动作、`govuk-summary-list` + `dl/dt/dd`）
+- https://developer.apple.com/apple-pay/marketing/ | Apple Pay Marketing Guidelines（v40 一手源：标记仅白色描边版、清space = 标记高度 1/4、不与其它按钮共享边框、浅色背景优先、`canMakePayments`）
+- https://developer.apple.com/documentation/apple_pay_on_the_web/applepaysession/1778027-canmakepayments/ | Apple Pay JS `canMakePayments`（v40 一手源：按设备能力显隐，不按 UA 猜）
+- https://ecfr.io/Title-16/Part-464 | 16 CFR Part 464 · Rule on Unfair or Deceptive Fees（v40 一手源：§464.1 total price 定义、§464.2(a)(b)(c) 隐藏费禁止、clear and conspicuous 八款；Daily eCFR 版 2026-10-30，Source 90 FR 2166）
+- https://baymard.com/blog/cart-abandonment-rate | Baymard 购物车放弃率榜单（v40 **取源限制**：标题 *"Cart Abandonment Rate: 50 Statistics (2026)"*，两次抓取均被全局导航占满 "Content truncated"，本分区**不引用其任何百分比**）
+- https://developers.google.com/pay/api/web/guides/brand-guidelines | Google Pay 按钮品牌规范（v40 **取源限制**：两次 `fetch failed`，本分区只给不依赖该文档的通用原则，未引用条文）
+- https://developer.apple.com/design/human-interface-guidelines/apple-pay | Apple HIG · Apple Pay（v40 **取源限制**：JS 渲染，正文为空，未引用）
+- https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L2161 | Directive (EU) 2019/2161 第 2 条第 (1) 项对 98/6/EC 新增 **Article 6a**（v40 一手源：prior price = 不少于 30 天内的最低价 · 渐进加码取首次加码前价 · 上市 <30 天可另定短周期 · 易腐商品可另定；EUR-Lex 对脚本返回 202 + WAF，经 headless Chrome 渲染 CELEX 文档后逐字抄录）
+- https://www.gov.cn/gongbao/content/2022/content_5699926.htm | 中国《明码标价和禁止价格欺诈规定》（总局令第 56 号）国务院公报 2022 年第 19 号（v40 一手源：第十六条前七日最低成交价兜底 · 第十七条禁止折价前临时显著提价 · 第十九条八项价格欺诈 · 第二十一条三类除外；**该规章不用“原价”一词**）
+- https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/jls/art/2023/art_72865dc294a14432aff931038b02c210.html | 市场监管总局同文（v40 互校源，与国务院公报文本一致）
+- https://www.gov.cn/zhengce/content/202403/content_6940158.htm | 《消费者权益保护法实施条例》（国务院令第 778 号，2024-07-01 施行）第十条第二款（v40 一手源：自动展期/自动续费须在**接受服务前**与**每次续费日期前**以显著方式提请注意；罚则见第五十条第一款）
+- 取源限制（v40 定价与结账蒸馏）：Baymard 任意页面因巨型导航超截断阈值、正文不可得；Google Pay 规范与 Google Pay 品牌页网络层拒连；Apple HIG 为 JS 渲染；**EUR-Lex / legislation.gov.uk 对脚本客户端返回 HTTP 202 + AWS WAF JS 挑战**（`web_fetch` 与 curl 均被拦），欧盟 Article 6a 经本机 headless Chrome 渲染 CELEX 文档后逐字抄录、中国条文经国务院公报与市场监管总局两页互校——**只引已核对句子，其余以条号+要点转述**；`patterns.md §定价表` 的旧数值（卡内边距 32px / 价格 40–48px / 货币符号 0.5em）未被推翻，仅补充上移 0.13em、`tabular-nums`、差异 ≤ 20% 等细则
+
+## 二十五·附：定价与结账相关 GitHub 仓库（v40 GitHub API 实测）
+- https://github.com/alphagov/govuk-frontend | [GH] GOV.UK Frontend（API 实测 1,483★ / MIT / 2026-11-12 / 未归档）复核页 `govuk-summary-list` 与 `govuk-visually-hidden` 的一手实现参照
+- https://github.com/alphagov/govuk-design-system | [GH] GOV.UK Design System（API 实测 690★ / MIT / 2026-11-12 / 未归档）check answers 模式的规范与示例源仓库
+- https://github.com/stripe/stripe-js | [GH] Stripe.js（API 实测 756★ / MIT / 2026-11-12 / 未归档）支付 SDK；卡号字段与 token 化边界参照，未做 API 级实测
+- https://github.com/medusajs/medusa | [GH] Medusa（API 实测 37,214★ / NOASSERTION / 2026-11-13 / 未归档）开源电商结账流程实现参照；`NOASSERTION` 不等于无许可
+- 取源限制：◄ = GitHub API 快照 2026-11-13；三个仓库仅登记为流程实现参照，未逐文件审计

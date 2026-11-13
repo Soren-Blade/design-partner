@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-13T19:28:04",
+ "generated": "2026-11-13T21:16:53",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1011,
-   "chars": 194160,
+   "lines": 1019,
+   "chars": 199942,
    "sections": []
   },
   {
@@ -7983,8 +7983,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 709,
-   "chars": 72617,
+   "lines": 719,
+   "chars": 74607,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8475,11 +8475,19 @@
      "chars": 1614
     },
     {
-     "id": "能力自测-169-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（169 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ah-定价页与结账流程-把-敢不敢付-翻译成总价锁定与承诺闸门的完成路径",
+     "level": 3,
+     "title": "支线 AH · 定价页与结账流程（把\"敢不敢付\"翻译成总价锁定与承诺闸门的完成路径）",
+     "summary": "- 这是什么（链路的内容端）：与表单与表格（form-table：字段/校验/错误文案）、可访问性（accessibility：SC 阈值与焦点）、设计伦理（design-ethics-inclusion：附加费 sneaking）、反馈与",
      "line": 566,
+     "chars": 1943
+    },
+    {
+     "id": "能力自测-171-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（171 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 576,
      "chars": 8677
     }
    ]
@@ -12015,6 +12023,239 @@
    ]
   },
   {
+   "path": "references/pricing-checkout.md",
+   "title": "定价页与结账流程（Pricing & Checkout）",
+   "snapshot": "—",
+   "lines": 562,
+   "chars": 26718,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "定价页的目标不是把价格说清楚，是让人敢点；结账的目标不是收集信息，是让人敢付完。",
+     "line": 6,
+     "chars": 400
+    },
+    {
+     "id": "1-判层-你被问的是哪一类",
+     "level": 2,
+     "title": "§1 判层：你被问的是哪一类",
+     "summary": "先分流，别一上来就画定价页。六问定位：",
+     "line": 18,
+     "chars": 575
+    },
+    {
+     "id": "2-定价页构型谱系-先选构型-再调尺寸",
+     "level": 2,
+     "title": "§2 定价页构型谱系（先选构型，再调尺寸）",
+     "summary": "尺寸与对齐（可直接抄）：卡片内边距 32px；三档并排时容器宽 ≥ 960px，< 768px 转纵向堆叠且推荐档置顶；三张卡的功能行必须同一行号对齐（用 grid 行轨道或统一行高，不用各自 margin）；卡片等高，CTA 底对齐。",
+     "line": 33,
+     "chars": 852
+    },
+    {
+     "id": "3-价格数字排版-照数值抄",
+     "level": 2,
+     "title": "§3 价格数字排版（照数值抄）",
+     "summary": "价格的排版目标只有一个：让三个数字能被竖向扫描比较。所以纵向对齐优先于美观。",
+     "line": 48,
+     "chars": 785
+    },
+    {
+     "id": "4-划线价-折扣与-原价-的合规红线",
+     "level": 2,
+     "title": "§4 划线价、折扣与\"原价\"的合规红线",
+     "summary": "价格呈现不是纯审美问题——被比较的价格有法律含义。三条纪律先给，再给一手依据。",
+     "line": 65,
+     "chars": 4054
+    },
+    {
+     "id": "5-对比表与-cta",
+     "level": 2,
+     "title": "§5 对比表与 CTA",
+     "summary": "- 推荐档的语义不能只靠颜色：角标文字（\"最受欢迎\"/\"推荐\"）+ aria-label；只给强调色 = 对色觉障碍用户与读屏用户同时失效（SC 1.4.1 Use of Color）。",
+     "line": 132,
+     "chars": 358
+    },
+    {
+     "id": "6-月付-年付切换器",
+     "level": 2,
+     "title": "§6 月付 / 年付切换器",
+     "summary": "- 控件选型：两个选项互斥且两个标签必须同时可见 → 用 radio group（<input type=\"radio\" + <label 并排），不要用 switch。switch 的语义是\"开/关一个状态\"，用户看不出\"关\"等于月付还是",
+     "line": 140,
+     "chars": 469
+    },
+    {
+     "id": "7-结账骨架-单页-分段-多步",
+     "level": 2,
+     "title": "§7 结账骨架：单页 / 分段 / 多步",
+     "summary": "步骤数 ≤ 3 是经验上限：信息、支付、（确认）。步骤指示器要如实——不要显示 4 步却在第 2 步收完所有信息。",
+     "line": 148,
+     "chars": 1521
+    },
+    {
+     "id": "8-表单字段与自动填充",
+     "level": 2,
+     "title": "§8 表单字段与自动填充",
+     "summary": "要求\"每个收集用户信息的字段的用途能被程序判定\"。三条常见误解，逐条破：",
+     "line": 173,
+     "chars": 1
+    },
+    {
+     "id": "8-1-字段计划表-结账最小集",
+     "level": 3,
+     "title": "8.1 字段计划表（结账最小集）",
+     "summary": "",
+     "line": 175,
+     "chars": 859
+    },
+    {
+     "id": "8-2-sc-1-3-5-identify-input-purpose-level-aa",
+     "level": 3,
+     "title": "8.2 SC 1.3.5 Identify Input Purpose（Level AA）",
+     "summary": "要求\"每个收集用户信息的字段的用途能被程序判定\"。三条常见误解，逐条破：",
+     "line": 193,
+     "chars": 877
+    },
+    {
+     "id": "8-3-sc-3-3-7-redundant-entry-level-a",
+     "level": 3,
+     "title": "8.3 SC 3.3.7 Redundant Entry（Level A）",
+     "summary": "同一条交易进程内，已经提供过的信息不得要求再填，除非：①重填是必要的（如\"确认新密码\"）②安全原因（如重新验证）③此前信息已失效。",
+     "line": 203,
+     "chars": 1023
+    },
+    {
+     "id": "8-4-标签-错误与输入便利",
+     "level": 3,
+     "title": "8.4 标签、错误与输入便利",
+     "summary": "- 可见 label + for，placeholder 只做示例不做标签（SC 3.3.2）。",
+     "line": 216,
+     "chars": 368
+    },
+    {
+     "id": "9-支付方式与钱包按钮",
+     "level": 2,
+     "title": "§9 支付方式与钱包按钮",
+     "summary": "- Apple Pay 标记规范（逐字）：\"The Apple Pay mark is available only in white with an outline rule. Other color options aren't ava",
+     "line": 224,
+     "chars": 1105
+    },
+    {
+     "id": "10-费用透明-运费-税费-附加费",
+     "level": 2,
+     "title": "§10 费用透明：运费、税费、附加费",
+     "summary": "铁律：用户在填地址之前能看到费用政策（运费区间/税费规则/是否含税），在付款之前锁定最终总额。中间任何一步\"突然多出一笔\"，都是 §0 铁律一被破。",
+     "line": 236,
+     "chars": 574
+    },
+    {
+     "id": "11-承诺闸门-sc-3-3-4-level-aa",
+     "level": 2,
+     "title": "§11 承诺闸门：SC 3.3.4（Level AA）",
+     "summary": "SC 3.3.4 Error Prevention (Legal, Financial, Data) 管的就是结账。适用条件：页面会导致法律承诺或金融交易、修改/删除用户数据、或提交测试答案。满足方式三选一（原文）：",
+     "line": 257,
+     "chars": 1154
+    },
+    {
+     "id": "12-总价变化与无障碍播报",
+     "level": 2,
+     "title": "§12 总价变化与无障碍播报",
+     "summary": "结账页里金额会随运费、优惠、数量变化。静默更新对读屏用户等于\"什么都没发生\"，对视力用户也容易漏看。",
+     "line": 274,
+     "chars": 441
+    },
+    {
+     "id": "13-信任与社会证明",
+     "level": 2,
+     "title": "§13 信任与社会证明",
+     "summary": "- 只放可验证的信号：支付方式标识、退货/退款政策、客服入口、实体信息（公司名/地址/联系方式）、HTTPS 与隐私链接。",
+     "line": 285,
+     "chars": 312
+    },
+    {
+     "id": "14-移动端结账",
+     "level": 2,
+     "title": "§14 移动端结账",
+     "summary": "- 单列，字段高 44–48px（触摸目标 ≥ 44×44，SC 2.5.5 AAA；最低 24×24，SC 2.5.8 AA）。",
+     "line": 293,
+     "chars": 277
+    },
+    {
+     "id": "15-反模式清单-20-条",
+     "level": 2,
+     "title": "§15 反模式清单（20 条）",
+     "summary": "1. 结账最后一步才出现运费或\"服务费\"。",
+     "line": 302,
+     "chars": 469
+    },
+    {
+     "id": "16-自检清单-20-条",
+     "level": 2,
+     "title": "§16 自检清单（20 条）",
+     "summary": "- [ ] 填地址之前能看到运费/税费政策。",
+     "line": 325,
+     "chars": 699
+    },
+    {
+     "id": "17-可抄代码-5-段-均可在标准库下直接跑",
+     "level": 2,
+     "title": "§17 可抄代码（5 段，均可在标准库下直接跑）",
+     "summary": "python",
+     "line": 348,
+     "chars": 1
+    },
+    {
+     "id": "17-1-价格排版生成器-字号-等宽数字-货币符号-周期",
+     "level": 3,
+     "title": "17.1 价格排版生成器（字号/等宽数字/货币符号/周期）",
+     "summary": "",
+     "line": 350,
+     "chars": 1
+    },
+    {
+     "id": "17-2-划线价台账校验-原价-是否有依据",
+     "level": 3,
+     "title": "17.2 划线价台账校验（\"原价\"是否有依据）",
+     "summary": "",
+     "line": 381,
+     "chars": 1
+    },
+    {
+     "id": "17-3-结账字段计划器-autocomplete-token-地址复用",
+     "level": 3,
+     "title": "17.3 结账字段计划器（autocomplete token + 地址复用）",
+     "summary": "",
+     "line": 422,
+     "chars": 1
+    },
+    {
+     "id": "17-4-总价对账器-三处一致-加项透明",
+     "level": 3,
+     "title": "17.4 总价对账器（三处一致 + 加项透明）",
+     "summary": "",
+     "line": 471,
+     "chars": 1
+    },
+    {
+     "id": "17-5-sc-3-3-4-承诺闸门验收器-总额播报片段",
+     "level": 3,
+     "title": "17.5 SC 3.3.4 承诺闸门验收器 + 总额播报片段",
+     "summary": "",
+     "line": 513,
+     "chars": 1
+    },
+    {
+     "id": "18-取源限制-公开记录-不臆造",
+     "level": 2,
+     "title": "§18 取源限制（公开记录，不臆造）",
+     "summary": "1. Baymard 购物车放弃率榜单全文不可得：baymard.com/blog/cart-abandonment-rate（标题 \"Cart Abandonment Rate: 50 Statistics (2026)\"）两次抓取均被站",
+     "line": 553,
+     "chars": 1441
+    }
+   ]
+  },
+  {
    "path": "references/resources.md",
    "title": "设计资源 — Resources",
    "snapshot": "2026-10-29",
@@ -14370,8 +14611,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 704,
-   "chars": 133728,
+   "lines": 733,
+   "chars": 146834,
    "sections": []
   }
  ],

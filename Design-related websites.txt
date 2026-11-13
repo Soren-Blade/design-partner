@@ -417,3 +417,19 @@
 - https://github.com/primer/react | [GH] Primer React（API 实测 3,933★ / MIT / 2026-11-12 / 未归档）GitHub 官方设计系统，可访问性基线参照
 - https://github.com/w3c/wcag | [GH] w3c/wcag（API 实测 1,524★ / NOASSERTION / 2026-11-12 / 未归档）WCAG 规范源仓库，与 SC 3.3.7/3.3.8/3.2.1/2.2.1 合取验收同源
 - 取源限制：三个 404 路径 `tether/shepherd` / `reactour/reactour` / `apple/swiftui-tipkit` 已改走正确路径或 Apple 文档，仅登记不推断「库不存在」；`NOASSERTION` 不等于无许可；★ 与 pushed_at 为 2026-11-12 快照
+
+## 二十四、空状态与零数据位（Empty States / Zero-Data / Starter Content）【v39 本轮新增分区】
+- https://atlassian.design/patterns/empty-states | Atlassian 空状态模式（v39 一手源：Anatomy 插画/标题/描述/按钮；宽 464 / 窄 304；CTA 祈使动词；装饰插画 alt 规则；按场景定语气）
+- https://ant.design/components/empty-cn | Ant Design Empty 组件（v39 一手源：token `colorTextDescription`、PRESENTED_IMAGE_SIMPLE/DEFAULT、间距 8/16/32、footer action slot；已在二区列基础规范，此处补 Empty 组件页）
+- https://polaris.shopify.com/patterns/empty-states | Shopify Polaris 空状态模式（v39 取源：页面重定向仍可定位正文）
+- https://baymard.com/blog/empty-states | Baymard 空状态研究（v39 取源限制：仅检索可定位，无全文抓取）
+- https://www.nngroup.com/articles/empty-state-ux/ | NN/g 空状态文章（v39 取源限制：URL 404，仅登记不推断结论）
+- https://m3.material.io / https://developer.apple.com/design/human-interface-guidelines | Material 3 / Apple HIG（v39 取源限制：JS 渲染动态页，无全文抓取；其 empty-state 主张以 Atlassian + Ant 一手源为准）
+- https://lawsofux.com/ | 可用性原则（与空状态引导文案纪律同源，已在一区列，v39 复核）
+
+## 二十四·附：空状态相关 GitHub 仓库（v39 补充登记）
+- https://github.com/Shopify/polaris | [GH] Shopify Polaris（设计系统同源，空状态模式实现参照；v39 补登，未做 API 实测——仅登记待下轮复核）
+- https://github.com/ant-design/ant-design | [GH]（已在二十三区列；v39 复核 `Empty` 组件为空状态一手实现：100,173★ / MIT / 2026-11-12 / 未归档）
+- https://github.com/carbon-design-system/carbon | [GH]（已在二十三区列；v39 复核 `Empty states` pattern 同源：9,616★ / Apache-2.0 / 2026-11-12 / 未归档）
+
+- 取源限制（v39 空状态蒸馏）：NN/g 空状态文章 URL 404、Material 3 / Apple HIG 空状态页为 JS 渲染动态文档无法全文抓取，三者仅登记为取源限制，结论不依赖其正文；立场裁决（引导不道歉 / 装饰插画 aria-hidden / 失败空态不伪装）以 Atlassian + Ant Design 一手源为准。

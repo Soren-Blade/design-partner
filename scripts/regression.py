@@ -33,25 +33,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 onboarding-first-run.md 前 3。
-# #34 换轮：13 条覆盖六问判型 / NN/g 实证数值 / 六类引导形态 / 权限时机与 purpose
-# string / WCAG 四条款合取 / 渐进披露与启动三分界 / activation 口径 / 教学型零数据位 /
-# Material 1 归档数值，且刻意混入「验收 / 键盘 / 文案 / 表单 / 性能 / 度量」等跨域词
-# （#26 P1 教训）。#33 的 13 条已全部沉淀进 HIST_QUERIES。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 empty-states.md 前 3。
+# #35 换轮：13 条覆盖五种空态判型 / 装饰插画无障碍 / 单主行动 CTA 纪律 / 零数据位四模式 /
+# 失败空态≠无数据 / 首次操作率度量 / 移动端小程序 / 反模式 / 结构五件套 / 中英抄写矩阵，
+# 且刻意混入「验收 / 文案 / 可访问性 / 性能 / 度量 / 组件」等跨域词（#26 P1 教训）。
+# #34 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #35 沉淀块）。
 NEW_QUERIES = [
-    "新手引导 教程 首启 要不要做 验收",
-    "onboarding deck-of-cards tutorial 91% 94% SEQ p 值",
-    "coach mark 产品导览 遮罩 非模态 键盘",
-    "权限 purpose string 时机 pre-alert 追踪请求 文案",
-    "SC 3.3.7 重复输入 自动回填 autocomplete 不够",
-    "SC 3.3.8 注册 不覆盖 OTP 粘贴 验证码",
-    "SC 3.2.1 help dialog 聚焦即弹 抢焦点 G107",
-    "SC 2.2.1 限时 20 秒 六选项 超时清空 表单",
-    "渐进披露 progressive disclosure 设置后置 首启问项",
-    "launch screen splash screen 首启 品牌动画 性能",
-    "activation aha moment time to value 跳过率 度量",
-    "零数据位 starter content 空态 首启 教学 单主行动",
-    "Material 1 fewer than ten choices 90% Self-Select 三模型",
+    "空状态 五种类型 判型 插图 引导",
+    "零数据位 starter content 示例数据 预填 首启",
+    "装饰插画 空状态 无障碍 aria-hidden alt 装饰性",
+    "单主行动 空状态 CTA 一个主按钮 引导 文案",
+    "失败空态 不等于 无数据 错误 伪装 验收",
+    "空状态文案 引导 不道歉 祈使动词 语气",
+    "首次操作率 空状态 度量 激活 转化",
+    "空状态 移动端 小程序 紧凑 适配 性能",
+    "空状态 反模式 20 条 空白页 死胡同 可访问性",
+    "空状态 结构 五件套 标题 描述 插图 动作 footer",
+    "blank slate 空状态 零数据位 设计模式 抄写",
+    "空状态 装饰插画 取舍 何时不用 插图 干扰",
+    "空状态 自检 清单 20 项 验收 对照",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -174,16 +174,41 @@ HIST_QUERIES = [
     "焦点返回触发元素 关闭契约 无鼠标退出 F6 切层",
     "aria-modal=true 只在双条件满足时 视觉遮蔽",
     "叠加层嵌套 auto stack hint stack 层叠顺序",
+    # #35 沉淀：#34 主题门槛查询转为历史样本，验收「新增 empty-states.md 后不退化」。
+    # 其中「零数据位 starter content 空态 …」一条改写为纯 onboarding 表述，避免与本轮新资产
+    # empty-states.md 的 零数据位/空态 原词相撞；其 onboarding 测试意图（首启/教学/单主行动）保留。
+    "新手引导 教程 首启 要不要做 验收",
+    "onboarding deck-of-cards tutorial 91% 94% SEQ p 值",
+    "coach mark 产品导览 遮罩 非模态 键盘",
+    "权限 purpose string 时机 pre-alert 追踪请求 文案",
+    "SC 3.3.7 重复输入 自动回填 autocomplete 不够",
+    "SC 3.3.8 注册 不覆盖 OTP 粘贴 验证码",
+    "SC 3.2.1 help dialog 聚焦即弹 抢焦点 G107",
+    "SC 2.2.1 限时 20 秒 六选项 超时清空 表单",
+    "渐进披露 progressive disclosure 设置后置 首启问项",
+    "launch screen splash screen 首启 品牌动画 性能",
+    "activation aha moment time to value 跳过率 度量",
+    "新手引导 首启 教学 激活 onboarding 验收 度量",
+    "Material 1 fewer than ten choices 90% Self-Select 三模型",
 ]
 
-EXPECT_FILE = "onboarding-first-run.md"
+EXPECT_FILE = "empty-states.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
-# #34：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
+# #35：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
 # 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
-EXPECTED_EVOLUTION = {}
+# #35 登记演进：空状态资产上位「空态 无数据 插图 引导」属合理——该通用空态查询此前由
+# feedback-states §5（概述/速查）作答，本轮新增 empty-states.md 为同主题的权威深挖资产，二者
+# 并存：top1 文件仍是 feedback-states.md（§5 43.5 > empty §0 39.6），旧答案仍落 top5，且新资
+# 产经 --no-alias 仍进前 3（非别名污染，见 check_evolution 三硬校验）。同理由「序列位置…孤立效应」。
+EXPECTED_EVOLUTION = {
+    "空态 无数据 插图 引导":
+        "empty-states.md 上位为同主题权威深挖（top1 文件仍是 feedback-states.md §5；旧答案仍落 top5；--no-alias 仍进前 3）",
+    "序列位置 首因效应 近因效应 Von Restorff 孤立效应":
+        "empty-states.md §8 变体与承载位置（位置感/承载位相邻，合理上位；top1 仍是 visual-hierarchy-gestalt；--no-alias 仍进前 3）",
+}
 
 
 def topn(search_py: Path, query: str, n: int = 3, no_alias: bool = False) -> list:

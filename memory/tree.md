@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-12 22:35 ｜ 46 个文件 · 1777 个章节 · 1,570,201 字符
+> 自动生成于 2026-11-13 19:28 ｜ 47 个文件 · 1795 个章节 · 1,588,664 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -98,6 +98,7 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 注册向导 / 重复输入 / 验证码 / 超时 / SC 3.3.7 3.3.8 3.2.1 2.2.1 | onboarding-first-run.md §2 裁决三 → §11 四条款合取表 → §20.3 检查器；条款明细归 form-table.md / accessibility.md |
 | 激活 / aha moment / time to value / 跳过率 / 零数据位 | onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md |
 | 渐进披露 / splash / launch screen / 首启性能 / 设置后置 | onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md |
+| 空状态 / 零数据位 / 装饰插画 / starter content / 空状态文案矩阵 | empty-states.md §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -347,26 +348,29 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **权限时机** | purpose string · usage description string · pre-alert · 授权文案 · requesting permission · permission timing · 追踪请求 · tracking request |
 | **激活** | activation · aha moment · time to value · TTV · 首个价值动作 · first key action · starter content · quickstart |
 | **首启形态** | self-select · top user benefits · splash screen · launch screen · welcome screen · setup postponement · 引导轮播 |
+| **零数据位** | blank slate · 示例数据 · 样本数据 · 预填内容 · 零内容 |
+| **装饰插画** | illustration · 空状态插画 · 装饰图 · deco illustration |
+| **单主行动** | single primary action · 一个主按钮 · 单一行动点 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1006 行 · 快照 — · 12 节_
+_1011 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L119` — 资产已 44 份参考、约 124 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L121` — 资产已 44 份参考、约 124 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L134`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L362` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L377` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L403` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L434` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L882` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L962` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L975` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L982` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L998` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L122` — 资产已 45 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L124` — 资产已 45 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L137`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L366` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L381` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L407` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L438` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L887` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L967` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L980` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L987` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1003` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1129,6 +1133,27 @@ _767 行 · 快照 2026-11-01 · 63 节_
   - **19.3 OG / 社媒分享卡（Satori 友好：只用 flex）** `L730` — Satori 限制：只支持 flex 子集（无 grid、无 gap 的部分写法、需内联样式或 tw 属性），字体需显式传入。
 - **§20 与其他文件的分工** `L756` — 一句话分工：本文件管"版面怎么分、字怎么排、图怎么印"；responsive-layout.md 管"宽度变了怎么办"；chinese-design.md 管"中文特有的字与标点"。
 
+### `references/empty-states.md` · 空状态与零数据位（Empty States & Zero-Data）
+_335 行 · 快照 2026-11-13 · 17 节_
+
+- **§0 一句话立场** `L5` — 空状态不是"没有数据的占位"，而是整块界面里最被浪费的引导位：用户第一次看到某个视图、或某个操作清空后，注意力最集中、动机最强，却往往只收到一句"暂无数据"。本资产与 feedback-states.md §5（五种"空"分类）是同一主题的
+- **§1 为什么空状态是被浪费的引导位** `L17` — - 注意力窗口：用户看到空视图的瞬间，是在问"这是什么、我现在该做什么"。这个窗口不填，下次就不会再回来问。
+- **§2 五种空状态分类与判型（判型器）** `L27` — 与 feedback-states.md §5.1 同源，这里给判型顺序而非重复表格：先判触发源，再看用户心理，最后给动作。
+- **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** `L51` — Atlassian 把空状态拆成四部分（Anatomy），Ant Design 的 Empty 组件给了 token 级的精确值。两者合并成五件套：
+- **§4 空状态文案公式与中英抄写矩阵（核心交付）** `L77` — 公式（中文）：标题（正向，≤12 字） + 说明（这里会出现什么 + 怎么做，≤30 字） + 按钮（动词，≤6 字）。
+- **§5 装饰插画与图标：何时用、何时省、无障碍** `L105` — Atlassian 对插画给了明确的可选性与禁忌：
+- **§6 单主行动与 CTA 纪律** `L122` — - 只给一个主操作（Carbon / Atlassian 共识）：多个选项 → 挑最重要的一个做主按钮，其余降为文字链接。
+- **§7 零数据位 / starter content：用示例教，而不是用文字讲** `L132` — 零数据位（starter content） 是首次空的最高形态：不直接教用户"点这里新建"，而是预填一份示例 / 模板 / 示例数据，让用户改着改着就会用。与 onboarding-first-run.md §13 同源（教学型零数据位），
+- **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** `L147` — 同一份空状态文案，按承载位置降级：
+- **§9 空状态可访问性清单** `L164` — - 装饰图 aria-hidden + alt=""（裁决二）：纯装饰插画/图标不得进 Tab 顺序（SC 2.4.3），不得被读屏念出（SC 1.1.1）。
+- **§10 移动端 / 小程序空态** `L176` — - 窄屏优先纯文字或小图标：Atlassian narrow = 304px 以下只留文字；移动端同理，插画省去，标题 + 说明 + 主按钮垂直堆叠。
+- **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** `L185` — - 最高频错误：把失败渲染成缺省态。用户以为"真的没有"，于是不再重试——而真实原因是网络抖动。
+- **§12 度量：空状态有没有用（首次操作率 / 微转化）** `L195` — 空状态不是"写了就完"，要用数据看它有没有把人送向下一步。接 design-measurement-research.md：
+- **§13 反模式 20 条** `L208` — 1. 只写"暂无数据 / No data"就完事，不留任何去向。
+- **§14 自检 20 项** `L233` — 1. 我判了这是哪一种空（首次/无结果/无权限/失败/完成）吗？
+- **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** `L258` — 以下 5 段均用 python -W error::SyntaxWarning 实跑通过。可直接纳入设计校验脚本。
+- **§16 来源与取源限制** `L315` — 一手核验（逐字/逐值）：
+
 ### `references/feedback-states.md` · 反馈与状态设计 — Feedback & States（深度蒸馏）
 _587 行 · 快照 2026-11-01 · 54 节_
 
@@ -1419,7 +1444,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_699 行 · 快照 2026-11-05 · 61 节_
+_709 行 · 快照 2026-11-05 · 62 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1481,7 +1506,8 @@ _699 行 · 快照 2026-11-05 · 61 节_
   - **支线 AD · 对话式与生成式界面（把"边生成边变化"翻译成五段链路的完成路径）** `L513` — - 这是什么（认知链路下游的输出端）：与「视觉层级（目光先看哪）」「内容可发现性（能不能找到）」「直接操纵（按下指针之后）」相邻但问题不同——前三份都假设内容是确定的，本支线处理输出本身在流动、可能出错、可能带副作用。此前 41 份参考零独
   - **支线 AE · 叠加层交互契约（把 inert 与顶层栈翻译成四问判型的完成路径）** `L528` — - 这是什么（交互契约的边界端）：与语义 z-index 刻度、反馈时长、props 所有权三份资产相邻但问题不同——前三份分别管层看起来多高、文案怎么写、状态归谁，本支线管 inert 是否成立、aria-modal 能否标、Tab 是否
   - **支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）** `L542` — - 这是什么（链路的起点端）：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧
-- **能力自测（167 条，做到 ≥110 条即达 L2+）** `L556` — L0
+  - **支线 AG · 空状态与零数据位（把"没有数据"翻译成五件套与可抄矩阵的完成路径）** `L556` — - 这是什么（链路的内容端）：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问
+- **能力自测（169 条，做到 ≥110 条即达 L2+）** `L566` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2927,36 +2953,46 @@ _704 行 · 快照 — · 39 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
+- **§0 一句话立场** → `references/empty-states.md` L5
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
+- **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
+- **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
+- **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
 - **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
+- **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
+- **§13 反模式 20 条** → `references/empty-states.md` L208
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 可抄代码** → `references/feedback-states.md` L485
+- **§14 自检 20 项** → `references/empty-states.md` L233
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
 - **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
+- **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
 - **§15 工具与库（2026-11-01 GitHub API 实测）** → `references/feedback-states.md` L573
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
+- **§16 来源与取源限制** → `references/empty-states.md` L315
 - **§17 上线前自检：25 条（按可判定性排序）** → `references/accessibility.md` L607
 - **§17 反模式（20 条，逐条对照）** → `references/editorial-layout.md` L621
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
+- **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
@@ -2964,23 +3000,30 @@ _704 行 · 快照 — · 39 节_
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
+- **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
 - **§4 加载与进度** → `references/feedback-states.md` L126
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
+- **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
+- **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
+- **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
+- **§7 零数据位 / starter content：用示例教，而不是用文字讲** → `references/empty-states.md` L132
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
+- **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
+- **§9 空状态可访问性清单** → `references/empty-states.md` L164
 - **§9 表单无障碍：只补 form-table.md 没说的** → `references/accessibility.md` L330
 - **一、DESIGN.md 是什么，为什么值得作为交付物** → `references/design-md-format.md` L10
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
@@ -3072,7 +3115,7 @@ _704 行 · 快照 — · 39 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L119
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L122
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3082,12 +3125,12 @@ _704 行 · 快照 — · 39 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（167 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L556
-- **自我成长机制（用得越多越准）** → `SKILL.md` L962
-- **自我进化机制（知识保鲜）** → `SKILL.md` L975
+- **能力自测（169 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L566
+- **自我成长机制（用得越多越准）** → `SKILL.md` L967
+- **自我进化机制（知识保鲜）** → `SKILL.md` L980
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L998
+- **边界与习惯** → `SKILL.md` L1003
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

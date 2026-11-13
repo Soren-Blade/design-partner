@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-12T22:35:22",
+ "generated": "2026-11-13T19:28:04",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1006,
-   "chars": 191707,
+   "lines": 1011,
+   "chars": 194160,
    "sections": []
   },
   {
@@ -5661,6 +5661,151 @@
    ]
   },
   {
+   "path": "references/empty-states.md",
+   "title": "空状态与零数据位（Empty States & Zero-Data）",
+   "snapshot": "2026-11-13",
+   "lines": 335,
+   "chars": 14350,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "空状态不是\"没有数据的占位\"，而是整块界面里最被浪费的引导位：用户第一次看到某个视图、或某个操作清空后，注意力最集中、动机最强，却往往只收到一句\"暂无数据\"。本资产与 feedback-states.md §5（五种\"空\"分类）是同一主题的",
+     "line": 5,
+     "chars": 870
+    },
+    {
+     "id": "1-为什么空状态是被浪费的引导位",
+     "level": 2,
+     "title": "§1 为什么空状态是被浪费的引导位",
+     "summary": "- 注意力窗口：用户看到空视图的瞬间，是在问\"这是什么、我现在该做什么\"。这个窗口不填，下次就不会再回来问。",
+     "line": 17,
+     "chars": 360
+    },
+    {
+     "id": "2-五种空状态分类与判型-判型器",
+     "level": 2,
+     "title": "§2 五种空状态分类与判型（判型器）",
+     "summary": "与 feedback-states.md §5.1 同源，这里给判型顺序而非重复表格：先判触发源，再看用户心理，最后给动作。",
+     "line": 27,
+     "chars": 678
+    },
+    {
+     "id": "3-空状态的结构五件套-ant-design-atlassian-一手解剖",
+     "level": 2,
+     "title": "§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）",
+     "summary": "Atlassian 把空状态拆成四部分（Anatomy），Ant Design 的 Empty 组件给了 token 级的精确值。两者合并成五件套：",
+     "line": 51,
+     "chars": 1072
+    },
+    {
+     "id": "4-空状态文案公式与中英抄写矩阵-核心交付",
+     "level": 2,
+     "title": "§4 空状态文案公式与中英抄写矩阵（核心交付）",
+     "summary": "公式（中文）：标题（正向，≤12 字） + 说明（这里会出现什么 + 怎么做，≤30 字） + 按钮（动词，≤6 字）。",
+     "line": 77,
+     "chars": 2106
+    },
+    {
+     "id": "5-装饰插画与图标-何时用-何时省-无障碍",
+     "level": 2,
+     "title": "§5 装饰插画与图标：何时用、何时省、无障碍",
+     "summary": "Atlassian 对插画给了明确的可选性与禁忌：",
+     "line": 105,
+     "chars": 909
+    },
+    {
+     "id": "6-单主行动与-cta-纪律",
+     "level": 2,
+     "title": "§6 单主行动与 CTA 纪律",
+     "summary": "- 只给一个主操作（Carbon / Atlassian 共识）：多个选项 → 挑最重要的一个做主按钮，其余降为文字链接。",
+     "line": 122,
+     "chars": 318
+    },
+    {
+     "id": "7-零数据位-starter-content-用示例教-而不是用文字讲",
+     "level": 2,
+     "title": "§7 零数据位 / starter content：用示例教，而不是用文字讲",
+     "summary": "零数据位（starter content） 是首次空的最高形态：不直接教用户\"点这里新建\"，而是预填一份示例 / 模板 / 示例数据，让用户改着改着就会用。与 onboarding-first-run.md §13 同源（教学型零数据位），",
+     "line": 132,
+     "chars": 610
+    },
+    {
+     "id": "8-变体与承载位置-全屏-容器内-表格区-迷你-widget",
+     "level": 2,
+     "title": "§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）",
+     "summary": "同一份空状态文案，按承载位置降级：",
+     "line": 147,
+     "chars": 511
+    },
+    {
+     "id": "9-空状态可访问性清单",
+     "level": 2,
+     "title": "§9 空状态可访问性清单",
+     "summary": "- 装饰图 aria-hidden + alt=\"\"（裁决二）：纯装饰插画/图标不得进 Tab 顺序（SC 2.4.3），不得被读屏念出（SC 1.1.1）。",
+     "line": 164,
+     "chars": 660
+    },
+    {
+     "id": "10-移动端-小程序空态",
+     "level": 2,
+     "title": "§10 移动端 / 小程序空态",
+     "summary": "- 窄屏优先纯文字或小图标：Atlassian narrow = 304px 以下只留文字；移动端同理，插画省去，标题 + 说明 + 主按钮垂直堆叠。",
+     "line": 176,
+     "chars": 386
+    },
+    {
+     "id": "11-失败态-缺省态-禁止把出错伪装成无内容",
+     "level": 2,
+     "title": "§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）",
+     "summary": "- 最高频错误：把失败渲染成缺省态。用户以为\"真的没有\"，于是不再重试——而真实原因是网络抖动。",
+     "line": 185,
+     "chars": 394
+    },
+    {
+     "id": "12-度量-空状态有没有用-首次操作率-微转化",
+     "level": 2,
+     "title": "§12 度量：空状态有没有用（首次操作率 / 微转化）",
+     "summary": "空状态不是\"写了就完\"，要用数据看它有没有把人送向下一步。接 design-measurement-research.md：",
+     "line": 195,
+     "chars": 462
+    },
+    {
+     "id": "13-反模式-20-条",
+     "level": 2,
+     "title": "§13 反模式 20 条",
+     "summary": "1. 只写\"暂无数据 / No data\"就完事，不留任何去向。",
+     "line": 208,
+     "chars": 569
+    },
+    {
+     "id": "14-自检-20-项",
+     "level": 2,
+     "title": "§14 自检 20 项",
+     "summary": "1. 我判了这是哪一种空（首次/无结果/无权限/失败/完成）吗？",
+     "line": 233,
+     "chars": 663
+    },
+    {
+     "id": "15-可抄代码-5-段-python-严格模式实跑-pass",
+     "level": 2,
+     "title": "§15 可抄代码 5 段（Python 严格模式实跑 PASS）",
+     "summary": "以下 5 段均用 python -W error::SyntaxWarning 实跑通过。可直接纳入设计校验脚本。",
+     "line": 258,
+     "chars": 1501
+    },
+    {
+     "id": "16-来源与取源限制",
+     "level": 2,
+     "title": "§16 来源与取源限制",
+     "summary": "一手核验（逐字/逐值）：",
+     "line": 315,
+     "chars": 1604
+    }
+   ]
+  },
+  {
    "path": "references/feedback-states.md",
    "title": "反馈与状态设计 — Feedback & States（深度蒸馏）",
    "snapshot": "2026-11-01",
@@ -7838,8 +7983,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 699,
-   "chars": 70957,
+   "lines": 709,
+   "chars": 72617,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8322,11 +8467,19 @@
      "chars": 4106
     },
     {
-     "id": "能力自测-167-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（167 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ag-空状态与零数据位-把-没有数据-翻译成五件套与可抄矩阵的完成路径",
+     "level": 3,
+     "title": "支线 AG · 空状态与零数据位（把\"没有数据\"翻译成五件套与可抄矩阵的完成路径）",
+     "summary": "- 这是什么（链路的内容端）：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问",
      "line": 556,
+     "chars": 1614
+    },
+    {
+     "id": "能力自测-169-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（169 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 566,
      "chars": 8677
     }
    ]

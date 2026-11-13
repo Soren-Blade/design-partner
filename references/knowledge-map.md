@@ -553,7 +553,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能写出 purpose string 的四条逐字标准与三行正反例，并解释 pre-alert 的「单按钮 / 禁 cancel / 禁 close」为什么只作用于受保护资源的系统权限弹窗之前
 - [ ] 能列出 SC 3.3.7 / 3.3.8 / 3.2.1 / 2.2.1 的合取验收点，判出「第三步重复要邮箱」「禁粘贴验证码」「聚焦即弹帮助框」「超时清空整张表」各踩了哪一条
 
-## 能力自测（167 条，做到 ≥110 条即达 L2+）
+### 支线 AG · 空状态与零数据位（把"没有数据"翻译成五件套与可抄矩阵的完成路径）
+
+- **这是什么（链路的内容端）**：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问题不同——它们分别管 first-run 的时间路径、五种空的判型与速查、搜索无结果的出路、以及空状态有没有用怎么度量；本支线管**空状态的内容设计本身**：结构五件套、中英抄写矩阵、装饰插画的取舍与无障碍、零数据位（starter content）四模式、变体承载位置。此前 44 份参考对 `empty state` / `starter content` / `blank slate` / `zero-data` / `零数据位` / `装饰插画` 等几乎零命中，判定为结构性空白（feedback-states §5 只给分类与速查，无一手解剖、无可抄矩阵）。
+- **三条最重要裁决**：① **默认不道歉、不留白死路**——Atlassian *"Empty states can be a chance to celebrate, educate, and inform people of what they can do next."*、Ant Design *"User tutorial to create something in fresh new situation."*；② **装饰性插画必须 `aria-hidden` 且不让焦点滞留**——Atlassian Accessibility *"If it's only for decoration, avoid alt text or remove the image altogether."*，纯装饰图 `aria-hidden` + `alt=""` 且不进 Tab 顺序（SC 1.1.1 / 2.4.3）；③ **失败态 ≠ 缺省态，禁止伪装**——失败态必须给原因 + 重试，不得渲染成"零内容"，否则用户不再重试。
+- **精确值怎么取**：Ant Design Empty 一手 token（`colorTextDescription rgba(0,0,0,0.45)`、`PRESENTED_IMAGE_SIMPLE` / `PRESENTED_IMAGE_DEFAULT`、margin 8/16/32、内置 footer 行动槽）2026-11-13 逐字核验；Atlassian 一手 anatomy（Illustration/Header/Description/Buttons、wide 464px / narrow 304px、h600 标题、CTA imperative verbs、语气分级、装饰图 alt 规则）2026-11-13 逐字核验；NN/g 四分类与 Material 3 / Apple HIG 为 JS 渲染或 404 动态页，未取得逐字正文 → 取源限制（见该资产 §16）。
+- **判学会了**：能用五种空态判型器三问定类（完成/失败/无结果/无权限/首次）；能写出中英抄写矩阵并说出标题正向 ≤12 字、说明 ≤30 字、按钮 ≤6 字的公式；能判装饰插画该不该用、用了怎么过无障碍；能说出零数据位四模式适用边界（创作型 vs 交易型）；能解释失败空态伪装成无数据为什么是最高频也最贵的错误；材料见 `references/empty-states.md`。
+
+- [ ] 能用判型器三问把任意空状态归入五种之一，并说出把失败渲染成无数据为什么会让用户不再重试
+- [ ] 能写出空状态文案公式（标题≤12/说明≤30/按钮≤6）并给中英两版，且装饰插画在纯装饰时给出 `aria-hidden` + `alt=""` 的写法
+
+## 能力自测（169 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

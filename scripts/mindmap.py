@@ -119,6 +119,7 @@ INTENTS = [
     ("注册向导 / 重复输入 / 验证码 / 超时 / SC 3.3.7 3.3.8 3.2.1 2.2.1", "onboarding-first-run.md §2 裁决三 → §11 四条款合取表 → §20.3 检查器；条款明细归 form-table.md / accessibility.md"),
     ("激活 / aha moment / time to value / 跳过率 / 零数据位", "onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md"),
     ("渐进披露 / splash / launch screen / 首启性能 / 设置后置", "onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md"),
+    ("空状态 / 零数据位 / 装饰插画 / starter content / 空状态文案矩阵", "empty-states.md §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量"),
 ]
 
 

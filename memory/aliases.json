@@ -1,6 +1,6 @@
 {
   "_note": "检索层别名映射：只用于 dp_search.py 的召回扩展，不参与 SKILL.md 的意图路由优先级。canonical 为规范词，aliases 为同义/俗称/中英对应/常见错写。改这里不会改变任何路由顺序。粒度纪律：单组 <=12 词、成员不得与既有组重复——巨型组一旦被触发会注入整组带权词，把浓缩摘要型章节顶到不该有的位置（#27 实测教训）。",
-  "_updated": "2026-11-12",
+  "_updated": "2026-11-13",
   "_weight": 0.45,
   "groups": [
     {
@@ -3350,6 +3350,33 @@
         "welcome screen",
         "setup postponement",
         "引导轮播"
+      ]
+    },
+    {
+      "canonical": "零数据位",
+      "aliases": [
+        "blank slate",
+        "示例数据",
+        "样本数据",
+        "预填内容",
+        "零内容"
+      ]
+    },
+    {
+      "canonical": "装饰插画",
+      "aliases": [
+        "illustration",
+        "空状态插画",
+        "装饰图",
+        "deco illustration"
+      ]
+    },
+    {
+      "canonical": "单主行动",
+      "aliases": [
+        "single primary action",
+        "一个主按钮",
+        "单一行动点"
       ]
     }
   ]

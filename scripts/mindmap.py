@@ -123,6 +123,12 @@ INTENTS = [
     ("定价页 / 三档套餐 / 月年切换 / 推荐档 / 价格数字排版", "pricing-checkout.md §2 四种构型 → §3 价格数字表 → §6 月年切换器 → §5 对比表与 CTA"),
     ("结账流程 / checkout / 结算页 / 复核页 / 承诺闸门", "pricing-checkout.md §7 结账三型 → GOV.UK check answers 七条 → §11 SC 3.3.4 三选一（AA）→ §16 自检"),
     ("划线价 / 原价折扣 / 运费税费 / 总价披露 / 隐藏费用", "pricing-checkout.md §4 FTC 464 total price → §10 费用三级披露 → §17.2 validate_was_price → §18 取源限制"),
+    ("通知与推送 / 站内信 / 邮件 / 短信 / 通道选型", "notifications-messaging.md §1 六段链路判层 → §2 三条裁决 → §4 通道矩阵 → §18 十二场景"),
+    ("消息中心 / 收件箱 / 未读 / 已读 / 分页", "notifications-messaging.md §8 五件套结构 → §8.3 未读三种定义 → §8.4 列表工程细节"),
+    ("角标 / 红点 / 未读数 / 99+ / 清除", "notifications-messaging.md §9 三态契约 → §9.2 五条硬规则 → §9.3 平台差异"),
+    ("免打扰 / 静音时段 / 通知偏好 / 设置页开关", "notifications-messaging.md §10 免打扰与频率预算 → §11 偏好矩阵 → §11.3 pre-permission"),
+    ("权限请求 / 拒绝之后 / 重新请求 / 引导去设置", "notifications-messaging.md §6 三平台权限四种失败模式 → §7 三态分流与 provisional"),
+
 ]
 
 

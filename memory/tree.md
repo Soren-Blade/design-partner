@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-13 21:57 ｜ 48 个文件 · 1827 个章节 · 1,642,372 字符
+> 自动生成于 2026-11-13 22:25 ｜ 49 个文件 · 1910 个章节 · 1,704,317 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -102,6 +102,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 定价页 / 三档套餐 / 月年切换 / 推荐档 / 价格数字排版 | pricing-checkout.md §2 四种构型 → §3 价格数字表 → §6 月年切换器 → §5 对比表与 CTA |
 | 结账流程 / checkout / 结算页 / 复核页 / 承诺闸门 | pricing-checkout.md §7 结账三型 → GOV.UK check answers 七条 → §11 SC 3.3.4 三选一（AA）→ §16 自检 |
 | 划线价 / 原价折扣 / 运费税费 / 总价披露 / 隐藏费用 | pricing-checkout.md §4 FTC 464 total price → §10 费用三级披露 → §17.2 validate_was_price → §18 取源限制 |
+| 通知与推送 / 站内信 / 邮件 / 短信 / 通道选型 | notifications-messaging.md §1 六段链路判层 → §2 三条裁决 → §4 通道矩阵 → §18 十二场景 |
+| 消息中心 / 收件箱 / 未读 / 已读 / 分页 | notifications-messaging.md §8 五件套结构 → §8.3 未读三种定义 → §8.4 列表工程细节 |
+| 角标 / 红点 / 未读数 / 99+ / 清除 | notifications-messaging.md §9 三态契约 → §9.2 五条硬规则 → §9.3 平台差异 |
+| 免打扰 / 静音时段 / 通知偏好 / 设置页开关 | notifications-messaging.md §10 免打扰与频率预算 → §11 偏好矩阵 → §11.3 pre-permission |
+| 权限请求 / 拒绝之后 / 重新请求 / 引导去设置 | notifications-messaging.md §6 三平台权限四种失败模式 → §7 三态分流与 provisional |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -369,26 +374,34 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **重复填写** | redundant entry · 重复录入 · 重复输入 · 再填一遍 · 二次填写 |
 | **自动填充** | autofill · input purpose · 输入用途 · 字段语义 · 浏览器填充 |
 | **月年切换** | 年付 · 月付 · 按月付费 · 按年付费 · 计费周期 · billing toggle · annual billing · monthly plan · 订阅周期 · 价格切换 |
+| **通知** | 通知 · 推送 · push · 推送通知 · 系统通知 · notification · 消息通知 · notification center · 提醒消息 · 发送通知 |
+| **消息中心** | 消息中心 · 通知中心 · 收件箱 · inbox · 站内信 · 消息列表 · 未读消息 · 全部已读 · 消息盒子 · 通知列表 |
+| **角标** | 角标 · badge · 小红点 · 红点 · 未读数 · 数字角标 · 点状角标 · dot badge · 应用角标 · unread count |
+| **免打扰** | 免打扰 · 勿扰 · 静音 · 免扰时段 · 安静时段 · quiet hours · 别打扰我 · 夜间免打扰 · 通知太多 · 打扰 |
+| **通知偏好** | 通知偏好 · 通知设置 · 偏好中心 · 订阅偏好 · 渠道选择 · 邮件偏好 · 推送开关 · 按类型订阅 · preference center · 通知管理 |
+| **营销邮件** | 营销邮件 · 交易邮件 · newsletter · 订阅邮件 · 摘要邮件 · digest · 周报邮件 · 邮件触达 · 群发邮件 · 邮件模板 |
+| **一键退订** | 一键退订 · 退订链接 · unsubscribe · CAN-SPAM · 双重确认 · double opt-in · 营销同意 · 退订率 · 邮件合规 |
+| **推送授权** | 推送授权 · 通知权限 · 权限弹窗 · 临时授权 · provisional · pre-permission · 拒绝后 · 二次请求 · 授权引导页 · 被拒兜底 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1022 行 · 快照 — · 12 节_
+_1031 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L128` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L130` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L143`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L375` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L390` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L416` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L447` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L896` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L978` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L991` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L998` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1014` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L131` — 资产已 47 份参考、约 134 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L133` — 资产已 47 份参考、约 134 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L146`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L383` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L398` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L424` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L455` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L904` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L987` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1000` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1007` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1023` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1462,7 +1475,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_719 行 · 快照 2026-11-05 · 63 节_
+_729 行 · 快照 2026-11-05 · 64 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1490,7 +1503,7 @@ _719 行 · 快照 2026-11-05 · 63 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **三十二条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **三十五条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1526,7 +1539,8 @@ _719 行 · 快照 2026-11-05 · 63 节_
   - **支线 AF · 首次体验链路（把 first-run 到 activation 翻译成六问判型的完成路径）** `L542` — - 这是什么（链路的起点端）：与叠加层契约、零数据位结构、组件条款明细三份资产相邻但问题不同——它们分别管 coach mark 作为 overlay 的 inert·Tab·Escape、空态五件套、以及 3.3.2/3.3.7 的表格侧
   - **支线 AG · 空状态与零数据位（把"没有数据"翻译成五件套与可抄矩阵的完成路径）** `L556` — - 这是什么（链路的内容端）：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问
   - **支线 AH · 定价页与结账流程（把"敢不敢付"翻译成总价锁定与承诺闸门的完成路径）** `L566` — - 这是什么（链路的内容端）：与表单与表格（form-table：字段/校验/错误文案）、可访问性（accessibility：SC 阈值与焦点）、设计伦理（design-ethics-inclusion：附加费 sneaking）、反馈与
-- **能力自测（171 条，做到 ≥110 条即达 L2+）** `L576` — L0
+  - **支线 AI · 通知与消息触达（把「该不该发」翻译成六段链路与三平台验收的完成路径）** `L576` — - 这是什么（链路的内容端）：与反馈五层（feedback-states：L0–L4 时效与 role="status"）、文案体例（ux-writing §7.3：in-app 右上角通知的标题/正文/按钮）、首启权限（onboardin
+- **能力自测（173 条，做到 ≥110 条即达 L2+）** `L586` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -1694,6 +1708,91 @@ _278 行 · 快照 — · 20 节_
   - **13.4 面包屑（位置型，末级非链接）** `L246`
   - **13.5 搜索框 + combobox 联想（APG pattern 节选）** `L257` — ---
 - **14. 与其他参考的接线** `L269` — - 项数/分组 → 本节 §3、§4（米勒 7±2、深度≤3）
+
+### `references/notifications-messaging.md` · 通知与消息触达（Notifications & Messaging）
+_988 行 · 快照 2026-11-13 · 81 节_
+
+- **0. 一句话立场** `L10` — 通知不是「把消息推出去」的能力，是向用户借注意力的行为；每发一条都在消耗一次可被撤回的额度——撤回的方式就是用户关掉整个通道。 一个产品可以没有推送却有极好的消息体验（把答案放在用户会回来的地方），也可以每天发三条「猜你喜欢」然后被所有人静
+- **1. 六段链路判层：事件 → 决策 → 通道 → 时机 → 呈现 → 回收** `L20` — 通知体验是一条有起点和终点的链路，不是一个组件。把问题定位到具体段位，才知道该改埋点、改偏好结构、改文案、还是改权限策略。
+- **2. 三条最重要裁决** `L40` — Apple HIG 逐字（Notifications · Best practices）：
+  - **裁决一 · 同一件事只发一次，不追发、不换通道补发** `L42` — Apple HIG 逐字（Notifications · Best practices）：
+  - **裁决二 · 系统权限是一次性资源：pre-permission 的全部价值是「别浪费唯一一次」** `L55` — iOS 的授权契约逐字（requestAuthorization(completionHandler:)）：
+  - **裁决三 · 未读数与角标是状态契约，不是装饰** `L72` — Apple 对角标的定义逐字：
+- **3. 六问判型决策树** `L86` — 六问的顺序不可换：Q1 不过就别进 Q2–Q6。跳过 Q1 直接谈「文案怎么写更好点」，本质上是在优化一件不该发生的事。
+- **4. 通道选型矩阵** `L113` — 一个事件只走一条主通道，第二条只做兜底（用户回来能看到），不做「补发」。
+- **5. 中断级别与优先级（三平台口径）** `L131` — 「发不发」之后的下一个决定不是「发什么」，而是「用多大声音发」。三家的机制不同，但抽象出来只有四档。
+  - **5.1 四档优先级模型** `L135` — 判 P1 的唯一标准（Apple 逐字）："an event that's happening now or will happen within an hour"——不是「重要」，是「时间窗在一小时内」。判不准就降一档，降档的代价小于打扰
+  - **5.2 iOS：interruptionLevel** `L146` — 三条红线：
+  - **5.3 Android：渠道重要性（channel importance）** `L160` — Android 8.0（API 26）起所有通知必须挂在渠道上，通知的响/亮/浮动行为由渠道决定，而不是单条通知。官方五级（英文逐字，2026-11-13 取自 channels 页）：
+  - **5.4 Web：没有中断级别** `L180` — Web 通知只有「允许/不允许」，没有 iOS 的 interruptionLevel，也没有 Android 的渠道重要性可编程控制（用户的 OS 级设置说了算）。所以：
+- **6. 三平台权限机制（同一个「授权」，三种失败模式）** `L190`
+  - **6.1 四条必须写进验收的差异** `L199` — 1. iOS 是「一次性」：没有 pre-permission 就直接弹，等于把唯一一次机会赌在用户对产品价值的理解上。
+  - **6.2 Android 13 的四个容易踩的坑（官方原文）** `L206` — - 新装默认关："If a user installs your app on a device that runs Android 13 or higher, your app's notifications are off by def
+  - **6.3 Web Push 的最小可用集（缺一即不通）** `L213` — 1. HTTPS（安全上下文；localhost 例外）；
+- **7. 被拒绝之后的恢复路径** `L225` — 前提：权限被拒不是「用户不想要消息」，是「现在不想被这样打扰」。所以恢复策略不是「再问一次」，是先给一条不打扰的路，再给一个回头的入口。
+  - **7.1 三态分流** `L229`
+  - **7.2 各平台的回捞入口（不要只写「去设置里打开」）** `L237` — - iOS：官方只给了客观路径（设置 → 通知 → 应用），没有「推荐引导话术」——所以文案自己写，不要伪造官方推荐。写法：说清失去什么（「你将收不到发货提醒」）+ 一句可执行的路径 + 一个「暂不开启」。HIG 同时要求应用内必须有设置页
+  - **7.3 iOS 的第三条路：provisional（静默投递）** `L243` — 在「要授权」与「不打扰」之间，iOS 还有一档不需要弹窗的授权：
+  - **7.4 三条红线** `L251` — 1. 不指责用户：不写「你错过了重要消息」「为了你的安全请开启」这类恐吓式文案。
+- **8. 消息中心与未读状态（inbox 是通知的留档层）** `L257` — 消息中心不是「通知的历史列表」，是用户回来补看的地方。§4 铁律一说「任何 push 都必须能在站内找到」，这条铁律成立的前提是消息中心本身可读、可筛、可追溯。
+  - **8.1 五件套结构** `L261`
+  - **8.2 条目骨架（一行能判断，不用点进去）** `L271` — 每条至少四件，顺序固定：
+  - **8.3 未读的定义（三种，必须选一种并全局统一）** `L282` — 统一铁律（工程约定）：
+  - **8.4 列表的工程细节** `L295` — - 分页用游标（beforeid / seq），不用 offset——新消息插入会让 offset 分页错位重复。
+  - **8.5 边界** `L303` — - 表单字段与校验 → form-table.md；五层 in-app 反馈（toast / 横幅 / 页面级）→ feedback-states.md；空态形态 → empty-states.md。
+- **9. 角标（badge）与未读数：99+ 数字上限、清除时机、可访问性** `L310` — 角标是「有多少条未读通知」的一个数字，不是随便挂个红点。 Apple 逐字定义：
+  - **9.1 三态契约** `L316`
+  - **9.2 五条硬规则** `L324` — 1. 数字上限显示：超过 99（或 999）显示 99+，但读给读屏的仍是完整数字（aria-label="128 条未读"）。
+  - **9.3 平台差异（工程约定）** `L332` — - iOS/macOS：应用图标角标受系统「标记」开关控制，用户可关；关掉后必须仍能从列表看到未读。
+- **10. 免打扰、频率与摘要** `L341` — - 窗口必须支持跨午夜：22:00–08:00 是最常见的默认，代码里若写成 start <= h < end 会算出空集（§21 的 inquiet 有跨午夜分支）。
+  - **10.1 免打扰（DND / quiet hours）** `L343` — - 窗口必须支持跨午夜：22:00–08:00 是最常见的默认，代码里若写成 start <= h < end 会算出空集（§21 的 inquiet 有跨午夜分支）。
+  - **10.2 频率预算（工程约定，非标准）** `L351` — 超限的处理顺序是合并 → 降级到摘要 → 丢弃，不是「攒着明天一起发」。
+  - **10.3 摘要（digest）** `L362` — - 时段由用户选（早 8 点 / 午 12 点 / 晚 8 点至少三选一），不允许服务端硬编码「每天 09:00」。
+- **11. 通知偏好设置页** `L371` — 通知设置
+  - **11.1 结构：类型 × 通道 的矩阵，不是一列总开关** `L373` — 三条结构铁律：
+  - **11.2 交互细节** `L394` — - 用开关（toggle），即时生效，不要「保存」按钮——NN/g 逐字："Toggle switches should take immediate effect and should not require the user to cl
+  - **11.3 权限请求页（pre-permission）** `L403` — - 说明你会发什么、多久一次、可以随时关，然后两个按钮：暂不开启 / 开启通知。
+- **12. 邮件触达（交易邮件与营销邮件是两种东西）** `L412` — 15 U.S.C. §7702 逐字：
+  - **12.1 分类口径（按「主要目的」判，不按标签）** `L414` — 15 U.S.C. §7702 逐字：
+  - **12.2 退订（可测的四条）** `L426` — RFC 8058 的另一句值得贴在评审会上："if an unsubscription process is too difficult, the recipient's alternative is to report mail from
+  - **12.3 送达与信誉（三件基础设施，不是设计细节）** `L444` — - SPF："lets you publish a DNS record of all the domains or IP addresses you use to send email. Receiving email services 
+  - **12.4 邮件正文的设计口径** `L452` — - 禁用加粗/斜体/下划线/换字体（GOV.UK Notify 模板规则逐字："You cannot use bold, italics, underlined text, different typefaces or fonts. Thi
+- **13. 合规红线（写进设计评审的硬条件）** `L462` — 中国口径的补充（与 design-ethics-inclusion.md 已核验条文衔接，不在本文件重复）：《互联网广告管理办法》第 10 条「一键关闭」、《个人信息保护法》第 24 条个性化推送的两条路径，均已在该资产给出一手条文与验收。
+- **14. 无障碍：通知是「播报」，不是「看见」** `L477` — 通知体验里最容易漏掉的是非视觉用户：他们不看你精心排版的卡片，只听到读屏念出的一行字。
+  - **14.1 六条硬要求** `L481`
+  - **14.2 读屏念什么：一条通知的播报顺序** `L492` — 系统级通知（iOS/Android）由系统读屏接管，应用控制的是文本本身，所以要保证念出来是完整的句子：
+  - **14.3 角标与未读的等价文本** `L502` — - 应用图标角标：系统会念「产品名，128 个新项目」之类；应用内必须另有一处文本说明（§9 规则 2）。
+- **15. 时序、去重与投递状态** `L510` — 通知是分布式系统里最容易看起来能跑、实际不可靠的功能：客户端离线、服务端重试、多设备并发、时钟不一致，四件事都会让「同一条通知」变成三条。
+  - **15.1 六态状态机（服务端真相）** `L514` — - delivered 只代表到达设备，不代表用户看到（Web Push 的 pushManager 能回报的粒度很有限）。
+  - **15.2 三条工程铁律** `L526` — 1. 幂等：每条通知带 dedupekey + 服务端唯一索引；重试不会产生第二条（§21 的 routenotification 先去重再判层）。
+  - **15.3 失败与降级** `L532` — 「送达率 99%」是个骗人的指标：它只说明发出去了，不说明有人看。真正该报的是打开率、关闭率与打扰投诉（§14 的 Q6 与 §16 的度量口径）。
+- **16. 平台口径速查表（只填已核验的格子）** `L544` — 读表规则：空格写「—」或「未核验」的地方不要凭印象填数字。这一类表最容易被二手博客污染——例如「iOS 通知标题 40 字符上限」在 Apple 官方文档里不存在（§23 已列为「明确不存在，不是漏取」）。
+- **17. GitHub 生态实测（2026-11-13，匿名 API，未用记忆数字）** `L568` — 选型三问照旧：① 许可能不能商用（NOASSERTION = 无法确认，一律按红灯处理）；② pushedat 是否还在维护；③ 能不能被验收（有测试/有文档/能自托管）。星数只作参考，不作依据。
+- **18. 十二个场景（判型 → 动作）** `L601` — 每个场景都按 §1 六段链路走一遍：事件值不值得发 → 发给谁 → 哪条通道 → 什么时机 → 怎么呈现 → 怎么回收。场景之间的差别只在某一两段，别把整条链路重新发明一遍。
+  - **18.1 交易类状态变更（下单成功、发货、退款到账）** `L605` — - L1：值得发——用户在做一件有后果的事，状态变化直接影响他的下一步（等收货、等退款）。
+  - **18.2 双因素认证与安全告警（短信 / 邮件 / 一次性密码）** `L613` — - L1：必须发，且只能走短信/邮件这类带外通道（在产品内发验证码等于没有第二因子）。
+  - **18.3 社交互动（点赞、评论、关注）** `L620` — - L1：默认不逐条发。这是最容易被「追发」毁掉的场景：一条帖子 100 个赞 = 100 条通知。
+  - **18.4 内容上新与运营推送** `L627` — - L1：这是营销，默认不发；发了必须先拿到显式 opt-in（§13）。
+  - **18.5 待办与审批提醒** `L634` — - L1：值得发，但只在有截止时间时发；没有截止时间的待办进站内列表即可。
+  - **18.6 大促与限时活动** `L641` — - L1：默认不发；opt-in 后也受频率上限约束（§10）。
+  - **18.7 订阅续费与到期** `L647` — - L4：到期前固定节奏（如 T-7 / T-3 / T-1）各一条，不追发；续费成功发凭证类邮件，不发 push。
+  - **18.8 进行中的过程（配送、赛事、计时）** `L653` — - 通道：实时活动 / 锁屏常驻，而不是连续 push。
+  - **18.9 多设备与多端已读** `L660` — - 状态：已读是账户级状态，不是设备级。手机读完，平板与网页必须同步清除。
+  - **18.10 团队协作与 @提及** `L666` — - L1：@提及与私信即时发；任务状态变更进摘要。
+  - **18.11 系统维护与故障公告** `L671` — - 通道：站内横幅 + 状态页，不用 push 群发（除非服务中断且用户正要用）。
+  - **18.12 未成年人与家长通知** `L677` — - L1：默认极简——只发安全与消费类，不发运营。
+- **19. 二十条反模式（交付前逐条对照）** `L685` — 1. 同一事件追发：没点就再发一遍，还换个标题。
+- **20. 二十项自检（交付前逐条过）** `L710` — 1. 每个业务事件都有稳定 dedupekey，24h 内同 key 只有一条？
+- **21. 五段可抄代码（严格模式实跑 5/5 rc=0）** `L733` — 五段合成一个模块在 Python 3.11 下 python -X utf8 实跑通过（assert 全过、退出码 0）。它们不是示例伪码，是可以直接放进仓库的行为契约：改任何一条规则，对应断言会红。
+  - **21.1 渠道与时机路由：先判层，再决定发不发 / 走哪条通道 / 什么时候发 ──** `L737` — 用法：event 由业务侧构造，prefs 由偏好页（§11）落库生成；判层顺序不可换（去重 → 合规 → 紧急度 → 免打扰 → 渠道回退）。
+  - **21.2 角标状态机：nil ≠ 0，清零要同时清通知中心 ──** `L812` — 用法：服务端保存 count 与 clearedseq，客户端只上报「读到 seq=？」；apply(None) 保持现状，apply(0) 清角标并入队一次清空指令。
+  - **21.3 通知偏好数据结构：营销默认关、交易默认开、粒度到「类型 × 渠道」 ──** `L847` — 用法：写成偏好页的断言测试——营销类默认开会在 CI 直接失败；ALWAYSON 里的类别不允许被用户关掉。
+  - **21.4 退订链路：List-Unsubscribe 必须带 One-Click，POST 才算 ──** `L875` — 用法：发信前跑一遍头检查；CI 里对模板做快照，缺 List-Unsubscribe-Post 直接红。
+  - **21.5 投递预算：同一用户 24h 内的非关键通知上限 ──** `L897` — 用法：发送前置校验，超预算就合并或降级到摘要（§10.2），不要「攒着明天一起发」。
+- **22. 来源（本轮逐字核验，2026-11-13）** `L912` — Apple
+- **23. 取源限制（不引用这些来源的任何数字）** `L951` — 1. developer.android.com 取源分两条路且都不稳：curl 直连返回 000、webfetch 报 TypeError: fetch failed；但同一个环境里 Invoke-WebRequest 能拿到 200，官
+- **24. 与既有资产边界矩阵** `L970` — ---
+- **25. 接线** `L986` — 接线：SKILL.md 版本段 / v42 基线 / 资产表 / 资产计数 / 别名段 / 意图路由 4 行 / 第 5 步深入条目 / 第 44 条自检 · scripts/mindmap.py INTENTS · scripts/reg
 
 ### `references/onboarding-first-run.md` · 首次体验与用户引导：从启动到 Aha Moment 的判型、时机与可访问性契约
 _900 行 · 快照 2026-11-12 · 37 节_
@@ -2348,7 +2447,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_751 行 · 快照 — · 42 节_
+_766 行 · 快照 — · 43 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2392,11 +2491,12 @@ _751 行 · 快照 — · 42 节_
 - **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** `L706` — - 本轮性质：v38→v39 补齐「空状态与零数据位」域，沿用 #34 定稿后的干净基线与 #26 判例纪律。触发时工作区为 #34 定稿的 HEAD；缺口判定沿用实证口径：全域词频实测 empty state / blank slate 
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** `L718` — - 本轮性质：v39→v40 补齐「决定买之后」这条链路——价格怎么呈现、钱怎么付出去。触发时工作区为 #35 定稿的干净基线 HEAD cff6d94（v39 / 45 参考 / 1,260,776 字符 / 217 路由 / 42 自检
 - **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** `L734` — - 本轮性质：v40→v41 维护轮，不新增参考资产。用户指令「整理之前的升级结果并复测、优化」。触发时基线为 #36 定稿 HEAD 15b75b3（v40 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 
+- **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** `L753` — - 本轮性质：v41→v42 补齐新资产轮。触发时基线 HEAD 1055da1（v41 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 / 260 组 2,142 词 / 34 支线 · 171 自测 / 
 
 ## 三、主题索引（章节标题 → 位置）
 
 - **0. 30 秒速查** → `references/form-table.md` L8
-- **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6 · `references/onboarding-first-run.md` L10 · `references/overlays-modality.md` L10
+- **0. 一句话立场** → `references/iconography.md` L6 · `references/navigation-ia.md` L6 · `references/notifications-messaging.md` L10 · `references/onboarding-first-run.md` L10 · `references/overlays-modality.md` L10
 - **0. 一句话立场与三条裁决** → `references/conversational-generative-ui.md` L10
 - **0. 与既有资产的分层（先判该读哪份）** → `references/ai-design-toolchain.md` L9 · `references/component-api-design.md` L9 · `references/design-ethics-inclusion.md` L9 · `references/design-measurement-research.md` L9
 - **0. 与既有资产的分层（先判读哪一份，别读错）** → `references/design-system-docs.md` L7
@@ -2422,6 +2522,7 @@ _751 行 · 快照 — · 42 节_
 - **1. 先决定：该不该做暗色（含反面证据）** → `references/dark-mode.md` L13
 - **1. 先判关系，再选图形（FT Visual Vocabulary 九类）** → `references/dataviz.md` L21
 - **1. 先给立场：度量三步法 + 三层判层** → `references/design-measurement-research.md` L23
+- **1. 六段链路判层：事件 → 决策 → 通道 → 时机 → 呈现 → 回收** → `references/notifications-messaging.md` L20
 - **1. 决策三问：先判该不该动** → `references/motion-system.md` L10
 - **1. 分工与决策树：单动效、编排、状态机三层** → `references/motion-orchestration.md` L11
 - **1. 判层：AI 在设计流程的五个位置，以及哪些活不该交出去** → `references/ai-design-toolchain.md` L25
@@ -2442,6 +2543,7 @@ _751 行 · 快照 — · 42 节_
 - **10. AI 功能界面：微软人机交互 18 条准则（HAX G1–G18）** → `references/ai-design-toolchain.md` L300
 - **10. Hybrid UI 混合界面与 RICH 范式（WIMP 不是唯一解）** → `references/conversational-generative-ui.md` L282
 - **10. 中断与取消：可中断性的工程定义** → `references/motion-orchestration.md` L509
+- **10. 免打扰、频率与摘要** → `references/notifications-messaging.md` L341
 - **10. 反模式清单（逐条给改法）** → `references/dataviz.md` L289
 - **10. 可用性测试：moderated / unmoderated 与出声思考** → `references/design-measurement-research.md` L194
 - **10. 可访问性（Accessibility）⚠️ 高频翻车点** → `references/iconography.md` L140
@@ -2488,6 +2590,7 @@ _751 行 · 快照 — · 42 节_
 - **11. 缺陷分级与发布门禁** → `references/handoff-collaboration.md` L423
 - **11. 表单可访问性：可执行清单** → `references/form-table.md` L294
 - **11. 裁决三：AI 答错了要高效纠错（HAX G9）——四档恢复链，不是重新生成按钮** → `references/conversational-generative-ui.md` L302
+- **11. 通知偏好设置页** → `references/notifications-messaging.md` L371
 - **12 · HTML Drag and Drop API：七事件、DataTransfer 与 drop target 规则** → `references/direct-manipulation.md` L267
 - **12 · Hick–Hyman Law：决策时间的公式与失效条件** → `references/visual-hierarchy-gestalt.md` L251
 - **12 · font-family 逐字符回退算法（加载 / 缺字 / 验收）** → `references/typography-system.md` L174
@@ -2515,6 +2618,7 @@ _751 行 · 快照 — · 42 节_
 - **12. 表格结构：五层 + 行高密度** → `references/form-table.md` L309
 - **12. 设计决策分级：什么时候可以"花"性能** → `references/performance-design.md` L521
 - **12. 迁移文档：MAJOR 必带，且必须能被机器校验** → `references/design-system-docs.md` L461
+- **12. 邮件触达（交易邮件与营销邮件是两种东西）** → `references/notifications-messaging.md` L412
 - **12. 问卷与访谈设计：偏差规避（数据垃圾进、垃圾出）** → `references/design-measurement-research.md` L227
 - **13 · Fitts's Law：目标尺寸与距离的三种写法** → `references/visual-hierarchy-gestalt.md` L273
 - **13 · unicode-range 子集化与 CJK 分片（性能 / CLS / 验收）** → `references/typography-system.md` L186
@@ -2531,6 +2635,7 @@ _751 行 · 快照 — · 42 节_
 - **13. 反模式（20 条，看到就是错）** → `references/dark-mode.md` L510
 - **13. 取源与权威边界** → `references/visual-style-taxonomy.md` L310
 - **13. 可抄代码** → `references/navigation-ia.md` L180
+- **13. 合规红线（写进设计评审的硬条件）** → `references/notifications-messaging.md` L462
 - **13. 图形语言：图标网格三体系 + 插画五参数** → `references/brand-identity.md` L404
 - **13. 库选型矩阵（Library Matrix · GitHub API 实测）** → `references/iconography.md` L179
 - **13. 弱网与低端设备：降级不是可选功能** → `references/performance-design.md` L547
@@ -2562,6 +2667,7 @@ _751 行 · 快照 — · 42 节_
 - **14. 工具与框架** → `references/presentation-design.md` L631
 - **14. 微信小程序：另一套物理规律** → `references/performance-design.md` L589
 - **14. 性能：100ms 响应窗口、读写分离与快照开销** → `references/motion-orchestration.md` L680
+- **14. 无障碍：通知是「播报」，不是「看见」** → `references/notifications-messaging.md` L477
 - **14. 流式渲染工程：增量 Markdown、未闭合块、节流、自动滚动纪律** → `references/conversational-generative-ui.md` L378
 - **14. 生成 → 代码：衔接层与三个陷阱** → `references/ai-design-toolchain.md` L442
 - **14. 表格规模化：分页、固定、批量、空态** → `references/form-table.md` L389
@@ -2583,6 +2689,7 @@ _751 行 · 快照 — · 42 节_
 - **15. 反模式 20 条** → `references/responsive-layout.md` L565
 - **15. 度量与验收：看哪个数、在哪看** → `references/performance-design.md` L628
 - **15. 引导文案与本地化的最小约束** → `references/onboarding-first-run.md` L404
+- **15. 时序、去重与投递状态** → `references/notifications-messaging.md` L510
 - **15. 组件族谱判型表（12 类；先判型再选实现）** → `references/overlays-modality.md` L405
 - **15. 表格可访问性与中文细节** → `references/form-table.md` L429
 - **15. 设计稿 ↔ 文档 ↔ 代码：Figma Code Connect 与命名一致性** → `references/design-system-docs.md` L599
@@ -2605,6 +2712,7 @@ _751 行 · 快照 — · 42 节_
 - **16. 品牌一致性的十条检查（交付前逐条过）** → `references/brand-identity.md` L506
 - **16. 场景速查（16 条，直接取结论）** → `references/motion-orchestration.md` L738
 - **16. 平台与设计系统口径（原文 vs 工程约定分列）** → `references/overlays-modality.md` L426
+- **16. 平台口径速查表（只填已核验的格子）** → `references/notifications-messaging.md` L544
 - **16. 来源、引用与置信度呈现（与 HAX 18 条的边界）** → `references/conversational-generative-ui.md` L405
 - **16. 研究运营与研究库（Research Ops / Repository）** → `references/design-measurement-research.md` L298
 - **16. 类型即文档：TypeScript 契约的四条底线** → `references/component-api-design.md` L490
@@ -2621,6 +2729,7 @@ _751 行 · 快照 — · 42 节_
 - **17. 16 场景决策矩阵（先查表，再动手）** → `references/component-api-design.md` L501
 - **17. 18 项自检** → `references/presentation-design.md` L718
 - **17. 20 自检（Self-checks）** → `references/iconography.md` L255
+- **17. GitHub 生态实测（2026-11-13，匿名 API，未用记忆数字）** → `references/notifications-messaging.md` L568
 - **17. 交付自检（18 项，全过才算过关）** → `references/performance-design.md` L699
 - **17. 交付自检（表单 10 + 表格 10）** → `references/form-table.md` L475
 - **17. 十二个场景（判型 → 动作）** → `references/onboarding-first-run.md` L437
@@ -2644,6 +2753,7 @@ _751 行 · 快照 — · 42 节_
 - **18. 二十条反模式** → `references/onboarding-first-run.md` L456
 - **18. 决策矩阵：什么场景套哪套** → `references/design-ethics-inclusion.md` L431
 - **18. 出处** → `references/form-table.md` L503
+- **18. 十二个场景（判型 → 动作）** → `references/notifications-messaging.md` L601
 - **18. 十二场景速查（设计系统文档写作）** → `references/design-system-docs.md` L684
 - **18. 反模式 20 条** → `references/conversational-generative-ui.md` L436 · `references/handoff-collaboration.md` L730
 - **18. 可抄代码** → `references/brand-identity.md` L557 · `references/performance-design.md` L731 · `references/presentation-design.md` L743
@@ -2659,6 +2769,7 @@ _751 行 · 快照 — · 42 节_
 - **19. 20 条反模式（研究者与设计师都容易犯）** → `references/design-measurement-research.md` L346
 - **19. 20 项自检（交付前逐条给证据）** → `references/overlays-modality.md` L508
 - **19. 22 项上线自检（组件 API 关）** → `references/component-api-design.md` L549
+- **19. 二十条反模式（交付前逐条对照）** → `references/notifications-messaging.md` L685
 - **19. 二十条反模式（写了等于没写）** → `references/design-system-docs.md` L703
 - **19. 二十项自检（交付前逐条过）** → `references/onboarding-first-run.md` L481
 - **19. 反模式 20 条** → `references/brand-identity.md` L625
@@ -2674,7 +2785,7 @@ _751 行 · 快照 — · 42 节_
 - **2 · 四段链路模型：先判哪一段断，再谈改动画** → `references/direct-manipulation.md` L31
 - **2 · 排印决策的六层模型（先判层，再谈审美）** → `references/typography-system.md` L25
 - **2 · 色彩模型谱系（先认坐标，再谈配色）** → `references/color-science.md` L21
-- **2. 三条最重要裁决** → `references/onboarding-first-run.md` L39 · `references/overlays-modality.md` L40
+- **2. 三条最重要裁决** → `references/notifications-messaging.md` L40 · `references/onboarding-first-run.md` L39 · `references/overlays-modality.md` L40
 - **2. 五段链路判层模型（L1 发得出 → L5 收得回）** → `references/conversational-generative-ui.md` L43
 - **2. 交付的本质：交付决策，不是交付图** → `references/handoff-collaboration.md` L26
 - **2. 六大体系断点精确值对照** → `references/responsive-layout.md` L55
@@ -2702,6 +2813,7 @@ _751 行 · 快照 — · 42 节_
 - **20. 5 段可抄代码（§20.1–§20.3 为 Python 实跑）** → `references/overlays-modality.md` L533
 - **20. AI 关 20 项自检（第 6 步新增，逐条可判 PASS/FAIL）** → `references/ai-design-toolchain.md` L537
 - **20. 上线自检 22 项** → `references/design-ethics-inclusion.md` L475
+- **20. 二十项自检（交付前逐条过）** → `references/notifications-messaging.md` L710
 - **20. 二十项自检（组件文档上线前逐条打勾）** → `references/design-system-docs.md` L728
 - **20. 五段可抄代码（严格模式，实跑 5/5 rc=0）** → `references/onboarding-first-run.md` L506
 - **20. 可抄代码 5 段（3 段 Python 实跑，输出为本轮实测）** → `references/conversational-generative-ui.md` L486
@@ -2748,11 +2860,13 @@ _751 行 · 快照 — · 42 节_
 - **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** → `memory/design-log.md` L706
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** → `memory/design-log.md` L718
 - **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** → `memory/design-log.md` L734
+- **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** → `memory/design-log.md` L753
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
 - **21. 6 段可抄代码** → `references/ai-design-toolchain.md` L562
 - **21. GitHub API 实测仓库（2026-11-11 经 GitHub API）** → `references/conversational-generative-ui.md` L666
+- **21. 五段可抄代码（严格模式实跑 5/5 rc=0）** → `references/notifications-messaging.md` L733
 - **21. 六段可抄代码（文档团队直接拿去用）** → `references/design-system-docs.md` L753
 - **21. 取源清单与 GitHub API 实测（2026-11-07 快照）** → `references/component-api-design.md` L856
 - **21. 可抄代码（4 段 Python，已实跑）** → `references/design-measurement-research.md` L396
@@ -2769,21 +2883,25 @@ _751 行 · 快照 — · 42 节_
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** → `references/ai-design-toolchain.md` L761
 - **22. 来源与取源限制（公开记录）** → `references/design-measurement-research.md` L480
 - **22. 来源（2026-11-05 取源，全部官方原文 / 上游源码 / API 实测）** → `references/design-system-docs.md` L899
+- **22. 来源（本轮逐字核验，2026-11-13）** → `references/notifications-messaging.md` L912
 - **23 · 反模式（20）** → `references/direct-manipulation.md` L545
 - **23 · 可抄代码（5 段，3 段 Python 已实跑）** → `references/visual-hierarchy-gestalt.md` L453
 - **23 · 可抄代码（6 段）** → `references/shape-elevation.md` L535 · `references/typography-system.md` L372
 - **23 · 场景速查（12）** → `references/content-findability.md` L467
 - **23. 与既有资产的最短接线（防止知识孤岛）** → `references/design-measurement-research.md` L499
 - **23. 与既有资产边界矩阵** → `references/onboarding-first-run.md` L879 · `references/overlays-modality.md` L907
+- **23. 取源限制（不引用这些来源的任何数字）** → `references/notifications-messaging.md` L951
 - **23. 取源限制（公开记录，不臆造）** → `references/conversational-generative-ui.md` L702
 - **23. 本轮让哪类问题不再含糊** → `references/design-ethics-inclusion.md` L788
 - **24 · 反模式（20）** → `references/content-findability.md` L484
 - **24 · 取源与限制（公开记录）** → `references/shape-elevation.md` L782 · `references/typography-system.md` L575 · `references/visual-hierarchy-gestalt.md` L647
 - **24 · 自检（20）** → `references/direct-manipulation.md` L570
+- **24. 与既有资产边界矩阵** → `references/notifications-messaging.md` L970
 - **24. 接线** → `references/onboarding-first-run.md` L898 · `references/overlays-modality.md` L924
 - **24. 数据来源清单** → `references/conversational-generative-ui.md` L715
 - **25 · 可抄代码（5 段；§25.1–§25.3 为 Python，本轮已实跑 PASS）** → `references/direct-manipulation.md` L595
 - **25 · 自检（20）** → `references/content-findability.md` L509
+- **25. 接线** → `references/notifications-messaging.md` L986
 - **25. 术语与口径速记** → `references/conversational-generative-ui.md` L732
 - **26 · 取源与限制（公开记录）** → `references/direct-manipulation.md` L863
 - **26 · 可抄代码（5 段；§26.1–§26.3 为 Python，本轮已实跑 PASS）** → `references/content-findability.md` L534
@@ -2803,6 +2921,7 @@ _751 行 · 快照 — · 42 节_
 - **3. 交错编排 stagger：variants 传播与多框架实现** → `references/motion-orchestration.md` L72
 - **3. 从三个词到视觉：定位翻译表** → `references/brand-identity.md` L47
 - **3. 任务级指标：成功率、任务时间、错误率（最容易落地的三类）** → `references/design-measurement-research.md` L55
+- **3. 六问判型决策树** → `references/notifications-messaging.md` L86
 - **3. 六问判型决策树：要不要做、做哪一种** → `references/onboarding-first-run.md` L83
 - **3. 动效时长：按距离和面积取，不按心情取** → `references/motion-system.md` L69
 - **3. 合规地基（二）：中 / 欧 / 美三法域矩阵（出海产品必读）** → `references/ai-design-toolchain.md` L93
@@ -2843,6 +2962,7 @@ _751 行 · 快照 — · 42 节_
 - **4. 裁决一：提示词写得再细，也不构成作者身份（本轮最重要的一条）** → `references/ai-design-toolchain.md` L115
 - **4. 跨断点做什么：五个动词** → `references/responsive-layout.md` L202
 - **4. 边框与分隔线：暗色下不可依赖** → `references/dark-mode.md` L183
+- **4. 通道选型矩阵** → `references/notifications-messaging.md` L113
 - **4. 风格匹配决策（给定"A 感觉"，怎么拆成信号）** → `references/visual-style-taxonomy.md` L136
 - **5 · OKLab / OKLCH：公式与用法** → `references/color-science.md` L59
 - **5 · 搜索框的标签契约：placeholder 不是 label** → `references/content-findability.md` L87
@@ -2853,6 +2973,7 @@ _751 行 · 快照 — · 42 节_
 - **5. CLS：公式、五个位移源、设计侧防抖清单** → `references/performance-design.md` L163
 - **5. CPPA §7003：可读性、无障碍与「显著链接」的具体要求** → `references/design-ethics-inclusion.md` L149
 - **5. UMUX / UMUX-Lite（4 题 / 2 题 · 与 SUS 强相关）** → `references/design-measurement-research.md` L112
+- **5. 中断级别与优先级（三平台口径）** → `references/notifications-messaging.md` L131
 - **5. 五种「换元素」API 的完整对照（选型先看这个，别看 star）** → `references/component-api-design.md` L158
 - **5. 列表增删与重排：四种操作的动画策略** → `references/motion-orchestration.md` L209
 - **5. 原生 <dialog 的浏览器代劳清单：showModal / show / open / closedby** → `references/overlays-modality.md` L134
@@ -2882,6 +3003,7 @@ _751 行 · 快照 — · 42 节_
 - **6. Popover API 三态：always non-modal 与 auto · hint · manual 双栈** → `references/overlays-modality.md` L171
 - **6. SEQ 单题易用度 + SUPR-Q 标准百分等级 + NPS** → `references/design-measurement-research.md` L123
 - **6. 「自定义组件必须开放扩展」四条硬规则（Radix + Ariakit 共识）** → `references/component-api-design.md` L240
+- **6. 三平台权限机制（同一个「授权」，三种失败模式）** → `references/notifications-messaging.md` L190
 - **6. 中文数字与单位（中文项目必做）** → `references/dataviz.md` L204
 - **6. 共享元素转场 A：View Transitions 完整机制** → `references/motion-orchestration.md` L271
 - **6. 动画与转场** → `references/presentation-design.md` L301
@@ -2926,6 +3048,7 @@ _751 行 · 快照 — · 42 节_
 - **7. 最小尺寸与响应式标志四档（多小算太小 / 缩小到什么时候换版）** → `references/brand-identity.md` L198
 - **7. 移动端导航降级** → `references/navigation-ia.md` L82
 - **7. 组件 API 与设计稿 1:1 对齐** → `references/handoff-collaboration.md` L224
+- **7. 被拒绝之后的恢复路径** → `references/notifications-messaging.md` L225
 - **7. 视口单位：100vh 是个陷阱** → `references/responsive-layout.md` L310
 - **7. 错误文案：模板化，禁止「输入有误」** → `references/form-table.md` L173
 - **8 · 200% 缩放与容器弹性（按钮 / 输入框 / 卡片）** → `references/typography-system.md` L114
@@ -2952,6 +3075,7 @@ _751 行 · 快照 — · 42 节_
 - **8. 提示词工程：把设计 brief 变成可复用、可评估的 prompt** → `references/ai-design-toolchain.md` L237
 - **8. 样本量：定性「发现」与定量「下结论」是两回事** → `references/design-measurement-research.md` L157
 - **8. 活文档四件套：研究 / 已知问题 / 近期变更 / 帮助改进（证据与反馈闭环）** → `references/design-system-docs.md` L293
+- **8. 消息中心与未读状态（inbox 是通知的留档层）** → `references/notifications-messaging.md` L257
 - **8. 状态与交互反馈在暗色下的差异** → `references/dark-mode.md` L302
 - **8. 状态图标（State Icons）** → `references/iconography.md` L116
 - **8. 跨文档转场（MPA）与导航方向类型** → `references/motion-orchestration.md` L418
@@ -2983,6 +3107,7 @@ _751 行 · 快照 — · 42 节_
 - **9. 自动续费：2025 年修正后的现行规则，以及一条必须纠正的过期口径** → `references/design-ethics-inclusion.md` L221
 - **9. 色阶生成三条路线（选一条，别混）** → `references/brand-identity.md` L253
 - **9. 表格在窄屏的降级（移动端表格 / 手机表格 / 表格变卡片）：四种策略** → `references/responsive-layout.md` L388
+- **9. 角标（badge）与未读数：99+ 数字上限、清除时机、可访问性** → `references/notifications-messaging.md` L310
 - **9. 设计评审（critique）：30 分钟，2 正 1 改** → `references/handoff-collaboration.md` L300
 - **AI & Agents (38)** → `references/tools.md` L139
 - **CTA 区块** → `references/patterns.md` L49
@@ -3116,7 +3241,7 @@ _751 行 · 快照 — · 42 节_
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
-- **三十二条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
+- **三十五条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
 - **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
@@ -3190,7 +3315,7 @@ _751 行 · 快照 — · 42 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L128
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L131
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3200,12 +3325,12 @@ _751 行 · 快照 — · 42 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（171 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L576
-- **自我成长机制（用得越多越准）** → `SKILL.md` L978
-- **自我进化机制（知识保鲜）** → `SKILL.md` L991
+- **能力自测（173 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L586
+- **自我成长机制（用得越多越准）** → `SKILL.md` L987
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1000
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1014
+- **边界与习惯** → `SKILL.md` L1023
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

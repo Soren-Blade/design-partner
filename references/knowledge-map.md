@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三十二条专题支线（可与主线并行）
+## 三十五条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -573,7 +573,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能说出为什么"总价"必须在用户同意付款前锁定，并指出 FTC 464 的 total price 定义里哪两类费用可以被排除，以及该规则实际只覆盖哪两类商品
 - [ ] 能对一个结账页做三项验收：SC 3.3.4 三选一是否成立、复核页每个 `Change` 是否带视觉隐藏文本、返回后已填内容是否仍预填
 
-## 能力自测（171 条，做到 ≥110 条即达 L2+）
+### 支线 AI · 通知与消息触达（把「该不该发」翻译成六段链路与三平台验收的完成路径）
+
+- **这是什么（链路的内容端）**：与反馈五层（`feedback-states`：L0–L4 时效与 `role="status"`）、文案体例（`ux-writing §7.3`：in-app 右上角通知的标题/正文/按钮）、首启权限（`onboarding-first-run §10`：**何时**问权限）相邻但问题不同——它们分别管「此刻页面内的提示怎么呈现」「站内通知卡怎么写」「权限该在哪个功能点问」；本支线管**「这个事件要不要打扰用户、走哪条通道、什么时候发、被拒之后怎么办、发了之后怎么收」**，核心是六段链路（事件 → 决策 → 通道 → 时机 → 呈现 → 回收）。此前 46 份参考对 `免打扰`=0 / `消息中心`=0 / `未读`=2 / `inbox`=1 近乎零命中，`通知`=38 / `push`=42 绝大多数是图标与提醒语境的顺带提及，判定为结构性空白。
+- **三条最重要裁决**：① **同一件事只发一次**——Apple HIG *"Avoid sending multiple notifications for the same thing, even if someone hasn't responded."*；通道失败不换通道补发（短信失败改推 push 就是同一事件第二次打扰）。② **系统权限是一次性资源**——iOS *"Subsequent calls to this method don't prompt the person again."*、Web Permissions §5.2 *"If current state is not "prompt", return current state and abort these steps."*；pre-permission 的全部价值是「别浪费唯一一次」。③ **未读数与角标是状态契约，不是装饰**——iOS 角标语义 *"the number of unread notifications that are available"*、`0` 清除并清空通知中心、`nil` 保持；Android 只允许 `setNumber()` 建议（*"may or may not use this field"*），不得自绘数字。
+- **精确值怎么取**：Apple `interruptionLevel` 四档逐字（passive 不亮屏不响 / active 立即亮屏可响 / timeSensitive 破系统控制 / critical 压静音且需 entitlement），且 `timeSensitive` 在 `UNAuthorizationOptions` 里是 Deprecated（引入即废弃，iOS 15.0）→ 时效性走 interruptionLevel 而非授权项；action 上限 4 个（watchOS 同 4），**title/body 无字符上限**（不可编造 40 字符）；Android 渠道五级 importance 与「创建后不可改」两句英文原文（另：官方同页自相矛盾，工程上不赌 MIN/NONE 可被看到）；POST_NOTIFICATIONS 四条坑（13+ 新装默认关 / 升级预授权需已有渠道 / 拒绝后全渠道封锁 / 必须带上下文请求）；Web push 必须带 `TTL`（RFC 8030 *"MUST include the TTL"*，过期后 *"MUST NOT attempt to deliver"*）、`renotify` 必带 `tag`、`actions` 仅 SW 持久通知有效、移动端 `new Notification()` throw TypeError；邮件分类按「主要目的」判（15 U.S.C. §7702 / 16 CFR §316.3(b)），退订 10 个工作日内（§7704(a)(4)(A)(i)）且不得收费或索取额外信息（16 CFR §316.5），一键退订须 `List-Unsubscribe` 含 HTTPS URI + `List-Unsubscribe-Post: List-Unsubscribe=One-Click`（RFC 8058，DKIM 须覆盖这两个头）；GDPR Recital 32 *"Silence, pre-ticked boxes or inactivity should not therefore constitute consent."*；SC 2.2.1 是 3 机制 + 3 例外（不是五个例外），toast 有时限失败只在「没有别的入口能拿到同一信息」时成立。未取到的（M3 角标、Gmail 限额与 0.3% 垃圾率、PECR 软 opt-in、Chrome quiet UI、邮件 600px 宽度）一律不引用，见该资产 §23。
+- **判学会了**：能用六问判型把「要不要发」拆成打扰成本 × 信息价值；能说清 P0–P3 四档在 iOS / Android / Web 上各落到哪个具体机制（interruptionLevel / channel importance / 只能「发或立即发」）；能写 pre-permission 并说清拒绝后的三态分流与回捞路径（含 iOS provisional 这条静默投递的第三条路）；能验角标三态、Android 渠道不可变、Web push TTL 与 410 重订阅；能判一封邮件是交易还是营销，并验退订链路与同意依据；材料见 `references/notifications-messaging.md`。
+
+- [ ] 能对任意「要不要发这条通知」走完六段链路判层，并说出为什么通道失败不能换通道补发、以及 P2/P3 在三平台上分别落到什么机制
+- [ ] 能写出 pre-permission 的触发点与文案，并列出被拒后的三态分流、iOS provisional 的适用与不适用、以及 Android「拒绝 = 全渠道封锁」的验收口径
+
+## 能力自测（173 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

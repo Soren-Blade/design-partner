@@ -38,6 +38,7 @@ ASSETS = [
     ("feedback-states.md", "反馈与状态设计", "五层反馈决策树 / 0.1·1·10s 阈值 / 四体系 toast 时长与宽度 / 加载三形态 / 进度六铁律 / 五种空态 / 五级错误 / 确认框八条 / 五态模型 / WCAG 4.1.3 / 15 项自检"),
     ("empty-states.md", "空状态与零数据位", "立场三裁决（引导不道歉 / 装饰插画 aria-hidden / 失败态≠缺省态·禁止伪装）/ 结构五件套一手解剖（Ant colorTextDescription · PRESENTED_IMAGE_SIMPLE·DEFAULT · margin 8·16·32 · footer action slot；Atlassian Anatomy wide 464 / narrow 304 / h600 / CTA imperative verbs / 装饰图 alt 规则）/ 五种空态判型器 / 中英抄写矩阵 8 类可抄 / 装饰插画取舍与无障碍清单 / 零数据位 starter content 四模式 / 单主行动 CTA 纪律 / 失败态≠缺省态 / 首次操作率度量 / 移动端小程序 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）"),
     ("pricing-checkout.md", "定价页与结账流程", "立场三铁律（总价先行 / 结账是承诺不是表单 / 同一进程不重复索要）/ 判层六问 / 四种定价页构型与尺寸（卡内边距 32px · 价格 40–48px · 货币符号 0.5em 上移 0.13em · tabular-nums）/ 划线价合规（FTC 16 CFR 464 total price 逐字 + clear and conspicuous 八款 + 实际只覆盖票务与短租）/ 月年切换器 / 结账三型 / GOV.UK check answers 七条（two-thirds · Change 带 visually-hidden · 返回必预填 · Not provided）/ 13 字段 autocomplete token 表 / SC 1.3.5 AA · 3.3.7 A · 3.3.4 AA 三条款合取 / Apple Pay 标记规范（仅白色描边版 · 清space 1/4 · 不与其它按钮共享边框）/ 费用三级披露与一致性 / role=status 金额播报 / 移动端 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）/ 8 条取源限制"),
+    ("notifications-messaging.md", "通知与消息触达", "立场三裁决（通道归属先于内容 / 权限按功能时机且拒绝后给恢复路径 / 可关性一等验收）/ 六段链路判层表 / 三平台通道矩阵与中断级别（iOS interruptionLevel 四级 + HIG 能力表 · Android 五级 importance 创建后不可改 + MIN/NONE 官方矛盾声明 · Web Push 五件套）/ POST_NOTIFICATIONS 四个坑 / 消息中心三件套与未读口径 / 角标三态与 setNumber 建议语义 / 免打扰跨午夜 / 偏好页开关即时生效 / 交易与营销邮件判定（15 U.S.C. §7702 + 16 CFR §316.3(b)）/ 一键退订三协议细节（RFC 8058）/ SC 4.1.3 与 2.2.1 六项口径 / 12 场景 / 20 反模式 / 20 自检 / 5 段可跑代码（严格 5/5 rc=0）/ 取源限制 14 条"),
     ("responsive-layout.md", "响应式与断点体系", "六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式"),
     ("editorial-layout.md", "版式与网格（Editorial）", "五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检"),
     ("brand-identity.md", "品牌视觉与 Logo 逻辑", "四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检"),
@@ -228,6 +229,7 @@ def build() -> str:
 | **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
+| **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
 | **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
@@ -456,6 +458,10 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [消费者权益保护法实施条例（国务院令第 778 号）](https://www.gov.cn/zhengce/content/202403/content_6940158.htm) — 第十条第二款：自动展期/自动续费须在接受服务前与每次续费日期前以显著方式提请注意
 - [Baymard · Cart Abandonment Rate](https://baymard.com/blog/cart-abandonment-rate) — 取源限制：两次抓取均被站点导航超截断，**未引用其任何百分比**；Google Pay 品牌规范两次 `fetch failed`、Apple HIG 为 JS 渲染，均未引用条文
 - [GitHub · kamranahmedse/driver.js](https://github.com/kamranahmedse/driver.js) · [usablica/intro.js](https://github.com/usablica/intro.js) · [shipshapecode/shepherd](https://github.com/shipshapecode/shepherd) · [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride) · [elrumordelaluz/reactour](https://github.com/elrumordelaluz/reactour) — product tour / coach mark 实现（star / license / pushed_at / archived 均 GitHub API 2026-11-12 实测 12 库）
+- [Apple HIG · Notifications](https://developer.apple.com/design/human-interface-guidelines/notifications) — 中断级别、角标、Focus 与通知设置原文
+- [Android · 通知渠道](https://developer.android.com/develop/ui/views/notifications/channels) — 五级 importance 与「创建后不可改」原文
+- [Android 13 · 通知权限](https://developer.android.com/develop/ui/views/notifications/notification-permission) — 四个坑与拒绝后行为
+- [RFC 8058](https://www.rfc-editor.org/rfc/rfc8058) / [RFC 8030](https://www.rfc-editor.org/rfc/rfc8030) — 一键退订头与 TTL 强制
 
 ## 目录结构
 

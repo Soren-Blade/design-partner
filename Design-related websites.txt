@@ -457,3 +457,60 @@
 - https://github.com/stripe/stripe-js | [GH] Stripe.js（API 实测 756★ / MIT / 2026-11-12 / 未归档）支付 SDK；卡号字段与 token 化边界参照，未做 API 级实测
 - https://github.com/medusajs/medusa | [GH] Medusa（API 实测 37,214★ / NOASSERTION / 2026-11-13 / 未归档）开源电商结账流程实现参照；`NOASSERTION` 不等于无许可
 - 取源限制：◄ = GitHub API 快照 2026-11-13；三个仓库仅登记为流程实现参照，未逐文件审计
+
+## 二十六、通知与消息触达（Notifications & Messaging / Push / Inbox / Preferences）【v42 本轮新增分区】
+- https://developer.apple.com/design/human-interface-guidelines/notifications | Apple HIG · Notifications（v42 一手源：中断级别四档、action *"up to four buttons"*、角标语义 *"the number of unread notifications that are available"*、*"Avoid sending multiple notifications for the same thing…"*、应用内必须有设置页 *"you must also provide an in-app settings screen…"*；正文经 `tutorials/data/*.json` 端点取回，锚点 `#Best-practices`）
+- https://developer.apple.com/design/human-interface-guidelines/managing-notifications | Apple HIG · Managing notifications（v42 一手源：*"Subsequent authorization requests don't prompt the person."*、Focus 延迟但内容仍即时到达）
+- https://developer.apple.com/design/human-interface-guidelines/asking-permission-to-use-notifications | Apple HIG · Asking permission（v42 一手源：权限时机与「不要一上来就问」口径）
+- https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/requestauthorization%28options%3Acompletionhandler%3A%29 | `requestAuthorization(options:completionHandler:)`（v42 一手源：*"The first time your app calls the method, the system prompts the person... Subsequent calls to this method don't prompt the person again."*）
+- https://developer.apple.com/documentation/usernotifications/unauthorizationoptions | `UNAuthorizationOptions`（v42 一手源：**`timeSensitive` 列 Deprecated，`introducedAt` 与 `deprecatedAt` 同为 iOS 15.0**——引入即废弃，时效性靠 `interruptionLevel`）
+- https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel | `UNNotificationInterruptionLevel`（v42 一手源：passive 不亮屏不响 / active 立即亮屏可响 / timeSensitive 破系统控制 / critical 压静音且需 entitlement）
+- https://developer.apple.com/design/human-interface-guidelines/live-activities | Apple HIG · Live Activities（v42 一手源：8 小时 + 4 小时 = 12 小时上限；*"Don't use a Live Activity to display ads or promotions."*）
+- https://developer.android.com/develop/ui/views/notifications/channels | Android · Create and manage notification channels（v42 一手源：五级 `IMPORTANCE_NONE(0)`…`HIGH(4)` 英文原文、*"you can't change the importance level"*、*"can't change the notification channel's visual and auditory behaviors programmatically"*；**同页与 NONE 描述自相矛盾，本分区不替官方调和**）
+- https://developer.android.com/develop/ui/views/notifications/notification-permission | Android · Notification runtime permission（v42 一手源：13+ 新装默认关、升级预授权需已有渠道、拒绝后 *"All notification channels are blocked, except for a few specific roles."*、必须带上下文请求）
+- https://developer.android.com/develop/ui/views/notifications/build-notification | Android · Create a notification（v42 一手源：**最多三个操作按钮**、8.1+ 每秒最多 1 次提示音、收起态单行截断 + `setStyle` 展开）
+- https://developer.android.com/develop/ui/views/notifications/badges | Android · Modify a notification badge（v42 一手源：`setNumber()` 的 `number` 字段 *"The system may or may not use this field…"*、`BADGE_ICON_NONE/SMALL/LARGE` 三档）
+- https://developer.android.com/develop/ui/views/notifications/group | Android · Create a group of notifications（v42 一手源：*"Grouped notifications must have an extra notification that acts as the group summary."*、7.0+ 自动分组）
+- https://developer.mozilla.org/en-US/docs/Web/API/Notification/permission | MDN · `Notification.permission`（v42 一手源：三态、default *"the application will act as if permission was denied"*、denied 后不再请求）
+- https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification | MDN · `Notification()` 构造与 options（v42 一手源：`renotify: true` 时 *"tag must also be set"*、`silent` 与 `vibrate` 互斥、`actions` 仅 SW 持久通知有效、移动端构造抛 `TypeError`）
+- https://developer.mozilla.org/en-US/docs/Web/API/Navigator/setAppBadge | MDN · `setAppBadge()`（v42 一手源：不传参=标记点、`0`=清除、*"User agents may also ignore this data and display a marker instead."*、*"This feature is not Baseline"*）
+- https://notifications.spec.whatwg.org/ | WHATWG Notifications 规范（v42 一手源：`actions` 的持久通知限定与构造函数限制；`w3.org/TR/notifications/` 被 Cloudflare 403，改此地址）
+- https://w3c.github.io/permissions/ | Permissions 规范（v42 一手源：§5.2 *"If current state is not "prompt", return current state and abort these steps."*——denied 后不可再弹是规范级约束）
+- https://www.rfc-editor.org/rfc/rfc8030 | RFC 8030 · Generic Event Delivery Using HTTP Push（v42 一手源：*"An application server MUST include the TTL (Time-To-Live) header field"*、过期后 *"MUST NOT attempt to deliver"*）
+- https://www.rfc-editor.org/rfc/rfc8292 | RFC 8292 · VAPID（v42 一手源：应用服务器密钥与应用服务器身份）
+- https://www.rfc-editor.org/rfc/rfc8291 | RFC 8291 · Message Encryption for Web Push（v42 一手源：payload 加密方案）
+- https://www.rfc-editor.org/rfc/rfc8058 | RFC 8058 · One-Click Unsubscribe（v42 一手源：*"The List-Unsubscribe-Post header MUST contain the single key/value pair 'List-Unsubscribe=One-Click'."*、`List-Unsubscribe` MUST 含 HTTPS URI、POST *"MUST NOT include cookies, HTTP authorization, or any other context information."*、*"if an unsubscription process is too difficult, the recipient's alternative is to report mail from the sender as junk"*）
+- https://www.law.cornell.edu/uscode/text/15/7702 | 15 U.S.C. §7702 · CAN-SPAM 定义（v42 一手源：transactional or relationship message 五项、*"The term 'commercial electronic mail message' does not include a transactional or relationship message."*）
+- https://www.law.cornell.edu/uscode/text/15/7704 | 15 U.S.C. §7704 · 退订与披露（v42 一手源：§7704(a)(4)(A)(i) 10 个工作日内停止、§7704(a)(3)(A) 入口 *"clearly and conspicuously displayed"* 且 30 天可用）
+- https://www.law.cornell.edu/cfr/text/16/316.3 | 16 CFR §316.3 · primary purpose（v42 一手源：*"…if the electronic mail message consists exclusively of transactional or relationship content"*——夹带广告即转商业口径）
+- https://www.law.cornell.edu/cfr/text/16/316.5 | 16 CFR §316.5 · 退订机制（v42 一手源：不得收费、不得索取邮箱与偏好之外的信息、不得要求除回信或访问单页之外的动作）
+- https://gdpr-info.eu/recitals/no-32/ | GDPR Recital 32（v42 一手源：*"Silence, pre-ticked boxes or inactivity should not therefore constitute consent."*、多目的须分别同意）
+- https://gdpr-info.eu/art-7-gdpr/ | GDPR Article 7（v42 一手源：7(3) *"It shall be as easy to withdraw as to give consent."*、7(4) 以服务为条件破坏「自由给予」）
+- https://www.gov.uk/service-manual/design/sending-emails-and-text-messages | GOV.UK Service Manual · Sending emails and text messages（v42 一手源：*"You don't need to ask permission to send transactional messages."*、*"Never send subscription messages unless the user has explicitly asked for them"*、*"avoid sending text messages late at night"*）
+- https://www.notifications.service.gov.uk/using-notify/formatting | GOV.UK Notify · Formatting（v42 一手源：*"You cannot use bold, italics, underlined text, different typefaces or fonts."*）
+- https://www.notifications.service.gov.uk/using-notify/unsubscribe-links | GOV.UK Notify · Unsubscribe links（v42 一手源：一键退订链接的官方实现口径）
+- https://www.nngroup.com/articles/toggle-switch-guidelines/ | NN/g · Toggle-Switch Guidelines（v42 一手源：*"Toggle switches should take immediate effect and should not require the user to click Save or Submit"*、标签写状态不写问句）
+- https://www.nngroup.com/articles/push-notification/ | NN/g · Push Notifications（v42 一手源：五类错误 + *"Allow them to experience the app and only in a later session ask them to accept notifications."*）
+- https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html | WCAG 2.2 SC 2.2.1 Timing Adjustable（v42 一手源：**3 机制 + 3 例外 = 6 项**——Turn off / Adjust 默认 10 倍 / Extend 至少 20 秒且可延至 10 倍 + Real-time / Essential / 20 Hour）
+- https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html | WCAG 2.2 SC 4.1.3 Status Messages（v42 一手源：*"status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus"*）
+- https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html | WCAG 2.2 SC 1.4.3 Contrast (Minimum)（v42 一手源：4.5:1 且 *"computed values should not be rounded (e.g., 4.499:1 would not meet the 4.5:1 threshold)"*）
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html | WCAG 2.2 SC 2.5.8 Target Size (Minimum)（v42 一手源：*"at least 24 by 24 CSS pixels"*）
+- 取源限制（v42 通知与触达蒸馏）：`support.google.com` 全站不可达（Gmail 发信限额、一键退订强制生效日、Postmaster 垃圾率 0.3% 阈值**均未核验，本分区不引用**）；ICO / PECR 403 与 legislation.gov.uk 返回 202 空体（英国软 opt-in 未取到）；ftc.gov 403 与 ecfr.gov bot 挑战（法条改 Cornell LII 镜像，非 FTC 解释性指南）；`m3.material.io` 为 JS 骨架（M3 角标规范未取到，不引 M3 数值）；`litmus.com` 返回 unsupported content type、`nngroup.com/articles/notifications/` 为 404；`developer.android.com` 直连 curl 000 而 `Invoke-WebRequest` 与官方中文镜像可 200（英文原文为准，镜像仅交叉核对）；`w3.org/TR/notifications/` 被 Cloudflare 403 改 whatwg；`NotificationCompat.Builder#setNumber` 参考页返回 *"unexpected EOF or 0 bytes"* 改 `android/app/Notification#number`；「长按通知可关闭渠道」与 `requireInteraction` 移动端行为**未核验**（五页全文检索无命中）；邮件 600px 宽度 / preheader / subject 字符数无标准机构一手来源，不写；Apple **没有** title/body 字符上限也**没有**「拒绝后引导去设置」的推荐话术（属「明确不存在」而非漏取）
+
+## 二十六·附：通知与消息触达相关 GitHub 仓库（v42 GitHub API 实测）
+- https://github.com/novuhq/novu | [GH] Novu（API 实测 40,334★ / NOASSERTION / 2026-11-13 / 未归档）开源通知基础设施（多渠道路由、偏好中心、inbox 组件）；`NOASSERTION` 不等于无许可，商用前须人工核许可
+- https://github.com/binwiederhier/ntfy | [GH] ntfy（API 实测 35,514★ / Apache-2.0 / 2026-11-13 / 未归档）基于 HTTP 的自托管推送服务，可作「推送通道」的工程参照
+- https://github.com/caronc/apprise | [GH] Apprise（API 实测 17,757★ / BSD-2-Clause / 2026-11-11 / 未归档）跨 100+ 通道的通知分发层，看「同一事件多通道」的抽象边界
+- https://github.com/gotify/server | [GH] Gotify（API 实测 16,206★ / NOASSERTION / 2026-11-09 / 未归档）自托管推送服务；同样是 NOASSERTION
+- https://github.com/radix-ui/primitives | [GH] Radix UI Primitives（API 实测 19,497★ / MIT / 2026-10-14 / 未归档）Toast 的无障碍实现参照（`role="status"`、自动消失与悬停暂停）
+- https://github.com/emilkowalski/sonner | [GH] Sonner（API 实测 13,210★ / MIT / 2026-08-10 / 未归档）in-app toast 的现代实现参照（堆叠、悬停暂停、`prefers-reduced-motion`）
+- https://github.com/timolins/react-hot-toast | [GH] react-hot-toast（API 实测 10,994★ / MIT / 2026-09-16 / 未归档）另一套 toast 实现，对照「承诺式 API 与状态机」
+- https://github.com/web-push-libs/web-push | [GH] web-push（API 实测 3,572★ / NOASSERTION / 2026-11-10 / 未归档）Node 侧 VAPID 发送实现，验证 `TTL` 与 410 处理
+- https://github.com/w3c/push-api | [GH] W3C Push API（API 实测 158★ / NOASSERTION / 2026-11-12 / 未归档）规范仓库
+- https://github.com/whatwg/notifications | [GH] WHATWG Notifications（API 实测 152★ / NOASSERTION / 2026-11-12 / 未归档）规范仓库
+- https://github.com/mdn/serviceworker-cookbook | [GH] Service Worker Cookbook（API 实测 2,892★ / MIT / **archived=true（2022-11-01）**）**已归档，只作历史参照**，不作为现行最佳实践
+- https://github.com/GoogleChromeLabs/web-push-codelab | [GH] web-push-codelab（API 实测 553★ / NOASSERTION / **archived=true（2023-07-19）**）**已归档**，同上
+- https://github.com/knocklabs/javascript | [GH] Knock JS SDK（API 实测 32★ / MIT / 未归档；`knocklabs/knock` 原名不存在，实为此仓库）小体量多渠道通知 SDK 参照
+- https://github.com/magicbell/magicbell-js | [GH] MagicBell JS（API 实测 31★ / NOASSERTION / 未归档；原名 `magicbell-io/magicbell-js` 已迁移）通知收件箱 SDK 参照
+- https://github.com/OneSignal/OneSignal-Website-SDK | [GH] OneSignal Website SDK（API 实测 410★ / NOASSERTION / 未归档；原名 `OneSignal/OneSignal-Web-SDK` 不存在）Web push 订阅管理参照
+- 取源限制：◄ = GitHub API 快照 2026-11-13（匿名 60 次/小时配额）；`NOASSERTION` 一律按红灯处理，不得当 MIT 用；两个 archived 仓库只登记为历史参照，不推荐新项目采用

@@ -218,6 +218,21 @@ EXPECTED_EVOLUTION = {
         "pricing-checkout.md §8.3 上位为 SC 3.3.7 的深挖正文（top1 仍是 onboarding-first-run §11.1；HEAD top3 中 content-findability 仍落 top5；--no-alias 下仍进前 3）",
 }
 
+# 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，
+# 只是「别名扩展变少/变干净」让结果更贴近纯词面相关性。放行条件三条硬校验，缺一即 FAIL（见 check_alias_hygiene）：
+#   a. NOW 与 HEAD 的 --no-alias top3 完全一致 —— 内容层一字未动，只有别名层变了；
+#   b. NOW top3 与 HEAD top3 至少 2 个重叠 —— 不是换了一整套答案；
+#   c. NOW top1 就是 --no-alias top1 —— 上位来自原词相关性，不是另一组别名的注入。
+# 维护轮结束后这份名单应当为空：下轮若某条已固定为新基线，就从这里移除。
+ALIAS_HYGIENE = {
+    "玻璃拟态 对比度 可访问性":
+        "「玻璃拟态」从 40 词的「风格」巨型组移入「风格流派·质感」，注入词从 40 降到 12；top1 由 shape-elevation §17（合成开销）回到 visual-style-taxonomy §3.9（Glassmorphism 本体）",
+    "留白 网格 版面 编辑设计":
+        "「版式」组把 margin/版心/gutter/栅格系统 让给「版心」组，重复注入消失；top1 与 --no-alias 一致落在 editorial-layout §14.1",
+    "7±2 米勒定律 导航项数 菜单上限":
+        "「导航」组拆为 导航 / 导航栏 / 位置感 三组，「导航项数」不再被 28 词整组注入；top1 与 --no-alias 一致落在 visual-hierarchy-gestalt §11（7±2 不是菜单上限）",
+}
+
 
 def topn(search_py: Path, query: str, n: int = 3, no_alias: bool = False) -> list:
     """调用指定副本的 dp_search.py，返回 top-n 文件名列表。"""
@@ -261,10 +276,23 @@ def check_evolution(search_py: Path, base_search: Path, query: str) -> tuple:
     b. HEAD top3 中至少 2 个文件仍在 NOW top5 —— 既有答案未被挤丢；
     c. 新进入 top3 的文件必须是本轮新增资产，且 --no-alias 下仍在前 3
        —— 证明上位来自原词相关性，不是别名组污染（#27 巨型组教训）。
+
+    #37 维护轮补的第四种状态 —— **已沉淀（settled）**：该查询的 NOW top3 与
+    git archive HEAD 的 top3 完全一致时，说明这条演进已经随提交进入基线
+    （新资产现在是 HEAD 的一部分），再无「新进入者」可言。此时若仍按 a/b/c
+    判，c 必然为 False，会让**已提交的仓库永久性回归失败**（#36 提交后实测
+    13/13 + 128/128 + 0/1，退出码 1）。settled 不算放行口径的松动：只要 NOW
+    与 HEAD 出现不一致，仍旧走 a/b/c 三条硬校验，不合即 FAIL。
     """
     now5 = topn(search_py, query, 5)
     head5 = topn(base_search, query, 5)
     now3, head3 = now5[:3], head5[:3]
+    settled = bool(now3) and now3 == head3
+    if settled:
+        detail = {"settled": True, "a": True, "b": True, "c": True,
+                  "head3": head3, "now3": now3, "noalias3": [],
+                  "newcomers": []}
+        return True, detail
     noalias3 = topn(search_py, query, 3, no_alias=True)
     a = bool(head3) and bool(now3) and head3[0] == now3[0]
     b = len(set(head3) & set(now5)) >= 2
@@ -272,8 +300,26 @@ def check_evolution(search_py: Path, base_search: Path, query: str) -> tuple:
     c = (bool(newcomers)
          and all(f in NEW_ASSETS for f in newcomers)
          and all(f in noalias3 for f in newcomers))
+    detail = {"settled": False, "a": a, "b": b, "c": c, "head3": head3,
+              "now3": now3, "noalias3": noalias3, "newcomers": newcomers}
+    return a and b and c, detail
+
+
+def check_alias_hygiene(search_py: Path, base_search: Path, query: str) -> tuple:
+    """别名层卫生偏移的三条硬校验（见 ALIAS_HYGIENE 注释）。
+
+    与 check_evolution 的分工：#36 及之前的分歧来自「新资产够不够权威」，
+    本函数处理的分歧来自「别名组够不够干净」——内容层完全没动。
+    """
+    now3 = topn(search_py, query, 3)
+    head3 = topn(base_search, query, 3)
+    now_na = topn(search_py, query, 3, no_alias=True)
+    head_na = topn(base_search, query, 3, no_alias=True)
+    a = now_na == head_na
+    b = len(set(now3) & set(head3)) >= 2
+    c = bool(now3) and bool(now_na) and now3[0] == now_na[0]
     detail = {"a": a, "b": b, "c": c, "head3": head3, "now3": now3,
-              "noalias3": noalias3, "newcomers": newcomers}
+              "now_na3": now_na, "head_na3": head_na}
     return a and b and c, detail
 
 
@@ -312,8 +358,10 @@ def main() -> int:
         base_search = base / "scripts" / "dp_search.py"
         print("\n=== 历史回归（NOW vs git archive HEAD）===")
         strict = HIST_QUERIES + list(BOUNDARY)
-        strict = [q for q in strict if q not in EXPECTED_EVOLUTION]
+        strict = [q for q in strict
+                  if q not in EXPECTED_EVOLUTION and q not in ALIAS_HYGIENE]
         evo = [q for q in HIST_QUERIES if q in EXPECTED_EVOLUTION]
+        hyg = [q for q in HIST_QUERIES if q in ALIAS_HYGIENE]
 
         same = 0
         diffs = []
@@ -330,6 +378,11 @@ def main() -> int:
         for q in evo:
             ok, d = check_evolution(SEARCH, base_search, q)
             evo_pass += ok
+            if d.get("settled"):
+                print("  %-5s %-34s %s" % ("EVO" if ok else "FAIL", q, d["now3"]))
+                print("       与 HEAD 完全一致 → 登记已沉淀（该演进已随提交进入基线，"
+                      "可在下一轮从 EXPECTED_EVOLUTION 移除）")
+                continue
             print("  %-5s %-34s %s" % ("EVO" if ok else "FAIL", q, d["now3"]))
             print("       HEAD top3 %s → 新进入 %s ｜ 硬校验 a=%s(top1不变) "
                   "b=%s(原答案仍在top5) c=%s(原词相关·非别名污染)"
@@ -339,12 +392,27 @@ def main() -> int:
             if args.verbose:
                 print("       --no-alias top3: %s" % d["noalias3"])
 
-        print("历史回归: %d/%d 逐字一致 + %d/%d 登记演进 → %s"
-              % (same, len(strict), evo_pass, len(evo),
-                 "零退化" if same == len(strict) and evo_pass == len(evo) else "存在退化"))
+        hyg_pass = 0
+        for q in hyg:
+            ok, d = check_alias_hygiene(SEARCH, base_search, q)
+            hyg_pass += ok
+            print("  %-5s %-34s %s" % ("HYG" if ok else "FAIL", q, d["now3"]))
+            print("       硬校验 a=%s(--no-alias 与 HEAD 一致) b=%s(≥2 重叠) "
+                  "c=%s(top1 = 原词相关)" % (d["a"], d["b"], d["c"]))
+            print("       依据: %s" % ALIAS_HYGIENE[q])
+            if not ok:
+                diffs.append((q, d["head3"], d["now3"]))
+            if args.verbose:
+                print("       HEAD top3 %s ｜ --no-alias top3 %s"
+                      % (d["head3"], d["now_na3"]))
+
+        print("历史回归: %d/%d 逐字一致 + %d/%d 登记演进 + %d/%d 别名卫生 → %s"
+              % (same, len(strict), evo_pass, len(evo), hyg_pass, len(hyg),
+                 "零退化" if (same == len(strict) and evo_pass == len(evo)
+                          and hyg_pass == len(hyg)) else "存在退化"))
         for q, head, now in diffs:
             print("  DIFF %s\n    HEAD: %s\n    NOW : %s" % (q, head, now))
-        if same != len(strict) or evo_pass != len(evo):
+        if same != len(strict) or evo_pass != len(evo) or hyg_pass != len(hyg):
             rc = 1
     return rc
 

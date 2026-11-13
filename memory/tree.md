@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-13 21:16 ｜ 48 个文件 · 1826 个章节 · 1,636,260 字符
+> 自动生成于 2026-11-13 21:57 ｜ 48 个文件 · 1827 个章节 · 1,642,372 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -114,48 +114,51 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **加载** | loading · 加载中 · 骨架屏 · skeleton · spinner · 进度条 · progress · 转圈 · 等待状态 · 占位 |
 | **空态** | empty · 空状态 · 无数据 · 空页面 · 没有内容 · empty state |
 | **错误** | error · 报错 · 异常 · 失败提示 · 错误页 · 404 · 500 · 503 · 服务不可用 · 出错 |
-| **动效** | motion · animation · 动画 · 微交互 · 过渡 · transition · easing · 缓动 · 曲线 · 转场 |
+| **动效** | motion · animation · 动画 · 微交互 · 过渡 · transition · easing · 缓动 · 曲线 |
 | **配色** | color · 色彩 · 色板 · palette · 主题色 · 主色 · 颜色 |
 | **排版** | typography · 字体 · font · 字号 · 行高 · 字重 · 字阶 · 文本层级 |
 | **间距** | spacing · 留白 · padding · margin · grid · 节奏 · 8pt · 4px |
 | **token** | design token · 设计变量 · 变量 · 语义化 · tokens · 主题变量 |
 | **图表** | chart · 可视化 · dataviz · 仪表盘 · dashboard · 大屏 · BI · KPI · 折线图 · 柱状图 · 饼图 · 看板 |
-| **表单** | form · 输入框 · 校验 · 验证 · 报错文案 · 登录页 · 注册 · 填写 · 字段 |
-| **表格** | table · 列表页 · 数据表 · 分页 · 列宽 · 行高 · 批量操作 · 筛选 |
+| **表单** | form · 输入框 · 校验 · 验证 · 登录页 · 注册 · 填写 · 字段 |
+| **表格** | table · 列表页 · 数据表 · 分页 · 列宽 · 批量操作 · 筛选 |
 | **无障碍** | a11y · accessibility · 可访问性 · 读屏 · 屏幕阅读器 · 焦点 · 对比度 · 键盘操作 · 色盲 · 适老化 · WCAG |
 | **按钮** | button · CTA · 主按钮 · 次按钮 · 操作按钮 · 提交按钮 |
-| **导航** | navbar · 导航栏 · 顶栏 · 菜单 · 侧边栏 · tab bar · 底部导航 · 面包屑 |
+| **导航** | navigation · nav · information architecture · IA · 全局导航 · 主导航 · 菜单 · menu · 菜单项 |
+| **导航栏** | 导航栏 · navbar · 顶栏 · tab bar · 底部导航 · 标签页 · tabs · 汉堡菜单 · hamburger · 汉堡 |
+| **位置感** | 位置感 · 侧边栏 · sidebar · 面包屑 · breadcrumb · you are here · skip link · 跳转链接 · 当前位置 |
 | **卡片** | card · 卡片布局 · 容器 · 信息块 · tile |
 | **中文** | chinese · 汉字 · 中文字体 · 标点 · 全角 · 避头尾 · 中英混排 · clreq |
 | **品牌** | brand · 品牌视觉 · logo · 视觉识别 · VI · 品牌调性 |
 | **响应式** | responsive · 断点 · breakpoint · 移动端 · 适配 · 自适应 · 容器查询 |
-| **断点** | breakpoint · 媒体查询 · media query · @media · 屏宽 · 视口宽 · viewport · 最小宽度 · min-width · max-width · 响应式断点 · 栅格断点 |
+| **断点** | 媒体查询 · media query · @media · 屏宽 · 视口宽 · viewport · 最小宽度 · min-width · max-width · 响应式断点 · 栅格断点 |
 | **容器查询** | container query · @container · container-type · cqw · cqi · 组件自适应 · 按容器宽度 · 卡片自适应 |
-| **版心** | container · 最大宽度 · max-width · 内容区宽度 · 栅格系统 · grid system · 24栅格 · 12栅格 · gutter · 槽宽 · column · 栏宽 |
+| **版心** | container · 最大宽度 · 内容区宽度 · 栅格系统 · grid system · 24栅格 · 12栅格 · gutter · 槽宽 · column · 栏宽 |
 | **流式排版** | clamp · fluid type · 流体排版 · 自适应字号 · 字号缩放 · 响应式字号 · min() · max() · 字号随屏幕变 |
 | **视口单位** | vh · vw · 100vh · dvh · svh · lvh · 全屏高度 · 地址栏遮挡 · safe-area · 安全区 · 刘海屏 · 满屏 |
 | **响应式图片** | srcset · sizes · picture · 图片适配 · 多倍图 · 2x图 · 懒加载 · lazy · 图片跳动 · CLS · 艺术指导 |
-| **多端适配** | 多端 · H5 · 手机端 · PC端 · 平板 · iPad · 折叠屏 · 大屏 · 小屏 · 窄屏 · 中后台适配 · 1366 · 1440 · 1920 |
+| **多端适配** | 多端 · H5 · 手机端 · PC端 · 平板 · iPad · 折叠屏 · 小屏 · 窄屏 · 中后台适配 · 1366 · 1440 · 1920 |
 | **窄屏表格** | 移动端表格 · 手机表格 · 表格变卡片 · 表格转卡片 · 卡片化 · responsive table · 横滚表格 · 横向滚动表格 · 表格太宽 · 表格横向滑动 |
 | **作品集** | portfolio · 案例 · 个人站 · 审美校准 |
-| **图标** | icon · iconfont · 图标设计 · Iconography · 图标系统 · 图标规范 · 图标库 · 图标字体 · 线性图标 · 面性图标 · 描边图标 · 填充图标 · 双色图标 · duotone · 图标可访问性 · 图标对比度 · 图标按钮 · 图标间距 · 图标尺寸 · sprite 图标 · Lucide · Heroicons · Tabler · Material Symbols · Fluent Icons · Radix Icons · Phosphor · Feather Icons · Ant Design Icons |
+| **图标** | icon · iconfont · 图标设计 · Iconography · 图标系统 · 图标规范 · 图标库 · 图标字体 · 图标可访问性 · 图标对比度 · 图标按钮 · 图标间距 · 图标尺寸 · sprite 图标 |
+| **图标风格与图标库** | 线性图标 · 面性图标 · 描边图标 · 填充图标 · 双色图标 · duotone · Lucide · Heroicons · Tabler · Material Symbols · Fluent Icons · Radix Icons · Phosphor · Feather Icons |
 | **工具** | tool · 插件 · 效率工具 · 截图 · 录屏 · 生成器 |
 | **学习路径** | 怎么学 · 路线图 · 知识地图 · 入门 · 进阶 · 能力自测 |
 | **规范文档** | DESIGN.md · 设计规范 · 设计系统文档 · 风格指南 · style guide |
-| **版式** | layout · editorial · 版面 · 构图 · 网格系统 · grid system · 分栏 · 栏数 · gutter · 版心 · 页边距 · margin · 基线网格 · baseline grid · 栅格系统 |
+| **版式** | layout · editorial · 版面 · 构图 · 网格系统 · 分栏 · 栏数 · 版心 · 页边距 · 基线网格 · baseline grid |
 | **行长** | measure · line length · 每行字数 · 行宽 · 一行多少字 · 行距 · leading · line-height · 字距 · tracking · 缩进 · 段间距 |
 | **海报** | poster · 展板 · 主视觉 · key visual · KV · 活动图 · 宣传图 · 易拉宝 · banner 图 · 三折页 |
 | **长图** | long image · 信息图 · infographic · 一图流 · 滑动长图 · 详情页长图 · 长图海报 · 竖长图 |
 | **社媒图** | social image · 封面图 · 首图 · 缩略图 · thumbnail · OG image · og:image · 分享卡 · 小红书封面 · 公众号封面 · 视频封面 · 头图 |
-| **印刷** | print · 出血 · bleed · 安全区 · safe area · CMYK · 300dpi · 300ppi · 印厂 · 交印 · PDF/X · 总墨量 · 转曲 · 套印 · 裁切线 |
+| **印刷** | print · 出血 · bleed · safe area · CMYK · 300dpi · 300ppi · 印厂 · 交印 · PDF/X · 总墨量 · 转曲 · 套印 · 裁切线 |
 | **竖排** | vertical writing · writing-mode · 直排 · 竖排版 · 纵中横排 · 从右往左 · 繁体竖排 |
-| **标志** | logo · logotype · wordmark · symbol mark · 图形标 · 标徽 · 标志设计 · 标志规范 · 品牌符号 |
-| **字标** | wordmark · lettermark · monogram · 字母标 · 组合标 · 徽章标 · emblem · 文字标志 · 横排标 · 竖排标 |
-| **清space** | clear space · clearspace · 安全边距 · 净空 · 保护空间 · 隔离区 · 留白区 · 最小间距 · clear zone |
+| **标志** | logotype · wordmark · symbol mark · 图形标 · 标徽 · 标志设计 · 标志规范 · 品牌符号 |
+| **字标** | lettermark · monogram · 字母标 · 组合标 · 徽章标 · emblem · 文字标志 · 横排标 · 竖排标 |
+| **清space** | clear space · clearspace · 净空 · 保护空间 · 隔离区 · 留白区 · 最小间距 · clear zone |
 | **最小尺寸** | minimum size · 最小使用尺寸 · 缩小极限 · 缩放下限 · 最细笔画 · 小尺寸版 · 简化版标志 · 响应式标志 |
-| **品牌色** | brand color · 主色 · 种子色 · seed color · 品牌主色 · 色阶 · 色阶生成 · 调色板生成 · tonal palette · HCT · 品牌调色板 |
-| **图标网格** | icon grid · keyline · 基形 · 图标画布 · 24dp · 图标规范 · 笔画粗细 · 图标对齐 · 图标家族 |
-| **商标** | trademark · 注册商标 · 尼斯分类 · 商标注册 · 版权 · 著作权 · 商用授权 · 字体授权 · 素材授权 · logo 侵权 |
+| **品牌色** | brand color · 种子色 · seed color · 品牌主色 · 色阶 · 色阶生成 · 调色板生成 · tonal palette · HCT · 品牌调色板 |
+| **图标网格** | icon grid · keyline · 基形 · 图标画布 · 24dp · 笔画粗细 · 图标对齐 · 图标家族 |
+| **商标** | trademark · 注册商标 · 尼斯分类 · 商标注册 · 版权 · 著作权 · 字体授权 · 素材授权 · logo 侵权 |
 | **品牌手册** | brand guidelines · 品牌规范 · VI 手册 · 视觉识别手册 · brand book · 品牌指南 · 一页式规范 · brand identity |
 | **品牌语气** | tone of voice · 语气 · 品牌声音 · 文案语气 · 品牌人格 · 语气词 · 反语气词 · brand voice |
 | **favicon** | 网站图标 · 标签页图标 · app icon · 应用图标 · 桌面图标 · PWA 图标 · maskable · 触屏图标 · apple-touch-icon |
@@ -171,21 +174,23 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **卡顿** | INP · 交互延迟 · 点击延迟 · 响应慢 · 掉帧 · 帧率 · 长任务 · 主线程阻塞 · FID · 点了没反应 |
 | **CLS** | 布局偏移 · 抖动 · 页面跳动 · 内容跳 · 闪动 · 布局抖动 · cumulative layout shift · 跳一下 |
 | **性能预算** | performance budget · 体积上限 · 包体积 · 资源上限 · KB 预算 · 预算表 · 超预算 |
-| **图片优化** | 压缩 · 图片格式 · AVIF · WebP · 图片尺寸 · 懒加载 · lazy · srcset · 图片太大 · 图片糊 |
+| **图片优化** | 压缩 · 图片格式 · AVIF · WebP · 图片尺寸 · 图片太大 · 图片糊 |
 | **字体加载** | font-display · 字体闪烁 · FOIT · FOUT · 子集化 · 字体子集 · WOFF2 · 可变字体 · 字体体积 · 字体太大 |
 | **弱网** | 慢网 · 2G · 3G · 省流 · 低端机 · 降级 · Save-Data · reduced-data · 弱网环境 |
 | **小程序性能** | 分包 · 主包 · 代码包 · setData · 小程序启动 · 独立分包 · 按需注入 · 包大小 · 小程序慢 |
 | **设计交付** | handoff · 设计交接 · 标注稿 · 标注规范 · spec · 设计规格 · 交付文档 · 交付物 · 交付清单 · 切图 · 交图 · 交接 |
 | **设计走查** | 走查 · 还原度 · 视觉走查 · 交互走查 · design QA · 还原度检查 · 视觉还原 · 走查表 · 走查清单 · 提测 · 上线前检查 |
 | **验收标准** | acceptance criteria · 验收 · 验收条件 · 完成标准 · definition of done · DoD · 算做完 · 验收口径 · 通过标准 · given when then |
-| **设计评审** | 评审 · critique · 设计评审会 · 评稿 · design review · 评审会 · 过稿 · 设计批评 · 方案评审 |
+| **设计评审** | 评审 · critique · design critique · 设计评审会 · 评稿 · 过稿 · 方案评审 · design review · 设计批评 · 设计走查 · 评审会 |
+| **评审反馈** | 反馈 · feedback · 给反馈 · 接收反馈 · 评审反馈 · 怎么评审 · i like i wish i wonder · design by committee · 设计by committee · 委员会改稿 |
+| **决策留痕** | 决策留痕 · adr · hippo |
 | **缺陷分级** | P0 · P1 · P2 · P3 · 优先级分级 · 严重程度 · bug 分级 · 阻断问题 · 发布门禁 · 能不能上线 |
 | **组件命名** | 命名规范 · 命名 · 变体命名 · 图层命名 · naming · 命名约定 · 组件属性 · variant 属性 · 组件 API · 属性命名 |
-| **版本管理** | semver · 语义化版本 · 版本号 · 发版 · 变更日志 · changelog · 废弃 · deprecation · 迁移 · codemod · 版本级别 |
+| **版本管理** | semver · 语义化版本 · 版本号 · 发版 · 变更日志 · changelog · 废弃 · deprecation · 迁移 · 版本级别 |
 | **token 交付** | dtcg · tokens.json · .tokens · style dictionary · 变量导出 · token 管线 · 变量同步 · 导出 token · token 格式 |
-| **多品牌** | multi-brand · multibrand · 白标 · white label · whitelabel · 租户主题 · 租户换肤 · 客户品牌 · 品牌切换 · 多子品牌 · 私有化换肤 · 换肤 |
+| **多品牌** | multi-brand · multibrand · 白标 · white label · whitelabel · 租户主题 · 租户换肤 · 客户品牌 · 品牌切换 · 多子品牌 · 私有化换肤 |
 | **主题架构** | theming · 主题系统 · 主题矩阵 · 主题轴 · theme matrix · 多主题 · 主题引擎 · 四层 token · brand input · 主题组合 |
-| **品牌色生成** | 色阶生成器 · palette generation · brand ramp · 种子色生成 · 品牌色阶 · 自动生成色阶 · hct 生成 · tonal palette · 色度常量 |
+| **品牌色生成** | 色阶生成器 · palette generation · brand ramp · 种子色生成 · 品牌色阶 · 自动生成色阶 · hct 生成 · 色度常量 |
 | **对比度护栏** | 品牌色校验 · contrast guard · 对比度边界 · 亮度边界 · 前景字色 · 白字还是黑字 · on-brand 颜色 · 自动修正颜色 · 合规校验 |
 | **变量作用域** | scoped variables · 变量作用域 · data-brand · data-theme · 作用域化 · 多品牌同页 · 同页多主题 · 嵌套 provider · cssVar · portal 逃逸 |
 | **层叠层** | @layer · cascade layer · 层叠层 · 层叠优先级 · 未分层样式 · 覆盖不掉 · 样式优先级 |
@@ -195,14 +200,14 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **按钮文案** | button text · button copy · 按钮文字 · cta 文案 · 提交按钮文案 · 确认按钮文案 · 按钮该写什么 |
 | **错误文案** | error message · error copy · 报错文案 · 错误提示 · 错误信息 · 校验提示 · 验证错误 · form error · 错误消息 |
 | **空态文案** | empty copy · empty state copy · 空状态文案 · 无数据文案 · 空页面文案 · empty text |
-| **语气** | tone of voice · brand voice · 语气语调 · 品牌语气 · 文案语气 · tone · voice · 品牌人格 · 语气词 |
+| **语气** | 语气语调 · 品牌语气 · tone · voice |
 | **术语管理** | terminology · glossary · 术语表 · 术语统一 · 词汇表 · controlled vocabulary · 同义词管理 |
 | **大小写** | capitalization · sentence case · title case ·  casing · 大写 · 小写 · 全大写 · 首字母大写 · 大小写规则 |
-| **演示文稿** | presentation · PPT · ppt · 幻灯片 · slides · deck · 演示 · 讲演 · slide deck · keynote · google slides · 汇报 · 答辩 · 课件 |
-| **幻灯片母版** | slide master · master slide · 母版 · 模板 · template · 版式 · layout · 占位符 · placeholder · 主题模板 · potx |
-| **转场动画** | transition · 转场 · 切换效果 · 切换 · morph · 变体 · fade · 淡入淡出 · 幻灯片切换 · 页面切换 |
+| **演示文稿** | presentation · PPT · 幻灯片 · slides · deck · 演示 · 讲演 · slide deck · keynote · google slides · 汇报 · 答辩 · 课件 |
+| **幻灯片母版** | slide master · master slide · 母版 · 模板 · template · 版式 · 占位符 · placeholder · 主题模板 · potx |
+| **转场动画** | 转场 · 切换效果 · 切换 · morph · 变体 · fade · 淡入淡出 · 幻灯片切换 · 页面切换 |
 | **幻灯片字号** | PPT字号 · 幻灯片字体大小 · 标题字号 · 正文字号 · 最小字号 · 投影字号 · 后排看不清 · 字太小 · point size · pt |
-| **安全区** | safe area · safe margin · 安全边距 · 标题安全区 · 动作安全区 · title safe · action safe · 过扫 · overscan · 边缘裁切 · 投影裁切 |
+| **安全区** | safe margin · 安全边距 · 标题安全区 · 动作安全区 · title safe · action safe · 过扫 · overscan · 边缘裁切 · 投影裁切 |
 | **线上演示** | online presentation · remote presentation · 线上汇报 · 远程演示 · Zoom演示 · Teams分享 · 屏幕共享 ·  webinar · 网络研讨会 · 视频会议演示 |
 | **动效编排** | orchestration · 编排 · 动画顺序 · 序列动画 · 多个动画 · 时间轴 · timeline · 动画调度 · 依次动画 · 同时动 |
 | **交错动画** | stagger · staggerChildren · delayChildren · staggerDirection · 交错 · 错峰 · 逐项入场 · 依次出现 · 瀑布式 · 级联动画 |
@@ -212,7 +217,7 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **动画状态机** | state machine · statechart · XState · 四态 · entering · exiting · 状态迁移 · 进出场状态 · unmountOnExit · AnimatePresence 状态 |
 | **动画中断** | 可中断 · 打断 · 连点就乱 · cancel · commitStyles · skipTransition · 竞态 · 并发转场 · 动画取消 · replaceState · updatePlaybackRate |
 | **列表增删动画** | 列表动画 · 增删动画 · AnimatePresence · TransitionGroup · list-move · popLayout · 列表重排 · 退场动画 · exit animation · LayoutGroup |
-| **进出场动画** | @starting-style · allow-discrete · transition-behavior · display none 动画 · 入场动画 · 退场看不见 · popover 动画 · overlay · 顶层动画 |
+| **进出场动画** | @starting-style · allow-discrete · transition-behavior · display none 动画 · 入场动画 · 退场看不见 · popover 动画 · 顶层动画 |
 | **国际化与本地化** | i18n · l10n · internationalization · localization · 出海设计 · 多语言 · 全球化设计 · 语言包 · 翻译适配 · locale |
 | **RTL 与双向文本** | right-to-left · bidi · bidirectional text · 阿拉伯语 · 希伯来语 · dir=rtl · 从右到左 · 双向文字 · 双向排版 · base direction |
 | **文案膨胀** | text expansion · text size in translation · 翻译膨胀 · 字数变长 · 德语太长 · 按钮撑破 · 翻译后溢出 · 文字截断 · 字符余量 · 长度余量 |
@@ -224,17 +229,17 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **RTL 图标镜像** | mirroring · bidi mirroring · 图标翻转 · 方向性图标 · 进度条镜像 · 媒体控件不镜像 · 数字不镜像 |
 | **姓名与地址本地化** | Full name · 姓名字段 · 单名 · 双姓 · patronymic · 地址格式 · 姓名排序 · given name family name |
 | **组件文档页** | component documentation · 组件文档 · 组件说明 · component page · 组件页模板 · props 表 · API 文档 · component docs |
-| **文档信息架构** | documentation IA · 文档导航 · 文档目录 · docs IA · 信息架构 · 文档站点结构 · docs navigation · sidebar |
+| **文档信息架构** | documentation IA · 文档导航 · 文档目录 · docs IA · 信息架构 · 文档站点结构 · docs navigation |
 | **文档版本化** | docs versioning · versioned docs · 版本化文档 · 多版本文档 · versioned_docs · versions.json · 版本化维护 |
-| **变更日志** | changelog · CHANGELOG.md · 更新日志 · 发版说明 · release notes · 版本记录 · Keep a Changelog · Unreleased |
-| **迁移指南** | migration guide · 迁移文档 · 升级指南 · breaking changes · codemod · 升级手册 · migration |
-| **贡献指南** | contribution criteria · 贡献规范 · 贡献指南 · CONTRIBUTING · 提案门槛 · 准入标准 · contributing |
+| **变更日志** | CHANGELOG.md · 更新日志 · 发版说明 · release notes · 版本记录 · Keep a Changelog · Unreleased |
+| **迁移指南** | migration guide · 迁移文档 · 升级指南 · breaking changes · 升级手册 · migration |
+| **贡献指南** | contribution criteria · 贡献规范 · 贡献指南 · CONTRIBUTING · 提案门槛 · 准入标准 |
 | **文档治理** | governance · 文档治理 · 文档评审 · docs governance · 维护责任 · owner 归属 · 文档准入 |
 | **活文档** | living documentation · 活文档 · 研究证据 · 已知问题 · 近期变更 · Recent changes · Research on this component · Help improve |
-| **文档模板** | doc template · 文档模板 · 组件页模板 · documentation template · 文档骨架 · 文档范例 |
-| **自动生成文档** | Autodocs · docs-as-code · MDX · Doc Blocks · Storybook docs · 代码即文档 · 自动生成文档 · Code Connect |
+| **文档模板** | doc template · 文档模板 · documentation template · 文档骨架 · 文档范例 |
+| **自动生成文档** | docs-as-code · MDX · Doc Blocks · Storybook docs · 代码即文档 · 自动生成文档 · Code Connect |
 | **文档新鲜度** | docs drift · 文档漂移 · 文档陈旧 · 新鲜度 · stale docs · 文档一致性 · 文档腐烂 |
-| **文档写作风格** | style guide · 写作规范 · 文档写作 · sentence case · descriptive link · Google style · Microsoft style · alt 文本 |
+| **文档写作风格** | 写作规范 · 文档写作 · descriptive link · Google style · Microsoft style · alt 文本 |
 | **Diátaxis 四象限** | diataxis · 四象限 · tutorials how-to reference explanation · 教程与操作指南 · 技术参考 · 解释型文档 |
 | **文档成熟度** | lifecycle · 组件状态 · 成熟度 · USWDS · 45 天评论期 · deprecated component · beta 组件 |
 | **AI 生成设计** | AIGC · 生成式设计 · 生成式 AI · generative design · AI 出图 · AI 辅助设计 · AI 做设计 · 文生图 |
@@ -251,7 +256,7 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **AI 工具选型** | AI 工具链 · ComfyUI · ControlNet · screenshot-to-code · Figma-Context-MCP · 选型三问 · 生成工具 |
 | **生成到代码** | 截图转代码 · design to code · AI 写代码 · 代码生成 · 衔接层 |
 | **AI 合规** | AI 法规 · EU AI Act Article 50 · 生成式 AI 暂行办法 · 令第 15 号 · deepfake 披露 · 首次暴露告知 |
-| **欺骗性设计** | dark patterns · deceptive design · 暗黑模式 · 黑暗模式 · 诱导设计 · 操纵性界面 · 套路设计 · confirmshaming · roach motel · privacy zuckering · 设计伦理 |
+| **欺骗性设计** | dark patterns · deceptive design · 黑暗模式 · 诱导设计 · 操纵性界面 · 套路设计 · confirmshaming · roach motel · privacy zuckering · 设计伦理 |
 | **对称选择** | symmetry in choice · §7004 · 拒绝路径 · 同意对称 · mirroring effect · 撤回同等容易 · 步数测量 |
 | **隐私同意** | cookie banner · 同意弹窗 · cookie 同意 · 授权弹窗 · consent UI · 隐私弹窗 · 追踪同意 · 拒绝全部 |
 | **一键关闭** | 关闭标志 · 开屏广告 · 弹窗广告 · 两次点击 · 计时关闭 · 广告关闭 · 第十条 |
@@ -261,11 +266,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **成瘾设计** | addictive design · 无限滚动 · 自动播放 · 连胜 · streak · 变比率奖励 · 无限下拉 |
 | **未成年人模式** | 防沉迷 · 防沉迷制度 · 适龄提示 · 消费上限 · 令第 766 号 · 监护人控制 · 青少年模式 · 打榜 |
 | **包容性设计** | inclusive design · Persona Spectrum · 认知无障碍 · COGA · 认知与学习障碍 · 同理心提示 · Solve for one |
-| **反操纵红线** | 反模式 · UI 红线 · 合规验收 · design ethics · 伦理评审 · 静态扫描 |
+| **反操纵红线** | 反模式 · UI 红线 · 合规验收 · design ethics · 伦理评审 |
 | **隐藏费用** | hidden costs · junk fees · 埋条款 · 搭售 · 结算加价 · 隐藏订阅 |
 | **PIPL 同意** | 个人信息保护法 · cookie wall · 便捷撤回 · 第 16 条 · 自动化决策 · 大数据杀熟 · 个性化推荐开关 |
 | **组件 API 设计** | component api · 组件契约 · props 设计 · props 语义 · API surface · 组件接口 · 组件规范 · component contract |
-| **受控组件** | controlled · controlled component · 受控 · 非受控 · uncontrolled · value onChange · useControllableState · defaultValue · defaultChecked · isControlled |
+| **受控组件** | controlled · controlled component · 受控 · 非受控 · uncontrolled · value onChange · useControllableState · defaultValue · isControlled |
 | **状态提升** | lifting state up · 状态提升 · 单一数据源 · single source of truth · 状态所有权 · 谁持有状态 |
 | **组合模式** | composition · compound components · 复合组件 · 组合优于继承 · composition vs inheritance · children · render prop · 渲染属性 |
 | **插槽** | slot · slots · 插槽 · 具名插槽 · named slots · scoped slots · 作用域插槽 · slot outlet · Vue slot · renderless component |
@@ -293,10 +298,11 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **卡片分类** | 卡片分类 · card sorting · 开放式分类 · 封闭式分类 · IA 结构 · 信息架构分类 |
 | **树测试** | 树测试 · tree testing · 信息架构测试 · IA 测试 |
 | **研究方法** | 研究方法 · 定性研究 · 定量研究 · 态度行为 · 2x2 研究方法 · 研究设计 |
-| **导航** | navigation · nav · navbar · 菜单 · menu · 侧边栏 · sidebar · 汉堡菜单 · hamburger · 汉堡 · 面包屑 · breadcrumb · 标签页 · tabs · 信息架构 · IA · information architecture · 当前位置 · you are here · skip link · 跳转链接 · 全局导航 · 底部导航 · tab bar · 主导航 · 导航栏 · 菜单项 |
-| **设计评审** | critique · design critique · 设计走查 · 评审 · 评审会 · 反馈 · 给反馈 · feedback · design review · 走查 · i like i wish i wonder · 设计by committee · design by committee · hippo · 委员会改稿 · 决策留痕 · adr · 评审反馈 · 怎么评审 · 接收反馈 |
-| **色彩科学** | color science · 色彩理论 · 色彩空间 · oklch · oklab · OKLCH · OKLab · Display P3 · display-p3 · 感知均匀 · 色相旋转 · 色板生成 · 调色 · 配色方案 · 渐变插值 · APCA · 相对亮度 · HSL 撒谎 · sRGB · 色域 |
-| **风格** | 视觉风格 · 风格谱系 · 设计运动 · 设计风格 · 视觉调性 · 做成XX感觉 · 做成XX那种感觉 · 高级感 · 复古感 · 科技感 · 温暖感 · 视觉语言 · 极简风 · 扁平风 · 拟物 · skeuomorphism · 玻璃拟态 · glassmorphism · 新拟态 · neumorphism · soft ui · 野兽派 · brutalism · 新野兽派 · neo-brutalism · 瑞士风格 · swiss style · 孟菲斯 · memphis · y2k · 赛博朋克 · cyberpunk · 极繁 · maximalism · 极简主义 · minimalism · 便当盒 · bento · 黏土风 · claymorphism |
+| **色彩科学** | color science · 色彩理论 · 色彩空间 · oklch · oklab · Display P3 · display-p3 · 感知均匀 · 色域 · sRGB · APCA |
+| **色板生成** | 色板生成 · 配色方案 · 调色 · 色相旋转 · 渐变插值 · 相对亮度 · HSL 撒谎 |
+| **风格** | 视觉风格 · 风格谱系 · 设计运动 · 设计风格 · 视觉调性 · 视觉语言 · 高级感 · 复古感 · 科技感 · 温暖感 · 做成XX感觉 · 做成XX那种感觉 |
+| **风格流派·质感** | 扁平风 · 拟物 · skeuomorphism · 玻璃拟态 · glassmorphism · 新拟态 · neumorphism · soft ui · 野兽派 · brutalism · 新野兽派 · neo-brutalism |
+| **风格流派·构图** | 极简主义 · minimalism · 极简风 · 极繁 · maximalism · 便当盒 · bento · 瑞士风格 · swiss style · 孟菲斯 · memphis · y2k · 赛博朋克 · cyberpunk |
 | **字体排印** | typography system · 字体排印系统 · 排印 · type scale · 字号阶梯 · font-size · font size · font-weight |
 | **行距节奏** | line height · 字间距 · letter-spacing · 词间距 · word-spacing · 段距 · 行长太长 · 行长多少 |
 | **中文混排** | 中文排版 · 中西文混排 · 全角半角 · 全角 ASCII · 字素丛 · grapheme cluster |
@@ -362,26 +368,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **税费** | tax · 销售税 · 增值税 · VAT · 含税价 |
 | **重复填写** | redundant entry · 重复录入 · 重复输入 · 再填一遍 · 二次填写 |
 | **自动填充** | autofill · input purpose · 输入用途 · 字段语义 · 浏览器填充 |
+| **月年切换** | 年付 · 月付 · 按月付费 · 按年付费 · 计费周期 · billing toggle · annual billing · monthly plan · 订阅周期 · 价格切换 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1019 行 · 快照 — · 12 节_
+_1022 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L125` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L127` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L140`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L372` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L387` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L413` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L444` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L893` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L975` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L988` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L995` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1011` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L128` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L130` — 资产已 46 份参考、约 130 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L143`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L375` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L390` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L416` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L447` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L896` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L978` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L991` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L998` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1014` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -2341,7 +2348,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_733 行 · 快照 — · 41 节_
+_751 行 · 快照 — · 42 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2384,6 +2391,7 @@ _733 行 · 快照 — · 41 节_
 - **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** `L690` — - 本轮性质：v37→v38 补齐「首次体验链路」域，并按 #26 判例先完整交付在途轮次。触发时工作区是干净基线：HEAD 80a9610（v37 / 43 参考 / 1,181,426 字符 / 210 路由 / 41 自检 / 236
 - **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** `L706` — - 本轮性质：v38→v39 补齐「空状态与零数据位」域，沿用 #34 定稿后的干净基线与 #26 判例纪律。触发时工作区为 #34 定稿的 HEAD；缺口判定沿用实证口径：全域词频实测 empty state / blank slate 
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** `L718` — - 本轮性质：v39→v40 补齐「决定买之后」这条链路——价格怎么呈现、钱怎么付出去。触发时工作区为 #35 定稿的干净基线 HEAD cff6d94（v39 / 45 参考 / 1,260,776 字符 / 217 路由 / 42 自检
+- **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** `L734` — - 本轮性质：v40→v41 维护轮，不新增参考资产。用户指令「整理之前的升级结果并复测、优化」。触发时基线为 #36 定稿 HEAD 15b75b3（v40 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -2739,6 +2747,7 @@ _733 行 · 快照 — · 41 节_
 - **2026-11-12 · 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）** → `memory/design-log.md` L690
 - **2026-11-13 · 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画）** → `memory/design-log.md` L706
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** → `memory/design-log.md` L718
+- **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** → `memory/design-log.md` L734
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3181,7 +3190,7 @@ _733 行 · 快照 — · 41 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L125
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L128
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3192,11 +3201,11 @@ _733 行 · 快照 — · 41 节_
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
 - **能力自测（171 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L576
-- **自我成长机制（用得越多越准）** → `SKILL.md` L975
-- **自我进化机制（知识保鲜）** → `SKILL.md` L988
+- **自我成长机制（用得越多越准）** → `SKILL.md` L978
+- **自我进化机制（知识保鲜）** → `SKILL.md` L991
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1011
+- **边界与习惯** → `SKILL.md` L1014
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

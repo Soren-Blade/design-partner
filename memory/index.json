@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-13T21:16:53",
+ "generated": "2026-11-13T21:57:41",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1019,
-   "chars": 199942,
+   "lines": 1022,
+   "chars": 201279,
    "sections": []
   },
   {
@@ -14611,8 +14611,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 733,
-   "chars": 146834,
+   "lines": 751,
+   "chars": 151609,
    "sections": []
   }
  ],

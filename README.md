@@ -2,7 +2,7 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v40-1677ff)
+![version](https://img.shields.io/badge/version-v41-1677ff)
 ![assets](https://img.shields.io/badge/reference_files-46-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-13-6e7781)
@@ -134,10 +134,11 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：253 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：260 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
-| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
+| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
+| `scripts/audit.py` | 常驻自检：换行 / 数字声明 / 资产覆盖 / 别名健康 / 可解析性 / 检索抽检 28 条，FAIL 非零退出 1 |
 
 **接线体检**是自我进化的自检项：新增参考文件却忘了在 `SKILL.md` 加路由时，`mindmap.py` 会直接报「未接线」——避免"写了等于没写"。
 
@@ -164,6 +165,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
       ├─ 验证：GitHub API 实测 star/许可；规范数值读官方原文
       ├─ 蒸馏：产出可执行判断规则（数值/构型/验收），不是链接清单
       ├─ 接线：更新 SKILL.md 路由 + 补 memory/aliases.json 别名（单组 ≤12 词）+ mindmap 重建记忆树（含接线体检）
+      ├─ 自检：audit.py，统计口径 / 覆盖关系 / 别名健康 / 检索抽检全部一致，FAIL 数为 0
       ├─ 回归：regression.py --baseline，新主题门槛全过 + 历史 top3 零退化，退出码 0 才继续
       └─ 归档：design-log 追加 → build_readme 重算 → git commit → REST API 推送 → 双份全局安装
 ```
@@ -180,6 +182,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-13 | 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41） |
 | 2026-11-13 | 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers） |
 | 2026-11-13 | 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画） |
 | 2026-11-12 | 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure） |
@@ -187,7 +190,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-11 | 每日升级 #32：对话式与生成式界面（Conversational & Generative UI / AI 产品交互） |
 | 2026-11-10 | 每日升级 #31：直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） |
 | 2026-11-09 | 每日升级 #30：内容可发现性与可扫读性（Content Findability / Search UX / Scannability） |
-| 2026-11-08 | 每日升级 #29：视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt） |
 
 ---
 
@@ -335,6 +337,7 @@ design-partner/
 └── scripts/
     ├── dp_search.py          # 章节级快捷检索
     ├── regression.py         # 检索回归门槛（门槛 + HEAD 基线对比）
+    ├── audit.py              # 常驻自检（统计口径 / 覆盖 / 别名健康 / 检索抽检）
     ├── mindmap.py            # 重建记忆树 + 接线体检
     ├── refresh_catalog.py    # 重抓目录 API，重建 references
     ├── build_readme.py       # 统计并重建 README

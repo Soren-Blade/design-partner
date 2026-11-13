@@ -82,8 +82,7 @@
         "transition",
         "easing",
         "缓动",
-        "曲线",
-        "转场"
+        "曲线"
       ]
     },
     {
@@ -159,7 +158,6 @@
         "输入框",
         "校验",
         "验证",
-        "报错文案",
         "登录页",
         "注册",
         "填写",
@@ -174,7 +172,6 @@
         "数据表",
         "分页",
         "列宽",
-        "行高",
         "批量操作",
         "筛选"
       ]
@@ -209,14 +206,44 @@
     {
       "canonical": "导航",
       "aliases": [
-        "navbar",
-        "导航栏",
-        "顶栏",
+        "navigation",
+        "nav",
+        "information architecture",
+        "IA",
+        "全局导航",
+        "主导航",
         "菜单",
-        "侧边栏",
+        "menu",
+        "菜单项"
+      ]
+    },
+    {
+      "canonical": "导航栏",
+      "aliases": [
+        "导航栏",
+        "navbar",
+        "顶栏",
         "tab bar",
         "底部导航",
-        "面包屑"
+        "标签页",
+        "tabs",
+        "汉堡菜单",
+        "hamburger",
+        "汉堡"
+      ]
+    },
+    {
+      "canonical": "位置感",
+      "aliases": [
+        "位置感",
+        "侧边栏",
+        "sidebar",
+        "面包屑",
+        "breadcrumb",
+        "you are here",
+        "skip link",
+        "跳转链接",
+        "当前位置"
       ]
     },
     {
@@ -268,7 +295,6 @@
     {
       "canonical": "断点",
       "aliases": [
-        "breakpoint",
         "媒体查询",
         "media query",
         "@media",
@@ -300,7 +326,6 @@
       "aliases": [
         "container",
         "最大宽度",
-        "max-width",
         "内容区宽度",
         "栅格系统",
         "grid system",
@@ -369,7 +394,6 @@
         "平板",
         "iPad",
         "折叠屏",
-        "大屏",
         "小屏",
         "窄屏",
         "中后台适配",
@@ -413,18 +437,23 @@
         "图标规范",
         "图标库",
         "图标字体",
+        "图标可访问性",
+        "图标对比度",
+        "图标按钮",
+        "图标间距",
+        "图标尺寸",
+        "sprite 图标"
+      ]
+    },
+    {
+      "canonical": "图标风格与图标库",
+      "aliases": [
         "线性图标",
         "面性图标",
         "描边图标",
         "填充图标",
         "双色图标",
         "duotone",
-        "图标可访问性",
-        "图标对比度",
-        "图标按钮",
-        "图标间距",
-        "图标尺寸",
-        "sprite 图标",
         "Lucide",
         "Heroicons",
         "Tabler",
@@ -432,8 +461,7 @@
         "Fluent Icons",
         "Radix Icons",
         "Phosphor",
-        "Feather Icons",
-        "Ant Design Icons"
+        "Feather Icons"
       ]
     },
     {
@@ -476,16 +504,12 @@
         "版面",
         "构图",
         "网格系统",
-        "grid system",
         "分栏",
         "栏数",
-        "gutter",
         "版心",
         "页边距",
-        "margin",
         "基线网格",
-        "baseline grid",
-        "栅格系统"
+        "baseline grid"
       ]
     },
     {
@@ -556,7 +580,6 @@
         "print",
         "出血",
         "bleed",
-        "安全区",
         "safe area",
         "CMYK",
         "300dpi",
@@ -585,7 +608,6 @@
     {
       "canonical": "标志",
       "aliases": [
-        "logo",
         "logotype",
         "wordmark",
         "symbol mark",
@@ -599,7 +621,6 @@
     {
       "canonical": "字标",
       "aliases": [
-        "wordmark",
         "lettermark",
         "monogram",
         "字母标",
@@ -616,7 +637,6 @@
       "aliases": [
         "clear space",
         "clearspace",
-        "安全边距",
         "净空",
         "保护空间",
         "隔离区",
@@ -642,7 +662,6 @@
       "canonical": "品牌色",
       "aliases": [
         "brand color",
-        "主色",
         "种子色",
         "seed color",
         "品牌主色",
@@ -662,7 +681,6 @@
         "基形",
         "图标画布",
         "24dp",
-        "图标规范",
         "笔画粗细",
         "图标对齐",
         "图标家族"
@@ -677,7 +695,6 @@
         "商标注册",
         "版权",
         "著作权",
-        "商用授权",
         "字体授权",
         "素材授权",
         "logo 侵权"
@@ -906,9 +923,6 @@
         "AVIF",
         "WebP",
         "图片尺寸",
-        "懒加载",
-        "lazy",
-        "srcset",
         "图片太大",
         "图片糊"
       ]
@@ -1009,13 +1023,38 @@
       "aliases": [
         "评审",
         "critique",
+        "design critique",
         "设计评审会",
         "评稿",
-        "design review",
-        "评审会",
         "过稿",
+        "方案评审",
+        "design review",
         "设计批评",
-        "方案评审"
+        "设计走查",
+        "评审会"
+      ]
+    },
+    {
+      "canonical": "评审反馈",
+      "aliases": [
+        "反馈",
+        "feedback",
+        "给反馈",
+        "接收反馈",
+        "评审反馈",
+        "怎么评审",
+        "i like i wish i wonder",
+        "design by committee",
+        "设计by committee",
+        "委员会改稿"
+      ]
+    },
+    {
+      "canonical": "决策留痕",
+      "aliases": [
+        "决策留痕",
+        "adr",
+        "hippo"
       ]
     },
     {
@@ -1060,7 +1099,6 @@
         "废弃",
         "deprecation",
         "迁移",
-        "codemod",
         "版本级别"
       ]
     },
@@ -1091,8 +1129,7 @@
         "客户品牌",
         "品牌切换",
         "多子品牌",
-        "私有化换肤",
-        "换肤"
+        "私有化换肤"
       ]
     },
     {
@@ -1120,7 +1157,6 @@
         "品牌色阶",
         "自动生成色阶",
         "hct 生成",
-        "tonal palette",
         "色度常量"
       ]
     },
@@ -1245,15 +1281,10 @@
     {
       "canonical": "语气",
       "aliases": [
-        "tone of voice",
-        "brand voice",
         "语气语调",
         "品牌语气",
-        "文案语气",
         "tone",
-        "voice",
-        "品牌人格",
-        "语气词"
+        "voice"
       ]
     },
     {
@@ -1287,7 +1318,6 @@
       "aliases": [
         "presentation",
         "PPT",
-        "ppt",
         "幻灯片",
         "slides",
         "deck",
@@ -1310,7 +1340,6 @@
         "模板",
         "template",
         "版式",
-        "layout",
         "占位符",
         "placeholder",
         "主题模板",
@@ -1320,7 +1349,6 @@
     {
       "canonical": "转场动画",
       "aliases": [
-        "transition",
         "转场",
         "切换效果",
         "切换",
@@ -1350,7 +1378,6 @@
     {
       "canonical": "安全区",
       "aliases": [
-        "safe area",
         "safe margin",
         "安全边距",
         "标题安全区",
@@ -1507,7 +1534,6 @@
         "入场动画",
         "退场看不见",
         "popover 动画",
-        "overlay",
         "顶层动画"
       ]
     },
@@ -1673,8 +1699,7 @@
         "docs IA",
         "信息架构",
         "文档站点结构",
-        "docs navigation",
-        "sidebar"
+        "docs navigation"
       ]
     },
     {
@@ -1692,7 +1717,6 @@
     {
       "canonical": "变更日志",
       "aliases": [
-        "changelog",
         "CHANGELOG.md",
         "更新日志",
         "发版说明",
@@ -1709,7 +1733,6 @@
         "迁移文档",
         "升级指南",
         "breaking changes",
-        "codemod",
         "升级手册",
         "migration"
       ]
@@ -1722,8 +1745,7 @@
         "贡献指南",
         "CONTRIBUTING",
         "提案门槛",
-        "准入标准",
-        "contributing"
+        "准入标准"
       ]
     },
     {
@@ -1756,7 +1778,6 @@
       "aliases": [
         "doc template",
         "文档模板",
-        "组件页模板",
         "documentation template",
         "文档骨架",
         "文档范例"
@@ -1765,7 +1786,6 @@
     {
       "canonical": "自动生成文档",
       "aliases": [
-        "Autodocs",
         "docs-as-code",
         "MDX",
         "Doc Blocks",
@@ -1790,10 +1810,8 @@
     {
       "canonical": "文档写作风格",
       "aliases": [
-        "style guide",
         "写作规范",
         "文档写作",
-        "sentence case",
         "descriptive link",
         "Google style",
         "Microsoft style",
@@ -1990,7 +2008,6 @@
       "aliases": [
         "dark patterns",
         "deceptive design",
-        "暗黑模式",
         "黑暗模式",
         "诱导设计",
         "操纵性界面",
@@ -2117,8 +2134,7 @@
         "UI 红线",
         "合规验收",
         "design ethics",
-        "伦理评审",
-        "静态扫描"
+        "伦理评审"
       ]
     },
     {
@@ -2168,7 +2184,6 @@
         "value onChange",
         "useControllableState",
         "defaultValue",
-        "defaultChecked",
         "isControlled"
       ]
     },
@@ -2488,63 +2503,6 @@
       ]
     },
     {
-      "canonical": "导航",
-      "aliases": [
-        "navigation",
-        "nav",
-        "navbar",
-        "菜单",
-        "menu",
-        "侧边栏",
-        "sidebar",
-        "汉堡菜单",
-        "hamburger",
-        "汉堡",
-        "面包屑",
-        "breadcrumb",
-        "标签页",
-        "tabs",
-        "信息架构",
-        "IA",
-        "information architecture",
-        "当前位置",
-        "you are here",
-        "skip link",
-        "跳转链接",
-        "全局导航",
-        "底部导航",
-        "tab bar",
-        "主导航",
-        "导航栏",
-        "菜单项"
-      ]
-    },
-    {
-      "canonical": "设计评审",
-      "aliases": [
-        "critique",
-        "design critique",
-        "设计走查",
-        "评审",
-        "评审会",
-        "反馈",
-        "给反馈",
-        "feedback",
-        "design review",
-        "走查",
-        "i like i wish i wonder",
-        "设计by committee",
-        "design by committee",
-        "hippo",
-        "委员会改稿",
-        "决策留痕",
-        "adr",
-        "评审反馈",
-        "怎么评审",
-        "接收反馈"
-      ]
-    },
-    {
       "canonical": "色彩科学",
       "aliases": [
         "color science",
@@ -2552,21 +2510,24 @@
         "色彩空间",
         "oklch",
         "oklab",
-        "OKLCH",
-        "OKLab",
         "Display P3",
         "display-p3",
         "感知均匀",
-        "色相旋转",
-        "色板生成",
-        "调色",
-        "配色方案",
-        "渐变插值",
-        "APCA",
-        "相对亮度",
-        "HSL 撒谎",
+        "色域",
         "sRGB",
-        "色域"
+        "APCA"
+      ]
+    },
+    {
+      "canonical": "色板生成",
+      "aliases": [
+        "色板生成",
+        "配色方案",
+        "调色",
+        "色相旋转",
+        "渐变插值",
+        "相对亮度",
+        "HSL 撒谎"
       ]
     },
     {
@@ -2577,14 +2538,18 @@
         "设计运动",
         "设计风格",
         "视觉调性",
-        "做成XX感觉",
-        "做成XX那种感觉",
+        "视觉语言",
         "高级感",
         "复古感",
         "科技感",
         "温暖感",
-        "视觉语言",
-        "极简风",
+        "做成XX感觉",
+        "做成XX那种感觉"
+      ]
+    },
+    {
+      "canonical": "风格流派·质感",
+      "aliases": [
         "扁平风",
         "拟物",
         "skeuomorphism",
@@ -2596,22 +2561,26 @@
         "野兽派",
         "brutalism",
         "新野兽派",
-        "neo-brutalism",
+        "neo-brutalism"
+      ]
+    },
+    {
+      "canonical": "风格流派·构图",
+      "aliases": [
+        "极简主义",
+        "minimalism",
+        "极简风",
+        "极繁",
+        "maximalism",
+        "便当盒",
+        "bento",
         "瑞士风格",
         "swiss style",
         "孟菲斯",
         "memphis",
         "y2k",
         "赛博朋克",
-        "cyberpunk",
-        "极繁",
-        "maximalism",
-        "极简主义",
-        "minimalism",
-        "便当盒",
-        "bento",
-        "黏土风",
-        "claymorphism"
+        "cyberpunk"
       ]
     },
     {
@@ -3459,6 +3428,21 @@
         "输入用途",
         "字段语义",
         "浏览器填充"
+      ]
+    },
+    {
+      "canonical": "月年切换",
+      "aliases": [
+        "年付",
+        "月付",
+        "按月付费",
+        "按年付费",
+        "计费周期",
+        "billing toggle",
+        "annual billing",
+        "monthly plan",
+        "订阅周期",
+        "价格切换"
       ]
     }
   ]

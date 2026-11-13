@@ -279,7 +279,8 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | `memory/aliases.json` | **检索层别名映射**：{alias_count()} 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
-| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界与登记演进各按硬校验判定 |
+| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
+| `scripts/audit.py` | 常驻自检：换行 / 数字声明 / 资产覆盖 / 别名健康 / 可解析性 / 检索抽检 28 条，FAIL 非零退出 1 |
 
 **接线体检**是自我进化的自检项：新增参考文件却忘了在 `SKILL.md` 加路由时，`mindmap.py` 会直接报「未接线」——避免"写了等于没写"。
 
@@ -306,6 +307,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
       ├─ 验证：GitHub API 实测 star/许可；规范数值读官方原文
       ├─ 蒸馏：产出可执行判断规则（数值/构型/验收），不是链接清单
       ├─ 接线：更新 SKILL.md 路由 + 补 memory/aliases.json 别名（单组 ≤12 词）+ mindmap 重建记忆树（含接线体检）
+      ├─ 自检：audit.py，统计口径 / 覆盖关系 / 别名健康 / 检索抽检全部一致，FAIL 数为 0
       ├─ 回归：regression.py --baseline，新主题门槛全过 + 历史 top3 零退化，退出码 0 才继续
       └─ 归档：design-log 追加 → build_readme 重算 → git commit → REST API 推送 → 双份全局安装
 ```
@@ -470,6 +472,7 @@ design-partner/
 └── scripts/
     ├── dp_search.py          # 章节级快捷检索
     ├── regression.py         # 检索回归门槛（门槛 + HEAD 基线对比）
+    ├── audit.py              # 常驻自检（统计口径 / 覆盖 / 别名健康 / 检索抽检）
     ├── mindmap.py            # 重建记忆树 + 接线体检
     ├── refresh_catalog.py    # 重抓目录 API，重建 references
     ├── build_readme.py       # 统计并重建 README

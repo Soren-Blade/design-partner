@@ -33,25 +33,26 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 notifications-messaging.md 前 3。
-# #38 换轮：13 条覆盖六段链路判层 / 通道选型 / 频率与打扰 / 三平台权限与拒绝恢复 /
-# 消息中心与未读 / 角标三态 / 免打扰与偏好页 / 营销与交易邮件合规 / 去重与顺序，
-# 且刻意混入「组件 / 可访问性 / 性能 / 度量 / 验收」等跨域词（#26 P1 教训）。
-# #36 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #38 沉淀块）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 sound-haptics-feedback.md 前 3。
+# #39 换轮：13 条覆盖五问判层 / 三通道选型 / 震动时长强度振幅 / iOS 三类与 Android 常量 /
+# W3C Vibration 限制 / 静音开关与音频类别 / autoplay 与 NotAllowedError / earcon 句法 /
+# WCAG 1.4.2 与 1.4.7 / 成功失败配对 / watchOS 九种，且刻意混入「组件 / 性能 / 验收 / 度量 / 品牌」
+# 等跨域词（#26 P1 教训）。
+# #38 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #39 沉淀块）。
 NEW_QUERIES = [
-    "推送 通知 通道 选型 站内 邮件 短信 组件",
-    "通知什么时候发 打扰 用户 阈值 时长",
-    "权限请求 弹窗 拒绝 后再问 iOS Android 12L",
-    "角标 未读 数字 99+ 清除 可访问性",
-    "免打扰 静音时段 跨午夜 23点 到 8点 性能",
-    "消息中心 收件箱 未读 分页 度量",
-    "营销邮件 退订 一键 合规 依据",
-    "事务性邮件 交易通知 营销 区别 判定",
-    "通知偏好 设置页 开关 即时生效 组件",
-    "iOS interruptionLevel 时效性 critical 专注模式 验收",
-    "Android 通知渠道 importance 创建后 不可改 验收",
-    "web push 订阅 过期 410 TTL 性能",
-    "重复 通知 去重 幂等 seq 顺序 度量",
+    "音效 提示音 触觉 反馈 通道 选型 组件",
+    "要不要加震动 触觉 判断 场景 何时不用",
+    "震动 时长 强度 振幅 Android 性能",
+    "iOS UIFeedbackGenerator Notification Impact Selection 验收",
+    "HapticFeedbackConstants CONFIRM REJECT TOGGLE 常量",
+    "navigator.vibrate 振动 模式 毫秒 W3C 限制",
+    "静音开关 音频类别 Ambient Playback 不响 验收",
+    "autoplay 自动播放 被拦 用户手势 NotAllowedError",
+    "earcon 听觉图标 提示音 音高 句法 设计",
+    "WCAG 1.4.2 三秒 自动播放 音量 控制 依据",
+    "WCAG 1.4.7 背景音 20dB 前景语音 度量",
+    "成功 失败 音效 配对 触觉 一致性 品牌",
+    "watchOS WKHapticType 九种 触觉 单击 验收",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -218,9 +219,23 @@ HIST_QUERIES = [
     "autocomplete 字段 token 收货地址 账单地址",
     "购物车 放弃 信任 徽章 社会证明 文案",
     "结账 移动端 键盘 数字键盘 输入 验收",
+    # #39 沉淀：#38（通知与消息触达）的 13 条新主题查询，换轮后固定为历史回归集。
+    "推送 通知 通道 选型 站内 邮件 短信 组件",
+    "通知什么时候发 打扰 用户 阈值 时长",
+    "权限请求 弹窗 拒绝 后再问 iOS Android 12L",
+    "角标 未读 数字 99+ 清除 可访问性",
+    "免打扰 静音时段 跨午夜 23点 到 8点 性能",
+    "消息中心 收件箱 未读 分页 度量",
+    "营销邮件 退订 一键 合规 依据",
+    "事务性邮件 交易通知 营销 区别 判定",
+    "通知偏好 设置页 开关 即时生效 组件",
+    "iOS interruptionLevel 时效性 critical 专注模式 验收",
+    "Android 通知渠道 importance 创建后 不可改 验收",
+    "web push 订阅 过期 410 TTL 性能",
+    "重复 通知 去重 幂等 seq 顺序 度量",
 ]
 
-EXPECT_FILE = "notifications-messaging.md"
+EXPECT_FILE = "sound-haptics-feedback.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。

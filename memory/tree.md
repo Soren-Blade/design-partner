@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-13 22:25 ｜ 49 个文件 · 1910 个章节 · 1,704,317 字符
+> 自动生成于 2026-11-14 17:37 ｜ 50 个文件 · 1959 个章节 · 1,751,027 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -107,6 +107,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 角标 / 红点 / 未读数 / 99+ / 清除 | notifications-messaging.md §9 三态契约 → §9.2 五条硬规则 → §9.3 平台差异 |
 | 免打扰 / 静音时段 / 通知偏好 / 设置页开关 | notifications-messaging.md §10 免打扰与频率预算 → §11 偏好矩阵 → §11.3 pre-permission |
 | 权限请求 / 拒绝之后 / 重新请求 / 引导去设置 | notifications-messaging.md §6 三平台权限四种失败模式 → §7 三态分流与 provisional |
+| 要不要加音效 / 震动 / 触觉反馈 | sound-haptics-feedback.md §1 五问判层 → §1.2 判层表 12 场景 → §1.3 四条拒绝条件 → §2 三通道分工 |
+| 触觉常量 / 震动时长 / 振幅 / UIFeedbackGenerator | sound-haptics-feedback.md §3 三平台语义表 → §4 精确值 → §4.5 跨端映射 → §11 校验器 |
+| 提示音 / earcon / 静音开关 / autoplay / 声音可访问性 | sound-haptics-feedback.md §5 音频类别与 autoplay → §5.6 earcon 句法 → §7 WCAG 1.4.2 / 1.4.7 → §9 自检 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -382,26 +385,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **营销邮件** | 营销邮件 · 交易邮件 · newsletter · 订阅邮件 · 摘要邮件 · digest · 周报邮件 · 邮件触达 · 群发邮件 · 邮件模板 |
 | **一键退订** | 一键退订 · 退订链接 · unsubscribe · CAN-SPAM · 双重确认 · double opt-in · 营销同意 · 退订率 · 邮件合规 |
 | **推送授权** | 推送授权 · 通知权限 · 权限弹窗 · 临时授权 · provisional · pre-permission · 拒绝后 · 二次请求 · 授权引导页 · 被拒兜底 |
+| **声音反馈** | 声音反馈 · 音效 · 提示音 · earcon · 触觉反馈 · 震动 · 振动 · haptic · Vibration API · 静音开关 · autoplay |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1031 行 · 快照 — · 12 节_
+_1038 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L131` — 资产已 47 份参考、约 134 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L133` — 资产已 47 份参考、约 134 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L146`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L383` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L398` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L424` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L455` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L904` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L987` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1000` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1007` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1023` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L134` — 资产已 48 份参考、约 139 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L136` — 资产已 48 份参考、约 139 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L149`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L389` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L404` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L430` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L461` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L910` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L994` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1007` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1014` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1030` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1475,7 +1479,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_729 行 · 快照 2026-11-05 · 64 节_
+_739 行 · 快照 2026-11-05 · 65 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1540,7 +1544,8 @@ _729 行 · 快照 2026-11-05 · 64 节_
   - **支线 AG · 空状态与零数据位（把"没有数据"翻译成五件套与可抄矩阵的完成路径）** `L556` — - 这是什么（链路的内容端）：与首次体验链路（AF）、五种空状态结构（feedback-states §5）、零结果出路（content-findability）、首次操作率（design-measurement-research）相邻但问
   - **支线 AH · 定价页与结账流程（把"敢不敢付"翻译成总价锁定与承诺闸门的完成路径）** `L566` — - 这是什么（链路的内容端）：与表单与表格（form-table：字段/校验/错误文案）、可访问性（accessibility：SC 阈值与焦点）、设计伦理（design-ethics-inclusion：附加费 sneaking）、反馈与
   - **支线 AI · 通知与消息触达（把「该不该发」翻译成六段链路与三平台验收的完成路径）** `L576` — - 这是什么（链路的内容端）：与反馈五层（feedback-states：L0–L4 时效与 role="status"）、文案体例（ux-writing §7.3：in-app 右上角通知的标题/正文/按钮）、首启权限（onboardin
-- **能力自测（173 条，做到 ≥110 条即达 L2+）** `L586` — L0
+  - **支线 AJ · 声音与触觉反馈（把「要不要响一下」判成通道、时长与强度的完成路径）** `L586` — - 这是什么（反馈通道侧）：与视觉反馈五层（feedback-states）、动效节奏（motion-system）、无障碍总则（accessibility）、通知触达（notifications-messaging）相邻但问题不同——它们
+- **能力自测（175 条，做到 ≥110 条即达 L2+）** `L596` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2240,6 +2245,58 @@ _819 行 · 快照 2026-11-08 · 40 节_
   - **23.5 CSS · 亮暗双主题的同 level 表达（不照搬阴影）** `L734`
   - **23.6 CSS · 材质层的渐进增强与可访问性降级** `L757` — ---
 - **24 · 取源与限制（公开记录）** `L782` — 本轮 shape elevation 取源均标注了可核验位置与不可核验处；以下限制不臆造、不补齐，供后续轮次继续深挖。
+
+### `references/sound-haptics-feedback.md` · 声音与触觉反馈：把「要不要响一下 / 震一下」判成通道、时长与强度
+_787 行 · 快照 — · 48 节_
+
+- **§0 一句话立场** `L9` — 视觉反馈是默认项，声音与触觉是例外项：只有当「看这一眼」会漏掉、来不及、或者根本没法看的时候，才值得再占用户一条感官通道。
+- **§1 判层：先判「要不要」，再判「哪一种」** `L23` — 1. 冗余拒绝：视觉已经给了同等信息、且没有时压 → 加了只是重复（例：列表滚动、页面切换、hover）。
+  - **1.1 五问判层（按顺序问，任一问答完就可以停）** `L25`
+  - **1.2 判层表：场景 → 通道组合** `L35`
+  - **1.3 四条「不加」的拒绝条件** `L52` — 1. 冗余拒绝：视觉已经给了同等信息、且没有时压 → 加了只是重复（例：列表滚动、页面切换、hover）。
+- **§2 三通道分工：谁能承担什么** `L61` — 一句话记忆：触觉回答「发生了没有」，声音回答「是哪一种」，视觉回答「为什么」。三者的错误用法是让触觉去解释、让声音去引导、让视觉去承担「来不及看」的场景。
+- **§3 触觉的语义层：能借系统常量就别自造** `L78` — 1. 系统标准控件自带的触觉——列表滚动、键盘、开关、滑块、长按菜单。你不要再加一次，否则就是「双震」，用户会觉得设备坏了。
+  - **3.1 四层选择顺序（自上而下，命中即停）** `L80` — 1. 系统标准控件自带的触觉——列表滚动、键盘、开关、滑块、长按菜单。你不要再加一次，否则就是「双震」，用户会觉得设备坏了。
+  - **3.2 iOS：UIFeedbackGenerator 三类** `L87` — iOS 的关键现实：HIG 通篇没有任何毫秒数（playing-haptics 全页无 ms 数值，已逐段核对）。所以「iOS 轻触 = 10ms」这类说法都是二手推测，写进设计规范就是臆造。iOS 的正确做法是选语义、不调参数；参数由系统
+  - **3.3 Android：HapticFeedbackConstants 常量表（逐条核自 AOSP）** `L102` — SEGMENTFREQUENTTICK 的原话值得逐字记住："expected to be very soft, so as not to be uncomfortable when performed a lot in quick suc
+  - **3.4 一致性：一种事件只能有一种触觉** `L133` — HIG 原文："Use haptics consistently throughout your app or game." 并补了一句判据："If a haptic doesn't reinforce a cause-and-effect
+  - **3.5 禁用清单（比「该用什么」更重要）** `L143` — 1. 高频重复：滚动、输入、hover、每秒多次的刻度 → 不震（SEGMENTFREQUENTTICK 只在能给出极轻震时可用）。
+- **§4 触觉的数值与实现** `L154` — 注意来源层级：1000 ms 与 3 段是 AOSP 源码注释里的工程判断，不是强制校验——写判定标准时可以当「平台自己认为的上限」，但不能说成「Android 规定不得超过」；包络 API 属 flagged API，公开 SDK 未必可
+  - **4.1 Android VibrationEffect 精确值（源码逐条）** `L156` — 注意来源层级：1000 ms 与 3 段是 AOSP 源码注释里的工程判断，不是强制校验——写判定标准时可以当「平台自己认为的上限」，但不能说成「Android 规定不得超过」；包络 API 属 flagged API，公开 SDK 未必可
+  - **4.2 时长与强度的裁决（本文口径，可校准）** `L173` — 三条硬性验收：
+  - **4.3 Web：navigator.vibrate() 的真实限制** `L189` — Vibration API 的数值规则（W3C https://www.w3.org/TR/vibration/ 与 MDN 原文）：
+  - **4.4 系统设置不可绕过（硬证据）** `L209` — - Android HapticFeedbackConstants.FLAGIGNOREGLOBALSETTING 已 @Deprecated，原文："Starting from TIRAMISU only privileged apps 
+  - **4.5 跨端语义映射表（写设计稿时直接抄）** `L217`
+  - **4.6 官方指南给的调参数值（developer.android.com，2026-10-26 版）** `L230` — 来源：https://developer.android.com/develop/ui/views/haptics/haptics-apis（同批还有 custom-haptic-effects 与 reference/android/os
+- **§5 声音：能不能响、响给谁听、被谁打断** `L254` — playing-audio 的类别表是本文最硬的裁决依据（原文逐字）：
+  - **5.1 先选音频类别，再谈音色（iOS）** `L256` — playing-audio 的类别表是本文最硬的裁决依据（原文逐字）：
+  - **5.2 短音效不要自建播放器** `L272` — HIG（iOS/iPadOS）："Use the system's sound services to play short sounds and vibrations."（AudioToolbox 的 audio services）——为
+  - **5.3 打断、耳机与恢复** `L278` — - 播放临时音效结束要还回去：HIG "Let other apps know when your app finishes playing temporary audio."（notifyOthersOnDeactivation），否则用
+  - **5.4 Android 的声音属性** `L285` — 音效走 sonification 语义，而不是媒体语义：AudioAttributes 的 USAGEASSISTANCESONIFICATION + CONTENTTYPESONIFICATION。系统据此决定音量通道（铃声/媒体/通话）
+  - **5.5 Web：autoplay 是硬墙，不是建议** `L291` — MDN《Autoplay guide》原文列出了「允许自动播放」的四种情形：
+  - **5.6 earcon 还是听觉图标（auditory icon）** `L310` — 生态现实（GitHub API 实测）：搜索 earcon 全站只有 38 个仓库，最大的 UI 用途库是 smolgroot/earcons（7★，MIT，纯 Web Audio、不带音频文件）——没有成熟的 earcon 库可用，只有原
+  - **5.7 声音句法（裁决值，可校准）** `L323` — 三条硬规则：
+  - **5.8 音频资源工程** `L339`
+  - **5.9 声音的三条法律级红线** `L350` — 1. 不能自动播放超过 3 秒且无控制：WCAG 1.4.2（§7.1 全文）。
+- **§6 三通道配方表（设计交付时直接填）** `L358` — 用法：先用 §1 五问判层确定「要不要非视觉通道」，再用本表填「用哪一条、什么参数」，最后用 §9 自检清单与 §7 可访问性复验。任何一格写「无」的地方都要能回答：如果这一格是空的，用户会不会漏掉信息？
+- **§7 可访问性：这是硬约束，不是「关怀选项」** `L379` — "If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or sto
+  - **7.1 WCAG 2.2 SC 1.4.2 Audio Control（Level A，逐字）** `L381` — "If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or sto
+  - **7.2 WCAG 2.2 SC 1.4.7 Low or No Background Audio（Level AA，适用于预录纯音频内容）** `L395` — 原文条件（三条满足其一即可）："The audio does not contain background sounds." / "The background sounds can be turned off." / "20 dB — T
+  - **7.3 声音不能是唯一通道（三处官方原文）** `L401` — 1. Apple HIG accessibility："Use haptics in addition to audio cues."（"If your interface conveys information through audio
+  - **7.4 可关闭性矩阵（验收用）** `L411`
+  - **7.5 没有「减少声音」的系统偏好——必须自己做开关** `L421` — - CSS 只有 prefers-reduced-motion（管动效）、prefers-reduced-transparency、prefers-contrast、prefers-reduced-data、prefers-color-sc
+  - **7.6 触觉不是无障碍的「升级」，而是另一条通道** `L426` — 常见错误：加了震动就以为照顾了视障用户。事实上视障用户主要靠读屏语音（声音）与盲文/手势，震动只是辅助；而听障用户才更需要震动。因此触觉标签要写成「这是给听不见的用户的信息通道」，而不是「无障碍优化已完成」。
+- **§8 反模式（看到就该打回）** `L432` — 1. 双震：系统控件已给触觉，自己又加一次。
+- **§9 自检清单（交付前逐条打勾，20 条）** `L457` — 1. 每个非视觉反馈都能回答「它替代了用户哪个动作」吗？
+- **§10 场景速查** `L482` — ---
+- **§11 可执行校验（以下代码已实跑通过）** `L499` — 用法：python -I -X utf8 shfcheck.py。它做三件事：校验振动模式是否越过 W3C/Android 的硬边界、校验 Android 振幅合法性、校验 §6 配方表是否自相矛盾。
+- **§12 精确值总表（按来源分级）** `L675` — 搜索实测：earcon 全站 38 个仓库；"web audio" 11,187 个仓库但前 10 全是音乐/DSP，没有 UI 反馈库。
+  - **12.1 规范/平台原文（可直接引）** `L677`
+  - **12.2 本技能裁决（可校准，非官方）** `L710`
+  - **12.3 生态实测（GitHub API，2026-11-14 快照）** `L725` — 搜索实测：earcon 全站 38 个仓库；"web audio" 11,187 个仓库但前 10 全是音乐/DSP，没有 UI 反馈库。
+- **§13 取源限制（本轮抓取实况，如实登记）** `L742` — 1. developer.android.com 直连 webfetch 失败（任意 URL 均 TypeError: fetch failed）；本轮改经 https://www.w3.org/services/html2txt?url=
+- **§14 与既有资产的分工** `L765` — 下轮候选（按缺口与可取证性排序）：
+- **附：一句话总结** `L785` — 先问「看不看得到」，再问「来不来得及」，最后才问「响不响、震不震」；响和震都必须能被关掉，而且关掉之后用户一点信息都不该少。
 
 ### `references/tools.md` · 制作工具 — Tools
 _182 行 · 快照 2026-10-29 · 7 节_
@@ -3135,19 +3192,22 @@ _766 行 · 快照 — · 43 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6
+- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/sound-haptics-feedback.md` L9
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
+- **§1 判层：先判「要不要」，再判「哪一种」** → `references/sound-haptics-feedback.md` L23
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
+- **§10 场景速查** → `references/sound-haptics-feedback.md` L482
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
+- **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
 - **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
 - **§11 承诺闸门：SC 3.3.4（Level AA）** → `references/pricing-checkout.md` L257
@@ -3157,12 +3217,15 @@ _766 行 · 快照 — · 43 节_
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
+- **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
 - **§13 信任与社会证明** → `references/pricing-checkout.md` L285
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 反模式 20 条** → `references/empty-states.md` L208
+- **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
+- **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
 - **§14 可抄代码** → `references/feedback-states.md` L485
 - **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
@@ -3184,6 +3247,7 @@ _766 行 · 快照 — · 43 节_
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
+- **§2 三通道分工：谁能承担什么** → `references/sound-haptics-feedback.md` L61
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
@@ -3195,27 +3259,33 @@ _766 行 · 快照 — · 43 节_
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
+- **§3 触觉的语义层：能借系统常量就别自造** → `references/sound-haptics-feedback.md` L78
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
+- **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
+- **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
+- **§6 三通道配方表（设计交付时直接填）** → `references/sound-haptics-feedback.md` L358
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
+- **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
 - **§7 结账骨架：单页 / 分段 / 多步** → `references/pricing-checkout.md` L148
 - **§7 零数据位 / starter content：用示例教，而不是用文字讲** → `references/empty-states.md` L132
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
+- **§8 反模式（看到就该打回）** → `references/sound-haptics-feedback.md` L432
 - **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
@@ -3224,6 +3294,7 @@ _766 行 · 快照 — · 43 节_
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
 - **§9 空状态可访问性清单** → `references/empty-states.md` L164
+- **§9 自检清单（交付前逐条打勾，20 条）** → `references/sound-haptics-feedback.md` L457
 - **§9 表单无障碍：只补 form-table.md 没说的** → `references/accessibility.md` L330
 - **一、DESIGN.md 是什么，为什么值得作为交付物** → `references/design-md-format.md` L10
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
@@ -3315,7 +3386,7 @@ _766 行 · 快照 — · 43 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L131
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L134
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3325,12 +3396,13 @@ _766 行 · 快照 — · 43 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（173 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L586
-- **自我成长机制（用得越多越准）** → `SKILL.md` L987
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1000
+- **能力自测（175 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L596
+- **自我成长机制（用得越多越准）** → `SKILL.md` L994
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1007
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1023
+- **边界与习惯** → `SKILL.md` L1030
+- **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57
 - **首屏 Hero** → `references/patterns.md` L25

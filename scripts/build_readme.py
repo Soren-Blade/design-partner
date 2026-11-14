@@ -39,6 +39,7 @@ ASSETS = [
     ("empty-states.md", "空状态与零数据位", "立场三裁决（引导不道歉 / 装饰插画 aria-hidden / 失败态≠缺省态·禁止伪装）/ 结构五件套一手解剖（Ant colorTextDescription · PRESENTED_IMAGE_SIMPLE·DEFAULT · margin 8·16·32 · footer action slot；Atlassian Anatomy wide 464 / narrow 304 / h600 / CTA imperative verbs / 装饰图 alt 规则）/ 五种空态判型器 / 中英抄写矩阵 8 类可抄 / 装饰插画取舍与无障碍清单 / 零数据位 starter content 四模式 / 单主行动 CTA 纪律 / 失败态≠缺省态 / 首次操作率度量 / 移动端小程序 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）"),
     ("pricing-checkout.md", "定价页与结账流程", "立场三铁律（总价先行 / 结账是承诺不是表单 / 同一进程不重复索要）/ 判层六问 / 四种定价页构型与尺寸（卡内边距 32px · 价格 40–48px · 货币符号 0.5em 上移 0.13em · tabular-nums）/ 划线价合规（FTC 16 CFR 464 total price 逐字 + clear and conspicuous 八款 + 实际只覆盖票务与短租）/ 月年切换器 / 结账三型 / GOV.UK check answers 七条（two-thirds · Change 带 visually-hidden · 返回必预填 · Not provided）/ 13 字段 autocomplete token 表 / SC 1.3.5 AA · 3.3.7 A · 3.3.4 AA 三条款合取 / Apple Pay 标记规范（仅白色描边版 · 清space 1/4 · 不与其它按钮共享边框）/ 费用三级披露与一致性 / role=status 金额播报 / 移动端 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）/ 8 条取源限制"),
     ("notifications-messaging.md", "通知与消息触达", "立场三裁决（通道归属先于内容 / 权限按功能时机且拒绝后给恢复路径 / 可关性一等验收）/ 六段链路判层表 / 三平台通道矩阵与中断级别（iOS interruptionLevel 四级 + HIG 能力表 · Android 五级 importance 创建后不可改 + MIN/NONE 官方矛盾声明 · Web Push 五件套）/ POST_NOTIFICATIONS 四个坑 / 消息中心三件套与未读口径 / 角标三态与 setNumber 建议语义 / 免打扰跨午夜 / 偏好页开关即时生效 / 交易与营销邮件判定（15 U.S.C. §7702 + 16 CFR §316.3(b)）/ 一键退订三协议细节（RFC 8058）/ SC 4.1.3 与 2.2.1 六项口径 / 12 场景 / 20 反模式 / 20 自检 / 5 段可跑代码（严格 5/5 rc=0）/ 取源限制 14 条"),
+    ("sound-haptics-feedback.md", "声音与触觉反馈", "立场「视觉是默认项，声音与触觉是例外项：先答它替代了用户哪个动作」/ 五问判层（看屏 · 时压 ≤1s · 高频 · 系统语义 · 已关闭）+ 12 场景判层表 + 四条拒绝 / 三通道分工 / iOS 三类 UIFeedbackGenerator · Android 21 个公开 HapticFeedbackConstants（20 行表 + KEYBOARD_PRESS 同值别名，含 API level）· watchOS 九种 WKHapticType / 振幅 1–255 与 DEFAULT_AMPLITUDE=-1 · Composition 原语常量 1–8（API 30/31）· 官方间隔 50 ms / 强度比 1.4 / 包络 20 ms · AOSP 注释 1 s 与 3 段 · W3C 10 段 / 10000 ms / sticky activation / 静音开关与 AVAudioSession 类别表 / autoplay 三条工程动作 + getAutoplayPolicy / 音频焦点 / earcon 五条音高句法 / 三通道配方 12 行 / WCAG 1.4.2 + 1.4.7 逐字 / 20 反模式 / 20 自检 / 1 段可跑校验器（实跑 PASS）/ 取源限制 17 条"),
     ("responsive-layout.md", "响应式与断点体系", "六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式"),
     ("editorial-layout.md", "版式与网格（Editorial）", "五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检"),
     ("brand-identity.md", "品牌视觉与 Logo 逻辑", "四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检"),
@@ -132,7 +133,7 @@ def skill_facts() -> dict:
     facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0, "branches": [], "check_names": []}
     refs = sorted(REF.glob("*.md"))
     facts["refs"] = len(refs)
-    facts["chars"] = sum(len(p.read_text(encoding="utf-8")) for p in refs)
+    facts["chars"] = sum(len(p.open(encoding="utf-8", newline="").read()) for p in refs)
 
     km = REF / "knowledge-map.md"
     if km.exists():
@@ -230,6 +231,7 @@ def build() -> str:
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
 | **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
+| **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
 | **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
@@ -462,6 +464,14 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Android · 通知渠道](https://developer.android.com/develop/ui/views/notifications/channels) — 五级 importance 与「创建后不可改」原文
 - [Android 13 · 通知权限](https://developer.android.com/develop/ui/views/notifications/notification-permission) — 四个坑与拒绝后行为
 - [RFC 8058](https://www.rfc-editor.org/rfc/rfc8058) / [RFC 8030](https://www.rfc-editor.org/rfc/rfc8030) — 一键退订头与 TTL 强制
+- [Apple HIG · Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics) — 七条 Best practices / 三类生成器 / watchOS 九种类型原文
+- [Apple HIG · Playing audio](https://developer.apple.com/design/human-interface-guidelines/playing-audio) — 静音开关语义与 AVAudioSession 类别表
+- [Apple HIG · Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) — 声音必须配视觉或 haptics 的三条原文
+- [W3C · Vibration API](https://www.w3.org/TR/vibration/) — 10 段 / 10000 ms / sticky activation 规范
+- [WCAG 2.2 · SC 1.4.2 / 1.4.7](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html) — 3 秒阈值、独立音量控制与 20 dB
+- [Android · Haptics overview](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) — 何时用触觉 / 常量 API level / 用户设置 / 不建议 createOneShot
+- [Android · Haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) — 原语时长 / 包络 20 ms 与 16 点 / 振幅在无支持设备的回退 / 音频焦点与 sonification
+- [AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java) — 21 个公开常量源码注释
 
 ## 目录结构
 

@@ -583,7 +583,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 能对任意「要不要发这条通知」走完六段链路判层，并说出为什么通道失败不能换通道补发、以及 P2/P3 在三平台上分别落到什么机制
 - [ ] 能写出 pre-permission 的触发点与文案，并列出被拒后的三态分流、iOS provisional 的适用与不适用、以及 Android「拒绝 = 全渠道封锁」的验收口径
 
-## 能力自测（173 条，做到 ≥110 条即达 L2+）
+### 支线 AJ · 声音与触觉反馈（把「要不要响一下」判成通道、时长与强度的完成路径）
+
+- **这是什么（反馈通道侧）**：与视觉反馈五层（`feedback-states`）、动效节奏（`motion-system`）、无障碍总则（`accessibility`）、通知触达（`notifications-messaging`）相邻但问题不同——它们分别管「页面内的状态怎么显示」「动效多长多快」「整体可访问性」「该不该打扰用户」；本支线管**「看得到吗 → 来不来得及 → 该不该再占一条感官通道 → 这条通道给什么参数」**，核心是五问判层与三通道分工。此前 47 份参考对 `音效`=0 / `earcon`=0 / `震动`=0 / `触觉`=1 近乎零命中，判定为结构性空白。
+- **三条最重要裁决**：① **视觉默认、声音触觉例外**——HIG *"Prefer using haptics to complement other feedback"* 的关键词是 complement 不是 duplicate，先答「替代了用户哪个动作」。② **系统语义优先**——iOS 三类生成器 / Android 21 个公开常量 / watchOS 九种类型已覆盖点击、成功、失败、切换、阈值；AOSP 注释把 1 s 与 3 段当作「已经不是触觉反馈」的界，自造模式只能在这个界内。③ **可关闭性是验收项**——HIG *"Make haptics optional."*、`FLAG_IGNORE_GLOBAL_SETTING` 自 TIRAMISU 起仅特权应用可用、WCAG 1.4.2 *"Muting the system volume is not "pausing or stopping" the autoplay audio."*
+- **精确值怎么取**：§4.1 Android（振幅 1–255 或 `DEFAULT_AMPLITUDE`=-1；`createOneShot` 传 0 抛 IllegalArgumentException；waveform 振幅 0 = 马达关、timing 0 的对被忽略；1000 ms / 3 段来自 AOSP 源码注释）；§4.3 Web（W3C：10 段、10000 ms、偶数位=振动、需 sticky activation、非 Baseline）；§5.1 iOS 音频类别（Ambient / Solo ambient 响应静音开关，Playback 不响应）；§5.5 autoplay（`getAutoplayPolicy` 三值 + `play()` 拒绝 `NotAllowedError` + `AudioContext` 需手势后 `resume()`）。
+- **判学会了**：问「这个按钮要不要震」→ 先查系统控件是否自带（自带就不加）；问「震动多长」→ 给 AOSP 1000 ms 界与单次 ≤100 ms 的裁决；问「静音了为什么还响」→ 查音频类别是不是 Playback；问「Web 能不能震」→ 给 10 段 / 10000 ms / 非 Baseline / 需手势；问「无障碍怎么验」→ WCAG 1.4.2 三秒 + 1.4.7 的 20 dB + Apple 的配对原文。
+
+- [ ] 用户问「iOS 轻触是不是 10 ms」，能否指出 HIG 全页没有毫秒值、应改用语义生成器，而不是编一个数交差？
+- [ ] 用户说「手机静音了 App 还在响」，能否在 30 秒内定位到音频类别（Playback 不响应静音开关）并给出 Ambient 一侧的修法？
+
+## 能力自测（175 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

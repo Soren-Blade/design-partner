@@ -514,3 +514,40 @@
 - https://github.com/magicbell/magicbell-js | [GH] MagicBell JS（API 实测 31★ / NOASSERTION / 未归档；原名 `magicbell-io/magicbell-js` 已迁移）通知收件箱 SDK 参照
 - https://github.com/OneSignal/OneSignal-Website-SDK | [GH] OneSignal Website SDK（API 实测 410★ / NOASSERTION / 未归档；原名 `OneSignal/OneSignal-Web-SDK` 不存在）Web push 订阅管理参照
 - 取源限制：◄ = GitHub API 快照 2026-11-13（匿名 60 次/小时配额）；`NOASSERTION` 一律按红灯处理，不得当 MIT 用；两个 archived 仓库只登记为历史参照，不推荐新项目采用
+## 二十七、声音与触觉反馈（Sound & Haptics）【v43 本轮新增分区】
+- https://developer.apple.com/design/human-interface-guidelines/playing-haptics | Apple HIG《Playing haptics》（v43 一手源：七条 Best practices 逐字，含 "Make haptics optional."、"Avoid overusing haptics."、"In most apps, prefer playing short haptics that complement discrete events."；自定义构件 transient/continuous + sharpness/intensity；iOS 三类 UIFeedbackGenerator、watchOS 九种 WKHapticType、macOS 三种 NSHapticFeedbackPerformer。**全页无毫秒数值**，任何 iOS 触觉 ms 值都不得标为 Apple 官方）
+- https://developer.apple.com/design/human-interface-guidelines/playing-audio | Apple HIG《Playing audio》（v43 一手源：Silence 段逐字 "When a device is in silent mode, it plays only the audio that people explicitly initiate"；AVAudioSession.Category 五档与静音开关响应表；"Let other apps know when your app finishes playing temporary audio."；visionOS "avoid communicating important information using only sound"）
+- https://developer.apple.com/design/human-interface-guidelines/accessibility | Apple HIG《Accessibility》Hearing 段（v43 一手源："Use haptics in addition to audio cues."、"Augment audio cues with visual cues."、"Let people control audio and video playback."）
+- https://developer.android.com/develop/ui/views/haptics/haptics-apis | Android《Haptics APIs》（v43 一手源：包络 "minimum duration of 20 ms between control points and at least 16 points"；"must start and end with an intensity of 0.0"；"must declare the VIBRATE permission"；"avoid them except as a last resort."；Android 16 起 Builder 首选、Composition 无自动回退；页脚 "Last updated 2026-10-26 UTC"）
+- https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects | Android《Create custom haptic effects》（v43 一手源：强度比 "1.4 or more"、"more than three intensity levels" 不可辨；间隔 "5 to 10 ms … too short to be detectable"、"50 ms or longer"；spin 间隔 "longer than 100 ms" 失效；包络起止归零）
+- https://developer.android.com/develop/ui/views/haptics/haptic-feedback | Android《Add haptic feedback to your app》（v43 一手源：常量按「功能」而非「效果类型」定义；"discourage using older Vibrator methods employing createOneshot or createWaveform"）
+- https://developer.android.com/develop/ui/views/haptics/haptics-principles | Android《Haptics design principles》（v43 一手源：清晰、可感知、与重要性匹配的触觉原则；本文「一致性/禁用清单」引用其原则）
+- https://developer.android.com/reference/android/os/VibrationEffect.Composition | Android API reference `VibrationEffect.Composition`（v43 一手源：原语常量值 CLICK=1 / THUD=2 / SPIN=3 / QUICK_RISE=4 / SLOW_RISE=5 / QUICK_FALL=6 / TICK=7 / LOW_TICK=8 与各 API level；scale 0.0–1.0）
+- https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java | AOSP 源码 `HapticFeedbackConstants.java`（v43 一手源：20 个公开常量与注释；`FLAG_IGNORE_GLOBAL_SETTING` 已 @Deprecated "only privileged apps can ignore user settings for touch feedback."）
+- https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/os/VibrationEffect.java | AOSP 源码 `VibrationEffect.java`（v43 一手源：`DEFAULT_AMPLITUDE=-1`、振幅 1–255、`createOneShot` 拒绝 0、源码注释 1000 ms / 3 段）
+- https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/os/VibrationAttributes.java | AOSP 源码 `VibrationAttributes.java`（v43 一手源：USAGE_TOUCH/USAGE_PHYSICAL_EMULATION 语义注释、与 AudioAttributes 的映射、bypass 标志仅限 privileged apps）
+- https://www.w3.org/TR/vibration/ | W3C Vibration API（v43 一手源：max length 10、max duration 10000 ms、偶数位=振动、"If global does not have sticky activation, return false"、文档不可见即中止）
+- https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html | WCAG 2.2 理解文档 SC 1.4.2（v43 一手源：3 秒规则与音量控制原文；G60/G170/G171；F23/F93）
+- https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html | WCAG 2.2 理解文档 SC 1.4.7（v43 一手源："at least 20 decibels lower"、"approximately four times quieter"、1–2 秒偶发短音例外）
+- https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate | MDN `Navigator.vibrate()`（v43 一手源：模式交替语义、"you don't have to provide a pause as your last entry"、取消方式、**Limited availability / 非 Baseline**）
+- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay | MDN《Autoplay guide for media and Web Audio APIs》（v43 一手源："Media with an active audio track are considered to be audible"、允许自动播放四条、"playback … is generally blocked"、`getAutoplayPolicy()` 返回值）
+- https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/resume | MDN `AudioContext.resume()`（v43 一手源：page-load 创建即 suspended、需用户手势、`interrupted` 状态）
+- https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play | MDN `HTMLMediaElement.play()`（v43 一手源：`NotAllowedError` 原文；"autoplay policies also apply to any script-initiated playback"）
+- https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/ | WebKit 官方博客《Auto-Play Policy Changes for macOS》（v43 一手源："Websites should assume any use of `<video>` or `<audio>` requires a user gesture click to play."；"audio tracks that render silence are still audio tracks"）
+- https://github.com/GoogleChrome/developer.chrome.com/blob/main/site/en/blog/autoplay/index.md | Chrome《Autoplay policy in Chrome》官方站点源文件（v43 一手源：developer.chrome.com 直连失败，取自官方 GitHub 源；"Muted autoplay is always allowed."、MEI 条件 7 秒 / 200×140 px、Chrome 66 与 71）
+- 取源限制：Apple HIG 普通页为 JS 外壳，须用 `.md` 后缀取正文；`developer.android.com` 直连 `fetch failed`，本轮经 `w3.org/services/html2txt` 取得 guide 正文，参考页 javadoc 仍限流；`m3.material.io` / `m2.material.io` 返回 "This website requires JavaScript."，未取到 M3 声音/触觉规范；`prefers-reduced-sound` 不存在（MDN 404 + `@media` 索引无此项）；HTML Living Standard 的 autoplay 定义页被截断，故以 MDN 与 Chrome 官方博客替代
+
+## 二十七·附：声音与触觉反馈相关 GitHub 仓库（v43 GitHub API 实测）
+- https://github.com/goldfire/howler.js | [GH] howler.js（API 实测 25,444★ / MIT / 2025-11-23 / 未归档）Web 音频播放事实标准，UI 音效常用替代 `<audio>`
+- https://github.com/Tonejs/Tone.js | [GH] Tone.js（API 实测 14,901★ / MIT / 2026-11-13 / 未归档）Web Audio 框架/合成器，UI 音效场景偏重
+- https://github.com/joshwcomeau/use-sound | [GH] use-sound（API 实测 3,163★ / MIT / 2025-06-10 / 未归档）React hook，底层包 howler，最接近「UI 音效库」
+- https://github.com/lochie/web-haptics | [GH] web-haptics（API 实测 2,848★ / MIT / 2026-09-02 / 未归档）移动 Web 振动模式基准，可作 `navigator.vibrate` 的模式库
+- https://github.com/expo/expo | [GH] Expo（API 实测 53,532★ / MIT / 2026-11-14 / 未归档）`expo-haptics`：iOS Core Haptics + Android 的跨端 API
+- https://github.com/WebKit/WebKit | [GH] WebKit（API 实测 10,344★ / license=null / 2026-11-14 / 未归档）Vibration 与 Web Audio 的引擎实现与自动播放策略
+- https://github.com/chromium/chromium | [GH] Chromium（API 实测 25,337★ / BSD-3-Clause / 2026-11-14 / 未归档）振动、Web Audio、autoplay 策略的实现
+- https://github.com/software-mansion/react-native-gesture-handler | [GH] react-native-gesture-handler（API 实测 6,804★ / MIT / 2026-11-13 / 未归档）手势触发侧，判断「哪个手势该配触觉」
+- https://github.com/smolgroot/earcons | [GH] earcons（API 实测 7★ / MIT / 2026-04-08 / 未归档）纯 Web Audio、无音频文件的 UI 通知音库——`earcon` 全站仅 38 个仓库，**没有成熟库**
+- https://github.com/w3c/vibration | [GH] W3C Vibration API 规范仓（API 实测 20★ / NOASSERTION / 未归档）
+- https://github.com/WebAudio/web-audio-api | [GH] Web Audio API 规范仓（API 实测 1,138★ / NOASSERTION / 未归档；原名 `w3c/web-audio` 不存在）
+- https://github.com/scottbez1/smartknob | [GH] SmartKnob（API 实测 22,310★ / NOASSERTION / 2024-02-19 / 未归档）**硬件旋钮 detents**，不是软件触觉库——登记它只为说明「haptics 高星结果多半是硬件项目」
+- 取源限制：◄ = GitHub API 快照 2026-11-14（匿名 60 次/小时配额，本轮用 14 次）；`NOASSERTION` / `license=null` 一律按红灯处理，不得当 MIT 用；smartknob 已在描述里标注「非软件库」，避免误引

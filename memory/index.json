@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-13T22:25:46",
+ "generated": "2026-11-14T17:40:44",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1031,
-   "chars": 206356,
+   "lines": 1038,
+   "chars": 209814,
    "sections": []
   },
   {
@@ -7983,8 +7983,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 729,
-   "chars": 77199,
+   "lines": 739,
+   "chars": 78748,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8491,11 +8491,19 @@
      "chars": 2545
     },
     {
-     "id": "能力自测-173-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（173 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-aj-声音与触觉反馈-把-要不要响一下-判成通道-时长与强度的完成路径",
+     "level": 3,
+     "title": "支线 AJ · 声音与触觉反馈（把「要不要响一下」判成通道、时长与强度的完成路径）",
+     "summary": "- 这是什么（反馈通道侧）：与视觉反馈五层（feedback-states）、动效节奏（motion-system）、无障碍总则（accessibility）、通知触达（notifications-messaging）相邻但问题不同——它们",
      "line": 586,
+     "chars": 1503
+    },
+    {
+     "id": "能力自测-175-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（175 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 596,
      "chars": 8677
     }
    ]
@@ -13744,6 +13752,399 @@
      "summary": "本轮 shape elevation 取源均标注了可核验位置与不可核验处；以下限制不臆造、不补齐，供后续轮次继续深挖。",
      "line": 782,
      "chars": 3573
+    }
+   ]
+  },
+  {
+   "path": "references/sound-haptics-feedback.md",
+   "title": "声音与触觉反馈：把「要不要响一下 / 震一下」判成通道、时长与强度",
+   "snapshot": "—",
+   "lines": 787,
+   "chars": 41703,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "视觉反馈是默认项，声音与触觉是例外项：只有当「看这一眼」会漏掉、来不及、或者根本没法看的时候，才值得再占用户一条感官通道。",
+     "line": 9,
+     "chars": 527
+    },
+    {
+     "id": "1-判层-先判-要不要-再判-哪一种",
+     "level": 2,
+     "title": "§1 判层：先判「要不要」，再判「哪一种」",
+     "summary": "1. 冗余拒绝：视觉已经给了同等信息、且没有时压 → 加了只是重复（例：列表滚动、页面切换、hover）。",
+     "line": 23,
+     "chars": 1
+    },
+    {
+     "id": "1-1-五问判层-按顺序问-任一问答完就可以停",
+     "level": 3,
+     "title": "1.1 五问判层（按顺序问，任一问答完就可以停）",
+     "summary": "",
+     "line": 25,
+     "chars": 479
+    },
+    {
+     "id": "1-2-判层表-场景-通道组合",
+     "level": 3,
+     "title": "1.2 判层表：场景 → 通道组合",
+     "summary": "",
+     "line": 35,
+     "chars": 1084
+    },
+    {
+     "id": "1-3-四条-不加-的拒绝条件",
+     "level": 3,
+     "title": "1.3 四条「不加」的拒绝条件",
+     "summary": "1. 冗余拒绝：视觉已经给了同等信息、且没有时压 → 加了只是重复（例：列表滚动、页面切换、hover）。",
+     "line": 52,
+     "chars": 524
+    },
+    {
+     "id": "2-三通道分工-谁能承担什么",
+     "level": 2,
+     "title": "§2 三通道分工：谁能承担什么",
+     "summary": "一句话记忆：触觉回答「发生了没有」，声音回答「是哪一种」，视觉回答「为什么」。三者的错误用法是让触觉去解释、让声音去引导、让视觉去承担「来不及看」的场景。",
+     "line": 61,
+     "chars": 846
+    },
+    {
+     "id": "3-触觉的语义层-能借系统常量就别自造",
+     "level": 2,
+     "title": "§3 触觉的语义层：能借系统常量就别自造",
+     "summary": "1. 系统标准控件自带的触觉——列表滚动、键盘、开关、滑块、长按菜单。你不要再加一次，否则就是「双震」，用户会觉得设备坏了。",
+     "line": 78,
+     "chars": 1
+    },
+    {
+     "id": "3-1-四层选择顺序-自上而下-命中即停",
+     "level": 3,
+     "title": "3.1 四层选择顺序（自上而下，命中即停）",
+     "summary": "1. 系统标准控件自带的触觉——列表滚动、键盘、开关、滑块、长按菜单。你不要再加一次，否则就是「双震」，用户会觉得设备坏了。",
+     "line": 80,
+     "chars": 372
+    },
+    {
+     "id": "3-2-ios-uifeedbackgenerator-三类",
+     "level": 3,
+     "title": "3.2 iOS：UIFeedbackGenerator 三类",
+     "summary": "iOS 的关键现实：HIG 通篇没有任何毫秒数（playing-haptics 全页无 ms 数值，已逐段核对）。所以「iOS 轻触 = 10ms」这类说法都是二手推测，写进设计规范就是臆造。iOS 的正确做法是选语义、不调参数；参数由系统",
+     "line": 87,
+     "chars": 1146
+    },
+    {
+     "id": "3-3-android-hapticfeedbackconstants-常量表-逐条核自-aosp",
+     "level": 3,
+     "title": "3.3 Android：HapticFeedbackConstants 常量表（逐条核自 AOSP）",
+     "summary": "SEGMENTFREQUENTTICK 的原话值得逐字记住：\"expected to be very soft, so as not to be uncomfortable when performed a lot in quick suc",
+     "line": 102,
+     "chars": 1841
+    },
+    {
+     "id": "3-4-一致性-一种事件只能有一种触觉",
+     "level": 3,
+     "title": "3.4 一致性：一种事件只能有一种触觉",
+     "summary": "HIG 原文：\"Use haptics consistently throughout your app or game.\" 并补了一句判据：\"If a haptic doesn't reinforce a cause-and-effect",
+     "line": 133,
+     "chars": 412
+    },
+    {
+     "id": "3-5-禁用清单-比-该用什么-更重要",
+     "level": 3,
+     "title": "3.5 禁用清单（比「该用什么」更重要）",
+     "summary": "1. 高频重复：滚动、输入、hover、每秒多次的刻度 → 不震（SEGMENTFREQUENTTICK 只在能给出极轻震时可用）。",
+     "line": 143,
+     "chars": 645
+    },
+    {
+     "id": "4-触觉的数值与实现",
+     "level": 2,
+     "title": "§4 触觉的数值与实现",
+     "summary": "注意来源层级：1000 ms 与 3 段是 AOSP 源码注释里的工程判断，不是强制校验——写判定标准时可以当「平台自己认为的上限」，但不能说成「Android 规定不得超过」；包络 API 属 flagged API，公开 SDK 未必可",
+     "line": 154,
+     "chars": 1
+    },
+    {
+     "id": "4-1-android-vibrationeffect-精确值-源码逐条",
+     "level": 3,
+     "title": "4.1 Android VibrationEffect 精确值（源码逐条）",
+     "summary": "注意来源层级：1000 ms 与 3 段是 AOSP 源码注释里的工程判断，不是强制校验——写判定标准时可以当「平台自己认为的上限」，但不能说成「Android 规定不得超过」；包络 API 属 flagged API，公开 SDK 未必可",
+     "line": 156,
+     "chars": 1401
+    },
+    {
+     "id": "4-2-时长与强度的裁决-本文口径-可校准",
+     "level": 3,
+     "title": "4.2 时长与强度的裁决（本文口径，可校准）",
+     "summary": "三条硬性验收：",
+     "line": 173,
+     "chars": 449
+    },
+    {
+     "id": "4-3-web-navigator-vibrate-的真实限制",
+     "level": 3,
+     "title": "4.3 Web：navigator.vibrate() 的真实限制",
+     "summary": "Vibration API 的数值规则（W3C https://www.w3.org/TR/vibration/ 与 MDN 原文）：",
+     "line": 189,
+     "chars": 1290
+    },
+    {
+     "id": "4-4-系统设置不可绕过-硬证据",
+     "level": 3,
+     "title": "4.4 系统设置不可绕过（硬证据）",
+     "summary": "- Android HapticFeedbackConstants.FLAGIGNOREGLOBALSETTING 已 @Deprecated，原文：\"Starting from TIRAMISU only privileged apps ",
+     "line": 209,
+     "chars": 490
+    },
+    {
+     "id": "4-5-跨端语义映射表-写设计稿时直接抄",
+     "level": 3,
+     "title": "4.5 跨端语义映射表（写设计稿时直接抄）",
+     "summary": "",
+     "line": 217,
+     "chars": 754
+    },
+    {
+     "id": "4-6-官方指南给的调参数值-developer-android-com-2026-10-26-版",
+     "level": 3,
+     "title": "4.6 官方指南给的调参数值（developer.android.com，2026-10-26 版）",
+     "summary": "来源：https://developer.android.com/develop/ui/views/haptics/haptics-apis（同批还有 custom-haptic-effects 与 reference/android/os",
+     "line": 230,
+     "chars": 2503
+    },
+    {
+     "id": "5-声音-能不能响-响给谁听-被谁打断",
+     "level": 2,
+     "title": "§5 声音：能不能响、响给谁听、被谁打断",
+     "summary": "playing-audio 的类别表是本文最硬的裁决依据（原文逐字）：",
+     "line": 254,
+     "chars": 1
+    },
+    {
+     "id": "5-1-先选音频类别-再谈音色-ios",
+     "level": 3,
+     "title": "5.1 先选音频类别，再谈音色（iOS）",
+     "summary": "playing-audio 的类别表是本文最硬的裁决依据（原文逐字）：",
+     "line": 256,
+     "chars": 1095
+    },
+    {
+     "id": "5-2-短音效不要自建播放器",
+     "level": 3,
+     "title": "5.2 短音效不要自建播放器",
+     "summary": "HIG（iOS/iPadOS）：\"Use the system's sound services to play short sounds and vibrations.\"（AudioToolbox 的 audio services）——为",
+     "line": 272,
+     "chars": 253
+    },
+    {
+     "id": "5-3-打断-耳机与恢复",
+     "level": 3,
+     "title": "5.3 打断、耳机与恢复",
+     "summary": "- 播放临时音效结束要还回去：HIG \"Let other apps know when your app finishes playing temporary audio.\"（notifyOthersOnDeactivation），否则用",
+     "line": 278,
+     "chars": 495
+    },
+    {
+     "id": "5-4-android-的声音属性",
+     "level": 3,
+     "title": "5.4 Android 的声音属性",
+     "summary": "音效走 sonification 语义，而不是媒体语义：AudioAttributes 的 USAGEASSISTANCESONIFICATION + CONTENTTYPESONIFICATION。系统据此决定音量通道（铃声/媒体/通话）",
+     "line": 285,
+     "chars": 345
+    },
+    {
+     "id": "5-5-web-autoplay-是硬墙-不是建议",
+     "level": 3,
+     "title": "5.5 Web：autoplay 是硬墙，不是建议",
+     "summary": "MDN《Autoplay guide》原文列出了「允许自动播放」的四种情形：",
+     "line": 291,
+     "chars": 2067
+    },
+    {
+     "id": "5-6-earcon-还是听觉图标-auditory-icon",
+     "level": 3,
+     "title": "5.6 earcon 还是听觉图标（auditory icon）",
+     "summary": "生态现实（GitHub API 实测）：搜索 earcon 全站只有 38 个仓库，最大的 UI 用途库是 smolgroot/earcons（7★，MIT，纯 Web Audio、不带音频文件）——没有成熟的 earcon 库可用，只有原",
+     "line": 310,
+     "chars": 588
+    },
+    {
+     "id": "5-7-声音句法-裁决值-可校准",
+     "level": 3,
+     "title": "5.7 声音句法（裁决值，可校准）",
+     "summary": "三条硬规则：",
+     "line": 323,
+     "chars": 487
+    },
+    {
+     "id": "5-8-音频资源工程",
+     "level": 3,
+     "title": "5.8 音频资源工程",
+     "summary": "",
+     "line": 339,
+     "chars": 366
+    },
+    {
+     "id": "5-9-声音的三条法律级红线",
+     "level": 3,
+     "title": "5.9 声音的三条法律级红线",
+     "summary": "1. 不能自动播放超过 3 秒且无控制：WCAG 1.4.2（§7.1 全文）。",
+     "line": 350,
+     "chars": 422
+    },
+    {
+     "id": "6-三通道配方表-设计交付时直接填",
+     "level": 2,
+     "title": "§6 三通道配方表（设计交付时直接填）",
+     "summary": "用法：先用 §1 五问判层确定「要不要非视觉通道」，再用本表填「用哪一条、什么参数」，最后用 §9 自检清单与 §7 可访问性复验。任何一格写「无」的地方都要能回答：如果这一格是空的，用户会不会漏掉信息？",
+     "line": 358,
+     "chars": 987
+    },
+    {
+     "id": "7-可访问性-这是硬约束-不是-关怀选项",
+     "level": 2,
+     "title": "§7 可访问性：这是硬约束，不是「关怀选项」",
+     "summary": "\"If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or sto",
+     "line": 379,
+     "chars": 1
+    },
+    {
+     "id": "7-1-wcag-2-2-sc-1-4-2-audio-control-level-a-逐字",
+     "level": 3,
+     "title": "7.1 WCAG 2.2 SC 1.4.2 Audio Control（Level A，逐字）",
+     "summary": "\"If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or sto",
+     "line": 381,
+     "chars": 1073
+    },
+    {
+     "id": "7-2-wcag-2-2-sc-1-4-7-low-or-no-background-audio-level-aa-适用于预录纯音频内容",
+     "level": 3,
+     "title": "7.2 WCAG 2.2 SC 1.4.7 Low or No Background Audio（Level AA，适用于预录纯音频内容）",
+     "summary": "原文条件（三条满足其一即可）：\"The audio does not contain background sounds.\" / \"The background sounds can be turned off.\" / \"20 dB — T",
+     "line": 395,
+     "chars": 430
+    },
+    {
+     "id": "7-3-声音不能是唯一通道-三处官方原文",
+     "level": 3,
+     "title": "7.3 声音不能是唯一通道（三处官方原文）",
+     "summary": "1. Apple HIG accessibility：\"Use haptics in addition to audio cues.\"（\"If your interface conveys information through audio",
+     "line": 401,
+     "chars": 1015
+    },
+    {
+     "id": "7-4-可关闭性矩阵-验收用",
+     "level": 3,
+     "title": "7.4 可关闭性矩阵（验收用）",
+     "summary": "",
+     "line": 411,
+     "chars": 336
+    },
+    {
+     "id": "7-5-没有-减少声音-的系统偏好-必须自己做开关",
+     "level": 3,
+     "title": "7.5 没有「减少声音」的系统偏好——必须自己做开关",
+     "summary": "- CSS 只有 prefers-reduced-motion（管动效）、prefers-reduced-transparency、prefers-contrast、prefers-reduced-data、prefers-color-sc",
+     "line": 421,
+     "chars": 311
+    },
+    {
+     "id": "7-6-触觉不是无障碍的-升级-而是另一条通道",
+     "level": 3,
+     "title": "7.6 触觉不是无障碍的「升级」，而是另一条通道",
+     "summary": "常见错误：加了震动就以为照顾了视障用户。事实上视障用户主要靠读屏语音（声音）与盲文/手势，震动只是辅助；而听障用户才更需要震动。因此触觉标签要写成「这是给听不见的用户的信息通道」，而不是「无障碍优化已完成」。",
+     "line": 426,
+     "chars": 120
+    },
+    {
+     "id": "8-反模式-看到就该打回",
+     "level": 2,
+     "title": "§8 反模式（看到就该打回）",
+     "summary": "1. 双震：系统控件已给触觉，自己又加一次。",
+     "line": 432,
+     "chars": 847
+    },
+    {
+     "id": "9-自检清单-交付前逐条打勾-20-条",
+     "level": 2,
+     "title": "§9 自检清单（交付前逐条打勾，20 条）",
+     "summary": "1. 每个非视觉反馈都能回答「它替代了用户哪个动作」吗？",
+     "line": 457,
+     "chars": 802
+    },
+    {
+     "id": "10-场景速查",
+     "level": 2,
+     "title": "§10 场景速查",
+     "summary": "---",
+     "line": 482,
+     "chars": 480
+    },
+    {
+     "id": "11-可执行校验-以下代码已实跑通过",
+     "level": 2,
+     "title": "§11 可执行校验（以下代码已实跑通过）",
+     "summary": "用法：python -I -X utf8 shfcheck.py。它做三件事：校验振动模式是否越过 W3C/Android 的硬边界、校验 Android 振幅合法性、校验 §6 配方表是否自相矛盾。",
+     "line": 499,
+     "chars": 6274
+    },
+    {
+     "id": "12-精确值总表-按来源分级",
+     "level": 2,
+     "title": "§12 精确值总表（按来源分级）",
+     "summary": "搜索实测：earcon 全站 38 个仓库；\"web audio\" 11,187 个仓库但前 10 全是音乐/DSP，没有 UI 反馈库。",
+     "line": 675,
+     "chars": 1
+    },
+    {
+     "id": "12-1-规范-平台原文-可直接引",
+     "level": 3,
+     "title": "12.1 规范/平台原文（可直接引）",
+     "summary": "",
+     "line": 677,
+     "chars": 1933
+    },
+    {
+     "id": "12-2-本技能裁决-可校准-非官方",
+     "level": 3,
+     "title": "12.2 本技能裁决（可校准，非官方）",
+     "summary": "",
+     "line": 710,
+     "chars": 437
+    },
+    {
+     "id": "12-3-生态实测-github-api-2026-11-14-快照",
+     "level": 3,
+     "title": "12.3 生态实测（GitHub API，2026-11-14 快照）",
+     "summary": "搜索实测：earcon 全站 38 个仓库；\"web audio\" 11,187 个仓库但前 10 全是音乐/DSP，没有 UI 反馈库。",
+     "line": 725,
+     "chars": 561
+    },
+    {
+     "id": "13-取源限制-本轮抓取实况-如实登记",
+     "level": 2,
+     "title": "§13 取源限制（本轮抓取实况，如实登记）",
+     "summary": "1. developer.android.com 直连 webfetch 失败（任意 URL 均 TypeError: fetch failed）；本轮改经 https://www.w3.org/services/html2txt?url=",
+     "line": 742,
+     "chars": 2363
+    },
+    {
+     "id": "14-与既有资产的分工",
+     "level": 2,
+     "title": "§14 与既有资产的分工",
+     "summary": "下轮候选（按缺口与可取证性排序）：",
+     "line": 765,
+     "chars": 1040
+    },
+    {
+     "id": "附-一句话总结",
+     "level": 2,
+     "title": "附：一句话总结",
+     "summary": "先问「看不看得到」，再问「来不来得及」，最后才问「响不响、震不震」；响和震都必须能被关掉，而且关掉之后用户一点信息都不该少。",
+     "line": 785,
+     "chars": 68
     }
    ]
   },

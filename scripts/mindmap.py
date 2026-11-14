@@ -128,6 +128,9 @@ INTENTS = [
     ("角标 / 红点 / 未读数 / 99+ / 清除", "notifications-messaging.md §9 三态契约 → §9.2 五条硬规则 → §9.3 平台差异"),
     ("免打扰 / 静音时段 / 通知偏好 / 设置页开关", "notifications-messaging.md §10 免打扰与频率预算 → §11 偏好矩阵 → §11.3 pre-permission"),
     ("权限请求 / 拒绝之后 / 重新请求 / 引导去设置", "notifications-messaging.md §6 三平台权限四种失败模式 → §7 三态分流与 provisional"),
+    ("要不要加音效 / 震动 / 触觉反馈", "sound-haptics-feedback.md §1 五问判层 → §1.2 判层表 12 场景 → §1.3 四条拒绝条件 → §2 三通道分工"),
+    ("触觉常量 / 震动时长 / 振幅 / UIFeedbackGenerator", "sound-haptics-feedback.md §3 三平台语义表 → §4 精确值 → §4.5 跨端映射 → §11 校验器"),
+    ("提示音 / earcon / 静音开关 / autoplay / 声音可访问性", "sound-haptics-feedback.md §5 音频类别与 autoplay → §5.6 earcon 句法 → §7 WCAG 1.4.2 / 1.4.7 → §9 自检"),
 
 ]
 

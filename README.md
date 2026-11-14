@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v42-1677ff)
-![assets](https://img.shields.io/badge/reference_files-47-2ea44f)
+![version](https://img.shields.io/badge/version-v43-1677ff)
+![assets](https://img.shields.io/badge/reference_files-48-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-13-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-14-6e7781)
 
 ---
 
@@ -42,8 +42,9 @@
 | **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
 | **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
 | **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 44 项自检 |
-| **知识找不到** | 47 份参考、134 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 45 项自检 |
+| **知识找不到** | 48 份参考、139 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -52,7 +53,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 173 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 175 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -64,6 +65,7 @@
 | [空状态与零数据位](references/empty-states.md) | 立场三裁决（引导不道歉 / 装饰插画 aria-hidden / 失败态≠缺省态·禁止伪装）/ 结构五件套一手解剖（Ant colorTextDescription · PRESENTED_IMAGE_SIMPLE·DEFAULT · margin 8·16·32 · footer action slot；Atlassian Anatomy wide 464 / narrow 304 / h600 / CTA imperative verbs / 装饰图 alt 规则）/ 五种空态判型器 / 中英抄写矩阵 8 类可抄 / 装饰插画取舍与无障碍清单 / 零数据位 starter content 四模式 / 单主行动 CTA 纪律 / 失败态≠缺省态 / 首次操作率度量 / 移动端小程序 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑） | 规则型 | 2026-11-13 |
 | [定价页与结账流程](references/pricing-checkout.md) | 立场三铁律（总价先行 / 结账是承诺不是表单 / 同一进程不重复索要）/ 判层六问 / 四种定价页构型与尺寸（卡内边距 32px · 价格 40–48px · 货币符号 0.5em 上移 0.13em · tabular-nums）/ 划线价合规（FTC 16 CFR 464 total price 逐字 + clear and conspicuous 八款 + 实际只覆盖票务与短租）/ 月年切换器 / 结账三型 / GOV.UK check answers 七条（two-thirds · Change 带 visually-hidden · 返回必预填 · Not provided）/ 13 字段 autocomplete token 表 / SC 1.3.5 AA · 3.3.7 A · 3.3.4 AA 三条款合取 / Apple Pay 标记规范（仅白色描边版 · 清space 1/4 · 不与其它按钮共享边框）/ 费用三级披露与一致性 / role=status 金额播报 / 移动端 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）/ 8 条取源限制 | 规则型 | — |
 | [通知与消息触达](references/notifications-messaging.md) | 立场三裁决（通道归属先于内容 / 权限按功能时机且拒绝后给恢复路径 / 可关性一等验收）/ 六段链路判层表 / 三平台通道矩阵与中断级别（iOS interruptionLevel 四级 + HIG 能力表 · Android 五级 importance 创建后不可改 + MIN/NONE 官方矛盾声明 · Web Push 五件套）/ POST_NOTIFICATIONS 四个坑 / 消息中心三件套与未读口径 / 角标三态与 setNumber 建议语义 / 免打扰跨午夜 / 偏好页开关即时生效 / 交易与营销邮件判定（15 U.S.C. §7702 + 16 CFR §316.3(b)）/ 一键退订三协议细节（RFC 8058）/ SC 4.1.3 与 2.2.1 六项口径 / 12 场景 / 20 反模式 / 20 自检 / 5 段可跑代码（严格 5/5 rc=0）/ 取源限制 14 条 | 规则型 | 2026-11-13 |
+| [声音与触觉反馈](references/sound-haptics-feedback.md) | 立场「视觉是默认项，声音与触觉是例外项：先答它替代了用户哪个动作」/ 五问判层（看屏 · 时压 ≤1s · 高频 · 系统语义 · 已关闭）+ 12 场景判层表 + 四条拒绝 / 三通道分工 / iOS 三类 UIFeedbackGenerator · Android 21 个公开 HapticFeedbackConstants（20 行表 + KEYBOARD_PRESS 同值别名，含 API level）· watchOS 九种 WKHapticType / 振幅 1–255 与 DEFAULT_AMPLITUDE=-1 · Composition 原语常量 1–8（API 30/31）· 官方间隔 50 ms / 强度比 1.4 / 包络 20 ms · AOSP 注释 1 s 与 3 段 · W3C 10 段 / 10000 ms / sticky activation / 静音开关与 AVAudioSession 类别表 / autoplay 三条工程动作 + getAutoplayPolicy / 音频焦点 / earcon 五条音高句法 / 三通道配方 12 行 / WCAG 1.4.2 + 1.4.7 逐字 / 20 反模式 / 20 自检 / 1 段可跑校验器（实跑 PASS）/ 取源限制 17 条 | 规则型 | — |
 | [响应式与断点体系](references/responsive-layout.md) | 六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式 | 规则型 | 2026-11-01 |
 | [版式与网格（Editorial）](references/editorial-layout.md) | 五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检 | 规则型 | 2026-11-01 |
 | [品牌视觉与 Logo 逻辑](references/brand-identity.md) | 四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检 | 规则型 | 2026-11-01 |
@@ -109,12 +111,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  225 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  228 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  44 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关）+ 交付说明三段式
+第 6 步  自检与交付    →  45 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -136,7 +138,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：268 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：269 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
@@ -156,7 +158,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 35 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达）、学习节奏表、173 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 36 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈）、学习节奏表、175 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -327,6 +329,14 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Android · 通知渠道](https://developer.android.com/develop/ui/views/notifications/channels) — 五级 importance 与「创建后不可改」原文
 - [Android 13 · 通知权限](https://developer.android.com/develop/ui/views/notifications/notification-permission) — 四个坑与拒绝后行为
 - [RFC 8058](https://www.rfc-editor.org/rfc/rfc8058) / [RFC 8030](https://www.rfc-editor.org/rfc/rfc8030) — 一键退订头与 TTL 强制
+- [Apple HIG · Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics) — 七条 Best practices / 三类生成器 / watchOS 九种类型原文
+- [Apple HIG · Playing audio](https://developer.apple.com/design/human-interface-guidelines/playing-audio) — 静音开关语义与 AVAudioSession 类别表
+- [Apple HIG · Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) — 声音必须配视觉或 haptics 的三条原文
+- [W3C · Vibration API](https://www.w3.org/TR/vibration/) — 10 段 / 10000 ms / sticky activation 规范
+- [WCAG 2.2 · SC 1.4.2 / 1.4.7](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html) — 3 秒阈值、独立音量控制与 20 dB
+- [Android · Haptics overview](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) — 何时用触觉 / 常量 API level / 用户设置 / 不建议 createOneShot
+- [Android · Haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) — 原语时长 / 包络 20 ms 与 16 点 / 振幅在无支持设备的回退 / 音频焦点与 sonification
+- [AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java) — 21 个公开常量源码注释
 
 ## 目录结构
 
@@ -334,7 +344,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（47 份，见上表）
+├── references/               # 知识库（48 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

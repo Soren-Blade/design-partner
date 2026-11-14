@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-14 17:37 ｜ 50 个文件 · 1959 个章节 · 1,751,027 字符
+> 自动生成于 2026-11-14 18:47 ｜ 51 个文件 · 2039 个章节 · 1,798,400 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -110,6 +110,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 要不要加音效 / 震动 / 触觉反馈 | sound-haptics-feedback.md §1 五问判层 → §1.2 判层表 12 场景 → §1.3 四条拒绝条件 → §2 三通道分工 |
 | 触觉常量 / 震动时长 / 振幅 / UIFeedbackGenerator | sound-haptics-feedback.md §3 三平台语义表 → §4 精确值 → §4.5 跨端映射 → §11 校验器 |
 | 提示音 / earcon / 静音开关 / autoplay / 声音可访问性 | sound-haptics-feedback.md §5 音频类别与 autoplay → §5.6 earcon 句法 → §7 WCAG 1.4.2 / 1.4.7 → §9 自检 |
+| 登录 / 注册 / 认证 / 账号体验 / 密码规则 / 显示密码 / 游客结账 | auth-account-ux.md §1 六问判层（证明身份 vs 建立身份）→ §2 登录表单（autocomplete token / 泛化错误 / 提交态）→ §3 注册四纪律 → §4 反神话表；表单校验归 form-table.md，错误文案归 ux-writing.md |
+| Passkeys / WebAuthn / 通行密钥 / 无密码登录 / 条件式认证 / 指纹登录 | auth-account-ux.md §5 参数表（challenge / rp.id / user.id / residentKey / timeout 300000 ms）→ §5.3 能力三层 → §5.4 四个创建时机 → §5.5 条件式 UI → §5.7 错误映射 |
+| MFA / 2FA / 验证码 / OTP / 找回密码 / 账户恢复 / 会话超时 / 登出 | auth-account-ux.md §6 因素排序与推送数字匹配 → §7 OTP 单框 → §8 恢复与防枚举 → §9 AAL 三档与到期提示 → §10 SC 3.3.8 边界 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -386,26 +389,29 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **一键退订** | 一键退订 · 退订链接 · unsubscribe · CAN-SPAM · 双重确认 · double opt-in · 营销同意 · 退订率 · 邮件合规 |
 | **推送授权** | 推送授权 · 通知权限 · 权限弹窗 · 临时授权 · provisional · pre-permission · 拒绝后 · 二次请求 · 授权引导页 · 被拒兜底 |
 | **声音反馈** | 声音反馈 · 音效 · 提示音 · earcon · 触觉反馈 · 震动 · 振动 · haptic · Vibration API · 静音开关 · autoplay |
+| **登录与注册** | 登录 · 登录流程 · 注册页 · 注册流程 · 建账号 · 开户 · 认证 · 身份验证 · 账户 · 忘记密码 · 找回密码 |
+| **Passkey 与无密码登录** | Passkey · passkeys · 通行密钥 · 密钥登录 · WebAuthn · 无密码 · 免密码 · 生物识别登录 · 指纹登录 · 面容登录 · 硬件密钥 · 安全密钥 |
+| **多因素与验证码** | MFA · 2FA · 多因素 · 双因素认证 · 二次验证 · 两步验证 · 验证码 · OTP · TOTP · 动态口令 · 短信验证 · 恢复码 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1038 行 · 快照 — · 12 节_
+_1046 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L134` — 资产已 48 份参考、约 139 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L136` — 资产已 48 份参考、约 139 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L149`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L389` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L404` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L430` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L461` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L910` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L994` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1007` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1014` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1030` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L137` — 资产已 49 份参考、约 142 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L139` — 资产已 49 份参考、约 142 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L152`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L395` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L410` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L436` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L467` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L916` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1002` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1015` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1022` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1038` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -533,6 +539,87 @@ _790 行 · 快照 2026-11-06 · 61 节_
   - **21.5 元数据存活检查（导出 → 压缩 → CDN 后抽检）** `L708`
   - **21.6 AI 输出 eval 清单（YAML，换模型快照时全量跑）** `L734` — ---
 - **22. 数据来源（全部官方原文 / 上游源码 / API 实测）** `L761` — 法规与官方解读
+
+### `references/auth-account-ux.md` · 认证与账户体验（Authentication & Account UX）
+_826 行 · 快照 — · 77 节_
+
+- **§0 立场与三条裁决** `L9` — 立场：认证界面的目标不是「把人挡住」，而是「让本人进来得足够快，让冒充者进来得足够难，并且两条路都不能把人锁死」。凡是只优化前者的设计，最后都在客服工单里偿还。
+  - **裁决一：先判「这一步是证明身份，还是建立身份」** `L13` — WCAG 2.2 SC 3.3.8 的原文范围写死了：
+  - **裁决二：密码的现行共识已经整体反转，旧规则多半是伤害可用性且没有安全收益的仪式** `L28` — NIST SP 800-63B-4（2025-08-26 发布，替代 63B-3）与 OWASP ASVS 5.0 同时把「复杂度、轮换、提示问题、邮箱当因素」判为负资产。凡是「看起来更安全」的旧规则，先当作需要举证的嫌疑项（详见 §4 反
+  - **裁决三：Passkeys 是默认推荐路径，不是可选装饰；创建时机在「账号已验证之后」** `L32` — web.dev 的注册指南把前置条件写得很直白：
+- **§1 判层：六问决定你该改哪一层** `L43` — 按顺序问，任一问答完就停，不要六问全做。
+  - **§1.1 十二场景判层表** `L56`
+  - **§1.2 与既有资产的边界** `L73` — ---
+- **§2 登录界面解剖（证明身份层）** `L86` — 登录界面只该有两件事：一个标识符、一个秘密。每多一道必填就多一次放弃机会。
+  - **§2.1 最小字段集与标记** `L88` — 登录界面只该有两件事：一个标识符、一个秘密。每多一道必填就多一次放弃机会。
+  - **§2.2 autocomplete token 表（MDN 逐字）** `L102` — 三条硬纪律：
+  - **§2.3 显示密码：默认遮挡 + 显式切换** `L121` — NN/g 有一处代际差，必须原文对照着读：
+  - **§2.4 粘贴、密码管理器与键盘** `L131`
+  - **§2.5 错误提示：泛化是安全要求，不是冷漠** `L141` — OWASP Authentication Cheat Sheet 原文：
+  - **§2.6 提交态与防重复** `L157` — - 提交后按钮进入 disabled + 文案变「正在登录…」，但不要把整个表单 pointer-events:none（读屏用户会失去焦点）。
+- **§3 注册与账号创建（建立身份层）** `L165` — NN/g 转述 NordiCHI 2014 的研究："entering a password character on mobile takes almost twice as much time than on the desktop, 
+  - **§3.1 输入成本是设计的起点** `L167` — NN/g 转述 NordiCHI 2014 的研究："entering a password character on mobile takes almost twice as much time than on the desktop, 
+  - **§3.2 游客优先，账号后置** `L173` — Baymard 的弃购原因分布（美国网购用户、自报、多选、剔除「只是逛逛」）里：
+  - **§3.3 密码规则：常驻可见 + 实时强度** `L183` — NN/g："State the password requirements, and make sure that the user can see them the entire time that the field is select
+  - **§3.4 不要重复字段** `L189` — NN/g："Do not repeat fields (e.g., two password fields, two email fields). Typing passwords is painful enough; typing the
+  - **§3.5 邮箱验证：链接可以，阻断不行** `L195` — NN/g 2017 建议"不要用邮件确认注册"，改短信码（"If you must confirm credentials, do so by sending users a code in a text message instead o
+  - **§3.6 不暴露账号是否存在** `L205` — 注册成功提示按 OWASP 模板："A link to activate your account has been emailed to the address provided."
+  - **§3.7 第三方登录与账号合并** `L212` — - 社交按钮与邮箱登录同尺寸、同视觉权重（Google 原文："should be displayed at least as prominently as other third party sign-in options"）。
+- **§4 密码策略反神话表（把「听起来安全」逐条对到原文）** `L220` — 强度口径（OWASP，比 NIST 更宽松，写清来源即可）：有 MFA 时 <8 字符算弱；无 MFA 时 <15 字符算弱；最大长度至少 64 以容纳 passphrase；无组合规则；避免周期改密。
+  - **§4.1 限速与锁定** `L241` — - NIST：单个账户对单个认证器的连续失败上限 100 次后禁用（这是上限，可更严）。
+- **§5 Passkeys / WebAuthn（首选路径）** `L250` — passkey 是存在认证器里的密钥对：私钥不出设备，公钥存服务端；登录时服务端发随机 challenge，设备用私钥签名。三个直接后果：
+  - **§5.1 它解决的是什么** `L252` — passkey 是存在认证器里的密钥对：私钥不出设备，公钥存服务端；登录时服务端发随机 challenge，设备用私钥签名。三个直接后果：
+  - **§5.2 参数表（W3C WebAuthn L3 实测）** `L260` — pubKeyCredParams 至少给 -7（ES256）与 -257（RS256），顺序按服务端偏好。
+  - **§5.3 能力检测：三层，不要靠 UA 字符串** `L276` — getClientCapabilities() 返回的枚举里与本主题相关的有：conditionalCreate、conditionalGet、hybridTransport、passkeyPlatformAuthenticator、sig
+  - **§5.4 创建时机：四个，且都要「账号已验证」** `L293` — web.dev 列出的四个时机：
+  - **§5.5 登录：条件式 UI（conditional mediation）** `L310` — 这是 passkey 体验的分水岭：passkey 出现在用户名输入框的自动填充里，而不是一个独立按钮。
+  - **§5.6 跨设备（hybrid）：交给浏览器，不要自己画二维码** `L335` — hybridTransport 能力存在时，桌面端发起登录，浏览器会给出「用另一台设备」的二维码/邻近流程。站点只需要：文案写「用手机扫描」，以及在用户选了「另一台设备」后不要中途跳页（跳页会中断 ceremony）。
+  - **§5.7 错误映射：哪些该说、哪些该吞** `L339` — web.dev 对 InvalidStateError 的原话值得抄进评审意见："A passkey already exists on the device. No error dialog will be shown to the us
+  - **§5.8 凭证管理页** `L352` — - 列出每一把 passkey：设备名 / 创建时间 / 最后使用（若可测）。
+- **§6 第二因素的选择与编排** `L361` — passkey ≈ 硬件密钥 平台生物识别 TOTP 推送确认 短信 OTP 邮件（不可用作因素）。
+  - **§6.1 因素强度排序（同强度下按体验排）** `L363` — passkey ≈ 硬件密钥 平台生物识别 TOTP 推送确认 短信 OTP 邮件（不可用作因素）。
+  - **§6.2 步骤数与节奏** `L369` — - 两个因素足够；三步以上必须有强理由（如 AAL3 的硬件 + 生物识别）。
+  - **§6.3 TOTP** `L375` — - 6 位数字，30 秒窗口，服务端容忍前后各 1 个窗口（时钟偏差）。
+  - **§6.4 推送确认与 MFA 疲劳** `L381` — - 推送确认必须带数字匹配（登录页显示两位数字，用户在手机上选同样的数字）或上下文（地点/设备）。只有「批准/拒绝」两个按钮的推送，已经是公开的钓鱼手法。
+  - **§6.5 恢复码** `L387` — - 熵 ≥64 bits（NIST §4.2.1.1），一次性，用后作废并提示重新生成。
+  - **§6.6 绑定多个因素时的顺序** `L393` — 先绑强因素，再绑弱因素；每一步都要能「跳过并稍后」。不要把「绑定手机号」写成不可跳过的强制项，除非业务确实需要（如金融 KYC）。
+- **§7 一次性口令的单框** `L399` — 六个独立输入框在粘贴、读屏、退格、自动填充上全部是坑：用户粘贴 6 位会只进第一格；读屏会把 6 个框读成 6 个字段；autocomplete="one-time-code" 在 iOS 上只对单框可靠。
+  - **§7.1 单框，不是六个框** `L401` — 六个独立输入框在粘贴、读屏、退格、自动填充上全部是坑：用户粘贴 6 位会只进第一格；读屏会把 6 个框读成 6 个字段；autocomplete="one-time-code" 在 iOS 上只对单框可靠。
+  - **§7.2 行为** `L414`
+  - **§7.3 无障碍红线** `L425` — - 不要要求「输入第 1、3、5 位」——WCAG 明确把按位输入列为失败。
+- **§8 账户恢复** `L433` — - 入口固定在登录表单密码框下方，文案「忘记密码？」。
+  - **§8.1 忘记密码** `L435` — - 入口固定在登录表单密码框下方，文案「忘记密码？」。
+  - **§8.2 恢复不得绕过 MFA** `L442` — ASVS 6.4.3 的要求：重置流程不得成为绕过 MFA 的后门。做法：重置成功后仍要求第二因素，或强制踢出全部会话并要求重新登录。
+  - **§8.3 magic link** `L446` — 邮箱链接登录（G218）是最省认知的路径之一：一次性、短有效期、点击即登录。风险是邮件被转发/被扫；对策是「链接一次性 + 绑定设备指纹可选项 + 登录后提示最近登录」。
+  - **§8.4 没有邮箱、没有旧手机** `L450` — 必须留一条人工兜底：客服身份核验（订单号、注册时间、支付凭证），并给延迟生效（如 24 小时后才能改绑），防止社工即时接管。这条路径的界面要写清「需要多久」，不要让用户以为提交就生效。
+  - **§8.5 恢复后的清理动作** `L454` — 改密/恢复成功后必须：撤销所有其他会话、通知用户、展示「最近登录设备」并要求确认。这三件事比「密码强度提示」更能降低二次损失。
+- **§9 会话、超时与登出** `L460` — 界面义务（NIST §8 可用性）：空闲超时前 2 分钟提示；固定超时前提示保存草稿；给出「继续使用」的延长按钮。静默踢回登录页并丢失已填内容是常见事故。
+  - **§9.1 会话时长（NIST 800-63B-4）** `L462` — 界面义务（NIST §8 可用性）：空闲超时前 2 分钟提示；固定超时前提示保存草稿；给出「继续使用」的延长按钮。静默踢回登录页并丢失已填内容是常见事故。
+  - **§9.2 「记住我」到底记什么** `L472` — 文案要写后果（「在这台设备上保持登录 30 天」），不要只写「记住我」。
+  - **§9.3 多设备与全局登出** `L482` — - 设置页给「登录设备」列表：设备名、地点、最后活跃、当前设备标记。
+  - **§9.4 前端会话状态** `L488` — - 过期时间以服务端为准，前端不要自己算「还剩多久」然后放行。
+- **§10 无障碍与合规（这一节决定「能不能用」）** `L496` — "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authe
+  - **§10.1 SC 3.3.8（AA）原文与四个例外** `L498` — "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authe
+  - **§10.2 明确失败清单（评审直接打回）** `L513`
+  - **§10.3 范围与多步** `L527` — - 只覆盖已有用户认证，不覆盖建账号（§0 裁决一）。
+  - **§10.4 SC 3.3.9（AAA）差异** `L534` — 同一段要求，但只剩 Alternative 与 Mechanism 两个例外：不能再用「选图片」「选自己上传过的内容」过关。做政务/金融/医疗等可能被要求 AAA 的项目时，直接按 3.3.9 设计。
+  - **§10.5 与 1.3.5 的联动** `L538` — 有效的 autocomplete token 同时满足 SC 1.3.5 Identify Input Purpose（AA）；编造 token 同时违反两者。这是「一次做对、两条过」的少数例子。
+  - **§10.6 NIST §8 的可用性硬指标** `L542`
+  - **§10.7 读屏与焦点** `L554` — - 错误摘要用 role="alert"（或 role="status" + 手动聚焦），提交后把焦点移到摘要，不要只播报。
+- **§11 安全与体验的冲突裁决表** `L563` — ---
+- **§12 第三方登录的数值** `L578` — 规则原文："Prominently display a Sign in with Apple button."；"Make a Sign in with Apple button no smaller than other sign-in 
+  - **§12.1 Apple「Sign in with Apple」** `L580` — 规则原文："Prominently display a Sign in with Apple button."；"Make a Sign in with Apple button no smaller than other sign-in 
+  - **§12.2 Google「Sign in with Google」** `L593` — - 字体：Google Sans Medium，14/20。
+- **§13 场景速查表** `L610` — ---
+- **§14 反模式 20 条** `L629` — 1. 注册第一步就弹「创建 passkey」。
+- **§15 自检 20 条** `L654` — 1. 登录页是否只有 identifier + password 两个字段？
+- **§16 可抄代码** `L679` — html
+  - **§16.1 登录表单骨架（HTML）** `L681`
+  - **§16.2 条件式 passkey（JS）** `L704`
+  - **§16.3 OTP 单框（JS）** `L733`
+  - **§16.4 Python 静态校验器（实跑口径）** `L743` — 实跑结果见 §18。
+- **§17 取源限制** `L795` — 1. NIST 800-63B-4 的整页 sp800-63b.html 在抓取时截断于 §3.1.7，改按分页（authenticators / events / session / security / customer / passw
+- **§18 实跑记录** `L815` — （脚本以 §16.4 为准；上表为 2026-11-14 在本机 Python 3.13 的实跑输出。）
 
 ### `references/brand-identity.md` · 品牌视觉与 Logo 逻辑（Brand Identity）
 _694 行 · 快照 2026-11-01 · 60 节_
@@ -1479,7 +1566,7 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_739 行 · 快照 2026-11-05 · 65 节_
+_748 行 · 快照 2026-11-05 · 66 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1545,7 +1632,8 @@ _739 行 · 快照 2026-11-05 · 65 节_
   - **支线 AH · 定价页与结账流程（把"敢不敢付"翻译成总价锁定与承诺闸门的完成路径）** `L566` — - 这是什么（链路的内容端）：与表单与表格（form-table：字段/校验/错误文案）、可访问性（accessibility：SC 阈值与焦点）、设计伦理（design-ethics-inclusion：附加费 sneaking）、反馈与
   - **支线 AI · 通知与消息触达（把「该不该发」翻译成六段链路与三平台验收的完成路径）** `L576` — - 这是什么（链路的内容端）：与反馈五层（feedback-states：L0–L4 时效与 role="status"）、文案体例（ux-writing §7.3：in-app 右上角通知的标题/正文/按钮）、首启权限（onboardin
   - **支线 AJ · 声音与触觉反馈（把「要不要响一下」判成通道、时长与强度的完成路径）** `L586` — - 这是什么（反馈通道侧）：与视觉反馈五层（feedback-states）、动效节奏（motion-system）、无障碍总则（accessibility）、通知触达（notifications-messaging）相邻但问题不同——它们
-- **能力自测（175 条，做到 ≥110 条即达 L2+）** `L596` — L0
+  - **支线 AK · 认证与账户体验（把「怎么证明是我」判成路径、失败出口与会话档位）** `L596` — - 这是什么（身份链路侧）：与 form-table、ux-writing、onboarding-first-run、accessibility 相邻但问题不同——它们分别管「字段怎么验」「错误怎么说」「第一次怎么走」「整体达标吗」；本支线
+- **能力自测（177 条，做到 ≥110 条即达 L2+）** `L605` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2504,7 +2592,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_766 行 · 快照 — · 43 节_
+_800 行 · 快照 — · 45 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2549,6 +2637,8 @@ _766 行 · 快照 — · 43 节_
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** `L718` — - 本轮性质：v39→v40 补齐「决定买之后」这条链路——价格怎么呈现、钱怎么付出去。触发时工作区为 #35 定稿的干净基线 HEAD cff6d94（v39 / 45 参考 / 1,260,776 字符 / 217 路由 / 42 自检
 - **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** `L734` — - 本轮性质：v40→v41 维护轮，不新增参考资产。用户指令「整理之前的升级结果并复测、优化」。触发时基线为 #36 定稿 HEAD 15b75b3（v40 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 
 - **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** `L753` — - 本轮性质：v41→v42 补齐新资产轮。触发时基线 HEAD 1055da1（v41 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 / 260 组 2,142 词 / 34 支线 · 171 自测 / 
+- **2026-11-14 · 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43）** `L768` — - 本轮性质：v42→v43 新资产轮（定时会话 10:24 中断后重入收口）。今日 09:00 的定时会话已完成 取源→蒸馏→接线，但未提交、未写日志、临时目录残留；本会话 17:30 重入，补验证、补日志、补发布，不重做蒸馏。触发时基线
+- **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** `L785` — - 本轮性质：v43→v44 新资产轮（同一天第二次升级，上午 #39 已收口）。触发时基线 HEAD 1cf1688（v43 / 48 参考 / 1,389,731 字符 / 228 路由 / 45 自检 / 269 组 2,232 词 
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -2918,6 +3008,8 @@ _766 行 · 快照 — · 43 节_
 - **2026-11-13 · 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers）** → `memory/design-log.md` L718
 - **2026-11-13 · 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41）** → `memory/design-log.md` L734
 - **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** → `memory/design-log.md` L753
+- **2026-11-14 · 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43）** → `memory/design-log.md` L768
+- **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** → `memory/design-log.md` L785
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3194,15 +3286,18 @@ _766 行 · 快照 — · 43 节_
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
 - **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/sound-haptics-feedback.md` L9
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
+- **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
 - **§1 判层：先判「要不要」，再判「哪一种」** → `references/sound-haptics-feedback.md` L23
+- **§1 判层：六问决定你该改哪一层** → `references/auth-account-ux.md` L43
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
+- **§10 无障碍与合规（这一节决定「能不能用」）** → `references/auth-account-ux.md` L496
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
@@ -3210,6 +3305,7 @@ _766 行 · 快照 — · 43 节_
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
 - **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
+- **§11 安全与体验的冲突裁决表** → `references/auth-account-ux.md` L563
 - **§11 承诺闸门：SC 3.3.4（Level AA）** → `references/pricing-checkout.md` L257
 - **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
@@ -3217,15 +3313,18 @@ _766 行 · 快照 — · 43 节_
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
+- **§12 第三方登录的数值** → `references/auth-account-ux.md` L578
 - **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
 - **§13 信任与社会证明** → `references/pricing-checkout.md` L285
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 反模式 20 条** → `references/empty-states.md` L208
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
+- **§13 场景速查表** → `references/auth-account-ux.md` L610
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
+- **§14 反模式 20 条** → `references/auth-account-ux.md` L629
 - **§14 可抄代码** → `references/feedback-states.md` L485
 - **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
@@ -3235,15 +3334,19 @@ _766 行 · 快照 — · 43 节_
 - **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
 - **§15 工具与库（2026-11-01 GitHub API 实测）** → `references/feedback-states.md` L573
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
+- **§15 自检 20 条** → `references/auth-account-ux.md` L654
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
+- **§16 可抄代码** → `references/auth-account-ux.md` L679
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
 - **§16 来源与取源限制** → `references/empty-states.md` L315
 - **§16 自检清单（20 条）** → `references/pricing-checkout.md` L325
 - **§17 上线前自检：25 条（按可判定性排序）** → `references/accessibility.md` L607
 - **§17 反模式（20 条，逐条对照）** → `references/editorial-layout.md` L621
+- **§17 取源限制** → `references/auth-account-ux.md` L795
 - **§17 可抄代码（5 段，均可在标准库下直接跑）** → `references/pricing-checkout.md` L348
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
 - **§18 取源限制（公开记录，不臆造）** → `references/pricing-checkout.md` L553
+- **§18 实跑记录** → `references/auth-account-ux.md` L815
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
@@ -3252,20 +3355,24 @@ _766 行 · 快照 — · 43 节_
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
+- **§2 登录界面解剖（证明身份层）** → `references/auth-account-ux.md` L86
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
 - **§20 与其他文件的分工** → `references/editorial-layout.md` L756
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
+- **§3 注册与账号创建（建立身份层）** → `references/auth-account-ux.md` L165
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
 - **§3 触觉的语义层：能借系统常量就别自造** → `references/sound-haptics-feedback.md` L78
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
+- **§4 密码策略反神话表（把「听起来安全」逐条对到原文）** → `references/auth-account-ux.md` L220
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
+- **§5 Passkeys / WebAuthn（首选路径）** → `references/auth-account-ux.md` L250
 - **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
@@ -3276,8 +3383,10 @@ _766 行 · 快照 — · 43 节_
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
+- **§6 第二因素的选择与编排** → `references/auth-account-ux.md` L361
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
+- **§7 一次性口令的单框** → `references/auth-account-ux.md` L399
 - **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
@@ -3290,6 +3399,8 @@ _766 行 · 快照 — · 43 节_
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
+- **§8 账户恢复** → `references/auth-account-ux.md` L433
+- **§9 会话、超时与登出** → `references/auth-account-ux.md` L460
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
@@ -3386,7 +3497,7 @@ _766 行 · 快照 — · 43 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L134
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L137
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3396,12 +3507,12 @@ _766 行 · 快照 — · 43 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（175 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L596
-- **自我成长机制（用得越多越准）** → `SKILL.md` L994
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1007
+- **能力自测（177 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L605
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1002
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1015
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1030
+- **边界与习惯** → `SKILL.md` L1038
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

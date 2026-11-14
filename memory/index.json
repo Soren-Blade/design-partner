@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-14T17:40:44",
+ "generated": "2026-11-14T18:47:25",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1038,
-   "chars": 209814,
+   "lines": 1046,
+   "chars": 215506,
    "sections": []
   },
   {
@@ -976,6 +976,631 @@
      "summary": "法规与官方解读",
      "line": 761,
      "chars": 2905
+    }
+   ]
+  },
+  {
+   "path": "references/auth-account-ux.md",
+   "title": "认证与账户体验（Authentication & Account UX）",
+   "snapshot": "—",
+   "lines": 826,
+   "chars": 30032,
+   "sections": [
+    {
+     "id": "0-立场与三条裁决",
+     "level": 2,
+     "title": "§0 立场与三条裁决",
+     "summary": "立场：认证界面的目标不是「把人挡住」，而是「让本人进来得足够快，让冒充者进来得足够难，并且两条路都不能把人锁死」。凡是只优化前者的设计，最后都在客服工单里偿还。",
+     "line": 9,
+     "chars": 87
+    },
+    {
+     "id": "裁决一-先判-这一步是证明身份-还是建立身份",
+     "level": 3,
+     "title": "裁决一：先判「这一步是证明身份，还是建立身份」",
+     "summary": "WCAG 2.2 SC 3.3.8 的原文范围写死了：",
+     "line": 13,
+     "chars": 474
+    },
+    {
+     "id": "裁决二-密码的现行共识已经整体反转-旧规则多半是伤害可用性且没有安全收益的仪式",
+     "level": 3,
+     "title": "裁决二：密码的现行共识已经整体反转，旧规则多半是伤害可用性且没有安全收益的仪式",
+     "summary": "NIST SP 800-63B-4（2025-08-26 发布，替代 63B-3）与 OWASP ASVS 5.0 同时把「复杂度、轮换、提示问题、邮箱当因素」判为负资产。凡是「看起来更安全」的旧规则，先当作需要举证的嫌疑项（详见 §4 反",
+     "line": 28,
+     "chars": 132
+    },
+    {
+     "id": "裁决三-passkeys-是默认推荐路径-不是可选装饰-创建时机在-账号已验证之后",
+     "level": 3,
+     "title": "裁决三：Passkeys 是默认推荐路径，不是可选装饰；创建时机在「账号已验证之后」",
+     "summary": "web.dev 的注册指南把前置条件写得很直白：",
+     "line": 32,
+     "chars": 411
+    },
+    {
+     "id": "1-判层-六问决定你该改哪一层",
+     "level": 2,
+     "title": "§1 判层：六问决定你该改哪一层",
+     "summary": "按顺序问，任一问答完就停，不要六问全做。",
+     "line": 43,
+     "chars": 599
+    },
+    {
+     "id": "1-1-十二场景判层表",
+     "level": 3,
+     "title": "§1.1 十二场景判层表",
+     "summary": "",
+     "line": 56,
+     "chars": 698
+    },
+    {
+     "id": "1-2-与既有资产的边界",
+     "level": 3,
+     "title": "§1.2 与既有资产的边界",
+     "summary": "---",
+     "line": 73,
+     "chars": 383
+    },
+    {
+     "id": "2-登录界面解剖-证明身份层",
+     "level": 2,
+     "title": "§2 登录界面解剖（证明身份层）",
+     "summary": "登录界面只该有两件事：一个标识符、一个秘密。每多一道必填就多一次放弃机会。",
+     "line": 86,
+     "chars": 1
+    },
+    {
+     "id": "2-1-最小字段集与标记",
+     "level": 3,
+     "title": "§2.1 最小字段集与标记",
+     "summary": "登录界面只该有两件事：一个标识符、一个秘密。每多一道必填就多一次放弃机会。",
+     "line": 88,
+     "chars": 609
+    },
+    {
+     "id": "2-2-autocomplete-token-表-mdn-逐字",
+     "level": 3,
+     "title": "§2.2 autocomplete token 表（MDN 逐字）",
+     "summary": "三条硬纪律：",
+     "line": 102,
+     "chars": 1546
+    },
+    {
+     "id": "2-3-显示密码-默认遮挡-显式切换",
+     "level": 3,
+     "title": "§2.3 显示密码：默认遮挡 + 显式切换",
+     "summary": "NN/g 有一处代际差，必须原文对照着读：",
+     "line": 121,
+     "chars": 498
+    },
+    {
+     "id": "2-4-粘贴-密码管理器与键盘",
+     "level": 3,
+     "title": "§2.4 粘贴、密码管理器与键盘",
+     "summary": "",
+     "line": 131,
+     "chars": 543
+    },
+    {
+     "id": "2-5-错误提示-泛化是安全要求-不是冷漠",
+     "level": 3,
+     "title": "§2.5 错误提示：泛化是安全要求，不是冷漠",
+     "summary": "OWASP Authentication Cheat Sheet 原文：",
+     "line": 141,
+     "chars": 581
+    },
+    {
+     "id": "2-6-提交态与防重复",
+     "level": 3,
+     "title": "§2.6 提交态与防重复",
+     "summary": "- 提交后按钮进入 disabled + 文案变「正在登录…」，但不要把整个表单 pointer-events:none（读屏用户会失去焦点）。",
+     "line": 157,
+     "chars": 308
+    },
+    {
+     "id": "3-注册与账号创建-建立身份层",
+     "level": 2,
+     "title": "§3 注册与账号创建（建立身份层）",
+     "summary": "NN/g 转述 NordiCHI 2014 的研究：\"entering a password character on mobile takes almost twice as much time than on the desktop, ",
+     "line": 165,
+     "chars": 1
+    },
+    {
+     "id": "3-1-输入成本是设计的起点",
+     "level": 3,
+     "title": "§3.1 输入成本是设计的起点",
+     "summary": "NN/g 转述 NordiCHI 2014 的研究：\"entering a password character on mobile takes almost twice as much time than on the desktop, ",
+     "line": 167,
+     "chars": 250
+    },
+    {
+     "id": "3-2-游客优先-账号后置",
+     "level": 3,
+     "title": "§3.2 游客优先，账号后置",
+     "summary": "Baymard 的弃购原因分布（美国网购用户、自报、多选、剔除「只是逛逛」）里：",
+     "line": 173,
+     "chars": 291
+    },
+    {
+     "id": "3-3-密码规则-常驻可见-实时强度",
+     "level": 3,
+     "title": "§3.3 密码规则：常驻可见 + 实时强度",
+     "summary": "NN/g：\"State the password requirements, and make sure that the user can see them the entire time that the field is select",
+     "line": 183,
+     "chars": 286
+    },
+    {
+     "id": "3-4-不要重复字段",
+     "level": 3,
+     "title": "§3.4 不要重复字段",
+     "summary": "NN/g：\"Do not repeat fields (e.g., two password fields, two email fields). Typing passwords is painful enough; typing the",
+     "line": 189,
+     "chars": 240
+    },
+    {
+     "id": "3-5-邮箱验证-链接可以-阻断不行",
+     "level": 3,
+     "title": "§3.5 邮箱验证：链接可以，阻断不行",
+     "summary": "NN/g 2017 建议\"不要用邮件确认注册\"，改短信码（\"If you must confirm credentials, do so by sending users a code in a text message instead o",
+     "line": 195,
+     "chars": 337
+    },
+    {
+     "id": "3-6-不暴露账号是否存在",
+     "level": 3,
+     "title": "§3.6 不暴露账号是否存在",
+     "summary": "注册成功提示按 OWASP 模板：\"A link to activate your account has been emailed to the address provided.\"",
+     "line": 205,
+     "chars": 200
+    },
+    {
+     "id": "3-7-第三方登录与账号合并",
+     "level": 3,
+     "title": "§3.7 第三方登录与账号合并",
+     "summary": "- 社交按钮与邮箱登录同尺寸、同视觉权重（Google 原文：\"should be displayed at least as prominently as other third party sign-in options\"）。",
+     "line": 212,
+     "chars": 258
+    },
+    {
+     "id": "4-密码策略反神话表-把-听起来安全-逐条对到原文",
+     "level": 2,
+     "title": "§4 密码策略反神话表（把「听起来安全」逐条对到原文）",
+     "summary": "强度口径（OWASP，比 NIST 更宽松，写清来源即可）：有 MFA 时 <8 字符算弱；无 MFA 时 <15 字符算弱；最大长度至少 64 以容纳 passphrase；无组合规则；避免周期改密。",
+     "line": 220,
+     "chars": 1176
+    },
+    {
+     "id": "4-1-限速与锁定",
+     "level": 3,
+     "title": "§4.1 限速与锁定",
+     "summary": "- NIST：单个账户对单个认证器的连续失败上限 100 次后禁用（这是上限，可更严）。",
+     "line": 241,
+     "chars": 274
+    },
+    {
+     "id": "5-passkeys-webauthn-首选路径",
+     "level": 2,
+     "title": "§5 Passkeys / WebAuthn（首选路径）",
+     "summary": "passkey 是存在认证器里的密钥对：私钥不出设备，公钥存服务端；登录时服务端发随机 challenge，设备用私钥签名。三个直接后果：",
+     "line": 250,
+     "chars": 1
+    },
+    {
+     "id": "5-1-它解决的是什么",
+     "level": 3,
+     "title": "§5.1 它解决的是什么",
+     "summary": "passkey 是存在认证器里的密钥对：私钥不出设备，公钥存服务端；登录时服务端发随机 challenge，设备用私钥签名。三个直接后果：",
+     "line": 252,
+     "chars": 226
+    },
+    {
+     "id": "5-2-参数表-w3c-webauthn-l3-实测",
+     "level": 3,
+     "title": "§5.2 参数表（W3C WebAuthn L3 实测）",
+     "summary": "pubKeyCredParams 至少给 -7（ES256）与 -257（RS256），顺序按服务端偏好。",
+     "line": 260,
+     "chars": 949
+    },
+    {
+     "id": "5-3-能力检测-三层-不要靠-ua-字符串",
+     "level": 3,
+     "title": "§5.3 能力检测：三层，不要靠 UA 字符串",
+     "summary": "getClientCapabilities() 返回的枚举里与本主题相关的有：conditionalCreate、conditionalGet、hybridTransport、passkeyPlatformAuthenticator、sig",
+     "line": 276,
+     "chars": 232
+    },
+    {
+     "id": "5-4-创建时机-四个-且都要-账号已验证",
+     "level": 3,
+     "title": "§5.4 创建时机：四个，且都要「账号已验证」",
+     "summary": "web.dev 列出的四个时机：",
+     "line": 293,
+     "chars": 331
+    },
+    {
+     "id": "5-5-登录-条件式-ui-conditional-mediation",
+     "level": 3,
+     "title": "§5.5 登录：条件式 UI（conditional mediation）",
+     "summary": "这是 passkey 体验的分水岭：passkey 出现在用户名输入框的自动填充里，而不是一个独立按钮。",
+     "line": 310,
+     "chars": 855
+    },
+    {
+     "id": "5-6-跨设备-hybrid-交给浏览器-不要自己画二维码",
+     "level": 3,
+     "title": "§5.6 跨设备（hybrid）：交给浏览器，不要自己画二维码",
+     "summary": "hybridTransport 能力存在时，桌面端发起登录，浏览器会给出「用另一台设备」的二维码/邻近流程。站点只需要：文案写「用手机扫描」，以及在用户选了「另一台设备」后不要中途跳页（跳页会中断 ceremony）。",
+     "line": 335,
+     "chars": 118
+    },
+    {
+     "id": "5-7-错误映射-哪些该说-哪些该吞",
+     "level": 3,
+     "title": "§5.7 错误映射：哪些该说、哪些该吞",
+     "summary": "web.dev 对 InvalidStateError 的原话值得抄进评审意见：\"A passkey already exists on the device. No error dialog will be shown to the us",
+     "line": 339,
+     "chars": 607
+    },
+    {
+     "id": "5-8-凭证管理页",
+     "level": 3,
+     "title": "§5.8 凭证管理页",
+     "summary": "- 列出每一把 passkey：设备名 / 创建时间 / 最后使用（若可测）。",
+     "line": 352,
+     "chars": 258
+    },
+    {
+     "id": "6-第二因素的选择与编排",
+     "level": 2,
+     "title": "§6 第二因素的选择与编排",
+     "summary": "passkey ≈ 硬件密钥 平台生物识别 TOTP 推送确认 短信 OTP 邮件（不可用作因素）。",
+     "line": 361,
+     "chars": 1
+    },
+    {
+     "id": "6-1-因素强度排序-同强度下按体验排",
+     "level": 3,
+     "title": "§6.1 因素强度排序（同强度下按体验排）",
+     "summary": "passkey ≈ 硬件密钥 平台生物识别 TOTP 推送确认 短信 OTP 邮件（不可用作因素）。",
+     "line": 363,
+     "chars": 190
+    },
+    {
+     "id": "6-2-步骤数与节奏",
+     "level": 3,
+     "title": "§6.2 步骤数与节奏",
+     "summary": "- 两个因素足够；三步以上必须有强理由（如 AAL3 的硬件 + 生物识别）。",
+     "line": 369,
+     "chars": 144
+    },
+    {
+     "id": "6-3-totp",
+     "level": 3,
+     "title": "§6.3 TOTP",
+     "summary": "- 6 位数字，30 秒窗口，服务端容忍前后各 1 个窗口（时钟偏差）。",
+     "line": 375,
+     "chars": 120
+    },
+    {
+     "id": "6-4-推送确认与-mfa-疲劳",
+     "level": 3,
+     "title": "§6.4 推送确认与 MFA 疲劳",
+     "summary": "- 推送确认必须带数字匹配（登录页显示两位数字，用户在手机上选同样的数字）或上下文（地点/设备）。只有「批准/拒绝」两个按钮的推送，已经是公开的钓鱼手法。",
+     "line": 381,
+     "chars": 154
+    },
+    {
+     "id": "6-5-恢复码",
+     "level": 3,
+     "title": "§6.5 恢复码",
+     "summary": "- 熵 ≥64 bits（NIST §4.2.1.1），一次性，用后作废并提示重新生成。",
+     "line": 387,
+     "chars": 132
+    },
+    {
+     "id": "6-6-绑定多个因素时的顺序",
+     "level": 3,
+     "title": "§6.6 绑定多个因素时的顺序",
+     "summary": "先绑强因素，再绑弱因素；每一步都要能「跳过并稍后」。不要把「绑定手机号」写成不可跳过的强制项，除非业务确实需要（如金融 KYC）。",
+     "line": 393,
+     "chars": 73
+    },
+    {
+     "id": "7-一次性口令的单框",
+     "level": 2,
+     "title": "§7 一次性口令的单框",
+     "summary": "六个独立输入框在粘贴、读屏、退格、自动填充上全部是坑：用户粘贴 6 位会只进第一格；读屏会把 6 个框读成 6 个字段；autocomplete=\"one-time-code\" 在 iOS 上只对单框可靠。",
+     "line": 399,
+     "chars": 1
+    },
+    {
+     "id": "7-1-单框-不是六个框",
+     "level": 3,
+     "title": "§7.1 单框，不是六个框",
+     "summary": "六个独立输入框在粘贴、读屏、退格、自动填充上全部是坑：用户粘贴 6 位会只进第一格；读屏会把 6 个框读成 6 个字段；autocomplete=\"one-time-code\" 在 iOS 上只对单框可靠。",
+     "line": 401,
+     "chars": 401
+    },
+    {
+     "id": "7-2-行为",
+     "level": 3,
+     "title": "§7.2 行为",
+     "summary": "",
+     "line": 414,
+     "chars": 307
+    },
+    {
+     "id": "7-3-无障碍红线",
+     "level": 3,
+     "title": "§7.3 无障碍红线",
+     "summary": "- 不要要求「输入第 1、3、5 位」——WCAG 明确把按位输入列为失败。",
+     "line": 425,
+     "chars": 145
+    },
+    {
+     "id": "8-账户恢复",
+     "level": 2,
+     "title": "§8 账户恢复",
+     "summary": "- 入口固定在登录表单密码框下方，文案「忘记密码？」。",
+     "line": 433,
+     "chars": 1
+    },
+    {
+     "id": "8-1-忘记密码",
+     "level": 3,
+     "title": "§8.1 忘记密码",
+     "summary": "- 入口固定在登录表单密码框下方，文案「忘记密码？」。",
+     "line": 435,
+     "chars": 290
+    },
+    {
+     "id": "8-2-恢复不得绕过-mfa",
+     "level": 3,
+     "title": "§8.2 恢复不得绕过 MFA",
+     "summary": "ASVS 6.4.3 的要求：重置流程不得成为绕过 MFA 的后门。做法：重置成功后仍要求第二因素，或强制踢出全部会话并要求重新登录。",
+     "line": 442,
+     "chars": 70
+    },
+    {
+     "id": "8-3-magic-link",
+     "level": 3,
+     "title": "§8.3 magic link",
+     "summary": "邮箱链接登录（G218）是最省认知的路径之一：一次性、短有效期、点击即登录。风险是邮件被转发/被扫；对策是「链接一次性 + 绑定设备指纹可选项 + 登录后提示最近登录」。",
+     "line": 446,
+     "chars": 88
+    },
+    {
+     "id": "8-4-没有邮箱-没有旧手机",
+     "level": 3,
+     "title": "§8.4 没有邮箱、没有旧手机",
+     "summary": "必须留一条人工兜底：客服身份核验（订单号、注册时间、支付凭证），并给延迟生效（如 24 小时后才能改绑），防止社工即时接管。这条路径的界面要写清「需要多久」，不要让用户以为提交就生效。",
+     "line": 450,
+     "chars": 99
+    },
+    {
+     "id": "8-5-恢复后的清理动作",
+     "level": 3,
+     "title": "§8.5 恢复后的清理动作",
+     "summary": "改密/恢复成功后必须：撤销所有其他会话、通知用户、展示「最近登录设备」并要求确认。这三件事比「密码强度提示」更能降低二次损失。",
+     "line": 454,
+     "chars": 71
+    },
+    {
+     "id": "9-会话-超时与登出",
+     "level": 2,
+     "title": "§9 会话、超时与登出",
+     "summary": "界面义务（NIST §8 可用性）：空闲超时前 2 分钟提示；固定超时前提示保存草稿；给出「继续使用」的延长按钮。静默踢回登录页并丢失已填内容是常见事故。",
+     "line": 460,
+     "chars": 1
+    },
+    {
+     "id": "9-1-会话时长-nist-800-63b-4",
+     "level": 3,
+     "title": "§9.1 会话时长（NIST 800-63B-4）",
+     "summary": "界面义务（NIST §8 可用性）：空闲超时前 2 分钟提示；固定超时前提示保存草稿；给出「继续使用」的延长按钮。静默踢回登录页并丢失已填内容是常见事故。",
+     "line": 462,
+     "chars": 239
+    },
+    {
+     "id": "9-2-记住我-到底记什么",
+     "level": 3,
+     "title": "§9.2 「记住我」到底记什么",
+     "summary": "文案要写后果（「在这台设备上保持登录 30 天」），不要只写「记住我」。",
+     "line": 472,
+     "chars": 173
+    },
+    {
+     "id": "9-3-多设备与全局登出",
+     "level": 3,
+     "title": "§9.3 多设备与全局登出",
+     "summary": "- 设置页给「登录设备」列表：设备名、地点、最后活跃、当前设备标记。",
+     "line": 482,
+     "chars": 111
+    },
+    {
+     "id": "9-4-前端会话状态",
+     "level": 3,
+     "title": "§9.4 前端会话状态",
+     "summary": "- 过期时间以服务端为准，前端不要自己算「还剩多久」然后放行。",
+     "line": 488,
+     "chars": 134
+    },
+    {
+     "id": "10-无障碍与合规-这一节决定-能不能用",
+     "level": 2,
+     "title": "§10 无障碍与合规（这一节决定「能不能用」）",
+     "summary": "\"A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authe",
+     "line": 496,
+     "chars": 1
+    },
+    {
+     "id": "10-1-sc-3-3-8-aa-原文与四个例外",
+     "level": 3,
+     "title": "§10.1 SC 3.3.8（AA）原文与四个例外",
+     "summary": "\"A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authe",
+     "line": 498,
+     "chars": 1130
+    },
+    {
+     "id": "10-2-明确失败清单-评审直接打回",
+     "level": 3,
+     "title": "§10.2 明确失败清单（评审直接打回）",
+     "summary": "",
+     "line": 513,
+     "chars": 427
+    },
+    {
+     "id": "10-3-范围与多步",
+     "level": 3,
+     "title": "§10.3 范围与多步",
+     "summary": "- 只覆盖已有用户认证，不覆盖建账号（§0 裁决一）。",
+     "line": 527,
+     "chars": 247
+    },
+    {
+     "id": "10-4-sc-3-3-9-aaa-差异",
+     "level": 3,
+     "title": "§10.4 SC 3.3.9（AAA）差异",
+     "summary": "同一段要求，但只剩 Alternative 与 Mechanism 两个例外：不能再用「选图片」「选自己上传过的内容」过关。做政务/金融/医疗等可能被要求 AAA 的项目时，直接按 3.3.9 设计。",
+     "line": 534,
+     "chars": 103
+    },
+    {
+     "id": "10-5-与-1-3-5-的联动",
+     "level": 3,
+     "title": "§10.5 与 1.3.5 的联动",
+     "summary": "有效的 autocomplete token 同时满足 SC 1.3.5 Identify Input Purpose（AA）；编造 token 同时违反两者。这是「一次做对、两条过」的少数例子。",
+     "line": 538,
+     "chars": 103
+    },
+    {
+     "id": "10-6-nist-8-的可用性硬指标",
+     "level": 3,
+     "title": "§10.6 NIST §8 的可用性硬指标",
+     "summary": "",
+     "line": 542,
+     "chars": 164
+    },
+    {
+     "id": "10-7-读屏与焦点",
+     "level": 3,
+     "title": "§10.7 读屏与焦点",
+     "summary": "- 错误摘要用 role=\"alert\"（或 role=\"status\" + 手动聚焦），提交后把焦点移到摘要，不要只播报。",
+     "line": 554,
+     "chars": 209
+    },
+    {
+     "id": "11-安全与体验的冲突裁决表",
+     "level": 2,
+     "title": "§11 安全与体验的冲突裁决表",
+     "summary": "---",
+     "line": 563,
+     "chars": 490
+    },
+    {
+     "id": "12-第三方登录的数值",
+     "level": 2,
+     "title": "§12 第三方登录的数值",
+     "summary": "规则原文：\"Prominently display a Sign in with Apple button.\"；\"Make a Sign in with Apple button no smaller than other sign-in ",
+     "line": 578,
+     "chars": 1
+    },
+    {
+     "id": "12-1-apple-sign-in-with-apple",
+     "level": 3,
+     "title": "§12.1 Apple「Sign in with Apple」",
+     "summary": "规则原文：\"Prominently display a Sign in with Apple button.\"；\"Make a Sign in with Apple button no smaller than other sign-in ",
+     "line": 580,
+     "chars": 713
+    },
+    {
+     "id": "12-2-google-sign-in-with-google",
+     "level": 3,
+     "title": "§12.2 Google「Sign in with Google」",
+     "summary": "- 字体：Google Sans Medium，14/20。",
+     "line": 593,
+     "chars": 797
+    },
+    {
+     "id": "13-场景速查表",
+     "level": 2,
+     "title": "§13 场景速查表",
+     "summary": "---",
+     "line": 610,
+     "chars": 588
+    },
+    {
+     "id": "14-反模式-20-条",
+     "level": 2,
+     "title": "§14 反模式 20 条",
+     "summary": "1. 注册第一步就弹「创建 passkey」。",
+     "line": 629,
+     "chars": 466
+    },
+    {
+     "id": "15-自检-20-条",
+     "level": 2,
+     "title": "§15 自检 20 条",
+     "summary": "1. 登录页是否只有 identifier + password 两个字段？",
+     "line": 654,
+     "chars": 649
+    },
+    {
+     "id": "16-可抄代码",
+     "level": 2,
+     "title": "§16 可抄代码",
+     "summary": "html",
+     "line": 679,
+     "chars": 1
+    },
+    {
+     "id": "16-1-登录表单骨架-html",
+     "level": 3,
+     "title": "§16.1 登录表单骨架（HTML）",
+     "summary": "",
+     "line": 681,
+     "chars": 1
+    },
+    {
+     "id": "16-2-条件式-passkey-js",
+     "level": 3,
+     "title": "§16.2 条件式 passkey（JS）",
+     "summary": "",
+     "line": 704,
+     "chars": 1
+    },
+    {
+     "id": "16-3-otp-单框-js",
+     "level": 3,
+     "title": "§16.3 OTP 单框（JS）",
+     "summary": "",
+     "line": 733,
+     "chars": 1
+    },
+    {
+     "id": "16-4-python-静态校验器-实跑口径",
+     "level": 3,
+     "title": "§16.4 Python 静态校验器（实跑口径）",
+     "summary": "实跑结果见 §18。",
+     "line": 743,
+     "chars": 18
+    },
+    {
+     "id": "17-取源限制",
+     "level": 2,
+     "title": "§17 取源限制",
+     "summary": "1. NIST 800-63B-4 的整页 sp800-63b.html 在抓取时截断于 §3.1.7，改按分页（authenticators / events / session / security / customer / passw",
+     "line": 795,
+     "chars": 1369
+    },
+    {
+     "id": "18-实跑记录",
+     "level": 2,
+     "title": "§18 实跑记录",
+     "summary": "（脚本以 §16.4 为准；上表为 2026-11-14 在本机 Python 3.13 的实跑输出。）",
+     "line": 815,
+     "chars": 54
     }
    ]
   },
@@ -7983,8 +8608,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 739,
-   "chars": 78748,
+   "lines": 748,
+   "chars": 80245,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8499,11 +9124,19 @@
      "chars": 1503
     },
     {
-     "id": "能力自测-175-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（175 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ak-认证与账户体验-把-怎么证明是我-判成路径-失败出口与会话档位",
+     "level": 3,
+     "title": "支线 AK · 认证与账户体验（把「怎么证明是我」判成路径、失败出口与会话档位）",
+     "summary": "- 这是什么（身份链路侧）：与 form-table、ux-writing、onboarding-first-run、accessibility 相邻但问题不同——它们分别管「字段怎么验」「错误怎么说」「第一次怎么走」「整体达标吗」；本支线",
      "line": 596,
+     "chars": 1452
+    },
+    {
+     "id": "能力自测-177-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（177 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 605,
      "chars": 8677
     }
    ]
@@ -9757,7 +10390,7 @@
    "title": "通知与消息触达（Notifications & Messaging）",
    "snapshot": "2026-11-13",
    "lines": 988,
-   "chars": 48181,
+   "chars": 48183,
    "sections": [
     {
      "id": "0-一句话立场",
@@ -10229,7 +10862,7 @@
      "title": "18.2 双因素认证与安全告警（短信 / 邮件 / 一次性密码）",
      "summary": "- L1：必须发，且只能走短信/邮件这类带外通道（在产品内发验证码等于没有第二因子）。",
      "line": 613,
-     "chars": 243
+     "chars": 245
     },
     {
      "id": "18-3-社交互动-点赞-评论-关注",
@@ -15677,8 +16310,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 766,
-   "chars": 157704,
+   "lines": 800,
+   "chars": 167854,
    "sections": []
   }
  ],

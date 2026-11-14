@@ -34,25 +34,24 @@ ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
 # 新主题门槛：主题词 + 通用跨域词组合，答案应落在 auth-account-ux.md 前 3。
-# #40 换轮：13 条覆盖六问判层 / 登录表单与 autocomplete / 密码反神话与限速 / 注册与游客 /
-# Passkeys 参数与时机 / 条件式认证 / MFA 因素排序 / OTP 单框 / 恢复与防枚举 / 会话 AAL /
-# SC 3.3.8 认知测试 / 注册墙弃购 / 第三方登录按钮，且刻意混入「表单 / 组件 / 性能 / 验收 /
-# 度量 / 品牌」等跨域词（#26 P1 教训）。
-# #39 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #40 沉淀块）。
+# #41 换轮：13 条覆盖五问判层 / SC 2.1.4 三出口 / 平台修饰键与显示格式 / aria-keyshortcuts 与
+# accesskey / key 与 code / 输入法 IME 组字 / 作用域与冲突仲裁 / 命令面板检索与虚拟化 /
+# 帮助面板与发现性 / 保留键与误触，且刻意混入「组件 / 无障碍 / 验收 / 度量 / 性能」等跨域
+# 词（#26 P1 教训）。#40 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #41 沉淀块）。
 NEW_QUERIES = [
-    "登录 注册 认证 账号 体验 表单 组件",
-    "登录页 怎么设计 字段 数量 密码 可见",
-    "密码 规则 长度 组合 字符 周期 改密 依据",
-    "autocomplete username current-password 自动填充 验收",
-    "Passkey WebAuthn 无密码 登录 参数 时机 组件",
-    "条件式 认证 mediation conditional 自动填充 性能",
-    "MFA 2FA 二次验证 因素 排序 推送 数字 匹配",
-    "OTP 验证码 单框 6 个框 自动跳格 粘贴 可用性",
-    "忘记密码 账户恢复 重置 链接 防枚举 文案",
-    "会话 超时 记住我 登出 所有设备 AAL 度量",
-    "SC 3.3.8 认知功能测试 验证码 无障碍 依据",
-    "游客 结账 注册墙 弃购 转化 度量",
-    "第三方登录 按钮 Apple Google 品牌 规范 验收",
+    "快捷键 键位 组合键 冲突 检测 组件",
+    "快捷键 关闭 重映射 字符键 SC 2.1.4 无障碍",
+    "命令面板 搜索 键盘 组件 实现",
+    "aria-keyshortcuts 修饰键 声明 键盘 验收",
+    "key code 键盘布局 输入法 composition",
+    "Command K Ctrl K 平台 显示 格式 差异",
+    "帮助面板 快捷键 列表 发现性 提示",
+    "保留键 浏览器 冲突 优先级 键盘",
+    "chord 序列 多段 按键 超时 设计",
+    "全局 监听 快捷键 作用域 清理 组件",
+    "命令 注册表 过滤 虚拟化 性能 度量",
+    "误触 单字符 快捷键 开关 设置 偏好",
+    "键盘 操作 不用鼠标 完成 任务 可达性",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -247,9 +246,24 @@ HIST_QUERIES = [
     "WCAG 1.4.7 背景音 20dB 前景语音 度量",
     "成功 失败 音效 配对 触觉 一致性 品牌",
     "watchOS WKHapticType 九种 触觉 单击 验收",
+
+    # #41 沉淀：#40（认证与账户体验）的 13 条新主题查询，换轮后固定为历史回归集。
+    "登录 注册 认证 账号 体验 表单 组件",
+    "登录页 怎么设计 字段 数量 密码 可见",
+    "密码 规则 长度 组合 字符 周期 改密 依据",
+    "autocomplete username current-password 自动填充 验收",
+    "Passkey WebAuthn 无密码 登录 参数 时机 组件",
+    "条件式 认证 mediation conditional 自动填充 性能",
+    "MFA 2FA 二次验证 因素 排序 推送 数字 匹配",
+    "OTP 验证码 单框 6 个框 自动跳格 粘贴 可用性",
+    "忘记密码 账户恢复 重置 链接 防枚举 文案",
+    "会话 超时 记住我 登出 所有设备 AAL 度量",
+    "SC 3.3.8 认知功能测试 验证码 无障碍 依据",
+    "游客 结账 注册墙 弃购 转化 度量",
+    "第三方登录 按钮 Apple Google 品牌 规范 验收",
 ]
 
-EXPECT_FILE = "auth-account-ux.md"
+EXPECT_FILE = "keyboard-shortcuts-command-palette.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
@@ -257,7 +271,12 @@ NEW_ASSETS = {EXPECT_FILE}
 # #36：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
 # 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
 EXPECTED_EVOLUTION = {
-    # （#40 起清空：#39 登记的 SC 3.3.7 演进已随提交固定为新基线。）
+    # #41：新资产 §6/§6.2 逐字覆盖 Enter vs Shift+Enter、IME composition 守卫，
+    # 凭原词相关性进入 top3（conversational 仍 top1、knowledge-map 仍在榜）；
+    # 三条硬校验 a/b/c 全过，--no-alias 下新资产也在前 3。
+    "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单":
+        "keyboard-shortcuts-command-palette §6.2 进驻第 2 位；HEAD top1 未被顶掉，"
+        "knowledge-map 仍在第 3。下轮固定为新基线后从此处移除。",
 }
 
 # 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，

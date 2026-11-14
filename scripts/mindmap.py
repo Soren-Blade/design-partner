@@ -134,6 +134,9 @@ INTENTS = [
     ("登录 / 注册 / 认证 / 账号体验 / 密码规则 / 显示密码 / 游客结账", "auth-account-ux.md §1 六问判层（证明身份 vs 建立身份）→ §2 登录表单（autocomplete token / 泛化错误 / 提交态）→ §3 注册四纪律 → §4 反神话表；表单校验归 form-table.md，错误文案归 ux-writing.md"),
     ("Passkeys / WebAuthn / 通行密钥 / 无密码登录 / 条件式认证 / 指纹登录", "auth-account-ux.md §5 参数表（challenge / rp.id / user.id / residentKey / timeout 300000 ms）→ §5.3 能力三层 → §5.4 四个创建时机 → §5.5 条件式 UI → §5.7 错误映射"),
     ("MFA / 2FA / 验证码 / OTP / 找回密码 / 账户恢复 / 会话超时 / 登出", "auth-account-ux.md §6 因素排序与推送数字匹配 → §7 OTP 单框 → §8 恢复与防枚举 → §9 AAL 三档与到期提示 → §10 SC 3.3.8 边界"),
+    ("快捷键 / 键位 / 快捷键冲突 / 加速键 / 快捷键设置", "keyboard-shortcuts-command-palette.md §1 五问判层 → §2 SC 2.1.4 判据表 → §3 三个出口 → §4 平台修饰键契约 → §7 作用域与冲突仲裁"),
+    ("命令面板 / Command Palette / cmd-k / 快速跳转 / 命令搜索", "keyboard-shortcuts-command-palette.md §8 数据模型与 combobox 契约 → §8.3 检索与拼音 → §8.4 虚拟化上限 2000–3000 → §10 六库选型"),
+    ("aria-keyshortcuts / accesskey / kbd / 键盘可访问性 / 输入法 IME", "keyboard-shortcuts-command-palette.md §5 四层语义 → §6 key vs code 与 IME → §9 发现性与 ? 帮助面板 → §14 自检"),
 
 ]
 

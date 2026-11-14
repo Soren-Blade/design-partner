@@ -798,3 +798,18 @@
 - 反馈：无真实用户反馈（今日第二轮定时升级，用户 18:19 重申七条要求并授权每日执行）。
 - 效果：待观察——下一轮若「登录 / 注册 / 验证码」类查询仍落回 `form-table` 或 `ux-writing`，说明 §1 六问判层没被路由读到，需要把判层表进一步前置到 SKILL 路由行。
 - **工程事故两条（已进纪律）**：① `edit` 的 `new_string` 里写 JSON 转义 `\r\n` 会被原样写成 4 个可见字符，CRLF 文件必须先 `newline=''` 读、替换后整篇写回；② PowerShell here-string `@"…"@` 里反引号是转义符，批量替换脚本两次因「`form-table`」被吃掉一个字符而整批失败 → **批量文本替换一律用 write 工具落 `_tmp_code/*.py`，再 `python -I -X utf8` 执行**。
+
+## 2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）
+- 本轮性质：结构性空白补齐（键盘/键位加速层），非维护轮；此前全域 `快捷键` 仅 21 处且几乎全是 direct-manipulation 的反面语境，`aria-keyshortcuts`=0、SC `2.1.4`=0。
+- 一句话立场：快捷键不是「给按钮补个键」，是一份**带退出条款的加速契约**——没有频次就不做；做了就必须同时满足「可关/可改/聚焦才生效」三出口与「不用鼠标也能做完」的全键盘可达。
+- 三条最重要裁决：① SC 2.1.4 只约束**依赖可打印字符**的快捷键（字母/标点/数字/符号，含序列式），三出口至少满足一条；`accesskey` 因通常需修饰键而不受该条约束，`aria-keyshortcuts` 只做声明、**MUST NOT** 改键盘行为；② 修饰键是平台契约（macOS Command 主修饰、Windows/Linux Ctrl），显示格式随平台切换，不做「⌘/Ctrl 混写」；③ 命令面板是「命令注册表 + combobox/listbox 检索层」，必须处理中文 IME `composition`（`isComposing || keyCode === 229` 守卫），否则回车提交会把拼音候选当执行。
+- 深度蒸馏（官方原文，不抄二手数值）：WCAG 2.2 SC 2.1.4 原文三出口逐字引；WAI-ARIA 1.2 `aria-keyshortcuts` 的 *"User agents MUST NOT change keyboard behavior..."*；修饰键名仅 `Alt / Control / Shift / Meta / AltGraph`（无 Super/Hyper）；GitHub 官方键盘说明 *"You can disable character key shortcuts, while still allowing shortcuts that use modifier keys"* 作为「Turn off」分支的产品实证；APG keyboard-interface 的 Tab/Enter/Space/Escape 基线。
+- 关键工程结论（数值全部原文核对）：`event.key` 用于语义键名、`event.code` 用于物理位置，两者不可互换（布局/Shift 影响不同）；chord 序列需 1000ms 量级超时；中文输入法组合期在 `keydown` 阶段就要短路；面板长列表需虚拟化（实测 cmdk 无内置虚拟化，2000–3000 条开始掉帧）。
+- 接线（全部追加，既有路由顺序一行未动）：SKILL.md 第 10 行 v45、新增 v45 基线单行、资产表 +1 行（`keyboard-shortcuts-command-palette.md`）、第 0 步「50 份参考 / 约 146 万字符」、别名层追加键盘句、意图路由表尾部 +3 行（233 类）、第 6 步新增第 47 条「键盘快捷键关」、文末数据来源追加；knowledge-map 改「三十八条专题支线」+ 新增支线 AL（键位加速契约）+ 自测 177→179；aliases 272→275 组 2,267→2,300 词；mindmap INTENTS +3；regression 13 条新查询、上轮 13 条 sink 为 `# #41 沉淀`；build_readme ASSETS +1、问题表 +1 行、数据来源 +10 条；`Design-related websites.txt` 追加第二十九分区 + GitHub 实测附区。
+- 本轮收口修的三处不一致：① `scripts/regression.py` 被脚本重写后混用换行（445 CRLF / 33 LF），归一为纯 CRLF；② 新资产 §15 标题「可执行校验」里的「校验」是「验证码」别名组的扩展词，把无关的 SC 3.3.8 历史查询吸到第 3 位，改为「两段可跑脚本」；③ 「注册（绑定 handler）」与「注册（sign up）」同词，正文 17 处压到 6 处（改为绑定/登记/绑定表，保留 `命令注册表`），使认证类历史查询回到逐字一致。
+- 检索层收敛（改内容不改打分）：只动内容层标题与措辞，`dp_search.py` 打分、`_weight`、别名权重一行未改。新资产 §1/§7/§8/§12 四个标题去掉与历史查询撞的高频词（要不要做/注册/命令面板/场景），knowledge-map 支线 AL 标题改为「键位加速契约」；收尾实测六条历史 DIFF 中五条恢复逐字一致，仅「聊天输入 Enter/Shift+Enter/IME」一条保留为登记演进（top1 未变、已有答案仍在榜、`--no-alias` 下新资产仍在 top3）。
+- 质量门槛（实测）：新主题 13/13；历史回归 180/180 逐字一致 + 1/1 登记演进 + 0/0 别名卫生，零退化 rc=0；`mindmap.py --check` 未接线 0 / 已失联 0（52 文件 2092 章节）；`audit.py` PASS 25 / WARN 2 / FAIL 0 rc=0（WARN 为 13–16 词容忍带 8 组、检索 top1 15/28 参考值）。
+- 统计一致性：references 50 份 / 1,465,503 字符；SKILL 第 0 步写「约 146 万」（差 5,503，≤2 万容差）；自测 179 条；意图路由 233 类；第 6 步 47 项自检；README 378 行、徽标 v45 / 50 / 657。
+- 发布纪律：commit `每日升级 #41：键盘快捷键与命令面板（v44→v45）` → `publish_github.py` → `git ls-remote` 校验 → robocopy /MIR 双份全局安装（`~/.agents/skills`、`~/.workbuddy-ai/skills`，排除 `.git`/`.workbuddy-ai`/`__pycache__`）→ 只读 SHA256 校验，同步后不再跑 mindmap。
+- 反馈：用户七条（每日蒸馏源清单 / 自行补站与仓库 / 知识路线 / 别名映射不改路由 / 记忆树快捷检索 / 自我进化 / 迭代后全局安装与发布）全部落到本轮可执行产物。
+- 效果：下一轮若「快捷键 / 命令面板 / 全键盘操作」类查询仍落回 `direct-manipulation.md` 或 `component-api-design.md`，说明本轮的 §1 五问判层没有起到前置作用，需要把判层表移到 §0 之后第一屏；若中文 IME 相关查询落回 `conversational-generative-ui.md`，则确认 §6.2 的检索词覆盖不足，需补「composition / 组合期」同义表述（仍只改内容层）。

@@ -76,6 +76,7 @@ ASSETS = [
     ("overlays-modality.md", "叠加层与模态性", "立场：模态不是一层半透明遮罩，是「外部还能不能被操作」的交互契约 / 四问判型决策树（Q1 背景 inert·Q2 焦点进层且 Tab 不越界·Q3 显式 activate 还是 hover/focus·Q4 无鼠标无物理键盘也能退出）/ 三条裁决（APG Windows under a modal dialog are inert + Escape 关闭 + 焦点归位·aria-modal 双条件 / MDN Popovers created using the Popover API are always non-modal·showModal 才模态·closedby 三值 / WCAG 2.2 正确构建的 modal dialog will always pass SC 2.4.11·伪模态 dialog-like overlay 风险最高·F110）/ Popover 三态 auto·hint·manual 与双栈六规则 / top layer·::backdrop 与 z-index 分界 / WCAG 四条款矩阵（1.4.13 三条件·2.4.11 Note 2 三出路与 C43·F110·2.1.2 标准退出法·3.2.1 禁 focus 抢焦点）/ 关闭契约矩阵与层叠嵌套 / 12 类组件族谱判型 / Apple HIG·Radix·GitHub API 实测 10 库 / 取源限制与边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3）"),
     ("onboarding-first-run.md", "首次体验与用户引导", "立场：Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计 / 五段链路（Launch·First-run·Teach·Activate·Return）/ 三条裁决（默认不加教程：NN/g 70 人 4 app 逐字 91% vs 94% p=0.443·93.49s vs 85.17s p>0.1·SEQ 4.92 vs 5.49 p=0.047 + Apple Teach through interactivity + 先测无引导四步闸门 / 权限按功能时机不按会话起点：purpose string 四标准·pre-alert 平台特定禁外推 Web 同意层·tracking 四禁令 / SC 3.3.7·3.3.8·3.2.1·2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 autocomplete 不算满足 3.3.7）/ 六问判型决策树与四条硬约束 / 六类引导形态矩阵与 push·pull 用词勘误 / 渐进披露与设置后置 / launch≠splash≠onboarding 三分界 / NN/g 实证全表与四条研究限制 / Material 1 **归档**精确值（非现行 M3）/ Apple tips 阈值 / 权限时机矩阵 / WCAG 四条款合取表 / Ant Design Tour 精确 props / 教学型零数据位与 Carbon 五件套 / activation·TTV 口径与跳过率陷阱 / 12 库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（5/5 Python 严格模式实跑 rc=0）/ 取源限制与边界矩阵"),
     ("auth-account-ux.md", "认证与账户体验", "立场：认证不是一道门，是一条可失败、可恢复、可退出的路径 / 三条裁决（证明身份 vs 建立身份·SC 3.3.8 明确不覆盖建账号 / 密码共识已整体反转·NIST 800-63B-4 单因素 ≥15 字符·禁组合·禁轮换·至少允许 64·ASVS 8 的版本错位 / Passkeys 在账号验证之后再种·web.dev Avoid password-only verification）/ §1 六问判层 + 12 场景表 + 边界矩阵 / §2 登录表单（autocomplete 全表·off 拦不住管理器·F109 禁粘贴·泛化错误文案·提交态）/ §3 注册四纪律（游客优先 Baymard 18%·规则常驻·去重复字段·邮箱验证降级）/ §4 反神话表 13 行 + 限速 100 次 / §5 Passkeys（参数表·能力三层·四个创建时机·条件式 UI·错误映射·管理页）/ §6 MFA 因素排序与推送数字匹配 / §7 OTP 单框与禁自动跳格 / §8 恢复与防枚举 / §9 AAL 三档会话 / §10 WCAG 3.3.8 全文与失败清单 + NIST §8 可用性 / §11 冲突裁决 8 条 / §12 Apple 140pt×30pt 与 Google 三配色 / 20 反模式·20 自检 / 4 段可抄代码（含 Python 静态校验器 4/4 PASS）"),
+    ("keyboard-shortcuts-command-palette.md", "键盘快捷键与命令面板", "立场：快捷键不是彩蛋，是一份带退出条款的加速契约 / 三条裁决（SC 2.1.4 判据是「是否依赖可打印字符」而非按了几个物理键，序列与 Shift+字符同在范围内 / 修饰键是平台契约·aria-keyshortcuts 只声明不绑定·accesskey 劝退 / 命令面板 = 命令注册表 + combobox 检索层·IME 组字期不响应·cmdk 无虚拟化上限 2000–3000）/ §1 五问判层 + 12 场景 / §2 SC 2.1.4 判据表 9 形态 + 2.1.1/2.1.2 分工 / §3 三出口 + GitHub 实证 / §4 macOS 顺序 Control→Option→Shift→Command 与 Hyphen、Windows +、ARIA 五个修饰键名 / §5 四层语义 + 五条 MUST + WHATWG accesskey / §6 key vs code + IME 守卫 / §7 五层作用域 + 四类仲裁 + VS Code 自下而上 / §8 面板解剖 + 数据模型 + 逐键契约 / §9 五个发现触点 + kbd 样式 / §10 六库 API 实测（cmdk 13,147★ / kbar 5,264★ / tinykeys 4,106★）/ §11 四条硬规则 / 12 场景·20 反模式·20 自检 / 2 段代码实跑 PASS / 取源限制 16 条"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -233,6 +234,7 @@ def build() -> str:
 | **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
 | **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
 | **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
+| **快捷键记不住 / 按了没反应 / 和系统抢** | 单字母快捷键没有关闭开关、`aria-keyshortcuts` 写完以为能触发、Mac 用户看到 Control、输入框里打 `?` 弹出帮助面板、中文输入法回车直接执行命令、命令面板 Tab 切不动、2000 条命令卡死 | `keyboard-shortcuts-command-palette.md` 五问判层 + SC 2.1.4 三出口 + 平台修饰键契约 + 四层语义 + IME 守卫 + 冲突仲裁 + 命令面板 combobox 契约 + 六库实测 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
 | **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
@@ -473,6 +475,16 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Android · Haptics overview](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) — 何时用触觉 / 常量 API level / 用户设置 / 不建议 createOneShot
 - [Android · Haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) — 原语时长 / 包络 20 ms 与 16 点 / 振幅在无支持设备的回退 / 音频焦点与 sonification
 - [AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java) — 21 个公开常量源码注释
+- [WCAG 2.2 · SC 2.1.4 Character Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html) — 三个出口的逐字条文 / 可打印字符判据 / 序列与 accesskey 例外
+- [WAI-ARIA 1.2 · aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts) — 五个合法修饰键名 / 修饰键在前 / UA MUST NOT 改行为 / 禁用同时失效
+- [WAI-ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) — 通用函数约定表 / 三类应避免分配 / AT 四类冲突 / 有意冲突四条件
+- [MDN · aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts) — 只声明不绑定 / 与 accesskey 的关系
+- [MDN · KeyboardEvent.key / code / isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) — 布局无关的物理键 / 字符键 / 组字期判据
+- [Apple HIG · Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards) — Command 主修饰 / Control,Option,Shift,Command 顺序 / Hyphen 书写 / 双字符键与 Shift 警告
+- [Microsoft · Keyboard accelerators](https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators) — 视觉树第一个命中 / control 与 app 加速键 / 自动重复不可关 / 通用表
+- [VS Code · Key Bindings](https://code.visualstudio.com/docs/configure/keybindings) — 自下而上求值 / when 子句 / 扫描码 / systemWide 五条限制 / 改键面板
+- [GitHub · Keyboard shortcuts](https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts) — ? 帮助面板 / 可关闭字符键保留修饰键 / G 系列序列
+- [cmdk](https://github.com/dip/cmdk) / [kbar](https://github.com/timc1/kbar) / [tinykeys](https://github.com/jamiebuilds/tinykeys) — 命令面板与热键层六库 GitHub API 实测（2026-11-14）
 
 ## 目录结构
 

@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-14 18:47 ｜ 51 个文件 · 2039 个章节 · 1,798,400 字符
+> 自动生成于 2026-11-14 22:28 ｜ 52 个文件 · 2093 个章节 · 1,849,731 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -113,6 +113,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 登录 / 注册 / 认证 / 账号体验 / 密码规则 / 显示密码 / 游客结账 | auth-account-ux.md §1 六问判层（证明身份 vs 建立身份）→ §2 登录表单（autocomplete token / 泛化错误 / 提交态）→ §3 注册四纪律 → §4 反神话表；表单校验归 form-table.md，错误文案归 ux-writing.md |
 | Passkeys / WebAuthn / 通行密钥 / 无密码登录 / 条件式认证 / 指纹登录 | auth-account-ux.md §5 参数表（challenge / rp.id / user.id / residentKey / timeout 300000 ms）→ §5.3 能力三层 → §5.4 四个创建时机 → §5.5 条件式 UI → §5.7 错误映射 |
 | MFA / 2FA / 验证码 / OTP / 找回密码 / 账户恢复 / 会话超时 / 登出 | auth-account-ux.md §6 因素排序与推送数字匹配 → §7 OTP 单框 → §8 恢复与防枚举 → §9 AAL 三档与到期提示 → §10 SC 3.3.8 边界 |
+| 快捷键 / 键位 / 快捷键冲突 / 加速键 / 快捷键设置 | keyboard-shortcuts-command-palette.md §1 五问判层 → §2 SC 2.1.4 判据表 → §3 三个出口 → §4 平台修饰键契约 → §7 作用域与冲突仲裁 |
+| 命令面板 / Command Palette / cmd-k / 快速跳转 / 命令搜索 | keyboard-shortcuts-command-palette.md §8 数据模型与 combobox 契约 → §8.3 检索与拼音 → §8.4 虚拟化上限 2000–3000 → §10 六库选型 |
+| aria-keyshortcuts / accesskey / kbd / 键盘可访问性 / 输入法 IME | keyboard-shortcuts-command-palette.md §5 四层语义 → §6 key vs code 与 IME → §9 发现性与 ? 帮助面板 → §14 自检 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -392,26 +395,29 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **登录与注册** | 登录 · 登录流程 · 注册页 · 注册流程 · 建账号 · 开户 · 认证 · 身份验证 · 账户 · 忘记密码 · 找回密码 |
 | **Passkey 与无密码登录** | Passkey · passkeys · 通行密钥 · 密钥登录 · WebAuthn · 无密码 · 免密码 · 生物识别登录 · 指纹登录 · 面容登录 · 硬件密钥 · 安全密钥 |
 | **多因素与验证码** | MFA · 2FA · 多因素 · 双因素认证 · 二次验证 · 两步验证 · 验证码 · OTP · TOTP · 动态口令 · 短信验证 · 恢复码 |
+| **快捷键** | 快捷键 · 热键 · 加速键 · 键位 · 组合键 · 快捷键冲突 · 快捷键设置 · 按键冲突 · keybinding · keybindings · shortcut · accelerator |
+| **快捷命令面板** | 快捷命令面板 · 命令面板检索 · 命令面板搜索 · 快速命令 · 快速跳转 · 命令搜索 · cmd-k · quick open · command menu · 命令面板过滤 |
+| **键盘可访问性** | 键盘可访问性 · 全键盘操作 · 键盘导航 · 键盘陷阱 · aria-keyshortcuts · accesskey · character key shortcut · 键盘快捷键无障碍 · 快捷键朗读 · kbd 键帽 · 输入法组合 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1046 行 · 快照 — · 12 节_
+_1053 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L137` — 资产已 49 份参考、约 142 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L139` — 资产已 49 份参考、约 142 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L152`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L395` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L410` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L436` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L467` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L916` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1002` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1015` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1022` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1038` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L139` — 资产已 50 份参考、约 146 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L141` — 资产已 50 份参考、约 146 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L154`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L400` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L415` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L441` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L472` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L921` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1008` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1021` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1028` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1044` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1565,8 +1571,64 @@ _153 行 · 快照 2026-10-29 · 4 节_
 - **Reading (33)** `L115` — - Interface Craft — Articles exploring modern digital interface craftsmanship.
 - **Other (1)** `L151` — - gaki — GAKI 的个人空间：想法、实验、与 AI 一起动手的过程，以及逐渐成形的作品。
 
+### `references/keyboard-shortcuts-command-palette.md` · 键盘快捷键与命令面板（Keyboard Shortcuts & Command Palette）：把「记不住的按键」做成可发现、可关闭、可重映射的契约
+_942 行 · 快照 2026-11-14 · 52 节_
+
+- **§0 一句话立场与三条裁决** `L7` — 一句话立场：快捷键不是「给熟练用户的彩蛋」，而是一份带退出条款的加速契约——每一个按键都必须能回答：它属于哪个作用域、会不会和系统抢、用户能不能关掉或改掉、不知道它的人怎么发现它。
+- **§1 判层：五问定「做不做、做哪一类、放哪个作用域」（键盘可达性：不用鼠标能否完成任务）** `L26` — 接到「给这个动作加个键」「做个命令面板」时，按顺序回答这五问；任何一问答不了，就先别写代码。
+- **§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」** `L47` — If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuatio
+  - **§2.1 条文逐字（W3C，Understanding SC 2.1.4，Level A）** `L49` — If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuatio
+  - **§2.2 判据不是「按了几个物理键」，而是「是否依赖可打印字符」** `L63` — 原文 Note（这是整条 SC 最容易被判错的地方）：
+  - **§2.3 判据表（把「受不受 2.1.4 约束」一次判死）** `L77`
+  - **§2.4 与 SC 2.1.1 / 2.1.2 的分工（别把三件事混成一件）** `L91` — - 2.1.1 Keyboard（A）："All functionality of the content is operable through a keyboard interface without requiring specifi
+- **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** `L99` — 一手产品实证（GitHub，2026-11-14 取源）：
+- **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** `L121` — 定义：
+  - **§4.1 macOS（Apple HIG · Keyboards，逐字取源）** `L123` — 定义：
+  - **§4.2 Windows（Microsoft Learn · Keyboard accelerators）** `L156` — 定义与作用域：
+  - **§4.3 Web 的跨平台写法（APG + aria-keyshortcuts）** `L188` — APG 通用函数约定表（原文节选；macOS 列空缺为原文如此）：
+  - **§4.4 一张跨平台映射表（实现层直接抄）** `L206` — 纪律：aria-keyshortcuts 要按用户在哪个平台就用哪个平台的键名输出（服务端渲染时用 UA/平台判断），不要永远写 Control+K 让 Mac 用户听到「Control K」。
+- **§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd** `L221` — 这四件事经常被当成一件事，实际是四个不同的层。混用是这一行最高频的实现缺陷。
+  - **§5.1 行为绑定侧的硬规则（来自三个规范的交集）** `L232` — - 修饰键在前、非修饰键唯一且在后（ARIA MUST）："Authors MUST ensure modifier keys come first … Authors MUST ensure that required non-modif
+  - **§5.2 aria-keyshortcuts 的完整用法** `L240` — The aria-keyshortcuts attribute exposes the existence of the shortcut to assistive technologies … Like all ARIA attribut
+  - **§5.3 为什么 accesskey 在通用站点上是坑（MDN + WHATWG 双重证据）** `L256` — 定义（WHATWG）：
+  - **§5.4 <kbd 的语义与三层嵌套（MDN）** `L284` — The <kbd HTML element represents user input (typically keyboard input). By default, the content text is displayed using 
+- **§6 key 与 code：键盘布局、输入法组合（IME）与输入框焦点** `L304` — The KeyboardEvent interface's key read-only property returns the value of the key pressed by the user, taking into consi
+  - **§6.1 event.key vs event.code（MDN 逐字）** `L306` — The KeyboardEvent interface's key read-only property returns the value of the key pressed by the user, taking into consi
+  - **§6.2 中文/日文输入法（IME）组合期：最容易被忽略的 bug 源** `L323` — 官方判据（MDN）：
+  - **§6.3 输入框焦点内该不该触发快捷键** `L342` — 三个库的默认值给出了一致的工程共识：
+- **§7 作用域、绑定与冲突仲裁（含 chord 多段序列）** `L361` — OS 保留键（Cmd+Tab / Alt+Tab / Ctrl+Alt+Del …）
+  - **§7.1 五层作用域模型（从外到内，越靠外越难抢）** `L363` — 规则：监听器挂得越靠内，越不打扰别人；能挂组件根节点就不要挂 document。需要全局时，明确写「全局 + 可关闭」。
+  - **§7.2 OS 级冲突：APG 给出「应避免的三类分配」+ 辅助技术四类** `L376` — It is essential to avoid conflicts with keys that perform system level functions… this can be achieved by refraining fro
+  - **§7.3 冲突仲裁的工程规则（无规范，属工程约定）** `L402` — 四种已实现系统的仲裁方式（可直接对照选型）：
+  - **§7.4 chord（多段序列）的规则** `L425` — - 分段用空格：VS Code "Chords (two separate keypress actions) are described by separating the two keypresses with a space. For
+  - **§7.5 绑定与清理（SPA 最容易漏的一条）** `L433` — - 每次路由切换都 addEventListener 而不清理 → 同一动作触发 N 次（N = 访问过的页面数）。
+- **§8 面板解剖：数据模型、检索、无障碍与性能** `L468` — 最小正确结构（ARIA 1.2 combobox 模式）：
+  - **§8.1 它不是输入框，是「combobox + listbox + 命令注册表」** `L470` — 最小正确结构（ARIA 1.2 combobox 模式）：
+  - **§8.2 数据模型（命令注册表的字段）** `L500` — kbar 的 Action 类型（官方 docs 源码）可直接对照：
+  - **§8.3 检索层：过滤、排序与中文** `L528` — - 打分函数要能返回 0：cmdk 的 filter 签名是 (value, search, keywords?) = number，"It should return a number between 0 and 1, with 1 be
+  - **§8.4 性能上限：数字要记住** `L536` — cmdk 官方 FAQ 原文：
+  - **§8.5 键盘行为契约（面板内，逐键定义）** `L557` — ---
+- **§9 发现性：帮助面板、菜单标注与 kbd 样式** `L571` — - 触发：?（Shift+/）或菜单里的「键盘快捷键」；必须与设置项一致（关掉字符键快捷键后，? 不应再触发，改用菜单进入）。
+  - **§9.1 五个发现触点（缺一个都算「只有内部人知道」）** `L573`
+  - **§9.2 ? 帮助面板的规格** `L583` — - 触发：?（Shift+/）或菜单里的「键盘快捷键」；必须与设置项一致（关掉字符键快捷键后，? 不应再触发，改用菜单进入）。
+  - **§9.3 键名书写的四条硬规则** `L593` — 1. 按平台写字形，不按代码写：Mac 用 ⌘ ⌥ ⇧ ⌃，Windows 用 Ctrl Alt Shift Win；混写（Ctrl+⌘）是错误。
+  - **§9.4 kbd 的样式基线（可抄）** `L600` — - 对比度：键名文本仍需满足 4.5:1（正文级）；不要用 #999 放在白底上。
+- **§10 六个库的实测与选型（GitHub API 2026-11-14）** `L619` — 读表结论：
+  - **§10.1 实测表（数字全部来自 GET /repos/{owner}/{repo} 实时返回）** `L621` — 读表结论：
+  - **§10.2 各库的关键默认值（写契约前必须先知道）** `L640`
+  - **§10.3 选型决策树** `L651`
+  - **§10.4 已知陷阱（本轮实测发现，写进契约前必须核对）** `L663` — 1. pacocoursey/cmdk 已被 API 解析为 dip/cmdk（13,147★）。引用 star 要写新名，否则会被当成旧数据。
+- **§11 交付规格：清单模板与四条硬规则** `L675` — 1. 单字符快捷键必须有总开关（SC 2.1.4 的 Turn off）；做不到就改成修饰键组合。
+  - **§11.1 交付物里必须有的表（少一行就会被返工）** `L677`
+  - **§11.2 四条硬规则** `L685` — 1. 单字符快捷键必须有总开关（SC 2.1.4 的 Turn off）；做不到就改成修饰键组合。
+- **§12 用法速查（12 行，先对号再动手）** `L694` — ---
+- **§13 反模式（看到就该打回）** `L713` — 1. 用单字母（e、d、s）做全局快捷键，且没有关闭开关。
+- **§14 自检清单（交付前逐条打勾，20 条）** `L738` — 1. 每个快捷键都写了作用域（全局/页面/组件聚焦）。
+- **§15 两段可跑脚本（以下代码已实跑通过）** `L763` — 三段检查分别覆盖：① 单字符快捷键检出（SC 2.1.4 落点）/ ② aria-keyshortcuts 语法 / ③ 冲突检测。把项目里的快捷键清单写成同样结构即可直接跑。
+- **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
+
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_748 行 · 快照 2026-11-05 · 66 节_
+_758 行 · 快照 2026-11-05 · 67 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1594,7 +1656,7 @@ _748 行 · 快照 2026-11-05 · 66 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **三十五条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **三十八条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1633,7 +1695,8 @@ _748 行 · 快照 2026-11-05 · 66 节_
   - **支线 AI · 通知与消息触达（把「该不该发」翻译成六段链路与三平台验收的完成路径）** `L576` — - 这是什么（链路的内容端）：与反馈五层（feedback-states：L0–L4 时效与 role="status"）、文案体例（ux-writing §7.3：in-app 右上角通知的标题/正文/按钮）、首启权限（onboardin
   - **支线 AJ · 声音与触觉反馈（把「要不要响一下」判成通道、时长与强度的完成路径）** `L586` — - 这是什么（反馈通道侧）：与视觉反馈五层（feedback-states）、动效节奏（motion-system）、无障碍总则（accessibility）、通知触达（notifications-messaging）相邻但问题不同——它们
   - **支线 AK · 认证与账户体验（把「怎么证明是我」判成路径、失败出口与会话档位）** `L596` — - 这是什么（身份链路侧）：与 form-table、ux-writing、onboarding-first-run、accessibility 相邻但问题不同——它们分别管「字段怎么验」「错误怎么说」「第一次怎么走」「整体达标吗」；本支线
-- **能力自测（177 条，做到 ≥110 条即达 L2+）** `L605` — L0
+  - **支线 AL · 键位加速契约（Keyboard Shortcuts & Command Palette）** `L605` — - 这是什么（键位侧）：把「高频重复动作」做成一份带退出条款的加速契约——五问判层（做不做 / 哪一类 / 哪个作用域 / 怎么发现 / 冲突谁赢）、合规边界（SC 2.1.4 三出口 + SC 2.1.1 全键盘可达）、平台修饰键契约、面
+- **能力自测（179 条，做到 ≥110 条即达 L2+）** `L615` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2592,7 +2655,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_800 行 · 快照 — · 45 节_
+_815 行 · 快照 — · 46 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2639,6 +2702,7 @@ _800 行 · 快照 — · 45 节_
 - **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** `L753` — - 本轮性质：v41→v42 补齐新资产轮。触发时基线 HEAD 1055da1（v41 / 46 参考 / 1,295,686 字符 / 220 路由 / 43 自检 / 260 组 2,142 词 / 34 支线 · 171 自测 / 
 - **2026-11-14 · 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43）** `L768` — - 本轮性质：v42→v43 新资产轮（定时会话 10:24 中断后重入收口）。今日 09:00 的定时会话已完成 取源→蒸馏→接线，但未提交、未写日志、临时目录残留；本会话 17:30 重入，补验证、补日志、补发布，不重做蒸馏。触发时基线
 - **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** `L785` — - 本轮性质：v43→v44 新资产轮（同一天第二次升级，上午 #39 已收口）。触发时基线 HEAD 1cf1688（v43 / 48 参考 / 1,389,731 字符 / 228 路由 / 45 自检 / 269 组 2,232 词 
+- **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** `L802` — - 本轮性质：结构性空白补齐（键盘/键位加速层），非维护轮；此前全域 快捷键 仅 21 处且几乎全是 direct-manipulation 的反面语境，aria-keyshortcuts=0、SC 2.1.4=0。
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -3010,6 +3074,7 @@ _800 行 · 快照 — · 45 节_
 - **2026-11-13 · 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42）** → `memory/design-log.md` L753
 - **2026-11-14 · 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43）** → `memory/design-log.md` L768
 - **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** → `memory/design-log.md` L785
+- **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** → `memory/design-log.md` L802
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3285,15 +3350,18 @@ _800 行 · 快照 — · 45 节_
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
 - **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/sound-haptics-feedback.md` L9
+- **§0 一句话立场与三条裁决** → `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
+- **§1 判层：五问定「做不做、做哪一类、放哪个作用域」（键盘可达性：不用鼠标能否完成任务）** → `references/keyboard-shortcuts-command-palette.md` L26
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
 - **§1 判层：先判「要不要」，再判「哪一种」** → `references/sound-haptics-feedback.md` L23
 - **§1 判层：六问决定你该改哪一层** → `references/auth-account-ux.md` L43
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
+- **§10 六个库的实测与选型（GitHub API 2026-11-14）** → `references/keyboard-shortcuts-command-palette.md` L619
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
@@ -3302,6 +3370,7 @@ _800 行 · 快照 — · 45 节_
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
+- **§11 交付规格：清单模板与四条硬规则** → `references/keyboard-shortcuts-command-palette.md` L675
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
 - **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
@@ -3312,6 +3381,7 @@ _800 行 · 快照 — · 45 节_
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
+- **§12 用法速查（12 行，先对号再动手）** → `references/keyboard-shortcuts-command-palette.md` L694
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
 - **§12 第三方登录的数值** → `references/auth-account-ux.md` L578
 - **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
@@ -3319,6 +3389,7 @@ _800 行 · 快照 — · 45 节_
 - **§13 信任与社会证明** → `references/pricing-checkout.md` L285
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 反模式 20 条** → `references/empty-states.md` L208
+- **§13 反模式（看到就该打回）** → `references/keyboard-shortcuts-command-palette.md` L713
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
@@ -3328,7 +3399,9 @@ _800 行 · 快照 — · 45 节_
 - **§14 可抄代码** → `references/feedback-states.md` L485
 - **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
+- **§14 自检清单（交付前逐条打勾，20 条）** → `references/keyboard-shortcuts-command-palette.md` L738
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
+- **§15 两段可跑脚本（以下代码已实跑通过）** → `references/keyboard-shortcuts-command-palette.md` L763
 - **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
 - **§15 反模式清单（20 条）** → `references/pricing-checkout.md` L302
 - **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
@@ -3336,6 +3409,7 @@ _800 行 · 快照 — · 45 节_
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
 - **§15 自检 20 条** → `references/auth-account-ux.md` L654
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
+- **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** → `references/keyboard-shortcuts-command-palette.md` L925
 - **§16 可抄代码** → `references/auth-account-ux.md` L679
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
 - **§16 来源与取源限制** → `references/empty-states.md` L315
@@ -3352,6 +3426,7 @@ _800 行 · 快照 — · 45 节_
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
 - **§2 三通道分工：谁能承担什么** → `references/sound-haptics-feedback.md` L61
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
+- **§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」** → `references/keyboard-shortcuts-command-palette.md` L47
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
@@ -3359,6 +3434,7 @@ _800 行 · 快照 — · 45 节_
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
 - **§20 与其他文件的分工** → `references/editorial-layout.md` L756
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
+- **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** → `references/keyboard-shortcuts-command-palette.md` L99
 - **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 注册与账号创建（建立身份层）** → `references/auth-account-ux.md` L165
@@ -3368,17 +3444,20 @@ _800 行 · 快照 — · 45 节_
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
 - **§4 密码策略反神话表（把「听起来安全」逐条对到原文）** → `references/auth-account-ux.md` L220
+- **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** → `references/keyboard-shortcuts-command-palette.md` L121
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
 - **§5 Passkeys / WebAuthn（首选路径）** → `references/auth-account-ux.md` L250
+- **§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd** → `references/keyboard-shortcuts-command-palette.md` L221
 - **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
+- **§6 key 与 code：键盘布局、输入法组合（IME）与输入框焦点** → `references/keyboard-shortcuts-command-palette.md` L304
 - **§6 三通道配方表（设计交付时直接填）** → `references/sound-haptics-feedback.md` L358
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
@@ -3387,6 +3466,7 @@ _800 行 · 快照 — · 45 节_
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
 - **§7 一次性口令的单框** → `references/auth-account-ux.md` L399
+- **§7 作用域、绑定与冲突仲裁（含 chord 多段序列）** → `references/keyboard-shortcuts-command-palette.md` L361
 - **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
@@ -3400,8 +3480,10 @@ _800 行 · 快照 — · 45 节_
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
 - **§8 账户恢复** → `references/auth-account-ux.md` L433
+- **§8 面板解剖：数据模型、检索、无障碍与性能** → `references/keyboard-shortcuts-command-palette.md` L468
 - **§9 会话、超时与登出** → `references/auth-account-ux.md` L460
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
+- **§9 发现性：帮助面板、菜单标注与 kbd 样式** → `references/keyboard-shortcuts-command-palette.md` L571
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
 - **§9 空状态可访问性清单** → `references/empty-states.md` L164
@@ -3423,7 +3505,7 @@ _800 行 · 快照 — · 45 节_
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
-- **三十五条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
+- **三十八条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
 - **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
@@ -3497,7 +3579,7 @@ _800 行 · 快照 — · 45 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L137
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L139
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3507,12 +3589,12 @@ _800 行 · 快照 — · 45 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（177 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L605
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1002
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1015
+- **能力自测（179 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L615
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1008
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1021
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1038
+- **边界与习惯** → `SKILL.md` L1044
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

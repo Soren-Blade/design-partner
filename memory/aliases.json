@@ -3629,6 +3629,54 @@
         "短信验证",
         "恢复码"
       ]
+    },
+    {
+      "canonical": "快捷键",
+      "aliases": [
+        "快捷键",
+        "热键",
+        "加速键",
+        "键位",
+        "组合键",
+        "快捷键冲突",
+        "快捷键设置",
+        "按键冲突",
+        "keybinding",
+        "keybindings",
+        "shortcut",
+        "accelerator"
+      ]
+    },
+    {
+      "canonical": "快捷命令面板",
+      "aliases": [
+        "快捷命令面板",
+        "命令面板检索",
+        "命令面板搜索",
+        "快速命令",
+        "快速跳转",
+        "命令搜索",
+        "cmd-k",
+        "quick open",
+        "command menu",
+        "命令面板过滤"
+      ]
+    },
+    {
+      "canonical": "键盘可访问性",
+      "aliases": [
+        "键盘可访问性",
+        "全键盘操作",
+        "键盘导航",
+        "键盘陷阱",
+        "aria-keyshortcuts",
+        "accesskey",
+        "character key shortcut",
+        "键盘快捷键无障碍",
+        "快捷键朗读",
+        "kbd 键帽",
+        "输入法组合"
+      ]
     }
   ]
 }

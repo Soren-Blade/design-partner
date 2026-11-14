@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-14T18:47:25",
+ "generated": "2026-11-14T22:28:16",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1046,
-   "chars": 215506,
+   "lines": 1053,
+   "chars": 219624,
    "sections": []
   },
   {
@@ -8605,11 +8605,436 @@
    ]
   },
   {
+   "path": "references/keyboard-shortcuts-command-palette.md",
+   "title": "键盘快捷键与命令面板（Keyboard Shortcuts & Command Palette）：把「记不住的按键」做成可发现、可关闭、可重映射的契约",
+   "snapshot": "2026-11-14",
+   "lines": 942,
+   "chars": 43434,
+   "sections": [
+    {
+     "id": "0-一句话立场与三条裁决",
+     "level": 2,
+     "title": "§0 一句话立场与三条裁决",
+     "summary": "一句话立场：快捷键不是「给熟练用户的彩蛋」，而是一份带退出条款的加速契约——每一个按键都必须能回答：它属于哪个作用域、会不会和系统抢、用户能不能关掉或改掉、不知道它的人怎么发现它。",
+     "line": 7,
+     "chars": 953
+    },
+    {
+     "id": "1-判层-五问定-做不做-做哪一类-放哪个作用域-键盘可达性-不用鼠标能否完成任务",
+     "level": 2,
+     "title": "§1 判层：五问定「做不做、做哪一类、放哪个作用域」（键盘可达性：不用鼠标能否完成任务）",
+     "summary": "接到「给这个动作加个键」「做个命令面板」时，按顺序回答这五问；任何一问答不了，就先别写代码。",
+     "line": 26,
+     "chars": 800
+    },
+    {
+     "id": "2-合规底线-wcag-2-2-sc-2-1-4-只约束-可打印字符键",
+     "level": 2,
+     "title": "§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」",
+     "summary": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuatio",
+     "line": 47,
+     "chars": 1
+    },
+    {
+     "id": "2-1-条文逐字-w3c-understanding-sc-2-1-4-level-a",
+     "level": 3,
+     "title": "§2.1 条文逐字（W3C，Understanding SC 2.1.4，Level A）",
+     "summary": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuatio",
+     "line": 49,
+     "chars": 720
+    },
+    {
+     "id": "2-2-判据不是-按了几个物理键-而是-是否依赖可打印字符",
+     "level": 3,
+     "title": "§2.2 判据不是「按了几个物理键」，而是「是否依赖可打印字符」",
+     "summary": "原文 Note（这是整条 SC 最容易被判错的地方）：",
+     "line": 63,
+     "chars": 1096
+    },
+    {
+     "id": "2-3-判据表-把-受不受-2-1-4-约束-一次判死",
+     "level": 3,
+     "title": "§2.3 判据表（把「受不受 2.1.4 约束」一次判死）",
+     "summary": "",
+     "line": 77,
+     "chars": 698
+    },
+    {
+     "id": "2-4-与-sc-2-1-1-2-1-2-的分工-别把三件事混成一件",
+     "level": 3,
+     "title": "§2.4 与 SC 2.1.1 / 2.1.2 的分工（别把三件事混成一件）",
+     "summary": "- 2.1.1 Keyboard（A）：\"All functionality of the content is operable through a keyboard interface without requiring specifi",
+     "line": 91,
+     "chars": 759
+    },
+    {
+     "id": "3-三个合规出口怎么落成产品-不是三选一写进文档-而是三选一写进-ui",
+     "level": 2,
+     "title": "§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）",
+     "summary": "一手产品实证（GitHub，2026-11-14 取源）：",
+     "line": 99,
+     "chars": 1019
+    },
+    {
+     "id": "4-平台修饰键契约-command-ctrl-列出顺序-显示格式",
+     "level": 2,
+     "title": "§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式",
+     "summary": "定义：",
+     "line": 121,
+     "chars": 1
+    },
+    {
+     "id": "4-1-macos-apple-hig-keyboards-逐字取源",
+     "level": 3,
+     "title": "§4.1 macOS（Apple HIG · Keyboards，逐字取源）",
+     "summary": "定义：",
+     "line": 123,
+     "chars": 2055
+    },
+    {
+     "id": "4-2-windows-microsoft-learn-keyboard-accelerators",
+     "level": 3,
+     "title": "§4.2 Windows（Microsoft Learn · Keyboard accelerators）",
+     "summary": "定义与作用域：",
+     "line": 156,
+     "chars": 1657
+    },
+    {
+     "id": "4-3-web-的跨平台写法-apg-aria-keyshortcuts",
+     "level": 3,
+     "title": "§4.3 Web 的跨平台写法（APG + aria-keyshortcuts）",
+     "summary": "APG 通用函数约定表（原文节选；macOS 列空缺为原文如此）：",
+     "line": 188,
+     "chars": 665
+    },
+    {
+     "id": "4-4-一张跨平台映射表-实现层直接抄",
+     "level": 3,
+     "title": "§4.4 一张跨平台映射表（实现层直接抄）",
+     "summary": "纪律：aria-keyshortcuts 要按用户在哪个平台就用哪个平台的键名输出（服务端渲染时用 UA/平台判断），不要永远写 Control+K 让 Mac 用户听到「Control K」。",
+     "line": 206,
+     "chars": 593
+    },
+    {
+     "id": "5-四层语义-行为绑定-aria-keyshortcuts-accesskey-kbd",
+     "level": 2,
+     "title": "§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd",
+     "summary": "这四件事经常被当成一件事，实际是四个不同的层。混用是这一行最高频的实现缺陷。",
+     "line": 221,
+     "chars": 368
+    },
+    {
+     "id": "5-1-行为绑定侧的硬规则-来自三个规范的交集",
+     "level": 3,
+     "title": "§5.1 行为绑定侧的硬规则（来自三个规范的交集）",
+     "summary": "- 修饰键在前、非修饰键唯一且在后（ARIA MUST）：\"Authors MUST ensure modifier keys come first … Authors MUST ensure that required non-modif",
+     "line": 232,
+     "chars": 882
+    },
+    {
+     "id": "5-2-aria-keyshortcuts-的完整用法",
+     "level": 3,
+     "title": "§5.2 aria-keyshortcuts 的完整用法",
+     "summary": "The aria-keyshortcuts attribute exposes the existence of the shortcut to assistive technologies … Like all ARIA attribut",
+     "line": 240,
+     "chars": 248
+    },
+    {
+     "id": "5-3-为什么-accesskey-在通用站点上是坑-mdn-whatwg-双重证据",
+     "level": 3,
+     "title": "§5.3 为什么 accesskey 在通用站点上是坑（MDN + WHATWG 双重证据）",
+     "summary": "定义（WHATWG）：",
+     "line": 256,
+     "chars": 1200
+    },
+    {
+     "id": "5-4-kbd-的语义与三层嵌套-mdn",
+     "level": 3,
+     "title": "§5.4 <kbd 的语义与三层嵌套（MDN）",
+     "summary": "The <kbd HTML element represents user input (typically keyboard input). By default, the content text is displayed using ",
+     "line": 284,
+     "chars": 828
+    },
+    {
+     "id": "6-key-与-code-键盘布局-输入法组合-ime-与输入框焦点",
+     "level": 2,
+     "title": "§6 key 与 code：键盘布局、输入法组合（IME）与输入框焦点",
+     "summary": "The KeyboardEvent interface's key read-only property returns the value of the key pressed by the user, taking into consi",
+     "line": 304,
+     "chars": 1
+    },
+    {
+     "id": "6-1-event-key-vs-event-code-mdn-逐字",
+     "level": 3,
+     "title": "§6.1 event.key vs event.code（MDN 逐字）",
+     "summary": "The KeyboardEvent interface's key read-only property returns the value of the key pressed by the user, taking into consi",
+     "line": 306,
+     "chars": 1205
+    },
+    {
+     "id": "6-2-中文-日文输入法-ime-组合期-最容易被忽略的-bug-源",
+     "level": 3,
+     "title": "§6.2 中文/日文输入法（IME）组合期：最容易被忽略的 bug 源",
+     "summary": "官方判据（MDN）：",
+     "line": 323,
+     "chars": 665
+    },
+    {
+     "id": "6-3-输入框焦点内该不该触发快捷键",
+     "level": 3,
+     "title": "§6.3 输入框焦点内该不该触发快捷键",
+     "summary": "三个库的默认值给出了一致的工程共识：",
+     "line": 342,
+     "chars": 808
+    },
+    {
+     "id": "7-作用域-绑定与冲突仲裁-含-chord-多段序列",
+     "level": 2,
+     "title": "§7 作用域、绑定与冲突仲裁（含 chord 多段序列）",
+     "summary": "OS 保留键（Cmd+Tab / Alt+Tab / Ctrl+Alt+Del …）",
+     "line": 361,
+     "chars": 1
+    },
+    {
+     "id": "7-1-五层作用域模型-从外到内-越靠外越难抢",
+     "level": 3,
+     "title": "§7.1 五层作用域模型（从外到内，越靠外越难抢）",
+     "summary": "规则：监听器挂得越靠内，越不打扰别人；能挂组件根节点就不要挂 document。需要全局时，明确写「全局 + 可关闭」。",
+     "line": 363,
+     "chars": 73
+    },
+    {
+     "id": "7-2-os-级冲突-apg-给出-应避免的三类分配-辅助技术四类",
+     "level": 3,
+     "title": "§7.2 OS 级冲突：APG 给出「应避免的三类分配」+ 辅助技术四类",
+     "summary": "It is essential to avoid conflicts with keys that perform system level functions… this can be achieved by refraining fro",
+     "line": 376,
+     "chars": 1171
+    },
+    {
+     "id": "7-3-冲突仲裁的工程规则-无规范-属工程约定",
+     "level": 3,
+     "title": "§7.3 冲突仲裁的工程规则（无规范，属工程约定）",
+     "summary": "四种已实现系统的仲裁方式（可直接对照选型）：",
+     "line": 402,
+     "chars": 1313
+    },
+    {
+     "id": "7-4-chord-多段序列-的规则",
+     "level": 3,
+     "title": "§7.4 chord（多段序列）的规则",
+     "summary": "- 分段用空格：VS Code \"Chords (two separate keypress actions) are described by separating the two keypresses with a space. For",
+     "line": 425,
+     "chars": 517
+    },
+    {
+     "id": "7-5-绑定与清理-spa-最容易漏的一条",
+     "level": 3,
+     "title": "§7.5 绑定与清理（SPA 最容易漏的一条）",
+     "summary": "- 每次路由切换都 addEventListener 而不清理 → 同一动作触发 N 次（N = 访问过的页面数）。",
+     "line": 433,
+     "chars": 1619
+    },
+    {
+     "id": "8-面板解剖-数据模型-检索-无障碍与性能",
+     "level": 2,
+     "title": "§8 面板解剖：数据模型、检索、无障碍与性能",
+     "summary": "最小正确结构（ARIA 1.2 combobox 模式）：",
+     "line": 468,
+     "chars": 1
+    },
+    {
+     "id": "8-1-它不是输入框-是-combobox-listbox-命令注册表",
+     "level": 3,
+     "title": "§8.1 它不是输入框，是「combobox + listbox + 命令注册表」",
+     "summary": "最小正确结构（ARIA 1.2 combobox 模式）：",
+     "line": 470,
+     "chars": 1256
+    },
+    {
+     "id": "8-2-数据模型-命令注册表的字段",
+     "level": 3,
+     "title": "§8.2 数据模型（命令注册表的字段）",
+     "summary": "kbar 的 Action 类型（官方 docs 源码）可直接对照：",
+     "line": 500,
+     "chars": 453
+    },
+    {
+     "id": "8-3-检索层-过滤-排序与中文",
+     "level": 3,
+     "title": "§8.3 检索层：过滤、排序与中文",
+     "summary": "- 打分函数要能返回 0：cmdk 的 filter 签名是 (value, search, keywords?) = number，\"It should return a number between 0 and 1, with 1 be",
+     "line": 528,
+     "chars": 682
+    },
+    {
+     "id": "8-4-性能上限-数字要记住",
+     "level": 3,
+     "title": "§8.4 性能上限：数字要记住",
+     "summary": "cmdk 官方 FAQ 原文：",
+     "line": 536,
+     "chars": 676
+    },
+    {
+     "id": "8-5-键盘行为契约-面板内-逐键定义",
+     "level": 3,
+     "title": "§8.5 键盘行为契约（面板内，逐键定义）",
+     "summary": "---",
+     "line": 557,
+     "chars": 424
+    },
+    {
+     "id": "9-发现性-帮助面板-菜单标注与-kbd-样式",
+     "level": 2,
+     "title": "§9 发现性：帮助面板、菜单标注与 kbd 样式",
+     "summary": "- 触发：?（Shift+/）或菜单里的「键盘快捷键」；必须与设置项一致（关掉字符键快捷键后，? 不应再触发，改用菜单进入）。",
+     "line": 571,
+     "chars": 1
+    },
+    {
+     "id": "9-1-五个发现触点-缺一个都算-只有内部人知道",
+     "level": 3,
+     "title": "§9.1 五个发现触点（缺一个都算「只有内部人知道」）",
+     "summary": "",
+     "line": 573,
+     "chars": 499
+    },
+    {
+     "id": "9-2-帮助面板的规格",
+     "level": 3,
+     "title": "§9.2 ? 帮助面板的规格",
+     "summary": "- 触发：?（Shift+/）或菜单里的「键盘快捷键」；必须与设置项一致（关掉字符键快捷键后，? 不应再触发，改用菜单进入）。",
+     "line": 583,
+     "chars": 465
+    },
+    {
+     "id": "9-3-键名书写的四条硬规则",
+     "level": 3,
+     "title": "§9.3 键名书写的四条硬规则",
+     "summary": "1. 按平台写字形，不按代码写：Mac 用 ⌘ ⌥ ⇧ ⌃，Windows 用 Ctrl Alt Shift Win；混写（Ctrl+⌘）是错误。",
+     "line": 593,
+     "chars": 408
+    },
+    {
+     "id": "9-4-kbd-的样式基线-可抄",
+     "level": 3,
+     "title": "§9.4 kbd 的样式基线（可抄）",
+     "summary": "- 对比度：键名文本仍需满足 4.5:1（正文级）；不要用 #999 放在白底上。",
+     "line": 600,
+     "chars": 158
+    },
+    {
+     "id": "10-六个库的实测与选型-github-api-2026-11-14",
+     "level": 2,
+     "title": "§10 六个库的实测与选型（GitHub API 2026-11-14）",
+     "summary": "读表结论：",
+     "line": 619,
+     "chars": 1
+    },
+    {
+     "id": "10-1-实测表-数字全部来自-get-repos-owner-repo-实时返回",
+     "level": 3,
+     "title": "§10.1 实测表（数字全部来自 GET /repos/{owner}/{repo} 实时返回）",
+     "summary": "读表结论：",
+     "line": 621,
+     "chars": 842
+    },
+    {
+     "id": "10-2-各库的关键默认值-写契约前必须先知道",
+     "level": 3,
+     "title": "§10.2 各库的关键默认值（写契约前必须先知道）",
+     "summary": "",
+     "line": 640,
+     "chars": 1091
+    },
+    {
+     "id": "10-3-选型决策树",
+     "level": 3,
+     "title": "§10.3 选型决策树",
+     "summary": "",
+     "line": 651,
+     "chars": 1
+    },
+    {
+     "id": "10-4-已知陷阱-本轮实测发现-写进契约前必须核对",
+     "level": 3,
+     "title": "§10.4 已知陷阱（本轮实测发现，写进契约前必须核对）",
+     "summary": "1. pacocoursey/cmdk 已被 API 解析为 dip/cmdk（13,147★）。引用 star 要写新名，否则会被当成旧数据。",
+     "line": 663,
+     "chars": 632
+    },
+    {
+     "id": "11-交付规格-清单模板与四条硬规则",
+     "level": 2,
+     "title": "§11 交付规格：清单模板与四条硬规则",
+     "summary": "1. 单字符快捷键必须有总开关（SC 2.1.4 的 Turn off）；做不到就改成修饰键组合。",
+     "line": 675,
+     "chars": 1
+    },
+    {
+     "id": "11-1-交付物里必须有的表-少一行就会被返工",
+     "level": 3,
+     "title": "§11.1 交付物里必须有的表（少一行就会被返工）",
+     "summary": "",
+     "line": 677,
+     "chars": 231
+    },
+    {
+     "id": "11-2-四条硬规则",
+     "level": 3,
+     "title": "§11.2 四条硬规则",
+     "summary": "1. 单字符快捷键必须有总开关（SC 2.1.4 的 Turn off）；做不到就改成修饰键组合。",
+     "line": 685,
+     "chars": 350
+    },
+    {
+     "id": "12-用法速查-12-行-先对号再动手",
+     "level": 2,
+     "title": "§12 用法速查（12 行，先对号再动手）",
+     "summary": "---",
+     "line": 694,
+     "chars": 668
+    },
+    {
+     "id": "13-反模式-看到就该打回",
+     "level": 2,
+     "title": "§13 反模式（看到就该打回）",
+     "summary": "1. 用单字母（e、d、s）做全局快捷键，且没有关闭开关。",
+     "line": 713,
+     "chars": 786
+    },
+    {
+     "id": "14-自检清单-交付前逐条打勾-20-条",
+     "level": 2,
+     "title": "§14 自检清单（交付前逐条打勾，20 条）",
+     "summary": "1. 每个快捷键都写了作用域（全局/页面/组件聚焦）。",
+     "line": 738,
+     "chars": 689
+    },
+    {
+     "id": "15-两段可跑脚本-以下代码已实跑通过",
+     "level": 2,
+     "title": "§15 两段可跑脚本（以下代码已实跑通过）",
+     "summary": "三段检查分别覆盖：① 单字符快捷键检出（SC 2.1.4 落点）/ ② aria-keyshortcuts 语法 / ③ 冲突检测。把项目里的快捷键清单写成同样结构即可直接跑。",
+     "line": 763,
+     "chars": 5550
+    },
+    {
+     "id": "16-取源限制-本轮实测-未取到的写在这里-不臆造",
+     "level": 2,
+     "title": "§16 取源限制（本轮实测，未取到的写在这里，不臆造）",
+     "summary": "1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut",
+     "line": 925,
+     "chars": 2038
+    }
+   ]
+  },
+  {
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 748,
-   "chars": 80245,
+   "lines": 758,
+   "chars": 81033,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -8820,9 +9245,9 @@
      "chars": 43
     },
     {
-     "id": "三十五条专题支线-可与主线并行",
+     "id": "三十八条专题支线-可与主线并行",
      "level": 2,
-     "title": "三十五条专题支线（可与主线并行）",
+     "title": "三十八条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -9132,11 +9557,19 @@
      "chars": 1452
     },
     {
-     "id": "能力自测-177-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（177 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-al-键位加速契约-keyboard-shortcuts-command-palette",
+     "level": 3,
+     "title": "支线 AL · 键位加速契约（Keyboard Shortcuts & Command Palette）",
+     "summary": "- 这是什么（键位侧）：把「高频重复动作」做成一份带退出条款的加速契约——五问判层（做不做 / 哪一类 / 哪个作用域 / 怎么发现 / 冲突谁赢）、合规边界（SC 2.1.4 三出口 + SC 2.1.1 全键盘可达）、平台修饰键契约、面",
      "line": 605,
+     "chars": 731
+    },
+    {
+     "id": "能力自测-179-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（179 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 615,
      "chars": 8677
     }
    ]
@@ -16310,8 +16743,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 800,
-   "chars": 167854,
+   "lines": 815,
+   "chars": 170845,
    "sections": []
   }
  ],

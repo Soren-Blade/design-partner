@@ -600,3 +600,37 @@
 - https://github.com/pquerna/otp | [GH] pquerna/otp（API 实测 2,978★ / Apache-2.0 / 2025-08-07 / 未归档）Go 侧 TOTP/HOTP 实现，OTP 校验窗口与时钟偏移口径
 - https://github.com/privacyidea/privacyidea | [GH] privacyIDEA（API 实测 1,792★ / AGPL-3.0 / 未归档）企业 MFA 平台，因素编排与恢复码策略的参考
 - 取源限制：◄ = GitHub API 快照 2026-11-14（匿名 60 次/小时配额，本轮用 22 次）；`NOASSERTION` 一律按红灯处理，不得当 MIT 用；`clerk/javascript` 的 MIT 只覆盖 SDK，托管服务的商业条款另算；`zitadel` / `hanko` / `privacyidea` 为 AGPL-3.0，嵌进闭源产品前必须先判传染范围
+
+## 二十九、键盘快捷键与命令面板（Keyboard Shortcuts & Command Palette）【v45 本轮新增分区】
+
+判断标准：只收「能直接落到实现」的一手页——规范条文、平台人机指南、产品实现文档、库 README。每条注明取源日与关键数值，未取到的写进本节末尾的取源限制。
+
+- https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html | SC 2.1.4（Level A）Understanding：只约束「using only a letter (including upper- and lower-case letters), punctuation, number, or symbol characters」的快捷键；三出口 Turn off / Remap / Active only on focus；Intent Note 明确序列式（先 `G` 后 `A`）与 `Shift+字符` 同在范围内（v45 一手源：逐字英文原句已引）
+- https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts | WAI-ARIA 1.2 `aria-keyshortcuts`：修饰键名仅 `Alt` / `Control` / `Shift` / `Meta` / `AltGraph`，修饰键写在前面、用 `+` 连接；`User agents MUST NOT change keyboard behavior in response to the aria-keyshortcuts attribute.`；元素被禁用时快捷键声明同时失效（v45 一手源）
+- https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/ | APG Keyboard Interface：通用键盘→功能约定表、三类「应避免分配」的键、辅助技术四类冲突、"intentional conflict" 的四个前置条件；并明确快捷键不能替代导航（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts | MDN `aria-keyshortcuts`：只做可访问性声明、不绑定行为；与 `accesskey` 的分工与取舍（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key | MDN `KeyboardEvent.key`：布局相关 vs 无关的取舍、`Shift+5` 产出 `@` 一类的大小写/字符陷阱（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code | MDN `KeyboardEvent.code`：物理键位（QWERTY 基准），键盘布局改变时仍是同一物理键（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/isComposing | MDN `isComposing`：IME 组字期判据，中文输入法回车选中命令的根因（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey | MDN `accesskey`：浏览器与 AT 组合键不一致、冲突多，通用站点不推荐（v45 一手源）
+- https://html.spec.whatwg.org/multipage/interaction.html#the-accesskey-attribute | WHATWG HTML `accesskey`：`The accesskey attribute's value is used by the user agent as a guide for creating a keyboard shortcut that activates or focuses the element.` + 冲突时 UA 可忽略（v45 一手源）
+- https://developer.apple.com/design/human-interface-guidelines/keyboards | Apple HIG Keyboards：Command 为主修饰键；同时按多个修饰键时的书写顺序 `Control, Option, Shift, Command`；用 Hyphen（`-`）连接；双字符键与 `Shift` 的冲突警告（v45 一手源；旧 `keyboard-shortcuts` slug 已 404 并入本页）
+- https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators | Microsoft Keyboard accelerators：同一作用域内视觉树**自上而下第一个命中者**赢得该键；`control` 与 `app` 两类加速键；按住不放的自动重复不可关闭；提供通用快捷键表（v45 一手源）
+- https://code.visualstudio.com/docs/configure/keybindings | VS Code Key Bindings：**自下而上**求值（更具体的 `when` 子句优先，同优先级后者覆盖前者）；`--` 前缀表示「扫描码」以避开布局差异；`systemWide` 的五条平台限制；改键面板与冲突检测（v45 一手源）
+- https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts | GitHub Keyboard shortcuts：`?` 打开快捷键面板；「You can disable character key shortcuts, while still allowing shortcuts that use modifier keys」——SC 2.1.4「Turn off」的产品级实证；`G` + 字母的序列式导航（v45 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html | SC 2.1.1 Keyboard（Level A）：所有功能都能通过键盘接口操作，不要求特定时限内的按键速度（v45 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html | SC 2.1.2 No Keyboard Trap（Level A）：焦点能进能出；非标准交互需告知退出方式（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd | MDN `<kbd>`：语义化键帽元素与嵌套语义（用户输入 / 系统输出）（v45 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/Keyboard_API | MDN Keyboard API：`getLayoutMap()` 与键盘布局映射，用于「按物理位置绑定」（v45 一手源；WICG 草案、跨浏览器支持需实测）
+
+## 二十九·附：键盘快捷键与命令面板相关 GitHub 仓库（v45 GitHub API 实测）
+
+- https://github.com/dip/cmdk | [GH] 命令面板事实标准（原 `pacocoursey/cmdk` 已重定向）；API 实测 13,147★ / MIT / 最后 push 2025-10-29 / 未归档；默认 `loop=false`、`shouldFilter=true`、`vimBindings=true`，不处理 `Tab`，IME 守卫 `isComposing || keyCode === 229`，无虚拟化（2000–3000 条经验上限）
+- https://github.com/timc1/kbar | [GH] 命令面板 + 动作注册表；API 实测 5,264★ / MIT / 最后 push 2026-08-10 / 未归档；默认开合 `cmd+k` 与 `ctrl+k`，内置结果虚拟化
+- https://github.com/jamiebuilds/tinykeys | [GH] 2KB 级热键层；API 实测 4,106★ / MIT / 最后 push 2026-09-25 / 未归档；`key` 与 `code` 同时匹配、`$mod` 跨平台、序列超时 1000ms、默认忽略表单元素、返回 unsubscribe
+- https://github.com/JohannesKlauss/react-hotkeys-hook | [GH] React 热键 hook；API 实测 3,504★ / MIT / 最后 push 2026-11-12 / 未归档；`enableOnFormTags=false`、`splitKey="+"`、`delimiter=","`、`scopes="*"`、`preventDefault=false`、`sequenceTimeoutMs=1000`
+- https://github.com/greena13/react-hotkeys | [GH] 声明式 React 热键；API 实测 2,151★ / ISC / 最后 push 2023-01-04 / 未归档
+- https://github.com/ccampbell/mousetrap | [GH] 经典 2KB gzip 热键库；API 实测 11,770★ / Apache-2.0 / 最后 push 2023-03-15 / 未归档；`g i` 序列语法、`stopCallback` 默认拦截 INPUT/SELECT/TEXTAREA/contenteditable
+- https://github.com/ssleptsov/ninja-keys | [GH] Web Component 命令面板；API 实测 1,704★ / MIT / 最后 push 2024-07-14 / 未归档；`openHotkey=cmd+k,ctrl+k`、`up,shift+tab`/`down,tab`/`esc`/`backspace`/`enter`、`--ninja-width:640px`/`--ninja-actions-height:300px`/`--ninja-top:20%`、无 `hideTrigger`（原 `johnlindquist/ninja-keys` 已 404）
+
+- 取源限制（v45）：Apple HIG HTML 为 JS-only SPA、W3C 站对脚本抓取一律 403（改用浏览器取文）；WAI-ARIA 1.2 单页在 §2 后被截断；MS 两页 301 迁移；Keyboard Lock 仅 WICG + MDN Experimental，跨浏览器可用性未实测；MDN 兼容表为 JS 渲染故不写版本号；两张平台快捷键全表仅节选，未列出行明确标注未验证。

@@ -2,8 +2,8 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v44-1677ff)
-![assets](https://img.shields.io/badge/reference_files-49-2ea44f)
+![version](https://img.shields.io/badge/version-v45-1677ff)
+![assets](https://img.shields.io/badge/reference_files-50-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-14-6e7781)
 
@@ -43,8 +43,9 @@
 | **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
 | **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
 | **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 46 项自检 |
-| **知识找不到** | 49 份参考、142 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **快捷键记不住 / 按了没反应 / 和系统抢** | 单字母快捷键没有关闭开关、`aria-keyshortcuts` 写完以为能触发、Mac 用户看到 Control、输入框里打 `?` 弹出帮助面板、中文输入法回车直接执行命令、命令面板 Tab 切不动、2000 条命令卡死 | `keyboard-shortcuts-command-palette.md` 五问判层 + SC 2.1.4 三出口 + 平台修饰键契约 + 四层语义 + IME 守卫 + 冲突仲裁 + 命令面板 combobox 契约 + 六库实测 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 47 项自检 |
+| **知识找不到** | 50 份参考、147 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -53,7 +54,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 177 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 179 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -102,6 +103,7 @@
 | [叠加层与模态性](references/overlays-modality.md) | 立场：模态不是一层半透明遮罩，是「外部还能不能被操作」的交互契约 / 四问判型决策树（Q1 背景 inert·Q2 焦点进层且 Tab 不越界·Q3 显式 activate 还是 hover/focus·Q4 无鼠标无物理键盘也能退出）/ 三条裁决（APG Windows under a modal dialog are inert + Escape 关闭 + 焦点归位·aria-modal 双条件 / MDN Popovers created using the Popover API are always non-modal·showModal 才模态·closedby 三值 / WCAG 2.2 正确构建的 modal dialog will always pass SC 2.4.11·伪模态 dialog-like overlay 风险最高·F110）/ Popover 三态 auto·hint·manual 与双栈六规则 / top layer·::backdrop 与 z-index 分界 / WCAG 四条款矩阵（1.4.13 三条件·2.4.11 Note 2 三出路与 C43·F110·2.1.2 标准退出法·3.2.1 禁 focus 抢焦点）/ 关闭契约矩阵与层叠嵌套 / 12 类组件族谱判型 / Apple HIG·Radix·GitHub API 实测 10 库 / 取源限制与边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3） | 规则型 | 2026-11-11 |
 | [首次体验与用户引导](references/onboarding-first-run.md) | 立场：Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计 / 五段链路（Launch·First-run·Teach·Activate·Return）/ 三条裁决（默认不加教程：NN/g 70 人 4 app 逐字 91% vs 94% p=0.443·93.49s vs 85.17s p>0.1·SEQ 4.92 vs 5.49 p=0.047 + Apple Teach through interactivity + 先测无引导四步闸门 / 权限按功能时机不按会话起点：purpose string 四标准·pre-alert 平台特定禁外推 Web 同意层·tracking 四禁令 / SC 3.3.7·3.3.8·3.2.1·2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 autocomplete 不算满足 3.3.7）/ 六问判型决策树与四条硬约束 / 六类引导形态矩阵与 push·pull 用词勘误 / 渐进披露与设置后置 / launch≠splash≠onboarding 三分界 / NN/g 实证全表与四条研究限制 / Material 1 **归档**精确值（非现行 M3）/ Apple tips 阈值 / 权限时机矩阵 / WCAG 四条款合取表 / Ant Design Tour 精确 props / 教学型零数据位与 Carbon 五件套 / activation·TTV 口径与跳过率陷阱 / 12 库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（5/5 Python 严格模式实跑 rc=0）/ 取源限制与边界矩阵 | 规则型 | 2026-11-12 |
 | [认证与账户体验](references/auth-account-ux.md) | 立场：认证不是一道门，是一条可失败、可恢复、可退出的路径 / 三条裁决（证明身份 vs 建立身份·SC 3.3.8 明确不覆盖建账号 / 密码共识已整体反转·NIST 800-63B-4 单因素 ≥15 字符·禁组合·禁轮换·至少允许 64·ASVS 8 的版本错位 / Passkeys 在账号验证之后再种·web.dev Avoid password-only verification）/ §1 六问判层 + 12 场景表 + 边界矩阵 / §2 登录表单（autocomplete 全表·off 拦不住管理器·F109 禁粘贴·泛化错误文案·提交态）/ §3 注册四纪律（游客优先 Baymard 18%·规则常驻·去重复字段·邮箱验证降级）/ §4 反神话表 13 行 + 限速 100 次 / §5 Passkeys（参数表·能力三层·四个创建时机·条件式 UI·错误映射·管理页）/ §6 MFA 因素排序与推送数字匹配 / §7 OTP 单框与禁自动跳格 / §8 恢复与防枚举 / §9 AAL 三档会话 / §10 WCAG 3.3.8 全文与失败清单 + NIST §8 可用性 / §11 冲突裁决 8 条 / §12 Apple 140pt×30pt 与 Google 三配色 / 20 反模式·20 自检 / 4 段可抄代码（含 Python 静态校验器 4/4 PASS） | 规则型 | — |
+| [键盘快捷键与命令面板](references/keyboard-shortcuts-command-palette.md) | 立场：快捷键不是彩蛋，是一份带退出条款的加速契约 / 三条裁决（SC 2.1.4 判据是「是否依赖可打印字符」而非按了几个物理键，序列与 Shift+字符同在范围内 / 修饰键是平台契约·aria-keyshortcuts 只声明不绑定·accesskey 劝退 / 命令面板 = 命令注册表 + combobox 检索层·IME 组字期不响应·cmdk 无虚拟化上限 2000–3000）/ §1 五问判层 + 12 场景 / §2 SC 2.1.4 判据表 9 形态 + 2.1.1/2.1.2 分工 / §3 三出口 + GitHub 实证 / §4 macOS 顺序 Control→Option→Shift→Command 与 Hyphen、Windows +、ARIA 五个修饰键名 / §5 四层语义 + 五条 MUST + WHATWG accesskey / §6 key vs code + IME 守卫 / §7 五层作用域 + 四类仲裁 + VS Code 自下而上 / §8 面板解剖 + 数据模型 + 逐键契约 / §9 五个发现触点 + kbd 样式 / §10 六库 API 实测（cmdk 13,147★ / kbar 5,264★ / tinykeys 4,106★）/ §11 四条硬规则 / 12 场景·20 反模式·20 自检 / 2 段代码实跑 PASS / 取源限制 16 条 | 规则型 | 2026-11-14 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -112,12 +114,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  231 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  234 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  46 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关）+ 交付说明三段式
+第 6 步  自检与交付    →  47 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关、键盘快捷键关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -139,7 +141,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：272 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：275 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
@@ -159,7 +161,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 37 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验）、学习节奏表、177 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 38 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验 / 键位加速契约）、学习节奏表、179 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -187,6 +189,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-14 | 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45） |
 | 2026-11-14 | 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44） |
 | 2026-11-14 | 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43） |
 | 2026-11-13 | 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42） |
@@ -194,7 +197,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-13 | 每日升级 #36：定价页与结账流程（Pricing & Checkout / Total Price / Check Answers） |
 | 2026-11-13 | 每日升级 #35：空状态与零数据位（Empty States / Zero-Data / Starter Content / 装饰插画） |
 | 2026-11-12 | 每日升级 #34：首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure） |
-| 2026-11-11 | 每日升级 #33：叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer） |
 
 ---
 
@@ -338,6 +340,16 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Android · Haptics overview](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) — 何时用触觉 / 常量 API level / 用户设置 / 不建议 createOneShot
 - [Android · Haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) — 原语时长 / 包络 20 ms 与 16 点 / 振幅在无支持设备的回退 / 音频焦点与 sonification
 - [AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java) — 21 个公开常量源码注释
+- [WCAG 2.2 · SC 2.1.4 Character Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html) — 三个出口的逐字条文 / 可打印字符判据 / 序列与 accesskey 例外
+- [WAI-ARIA 1.2 · aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts) — 五个合法修饰键名 / 修饰键在前 / UA MUST NOT 改行为 / 禁用同时失效
+- [WAI-ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) — 通用函数约定表 / 三类应避免分配 / AT 四类冲突 / 有意冲突四条件
+- [MDN · aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts) — 只声明不绑定 / 与 accesskey 的关系
+- [MDN · KeyboardEvent.key / code / isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) — 布局无关的物理键 / 字符键 / 组字期判据
+- [Apple HIG · Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards) — Command 主修饰 / Control,Option,Shift,Command 顺序 / Hyphen 书写 / 双字符键与 Shift 警告
+- [Microsoft · Keyboard accelerators](https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators) — 视觉树第一个命中 / control 与 app 加速键 / 自动重复不可关 / 通用表
+- [VS Code · Key Bindings](https://code.visualstudio.com/docs/configure/keybindings) — 自下而上求值 / when 子句 / 扫描码 / systemWide 五条限制 / 改键面板
+- [GitHub · Keyboard shortcuts](https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts) — ? 帮助面板 / 可关闭字符键保留修饰键 / G 系列序列
+- [cmdk](https://github.com/dip/cmdk) / [kbar](https://github.com/timc1/kbar) / [tinykeys](https://github.com/jamiebuilds/tinykeys) — 命令面板与热键层六库 GitHub API 实测（2026-11-14）
 
 ## 目录结构
 
@@ -345,7 +357,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（49 份，见上表）
+├── references/               # 知识库（50 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

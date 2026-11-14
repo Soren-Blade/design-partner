@@ -49,6 +49,26 @@ TOKEN_CANDIDATES = [
 ]
 API = "https://api.github.com"
 
+# 显式不走代理的 opener：本机曾出现「系统代理指向本地端口但代理进程未启动」，
+# 此时 urllib 默认走代理会抛 ConnectionRefused / 代理层 403，而 api.github.com 直连正常。
+DIRECT_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
+
+def _urlopen(req, timeout):
+    """先按系统代理配置请求；代理层故障时回退直连。
+
+    HTTP 401 / 404 / 422 是接口语义层的确定性答复，直接抛出，不浪费一次重试；
+    其余异常（连接被拒、超时、代理 403/407、网关 5xx）一律换直连再试一次。
+    """
+    try:
+        return urllib.request.urlopen(req, timeout=timeout)
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 404, 422):
+            raise
+        return DIRECT_OPENER.open(req, timeout=timeout)
+    except Exception:
+        return DIRECT_OPENER.open(req, timeout=timeout)
+
 
 def die(msg):
     print(f"[失败] {msg}")
@@ -81,7 +101,7 @@ def token_status(token):
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
+        with _urlopen(req, 20) as r:
             r.read()
             return "ok" if r.status == 200 else "unknown"
     except urllib.error.HTTPError as e:
@@ -146,7 +166,7 @@ def call(method, path, token, payload=None, ok=(200, 201), retries=4):
         if data:
             req.add_header("Content-Type", "application/json")
         try:
-            with urllib.request.urlopen(req, timeout=90) as r:
+            with _urlopen(req, 90) as r:
                 body = r.read().decode("utf-8")
                 return r.status, (json.loads(body) if body.strip() else {})
         except urllib.error.HTTPError as e:

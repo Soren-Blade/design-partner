@@ -634,3 +634,38 @@
 - https://github.com/ssleptsov/ninja-keys | [GH] Web Component 命令面板；API 实测 1,704★ / MIT / 最后 push 2024-07-14 / 未归档；`openHotkey=cmd+k,ctrl+k`、`up,shift+tab`/`down,tab`/`esc`/`backspace`/`enter`、`--ninja-width:640px`/`--ninja-actions-height:300px`/`--ninja-top:20%`、无 `hideTrigger`（原 `johnlindquist/ninja-keys` 已 404）
 
 - 取源限制（v45）：Apple HIG HTML 为 JS-only SPA、W3C 站对脚本抓取一律 403（改用浏览器取文）；WAI-ARIA 1.2 单页在 §2 后被截断；MS 两页 301 迁移；Keyboard Lock 仅 WICG + MDN Experimental，跨浏览器可用性未实测；MDN 兼容表为 JS 渲染故不写版本号；两张平台快捷键全表仅节选，未列出行明确标注未验证。
+
+## 三十、文件上传与媒体输入（File Upload & Media Input / Crop / Resumable）【v46 本轮新增分区】
+
+判断标准：只收「能直接落到实现」的一手页——规范条文、设计系统文档、安全清单、协议原文、组件库 README。每条注明取源日与关键数值，未取到的写进本节末尾的取源限制。
+
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/accept | MDN `accept`：五种 unique file type specifier 逐字（扩展名大小写不敏感且以 `.` 开头 / MIME / `audio/*` / `video/*` / `image/*`）；*"The `accept` attribute doesn't validate the types of the selected files; it provides hints for browsers to guide users towards selecting the correct file types."*、*"It is still possible (in most cases) for users to toggle an option in the file chooser…"*、*"you should make sure that expected requirement is validated server-side."*（v46 一手源：逐字英文原句已引）
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/file | MDN `<input type="file">`：`accept` 是 comma-separated 列表；`capture` 的 `user`（前置）与 `environment`（后置）逐字；`multiple` 允许多选（v46 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/Blob/size | MDN `Blob.size`：*"returns the size of the `Blob` or `File` in bytes"*——大小上限校验一律按字节，十进制 MB 与 MiB 必须显式换算（v46 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/image-orientation | MDN `image-orientation`：`from-image` 为 *"Default initial value"*；`none` 的安全警示 *"does not override the orientation of non-secure-origin images"*（v46 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/createImageBitmap | MDN `createImageBitmap()`：`imageOrientation` 三值 `from-image`（*"Image oriented according to EXIF orientation metadata, if present (default)."*）/ `flipY` / `none`，另有 `resizeWidth`/`resizeHeight`/`resizeQuality`（v46 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/413 | MDN 413 Content Too Large：*"the request entity was larger than limits defined by server"*；RFC 9110 前称 `Payload Too Large`；示例响应体 `{"error": "Upload failed", "message": "Maximum allowed upload size is 4MB"}`（v46 一手源）
+- https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html | OWASP File Upload Cheat Sheet：*"Validate the file type, don't trust the Content-Type header as it can be spoofed"*、扩展名白名单、应用生成文件名、大小上限、存到 webroot 外、杀毒/CDR；绕过形态逐字（双扩展名 `.jpg.php`、空字节 `.php%00.jpg`、大小写、NTFS ADS `shell.php::$DATA`）；ZIP 与解压后计大小；`disable per directory configuration overrides`（v46 一手源）
+- https://design-system.service.gov.uk/components/file-upload/ | GOV.UK File upload：*"You should only ask users to upload something if it's critical to the delivery of your service."*；错误文案示例 *"The selected file must be smaller than 2MB"* 与 *"You can only select up to 10 files at the same time"*（均为示例，非强制上限）；2025-03 起组件 opt-in 改进（Frontend 5.9.0）（v46 一手源）
+- https://designsystem.digital.gov/components/file-input/ | USWDS File input：*"Use hint text to highlight input restrictions."*（`usa-hint`）；*"The file input component doesn't support asynchronous uploading. Files will POST only on form submission."*；组件标注 WCAG 2.1 AA（15 tests / 13 passed / 2 exceptions）（v46 一手源）
+- https://github.com/tus/tus-resumable-upload-protocol/blob/main/protocol.md | tus 1.0.0 可恢复上传协议原文：`Tus-Resumable` 每请求必带（OPTIONS 除外）、`Upload-Offset`/`Upload-Length` 非负整数、PATCH 必须 `Content-Type: application/offset+octet-stream`、offset 不匹配 MUST 409、成功 MUST 204、checksum 扩展 400/460/204 且 MUST 支持 `sha1`、`Tus-Max-Size` 服务端播报；协议不规定分片字节数（v46 一手源：tus.io 页在 "### Creation With Upload" 处截断，改读仓库 protocol.md）
+- https://github.com/ant-design/ant-design/blob/master/components/upload/index.en-US.md | Ant Design Upload：`accept`/`multiple`/`maxCount`/`beforeUpload`（返回 false 或 rejected Promise 停止；`LIST_IGNORE` 不入列表）/`listType`/`progress`/`customRequest`；`maxCount` 源码 `toggleFileListMaxCount` 超限**静默截断且不渲染提示**，组件本身**没有 size-limit prop**（v46 一手源：ant.design 页 200 空正文，改读仓库 raw）
+- https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html | SC 2.5.7 Dragging Movements（AA）：*"All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging"*——拖放上传区必须有单指针替代路径（v46 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html | SC 2.5.8 Target Size (Minimum)（AA）：至少 24×24 CSS px，24 CSS px 直径圆间距例外；文档注明 SC 2.5.5 (Enhanced) 用 44×44——删除/重传按钮命中区按此验收（v46 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html | SC 3.3.1 Error Identification（A）：*"the item that is in error is identified and the error is described to the user in text"*（v46 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html | SC 3.3.3 Error Suggestion（AA）：*"suggestions for correction are known, then the suggestions are provided to the user"*（v46 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html | SC 4.1.3 Status Messages（AA）：进度与结果须能被 AT 不聚焦获知；示例 *"intermittent announcements of the progress"*（v46 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html | SC 2.2.1 Timing Adjustable（A）：*"at least 20 seconds to extend"*、*"extend the time limit at least ten times"*、*"longer than 20 hours"*（v46 一手源；用于长时间上传/会话超时告警）
+
+## 三十·附：文件上传与媒体输入相关 GitHub 仓库（v46 GitHub API 实测）
+
+- https://github.com/transloadit/uppy | [GH] 上传器全家桶（拖放/摄像头/断点续传/远端源）；API 实测 31,075★ / MIT / 最后 push 2026-11-16T11:57Z / 未归档（v46 API 实测）
+- https://github.com/react-dropzone/react-dropzone | [GH] React 拖放上传区；API 实测 11,024★ / MIT / 最后 push 2026-11-15 / 未归档（v46 API 实测）
+- https://github.com/pqina/filepond | [GH] 文件池式上传 UI；API 实测 16,396★ / MIT / 最后 push 2026-11-11 / 未归档（v46 API 实测）
+- https://github.com/fengyuanchen/cropperjs | [GH] 图片裁剪；API 实测 13,918★ / MIT / 最后 push 2026-11-15 / 未归档（v46 API 实测）
+- https://github.com/dropzone/dropzone | [GH] 经典拖放上传（仓库 301 → `enyo/dropzone`，repo id 3422939）；API 实测 18,408★ / NOASSERTION / 最后 push 2026-11-01 / 未归档（v46 API 实测）
+- https://github.com/tus/tus-js-client | [GH] tus 协议客户端；API 实测 2,640★ / MIT / 最后 push 2026-11-15 / 未归档（v46 API 实测）
+- https://github.com/GoogleChromeLabs/squoosh | [GH] 客户端图片压缩；API 实测 26,195★ / Apache-2.0 / 最后 push 2026-10-22（default_branch=dev）/ 未归档（v46 API 实测）
+- https://github.com/lovell/sharp | [GH] 服务端图像处理（EXIF 方向与重编码）；API 实测 32,855★ / Apache-2.0 / 最后 push 2026-11-16T08:43Z / 未归档（v46 API 实测）
+
+- 取源限制（v46）：WHATWG HTML `input.html#file-upload-state-(type=file)` 与 `/dev/input.html` 均 HTTP 200 但正文不可用（"HTML content omitted: unable to convert safely"），故 `accept`/`capture` 的规范原文未引，只用 MDN 逐字；`mimesniff.spec.whatwg.org` 同症状、`mimesniff.bs` raw 拉取失败，故「嗅探规则」只用 OWASP 清单不用规范条文；`ant.design` Upload 页（en/cn）均 200 空正文，改用仓库 raw md（v6 线）；`www.iec.ch/si/binary.htm` 返回 202 空正文，二进制前缀只用算术表达；`developer.android.com` ExifInterface 页 fetch failed，故 EXIF 1–8 方向映射未取到、不编造数值表；M3 components 页只有 JS shell，本轮未纳入。

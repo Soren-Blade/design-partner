@@ -34,24 +34,24 @@ ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
 # 新主题门槛：主题词 + 通用跨域词组合，答案应落在 auth-account-ux.md 前 3。
-# #41 换轮：13 条覆盖五问判层 / SC 2.1.4 三出口 / 平台修饰键与显示格式 / aria-keyshortcuts 与
-# accesskey / key 与 code / 输入法 IME 组字 / 作用域与冲突仲裁 / 命令面板检索与虚拟化 /
-# 帮助面板与发现性 / 保留键与误触，且刻意混入「组件 / 无障碍 / 验收 / 度量 / 性能」等跨域
-# 词（#26 P1 教训）。#40 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #41 沉淀块）。
+# #42 换轮：13 条覆盖五问判层 / accept 只是提示 / 大小上限与单位 / EXIF 方向与裁剪 /
+# 进度与取消 / 断点续传与退避 / 多文件部分失败 / 无障碍播报 / SVG 与直传安全 / 批量导入，
+# 且刻意混入「组件 / 无障碍 / 验收 / 度量 / 对比」等跨域词（#26 P1 教训）。
+# #41 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #42 沉淀块）。
 NEW_QUERIES = [
-    "快捷键 键位 组合键 冲突 检测 组件",
-    "快捷键 关闭 重映射 字符键 SC 2.1.4 无障碍",
-    "命令面板 搜索 键盘 组件 实现",
-    "aria-keyshortcuts 修饰键 声明 键盘 验收",
-    "key code 键盘布局 输入法 composition",
-    "Command K Ctrl K 平台 显示 格式 差异",
-    "帮助面板 快捷键 列表 发现性 提示",
-    "保留键 浏览器 冲突 优先级 键盘",
-    "chord 序列 多段 按键 超时 设计",
-    "全局 监听 快捷键 作用域 清理 组件",
-    "命令 注册表 过滤 虚拟化 性能 度量",
-    "误触 单字符 快捷键 开关 设置 偏好",
-    "键盘 操作 不用鼠标 完成 任务 可达性",
+    "文件上传 拖拽 选择文件 组件 验收",
+    "上传 进度 取消 大文件 状态 反馈",
+    "断点续传 tus 分片 恢复 上传",
+    "accept 类型 白名单 校验 服务端",
+    "文件 大小 上限 超出 文案 单位",
+    "图片 上传 EXIF 方向 旋转 竖拍",
+    "头像 上传 裁剪 比例 最小 像素",
+    "多文件 上传 并发 队列 部分 失败",
+    "上传 无障碍 键盘 读屏 播报 验收",
+    "SVG 上传 安全 净化 XSS 文件",
+    "预签名 URL 直传 对象 存储 权限",
+    "批量 导入 CSV 模板 失败 行 导出",
+    "上传 组件 库 选型 uppy filepond 对比",
 ]
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
@@ -261,9 +261,24 @@ HIST_QUERIES = [
     "SC 3.3.8 认知功能测试 验证码 无障碍 依据",
     "游客 结账 注册墙 弃购 转化 度量",
     "第三方登录 按钮 Apple Google 品牌 规范 验收",
+
+    # #42 沉淀：#41（键盘快捷键与命令面板）的 13 条新主题查询，换轮后固定为历史回归集。
+"快捷键 键位 组合键 冲突 检测 组件",
+"快捷键 关闭 重映射 字符键 SC 2.1.4 无障碍",
+"命令面板 搜索 键盘 组件 实现",
+"aria-keyshortcuts 修饰键 声明 键盘 验收",
+"key code 键盘布局 输入法 composition",
+"Command K Ctrl K 平台 显示 格式 差异",
+"帮助面板 快捷键 列表 发现性 提示",
+"保留键 浏览器 冲突 优先级 键盘",
+"chord 序列 多段 按键 超时 设计",
+"全局 监听 快捷键 作用域 清理 组件",
+"命令 注册表 过滤 虚拟化 性能 度量",
+"误触 单字符 快捷键 开关 设置 偏好",
+"键盘 操作 不用鼠标 完成 任务 可达性",
 ]
 
-EXPECT_FILE = "keyboard-shortcuts-command-palette.md"
+EXPECT_FILE = "file-upload-media-input.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
@@ -271,12 +286,16 @@ NEW_ASSETS = {EXPECT_FILE}
 # #36：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
 # 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
 EXPECTED_EVOLUTION = {
-    # #41：新资产 §6/§6.2 逐字覆盖 Enter vs Shift+Enter、IME composition 守卫，
-    # 凭原词相关性进入 top3（conversational 仍 top1、knowledge-map 仍在榜）；
-    # 三条硬校验 a/b/c 全过，--no-alias 下新资产也在前 3。
-    "聊天输入 Enter Shift+Enter 中文输入法 禁用提交 表单":
-        "keyboard-shortcuts-command-palette §6.2 进驻第 2 位；HEAD top1 未被顶掉，"
-        "knowledge-map 仍在第 3。下轮固定为新基线后从此处移除。",
+    # #42：新资产 §7.1 覆盖「拖放区不是唯一入口」的键盘全链路、§7.2 覆盖播报清单；
+    # 这两条历史查询上凭原词相关性进入 top3（均为第 2 位），三条硬校验 a/b/c 全过：
+    # HEAD top1（direct-manipulation.md）未被顶掉、HEAD top3 里 2 个仍在 NOW top5、
+    # --no-alias 下新资产仍在前 3。
+    "补个键盘快捷键 算不算无障碍 键盘拖放 Space Escape":
+        "file-upload-media-input §7.1 进驻第 2 位（上传链路的 Space/Enter 与拖放替代路径）；"
+        "HEAD top1 direct-manipulation 未被顶掉，其 top3 中 component-api-design 仍在 NOW 第 3。",
+    "读屏播报 live region position index aria-roledescription":
+        "file-upload-media-input §7.2「读屏播报清单」进驻第 2 位；HEAD top1 未动，"
+        "knowledge-map / accessibility 仍在 NOW 前 5。",
 }
 
 # 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，

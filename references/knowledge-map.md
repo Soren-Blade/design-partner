@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三十八条专题支线（可与主线并行）
+## 三十九条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -612,7 +612,17 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 给我一个「单字母快捷键」的需求，我能说出必须提供的三个出口，并写出一条含修饰键顺序的 `aria-keyshortcuts` 声明。
 - [ ] 给我一个「2000 条命令」的面板需求，我能说明为什么必须虚拟化、IME 组字期要拦哪个键，并列出至少三个发现触点。
 
-## 能力自测（179 条，做到 ≥110 条即达 L2+）
+### 支线 AM · 上传链路契约（File Upload & Media Input）
+
+- **这是什么（上传侧）**：把「选个文件传上去」拆成五段可验收链路——判层（做不做 / 哪一类 / 放哪里）、控件契约（accept 五种 specifier 只是提示、capture 前后置、拖放四件事）、三档校验（客户端即时 / 提交前 / 服务端权威）、传输与进度（0.1/1/10 s 三档反馈、取消语义、tus 断点续传）、失败与恢复（十种失败分类、退避重试、部分成功）；媒体侧再叠 EXIF 方向与裁剪比例。
+- **三条最重要裁决**：① `accept` 不校验类型，只提示浏览器；*"The `accept` attribute doesn't validate the types of the selected files"*，服务端必须重验（MDN），文件头嗅探与扩展名白名单双轨，绝不信任 `Content-Type`（OWASP 逐字：*"don't trust the Content-Type header as it can be spoofed"*）；② 拖放上传区必须有「选择文件」按钮等价路径——SC 2.5.7 要求 *"All functionality that uses a dragging movement … can be achieved by a single pointer without dragging"*，键盘可达另由 SC 2.1.1 兜；③ 上传状态必须分 `uploading / processing / succeeded / rejected / failed` 五态，`rejected`（校验拒绝，不可重试）与 `failed`（网络失败，可重试）是两种用户动作，进度播报走 SC 4.1.3 节流而非逐帧 announce。
+- **精确值怎么取**：单文件上限文案写「2 MB」这类十进制单位时须说明换算（12,400,000 B = 12.4 MB = 11.8 MiB，差 4.86%）；进度反馈沿用 0.1/1/10 s 三档、>10 s 必须百分比 + 可取消；目标尺寸 ≥24×24 CSS px（SC 2.5.8），可点图标命中区 ≥44 px；tus 状态码 204 / 409 / 460 与 `Tus-Max-Size` 逐字回协议原文；裁剪比例与最小像素回产品规格，别抄二手博客。
+- **判学会了**：给我一个「上传个头像」的需求，我能说出它要不要做、属于哪一类、放哪段链路、`accept` 为什么不能当校验、拖放区缺什么等价路径、进度什么时候出百分比、失败了要不要给重试按钮、EXIF 竖拍图会不会转错方向。
+
+- [ ] 拿到一个 `accept="image/*"` 的上传框，我能说清它拦不住什么（改扩展名 / 改 MIME / 拖入非图 / 空字节截断），并给出服务端三重校验顺序。
+- [ ] 拿到一条「iPhone 竖拍图传上去变横的」，我能判定是 EXIF `from-image` 与 canvas 重绘哪个环节丢的方向，并给出 `createImageBitmap(blob, { imageOrientation: 'from-image' })` 的修法。
+
+## 能力自测（181 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

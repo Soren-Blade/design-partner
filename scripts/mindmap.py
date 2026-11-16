@@ -137,6 +137,9 @@ INTENTS = [
     ("快捷键 / 键位 / 快捷键冲突 / 加速键 / 快捷键设置", "keyboard-shortcuts-command-palette.md §1 五问判层 → §2 SC 2.1.4 判据表 → §3 三个出口 → §4 平台修饰键契约 → §7 作用域与冲突仲裁"),
     ("命令面板 / Command Palette / cmd-k / 快速跳转 / 命令搜索", "keyboard-shortcuts-command-palette.md §8 数据模型与 combobox 契约 → §8.3 检索与拼音 → §8.4 虚拟化上限 2000–3000 → §10 六库选型"),
     ("aria-keyshortcuts / accesskey / kbd / 键盘可访问性 / 输入法 IME", "keyboard-shortcuts-command-palette.md §5 四层语义 → §6 key vs code 与 IME → §9 发现性与 ? 帮助面板 → §14 自检"),
+    ("文件上传 / 拖拽上传 / 选择文件 / 附件 / 上传进度", "file-upload-media-input.md §1 五问判层 → §2 控件契约（accept 五种写法 / capture / 拖放四件事）→ §3 三档校验与文案 → §4.2 进度规格"),
+    ("断点续传 / 大文件 / 弱网 / tus / 上传失败 重试", "file-upload-media-input.md §4.5 tus 1.0.0 逐字（Upload-Offset / 409 / 204 / 460 / Tus-Max-Size）→ §6 十种失败与退避 → §6.3 部分成功"),
+    ("图片裁剪 / 头像上传 / EXIF / 拍照上传 / HEIC / 媒体输入", "file-upload-media-input.md §5 媒体输入特化 → §5.1 EXIF from-image 与 canvas 坑 → §5.3 裁剪比例表 → §13.6 裁剪验收代码"),
 
 ]
 

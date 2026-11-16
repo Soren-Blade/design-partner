@@ -77,6 +77,7 @@ ASSETS = [
     ("onboarding-first-run.md", "首次体验与用户引导", "立场：Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计 / 五段链路（Launch·First-run·Teach·Activate·Return）/ 三条裁决（默认不加教程：NN/g 70 人 4 app 逐字 91% vs 94% p=0.443·93.49s vs 85.17s p>0.1·SEQ 4.92 vs 5.49 p=0.047 + Apple Teach through interactivity + 先测无引导四步闸门 / 权限按功能时机不按会话起点：purpose string 四标准·pre-alert 平台特定禁外推 Web 同意层·tracking 四禁令 / SC 3.3.7·3.3.8·3.2.1·2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 autocomplete 不算满足 3.3.7）/ 六问判型决策树与四条硬约束 / 六类引导形态矩阵与 push·pull 用词勘误 / 渐进披露与设置后置 / launch≠splash≠onboarding 三分界 / NN/g 实证全表与四条研究限制 / Material 1 **归档**精确值（非现行 M3）/ Apple tips 阈值 / 权限时机矩阵 / WCAG 四条款合取表 / Ant Design Tour 精确 props / 教学型零数据位与 Carbon 五件套 / activation·TTV 口径与跳过率陷阱 / 12 库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（5/5 Python 严格模式实跑 rc=0）/ 取源限制与边界矩阵"),
     ("auth-account-ux.md", "认证与账户体验", "立场：认证不是一道门，是一条可失败、可恢复、可退出的路径 / 三条裁决（证明身份 vs 建立身份·SC 3.3.8 明确不覆盖建账号 / 密码共识已整体反转·NIST 800-63B-4 单因素 ≥15 字符·禁组合·禁轮换·至少允许 64·ASVS 8 的版本错位 / Passkeys 在账号验证之后再种·web.dev Avoid password-only verification）/ §1 六问判层 + 12 场景表 + 边界矩阵 / §2 登录表单（autocomplete 全表·off 拦不住管理器·F109 禁粘贴·泛化错误文案·提交态）/ §3 注册四纪律（游客优先 Baymard 18%·规则常驻·去重复字段·邮箱验证降级）/ §4 反神话表 13 行 + 限速 100 次 / §5 Passkeys（参数表·能力三层·四个创建时机·条件式 UI·错误映射·管理页）/ §6 MFA 因素排序与推送数字匹配 / §7 OTP 单框与禁自动跳格 / §8 恢复与防枚举 / §9 AAL 三档会话 / §10 WCAG 3.3.8 全文与失败清单 + NIST §8 可用性 / §11 冲突裁决 8 条 / §12 Apple 140pt×30pt 与 Google 三配色 / 20 反模式·20 自检 / 4 段可抄代码（含 Python 静态校验器 4/4 PASS）"),
     ("keyboard-shortcuts-command-palette.md", "键盘快捷键与命令面板", "立场：快捷键不是彩蛋，是一份带退出条款的加速契约 / 三条裁决（SC 2.1.4 判据是「是否依赖可打印字符」而非按了几个物理键，序列与 Shift+字符同在范围内 / 修饰键是平台契约·aria-keyshortcuts 只声明不绑定·accesskey 劝退 / 命令面板 = 命令注册表 + combobox 检索层·IME 组字期不响应·cmdk 无虚拟化上限 2000–3000）/ §1 五问判层 + 12 场景 / §2 SC 2.1.4 判据表 9 形态 + 2.1.1/2.1.2 分工 / §3 三出口 + GitHub 实证 / §4 macOS 顺序 Control→Option→Shift→Command 与 Hyphen、Windows +、ARIA 五个修饰键名 / §5 四层语义 + 五条 MUST + WHATWG accesskey / §6 key vs code + IME 守卫 / §7 五层作用域 + 四类仲裁 + VS Code 自下而上 / §8 面板解剖 + 数据模型 + 逐键契约 / §9 五个发现触点 + kbd 样式 / §10 六库 API 实测（cmdk 13,147★ / kbar 5,264★ / tinykeys 4,106★）/ §11 四条硬规则 / 12 场景·20 反模式·20 自检 / 2 段代码实跑 PASS / 取源限制 16 条"),
+    ("file-upload-media-input.md", "文件上传与媒体输入", "立场：上传不是「选个文件传上去」，是一条可失败、可恢复、可验收的五段链路 / 三条裁决（accept 只提示不校验，MDN 逐字 *doesn't validate the types*，服务端必须重验且不信 Content-Type·OWASP 逐字 / 拖放区必须有「选择文件」等价路径·SC 2.5.7 *single pointer without dragging* + SC 2.1.1 键盘兜底 / 五态 uploading·processing·succeeded·rejected·failed，rejected≠failed 决定用户动作，SC 4.1.3 播报节流）/ §1 五问判层 + 12 场景 / §2 控件契约（accept 五种 specifier 逐字·capture user/environment·拖放四件事）/ §3 三档校验（即时/提交前/服务端权威）与文案 / §4 传输与进度（0.1/1/10 s·取消语义·tus 1.0.0 逐字 Upload-Offset/409/204/460/Tus-Max-Size）/ §5 媒体输入特化（EXIF from-image·createImageBitmap 三值·裁剪比例表·HEIC）/ §6 十种失败与退避·部分成功 / §7 无障碍（2.5.7·2.5.8 24×24·4.1.3 播报 5 s 节流）/ §8 安全（OWASP 十条·双扩展名·空字节·NTFS ADS·SVG 净化·预签名直传）/ §9 八库 GitHub API 实测（uppy 31,075★·sharp 32,855★·squoosh 26,195★）/ §10 场景速查 12 行 / 20 反模式·20 自检 / 6 段代码实跑 PASS / 取源限制 14 条"),
 ]
 
 ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
@@ -235,6 +236,7 @@ def build() -> str:
 | **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
 | **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
 | **快捷键记不住 / 按了没反应 / 和系统抢** | 单字母快捷键没有关闭开关、`aria-keyshortcuts` 写完以为能触发、Mac 用户看到 Control、输入框里打 `?` 弹出帮助面板、中文输入法回车直接执行命令、命令面板 Tab 切不动、2000 条命令卡死 | `keyboard-shortcuts-command-palette.md` 五问判层 + SC 2.1.4 三出口 + 平台修饰键契约 + 四层语义 + IME 守卫 + 冲突仲裁 + 命令面板 combobox 契约 + 六库实测 |
+| **上传框做出来很别扭 / 传一半断了** | `accept` 写了以为就校验了、用户拖进来一张 8 MB 的图只看到转圈、几十秒后弹一句"上传失败"、断网重传又从 0 开始、头像传上去是横的、多选 5 个错 1 个不知道哪个、超了数量限制文件凭空消失 | `file-upload-media-input.md` 五问判层 + 三档校验分工 + 0.1/1/10 s 进度规格 + tus 断点续传逐字 + EXIF 方向 + 十种失败与退避 + OWASP 上传十条 |
 | **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
 | **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
@@ -412,7 +414,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [Wikipedia · Flesch–Kincaid readability tests](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) — FRE 最高 121.22 / FKGL 理论最低 −3.40 / *"not directly comparable and cannot be converted"*
 - [Ant Design · AutoComplete（中文）](https://ant.design/components/auto-complete-cn) — 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 `onSearch` 无法输入中文 FAQ
 - [Algolia autocomplete](https://github.com/algolia/autocomplete) · [Algolia DocSearch](https://github.com/algolia/docsearch) · [textstat](https://github.com/textstat/textstat) — 搜索 UX 与可读性实现（GitHub API 实测 star / 许可 / archived）
-- [W3C SC 2.5.7 Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) — AA：*"single pointer without dragging"* / essential 与 UA 例外
+- [W3C SC 2.5.7 Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) — AA：*single pointer without dragging* / essential 与 UA 例外
 - [W3C G219](https://www.w3.org/WAI/WCAG22/Techniques/general/G219) — 四类无拖动替代：箭头逐步 / 数字位置 / 移动到下拉 / 点击目标位置
 - [W3C SC 2.5.1 Pointer Gestures](https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html) — A：*"keyboard operability is not sufficient"* 与 2.5.7 交叉引用
 - [W3C SC 2.5.2 Pointer Cancellation](https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html) · [G210](https://www.w3.org/WAI/WCAG22/Techniques/general/G210) — A：四选一与 up-event 激活
@@ -485,6 +487,16 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [VS Code · Key Bindings](https://code.visualstudio.com/docs/configure/keybindings) — 自下而上求值 / when 子句 / 扫描码 / systemWide 五条限制 / 改键面板
 - [GitHub · Keyboard shortcuts](https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts) — ? 帮助面板 / 可关闭字符键保留修饰键 / G 系列序列
 - [cmdk](https://github.com/dip/cmdk) / [kbar](https://github.com/timc1/kbar) / [tinykeys](https://github.com/jamiebuilds/tinykeys) — 命令面板与热键层六库 GitHub API 实测（2026-11-14）
+
+- [MDN · `<input type="file">` / accept](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/accept) — 五种 unique file type specifier 逐字 / *"doesn't validate the types of the selected files"* / 服务端重验
+- [MDN · createImageBitmap()](https://developer.mozilla.org/en-US/docs/Web/API/Window/createImageBitmap) — `imageOrientation` 三值 `from-image`（默认）/ `flipY` / `none` 逐字
+- [MDN · HTTP 413 Content Too Large](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/413) — RFC 9110 前称 `Payload Too Large` / 示例响应体 `Maximum allowed upload size is 4MB`
+- [OWASP · File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) — 白名单与 Content-Type 不可信 / 双扩展名·空字节·NTFS ADS / CDR 与解压后计大小 / 目录配置覆盖
+- [tus · resumable upload protocol 1.0.0](https://github.com/tus/tus-resumable-upload-protocol/blob/main/protocol.md) — `Tus-Resumable` / `Upload-Offset`·`Upload-Length` / 204·409·460 / `Tus-Max-Size` 全逐字
+- [Ant Design · Upload](https://github.com/ant-design/ant-design/blob/master/components/upload/index.en-US.md) — `accept`·`maxCount`·`beforeUpload`·`listType`·`customRequest`；源码 `toggleFileListMaxCount` 超限静默丢弃
+- [GOV.UK · File upload](https://design-system.service.gov.uk/components/file-upload/) — *"only ask users to upload something if it's critical"* / 2MB 与 10 files 均为文案示例
+- [USWDS · File input](https://designsystem.digital.gov/components/file-input/) — `usa-hint` 提示限制 / 组件不支持异步上传
+- [uppy](https://github.com/transloadit/uppy) · [react-dropzone](https://github.com/react-dropzone/react-dropzone) · [FilePond](https://github.com/pqina/filepond) · [Cropper.js](https://github.com/fengyuanchen/cropperjs) · [Dropzone](https://github.com/dropzone/dropzone) · [tus-js-client](https://github.com/tus/tus-js-client) · [Squoosh](https://github.com/GoogleChromeLabs/squoosh) · [sharp](https://github.com/lovell/sharp) — 八库 star / license / pushed_at GitHub API 实测（2026-11-16）
 
 ## 目录结构
 

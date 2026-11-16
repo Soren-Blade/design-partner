@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-16T20:59:25",
+ "generated": "2026-11-16T22:28:30",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1061,
-   "chars": 225082,
+   "lines": 1072,
+   "chars": 228381,
    "sections": []
   },
   {
@@ -9490,8 +9490,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 768,
-   "chars": 82430,
+   "lines": 779,
+   "chars": 83804,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -9702,9 +9702,9 @@
      "chars": 43
     },
     {
-     "id": "三十九条专题支线-可与主线并行",
+     "id": "四十条专题支线-可与主线并行",
      "level": 2,
-     "title": "三十九条专题支线（可与主线并行）",
+     "title": "四十条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -10030,11 +10030,19 @@
      "chars": 1351
     },
     {
-     "id": "能力自测-181-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（181 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-an-实时协作与多人编辑-real-time-collaboration-presence",
+     "level": 3,
+     "title": "支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）",
+     "summary": "- 这是什么（协作侧）：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional i",
      "line": 625,
+     "chars": 1317
+    },
+    {
+     "id": "能力自测-184-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（184 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 636,
      "chars": 8677
     }
    ]
@@ -14460,6 +14468,599 @@
    ]
   },
   {
+   "path": "references/realtime-collaboration.md",
+   "title": "实时协作与多人编辑（Real-time Collaboration & Presence）",
+   "snapshot": "2026-11-16",
+   "lines": 769,
+   "chars": 26826,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "协作不是「让别人也能改同一个文件」，是「在谁都无法实时看见对方意图的情况下，仍让每个人相信自己看到的是当前真相，并知道下一步该做什么」。",
+     "line": 10,
+     "chars": 649
+    },
+    {
+     "id": "1-六层判层-从-谁能改-到-断线怎么回来",
+     "level": 2,
+     "title": "§1 六层判层：从「谁能改」到「断线怎么回来」",
+     "summary": "协作体验是一条会失败的链路。先把问题定位到层，再决定改协议、改状态、改 UI 还是改权限。",
+     "line": 24,
+     "chars": 761
+    },
+    {
+     "id": "2-协作模型选型-三种路线与它们能承诺的话",
+     "level": 2,
+     "title": "§2 协作模型选型：三种路线与它们能承诺的话",
+     "summary": "Figma 的选择与理由（原文）：Figma 明确说 \"Figma isn't using true CRDTs though.\"——因为 CRDT 是为「没有中心权威」的去中心化系统设计的，有不可避免的性能与内存开销；Figma 有中心服",
+     "line": 45,
+     "chars": 925
+    },
+    {
+     "id": "选型裁决-可直接回答-我们该用哪个",
+     "level": 3,
+     "title": "选型裁决（可直接回答「我们该用哪个」）",
+     "summary": "- 只做图形/属性/图层（设计工具、白板、表格单元格）→ 中心权威 + 属性级 LWW。UI 文案禁止出现「自动合并」。",
+     "line": 60,
+     "chars": 337
+    },
+    {
+     "id": "3-文档模型-树-属性与-fractional-index",
+     "level": 2,
+     "title": "§3 文档模型：树、属性与 fractional index",
+     "summary": "Figma 把文档抽象成 Map<ObjectID, Map<Property, Value，并把它当树用。这个模型的设计含义比实现细节重要：",
+     "line": 70,
+     "chars": 78
+    },
+    {
+     "id": "3-1-属性是冲突的最小单位",
+     "level": 3,
+     "title": "3.1 属性是冲突的最小单位",
+     "summary": "- 两个客户端改同一对象的同一属性→ 冲突，服务器最后收到的值赢。",
+     "line": 74,
+     "chars": 192
+    },
+    {
+     "id": "3-2-元素-id-必须由客户端生成",
+     "level": 3,
+     "title": "3.2 元素 ID 必须由客户端生成",
+     "summary": "Figma 给每个客户端一个唯一 client ID，新元素 ID 里带这个 ID。原因很实际：离线时也必须能创建对象，等服务端分配 ID 就做不到。代价是：ID 不是连续数字，排序不能依赖 ID。",
+     "line": 82,
+     "chars": 106
+    },
+    {
+     "id": "3-3-创建与删除是-lww-set-删除会带走属性",
+     "level": 3,
+     "title": "3.3 创建与删除是 LWW set，删除会带走属性",
+     "summary": "对象是否存在，本身就是一个 LWW 布尔属性；删除对象会把它在服务器上的所有属性删掉。Figma 把被删对象的属性只留在执行删除的那个客户端的 undo buffer 里，由它负责恢复——这样长文档不会因为反复删除而膨胀。",
+     "line": 86,
+     "chars": 237
+    },
+    {
+     "id": "3-4-父子关系与排序-parent-position-必须原子",
+     "level": 3,
+     "title": "3.4 父子关系与排序：parent + position 必须原子",
+     "summary": "Figma 把「父链接」存成子对象上的一个属性，于是可能出现 A 是 B 的父、B 又是 A 的父的环。服务器会拒绝造成环的 parent 更新；客户端不能拒绝服务器，所以会短暂出现「两个对象互相 parent」，Figma 的处理是把它们",
+     "line": 94,
+     "chars": 532
+    },
+    {
+     "id": "3-5-文本为什么不能走属性-lww",
+     "level": 3,
+     "title": "3.5 文本为什么不能走属性 LWW",
+     "summary": "AB/BC 的例子说明：属性 LWW 对「整段文本」就是「整段替换」。如果产品需要两人同时编辑同一段文字，必须把文本拆成 CRDT 字符序列，或退一步做块级/字段级锁，并在 UI 上明确「这段文字同一时间只有一个人能改」。不要用属性 LWW",
+     "line": 105,
+     "chars": 159
+    },
+    {
+     "id": "4-存在层-presence-五种信号-各自证明什么",
+     "level": 2,
+     "title": "§4 存在层（Presence）：五种信号，各自证明什么",
+     "summary": "Presence 是「临时状态」：Liveblocks 的定义是每个连接一个 JSON 对象，实时更新，连接结束就消失；永久内容放 Storage。Yjs 的 awareness 同样是非持久数据（光标、用户名、状态），把状态置 null ",
+     "line": 111,
+     "chars": 479
+    },
+    {
+     "id": "4-1-头像栈-avatar-stack",
+     "level": 3,
+     "title": "4.1 头像栈（Avatar Stack）",
+     "summary": "- 上限 5 + +N：Liveblocks 的 AvatarStack 提供 max，超出折叠为 +N；多标签页的同一用户会去重。",
+     "line": 124,
+     "chars": 480
+    },
+    {
+     "id": "4-2-光标-live-cursors",
+     "level": 3,
+     "title": "4.2 光标（Live Cursors）",
+     "summary": "- 坐标用容器相对百分比，不用视口像素：Liveblocks 的 Cursors 组件就是这么做的，原文 \"Cursor coordinates are percentage-based relative to the container,",
+     "line": 133,
+     "chars": 655
+    },
+    {
+     "id": "4-3-选区-selections",
+     "level": 3,
+     "title": "4.3 选区（Selections）",
+     "summary": "- 选区用 2px outline + 10% 填充（工程约定），颜色取该用户色；不要用大面积半透明填充，遮住内容。",
+     "line": 143,
+     "chars": 183
+    },
+    {
+     "id": "4-4-正在输入-typing-indicator",
+     "level": 3,
+     "title": "4.4 正在输入（Typing Indicator）",
+     "summary": "Liveblocks 示例的完整规则：输入时置 typing: true，1 秒无输入清除，失焦清除。因为 presence 是按连接的，关掉标签页后陈旧指示会自动消失。",
+     "line": 149,
+     "chars": 192
+    },
+    {
+     "id": "4-5-当前工具与视口跟随",
+     "level": 3,
+     "title": "4.5 当前工具与视口跟随",
+     "summary": "- 当前工具（选择/画笔/文本）适合白板与设计工具；用图标 + 颜色，不要只写文字。",
+     "line": 157,
+     "chars": 161
+    },
+    {
+     "id": "4-6-agent-presence-ai-也要在同一层出现",
+     "level": 3,
+     "title": "4.6 Agent Presence：AI 也要在同一层出现",
+     "summary": "Liveblocks 的 Canvas 用例允许服务端/AI agent 用 setPresence 发布 presence（示例 ttl: 60 表示工作中，结束时 ttl: 2），于是 agent 会像人一样出现在 useOthers ",
+     "line": 163,
+     "chars": 292
+    },
+    {
+     "id": "4-7-什么时候不该显示-presence",
+     "level": 3,
+     "title": "4.7 什么时候不该显示 presence",
+     "summary": "- 公开分享页 / 只读访客：显示「N 人在看」可以，显示具体光标与选区是隐私风险。",
+     "line": 172,
+     "chars": 143
+    },
+    {
+     "id": "5-延迟预算-本地-0ms-远端有账可算",
+     "level": 2,
+     "title": "§5 延迟预算：本地 0ms，远端有账可算",
+     "summary": "- 0.1 秒：用户感觉系统「即时响应」，除了显示结果不需要额外反馈。",
+     "line": 181,
+     "chars": 1
+    },
+    {
+     "id": "5-1-三条人类感知阈值-nn-g-原文",
+     "level": 3,
+     "title": "5.1 三条人类感知阈值（NN/g 原文）",
+     "summary": "- 0.1 秒：用户感觉系统「即时响应」，除了显示结果不需要额外反馈。",
+     "line": 183,
+     "chars": 216
+    },
+    {
+     "id": "5-2-一次远端光标要经过的账",
+     "level": 3,
+     "title": "5.2 一次远端光标要经过的账",
+     "summary": "预算规则（工程约定）：同城 P95「对方光标可见延迟」≤150ms；跨洲 ≤300ms。超过 300ms 时，用户会开始怀疑「他是不是没在动」，此时应降低光标密度、增大插值时长，而不是提高发送频率。",
+     "line": 191,
+     "chars": 354
+    },
+    {
+     "id": "5-3-本地优先-先改自己的屏幕-再等服务器",
+     "level": 3,
+     "title": "5.3 本地优先：先改自己的屏幕，再等服务器",
+     "summary": "Figma 原文：属性变更立即在客户端应用，不等服务器确认；但如果同时应用服务器的每个变更，旧的服务端确认值会短暂覆盖更新的未确认本地值，产生 flicker。Figma 的解法是：对「尚未确认的本地改动」，丢弃与之冲突的服务端旧值。",
+     "line": 203,
+     "chars": 290
+    },
+    {
+     "id": "5-4-渲染性能-别让-presence-拖垮主线程",
+     "level": 3,
+     "title": "5.4 渲染性能：别让 presence 拖垮主线程",
+     "summary": "Liveblocks 文档明确警告：useOthers 无参调用时，任何人 presence 的任何变化都会让组件重渲染，\"This might be way more often than you want!\"；只取某个子集时应用 use",
+     "line": 212,
+     "chars": 388
+    },
+    {
+     "id": "5-5-消息预算-单房间-工程约定-需压测",
+     "level": 3,
+     "title": "5.5 消息预算（单房间，工程约定，需压测）",
+     "summary": "按 20 人、每人 20Hz 光标计算：20 × 20 = 400 条/秒；单条 100B 即 40KB/s 下行/人。超过这个量级要考虑「只广播视口内的光标」或「聚合采样」。",
+     "line": 222,
+     "chars": 351
+    },
+    {
+     "id": "6-冲突界面-三种冲突-三种说法",
+     "level": 2,
+     "title": "§6 冲突界面：三种冲突，三种说法",
+     "summary": "硬锁（ pessimistic lock）在协作里通常是坏体验：一个人打开字段，所有人都不能改。软锁只做归属提示：",
+     "line": 236,
+     "chars": 1
+    },
+    {
+     "id": "6-1-先分类-再选-ui",
+     "level": 3,
+     "title": "6.1 先分类，再选 UI",
+     "summary": "",
+     "line": 238,
+     "chars": 342
+    },
+    {
+     "id": "6-2-软锁-soft-lock-提示占用-但不阻塞输入",
+     "level": 3,
+     "title": "6.2 软锁（Soft Lock）：提示占用，但不阻塞输入",
+     "summary": "硬锁（ pessimistic lock）在协作里通常是坏体验：一个人打开字段，所有人都不能改。软锁只做归属提示：",
+     "line": 248,
+     "chars": 256
+    },
+    {
+     "id": "6-3-冲突提示的文案结构",
+     "level": 3,
+     "title": "6.3 冲突提示的文案结构",
+     "summary": "三句话：发生了什么 + 现在保留了什么 + 你能做什么。",
+     "line": 257,
+     "chars": 218
+    },
+    {
+     "id": "6-4-删除-vs-编辑",
+     "level": 3,
+     "title": "6.4 删除 vs 编辑",
+     "summary": "Figma 的模型里删除会清掉服务器上的属性，只有删除者的 undo buffer 留着。这意味着：",
+     "line": 267,
+     "chars": 189
+    },
+    {
+     "id": "6-5-重连合并",
+     "level": 3,
+     "title": "6.5 重连合并",
+     "summary": "Figma 的离线模型：客户端可离线任意久；重连时下载最新文档，再把离线编辑重放上去。这适合「本地操作是最终值」的工具；如果是 CRDT，则走增量同步（Automerge 的 sync 循环直到无新消息）。",
+     "line": 274,
+     "chars": 220
+    },
+    {
+     "id": "7-多人撤销-只撤自己的-且要能解释",
+     "level": 2,
+     "title": "§7 多人撤销：只撤自己的，且要能解释",
+     "summary": "1. Undo 只撤本地 origin 的操作。 Yjs UndoManager 默认 trackedOrigins = new Set([null])，只跟踪本地的操作；源码注释：\"By default, the UndoManager ",
+     "line": 284,
+     "chars": 1
+    },
+    {
+     "id": "7-1-三条硬规则",
+     "level": 3,
+     "title": "7.1 三条硬规则",
+     "summary": "1. Undo 只撤本地 origin 的操作。 Yjs UndoManager 默认 trackedOrigins = new Set([null])，只跟踪本地的操作；源码注释：\"By default, the UndoManager ",
+     "line": 286,
+     "chars": 481
+    },
+    {
+     "id": "7-2-不能做的事",
+     "level": 3,
+     "title": "7.2 不能做的事",
+     "summary": "- ❌ 全局撤销（撤掉别人的修改）。",
+     "line": 292,
+     "chars": 219
+    },
+    {
+     "id": "7-3-历史面板",
+     "level": 3,
+     "title": "7.3 历史面板",
+     "summary": "- 按人分色显示操作，支持「只看我的」。",
+     "line": 299,
+     "chars": 126
+    },
+    {
+     "id": "8-评论与批注-锚点会死-线程不能死",
+     "level": 2,
+     "title": "§8 评论与批注：锚点会死，线程不能死",
+     "summary": "Yjs 的相对位置：createRelativePositionFromTypeIndex(type, index, assoc) 把位置绑在字符上，assoc = 0 关联 index 之后的字符、assoc < 0 关联之前的字符；cr",
+     "line": 307,
+     "chars": 1
+    },
+    {
+     "id": "8-1-三种锚点",
+     "level": 3,
+     "title": "8.1 三种锚点",
+     "summary": "Yjs 的相对位置：createRelativePositionFromTypeIndex(type, index, assoc) 把位置绑在字符上，assoc = 0 关联 index 之后的字符、assoc < 0 关联之前的字符；cr",
+     "line": 309,
+     "chars": 522
+    },
+    {
+     "id": "8-2-线程生命周期",
+     "level": 3,
+     "title": "8.2 线程生命周期",
+     "summary": "open → resolved → reopened；resolved 不删除，只是从默认列表折叠。Figma 的评论支持回复、表情反应、resolve、删除、编辑内容、移动位置、排序筛选、dock/hide、通知设置——这些不是「功能清单",
+     "line": 321,
+     "chars": 265
+    },
+    {
+     "id": "8-3-评论者与提及",
+     "level": 3,
+     "title": "8.3 评论者与提及",
+     "summary": "- 可评论 ≠ 可编辑：Figma 文件级 can view 的原文是 \"View and comment on the file, but not edit it.\"。把 commenter 做成 editor 是最常见的越界。",
+     "line": 329,
+     "chars": 320
+    },
+    {
+     "id": "8-4-孤儿线程",
+     "level": 3,
+     "title": "8.4 孤儿线程",
+     "summary": "对象被删、文本被删、页面被删，线程不能静默消失：",
+     "line": 336,
+     "chars": 148
+    },
+    {
+     "id": "8-5-评论-ui-的硬要求",
+     "level": 3,
+     "title": "8.5 评论 UI 的硬要求",
+     "summary": "- 侧栏可开合，宽度 ≥320px；主内容不被永久挤压（覆盖式或可折叠）。",
+     "line": 344,
+     "chars": 211
+    },
+    {
+     "id": "9-权限与分享-角色矩阵-继承陷阱-即时回收",
+     "level": 2,
+     "title": "§9 权限与分享：角色矩阵、继承陷阱、即时回收",
+     "summary": "Figma 原文的关键区分：文件级 can view = 看 + 评论，不能编辑，但可以复制和导出（除非显式限制复制/导出）；can edit = 完整编辑；Owner = 创建者；且「要编辑文件，既要有 can edit 权限，也要有包含",
+     "line": 354,
+     "chars": 1
+    },
+    {
+     "id": "9-1-角色矩阵-以-figma-文件级权限为锚",
+     "level": 3,
+     "title": "9.1 角色矩阵（以 Figma 文件级权限为锚）",
+     "summary": "Figma 原文的关键区分：文件级 can view = 看 + 评论，不能编辑，但可以复制和导出（除非显式限制复制/导出）；can edit = 完整编辑；Owner = 创建者；且「要编辑文件，既要有 can edit 权限，也要有包含",
+     "line": 356,
+     "chars": 490
+    },
+    {
+     "id": "9-2-继承陷阱-必读",
+     "level": 3,
+     "title": "9.2 继承陷阱（必读）",
+     "summary": "- Figma 的每个文件、每个文件夹都有自己的 audience access；文件可以比所在文件夹更严，也可以更松。",
+     "line": 369,
+     "chars": 328
+    },
+    {
+     "id": "9-3-链接分享",
+     "level": 3,
+     "title": "9.3 链接分享",
+     "summary": "- 默认关闭，或默认「仅查看」；「任何人可编辑」必须二次确认，并在弹窗里写明「拿到链接的人都能改」。",
+     "line": 376,
+     "chars": 174
+    },
+    {
+     "id": "9-4-降级与移除",
+     "level": 3,
+     "title": "9.4 降级与移除",
+     "summary": "- 从 editor 降为 viewer：当前打开的编辑器要立即变只读，未提交的本地改动要么自动保存、要么提示「你的修改未保存，已被降权」。",
+     "line": 383,
+     "chars": 151
+    },
+    {
+     "id": "9-5-反模式",
+     "level": 3,
+     "title": "9.5 反模式",
+     "summary": "- 把「可评论」实现成「可编辑」。",
+     "line": 389,
+     "chars": 116
+    },
+    {
+     "id": "10-在线状态生命周期-连接-判离线-重连-离线编辑",
+     "level": 2,
+     "title": "§10 在线状态生命周期：连接、判离线、重连、离线编辑",
+     "summary": "connecting → connected → reconnecting → offline → connected",
+     "line": 399,
+     "chars": 1
+    },
+    {
+     "id": "10-1-状态机",
+     "level": 3,
+     "title": "10.1 状态机",
+     "summary": "connecting → connected → reconnecting → offline → connected",
+     "line": 401,
+     "chars": 371
+    },
+    {
+     "id": "10-2-判离线的数值-yjs-实测",
+     "level": 3,
+     "title": "10.2 判离线的数值（Yjs 实测）",
+     "summary": "Yjs awareness 源码：outdatedTimeout = 30000（30s）；内部检查周期 outdatedTimeout / 10 = 3000ms；本地状态超过 outdatedTimeout / 2 = 15000ms ",
+     "line": 413,
+     "chars": 357
+    },
+    {
+     "id": "10-3-多标签与多设备",
+     "level": 3,
+     "title": "10.3 多标签与多设备",
+     "summary": "- 同一 userId 的多个连接在头像栈里合并为一个（Liveblocks 默认去重）；需要时在 tooltip 写「2 个标签页」。",
+     "line": 422,
+     "chars": 208
+    },
+    {
+     "id": "10-4-离线编辑",
+     "level": 3,
+     "title": "10.4 离线编辑",
+     "summary": "- 允许离线编辑是产品承诺，不是技术默认。Figma 明确可离线任意久，重连时下载最新文档再重放离线编辑；这要求本地有完整的文档副本与操作队列。",
+     "line": 429,
+     "chars": 272
+    },
+    {
+     "id": "10-5-降级路径",
+     "level": 3,
+     "title": "10.5 降级路径",
+     "summary": "- WebSocket 不可用 → 尝试长轮询/SSE；仍失败 → 只读 + 本地草稿。",
+     "line": 437,
+     "chars": 124
+    },
+    {
+     "id": "11-无障碍-协作的-噪音-必须可关-状态必须可说",
+     "level": 2,
+     "title": "§11 无障碍：协作的「噪音」必须可关，状态必须可说",
+     "summary": "WCAG 2.2 SC 4.1.3 Status Messages（AA）：",
+     "line": 445,
+     "chars": 1
+    },
+    {
+     "id": "11-1-sc-4-1-3-原文与适用范围",
+     "level": 3,
+     "title": "11.1 SC 4.1.3 原文与适用范围",
+     "summary": "WCAG 2.2 SC 4.1.3 Status Messages（AA）：",
+     "line": 447,
+     "chars": 743
+    },
+    {
+     "id": "11-2-aria-live-三档怎么选-mdn-原文",
+     "level": 3,
+     "title": "11.2 aria-live 三档怎么选（MDN 原文）",
+     "summary": "- assertive：最高优先级，立即播报，可能清空语音队列。",
+     "line": 460,
+     "chars": 552
+    },
+    {
+     "id": "11-3-聚合与限流",
+     "level": 3,
+     "title": "11.3 聚合与限流",
+     "summary": "- 协作者加入/离开：合并成「3 人在线」，≥5s 最多播报一次；不要每来一个人播一次。",
+     "line": 479,
+     "chars": 113
+    },
+    {
+     "id": "11-4-颜色与识别",
+     "level": 3,
+     "title": "11.4 颜色与识别",
+     "summary": "- 用户色对非文本 ≥3:1；文字标签与底色 ≥4.5:1（详见 accessibility.md）。",
+     "line": 485,
+     "chars": 197
+    },
+    {
+     "id": "11-5-键盘-焦点与动效",
+     "level": 3,
+     "title": "11.5 键盘、焦点与动效",
+     "summary": "- 协作者列表、评论线程、resolve 按钮都可 Tab 到达；不要用 div 模拟按钮。",
+     "line": 492,
+     "chars": 219
+    },
+    {
+     "id": "11-6-只读与读屏",
+     "level": 3,
+     "title": "11.6 只读与读屏",
+     "summary": "- 只读分享页也要有「N 人在看」的可读文本，而不是只有头像图片。",
+     "line": 499,
+     "chars": 117
+    },
+    {
+     "id": "12-移动端与触摸-没有-hover-也没有-光标",
+     "level": 2,
+     "title": "§12 移动端与触摸：没有 hover，也没有「光标」",
+     "summary": "- 手机上不显示他人光标（没有指针隐喻）；用选区高亮 + 当前工具 + 头像栈表达存在。",
+     "line": 507,
+     "chars": 234
+    },
+    {
+     "id": "13-性能-成本与容量",
+     "level": 2,
+     "title": "§13 性能、成本与容量",
+     "summary": "- 光标层用 position:absolute + transform: translate3d()，避免 layout。",
+     "line": 518,
+     "chars": 1
+    },
+    {
+     "id": "13-1-容量预算-工程约定-需按实际压测调整",
+     "level": 3,
+     "title": "13.1 容量预算（工程约定，需按实际压测调整）",
+     "summary": "",
+     "line": 520,
+     "chars": 222
+    },
+    {
+     "id": "13-2-前端",
+     "level": 3,
+     "title": "13.2 前端",
+     "summary": "- 光标层用 position:absolute + transform: translate3d()，避免 layout。",
+     "line": 530,
+     "chars": 211
+    },
+    {
+     "id": "13-3-后端",
+     "level": 3,
+     "title": "13.3 后端",
+     "summary": "- 房间内广播不落库；文档操作按 16ms 批处理。",
+     "line": 537,
+     "chars": 136
+    },
+    {
+     "id": "13-4-指标",
+     "level": 3,
+     "title": "13.4 指标",
+     "summary": "- 同步延迟 P50/P95（本地→远端可见）。",
+     "line": 544,
+     "chars": 141
+    },
+    {
+     "id": "14-文案词表-直接抄",
+     "level": 2,
+     "title": "§14 文案词表（直接抄）",
+     "summary": "规则：名字 + 动作 + 结果；不写「实时」「无缝」「永不丢失」这类无法兑现的形容词；时间用「刚刚 / 2 分钟前」。",
+     "line": 555,
+     "chars": 448
+    },
+    {
+     "id": "15-十二条反模式",
+     "level": 2,
+     "title": "§15 十二条反模式",
+     "summary": "1. 用属性 LWW 做文本编辑，再补一个「合并中」假状态 → 用户丢字。",
+     "line": 574,
+     "chars": 467
+    },
+    {
+     "id": "16-验收清单-18-条-可勾选",
+     "level": 2,
+     "title": "§16 验收清单（18 条，可勾选）",
+     "summary": "数据与冲突",
+     "line": 591,
+     "chars": 720
+    },
+    {
+     "id": "17-度量与实验",
+     "level": 2,
+     "title": "§17 度量与实验",
+     "summary": "- 协作感知：用户能否在 5s 内说出「还有谁在」；presence 开关 A/B 对「误改率」的影响。",
+     "line": 623,
+     "chars": 263
+    },
+    {
+     "id": "18-交付检查单-设计-前端-后端",
+     "level": 2,
+     "title": "§18 交付检查单（设计 / 前端 / 后端）",
+     "summary": "设计",
+     "line": 635,
+     "chars": 350
+    },
+    {
+     "id": "19-可执行验算-python-纯标准库",
+     "level": 2,
+     "title": "§19 可执行验算（Python，纯标准库）",
+     "summary": "---",
+     "line": 658,
+     "chars": 6
+    },
+    {
+     "id": "20-取源限制与未取到项-逐条登记",
+     "level": 2,
+     "title": "§20 取源限制与未取到项（逐条登记）",
+     "summary": "1. Liveblocks 的服务端容量上限（单房间连接数、消息速率）未公开：文档只给客户端 throttle 范围与用法，未给「每房间最多多少人」。§13.1 的 50 人/10 光标是工程约定，不是官方值。",
+     "line": 722,
+     "chars": 853
+    },
+    {
+     "id": "21-来源-2026-11-16-取用",
+     "level": 2,
+     "title": "§21 来源（2026-11-16 取用）",
+     "summary": "- Figma Engineering, How Figma's multiplayer technology works（Evan Wallace，2019-10-16）：https://www.figma.com/blog/how-fi",
+     "line": 737,
+     "chars": 2184
+    }
+   ]
+  },
+  {
    "path": "references/resources.md",
    "title": "设计资源 — Resources",
    "snapshot": "2026-10-29",
@@ -17208,8 +17809,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 830,
-   "chars": 177233,
+   "lines": 843,
+   "chars": 181358,
    "sections": []
   }
  ],

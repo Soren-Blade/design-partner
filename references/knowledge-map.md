@@ -151,7 +151,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 
 ---
 
-## 三十九条专题支线（可与主线并行）
+## 四十条专题支线（可与主线并行）
 
 ### 支线 A · 中文场景（中文项目必走）
 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
@@ -622,7 +622,18 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - [ ] 拿到一个 `accept="image/*"` 的上传框，我能说清它拦不住什么（改扩展名 / 改 MIME / 拖入非图 / 空字节截断），并给出服务端三重校验顺序。
 - [ ] 拿到一条「iPhone 竖拍图传上去变横的」，我能判定是 EXIF `from-image` 与 canvas 重绘哪个环节丢的方向，并给出 `createImageBitmap(blob, { imageOrientation: 'from-image' })` 的修法。
 
-## 能力自测（181 条，做到 ≥110 条即达 L2+）
+### 支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）
+
+- **这是什么（协作侧）**：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional index、删除与 undo buffer）、presence（光标 / 选区 / 输入 / 工具 / 视口 / agent，30s 过期）、评论与权限（相对位置锚定、audience access 逐资源）、状态机与恢复（connecting / reconnecting / offline、离线重放、软锁释放）。
+- **三条最重要裁决**：① 冲突粒度默认取**属性级 LWW**——Figma 原文：并发改同一文本 AB 与 BC 只能得 AB 或 BC，*永不 ABC*；它不是真 CRDT（服务器权威），却省掉 OT 的去中心化开销；② presence 只放临时信号，Yjs `outdatedTimeout = 30000`、15s 续期、3s 巡检，断线即消失；姓名 / 颜色 / 头像是只读 user info，不能让客户端伪造；③ 评论钉**相对位置**而非整数索引（`createAbsolutePositionFromRelativePosition` 在类型被删时返回 null → 孤儿线程），权限按每个文件 / 文件夹的 audience access 判，继承不自动下传（Professional 嵌套文件夹总是继承父级角色）。
+- **精确值怎么取**：编辑光标广播 20 Hz 量级（50ms）、Liveblocks `throttle` 默认 100ms（16–1000ms）、`useOthers` 无参 = 任何 presence 变化都重渲染，取子集用 `useOthersMapped`；撤销 `captureTimeout=500ms` 且只撤本地 origin（`trackedOrigins=new Set([null])`）；软锁 200ms 显示「X 正在编辑」、5s 无心跳释放；状态播报走 SC 4.1.3 + `role="status"`，不要 `aria-live="assertive"` 打断。
+- **判学会了**：给我一个「多人同时编辑」需求，我能说出要不要真协作、选哪种模型、冲突粒度落在哪、presence 放什么不放什么、光标延迟预算多少、评论锚点怎么不飘、权限继承在哪会漏、断线重连后先合并还是先提示。
+
+- [ ] 拿到「两个人同时改同一段文字」，我能判定属性级 LWW 的结果只能是其中一人的版本、永不出现交错 ABC，并说出为什么文本不能整段 LWW。
+- [ ] 拿到「评论跟着对象走、对象被删了怎么办」，我能说出相对位置解析返回 null 的孤儿线程处理（保留 / 迁移 / 归档三选一）与 UI 出口。
+- [ ] 拿到「分享链接给外部评审」，我能按 audience access → 继承角色 → 直接授予的顺序判断实际权限，并指出 Professional 嵌套文件夹继承陷阱。
+
+## 能力自测（184 条，做到 ≥110 条即达 L2+）
 
 **L0**
 - [ ] 眯眼看任何界面，能指出两个打架的元素

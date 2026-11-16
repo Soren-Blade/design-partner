@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-16 20:59 ｜ 53 个文件 · 2151 个章节 · 1,897,441 字符
+> 自动生成于 2026-11-16 22:28 ｜ 54 个文件 · 2226 个章节 · 1,933,065 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -119,6 +119,10 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 文件上传 / 拖拽上传 / 选择文件 / 附件 / 上传进度 | file-upload-media-input.md §1 五问判层 → §2 控件契约（accept 五种写法 / capture / 拖放四件事）→ §3 三档校验与文案 → §4.2 进度规格 |
 | 断点续传 / 大文件 / 弱网 / tus / 上传失败 重试 | file-upload-media-input.md §4.5 tus 1.0.0 逐字（Upload-Offset / 409 / 204 / 460 / Tus-Max-Size）→ §6 十种失败与退避 → §6.3 部分成功 |
 | 图片裁剪 / 头像上传 / EXIF / 拍照上传 / HEIC / 媒体输入 | file-upload-media-input.md §5 媒体输入特化 → §5.1 EXIF from-image 与 canvas 坑 → §5.3 裁剪比例表 → §13.6 裁剪验收代码 |
+| 实时协作 / 多人同时编辑 / 协同编辑 / 实时协同 | realtime-collaboration.md §2 三种模型选型 → §3 文档模型与属性级 LWW → §5 延迟预算 → §16 验收 18 条 |
+| 在线状态 / 实时光标 / 正在输入 / 头像堆叠 / presence | realtime-collaboration.md §4 presence 五信号 → §10 状态机（30s/15s/3s）→ §12 移动端 |
+| 评论 / 批注 / 线程 / @提及 / 孤儿评论 | realtime-collaboration.md §8 三锚点与 relative position → §8 线程生命周期与孤儿处理 |
+| 协作权限 / 链接分享 / 成员回收 / audience access | realtime-collaboration.md §9 角色矩阵与继承陷阱 → §6 冲突界面文案 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -402,26 +406,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **快捷命令面板** | 快捷命令面板 · 命令面板检索 · 命令面板搜索 · 快速命令 · 快速跳转 · 命令搜索 · cmd-k · quick open · command menu · 命令面板过滤 |
 | **键盘可访问性** | 键盘可访问性 · 全键盘操作 · 键盘导航 · 键盘陷阱 · aria-keyshortcuts · accesskey · character key shortcut · 键盘快捷键无障碍 · 快捷键朗读 · kbd 键帽 · 输入法组合 |
 | **文件上传** | 拖拽上传 · 选择文件 · 附件上传 · 上传进度 · 断点续传 · 上传大小限制 · accept 属性 · 图片裁剪 · 头像上传 · 拍照上传 · EXIF 方向 |
+| **实时协作** | 实时协作 · 多人协作 · 协同编辑 · 同时编辑 · 在线状态 · 实时光标 · 协作光标 · 正在输入 · 输入指示 · 协作冲突 · 多人撤销 · 协作权限 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1061 行 · 快照 — · 12 节_
+_1072 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L142` — 资产已 51 份参考、约 150 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L144` — 资产已 51 份参考、约 150 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L157`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L406` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L421` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L447` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L478` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L927` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1015` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1028` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1035` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1051` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L148` — 资产已 52 份参考、约 153 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L150` — 资产已 52 份参考、约 153 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L163`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L416` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L431` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L457` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L488` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L937` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1025` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1038` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1045` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1061` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1692,7 +1697,7 @@ _942 行 · 快照 2026-11-14 · 52 节_
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_768 行 · 快照 2026-11-05 · 68 节_
+_779 行 · 快照 2026-11-05 · 69 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1720,7 +1725,7 @@ _768 行 · 快照 2026-11-05 · 68 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **三十九条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **四十条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1761,7 +1766,8 @@ _768 行 · 快照 2026-11-05 · 68 节_
   - **支线 AK · 认证与账户体验（把「怎么证明是我」判成路径、失败出口与会话档位）** `L596` — - 这是什么（身份链路侧）：与 form-table、ux-writing、onboarding-first-run、accessibility 相邻但问题不同——它们分别管「字段怎么验」「错误怎么说」「第一次怎么走」「整体达标吗」；本支线
   - **支线 AL · 键位加速契约（Keyboard Shortcuts & Command Palette）** `L605` — - 这是什么（键位侧）：把「高频重复动作」做成一份带退出条款的加速契约——五问判层（做不做 / 哪一类 / 哪个作用域 / 怎么发现 / 冲突谁赢）、合规边界（SC 2.1.4 三出口 + SC 2.1.1 全键盘可达）、平台修饰键契约、面
   - **支线 AM · 上传链路契约（File Upload & Media Input）** `L615` — - 这是什么（上传侧）：把「选个文件传上去」拆成五段可验收链路——判层（做不做 / 哪一类 / 放哪里）、控件契约（accept 五种 specifier 只是提示、capture 前后置、拖放四件事）、三档校验（客户端即时 / 提交前 /
-- **能力自测（181 条，做到 ≥110 条即达 L2+）** `L625` — L0
+  - **支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）** `L625` — - 这是什么（协作侧）：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional i
+- **能力自测（184 条，做到 ≥110 条即达 L2+）** `L636` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2350,6 +2356,83 @@ _562 行 · 快照 — · 28 节_
   - **17.5 SC 3.3.4 承诺闸门验收器 + 总额播报片段** `L513`
 - **§18 取源限制（公开记录，不臆造）** `L553` — 1. Baymard 购物车放弃率榜单全文不可得：baymard.com/blog/cart-abandonment-rate（标题 "Cart Abandonment Rate: 50 Statistics (2026)"）两次抓取均被站
 
+### `references/realtime-collaboration.md` · 实时协作与多人编辑（Real-time Collaboration & Presence）
+_769 行 · 快照 2026-11-16 · 73 节_
+
+- **§0 一句话立场** `L10` — 协作不是「让别人也能改同一个文件」，是「在谁都无法实时看见对方意图的情况下，仍让每个人相信自己看到的是当前真相，并知道下一步该做什么」。
+- **§1 六层判层：从「谁能改」到「断线怎么回来」** `L24` — 协作体验是一条会失败的链路。先把问题定位到层，再决定改协议、改状态、改 UI 还是改权限。
+- **§2 协作模型选型：三种路线与它们能承诺的话** `L45` — Figma 的选择与理由（原文）：Figma 明确说 "Figma isn't using true CRDTs though."——因为 CRDT 是为「没有中心权威」的去中心化系统设计的，有不可避免的性能与内存开销；Figma 有中心服
+  - **选型裁决（可直接回答「我们该用哪个」）** `L60` — - 只做图形/属性/图层（设计工具、白板、表格单元格）→ 中心权威 + 属性级 LWW。UI 文案禁止出现「自动合并」。
+- **§3 文档模型：树、属性与 fractional index** `L70` — Figma 把文档抽象成 Map<ObjectID, Map<Property, Value，并把它当树用。这个模型的设计含义比实现细节重要：
+  - **3.1 属性是冲突的最小单位** `L74` — - 两个客户端改同一对象的同一属性→ 冲突，服务器最后收到的值赢。
+  - **3.2 元素 ID 必须由客户端生成** `L82` — Figma 给每个客户端一个唯一 client ID，新元素 ID 里带这个 ID。原因很实际：离线时也必须能创建对象，等服务端分配 ID 就做不到。代价是：ID 不是连续数字，排序不能依赖 ID。
+  - **3.3 创建与删除是 LWW set，删除会带走属性** `L86` — 对象是否存在，本身就是一个 LWW 布尔属性；删除对象会把它在服务器上的所有属性删掉。Figma 把被删对象的属性只留在执行删除的那个客户端的 undo buffer 里，由它负责恢复——这样长文档不会因为反复删除而膨胀。
+  - **3.4 父子关系与排序：parent + position 必须原子** `L94` — Figma 把「父链接」存成子对象上的一个属性，于是可能出现 A 是 B 的父、B 又是 A 的父的环。服务器会拒绝造成环的 parent 更新；客户端不能拒绝服务器，所以会短暂出现「两个对象互相 parent」，Figma 的处理是把它们
+  - **3.5 文本为什么不能走属性 LWW** `L105` — AB/BC 的例子说明：属性 LWW 对「整段文本」就是「整段替换」。如果产品需要两人同时编辑同一段文字，必须把文本拆成 CRDT 字符序列，或退一步做块级/字段级锁，并在 UI 上明确「这段文字同一时间只有一个人能改」。不要用属性 LWW
+- **§4 存在层（Presence）：五种信号，各自证明什么** `L111` — Presence 是「临时状态」：Liveblocks 的定义是每个连接一个 JSON 对象，实时更新，连接结束就消失；永久内容放 Storage。Yjs 的 awareness 同样是非持久数据（光标、用户名、状态），把状态置 null 
+  - **4.1 头像栈（Avatar Stack）** `L124` — - 上限 5 + +N：Liveblocks 的 AvatarStack 提供 max，超出折叠为 +N；多标签页的同一用户会去重。
+  - **4.2 光标（Live Cursors）** `L133` — - 坐标用容器相对百分比，不用视口像素：Liveblocks 的 Cursors 组件就是这么做的，原文 "Cursor coordinates are percentage-based relative to the container,
+  - **4.3 选区（Selections）** `L143` — - 选区用 2px outline + 10% 填充（工程约定），颜色取该用户色；不要用大面积半透明填充，遮住内容。
+  - **4.4 正在输入（Typing Indicator）** `L149` — Liveblocks 示例的完整规则：输入时置 typing: true，1 秒无输入清除，失焦清除。因为 presence 是按连接的，关掉标签页后陈旧指示会自动消失。
+  - **4.5 当前工具与视口跟随** `L157` — - 当前工具（选择/画笔/文本）适合白板与设计工具；用图标 + 颜色，不要只写文字。
+  - **4.6 Agent Presence：AI 也要在同一层出现** `L163` — Liveblocks 的 Canvas 用例允许服务端/AI agent 用 setPresence 发布 presence（示例 ttl: 60 表示工作中，结束时 ttl: 2），于是 agent 会像人一样出现在 useOthers 
+  - **4.7 什么时候不该显示 presence** `L172` — - 公开分享页 / 只读访客：显示「N 人在看」可以，显示具体光标与选区是隐私风险。
+- **§5 延迟预算：本地 0ms，远端有账可算** `L181` — - 0.1 秒：用户感觉系统「即时响应」，除了显示结果不需要额外反馈。
+  - **5.1 三条人类感知阈值（NN/g 原文）** `L183` — - 0.1 秒：用户感觉系统「即时响应」，除了显示结果不需要额外反馈。
+  - **5.2 一次远端光标要经过的账** `L191` — 预算规则（工程约定）：同城 P95「对方光标可见延迟」≤150ms；跨洲 ≤300ms。超过 300ms 时，用户会开始怀疑「他是不是没在动」，此时应降低光标密度、增大插值时长，而不是提高发送频率。
+  - **5.3 本地优先：先改自己的屏幕，再等服务器** `L203` — Figma 原文：属性变更立即在客户端应用，不等服务器确认；但如果同时应用服务器的每个变更，旧的服务端确认值会短暂覆盖更新的未确认本地值，产生 flicker。Figma 的解法是：对「尚未确认的本地改动」，丢弃与之冲突的服务端旧值。
+  - **5.4 渲染性能：别让 presence 拖垮主线程** `L212` — Liveblocks 文档明确警告：useOthers 无参调用时，任何人 presence 的任何变化都会让组件重渲染，"This might be way more often than you want!"；只取某个子集时应用 use
+  - **5.5 消息预算（单房间，工程约定，需压测）** `L222` — 按 20 人、每人 20Hz 光标计算：20 × 20 = 400 条/秒；单条 100B 即 40KB/s 下行/人。超过这个量级要考虑「只广播视口内的光标」或「聚合采样」。
+- **§6 冲突界面：三种冲突，三种说法** `L236` — 硬锁（ pessimistic lock）在协作里通常是坏体验：一个人打开字段，所有人都不能改。软锁只做归属提示：
+  - **6.1 先分类，再选 UI** `L238`
+  - **6.2 软锁（Soft Lock）：提示占用，但不阻塞输入** `L248` — 硬锁（ pessimistic lock）在协作里通常是坏体验：一个人打开字段，所有人都不能改。软锁只做归属提示：
+  - **6.3 冲突提示的文案结构** `L257` — 三句话：发生了什么 + 现在保留了什么 + 你能做什么。
+  - **6.4 删除 vs 编辑** `L267` — Figma 的模型里删除会清掉服务器上的属性，只有删除者的 undo buffer 留着。这意味着：
+  - **6.5 重连合并** `L274` — Figma 的离线模型：客户端可离线任意久；重连时下载最新文档，再把离线编辑重放上去。这适合「本地操作是最终值」的工具；如果是 CRDT，则走增量同步（Automerge 的 sync 循环直到无新消息）。
+- **§7 多人撤销：只撤自己的，且要能解释** `L284` — 1. Undo 只撤本地 origin 的操作。 Yjs UndoManager 默认 trackedOrigins = new Set([null])，只跟踪本地的操作；源码注释："By default, the UndoManager 
+  - **7.1 三条硬规则** `L286` — 1. Undo 只撤本地 origin 的操作。 Yjs UndoManager 默认 trackedOrigins = new Set([null])，只跟踪本地的操作；源码注释："By default, the UndoManager 
+  - **7.2 不能做的事** `L292` — - ❌ 全局撤销（撤掉别人的修改）。
+  - **7.3 历史面板** `L299` — - 按人分色显示操作，支持「只看我的」。
+- **§8 评论与批注：锚点会死，线程不能死** `L307` — Yjs 的相对位置：createRelativePositionFromTypeIndex(type, index, assoc) 把位置绑在字符上，assoc = 0 关联 index 之后的字符、assoc < 0 关联之前的字符；cr
+  - **8.1 三种锚点** `L309` — Yjs 的相对位置：createRelativePositionFromTypeIndex(type, index, assoc) 把位置绑在字符上，assoc = 0 关联 index 之后的字符、assoc < 0 关联之前的字符；cr
+  - **8.2 线程生命周期** `L321` — open → resolved → reopened；resolved 不删除，只是从默认列表折叠。Figma 的评论支持回复、表情反应、resolve、删除、编辑内容、移动位置、排序筛选、dock/hide、通知设置——这些不是「功能清单
+  - **8.3 评论者与提及** `L329` — - 可评论 ≠ 可编辑：Figma 文件级 can view 的原文是 "View and comment on the file, but not edit it."。把 commenter 做成 editor 是最常见的越界。
+  - **8.4 孤儿线程** `L336` — 对象被删、文本被删、页面被删，线程不能静默消失：
+  - **8.5 评论 UI 的硬要求** `L344` — - 侧栏可开合，宽度 ≥320px；主内容不被永久挤压（覆盖式或可折叠）。
+- **§9 权限与分享：角色矩阵、继承陷阱、即时回收** `L354` — Figma 原文的关键区分：文件级 can view = 看 + 评论，不能编辑，但可以复制和导出（除非显式限制复制/导出）；can edit = 完整编辑；Owner = 创建者；且「要编辑文件，既要有 can edit 权限，也要有包含
+  - **9.1 角色矩阵（以 Figma 文件级权限为锚）** `L356` — Figma 原文的关键区分：文件级 can view = 看 + 评论，不能编辑，但可以复制和导出（除非显式限制复制/导出）；can edit = 完整编辑；Owner = 创建者；且「要编辑文件，既要有 can edit 权限，也要有包含
+  - **9.2 继承陷阱（必读）** `L369` — - Figma 的每个文件、每个文件夹都有自己的 audience access；文件可以比所在文件夹更严，也可以更松。
+  - **9.3 链接分享** `L376` — - 默认关闭，或默认「仅查看」；「任何人可编辑」必须二次确认，并在弹窗里写明「拿到链接的人都能改」。
+  - **9.4 降级与移除** `L383` — - 从 editor 降为 viewer：当前打开的编辑器要立即变只读，未提交的本地改动要么自动保存、要么提示「你的修改未保存，已被降权」。
+  - **9.5 反模式** `L389` — - 把「可评论」实现成「可编辑」。
+- **§10 在线状态生命周期：连接、判离线、重连、离线编辑** `L399` — connecting → connected → reconnecting → offline → connected
+  - **10.1 状态机** `L401` — connecting → connected → reconnecting → offline → connected
+  - **10.2 判离线的数值（Yjs 实测）** `L413` — Yjs awareness 源码：outdatedTimeout = 30000（30s）；内部检查周期 outdatedTimeout / 10 = 3000ms；本地状态超过 outdatedTimeout / 2 = 15000ms 
+  - **10.3 多标签与多设备** `L422` — - 同一 userId 的多个连接在头像栈里合并为一个（Liveblocks 默认去重）；需要时在 tooltip 写「2 个标签页」。
+  - **10.4 离线编辑** `L429` — - 允许离线编辑是产品承诺，不是技术默认。Figma 明确可离线任意久，重连时下载最新文档再重放离线编辑；这要求本地有完整的文档副本与操作队列。
+  - **10.5 降级路径** `L437` — - WebSocket 不可用 → 尝试长轮询/SSE；仍失败 → 只读 + 本地草稿。
+- **§11 无障碍：协作的「噪音」必须可关，状态必须可说** `L445` — WCAG 2.2 SC 4.1.3 Status Messages（AA）：
+  - **11.1 SC 4.1.3 原文与适用范围** `L447` — WCAG 2.2 SC 4.1.3 Status Messages（AA）：
+  - **11.2 aria-live 三档怎么选（MDN 原文）** `L460` — - assertive：最高优先级，立即播报，可能清空语音队列。
+  - **11.3 聚合与限流** `L479` — - 协作者加入/离开：合并成「3 人在线」，≥5s 最多播报一次；不要每来一个人播一次。
+  - **11.4 颜色与识别** `L485` — - 用户色对非文本 ≥3:1；文字标签与底色 ≥4.5:1（详见 accessibility.md）。
+  - **11.5 键盘、焦点与动效** `L492` — - 协作者列表、评论线程、resolve 按钮都可 Tab 到达；不要用 div 模拟按钮。
+  - **11.6 只读与读屏** `L499` — - 只读分享页也要有「N 人在看」的可读文本，而不是只有头像图片。
+- **§12 移动端与触摸：没有 hover，也没有「光标」** `L507` — - 手机上不显示他人光标（没有指针隐喻）；用选区高亮 + 当前工具 + 头像栈表达存在。
+- **§13 性能、成本与容量** `L518` — - 光标层用 position:absolute + transform: translate3d()，避免 layout。
+  - **13.1 容量预算（工程约定，需按实际压测调整）** `L520`
+  - **13.2 前端** `L530` — - 光标层用 position:absolute + transform: translate3d()，避免 layout。
+  - **13.3 后端** `L537` — - 房间内广播不落库；文档操作按 16ms 批处理。
+  - **13.4 指标** `L544` — - 同步延迟 P50/P95（本地→远端可见）。
+- **§14 文案词表（直接抄）** `L555` — 规则：名字 + 动作 + 结果；不写「实时」「无缝」「永不丢失」这类无法兑现的形容词；时间用「刚刚 / 2 分钟前」。
+- **§15 十二条反模式** `L574` — 1. 用属性 LWW 做文本编辑，再补一个「合并中」假状态 → 用户丢字。
+- **§16 验收清单（18 条，可勾选）** `L591` — 数据与冲突
+- **§17 度量与实验** `L623` — - 协作感知：用户能否在 5s 内说出「还有谁在」；presence 开关 A/B 对「误改率」的影响。
+- **§18 交付检查单（设计 / 前端 / 后端）** `L635` — 设计
+- **§19 可执行验算（Python，纯标准库）** `L658` — ---
+- **§20 取源限制与未取到项（逐条登记）** `L722` — 1. Liveblocks 的服务端容量上限（单房间连接数、消息速率）未公开：文档只给客户端 throttle 范围与用法，未给「每房间最多多少人」。§13.1 的 50 人/10 光标是工程约定，不是官方值。
+- **§21 来源（2026-11-16 取用）** `L737` — - Figma Engineering, How Figma's multiplayer technology works（Evan Wallace，2019-10-16）：https://www.figma.com/blog/how-fi
+
 ### `references/resources.md` · 设计资源 — Resources
 _225 行 · 快照 2026-10-29 · 5 节_
 
@@ -2720,7 +2803,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_830 行 · 快照 — · 47 节_
+_843 行 · 快照 — · 48 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2769,6 +2852,7 @@ _830 行 · 快照 — · 47 节_
 - **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** `L785` — - 本轮性质：v43→v44 新资产轮（同一天第二次升级，上午 #39 已收口）。触发时基线 HEAD 1cf1688（v43 / 48 参考 / 1,389,731 字符 / 228 路由 / 45 自检 / 269 组 2,232 词 
 - **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** `L802` — - 本轮性质：结构性空白补齐（键盘/键位加速层），非维护轮；此前全域 快捷键 仅 21 处且几乎全是 direct-manipulation 的反面语境，aria-keyshortcuts=0、SC 2.1.4=0。
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** `L816` — - 本轮性质：结构性空白补齐（上传/媒体输入链路），非维护轮；此前全域 上传 仅 25 处零散提及（多为「上传前脱敏」「附件入口」），upload=1（tools.md）、accept 属性=0、文件大小=1、图片压缩=1、拖拽上传=1（a
+- **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** `L831` — - 选源与验证：全量词频扫描 51 份参考 + SKILL.md——实时协作 仅 2 处（presentation-design 一句）、协同编辑 / 批注 / realtime 均为 0、presence 27 处里 22 处在 moti
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -3142,6 +3226,7 @@ _830 行 · 快照 — · 47 节_
 - **2026-11-14 · 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44）** → `memory/design-log.md` L785
 - **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** → `memory/design-log.md` L802
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** → `memory/design-log.md` L816
+- **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** → `memory/design-log.md` L831
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3416,13 +3501,14 @@ _830 行 · 快照 — · 47 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/sound-haptics-feedback.md` L9
+- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9
 - **§0 一句话立场与三条裁决** → `references/file-upload-media-input.md` L3 · `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
+- **§1 六层判层：从「谁能改」到「断线怎么回来」** → `references/realtime-collaboration.md` L24
 - **§1 判层：五问定「做不做、做哪一类、放哪个作用域」（键盘可达性：不用鼠标能否完成任务）** → `references/keyboard-shortcuts-command-palette.md` L26
 - **§1 判层：五问定「做不做、做哪一类、放哪里」** → `references/file-upload-media-input.md` L17
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
@@ -3432,6 +3518,7 @@ _830 行 · 快照 — · 47 节_
 - **§10 六个库的实测与选型（GitHub API 2026-11-14）** → `references/keyboard-shortcuts-command-palette.md` L619
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
+- **§10 在线状态生命周期：连接、判离线、重连、离线编辑** → `references/realtime-collaboration.md` L399
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
 - **§10 场景速查（12 行，直接查表）** → `references/file-upload-media-input.md` L445
 - **§10 无障碍与合规（这一节决定「能不能用」）** → `references/auth-account-ux.md` L496
@@ -3446,6 +3533,7 @@ _830 行 · 快照 — · 47 节_
 - **§11 失败态 ≠ 缺省态（禁止把出错伪装成无内容）** → `references/empty-states.md` L185
 - **§11 安全与体验的冲突裁决表** → `references/auth-account-ux.md` L563
 - **§11 承诺闸门：SC 3.3.4（Level AA）** → `references/pricing-checkout.md` L257
+- **§11 无障碍：协作的「噪音」必须可关，状态必须可说** → `references/realtime-collaboration.md` L445
 - **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
@@ -3453,6 +3541,7 @@ _830 行 · 快照 — · 47 节_
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 用法速查（12 行，先对号再动手）** → `references/keyboard-shortcuts-command-palette.md` L694
 - **§12 社媒图（各平台尺寸表）** → `references/editorial-layout.md` L398
+- **§12 移动端与触摸：没有 hover，也没有「光标」** → `references/realtime-collaboration.md` L507
 - **§12 第三方登录的数值** → `references/auth-account-ux.md` L578
 - **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
 - **§12 自检清单（20 项，交付前逐条打勾）** → `references/file-upload-media-input.md` L489
@@ -3464,18 +3553,21 @@ _830 行 · 快照 — · 47 节_
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 可跑代码（python -I -X utf8 实跑通过）** → `references/file-upload-media-input.md` L514
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
+- **§13 性能、成本与容量** → `references/realtime-collaboration.md` L518
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
 - **§14 反模式 20 条** → `references/auth-account-ux.md` L629
 - **§14 取源限制（本轮实测，逐条登记）** → `references/file-upload-media-input.md` L699
 - **§14 可抄代码** → `references/feedback-states.md` L485
+- **§14 文案词表（直接抄）** → `references/realtime-collaboration.md` L555
 - **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
 - **§14 自检清单（交付前逐条打勾，20 条）** → `references/keyboard-shortcuts-command-palette.md` L738
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
 - **§15 两段可跑脚本（以下代码已实跑通过）** → `references/keyboard-shortcuts-command-palette.md` L763
 - **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
+- **§15 十二条反模式** → `references/realtime-collaboration.md` L574
 - **§15 反模式清单（20 条）** → `references/pricing-checkout.md` L302
 - **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
 - **§15 工具与库（2026-11-01 GitHub API 实测）** → `references/feedback-states.md` L573
@@ -3487,18 +3579,23 @@ _830 行 · 快照 — · 47 节_
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
 - **§16 来源与取源限制** → `references/empty-states.md` L315
 - **§16 自检清单（20 条）** → `references/pricing-checkout.md` L325
+- **§16 验收清单（18 条，可勾选）** → `references/realtime-collaboration.md` L591
 - **§17 上线前自检：25 条（按可判定性排序）** → `references/accessibility.md` L607
 - **§17 反模式（20 条，逐条对照）** → `references/editorial-layout.md` L621
 - **§17 取源限制** → `references/auth-account-ux.md` L795
 - **§17 可抄代码（5 段，均可在标准库下直接跑）** → `references/pricing-checkout.md` L348
+- **§17 度量与实验** → `references/realtime-collaboration.md` L623
+- **§18 交付检查单（设计 / 前端 / 后端）** → `references/realtime-collaboration.md` L635
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
 - **§18 取源限制（公开记录，不臆造）** → `references/pricing-checkout.md` L553
 - **§18 实跑记录** → `references/auth-account-ux.md` L815
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
+- **§19 可执行验算（Python，纯标准库）** → `references/realtime-collaboration.md` L658
 - **§2 三通道分工：谁能承担什么** → `references/sound-haptics-feedback.md` L61
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
+- **§2 协作模型选型：三种路线与它们能承诺的话** → `references/realtime-collaboration.md` L45
 - **§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」** → `references/keyboard-shortcuts-command-palette.md` L47
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
@@ -3507,9 +3604,12 @@ _830 行 · 快照 — · 47 节_
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
 - **§2 选文件：控件契约** → `references/file-upload-media-input.md` L54
 - **§20 与其他文件的分工** → `references/editorial-layout.md` L756
+- **§20 取源限制与未取到项（逐条登记）** → `references/realtime-collaboration.md` L722
+- **§21 来源（2026-11-16 取用）** → `references/realtime-collaboration.md` L737
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** → `references/keyboard-shortcuts-command-palette.md` L99
 - **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
+- **§3 文档模型：树、属性与 fractional index** → `references/realtime-collaboration.md` L70
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 校验：三档分工与文案** → `references/file-upload-media-input.md` L107
 - **§3 注册与账号创建（建立身份层）** → `references/auth-account-ux.md` L165
@@ -3519,6 +3619,7 @@ _830 行 · 快照 — · 47 节_
 - **§4 传输与进度** → `references/file-upload-media-input.md` L171
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
+- **§4 存在层（Presence）：五种信号，各自证明什么** → `references/realtime-collaboration.md` L111
 - **§4 密码策略反神话表（把「听起来安全」逐条对到原文）** → `references/auth-account-ux.md` L220
 - **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** → `references/keyboard-shortcuts-command-palette.md` L121
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
@@ -3531,11 +3632,13 @@ _830 行 · 快照 — · 47 节_
 - **§5 媒体输入特化** → `references/file-upload-media-input.md` L233
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
 - **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
+- **§5 延迟预算：本地 0ms，远端有账可算** → `references/realtime-collaboration.md` L181
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
 - **§6 key 与 code：键盘布局、输入法组合（IME）与输入框焦点** → `references/keyboard-shortcuts-command-palette.md` L304
 - **§6 三通道配方表（设计交付时直接填）** → `references/sound-haptics-feedback.md` L358
+- **§6 冲突界面：三种冲突，三种说法** → `references/realtime-collaboration.md` L236
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 失败与重试** → `references/file-upload-media-input.md` L281
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
@@ -3546,6 +3649,7 @@ _830 行 · 快照 — · 47 节_
 - **§7 一次性口令的单框** → `references/auth-account-ux.md` L399
 - **§7 作用域、绑定与冲突仲裁（含 chord 多段序列）** → `references/keyboard-shortcuts-command-palette.md` L361
 - **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
+- **§7 多人撤销：只撤自己的，且要能解释** → `references/realtime-collaboration.md` L284
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 无障碍：上传是最容易漏键盘的一条链路** → `references/file-upload-media-input.md` L342
@@ -3558,6 +3662,7 @@ _830 行 · 快照 — · 47 节_
 - **§8 安全与隐私：客户端做体验，服务端做边界** → `references/file-upload-media-input.md` L379
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
+- **§8 评论与批注：锚点会死，线程不能死** → `references/realtime-collaboration.md` L307
 - **§8 语义与 ARIA：原生优先，ARIA 是补丁不是方案** → `references/accessibility.md` L290
 - **§8 账户恢复** → `references/auth-account-ux.md` L433
 - **§8 面板解剖：数据模型、检索、无障碍与性能** → `references/keyboard-shortcuts-command-palette.md` L468
@@ -3566,6 +3671,7 @@ _830 行 · 快照 — · 47 节_
 - **§9 发现性：帮助面板、菜单标注与 kbd 样式** → `references/keyboard-shortcuts-command-palette.md` L571
 - **§9 库选型：GitHub API 实测（2026-11-16）** → `references/file-upload-media-input.md` L406
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
+- **§9 权限与分享：角色矩阵、继承陷阱、即时回收** → `references/realtime-collaboration.md` L354
 - **§9 留白与密度（留白占比）** → `references/editorial-layout.md` L296
 - **§9 空状态可访问性清单** → `references/empty-states.md` L164
 - **§9 自检清单（交付前逐条打勾，20 条）** → `references/sound-haptics-feedback.md` L457
@@ -3586,7 +3692,6 @@ _830 行 · 快照 — · 47 节_
 - **三、中文产品形态的四个特征（影响设计决策）** → `references/chinese-design.md` L167
 - **三、四层架构：在原有三层上加一层"品牌输入"** → `references/multi-brand-theming.md` L52
 - **三、错误文案（最高频的文案翻车点）** → `references/ux-writing.md` L100
-- **三十九条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **九、四套真实主题矩阵对照（可直接抄结构）** → `references/multi-brand-theming.md` L353
 - **九、导航与信息架构文案** → `references/ux-writing.md` L376
 - **九、日期 / 时间 / 日历 / 时区格式（Node 实测）** → `references/i18n-localization.md` L564
@@ -3657,10 +3762,11 @@ _830 行 · 快照 — · 47 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
+- **四十条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L142
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L148
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3670,12 +3776,12 @@ _830 行 · 快照 — · 47 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（181 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L625
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1015
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1028
+- **能力自测（184 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L636
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1025
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1038
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1051
+- **边界与习惯** → `SKILL.md` L1061
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

@@ -669,3 +669,34 @@
 - https://github.com/lovell/sharp | [GH] 服务端图像处理（EXIF 方向与重编码）；API 实测 32,855★ / Apache-2.0 / 最后 push 2026-11-16T08:43Z / 未归档（v46 API 实测）
 
 - 取源限制（v46）：WHATWG HTML `input.html#file-upload-state-(type=file)` 与 `/dev/input.html` 均 HTTP 200 但正文不可用（"HTML content omitted: unable to convert safely"），故 `accept`/`capture` 的规范原文未引，只用 MDN 逐字；`mimesniff.spec.whatwg.org` 同症状、`mimesniff.bs` raw 拉取失败，故「嗅探规则」只用 OWASP 清单不用规范条文；`ant.design` Upload 页（en/cn）均 200 空正文，改用仓库 raw md（v6 线）；`www.iec.ch/si/binary.htm` 返回 202 空正文，二进制前缀只用算术表达；`developer.android.com` ExifInterface 页 fetch failed，故 EXIF 1–8 方向映射未取到、不编造数值表；M3 components 页只有 JS shell，本轮未纳入。
+## 三十一：实时协作与多人编辑一手源（v47 实测）
+
+- https://www.figma.com/blog/how-figmas-multiplayer-technology-works/ | Figma 工程博客（Evan Wallace，2019-10-16）：客户端/服务器 WebSocket、每文档独立进程、可离线任意久后重放；明确不用 OT、不是真 CRDT；文档抽象为 `Map<ObjectID, Map<Property, Value>>`；**属性级 LWW**，并发改同一文本 AB vs BC 只能得 AB 或 BC、永不 ABC；乐观应用并丢弃冲突的旧服务端值防 flicker；对象 ID 由客户端生成；parent 存子对象、服务端拒环；子序 fractional indexing、parent 与 position 同一属性原子更新；undo 不改变最终文档（v47 一手源）
+- https://help.figma.com/hc/en-us/articles/35361119554711-File-and-folder-permissions | Figma 文件与文件夹权限：文件级 Can view 原文 *"View and comment on the file, but not edit it. Can also copy and export assets, unless copying and exporting is restricted."*；编辑需 can edit + 产品席位；**每个文件/文件夹各自 audience access**，文件可比父文件夹更严或更松；Professional 嵌套文件夹总是继承父级，Org/Enterprise 才能限特定人（v47 一手源）
+- https://help.figma.com/hc/en-us/articles/360039970673-Team-permissions | Figma 团队权限：can view / can edit / team admin / owner（每团队一个 owner）；团队级权限仅 Org/Enterprise（v47 一手源）
+- https://help.figma.com/hc/en-us/articles/360039825314-Comments-in-Figma | Figma 评论：设计 / FigJam / 原型可评；回复、表情、resolve、删除、编辑、移动位置、排序筛选、dock/hide（v47 一手源）
+- https://raw.githubusercontent.com/yjs/y-protocols/master/src/awareness.js | Yjs awareness 源码：`outdatedTimeout = 30000`；巡检周期 `outdatedTimeout / 10`＝3000ms；超 `outdatedTimeout / 2`＝15000ms 自动续期；`setLocalState` / `setLocalStateField` / `getStates`；`change` 深度相等过滤、`update` 不过滤；置 null 表示离线（v47 一手源）
+- https://raw.githubusercontent.com/yjs/yjs/main/src/utils/UndoManager.js | Yjs UndoManager 源码：`captureTimeout=500`；`trackedOrigins=new Set([null])`；注释 *"By default, the UndoManager will never overwrite remote changes."*（v47 一手源）
+- https://docs.yjs.dev/api/relative-positions | Yjs 相对位置：`createRelativePositionFromTypeIndex(type, index, assoc=0)`（assoc≥0 关联 index 之后、<0 之前）；`createAbsolutePositionFromRelativePosition` 返回 `{type,index,assoc}` 或 **null（类型被删）**；`encodeRelativePosition` / `decodeRelativePosition`；整数索引会被远端修改失效（v47 一手源）
+- https://automerge.org/automerge/automerge/sync/ | Automerge sync：两 peer 间可靠有序流；每 peer 为对方维护 `State`；`generate_sync_message` / `receive_sync_message` 往返直到双方 None（v47 一手源；`/docs/under-the-hood/sync/` HTTP 404）
+- https://liveblocks.io/docs/use-cases/canvas | Liveblocks 画布：持久对象 / 层序进 Sync、临时 cursor / selection / tool 进 Presence、讨论进 Comments（可绑坐标或对象）；version history；多人 undo 各自撤自己的修改（v47 一手源）
+- https://liveblocks.io/docs/use-cases/presence | Liveblocks presence：每连接一个 JSON、断开即消失；`Cursors` 坐标为容器相对百分比 + spring 插值；`AvatarStack` max 折叠 `+N`、同用户去重；user info 来自数据库不可伪造；typing 1s 无输入或失焦清除（v47 一手源）
+- https://liveblocks.io/docs/api-reference/liveblocks-react | Liveblocks React：`throttle` 默认 100ms、允许 16–1000ms（16＝60fps）；`useOthers` 无参时任何 presence 变化都重渲染、取子集用 `useOthersMapped`；`updateMyPresence(...,{addToHistory:true})`（v47 一手源）
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live | MDN aria-live：assertive 立即播报且可能清空语音队列、polite 下一时机、off 默认；警告 *"don't use the assertive value unless the interruption is imperative"*（v47 一手源）
+- https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html | SC 4.1.3 Status Messages（AA）：状态消息可不聚焦被 AT 获知；明确 failure：*Using `role="alert"` or `aria-live="assertive"` on content which is not important and time-sensitive*（v47 一手源）
+
+## 三十一·附：实时协作相关 GitHub 仓库（v47 GitHub API 实测）
+
+- https://github.com/yjs/yjs | [GH] CRDT 共享类型与 UndoManager；API 实测 23,072★ / NOASSERTION / push 2026-11-14 / 未归档（v47 API 实测）
+- https://github.com/automerge/automerge | [GH] JSON CRDT + sync 协议；API 实测 6,741★ / MIT / push 2026-11-16 / 未归档（v47 API 实测）
+- https://github.com/liveblocks/liveblocks | [GH] 托管 presence / 存储 / 评论；API 实测 4,772★ / NOASSERTION / push 2026-11-16 / 未归档（v47 API 实测）
+- https://github.com/tldraw/tldraw | [GH] 多人白板 SDK；API 实测 51,434★ / NOASSERTION / push 2026-11-16 / 未归档（v47 API 实测）
+- https://github.com/partykit/partykit | [GH] 协作后端 / 房间；API 实测 5,750★ / MIT / push 2026-10-09 / 未归档（v47 API 实测）
+- https://github.com/yjs/y-websocket | [GH] Yjs WebSocket provider；API 实测 715★ / MIT / push 2026-10-28（master）/ 未归档（v47 API 实测）
+- https://github.com/yjs/y-protocols | [GH] awareness / sync 协议实现；API 实测 165★ / MIT / push 2026-05-05（master）/ 未归档（v47 API 实测）
+- https://github.com/automerge/automerge-repo | [GH] Automerge 网络与存储；API 实测 718★ / MIT / push 2026-11-16 / 未归档（v47 API 实测）
+- https://github.com/excalidraw/excalidraw | [GH] 协作白板参考实现；API 实测 135,784★ / MIT / push 2026-11-16（master）/ 未归档（v47 API 实测）
+- https://github.com/microsoft/FluidFramework | [GH] 分布式数据结构框架；API 实测 4,949★ / MIT / push 2026-11-16 / 未归档（v47 API 实测）
+
+- 取源限制（v47）：Figma blog 正文可读但无 API 版本号，引文按 2019-10-16 原文；Yjs 文档站 `docs.yjs.dev` 为 Jekyll 渲染、只取 API 页正文，版本以仓库源码为准；Automerge `/docs/under-the-hood/sync/` 404，改引 Rust 模块页；Liveblocks API 页正文 183K 字符含大量客户端渲染噪声，只取 throttle 与 useOthers 两处原文；WCAG 页 Updated 04 October 2026；Figma Help 无版本号，引用时标注抓取日 2026-11-16。
+

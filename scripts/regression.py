@@ -33,26 +33,27 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 auth-account-ux.md 前 3。
-# #42 换轮：13 条覆盖五问判层 / accept 只是提示 / 大小上限与单位 / EXIF 方向与裁剪 /
-# 进度与取消 / 断点续传与退避 / 多文件部分失败 / 无障碍播报 / SVG 与直传安全 / 批量导入，
-# 且刻意混入「组件 / 无障碍 / 验收 / 度量 / 对比」等跨域词（#26 P1 教训）。
-# #41 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #42 沉淀块）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 realtime-collaboration.md 前 3。
+# #43 换轮：13 条覆盖模型选型 / 属性级冲突 / presence 五信号 / 延迟预算 / 评论锚点 /
+# 权限继承 / 断线重连 / 多人撤销 / 无障碍播报 / 选型对比 / 隐私 / 容量 / 工程实现，
+# 且混入「组件 / 无障碍 / 验收 / 度量 / 对比」等跨域词（#26 P1 教训）。
+# #42 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #43 沉淀块）。
 NEW_QUERIES = [
-    "文件上传 拖拽 选择文件 组件 验收",
-    "上传 进度 取消 大文件 状态 反馈",
-    "断点续传 tus 分片 恢复 上传",
-    "accept 类型 白名单 校验 服务端",
-    "文件 大小 上限 超出 文案 单位",
-    "图片 上传 EXIF 方向 旋转 竖拍",
-    "头像 上传 裁剪 比例 最小 像素",
-    "多文件 上传 并发 队列 部分 失败",
-    "上传 无障碍 键盘 读屏 播报 验收",
-    "SVG 上传 安全 净化 XSS 文件",
-    "预签名 URL 直传 对象 存储 权限",
-    "批量 导入 CSV 模板 失败 行 导出",
-    "上传 组件 库 选型 uppy filepond 对比",
+    "实时协作 多人同时编辑 协同编辑 冲突 验收",
+    "两个人同时改 同一段文字 冲突 谁赢 LWW",
+    "在线状态 实时光标 正在输入 头像 组件",
+    "多人编辑 光标位置 延迟 50ms 响应 预算",
+    "评论 定位 对象 删除 孤儿 线程 relative position",
+    "协作权限 链接分享 外部评审 继承 权限 矩阵",
+    "断线重连 离线编辑 重放 冲突 合并 状态机",
+    "多人撤销 undo 只撤自己的 redo 历史",
+    "协同编辑 无障碍 读屏 播报 状态 验收",
+    "CRDT OT 选型 Yjs Automerge 对比 设计",
+    "presence 隐私 鼠标轨迹 记录 用户 在线 状态",
+    "多人同时 编辑 性能 消息 频率 带宽 20 人",
+    "Figma 多人 协作 技术 属性级 冲突 组件",
 ]
+
 
 # 照 #26 P1 判例：泛化跨域查询归 BOUNDARY，不凑通过率，但仍校验 top3 与 HEAD 一致。
 # #27 判例样本「字体 对比度 大文本 3:1 下划线」沿用至今：5 词里 4 个是对比度专属词，
@@ -276,26 +277,36 @@ HIST_QUERIES = [
 "命令 注册表 过滤 虚拟化 性能 度量",
 "误触 单字符 快捷键 开关 设置 偏好",
 "键盘 操作 不用鼠标 完成 任务 可达性",
+# #43 沉淀：#42 主题门槛查询转为历史样本，验收「新增 realtime-collaboration.md 后不退化」。
+    "文件上传 拖拽 选择文件 组件 验收",
+    "上传 进度 取消 大文件 状态 反馈",
+    "断点续传 tus 分片 恢复 上传",
+    "accept 类型 白名单 校验 服务端",
+    "文件 大小 上限 超出 文案 单位",
+    "图片 上传 EXIF 方向 旋转 竖拍",
+    "头像 上传 裁剪 比例 最小 像素",
+    "多文件 上传 并发 队列 部分 失败",
+    "上传 无障碍 键盘 读屏 播报 验收",
+    "SVG 上传 安全 净化 XSS 文件",
+    "预签名 URL 直传 对象 存储 权限",
+    "批量 导入 CSV 模板 失败 行 导出",
+    "上传 组件 库 选型 uppy filepond 对比",
 ]
 
-EXPECT_FILE = "file-upload-media-input.md"
+EXPECT_FILE = "realtime-collaboration.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
 # 但必须三条硬校验全过才放行（否则仍判 DIFF），见 check_evolution()。
 # #36：先以空白名单跑全量回归；若新资产在历史查询中上位，按 #28 判例做内容层
 # 收敛（章节标题 / 首行导语措辞），不靠登记凑通过率，也不改检索器打分逻辑。
+# #43：新资产 §9「权限与分享」凭原词「权限」进入第 2 位；三条硬校验 a/b/c 全过：
+# HEAD top1（file-upload-media-input.md）未被顶掉，HEAD top3 的 visual-style-taxonomy /
+# dark-mode 仍在 NOW 第 4/5，新进入者 realtime-collaboration 在 --no-alias 下仍在前 3。
 EXPECTED_EVOLUTION = {
-    # #42：新资产 §7.1 覆盖「拖放区不是唯一入口」的键盘全链路、§7.2 覆盖播报清单；
-    # 这两条历史查询上凭原词相关性进入 top3（均为第 2 位），三条硬校验 a/b/c 全过：
-    # HEAD top1（direct-manipulation.md）未被顶掉、HEAD top3 里 2 个仍在 NOW top5、
-    # --no-alias 下新资产仍在前 3。
-    "补个键盘快捷键 算不算无障碍 键盘拖放 Space Escape":
-        "file-upload-media-input §7.1 进驻第 2 位（上传链路的 Space/Enter 与拖放替代路径）；"
-        "HEAD top1 direct-manipulation 未被顶掉，其 top3 中 component-api-design 仍在 NOW 第 3。",
-    "读屏播报 live region position index aria-roledescription":
-        "file-upload-media-input §7.2「读屏播报清单」进驻第 2 位；HEAD top1 未动，"
-        "knowledge-map / accessibility 仍在 NOW 前 5。",
+    "预签名 URL 直传 对象 存储 权限":
+        "realtime-collaboration §9 权限与分享进驻第 2 位（协作权限的原词相关性）；"
+        "HEAD top1 file-upload 未被顶掉，其 top3 的 visual-style-taxonomy / dark-mode 仍在 NOW 第 4/5。",
 }
 
 # 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，

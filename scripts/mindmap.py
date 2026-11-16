@@ -140,6 +140,10 @@ INTENTS = [
     ("文件上传 / 拖拽上传 / 选择文件 / 附件 / 上传进度", "file-upload-media-input.md §1 五问判层 → §2 控件契约（accept 五种写法 / capture / 拖放四件事）→ §3 三档校验与文案 → §4.2 进度规格"),
     ("断点续传 / 大文件 / 弱网 / tus / 上传失败 重试", "file-upload-media-input.md §4.5 tus 1.0.0 逐字（Upload-Offset / 409 / 204 / 460 / Tus-Max-Size）→ §6 十种失败与退避 → §6.3 部分成功"),
     ("图片裁剪 / 头像上传 / EXIF / 拍照上传 / HEIC / 媒体输入", "file-upload-media-input.md §5 媒体输入特化 → §5.1 EXIF from-image 与 canvas 坑 → §5.3 裁剪比例表 → §13.6 裁剪验收代码"),
+    ("实时协作 / 多人同时编辑 / 协同编辑 / 实时协同", "realtime-collaboration.md §2 三种模型选型 → §3 文档模型与属性级 LWW → §5 延迟预算 → §16 验收 18 条"),
+    ("在线状态 / 实时光标 / 正在输入 / 头像堆叠 / presence", "realtime-collaboration.md §4 presence 五信号 → §10 状态机（30s/15s/3s）→ §12 移动端"),
+    ("评论 / 批注 / 线程 / @提及 / 孤儿评论", "realtime-collaboration.md §8 三锚点与 relative position → §8 线程生命周期与孤儿处理"),
+    ("协作权限 / 链接分享 / 成员回收 / audience access", "realtime-collaboration.md §9 角色矩阵与继承陷阱 → §6 冲突界面文案"),
 
 ]
 

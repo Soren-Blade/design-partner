@@ -2,8 +2,8 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v48-1677ff)
-![assets](https://img.shields.io/badge/reference_files-53-2ea44f)
+![version](https://img.shields.io/badge/version-v49-1677ff)
+![assets](https://img.shields.io/badge/reference_files-54-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
 ![updated](https://img.shields.io/badge/updated-2026-11-17-6e7781)
 
@@ -46,8 +46,9 @@
 | **快捷键记不住 / 按了没反应 / 和系统抢** | 单字母快捷键没有关闭开关、`aria-keyshortcuts` 写完以为能触发、Mac 用户看到 Control、输入框里打 `?` 弹出帮助面板、中文输入法回车直接执行命令、命令面板 Tab 切不动、2000 条命令卡死 | `keyboard-shortcuts-command-palette.md` 五问判层 + SC 2.1.4 三出口 + 平台修饰键契约 + 四层语义 + IME 守卫 + 冲突仲裁 + 命令面板 combobox 契约 + 六库实测 |
 | **上传框做出来很别扭 / 传一半断了** | `accept` 写了以为就校验了、用户拖进来一张 8 MB 的图只看到转圈、几十秒后弹一句"上传失败"、断网重传又从 0 开始、头像传上去是横的、多选 5 个错 1 个不知道哪个、超了数量限制文件凭空消失 | `file-upload-media-input.md` 五问判层 + 三档校验分工 + 0.1/1/10 s 进度规格 + tus 断点续传逐字 + EXIF 方向 + 十种失败与退避 + OWASP 上传十条 |
 | **视频播放器像半成品 / 字幕挡画面** | 控件只有播放暂停、进度条 2px 高拖不中、一行字幕挤 60 个字、字号写死 14px、手机上一进页面就被暂停、全屏后控件全消失、GIF 当视频用 | `video-player-captions.md` 七层判层 + 控制栏顺序 + 42×2 行·20 CPS·5/6 秒数值表 + WebKit autoplay 四场景 + GIF 12×/2× |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 49 项自检 |
-| **知识找不到** | 53 份参考、156 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **邮件发出去就乱 / 被截断** | Outlook 里两栏塌成一列、圆角按钮变成方块、Gmail 只显示前一半内容、图片全被屏蔽后只剩空白框、深色模式里灰字消失、主题行被截成半句、中文一行挤 50 字 | `email-design.md` 四种渲染引擎判层 + 600px 表格骨架 + caniemail 实测替代表 + 102KB/85KB 体积预算 + 深色三通道 + 20 条自检 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 50 项自检 |
+| **知识找不到** | 54 份参考、160 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -56,7 +57,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 186 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 188 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -109,6 +110,7 @@
 | [文件上传与媒体输入](references/file-upload-media-input.md) | 立场：上传不是「选个文件传上去」，是一条可失败、可恢复、可验收的五段链路 / 三条裁决（accept 只提示不校验，MDN 逐字 *doesn't validate the types*，服务端必须重验且不信 Content-Type·OWASP 逐字 / 拖放区必须有「选择文件」等价路径·SC 2.5.7 *single pointer without dragging* + SC 2.1.1 键盘兜底 / 五态 uploading·processing·succeeded·rejected·failed，rejected≠failed 决定用户动作，SC 4.1.3 播报节流）/ §1 五问判层 + 12 场景 / §2 控件契约（accept 五种 specifier 逐字·capture user/environment·拖放四件事）/ §3 三档校验（即时/提交前/服务端权威）与文案 / §4 传输与进度（0.1/1/10 s·取消语义·tus 1.0.0 逐字 Upload-Offset/409/204/460/Tus-Max-Size）/ §5 媒体输入特化（EXIF from-image·createImageBitmap 三值·裁剪比例表·HEIC）/ §6 十种失败与退避·部分成功 / §7 无障碍（2.5.7·2.5.8 24×24·4.1.3 播报 5 s 节流）/ §8 安全（OWASP 十条·双扩展名·空字节·NTFS ADS·SVG 净化·预签名直传）/ §9 八库 GitHub API 实测（uppy 31,075★·sharp 32,855★·squoosh 26,195★）/ §10 场景速查 12 行 / 20 反模式·20 自检 / 6 段代码实跑 PASS / 取源限制 14 条 | 规则型 | — |
 | [实时协作与多人编辑](references/realtime-collaboration.md) | 立场：协作不是加个光标，是让每个人判断「我的改动在哪、别人的在哪、冲突时谁说了算」/ 三条裁决（① 冲突粒度取属性级 LWW，同对象同属性裁决、AB 与 BC 并发永不 ABC，不引入 OT；② presence 只放临时信号，Yjs outdatedTimeout 30s / 15s 续期 / 3s 巡检，永久内容进 Storage；③ 评论钉相对位置、类型被删返回 null 即孤儿；权限逐文件/文件夹判 audience access，继承不自动下传）/ §1 六层判层 / §2 三种模型选型（中心 LWW·CRDT·OT）/ §3 文档模型（client ID·fractional index·删除与 undo buffer）/ §4 presence 五信号 / §5 延迟预算 / §6 冲突与软锁 / §7 多人撤销 / §8 评论三锚点与线程 / §9 角色矩阵与继承陷阱 / §10 四态状态机 / §11 SC 4.1.3 与 aria-live / §12 移动端 / §13 容量 / §14 文案 / §15 反模式 / §16 18 条验收 / §17 度量 / §18 交付检查 / §19 4 段 Python 实跑 PASS / §20 取源限制 / §21 10 库 GitHub API 实测 | 规则型 | 2026-11-16 |
 | [视频播放器与字幕](references/video-player-captions.md) | 立场：播放器不是皮肤，是一份关于时间的契约（现在播到哪 / 能不能控制 / 听不见时看什么）/ 三条裁决（控件层是契约层·Space·K·←→±5s·↑↓ 音量·M·F·C 先接受再扩展 / 字幕是内容不是样式·42 字符×2 行×20 CPS（儿童 17）与 5/6–7 秒同时成立 / 默认不自动播放有声视频·WebKit 只放行 muted 或无音轨）/ 七层判层 / 控制栏顺序与自动隐藏三态 / 时间轴语义 / WebVTT 与 TextTrack 三态 / 16 行精确值表 + 中文 20–22 汉字/行 / ::cue 与自绘层 / GIF 12× 带宽 2× 能量 / 四条 WCAG 逐字 / 14 反模式 / 3 段 Python 校验 | 规则型 | 2026-11-17 |
+| [邮件设计与 EDM 排版](references/email-design.md) | 立场：邮件不是网页的降级版，是一条被客户端引擎、体积截断与深色反色共同挤压的版式通道 / 三条裁决（四种渲染引擎血统·Outlook 用 Word 引擎，600px 是产物·图片可删文字必达·体积是排版约束 102KB/85KB/`<style>` 16KB）/ 七层判层 / caniemail 实测 40 行与 11 行特性替代表 / 图片三事实与 VML 圆角按钮 / 深色三通道与双写模板 / 中文 25–32 字一行与 `mso-font-alt` / 主题行·preheader·首屏·CTA·页脚 / 20 条反模式 + 20 条自检 + 6 段可跑校验 | 规则型 | 2026-11-17 |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
 > 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
@@ -119,12 +121,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  244 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  247 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  49 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关、键盘快捷键关、文件上传关、视频与字幕关）+ 交付说明三段式
+第 6 步  自检与交付    →  50 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关、键盘快捷键关、文件上传关、视频与字幕关、邮件设计关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -146,7 +148,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：278 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：279 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
@@ -166,7 +168,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 41 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验 / 键位加速契约 / 上传链路契约 / 实时协作与多人编辑 / 视频播放器与字幕）、学习节奏表、186 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 42 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验 / 键位加速契约 / 上传链路契约 / 实时协作与多人编辑 / 视频播放器与字幕 / 邮件设计与 EDM 排版）、学习节奏表、188 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -194,6 +196,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 
 | 日期 | 内容 |
 |---|---|
+| 2026-11-17 | 每日升级 #45：邮件设计与 EDM 排版——把「写封 HTML 邮件」判成渲染介质、客户端矩阵、600px 骨架与 102KB 预算（v48→v49） |
 | 2026-11-17 | 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48） |
 | 2026-11-16 | 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47） |
 | 2026-11-16 | 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46） |
@@ -201,7 +204,6 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | 2026-11-14 | 每日升级 #40：认证与账户体验——把「怎么证明是我」做成六问判层、失败出口与会话档位（v43→v44） |
 | 2026-11-14 | 每日升级 #39：声音与触觉反馈——把「要不要多占一条感官通道」做成五问判层与三平台常量表（v42→v43） |
 | 2026-11-13 | 每日升级 #38：通知与消息触达——把「该不该发」翻译成六段链路与三平台验收（v41→v42） |
-| 2026-11-13 | 每日升级 #37：维护轮——把「写的是理想、跑起来会打脸」的地方修掉（v40→v41） |
 
 ---
 
@@ -375,6 +377,16 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - [W3C WCAG 2.2 · SC 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — 24×24 CSS px / spacing 例外（24px 直径圆不相交）/ 2.5.5 为 44×44
 - [WebKit · New <video> Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) — 2016-07-25：无音轨或 muted 才允许 autoplay / 加音轨或取消静音即 pause / 仅可见时播放 / `playsinline` 才内联 / 手势四事件 / GIF 12× 带宽 2× 能量
 - GitHub API 实测（2026-11-17）：[videojs/video.js](https://github.com/videojs/video.js) 40,211★ NOASSERTION · [sampotts/plyr](https://github.com/sampotts/plyr) 29,985★ MIT（已 deprecated）· [muxinc/media-chrome](https://github.com/muxinc/media-chrome) 2,772★ MIT · [shaka-project/shaka-player](https://github.com/shaka-project/shaka-player) 8,283★ Apache-2.0 · [video-dev/hls.js](https://github.com/video-dev/hls.js) 17,058★ NOASSERTION
+- [Microsoft · On Word & Outlook 2007（归档博客）](https://learn.microsoft.com/en-us/archive/blogs/michael_affronti/on-word-outlook-2007) — 逐字 *"unify the rendering and editing engine in Outlook by using Word's engine"* / *"the capabilities that our customers most wanted for their HTML newsletters are supported by Outlook 2007"*
+- [Microsoft Support · Block automatic picture downloads](https://support.microsoft.com/en-us/office/block-or-unblock-automatic-picture-downloads-in-classic-outlook-email-messages) — 逐字 *"configured by default to block automatic picture downloads from the Internet"*
+- [Apple · Mail Privacy Protection](https://www.apple.com/privacy/features/) — 逐字隐藏 IP、*"they can't tell if you've opened their email"*：打开率不再是设计信号
+- [Klaviyo · Gmail clipping](https://help.klaviyo.com/hc/en-us/articles/115000591251) — 逐字 *"the email size limit is generally 102 KB"* / *"keep your email code below 102 KB once sent … does not include image file sizes"*；iOS Gmail 20 KB；风险带 <85 / 85–95 / ≥95 KB
+- [caniemail · data.json](https://www.caniemail.com/api/data.json) — `last_update_date = 2026-09-16`，308 条特性：`vertical-align` 41/41、`max-width` 39/41（Outlook 仅 `<table>`）、`@media` 16y/8n/17a、`prefers-color-scheme` 18y/25n、`@font-face` 9y/31n、`border-radius` 28y/7n（Outlook 需 VML `RoundRect`）、`<style>` 29y/10n/7a（Gmail 限 16 KB）
+- [W3C WCAG 2.2 · SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) · [SC 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — 4.5:1 与 *"should not be rounded"* / 24×24 CSS px：邮件正文与 CTA 同样适用
+- [MJML 文档](https://documentation.mjml.io/) — 逐字 *"divide the section space (600px by default …)"*：600px 的工程来源
+- [《广告法》第四十三条](https://www.gov.cn/) · [《互联网电子邮件服务管理办法》（信息产业部令第 38 号）](https://www.gov.cn/gongbao/content/2007/content_554185.htm) — 未经同意不得以电子信息方式发送广告 / 标题前部注明「广告」或「AD」/ 拒收联系方式 30 日内有效
+- 取源限制（v49）：caniemail 仅 308 条特性、不含 Gmail iOS 20 KB 官方页（该数值只引 Klaviyo 二手）；QQ 邮箱 / 163 邮箱无公开逐特性支持度数据，只作 P1 真机抽测；`support.google.com` 与 `documentation.mjml.io` 首页抓取曾 `fetch failed`，引用值均来自可取到的正文段落
+- GitHub API 实测（2026-11-17）：[mjmlio/mjml](https://github.com/mjmlio/mjml) 18,296★ MIT（push 2026-11-10）· [resend/react-email](https://github.com/resend/react-email) 19,941★ MIT（2026-11-14）· [zurb/foundation-emails](https://github.com/zurb/foundation-emails) 7,787★ MIT（2026-03-13）· [maizzle/maizzle](https://github.com/maizzle/maizzle) 2,861★ MIT（2026-06-16）· [SparkPost/heml](https://github.com/SparkPost/heml) 4,288★ **2020-02-09 停更** · [premailer/premailer](https://github.com/premailer/premailer) 2,418★（2026-11-03）· [unlayer/react-email-editor](https://github.com/unlayer/react-email-editor) 5,259★（2026-11-01）· [hteumeuleu/caniemail](https://github.com/hteumeuleu/caniemail) 950★（2026-09-16）· 本地测试 [axllent/mailpit](https://github.com/axllent/mailpit) 10,958★ · [maildev/maildev](https://github.com/maildev/maildev) 6,160★
 
 ## 目录结构
 
@@ -382,7 +394,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（53 份，见上表）
+├── references/               # 知识库（54 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

@@ -720,3 +720,31 @@
 - https://github.com/video-dev/hls.js | [GH] HLS 播放内核（MSE）；API 实测 17,058★ / NOASSERTION（API name "Other"）/ push 2026-11-17T12:15Z / 未归档（v48 API 实测）
 
 - 取源限制（v48）：`https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/` 连续两次 `fetch failed`（BBC 官方字幕指南，常被引用的 37 字符/行、160–180 wpm 等数值本轮**未取到原文、一律不引用**），`https://bbc.github.io/subtitle-guidelines/` HTTP 404 且页面写 *"The BBC Subtitle Guidelines have moved!"*；`https://developer.chrome.com/blog/autoplay` `fetch failed`（Chrome 自动播放策略改用 WebKit 官方博客为一手源）；`https://dcmp.org/learn/captioningkey` 只返回目录页、子页正文未展开，未引用；Netflix 三份指南版本日期不同（2022-10-07 / 2025-07-04 / 无日期），同值冲突处以 Subtitle Timing Guidelines 为准；video.js 与 hls.js 的 GitHub license 为 NOASSERTION，商用前须人工核 LICENSE 文件。
+
+## 三十三、邮件设计与 EDM 排版（HTML Email Design / EDM Layout）【v49 本轮新增分区】
+
+- https://learn.microsoft.com/en-us/archive/blogs/michael_affronti/on-word-outlook-2007 | Microsoft 归档博客 On Word & Outlook 2007（Michael Affronti）：渲染引擎血统的原始出处，逐字 *"So we made the decision to unify the rendering and editing engine in Outlook by using Word's engine."* / *"While there are some HTML and CSS attributes that aren't currently supported by Word's rendering engine, the capabilities that our customers most wanted for their HTML newsletters are supported by Outlook 2007."* → 解释了为什么 flex / grid / position / box-shadow / `border-radius` 在桌面 Outlook 全废，600px 成为行业默认宽度
+- https://support.microsoft.com/en-us/office/block-or-unblock-automatic-picture-downloads-in-classic-outlook-email-messages | Microsoft Support · Block or unblock automatic picture downloads：逐字 *"Microsoft Outlook is configured by default to block automatic picture downloads from the Internet."* → 图片「默认不显示」不是优化项而是默认态，alt 与文字优先是硬约束
+- https://www.apple.com/privacy/features/ | Apple · Mail Privacy Protection：逐字 *"Mail Privacy Protection helps protect your privacy from prying email senders. It hides your IP address so senders can't create a profile with your other online activity or see where you are, and they can't tell if you've opened their email."* → 打开率不再能作为设计度量，改看点击与转化
+- https://help.klaviyo.com/hc/en-us/articles/115000591251 | Klaviyo Help · Gmail clipping：逐字 *"On desktop devices, the email size limit is generally 102 KB."* / *"To reduce clipping risk on desktop, keep your email code below 102 KB once sent. This limit includes all text, styling, links, and any other HTML content; it does not include image file sizes."*；iOS Gmail 20 KB；风险带 <85 KB / 85–95 KB / ≥95 KB；截断区内像素会导致 open 不记录 → 体积是排版预算
+- https://www.caniemail.com/api/data.json | caniemail 官方数据 API（`last_update_date = 2026-09-16 13:05:00 +0000`，308 条特性）：逐客户端取最新版本统计 y/n/a —— `vertical-align` 41/41、`max-width` 39/41（Outlook 注：*"Only works on `<table>` elements"*）、`@media` 16y/8n/17a、`@media (prefers-color-scheme)` 18y/**25n**、`@font-face` 9y/31n（Outlook 回退 Times New Roman，需 `mso-generic-font-family` + `mso-font-alt`）、`border-radius` 28y/7n（Outlook 需 VML `RoundRect`）、`background-image` 31y/4n/8a 且 Gmail 遇 `url()` 会剥离整条 `style`、`<style>` 29y/10n/7a（Gmail 限 16 KB、body 内不生效）
+- https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html | W3C WCAG 2.2 Understanding SC 1.4.3：逐字 *"a contrast ratio of at least 4.5:1"*，并明确 *"the computed values should not be rounded"*（4.499:1 不算过）→ 邮件正文与 CTA 的对比度验收口径
+- https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html | W3C WCAG 2.2 Understanding SC 2.5.8 Target Size (Minimum)：逐字 *"at least 24 by 24 CSS pixels"* 与 spacing 例外 → 邮件列表项与退订链接的命中区下限
+- https://documentation.mjml.io/ | MJML 官方文档：逐字 *"The default behavior of the MJML translation engine is to divide the section space (600px by default, but it can be changed with the `width` attribute on `mj-body`) in as many columns as you declare."* → 600px 的工程来源与 `mj-body width` 的语义
+- https://www.gov.cn/gongbao/content/2007/content_554185.htm | 《互联网电子邮件服务管理办法》（信息产业部令第 38 号）：第十三条（三）标题信息前部注明「广告」或「AD」；第十四条 拒绝继续接收的应当停止发送、联系方式 30 日内有效；第二十四条 处罚口径 → 页脚与标题位置的设计约束
+- https://www.gov.cn/ | 《广告法》第四十三条：*"任何单位或者个人未经当事人同意或者请求，不得向其住宅、交通工具等发送广告，也不得以电子信息方式向其发送广告。"* 及 *"应当明示发送者的真实身份和联系方式，并向接收者提供拒绝继续接收的方式。"*；第六十三条 罚款五千元以上三万元以下 → 邮件页脚四件套的法源
+
+## 三十三·附：邮件设计与 EDM 相关 GitHub 仓库（v49 GitHub API 实测）
+
+- https://github.com/mjmlio/mjml | [GH] MJML 标记语言 + 编译到表格布局；API 实测 18,296★ / MIT / push 2026-11-10 / 未归档（v49 API 实测）
+- https://github.com/resend/react-email | [GH] React 组件写邮件、编译为兼容 HTML；API 实测 19,941★ / MIT / push 2026-11-14 / 未归档（v49 API 实测）
+- https://github.com/zurb/foundation-emails | [GH] 老牌响应式邮件框架（Inky 模板语言）；API 实测 7,787★ / MIT / push 2026-03-13 / 未归档（v49 API 实测）
+- https://github.com/maizzle/maizzle | [GH] Tailwind 风格 + PostHTML 构建的邮件框架；API 实测 2,861★ / MIT / push 2026-06-16 / 未归档（v49 API 实测）
+- https://github.com/SparkPost/heml | [GH] HEML 邮件标记语言；API 实测 4,288★ / MIT / push 2020-02-09 / **已停更 6 年**（v49 API 实测）
+- https://github.com/premailer/premailer | [GH] CSS 内联工具（邮件前置处理的标准步骤）；API 实测 2,418★ / MIT / push 2026-11-03 / 未归档（v49 API 实测）
+- https://github.com/unlayer/react-email-editor | [GH] 拖拽式邮件编辑器（设计交付侧参考）；API 实测 5,259★ / MIT / push 2026-11-01 / 未归档（v49 API 实测）
+- https://github.com/hteumeuleu/caniemail | [GH] caniemail 站点与数据源（本文件 §4 全部数字的上游）；API 实测 950★ / MIT / push 2026-09-16 / 未归档（v49 API 实测）
+- https://github.com/axllent/mailpit | [GH] 本地 SMTP 捕获 + 多客户端预览（测试环节）；API 实测 10,958★ / MIT / push 2026-11-17 / 未归档（v49 API 实测）
+- https://github.com/maildev/maildev | [GH] 轻量 SMTP 捕获与 Web 预览；API 实测 6,160★ / MIT / push 2026-09-24 / 未归档（v49 API 实测）
+
+- 取源限制（v49）：caniemail 仅覆盖 308 条特性、无 Gmail iOS 20 KB 的官方页（该数值只引 Klaviyo 二手）；QQ 邮箱 / 163 邮箱无公开逐特性支持度数据，仅作 P1 真机抽测，不写成「支持 / 不支持」结论；`support.google.com/a/answer/13210984` 与 `documentation.mjml.io` 首页抓取 `fetch failed`，所有引用值均来自可取得的正文段落；`Dark Reader` 等反色工具不列入客户端矩阵（属用户端覆盖层，非邮件客户端行为）。

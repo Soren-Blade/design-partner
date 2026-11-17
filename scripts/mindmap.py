@@ -147,6 +147,9 @@ INTENTS = [
     ("视频播放器 / 播放控件 / 播放器 UI", "video-player-captions.md §1 七层判层 → §2 架构选型 → §3 控制栏顺序与自动隐藏 → §4 时间轴语义"),
     ("字幕 / 隐藏式字幕 / WebVTT / 字幕样式", "video-player-captions.md §5 数据模型 → §6 规范数值表 → §7 字号与 ::cue → §11 自检 16 条"),
     ("自动播放 / 画中画 / 全屏 / iOS 内联播放", "video-player-captions.md §8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与 PiP"),
+    ("邮件设计 / HTML 邮件 / EDM / 营销邮件排版", "email-design.md §1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型"),
+    ("Outlook 兼容 / 圆角按钮 / @font-face 回退 / 深色模式反色", "email-design.md §2 四种渲染引擎 → §4.1 特性替代表 → §6 深色三通道 → §9 对比度"),
+    ("邮件体积 / Gmail 102KB 截断 / 主题行 / preheader", "email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt"),
 
 ]
 

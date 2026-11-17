@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-17 21:04 ｜ 55 个文件 · 2268 个章节 · 1,972,303 字符
+> 自动生成于 2026-11-17 21:59 ｜ 56 个文件 · 2324 个章节 · 2,022,673 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -126,6 +126,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 视频播放器 / 播放控件 / 播放器 UI | video-player-captions.md §1 七层判层 → §2 架构选型 → §3 控制栏顺序与自动隐藏 → §4 时间轴语义 |
 | 字幕 / 隐藏式字幕 / WebVTT / 字幕样式 | video-player-captions.md §5 数据模型 → §6 规范数值表 → §7 字号与 ::cue → §11 自检 16 条 |
 | 自动播放 / 画中画 / 全屏 / iOS 内联播放 | video-player-captions.md §8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与 PiP |
+| 邮件设计 / HTML 邮件 / EDM / 营销邮件排版 | email-design.md §1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型 |
+| Outlook 兼容 / 圆角按钮 / @font-face 回退 / 深色模式反色 | email-design.md §2 四种渲染引擎 → §4.1 特性替代表 → §6 深色三通道 → §9 对比度 |
+| 邮件体积 / Gmail 102KB 截断 / 主题行 / preheader | email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -411,26 +414,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **文件上传** | 拖拽上传 · 选择文件 · 附件上传 · 上传进度 · 断点续传 · 上传大小限制 · accept 属性 · 图片裁剪 · 头像上传 · 拍照上传 · EXIF 方向 |
 | **实时协作** | 实时协作 · 多人协作 · 协同编辑 · 同时编辑 · 在线状态 · 实时光标 · 协作光标 · 正在输入 · 输入指示 · 协作冲突 · 多人撤销 · 协作权限 |
 | **视频播放器** | 视频播放器 · 播放器控件 · 视频控件 · 字幕 · 隐藏式字幕 · 字幕样式 · 画中画 · 媒体播放器 · 视频进度条 · 全屏播放 · WebVTT · 字幕轨 |
+| **邮件设计** | HTML 邮件 · EDM · 营销邮件排版 · 邮件模板设计 · Outlook 兼容 · 响应式邮件 · preheader · 邮件客户端 · 邮件排版 · 邮件深色模式 · 邮件体积 · 邮件宽度 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1082 行 · 快照 — · 12 节_
+_1092 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L153` — 资产已 53 份参考、约 155.7 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L155` — 资产已 53 份参考、约 155.7 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L168`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L424` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L439` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L465` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L496` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L945` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1034` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1047` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1054` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1070` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L158` — 资产已 54 份参考、约 160 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L160` — 资产已 54 份参考、约 160 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L173`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L432` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L447` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L473` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L504` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L953` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1043` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1056` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1063` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1079` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1274,6 +1278,64 @@ _767 行 · 快照 2026-11-01 · 63 节_
   - **19.3 OG / 社媒分享卡（Satori 友好：只用 flex）** `L730` — Satori 限制：只支持 flex 子集（无 grid、无 gap 的部分写法、需内联样式或 tw 属性），字体需显式传入。
 - **§20 与其他文件的分工** `L756` — 一句话分工：本文件管"版面怎么分、字怎么排、图怎么印"；responsive-layout.md 管"宽度变了怎么办"；chinese-design.md 管"中文特有的字与标点"。
 
+### `references/email-design.md` · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout）
+_834 行 · 快照 2026-11-17 · 54 节_
+
+- **§0 一句话立场** `L10` — 邮件设计不是「把网页缩小到 600px」，是「在一个 40 多个客户端、渲染引擎互不兼容、图片可能全部不显示、字号可能被强行放大、HTML 超过 102 KB 就被腰斩的介质里，让信息在最差的那台机器上仍然可读」。
+- **§1 七层判层：从「这是不是邮件」到「发出去会不会被腰斩」** `L24` — 邮件体验是一条会逐层降级的链路。先把问题定位到层，再决定改介质、改骨架、改资源还是改文案。
+  - **§1.1 什么时候不该用邮件** `L44` — 邮件是异步、可存档、跨组织的通道，它的优势是「不装 App 也能收到、有法律效力感的正式感、可转发」。它输在实时性与状态同步。判据：
+- **§2 客户端矩阵：四种渲染引擎，各自丢什么** `L54` — 邮件的「浏览器兼容」不是同一引擎的不同版本，而是四个血统完全不同的引擎在渲染同一段 HTML。先认清血统，再谈特性支持。
+  - **§2.1 必测矩阵怎么选（工程约定）** `L73` — 不要「全都测」——测不完。按收件人实际打开分布取前 3–5 个，且必须覆盖四种血统各至少一个：
+- **§3 骨架：600px、单列优先、表格套表格** `L90` — 600px 不是 W3C 规范，是行业收敛出来的默认值，理由是「主流邮件客户端阅读窗格宽度」与「1024/1280 桌面下留白后仍可读」的交集。MJML 官方文档把它写成了框架默认（逐字）：
+  - **§3.1 600px 是怎么来的** `L92` — 600px 不是 W3C 规范，是行业收敛出来的默认值，理由是「主流邮件客户端阅读窗格宽度」与「1024/1280 桌面下留白后仍可读」的交集。MJML 官方文档把它写成了框架默认（逐字）：
+  - **§3.2 骨架模板（可直接抄）** `L100` — 这段骨架里每一条约束的来由：
+  - **§3.3 两栏怎么做** `L161` — 三条路，按代价排序：
+- **§4 能力清单：caniemail 实测表（2026-09-16 数据）** `L173` — 读法：每个特性取「每个客户端环境的最新一次实测」为一条，统计完全支持（y）/ 不支持（n）/ 部分支持（a）。部分支持（a）比不支持更危险——它意味着「有的版本行、有的版本不行，且往往伴随 bug 注释」。
+  - **§4.1 特性替代对照表** `L226` — ---
+- **§5 图片：默认不显示的那一半设计** `L243` — 1. Outlook 默认屏蔽外链图片（Microsoft 原文）："Microsoft Outlook is configured by default to block automatic picture downloads from 
+  - **§5.1 三条会改变设计决策的事实** `L245` — 1. Outlook 默认屏蔽外链图片（Microsoft 原文）："Microsoft Outlook is configured by default to block automatic picture downloads from 
+  - **§5.2 图片纪律（8 条）** `L251` — 1. alt 写成完整句，不是「图片」「banner」。图片关闭时 alt 是唯一信息源：alt="春季新品：轻量跑鞋，¥699 起"。
+  - **§5.3 VML 圆角按钮（Outlook 唯一可靠方案）** `L262` — 注意：display:inline-block 在 Outlook 无效，所以两套必须并存；VML 的 arcsize="17%" 对应 48px 高、8px 圆角（8/48 ≈ 17%）。按钮高度别低于 44px（触控），别低于 24×2
+- **§6 深色模式：三条通道，只有一条是你能控制的** `L282` — 邮件客户端的深色模式有三种完全不同的实现，混在一起谈就会得出错误结论：
+  - **§6.1 双写模板** `L292` — 但注意：这两条都依赖 <style，而 Gmail 的 <style 只能放 head、总量 ≤16 KB、且遇到 url() 会被整条剥离。所以深色模式的兜底永远是「浅色也要能看」——把浅色版做到在深色反色下仍然可读（比如用 #F4F4F
+  - **§6.2 深色模式的六个具体坑** `L311` — 1. 纯白卡片在黑底上变「死白」：反色算法对 #FFFFFF 的处理因客户端而异，常见结果是一块刺眼的白。用 #F4F4F6/#EFEFF2 这种「近白」。
+- **§7 邮件文字规格：字号、行距、每行字数** `L322` — css
+  - **§7.1 字号与行高的硬约束** `L324`
+  - **§7.2 字体栈：中文优先 + mso-font-alt 兜底** `L335` — 为什么不能只写品牌字体：@font-face 9/41（§4），且 Outlook 的已知 bug 是——用了 @font-face 声明的元素会忽略字体栈，直接回退到 Times New Roman（caniemail 注 #5 逐字）：
+  - **§7.3 中文排版的四个邮件特有约束** `L351` — 1. 避头尾不能被客户端处理：hanging-punctuation、text-spacing-trim 在邮件里没有支持，中文标点挤压只能靠手工断行 / 不断行（<br 会破坏移动端重排，慎用）。
+- **§8 内容层：主题行、preheader、首屏、CTA、页脚** `L360` — 版式解决「能不能看」，内容层解决「三秒内知不知道要干什么」。邮件比网页更残酷：用户是在收件箱列表里做「打开 / 不打开」的决策，那一步只看两样东西——发件人 + 主题行（含 preheader）。
+  - **§8.1 主题行预算** `L364` — 写法：【广告】春季新品｜轻量跑鞋 ¥699 起 —— 标识 + 品类 + 具体利益点，19 字内说完。不要「【广告】重磅！年度最大优惠来袭！！！」——标识之后全是噪音。
+  - **§8.2 Preheader（预览文本）** `L375` — preheader 是收件箱列表里主题行下方那一行灰字。不写，客户端就抓正文第一句——而那通常是「在浏览器中查看」或一张图的 alt。
+  - **§8.3 首屏（打开后的第一屏）** `L392` — 首屏的任务不是「美」，是确认「我打开对了」+ 给出唯一的下一步。三件套，顺序固定：
+  - **§8.4 CTA** `L402` — - 一封邮件一个主 CTA。两个同等权重的按钮 = 用户不点。
+  - **§8.5 页脚：四件套 + 合规位置** `L410` — 为什么「正文里的可见退订」不能省：List-Unsubscribe 是给客户端渲染「一键退订」按钮用的协议头，用户看不到、也点不到；而《广告法》第四十三条要求「向接收者提供拒绝继续接收的方式」——这是给人看的，必须出现在正文里。
+  - **§8.6 营销活动与长图（EDM）：一封信只讲一件事** `L423` — 营销活动的 EDM 常被做成「一张长图 + 一个按钮」，但长图在邮件里会遇到三件事：图片默认被屏蔽、单张图体积直接吃掉 102 KB 预算、放大后文字不可重排。所以「长图式版式」在邮件里要拆成分段的结构，而不是真的塞一张几万像素的图。
+- **§9 读屏、命中区与降级：最不友好的介质** `L432` — WCAG 2.2 SC 1.4.3（Level AA）逐字：
+  - **§9.1 对比度：4.5:1，且不许四舍五入** `L434` — WCAG 2.2 SC 1.4.3（Level AA）逐字：
+  - **§9.2 语义：role 只在 table 上有效** `L448` — caniemail 注 #2 逐字："Partial. Only works on the <table tag." —— 这条限制很关键：
+  - **§9.3 目标尺寸：24×24 CSS px 是底线** `L458` — WCAG 2.2 SC 2.5.8（Level AA）逐字：
+  - **§9.4 图片与替代文本** `L470` — - 每张承载信息的图都要 alt；纯装饰图用 alt=""（空 alt 让读屏跳过，而不是念文件名）。
+  - **§9.5 读屏在邮件里的三个已知坑** `L477` — 1. 表格嵌套会被朗读：三层表格 = 读屏念三遍「表格」。role="presentation" 能缓解，但解法是减层数（≤3 层）。
+  - **§9.6 缩放与「字号被强行放大」** `L483` — - iOS 的 -webkit-text-size-adjust 会放大正文；body{-webkit-text-size-adjust:100%} 只是「建议」，不保证。
+  - **§9.7 动效** `L489` — @media (prefers-reduced-motion) 在邮件里支持极差（caniemail prefers-reduced-motion 未进本文件表格，但 @media 整体 16/41），裁决：邮件不做 CSS 动效。唯一安全
+  - **§9.8 邮件可访问性验收清单（role、table、alt、命中区、缩放）** `L493` — 发信前对每封模板逐项过，六项全过才算这封信验收通过；任何一项不过，先改模板再谈视觉。
+- **§10 合规的视觉接口：位置与时序** `L510` — 法条解释归 notifications-messaging.md §12，本节只回答「这条法规要求的东西，画在哪里、多大、什么时候有效」。
+- **§11 体积预算：102 KB 是一条会腰斩内容的线** `L533` — Klaviyo 帮助文档逐字（2026-11-17 取用）：
+  - **§11.1 硬数字** `L535` — Klaviyo 帮助文档逐字（2026-11-17 取用）：
+  - **§11.2 中文邮件的体积直觉** `L551` — UTF-8 下 1 个汉字 = 3 字节：
+  - **§11.3 减重清单（按收益排序）** `L564` — 1. 禁止 base64 图片。外链 + CDN，体积归零。
+  - **§11.4 预算分配（工程约定）** `L575` — ---
+- **§12 工程选型：MJML / React Email / Maizzle / Foundation** `L587` — GitHub 实测（2026-11-17，经 ungh.cc 取 stars 与 pushedAt；license 以仓库 LICENSE 文件实读为准，未读到的标「未核」）：
+- **§13 测试流程：六步，从静态到真机** `L615` — 1. 特性预检：设计稿上每个「非文本效果」（圆角、阴影、渐变、背景图、两栏、粘性）先查 caniemail，标记「不支持 / 部分支持」，在稿上写替代方案。这一步在画图前做，不是在开发后。
+- **§14 文案词表（直接抄）** `L628` — ---
+- **§15 二十条反模式** `L642` — 1. 用 display:flex / grid 做两栏 → Outlook 直接塌成单列且错位。
+- **§16 二十条自检（发信前逐条打勾）** `L667` — 骨架与兼容
+- **§17 度量：打开率已经不可信，改用点击与转化** `L706` — 为什么不能用打开率：Apple Mail Privacy Protection 会在邮件送达时预取 tracking pixel（Apple 逐字见 §5.2），于是：
+- **§18 交付检查单（给设计与开发的交接）** `L731` — - [ ] 设计稿标注了 600px 宽、单列即最终形态、最小视口 320px
+- **§19 可复算校验（Python，实跑通过）** `L744` — 实跑输出（2026-11-17）：
+- **§20 取源限制（必须随文件一起读）** `L792` — 1. caniemail 是快照：lastupdatedate = 2026-09-16，本文所有 y/n/a 数字都以该快照为准；客户端每年更新，用前先看 lasttestdate。
+- **§21 来源** `L804` — 客户端行为与兼容
+
 ### `references/empty-states.md` · 空状态与零数据位（Empty States & Zero-Data）
 _335 行 · 快照 2026-11-13 · 17 节_
 
@@ -1701,7 +1763,7 @@ _942 行 · 快照 2026-11-14 · 52 节_
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_789 行 · 快照 2026-11-05 · 70 节_
+_799 行 · 快照 2026-11-05 · 71 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1729,7 +1791,7 @@ _789 行 · 快照 2026-11-05 · 70 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **四十条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **四十二条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1772,7 +1834,8 @@ _789 行 · 快照 2026-11-05 · 70 节_
   - **支线 AM · 上传链路契约（File Upload & Media Input）** `L615` — - 这是什么（上传侧）：把「选个文件传上去」拆成五段可验收链路——判层（做不做 / 哪一类 / 放哪里）、控件契约（accept 五种 specifier 只是提示、capture 前后置、拖放四件事）、三档校验（客户端即时 / 提交前 /
   - **支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）** `L625` — - 这是什么（协作侧）：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional i
   - **支线 AO · 视频播放器与字幕（Video Player UX & Captions / WebVTT）** `L636` — - 这是什么（交互 + 内容侧）：整条「媒体能不能被控制、时间能不能被理解」的链路——控件层构型、时间轴语义（拖拽 / ±5s / 倍速 / 直播 DVR）、字幕数据模型与规范数值、起播门控与移动端内联、字幕可访问性。
-- **能力自测（186 条，做到 ≥110 条即达 L2+）** `L646` — L0
+  - **支线 AP · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout）** `L646` — - 这是什么（介质 + 版式侧）：一条被四件事同时挤压的设计通道——客户端渲染引擎、体积截断线、图片默认屏蔽、深色模式反色；设计对象不是网页，而是「在不同客户端里都还读得下去的那一版」。
+- **能力自测（188 条，做到 ≥110 条即达 L2+）** `L656` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2852,7 +2915,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_858 行 · 快照 — · 49 节_
+_873 行 · 快照 — · 50 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2903,6 +2966,7 @@ _858 行 · 快照 — · 49 节_
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** `L816` — - 本轮性质：结构性空白补齐（上传/媒体输入链路），非维护轮；此前全域 上传 仅 25 处零散提及（多为「上传前脱敏」「附件入口」），upload=1（tools.md）、accept 属性=0、文件大小=1、图片压缩=1、拖拽上传=1（a
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** `L831` — - 选源与验证：全量词频扫描 51 份参考 + SKILL.md——实时协作 仅 2 处（presentation-design 一句）、协同编辑 / 批注 / realtime 均为 0、presence 27 处里 22 处在 moti
 - **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** `L844` — - 本轮性质：v47→v48，补第 53 份参考 references/video-player-captions.md（26,536 字符 / 585 行 / 14 个 H2 / 26 个 H3 / 纯 LF），主题是「视频播放器 UX 
+- **2026-11-17 · 每日升级 #45：邮件设计与 EDM 排版——把「写封 HTML 邮件」判成渲染介质、客户端矩阵、600px 骨架与 102KB 预算（v48→v49）** `L859` — - 本轮性质：v48→v49，补第 54 份参考 references/email-design.md（39,044 字符 / 21 章 §0–§21 / 纯 LF），主题「邮件设计与 EDM 排版（HTML Email / EDM Lay
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -3278,6 +3342,7 @@ _858 行 · 快照 — · 49 节_
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** → `memory/design-log.md` L816
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** → `memory/design-log.md` L831
 - **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** → `memory/design-log.md` L844
+- **2026-11-17 · 每日升级 #45：邮件设计与 EDM 排版——把「写封 HTML 邮件」判成渲染介质、客户端矩阵、600px 骨架与 102KB 预算（v48→v49）** → `memory/design-log.md` L859
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3552,11 +3617,12 @@ _858 行 · 快照 — · 49 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
+- **§0 一句话立场** → `references/email-design.md` L10 · `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
 - **§0 一句话立场与三条裁决** → `references/file-upload-media-input.md` L3 · `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
 - **§1 七层判层：从「怎么装」到「看没看完」** → `references/video-player-captions.md` L24
+- **§1 七层判层：从「这是不是邮件」到「发出去会不会被腰斩」** → `references/email-design.md` L24
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
@@ -3571,6 +3637,7 @@ _858 行 · 快照 — · 49 节_
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
 - **§10 反模式（出现即返工）** → `references/video-player-captions.md` L378
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
+- **§10 合规的视觉接口：位置与时序** → `references/email-design.md` L510
 - **§10 在线状态生命周期：连接、判离线、重连、离线编辑** → `references/realtime-collaboration.md` L399
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
 - **§10 场景速查（12 行，直接查表）** → `references/file-upload-media-input.md` L445
@@ -3581,6 +3648,7 @@ _858 行 · 快照 — · 49 节_
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
 - **§11 交付前自检（18 条，逐条打勾）** → `references/video-player-captions.md` L397
 - **§11 交付规格：清单模板与四条硬规则** → `references/keyboard-shortcuts-command-palette.md` L675
+- **§11 体积预算：102 KB 是一条会腰斩内容的线** → `references/email-design.md` L533
 - **§11 反模式（20 条，评审直接对照）** → `references/file-upload-media-input.md` L464
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
@@ -3592,6 +3660,7 @@ _858 行 · 快照 — · 49 节_
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
 - **§12 可执行校验（代码围栏均以 python -I -X utf8 实跑通过）** → `references/video-player-captions.md` L421
+- **§12 工程选型：MJML / React Email / Maizzle / Foundation** → `references/email-design.md` L587
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 用法速查（12 行，先对号再动手）** → `references/keyboard-shortcuts-command-palette.md` L694
@@ -3610,19 +3679,21 @@ _858 行 · 快照 — · 49 节_
 - **§13 可跑代码（python -I -X utf8 实跑通过）** → `references/file-upload-media-input.md` L514
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
 - **§13 性能、成本与容量** → `references/realtime-collaboration.md` L518
+- **§13 测试流程：六步，从静态到真机** → `references/email-design.md` L615
 - **§13 用户偏好媒体查询（三条，别只做第一条）** → `references/accessibility.md` L491
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
 - **§14 反模式 20 条** → `references/auth-account-ux.md` L629
 - **§14 取源限制（本轮实测，逐条登记）** → `references/file-upload-media-input.md` L699
 - **§14 可抄代码** → `references/feedback-states.md` L485
-- **§14 文案词表（直接抄）** → `references/realtime-collaboration.md` L555
+- **§14 文案词表（直接抄）** → `references/email-design.md` L628 · `references/realtime-collaboration.md` L555
 - **§14 移动端结账** → `references/pricing-checkout.md` L293
 - **§14 自检 20 项** → `references/empty-states.md` L233
 - **§14 自检清单（交付前逐条打勾，20 条）** → `references/keyboard-shortcuts-command-palette.md` L738
 - **§14 读屏实测：不做实测等于没做** → `references/accessibility.md` L517
 - **§15 两段可跑脚本（以下代码已实跑通过）** → `references/keyboard-shortcuts-command-palette.md` L763
 - **§15 中文版式专项（避头尾 / 标点 / 竖排）** → `references/editorial-layout.md` L579
+- **§15 二十条反模式** → `references/email-design.md` L642
 - **§15 十二条反模式** → `references/realtime-collaboration.md` L574
 - **§15 反模式清单（20 条）** → `references/pricing-checkout.md` L302
 - **§15 可抄代码 5 段（Python 严格模式实跑 PASS）** → `references/empty-states.md` L258
@@ -3630,6 +3701,7 @@ _858 行 · 快照 — · 49 节_
 - **§15 自动化工具的边界（别把它当验收）** → `references/accessibility.md` L548
 - **§15 自检 20 条** → `references/auth-account-ux.md` L654
 - **§16 中文场景：法规、国标、适老化（国外规范不管的部分）** → `references/accessibility.md` L577
+- **§16 二十条自检（发信前逐条打勾）** → `references/email-design.md` L667
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** → `references/keyboard-shortcuts-command-palette.md` L925
 - **§16 可抄代码** → `references/auth-account-ux.md` L679
 - **§16 工具链（star / 许可实测 2026-11-01）** → `references/editorial-layout.md` L598
@@ -3641,6 +3713,8 @@ _858 行 · 快照 — · 49 节_
 - **§17 取源限制** → `references/auth-account-ux.md` L795
 - **§17 可抄代码（5 段，均可在标准库下直接跑）** → `references/pricing-checkout.md` L348
 - **§17 度量与实验** → `references/realtime-collaboration.md` L623
+- **§17 度量：打开率已经不可信，改用点击与转化** → `references/email-design.md` L706
+- **§18 交付检查单（给设计与开发的交接）** → `references/email-design.md` L731
 - **§18 交付检查单（设计 / 前端 / 后端）** → `references/realtime-collaboration.md` L635
 - **§18 反模式 18 条（评审时逐条对照）** → `references/accessibility.md` L644
 - **§18 取源限制（公开记录，不臆造）** → `references/pricing-checkout.md` L553
@@ -3648,12 +3722,14 @@ _858 行 · 快照 — · 49 节_
 - **§18 自检（18 项，交付前逐条过）** → `references/editorial-layout.md` L646
 - **§19 三个常见争议，本技能给立场** → `references/accessibility.md` L667
 - **§19 三套可抄模板** → `references/editorial-layout.md` L676
+- **§19 可复算校验（Python，实跑通过）** → `references/email-design.md` L744
 - **§19 可执行验算（Python，纯标准库）** → `references/realtime-collaboration.md` L658
 - **§2 三通道分工：谁能承担什么** → `references/sound-haptics-feedback.md` L61
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
 - **§2 协作模型选型：三种路线与它们能承诺的话** → `references/realtime-collaboration.md` L45
 - **§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」** → `references/keyboard-shortcuts-command-palette.md` L47
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
+- **§2 客户端矩阵：四种渲染引擎，各自丢什么** → `references/email-design.md` L54
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
 - **§2 架构选型：三种路线与它们能承诺的话** → `references/video-player-captions.md` L46
@@ -3662,6 +3738,8 @@ _858 行 · 快照 — · 49 节_
 - **§2 选文件：控件契约** → `references/file-upload-media-input.md` L54
 - **§20 与其他文件的分工** → `references/editorial-layout.md` L756
 - **§20 取源限制与未取到项（逐条登记）** → `references/realtime-collaboration.md` L722
+- **§20 取源限制（必须随文件一起读）** → `references/email-design.md` L792
+- **§21 来源** → `references/email-design.md` L804
 - **§21 来源（2026-11-16 取用）** → `references/realtime-collaboration.md` L737
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** → `references/keyboard-shortcuts-command-palette.md` L99
@@ -3674,6 +3752,7 @@ _858 行 · 快照 — · 49 节_
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
 - **§3 触觉的语义层：能借系统常量就别自造** → `references/sound-haptics-feedback.md` L78
+- **§3 骨架：600px、单列优先、表格套表格** → `references/email-design.md` L90
 - **§4 传输与进度** → `references/file-upload-media-input.md` L171
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
 - **§4 加载与进度** → `references/feedback-states.md` L126
@@ -3683,10 +3762,12 @@ _858 行 · 快照 — · 49 节_
 - **§4 时间轴语义：点按、拖拽、帧步进** → `references/video-player-captions.md` L128
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
+- **§4 能力清单：caniemail 实测表（2026-09-16 数据）** → `references/email-design.md` L173
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
 - **§5 Passkeys / WebAuthn（首选路径）** → `references/auth-account-ux.md` L250
 - **§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd** → `references/keyboard-shortcuts-command-palette.md` L221
+- **§5 图片：默认不显示的那一半设计** → `references/email-design.md` L243
 - **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 媒体输入特化** → `references/file-upload-media-input.md` L233
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
@@ -3703,6 +3784,7 @@ _858 行 · 快照 — · 49 节_
 - **§6 失败与重试** → `references/file-upload-media-input.md` L281
 - **§6 字幕规范数值表：字号、行长（42 字符）与 20 CPS 定生死** → `references/video-player-captions.md` L212
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
+- **§6 深色模式：三条通道，只有一条是你能控制的** → `references/email-design.md` L282
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 第二因素的选择与编排** → `references/auth-account-ux.md` L361
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
@@ -3717,8 +3799,10 @@ _858 行 · 快照 — · 49 节_
 - **§7 无障碍：上传是最容易漏键盘的一条链路** → `references/file-upload-media-input.md` L342
 - **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
 - **§7 结账骨架：单页 / 分段 / 多步** → `references/pricing-checkout.md` L148
+- **§7 邮件文字规格：字号、行距、每行字数** → `references/email-design.md` L322
 - **§7 零数据位 / starter content：用示例教，而不是用文字讲** → `references/empty-states.md` L132
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
+- **§8 内容层：主题行、preheader、首屏、CTA、页脚** → `references/email-design.md` L360
 - **§8 反模式（看到就该打回）** → `references/sound-haptics-feedback.md` L432
 - **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
 - **§8 媒体策略：iOS 门控与静音开播** → `references/video-player-captions.md` L293
@@ -3740,6 +3824,7 @@ _858 行 · 快照 — · 49 节_
 - **§9 空状态可访问性清单** → `references/empty-states.md` L164
 - **§9 自检清单（交付前逐条打勾，20 条）** → `references/sound-haptics-feedback.md` L457
 - **§9 表单无障碍：只补 form-table.md 没说的** → `references/accessibility.md` L330
+- **§9 读屏、命中区与降级：最不友好的介质** → `references/email-design.md` L432
 - **一、DESIGN.md 是什么，为什么值得作为交付物** → `references/design-md-format.md` L10
 - **一、三层架构（唯一正确的组织方式）** → `references/design-tokens.md` L9
 - **一、中文排版：为什么不是"英文换字"** → `references/chinese-design.md` L10
@@ -3826,11 +3911,11 @@ _858 行 · 快照 — · 49 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **四十条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
+- **四十二条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L153
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L158
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3840,12 +3925,12 @@ _858 行 · 快照 — · 49 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（186 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L646
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1034
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1047
+- **能力自测（188 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L656
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1043
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1056
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1070
+- **边界与习惯** → `SKILL.md` L1079
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

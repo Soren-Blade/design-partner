@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-17T21:04:38",
+ "generated": "2026-11-17T21:59:09",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1082,
-   "chars": 231727,
+   "lines": 1092,
+   "chars": 235077,
    "sections": []
   },
   {
@@ -6286,6 +6286,447 @@
    ]
   },
   {
+   "path": "references/email-design.md",
+   "title": "邮件设计与 EDM 排版（HTML Email Design / EDM Layout）",
+   "snapshot": "2026-11-17",
+   "lines": 834,
+   "chars": 39044,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "邮件设计不是「把网页缩小到 600px」，是「在一个 40 多个客户端、渲染引擎互不兼容、图片可能全部不显示、字号可能被强行放大、HTML 超过 102 KB 就被腰斩的介质里，让信息在最差的那台机器上仍然可读」。",
+     "line": 10,
+     "chars": 1038
+    },
+    {
+     "id": "1-七层判层-从-这是不是邮件-到-发出去会不会被腰斩",
+     "level": 2,
+     "title": "§1 七层判层：从「这是不是邮件」到「发出去会不会被腰斩」",
+     "summary": "邮件体验是一条会逐层降级的链路。先把问题定位到层，再决定改介质、改骨架、改资源还是改文案。",
+     "line": 24,
+     "chars": 1046
+    },
+    {
+     "id": "1-1-什么时候不该用邮件",
+     "level": 3,
+     "title": "§1.1 什么时候不该用邮件",
+     "summary": "邮件是异步、可存档、跨组织的通道，它的优势是「不装 App 也能收到、有法律效力感的正式感、可转发」。它输在实时性与状态同步。判据：",
+     "line": 44,
+     "chars": 250
+    },
+    {
+     "id": "2-客户端矩阵-四种渲染引擎-各自丢什么",
+     "level": 2,
+     "title": "§2 客户端矩阵：四种渲染引擎，各自丢什么",
+     "summary": "邮件的「浏览器兼容」不是同一引擎的不同版本，而是四个血统完全不同的引擎在渲染同一段 HTML。先认清血统，再谈特性支持。",
+     "line": 54,
+     "chars": 1317
+    },
+    {
+     "id": "2-1-必测矩阵怎么选-工程约定",
+     "level": 3,
+     "title": "§2.1 必测矩阵怎么选（工程约定）",
+     "summary": "不要「全都测」——测不完。按收件人实际打开分布取前 3–5 个，且必须覆盖四种血统各至少一个：",
+     "line": 73,
+     "chars": 575
+    },
+    {
+     "id": "3-骨架-600px-单列优先-表格套表格",
+     "level": 2,
+     "title": "§3 骨架：600px、单列优先、表格套表格",
+     "summary": "600px 不是 W3C 规范，是行业收敛出来的默认值，理由是「主流邮件客户端阅读窗格宽度」与「1024/1280 桌面下留白后仍可读」的交集。MJML 官方文档把它写成了框架默认（逐字）：",
+     "line": 90,
+     "chars": 1
+    },
+    {
+     "id": "3-1-600px-是怎么来的",
+     "level": 3,
+     "title": "§3.1 600px 是怎么来的",
+     "summary": "600px 不是 W3C 规范，是行业收敛出来的默认值，理由是「主流邮件客户端阅读窗格宽度」与「1024/1280 桌面下留白后仍可读」的交集。MJML 官方文档把它写成了框架默认（逐字）：",
+     "line": 92,
+     "chars": 575
+    },
+    {
+     "id": "3-2-骨架模板-可直接抄",
+     "level": 3,
+     "title": "§3.2 骨架模板（可直接抄）",
+     "summary": "这段骨架里每一条约束的来由：",
+     "line": 100,
+     "chars": 1065
+    },
+    {
+     "id": "3-3-两栏怎么做",
+     "level": 3,
+     "title": "§3.3 两栏怎么做",
+     "summary": "三条路，按代价排序：",
+     "line": 161,
+     "chars": 525
+    },
+    {
+     "id": "4-能力清单-caniemail-实测表-2026-09-16-数据",
+     "level": 2,
+     "title": "§4 能力清单：caniemail 实测表（2026-09-16 数据）",
+     "summary": "读法：每个特性取「每个客户端环境的最新一次实测」为一条，统计完全支持（y）/ 不支持（n）/ 部分支持（a）。部分支持（a）比不支持更危险——它意味着「有的版本行、有的版本不行，且往往伴随 bug 注释」。",
+     "line": 173,
+     "chars": 2919
+    },
+    {
+     "id": "4-1-特性替代对照表",
+     "level": 3,
+     "title": "§4.1 特性替代对照表",
+     "summary": "---",
+     "line": 226,
+     "chars": 874
+    },
+    {
+     "id": "5-图片-默认不显示的那一半设计",
+     "level": 2,
+     "title": "§5 图片：默认不显示的那一半设计",
+     "summary": "1. Outlook 默认屏蔽外链图片（Microsoft 原文）：\"Microsoft Outlook is configured by default to block automatic picture downloads from ",
+     "line": 243,
+     "chars": 1
+    },
+    {
+     "id": "5-1-三条会改变设计决策的事实",
+     "level": 3,
+     "title": "§5.1 三条会改变设计决策的事实",
+     "summary": "1. Outlook 默认屏蔽外链图片（Microsoft 原文）：\"Microsoft Outlook is configured by default to block automatic picture downloads from ",
+     "line": 245,
+     "chars": 650
+    },
+    {
+     "id": "5-2-图片纪律-8-条",
+     "level": 3,
+     "title": "§5.2 图片纪律（8 条）",
+     "summary": "1. alt 写成完整句，不是「图片」「banner」。图片关闭时 alt 是唯一信息源：alt=\"春季新品：轻量跑鞋，¥699 起\"。",
+     "line": 251,
+     "chars": 689
+    },
+    {
+     "id": "5-3-vml-圆角按钮-outlook-唯一可靠方案",
+     "level": 3,
+     "title": "§5.3 VML 圆角按钮（Outlook 唯一可靠方案）",
+     "summary": "注意：display:inline-block 在 Outlook 无效，所以两套必须并存；VML 的 arcsize=\"17%\" 对应 48px 高、8px 圆角（8/48 ≈ 17%）。按钮高度别低于 44px（触控），别低于 24×2",
+     "line": 262,
+     "chars": 174
+    },
+    {
+     "id": "6-深色模式-三条通道-只有一条是你能控制的",
+     "level": 2,
+     "title": "§6 深色模式：三条通道，只有一条是你能控制的",
+     "summary": "邮件客户端的深色模式有三种完全不同的实现，混在一起谈就会得出错误结论：",
+     "line": 282,
+     "chars": 516
+    },
+    {
+     "id": "6-1-双写模板",
+     "level": 3,
+     "title": "§6.1 双写模板",
+     "summary": "但注意：这两条都依赖 <style，而 Gmail 的 <style 只能放 head、总量 ≤16 KB、且遇到 url() 会被整条剥离。所以深色模式的兜底永远是「浅色也要能看」——把浅色版做到在深色反色下仍然可读（比如用 #F4F4F",
+     "line": 292,
+     "chars": 184
+    },
+    {
+     "id": "6-2-深色模式的六个具体坑",
+     "level": 3,
+     "title": "§6.2 深色模式的六个具体坑",
+     "summary": "1. 纯白卡片在黑底上变「死白」：反色算法对 #FFFFFF 的处理因客户端而异，常见结果是一块刺眼的白。用 #F4F4F6/#EFEFF2 这种「近白」。",
+     "line": 311,
+     "chars": 518
+    },
+    {
+     "id": "7-邮件文字规格-字号-行距-每行字数",
+     "level": 2,
+     "title": "§7 邮件文字规格：字号、行距、每行字数",
+     "summary": "css",
+     "line": 322,
+     "chars": 1
+    },
+    {
+     "id": "7-1-字号与行高的硬约束",
+     "level": 3,
+     "title": "§7.1 字号与行高的硬约束",
+     "summary": "",
+     "line": 324,
+     "chars": 526
+    },
+    {
+     "id": "7-2-字体栈-中文优先-mso-font-alt-兜底",
+     "level": 3,
+     "title": "§7.2 字体栈：中文优先 + mso-font-alt 兜底",
+     "summary": "为什么不能只写品牌字体：@font-face 9/41（§4），且 Outlook 的已知 bug 是——用了 @font-face 声明的元素会忽略字体栈，直接回退到 Times New Roman（caniemail 注 #5 逐字）：",
+     "line": 335,
+     "chars": 520
+    },
+    {
+     "id": "7-3-中文排版的四个邮件特有约束",
+     "level": 3,
+     "title": "§7.3 中文排版的四个邮件特有约束",
+     "summary": "1. 避头尾不能被客户端处理：hanging-punctuation、text-spacing-trim 在邮件里没有支持，中文标点挤压只能靠手工断行 / 不断行（<br 会破坏移动端重排，慎用）。",
+     "line": 351,
+     "chars": 387
+    },
+    {
+     "id": "8-内容层-主题行-preheader-首屏-cta-页脚",
+     "level": 2,
+     "title": "§8 内容层：主题行、preheader、首屏、CTA、页脚",
+     "summary": "版式解决「能不能看」，内容层解决「三秒内知不知道要干什么」。邮件比网页更残酷：用户是在收件箱列表里做「打开 / 不打开」的决策，那一步只看两样东西——发件人 + 主题行（含 preheader）。",
+     "line": 360,
+     "chars": 105
+    },
+    {
+     "id": "8-1-主题行预算",
+     "level": 3,
+     "title": "§8.1 主题行预算",
+     "summary": "写法：【广告】春季新品｜轻量跑鞋 ¥699 起 —— 标识 + 品类 + 具体利益点，19 字内说完。不要「【广告】重磅！年度最大优惠来袭！！！」——标识之后全是噪音。",
+     "line": 364,
+     "chars": 495
+    },
+    {
+     "id": "8-2-preheader-预览文本",
+     "level": 3,
+     "title": "§8.2 Preheader（预览文本）",
+     "summary": "preheader 是收件箱列表里主题行下方那一行灰字。不写，客户端就抓正文第一句——而那通常是「在浏览器中查看」或一张图的 alt。",
+     "line": 375,
+     "chars": 531
+    },
+    {
+     "id": "8-3-首屏-打开后的第一屏",
+     "level": 3,
+     "title": "§8.3 首屏（打开后的第一屏）",
+     "summary": "首屏的任务不是「美」，是确认「我打开对了」+ 给出唯一的下一步。三件套，顺序固定：",
+     "line": 392,
+     "chars": 286
+    },
+    {
+     "id": "8-4-cta",
+     "level": 3,
+     "title": "§8.4 CTA",
+     "summary": "- 一封邮件一个主 CTA。两个同等权重的按钮 = 用户不点。",
+     "line": 402,
+     "chars": 249
+    },
+    {
+     "id": "8-5-页脚-四件套-合规位置",
+     "level": 3,
+     "title": "§8.5 页脚：四件套 + 合规位置",
+     "summary": "为什么「正文里的可见退订」不能省：List-Unsubscribe 是给客户端渲染「一键退订」按钮用的协议头，用户看不到、也点不到；而《广告法》第四十三条要求「向接收者提供拒绝继续接收的方式」——这是给人看的，必须出现在正文里。",
+     "line": 410,
+     "chars": 396
+    },
+    {
+     "id": "8-6-营销活动与长图-edm-一封信只讲一件事",
+     "level": 3,
+     "title": "§8.6 营销活动与长图（EDM）：一封信只讲一件事",
+     "summary": "营销活动的 EDM 常被做成「一张长图 + 一个按钮」，但长图在邮件里会遇到三件事：图片默认被屏蔽、单张图体积直接吃掉 102 KB 预算、放大后文字不可重排。所以「长图式版式」在邮件里要拆成分段的结构，而不是真的塞一张几万像素的图。",
+     "line": 423,
+     "chars": 443
+    },
+    {
+     "id": "9-读屏-命中区与降级-最不友好的介质",
+     "level": 2,
+     "title": "§9 读屏、命中区与降级：最不友好的介质",
+     "summary": "WCAG 2.2 SC 1.4.3（Level AA）逐字：",
+     "line": 432,
+     "chars": 1
+    },
+    {
+     "id": "9-1-对比度-4-5-1-且不许四舍五入",
+     "level": 3,
+     "title": "§9.1 对比度：4.5:1，且不许四舍五入",
+     "summary": "WCAG 2.2 SC 1.4.3（Level AA）逐字：",
+     "line": 434,
+     "chars": 484
+    },
+    {
+     "id": "9-2-语义-role-只在-table-上有效",
+     "level": 3,
+     "title": "§9.2 语义：role 只在 table 上有效",
+     "summary": "caniemail 注 #2 逐字：\"Partial. Only works on the <table tag.\" —— 这条限制很关键：",
+     "line": 448,
+     "chars": 388
+    },
+    {
+     "id": "9-3-目标尺寸-24-24-css-px-是底线",
+     "level": 3,
+     "title": "§9.3 目标尺寸：24×24 CSS px 是底线",
+     "summary": "WCAG 2.2 SC 2.5.8（Level AA）逐字：",
+     "line": 458,
+     "chars": 570
+    },
+    {
+     "id": "9-4-图片与替代文本",
+     "level": 3,
+     "title": "§9.4 图片与替代文本",
+     "summary": "- 每张承载信息的图都要 alt；纯装饰图用 alt=\"\"（空 alt 让读屏跳过，而不是念文件名）。",
+     "line": 470,
+     "chars": 170
+    },
+    {
+     "id": "9-5-读屏在邮件里的三个已知坑",
+     "level": 3,
+     "title": "§9.5 读屏在邮件里的三个已知坑",
+     "summary": "1. 表格嵌套会被朗读：三层表格 = 读屏念三遍「表格」。role=\"presentation\" 能缓解，但解法是减层数（≤3 层）。",
+     "line": 477,
+     "chars": 287
+    },
+    {
+     "id": "9-6-缩放与-字号被强行放大",
+     "level": 3,
+     "title": "§9.6 缩放与「字号被强行放大」",
+     "summary": "- iOS 的 -webkit-text-size-adjust 会放大正文；body{-webkit-text-size-adjust:100%} 只是「建议」，不保证。",
+     "line": 483,
+     "chars": 249
+    },
+    {
+     "id": "9-7-动效",
+     "level": 3,
+     "title": "§9.7 动效",
+     "summary": "@media (prefers-reduced-motion) 在邮件里支持极差（caniemail prefers-reduced-motion 未进本文件表格，但 @media 整体 16/41），裁决：邮件不做 CSS 动效。唯一安全",
+     "line": 489,
+     "chars": 200
+    },
+    {
+     "id": "9-8-邮件可访问性验收清单-role-table-alt-命中区-缩放",
+     "level": 3,
+     "title": "§9.8 邮件可访问性验收清单（role、table、alt、命中区、缩放）",
+     "summary": "发信前对每封模板逐项过，六项全过才算这封信验收通过；任何一项不过，先改模板再谈视觉。",
+     "line": 493,
+     "chars": 602
+    },
+    {
+     "id": "10-合规的视觉接口-位置与时序",
+     "level": 2,
+     "title": "§10 合规的视觉接口：位置与时序",
+     "summary": "法条解释归 notifications-messaging.md §12，本节只回答「这条法规要求的东西，画在哪里、多大、什么时候有效」。",
+     "line": 510,
+     "chars": 1226
+    },
+    {
+     "id": "11-体积预算-102-kb-是一条会腰斩内容的线",
+     "level": 2,
+     "title": "§11 体积预算：102 KB 是一条会腰斩内容的线",
+     "summary": "Klaviyo 帮助文档逐字（2026-11-17 取用）：",
+     "line": 533,
+     "chars": 1
+    },
+    {
+     "id": "11-1-硬数字",
+     "level": 3,
+     "title": "§11.1 硬数字",
+     "summary": "Klaviyo 帮助文档逐字（2026-11-17 取用）：",
+     "line": 535,
+     "chars": 784
+    },
+    {
+     "id": "11-2-中文邮件的体积直觉",
+     "level": 3,
+     "title": "§11.2 中文邮件的体积直觉",
+     "summary": "UTF-8 下 1 个汉字 = 3 字节：",
+     "line": 551,
+     "chars": 407
+    },
+    {
+     "id": "11-3-减重清单-按收益排序",
+     "level": 3,
+     "title": "§11.3 减重清单（按收益排序）",
+     "summary": "1. 禁止 base64 图片。外链 + CDN，体积归零。",
+     "line": 564,
+     "chars": 339
+    },
+    {
+     "id": "11-4-预算分配-工程约定",
+     "level": 3,
+     "title": "§11.4 预算分配（工程约定）",
+     "summary": "---",
+     "line": 575,
+     "chars": 210
+    },
+    {
+     "id": "12-工程选型-mjml-react-email-maizzle-foundation",
+     "level": 2,
+     "title": "§12 工程选型：MJML / React Email / Maizzle / Foundation",
+     "summary": "GitHub 实测（2026-11-17，经 ungh.cc 取 stars 与 pushedAt；license 以仓库 LICENSE 文件实读为准，未读到的标「未核」）：",
+     "line": 587,
+     "chars": 1856
+    },
+    {
+     "id": "13-测试流程-六步-从静态到真机",
+     "level": 2,
+     "title": "§13 测试流程：六步，从静态到真机",
+     "summary": "1. 特性预检：设计稿上每个「非文本效果」（圆角、阴影、渐变、背景图、两栏、粘性）先查 caniemail，标记「不支持 / 部分支持」，在稿上写替代方案。这一步在画图前做，不是在开发后。",
+     "line": 615,
+     "chars": 572
+    },
+    {
+     "id": "14-文案词表-直接抄",
+     "level": 2,
+     "title": "§14 文案词表（直接抄）",
+     "summary": "---",
+     "line": 628,
+     "chars": 347
+    },
+    {
+     "id": "15-二十条反模式",
+     "level": 2,
+     "title": "§15 二十条反模式",
+     "summary": "1. 用 display:flex / grid 做两栏 → Outlook 直接塌成单列且错位。",
+     "line": 642,
+     "chars": 1105
+    },
+    {
+     "id": "16-二十条自检-发信前逐条打勾",
+     "level": 2,
+     "title": "§16 二十条自检（发信前逐条打勾）",
+     "summary": "骨架与兼容",
+     "line": 667,
+     "chars": 982
+    },
+    {
+     "id": "17-度量-打开率已经不可信-改用点击与转化",
+     "level": 2,
+     "title": "§17 度量：打开率已经不可信，改用点击与转化",
+     "summary": "为什么不能用打开率：Apple Mail Privacy Protection 会在邮件送达时预取 tracking pixel（Apple 逐字见 §5.2），于是：",
+     "line": 706,
+     "chars": 803
+    },
+    {
+     "id": "18-交付检查单-给设计与开发的交接",
+     "level": 2,
+     "title": "§18 交付检查单（给设计与开发的交接）",
+     "summary": "- [ ] 设计稿标注了 600px 宽、单列即最终形态、最小视口 320px",
+     "line": 731,
+     "chars": 315
+    },
+    {
+     "id": "19-可复算校验-python-实跑通过",
+     "level": 2,
+     "title": "§19 可复算校验（Python，实跑通过）",
+     "summary": "实跑输出（2026-11-17）：",
+     "line": 744,
+     "chars": 712
+    },
+    {
+     "id": "20-取源限制-必须随文件一起读",
+     "level": 2,
+     "title": "§20 取源限制（必须随文件一起读）",
+     "summary": "1. caniemail 是快照：lastupdatedate = 2026-09-16，本文所有 y/n/a 数字都以该快照为准；客户端每年更新，用前先看 lasttestdate。",
+     "line": 792,
+     "chars": 574
+    },
+    {
+     "id": "21-来源",
+     "level": 2,
+     "title": "§21 来源",
+     "summary": "客户端行为与兼容",
+     "line": 804,
+     "chars": 1830
+    }
+   ]
+  },
+  {
    "path": "references/empty-states.md",
    "title": "空状态与零数据位（Empty States & Zero-Data）",
    "snapshot": "2026-11-13",
@@ -9490,8 +9931,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 789,
-   "chars": 84740,
+   "lines": 799,
+   "chars": 85780,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -9702,9 +10143,9 @@
      "chars": 43
     },
     {
-     "id": "四十条专题支线-可与主线并行",
+     "id": "四十二条专题支线-可与主线并行",
      "level": 2,
-     "title": "四十条专题支线（可与主线并行）",
+     "title": "四十二条专题支线（可与主线并行）",
      "summary": "中文不是\"英文换字\"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。",
      "line": 154,
      "chars": 1
@@ -10046,11 +10487,19 @@
      "chars": 878
     },
     {
-     "id": "能力自测-186-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（186 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ap-邮件设计与-edm-排版-html-email-design-edm-layout",
+     "level": 3,
+     "title": "支线 AP · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout）",
+     "summary": "- 这是什么（介质 + 版式侧）：一条被四件事同时挤压的设计通道——客户端渲染引擎、体积截断线、图片默认屏蔽、深色模式反色；设计对象不是网页，而是「在不同客户端里都还读得下去的那一版」。",
      "line": 646,
+     "chars": 982
+    },
+    {
+     "id": "能力自测-188-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（188 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 656,
      "chars": 8677
     }
    ]
@@ -18146,8 +18595,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 858,
-   "chars": 189778,
+   "lines": 873,
+   "chars": 196714,
    "sections": []
   }
  ],

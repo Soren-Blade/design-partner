@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-16 22:28 ｜ 54 个文件 · 2226 个章节 · 1,933,065 字符
+> 自动生成于 2026-11-17 21:04 ｜ 55 个文件 · 2268 个章节 · 1,972,303 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -123,6 +123,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 在线状态 / 实时光标 / 正在输入 / 头像堆叠 / presence | realtime-collaboration.md §4 presence 五信号 → §10 状态机（30s/15s/3s）→ §12 移动端 |
 | 评论 / 批注 / 线程 / @提及 / 孤儿评论 | realtime-collaboration.md §8 三锚点与 relative position → §8 线程生命周期与孤儿处理 |
 | 协作权限 / 链接分享 / 成员回收 / audience access | realtime-collaboration.md §9 角色矩阵与继承陷阱 → §6 冲突界面文案 |
+| 视频播放器 / 播放控件 / 播放器 UI | video-player-captions.md §1 七层判层 → §2 架构选型 → §3 控制栏顺序与自动隐藏 → §4 时间轴语义 |
+| 字幕 / 隐藏式字幕 / WebVTT / 字幕样式 | video-player-captions.md §5 数据模型 → §6 规范数值表 → §7 字号与 ::cue → §11 自检 16 条 |
+| 自动播放 / 画中画 / 全屏 / iOS 内联播放 | video-player-captions.md §8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与 PiP |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -407,26 +410,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **键盘可访问性** | 键盘可访问性 · 全键盘操作 · 键盘导航 · 键盘陷阱 · aria-keyshortcuts · accesskey · character key shortcut · 键盘快捷键无障碍 · 快捷键朗读 · kbd 键帽 · 输入法组合 |
 | **文件上传** | 拖拽上传 · 选择文件 · 附件上传 · 上传进度 · 断点续传 · 上传大小限制 · accept 属性 · 图片裁剪 · 头像上传 · 拍照上传 · EXIF 方向 |
 | **实时协作** | 实时协作 · 多人协作 · 协同编辑 · 同时编辑 · 在线状态 · 实时光标 · 协作光标 · 正在输入 · 输入指示 · 协作冲突 · 多人撤销 · 协作权限 |
+| **视频播放器** | 视频播放器 · 播放器控件 · 视频控件 · 字幕 · 隐藏式字幕 · 字幕样式 · 画中画 · 媒体播放器 · 视频进度条 · 全屏播放 · WebVTT · 字幕轨 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1072 行 · 快照 — · 12 节_
+_1082 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L148` — 资产已 52 份参考、约 153 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L150` — 资产已 52 份参考、约 153 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L163`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L416` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L431` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L457` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L488` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L937` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1025` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1038` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1045` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1061` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L153` — 资产已 53 份参考、约 155.7 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L155` — 资产已 53 份参考、约 155.7 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L168`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L424` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L439` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L465` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L496` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L945` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1034` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1047` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1054` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1070` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1697,7 +1701,7 @@ _942 行 · 快照 2026-11-14 · 52 节_
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_779 行 · 快照 2026-11-05 · 69 节_
+_789 行 · 快照 2026-11-05 · 70 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1767,7 +1771,8 @@ _779 行 · 快照 2026-11-05 · 69 节_
   - **支线 AL · 键位加速契约（Keyboard Shortcuts & Command Palette）** `L605` — - 这是什么（键位侧）：把「高频重复动作」做成一份带退出条款的加速契约——五问判层（做不做 / 哪一类 / 哪个作用域 / 怎么发现 / 冲突谁赢）、合规边界（SC 2.1.4 三出口 + SC 2.1.1 全键盘可达）、平台修饰键契约、面
   - **支线 AM · 上传链路契约（File Upload & Media Input）** `L615` — - 这是什么（上传侧）：把「选个文件传上去」拆成五段可验收链路——判层（做不做 / 哪一类 / 放哪里）、控件契约（accept 五种 specifier 只是提示、capture 前后置、拖放四件事）、三档校验（客户端即时 / 提交前 /
   - **支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）** `L625` — - 这是什么（协作侧）：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional i
-- **能力自测（184 条，做到 ≥110 条即达 L2+）** `L636` — L0
+  - **支线 AO · 视频播放器与字幕（Video Player UX & Captions / WebVTT）** `L636` — - 这是什么（交互 + 内容侧）：整条「媒体能不能被控制、时间能不能被理解」的链路——控件层构型、时间轴语义（拖拽 / ±5s / 倍速 / 直播 DVR）、字幕数据模型与规范数值、起播门控与移动端内联、字幕可访问性。
+- **能力自测（186 条，做到 ≥110 条即达 L2+）** `L646` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2720,6 +2725,50 @@ _818 行 · 快照 2026-11-05 · 74 节_
   - **19.5 aria-live 错误播报** `L787`
   - **19.6 链接文案检查脚本** `L799` — ---
 
+### `references/video-player-captions.md` · 视频播放器与字幕（Video Player UX & Captions / Subtitles / WebVTT）
+_585 行 · 快照 2026-11-17 · 40 节_
+
+- **§0 一句话立场** `L10` — 播放器不是「把一个视频塞进页面」，是一份关于时间的契约：任何时刻用户都要能回答「现在播到哪、我能不能倒回去、听不见或看不见时怎么补上」。
+- **§1 七层判层：从「怎么装」到「看没看完」** `L24` — 播放器是一条会失败的链路。先把问题定位到层，再决定改编码、改控件、改时间轴、改字幕还是改策略。
+- **§2 架构选型：三种路线与它们能承诺的话** `L46` — GitHub API 实测（api.github.com/repos/，2026-11-17 取，全部 archived: false）：
+- **§3 控制栏构型：控件顺序、隐藏时机与命中区** `L73` — 播放/暂停 → 音量 → 已播/总时长 → 进度条（弹性占满）→ 字幕 → 设置（倍速/画质）→ 画中画 → 全屏
+  - **3.1 控件顺序（从左到右，桌面）** `L75` — 播放/暂停 → 音量 → 已播/总时长 → 进度条（弹性占满）→ 字幕 → 设置（倍速/画质）→ 画中画 → 全屏
+  - **3.2 自动隐藏状态机** `L87` — 三条硬规则：
+  - **3.3 尺寸与命中区** `L101` — 引用依据：SC 2.5.8 原文 "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when:"；Understanding
+  - **3.4 缓冲与加载反馈** `L113` — - 起播/seek 后延迟 200 ms 再显示 spinner（低于 200 ms 的等待直接给内容，避免闪烁）；spinner 一旦显示，最短停留 300 ms（避免闪一下就消失）。
+  - **3.5 封面（poster）、首帧与加载策略** `L119` — - poster 是加载前的第一屏，不是占位色块：默认 preload="metadata"，不要首屏就下整条视频；poster 与视频首帧的构图要一致，否则开播的瞬间画面会「跳一下」。
+- **§4 时间轴语义：点按、拖拽、帧步进** `L128` — 拖拽三态：idle → dragging → committed。dragging 期间必须
+  - **4.1 竖屏短视频：双击点赞、上滑切换与进度条** `L147` — - 进度条不能被手势吃掉：底部进度条命中区 ≥ 24 px 高，pointerdown 时立刻 stopPropagation()；否则用户想拖进度，结果上滑换了视频。
+- **§5 字幕数据模型（WebVTT / <track）** `L164` — 引用依据：WCAG 2.2 SC 1.2.2 Key Terms 对 captions 的定义含 "sound effects, music, laughter, speaker identification and location"——
+  - **5.1 三种文本轨道，别混** `L166` — 引用依据：WCAG 2.2 SC 1.2.2 Key Terms 对 captions 的定义含 "sound effects, music, laughter, speaker identification and location"——
+  - **5.2 <track 与 TextTrack 状态** `L176` — - default 只该给一个轨道；给多个会让浏览器的默认选择变得不可预测。
+  - **5.3 cue 的四个定位设置** `L191` — - line：字幕基线位置（百分比或行号，负值表示从底部数）。
+- **§6 字幕规范数值表：字号、行长（42 字符）与 20 CPS 定生死** `L212` — 全部来自 Netflix Timed Text Style Guide 原文（English (USA) 与 General / Timing 三份），逐字引号处即原文。
+  - **6.1 两个必须会解释的矛盾** `L235` — 1. 5/6 s 与 4/5 s：24fps 下 5/6 s = 20 帧；4/5 s = 0.8 s = 19.2 帧，是个取整近似。取严：minduration = max(5/6, 20/fps)。在 25fps 下 20 帧 = 0
+  - **6.2 中文与 CJK 的换算（工程约定，非 Netflix 原文）** `L240` — Netflix 数值是为拉丁字符定的；中文不能直接照抄「42 字符」：
+- **§7 字幕样式实现：从 ::cue 到自绘层** `L251` — css
+  - **7.1 原生渲染（::cue）与能力边界** `L253` — 限制（决定你该不该自绘）：
+  - **7.2 自绘字幕层（需要完全控制时）** `L275` — 结构：<div class="dp-caption" role="region" aria-live="off" 绝对定位在视频容器上。
+  - **7.3 字号与可调性** `L285` — - 基准：容器高度的 2.5%–3%（1080p → 27–32 px；720p → 18–22 px），与 Netflix「按分辨率、能放下 42 字符」的口径一致；
+- **§8 媒体策略：iOS 门控与静音开播** `L293` — "<video autoplay elements will now honor the autoplay attribute, for elements which meet the following conditions: <vide
+  - **8.1 浏览器允许什么（WebKit 原文）** `L295` — "<video autoplay elements will now honor the autoplay attribute, for elements which meet the following conditions: <vide
+  - **8.2 为什么值得用视频替代 GIF（官方数据）** `L314` — WebKit 同一篇原文："GIFs can be up to twelve times as expensive in bandwidth and twice as expensive in energy use"（相对 H.264）。落
+  - **8.3 全屏与画中画** `L318` — - 全屏用 requestFullscreen()；iOS Safari 上 <video 的原生全屏由 webkitEnterFullscreen() 提供，自定义容器全屏在 iPhone 上不可用——不要承诺「iPhone 上也能自定义
+  - **8.4 iOS 内联播放与静音开播：落地清单** `L324` — - 内联：<video playsinline webkit-playsinline 两个属性都写；iOS Safari 缺 playsinline 就一播全屏，页面上下文全丢。
+- **§9 可访问性：四条 SC + 一套键位** `L334` — - SC 1.2.2 Captions (Prerecorded)（AA）："Captions are provided for all prerecorded audio content in synchronized media, ex
+  - **9.1 必须逐字过的条文** `L336` — - SC 1.2.2 Captions (Prerecorded)（AA）："Captions are provided for all prerecorded audio content in synchronized media, ex
+  - **9.2 键位映射（工程约定，与 YouTube / 系统播放器对齐）** `L345` — 焦点管理：控制栏用 role="toolbar" 或一组原生 <button；Tab 顺序 = 视觉顺序；不要给进度条 tabindex="-1" 后只靠方向键——滑块必须是可聚焦的 <input type="range" 或带 role=
+  - **9.3 播报与状态** `L360` — - 播放/暂停按钮的 aria-label 必须随状态变化（不要固定写「播放」）。
+  - **9.4 度量（L7）** `L366` — 别用「播放次数」当完成率。看四件事：起播率（点击播放 → playing 的比例）、25/50/75/100% 四分位到达率、seek 分布（大量回拖 = 内容难懂或缺字幕）、字幕开启率（低得异常说明开关找不到或默认没开）。
+  - **9.5 读屏与隐藏式字幕的交付验收** `L370` — - 读屏软件（NVDA / VoiceOver / TalkBack）读不到 <video 里渲染出来的字幕——原生 ::cue 与自绘层都不进无障碍树。要让读屏用户拿到字幕内容，必须提供同一内容的文字稿（transcript），或给字幕容
+- **§10 反模式（出现即返工）** `L378` — 1. 只用 <video controls 却又被要求「加个字幕菜单」——原生控件无法扩展，最后只能叠一堆浮层，键盘顺序必乱。
+- **§11 交付前自检（18 条，逐条打勾）** `L397` — - [ ] 1. 有一个 <video，同时具备 playsinline 与显式 preload（默认 metadata）；首帧有 poster。
+- **§12 可执行校验（代码围栏均以 python -I -X utf8 实跑通过）** `L421` — python
+  - **12.1 字幕合规校验器（Netflix 数值 + 帧间隙规则）** `L423`
+  - **12.2 双行断行器（底部更宽的金字塔形，对应 EN (USA) I.10）** `L506`
+  - **12.3 字号与对比度（把「看不见」变成可算的数）** `L546` — ---
+- **§13 取源限制（本轮实测，绝不臆造）** `L579` — - BBC Subtitle Guidelines 取不到：https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/ 连续 2 次 fetch failed（Type
+
 ### `references/visual-hierarchy-gestalt.md` · 视觉层级与格式塔组织律（Visual Hierarchy & Gestalt / Attention & Cognitive Load）
 _670 行 · 快照 2026-11-08 · 34 节_
 
@@ -2803,7 +2852,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_843 行 · 快照 — · 48 节_
+_858 行 · 快照 — · 49 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2853,6 +2902,7 @@ _843 行 · 快照 — · 48 节_
 - **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** `L802` — - 本轮性质：结构性空白补齐（键盘/键位加速层），非维护轮；此前全域 快捷键 仅 21 处且几乎全是 direct-manipulation 的反面语境，aria-keyshortcuts=0、SC 2.1.4=0。
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** `L816` — - 本轮性质：结构性空白补齐（上传/媒体输入链路），非维护轮；此前全域 上传 仅 25 处零散提及（多为「上传前脱敏」「附件入口」），upload=1（tools.md）、accept 属性=0、文件大小=1、图片压缩=1、拖拽上传=1（a
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** `L831` — - 选源与验证：全量词频扫描 51 份参考 + SKILL.md——实时协作 仅 2 处（presentation-design 一句）、协同编辑 / 批注 / realtime 均为 0、presence 27 处里 22 处在 moti
+- **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** `L844` — - 本轮性质：v47→v48，补第 53 份参考 references/video-player-captions.md（26,536 字符 / 585 行 / 14 个 H2 / 26 个 H3 / 纯 LF），主题是「视频播放器 UX 
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -3227,6 +3277,7 @@ _843 行 · 快照 — · 48 节_
 - **2026-11-14 · 每日升级 #41：键盘快捷键与命令面板——把「加个快捷键」判成一份带退出条款的加速契约（v44→v45）** → `memory/design-log.md` L802
 - **2026-11-16 · 每日升级 #42：文件上传与媒体输入——把「传个文件」拆成五段可验收链路（v45→v46）** → `memory/design-log.md` L816
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** → `memory/design-log.md` L831
+- **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** → `memory/design-log.md` L844
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3501,10 +3552,11 @@ _843 行 · 快照 — · 48 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9
+- **§0 一句话立场** → `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
 - **§0 一句话立场与三条裁决** → `references/file-upload-media-input.md` L3 · `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
+- **§1 七层判层：从「怎么装」到「看没看完」** → `references/video-player-captions.md` L24
 - **§1 为什么空状态是被浪费的引导位** → `references/empty-states.md` L17
 - **§1 先判载体：五类产出的本质差异** → `references/editorial-layout.md` L38
 - **§1 先定判定口径：无障碍验收按哪套标准（否则后面全是空谈）** → `references/accessibility.md` L9
@@ -3517,6 +3569,7 @@ _843 行 · 快照 — · 48 节_
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 六个库的实测与选型（GitHub API 2026-11-14）** → `references/keyboard-shortcuts-command-palette.md` L619
 - **§10 动态内容播报：aria-live 用对了才有用** → `references/accessibility.md` L393
+- **§10 反模式（出现即返工）** → `references/video-player-captions.md` L378
 - **§10 可访问性与合规** → `references/feedback-states.md` L389
 - **§10 在线状态生命周期：连接、判离线、重连、离线编辑** → `references/realtime-collaboration.md` L399
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
@@ -3526,6 +3579,7 @@ _843 行 · 快照 — · 48 节_
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
 - **§11 中文场景与弱网** → `references/feedback-states.md` L429
+- **§11 交付前自检（18 条，逐条打勾）** → `references/video-player-captions.md` L397
 - **§11 交付规格：清单模板与四条硬规则** → `references/keyboard-shortcuts-command-palette.md` L675
 - **§11 反模式（20 条，评审直接对照）** → `references/file-upload-media-input.md` L464
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
@@ -3537,6 +3591,7 @@ _843 行 · 快照 — · 48 节_
 - **§11 长图（Long Image / 信息长图）** → `references/editorial-layout.md` L368
 - **§12 不靠颜色单独传达（1.4.1）** → `references/accessibility.md` L448
 - **§12 反模式（逐条对照，命中即改）** → `references/feedback-states.md` L440
+- **§12 可执行校验（代码围栏均以 python -I -X utf8 实跑通过）** → `references/video-player-captions.md` L421
 - **§12 度量：空状态有没有用（首次操作率 / 微转化）** → `references/empty-states.md` L195
 - **§12 总价变化与无障碍播报** → `references/pricing-checkout.md` L274
 - **§12 用法速查（12 行，先对号再动手）** → `references/keyboard-shortcuts-command-palette.md` L694
@@ -3550,6 +3605,7 @@ _843 行 · 快照 — · 48 节_
 - **§13 印刷交付（设计做完不等于能印）** → `references/editorial-layout.md` L445
 - **§13 反模式 20 条** → `references/empty-states.md` L208
 - **§13 反模式（看到就该打回）** → `references/keyboard-shortcuts-command-palette.md` L713
+- **§13 取源限制（本轮实测，绝不臆造）** → `references/video-player-captions.md` L579
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 可跑代码（python -I -X utf8 实跑通过）** → `references/file-upload-media-input.md` L514
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
@@ -3600,6 +3656,7 @@ _843 行 · 快照 — · 48 节_
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
+- **§2 架构选型：三种路线与它们能承诺的话** → `references/video-player-captions.md` L46
 - **§2 登录界面解剖（证明身份层）** → `references/auth-account-ux.md` L86
 - **§2 网格类型与选择** → `references/editorial-layout.md` L54
 - **§2 选文件：控件契约** → `references/file-upload-media-input.md` L54
@@ -3609,6 +3666,7 @@ _843 行 · 快照 — · 48 节_
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** → `references/keyboard-shortcuts-command-palette.md` L99
 - **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
+- **§3 控制栏构型：控件顺序、隐藏时机与命中区** → `references/video-player-captions.md` L73
 - **§3 文档模型：树、属性与 fractional index** → `references/realtime-collaboration.md` L70
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
 - **§3 校验：三档分工与文案** → `references/file-upload-media-input.md` L107
@@ -3622,6 +3680,7 @@ _843 行 · 快照 — · 48 节_
 - **§4 存在层（Presence）：五种信号，各自证明什么** → `references/realtime-collaboration.md` L111
 - **§4 密码策略反神话表（把「听起来安全」逐条对到原文）** → `references/auth-account-ux.md` L220
 - **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** → `references/keyboard-shortcuts-command-palette.md` L121
+- **§4 时间轴语义：点按、拖拽、帧步进** → `references/video-player-captions.md` L128
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
@@ -3631,6 +3690,7 @@ _843 行 · 快照 — · 48 节_
 - **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 媒体输入特化** → `references/file-upload-media-input.md` L233
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
+- **§5 字幕数据模型（WebVTT / <track）** → `references/video-player-captions.md` L164
 - **§5 对比表与 CTA** → `references/pricing-checkout.md` L132
 - **§5 延迟预算：本地 0ms，远端有账可算** → `references/realtime-collaboration.md` L181
 - **§5 焦点不被遮挡（2.4.11）：粘性栏的账要还** → `references/accessibility.md` L221
@@ -3641,6 +3701,7 @@ _843 行 · 快照 — · 48 节_
 - **§6 冲突界面：三种冲突，三种说法** → `references/realtime-collaboration.md` L236
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
 - **§6 失败与重试** → `references/file-upload-media-input.md` L281
+- **§6 字幕规范数值表：字号、行长（42 字符）与 20 CPS 定生死** → `references/video-player-captions.md` L212
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 第二因素的选择与编排** → `references/auth-account-ux.md` L361
@@ -3650,6 +3711,7 @@ _843 行 · 快照 — · 48 节_
 - **§7 作用域、绑定与冲突仲裁（含 chord 多段序列）** → `references/keyboard-shortcuts-command-palette.md` L361
 - **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
 - **§7 多人撤销：只撤自己的，且要能解释** → `references/realtime-collaboration.md` L284
+- **§7 字幕样式实现：从 ::cue 到自绘层** → `references/video-player-captions.md` L251
 - **§7 弹窗、确认与破坏性操作** → `references/feedback-states.md` L281
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 无障碍：上传是最容易漏键盘的一条链路** → `references/file-upload-media-input.md` L342
@@ -3659,6 +3721,7 @@ _843 行 · 快照 — · 48 节_
 - **§8 五态数据模型（工程落地）** → `references/feedback-states.md` L333
 - **§8 反模式（看到就该打回）** → `references/sound-haptics-feedback.md` L432
 - **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
+- **§8 媒体策略：iOS 门控与静音开播** → `references/video-player-captions.md` L293
 - **§8 安全与隐私：客户端做体验，服务端做边界** → `references/file-upload-media-input.md` L379
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
@@ -3669,6 +3732,7 @@ _843 行 · 快照 — · 48 节_
 - **§9 会话、超时与登出** → `references/auth-account-ux.md` L460
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
 - **§9 发现性：帮助面板、菜单标注与 kbd 样式** → `references/keyboard-shortcuts-command-palette.md` L571
+- **§9 可访问性：四条 SC + 一套键位** → `references/video-player-captions.md` L334
 - **§9 库选型：GitHub API 实测（2026-11-16）** → `references/file-upload-media-input.md` L406
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 权限与分享：角色矩阵、继承陷阱、即时回收** → `references/realtime-collaboration.md` L354
@@ -3766,7 +3830,7 @@ _843 行 · 快照 — · 48 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L148
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L153
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3776,12 +3840,12 @@ _843 行 · 快照 — · 48 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（184 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L636
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1025
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1038
+- **能力自测（186 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L646
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1034
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1047
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1061
+- **边界与习惯** → `SKILL.md` L1070
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

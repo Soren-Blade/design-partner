@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-16T22:28:30",
+ "generated": "2026-11-17T21:04:38",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1072,
-   "chars": 228381,
+   "lines": 1082,
+   "chars": 231727,
    "sections": []
   },
   {
@@ -9490,8 +9490,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 779,
-   "chars": 83804,
+   "lines": 789,
+   "chars": 84740,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -10038,11 +10038,19 @@
      "chars": 1317
     },
     {
-     "id": "能力自测-184-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（184 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-ao-视频播放器与字幕-video-player-ux-captions-webvtt",
+     "level": 3,
+     "title": "支线 AO · 视频播放器与字幕（Video Player UX & Captions / WebVTT）",
+     "summary": "- 这是什么（交互 + 内容侧）：整条「媒体能不能被控制、时间能不能被理解」的链路——控件层构型、时间轴语义（拖拽 / ±5s / 倍速 / 直播 DVR）、字幕数据模型与规范数值、起播门控与移动端内联、字幕可访问性。",
      "line": 636,
+     "chars": 878
+    },
+    {
+     "id": "能力自测-186-条-做到-110-条即达-l2",
+     "level": 2,
+     "title": "能力自测（186 条，做到 ≥110 条即达 L2+）",
+     "summary": "L0",
+     "line": 646,
      "chars": 8677
     }
    ]
@@ -17196,6 +17204,335 @@
    ]
   },
   {
+   "path": "references/video-player-captions.md",
+   "title": "视频播放器与字幕（Video Player UX & Captions / Subtitles / WebVTT）",
+   "snapshot": "2026-11-17",
+   "lines": 585,
+   "chars": 26536,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "播放器不是「把一个视频塞进页面」，是一份关于时间的契约：任何时刻用户都要能回答「现在播到哪、我能不能倒回去、听不见或看不见时怎么补上」。",
+     "line": 10,
+     "chars": 683
+    },
+    {
+     "id": "1-七层判层-从-怎么装-到-看没看完",
+     "level": 2,
+     "title": "§1 七层判层：从「怎么装」到「看没看完」",
+     "summary": "播放器是一条会失败的链路。先把问题定位到层，再决定改编码、改控件、改时间轴、改字幕还是改策略。",
+     "line": 24,
+     "chars": 830
+    },
+    {
+     "id": "2-架构选型-三种路线与它们能承诺的话",
+     "level": 2,
+     "title": "§2 架构选型：三种路线与它们能承诺的话",
+     "summary": "GitHub API 实测（api.github.com/repos/，2026-11-17 取，全部 archived: false）：",
+     "line": 46,
+     "chars": 1587
+    },
+    {
+     "id": "3-控制栏构型-控件顺序-隐藏时机与命中区",
+     "level": 2,
+     "title": "§3 控制栏构型：控件顺序、隐藏时机与命中区",
+     "summary": "播放/暂停 → 音量 → 已播/总时长 → 进度条（弹性占满）→ 字幕 → 设置（倍速/画质）→ 画中画 → 全屏",
+     "line": 73,
+     "chars": 1
+    },
+    {
+     "id": "3-1-控件顺序-从左到右-桌面",
+     "level": 3,
+     "title": "3.1 控件顺序（从左到右，桌面）",
+     "summary": "播放/暂停 → 音量 → 已播/总时长 → 进度条（弹性占满）→ 字幕 → 设置（倍速/画质）→ 画中画 → 全屏",
+     "line": 75,
+     "chars": 289
+    },
+    {
+     "id": "3-2-自动隐藏状态机",
+     "level": 3,
+     "title": "3.2 自动隐藏状态机",
+     "summary": "三条硬规则：",
+     "line": 87,
+     "chars": 399
+    },
+    {
+     "id": "3-3-尺寸与命中区",
+     "level": 3,
+     "title": "3.3 尺寸与命中区",
+     "summary": "引用依据：SC 2.5.8 原文 \"The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when:\"；Understanding",
+     "line": 101,
+     "chars": 651
+    },
+    {
+     "id": "3-4-缓冲与加载反馈",
+     "level": 3,
+     "title": "3.4 缓冲与加载反馈",
+     "summary": "- 起播/seek 后延迟 200 ms 再显示 spinner（低于 200 ms 的等待直接给内容，避免闪烁）；spinner 一旦显示，最短停留 300 ms（避免闪一下就消失）。",
+     "line": 113,
+     "chars": 221
+    },
+    {
+     "id": "3-5-封面-poster-首帧与加载策略",
+     "level": 3,
+     "title": "3.5 封面（poster）、首帧与加载策略",
+     "summary": "- poster 是加载前的第一屏，不是占位色块：默认 preload=\"metadata\"，不要首屏就下整条视频；poster 与视频首帧的构图要一致，否则开播的瞬间画面会「跳一下」。",
+     "line": 119,
+     "chars": 495
+    },
+    {
+     "id": "4-时间轴语义-点按-拖拽-帧步进",
+     "level": 2,
+     "title": "§4 时间轴语义：点按、拖拽、帧步进",
+     "summary": "拖拽三态：idle → dragging → committed。dragging 期间必须",
+     "line": 128,
+     "chars": 663
+    },
+    {
+     "id": "4-1-竖屏短视频-双击点赞-上滑切换与进度条",
+     "level": 3,
+     "title": "4.1 竖屏短视频：双击点赞、上滑切换与进度条",
+     "summary": "- 进度条不能被手势吃掉：底部进度条命中区 ≥ 24 px 高，pointerdown 时立刻 stopPropagation()；否则用户想拖进度，结果上滑换了视频。",
+     "line": 147,
+     "chars": 669
+    },
+    {
+     "id": "5-字幕数据模型-webvtt-track",
+     "level": 2,
+     "title": "§5 字幕数据模型（WebVTT / <track）",
+     "summary": "引用依据：WCAG 2.2 SC 1.2.2 Key Terms 对 captions 的定义含 \"sound effects, music, laughter, speaker identification and location\"——",
+     "line": 164,
+     "chars": 1
+    },
+    {
+     "id": "5-1-三种文本轨道-别混",
+     "level": 3,
+     "title": "5.1 三种文本轨道，别混",
+     "summary": "引用依据：WCAG 2.2 SC 1.2.2 Key Terms 对 captions 的定义含 \"sound effects, music, laughter, speaker identification and location\"——",
+     "line": 166,
+     "chars": 459
+    },
+    {
+     "id": "5-2-track-与-texttrack-状态",
+     "level": 3,
+     "title": "5.2 <track 与 TextTrack 状态",
+     "summary": "- default 只该给一个轨道；给多个会让浏览器的默认选择变得不可预测。",
+     "line": 176,
+     "chars": 362
+    },
+    {
+     "id": "5-3-cue-的四个定位设置",
+     "level": 3,
+     "title": "5.3 cue 的四个定位设置",
+     "summary": "- line：字幕基线位置（百分比或行号，负值表示从底部数）。",
+     "line": 191,
+     "chars": 284
+    },
+    {
+     "id": "6-字幕规范数值表-字号-行长-42-字符-与-20-cps-定生死",
+     "level": 2,
+     "title": "§6 字幕规范数值表：字号、行长（42 字符）与 20 CPS 定生死",
+     "summary": "全部来自 Netflix Timed Text Style Guide 原文（English (USA) 与 General / Timing 三份），逐字引号处即原文。",
+     "line": 212,
+     "chars": 1355
+    },
+    {
+     "id": "6-1-两个必须会解释的矛盾",
+     "level": 3,
+     "title": "6.1 两个必须会解释的矛盾",
+     "summary": "1. 5/6 s 与 4/5 s：24fps 下 5/6 s = 20 帧；4/5 s = 0.8 s = 19.2 帧，是个取整近似。取严：minduration = max(5/6, 20/fps)。在 25fps 下 20 帧 = 0",
+     "line": 235,
+     "chars": 326
+    },
+    {
+     "id": "6-2-中文与-cjk-的换算-工程约定-非-netflix-原文",
+     "level": 3,
+     "title": "6.2 中文与 CJK 的换算（工程约定，非 Netflix 原文）",
+     "summary": "Netflix 数值是为拉丁字符定的；中文不能直接照抄「42 字符」：",
+     "line": 240,
+     "chars": 289
+    },
+    {
+     "id": "7-字幕样式实现-从-cue-到自绘层",
+     "level": 2,
+     "title": "§7 字幕样式实现：从 ::cue 到自绘层",
+     "summary": "css",
+     "line": 251,
+     "chars": 1
+    },
+    {
+     "id": "7-1-原生渲染-cue-与能力边界",
+     "level": 3,
+     "title": "7.1 原生渲染（::cue）与能力边界",
+     "summary": "限制（决定你该不该自绘）：",
+     "line": 253,
+     "chars": 214
+    },
+    {
+     "id": "7-2-自绘字幕层-需要完全控制时",
+     "level": 3,
+     "title": "7.2 自绘字幕层（需要完全控制时）",
+     "summary": "结构：<div class=\"dp-caption\" role=\"region\" aria-live=\"off\" 绝对定位在视频容器上。",
+     "line": 275,
+     "chars": 594
+    },
+    {
+     "id": "7-3-字号与可调性",
+     "level": 3,
+     "title": "7.3 字号与可调性",
+     "summary": "- 基准：容器高度的 2.5%–3%（1080p → 27–32 px；720p → 18–22 px），与 Netflix「按分辨率、能放下 42 字符」的口径一致；",
+     "line": 285,
+     "chars": 242
+    },
+    {
+     "id": "8-媒体策略-ios-门控与静音开播",
+     "level": 2,
+     "title": "§8 媒体策略：iOS 门控与静音开播",
+     "summary": "\"<video autoplay elements will now honor the autoplay attribute, for elements which meet the following conditions: <vide",
+     "line": 293,
+     "chars": 1
+    },
+    {
+     "id": "8-1-浏览器允许什么-webkit-原文",
+     "level": 3,
+     "title": "8.1 浏览器允许什么（WebKit 原文）",
+     "summary": "\"<video autoplay elements will now honor the autoplay attribute, for elements which meet the following conditions: <vide",
+     "line": 295,
+     "chars": 1430
+    },
+    {
+     "id": "8-2-为什么值得用视频替代-gif-官方数据",
+     "level": 3,
+     "title": "8.2 为什么值得用视频替代 GIF（官方数据）",
+     "summary": "WebKit 同一篇原文：\"GIFs can be up to twelve times as expensive in bandwidth and twice as expensive in energy use\"（相对 H.264）。落",
+     "line": 314,
+     "chars": 242
+    },
+    {
+     "id": "8-3-全屏与画中画",
+     "level": 3,
+     "title": "8.3 全屏与画中画",
+     "summary": "- 全屏用 requestFullscreen()；iOS Safari 上 <video 的原生全屏由 webkitEnterFullscreen() 提供，自定义容器全屏在 iPhone 上不可用——不要承诺「iPhone 上也能自定义",
+     "line": 318,
+     "chars": 307
+    },
+    {
+     "id": "8-4-ios-内联播放与静音开播-落地清单",
+     "level": 3,
+     "title": "8.4 iOS 内联播放与静音开播：落地清单",
+     "summary": "- 内联：<video playsinline webkit-playsinline 两个属性都写；iOS Safari 缺 playsinline 就一播全屏，页面上下文全丢。",
+     "line": 324,
+     "chars": 476
+    },
+    {
+     "id": "9-可访问性-四条-sc-一套键位",
+     "level": 2,
+     "title": "§9 可访问性：四条 SC + 一套键位",
+     "summary": "- SC 1.2.2 Captions (Prerecorded)（AA）：\"Captions are provided for all prerecorded audio content in synchronized media, ex",
+     "line": 334,
+     "chars": 1
+    },
+    {
+     "id": "9-1-必须逐字过的条文",
+     "level": 3,
+     "title": "9.1 必须逐字过的条文",
+     "summary": "- SC 1.2.2 Captions (Prerecorded)（AA）：\"Captions are provided for all prerecorded audio content in synchronized media, ex",
+     "line": 336,
+     "chars": 1297
+    },
+    {
+     "id": "9-2-键位映射-工程约定-与-youtube-系统播放器对齐",
+     "level": 3,
+     "title": "9.2 键位映射（工程约定，与 YouTube / 系统播放器对齐）",
+     "summary": "焦点管理：控制栏用 role=\"toolbar\" 或一组原生 <button；Tab 顺序 = 视觉顺序；不要给进度条 tabindex=\"-1\" 后只靠方向键——滑块必须是可聚焦的 <input type=\"range\" 或带 role=",
+     "line": 345,
+     "chars": 541
+    },
+    {
+     "id": "9-3-播报与状态",
+     "level": 3,
+     "title": "9.3 播报与状态",
+     "summary": "- 播放/暂停按钮的 aria-label 必须随状态变化（不要固定写「播放」）。",
+     "line": 360,
+     "chars": 206
+    },
+    {
+     "id": "9-4-度量-l7",
+     "level": 3,
+     "title": "9.4 度量（L7）",
+     "summary": "别用「播放次数」当完成率。看四件事：起播率（点击播放 → playing 的比例）、25/50/75/100% 四分位到达率、seek 分布（大量回拖 = 内容难懂或缺字幕）、字幕开启率（低得异常说明开关找不到或默认没开）。",
+     "line": 366,
+     "chars": 133
+    },
+    {
+     "id": "9-5-读屏与隐藏式字幕的交付验收",
+     "level": 3,
+     "title": "9.5 读屏与隐藏式字幕的交付验收",
+     "summary": "- 读屏软件（NVDA / VoiceOver / TalkBack）读不到 <video 里渲染出来的字幕——原生 ::cue 与自绘层都不进无障碍树。要让读屏用户拿到字幕内容，必须提供同一内容的文字稿（transcript），或给字幕容",
+     "line": 370,
+     "chars": 458
+    },
+    {
+     "id": "10-反模式-出现即返工",
+     "level": 2,
+     "title": "§10 反模式（出现即返工）",
+     "summary": "1. 只用 <video controls 却又被要求「加个字幕菜单」——原生控件无法扩展，最后只能叠一堆浮层，键盘顺序必乱。",
+     "line": 378,
+     "chars": 697
+    },
+    {
+     "id": "11-交付前自检-18-条-逐条打勾",
+     "level": 2,
+     "title": "§11 交付前自检（18 条，逐条打勾）",
+     "summary": "- [ ] 1. 有一个 <video，同时具备 playsinline 与显式 preload（默认 metadata）；首帧有 poster。",
+     "line": 397,
+     "chars": 1160
+    },
+    {
+     "id": "12-可执行校验-代码围栏均以-python-i-x-utf8-实跑通过",
+     "level": 2,
+     "title": "§12 可执行校验（代码围栏均以 python -I -X utf8 实跑通过）",
+     "summary": "python",
+     "line": 421,
+     "chars": 1
+    },
+    {
+     "id": "12-1-字幕合规校验器-netflix-数值-帧间隙规则",
+     "level": 3,
+     "title": "12.1 字幕合规校验器（Netflix 数值 + 帧间隙规则）",
+     "summary": "",
+     "line": 423,
+     "chars": 1
+    },
+    {
+     "id": "12-2-双行断行器-底部更宽的金字塔形-对应-en-usa-i-10",
+     "level": 3,
+     "title": "12.2 双行断行器（底部更宽的金字塔形，对应 EN (USA) I.10）",
+     "summary": "",
+     "line": 506,
+     "chars": 1
+    },
+    {
+     "id": "12-3-字号与对比度-把-看不见-变成可算的数",
+     "level": 3,
+     "title": "12.3 字号与对比度（把「看不见」变成可算的数）",
+     "summary": "---",
+     "line": 546,
+     "chars": 6
+    },
+    {
+     "id": "13-取源限制-本轮实测-绝不臆造",
+     "level": 2,
+     "title": "§13 取源限制（本轮实测，绝不臆造）",
+     "summary": "- BBC Subtitle Guidelines 取不到：https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/ 连续 2 次 fetch failed（Type",
+     "line": 579,
+     "chars": 818
+    }
+   ]
+  },
+  {
    "path": "references/visual-hierarchy-gestalt.md",
    "title": "视觉层级与格式塔组织律（Visual Hierarchy & Gestalt / Attention & Cognitive Load）",
    "snapshot": "2026-11-08",
@@ -17809,8 +18146,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 843,
-   "chars": 181358,
+   "lines": 858,
+   "chars": 189778,
    "sections": []
   }
  ],

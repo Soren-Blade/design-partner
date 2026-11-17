@@ -144,6 +144,9 @@ INTENTS = [
     ("在线状态 / 实时光标 / 正在输入 / 头像堆叠 / presence", "realtime-collaboration.md §4 presence 五信号 → §10 状态机（30s/15s/3s）→ §12 移动端"),
     ("评论 / 批注 / 线程 / @提及 / 孤儿评论", "realtime-collaboration.md §8 三锚点与 relative position → §8 线程生命周期与孤儿处理"),
     ("协作权限 / 链接分享 / 成员回收 / audience access", "realtime-collaboration.md §9 角色矩阵与继承陷阱 → §6 冲突界面文案"),
+    ("视频播放器 / 播放控件 / 播放器 UI", "video-player-captions.md §1 七层判层 → §2 架构选型 → §3 控制栏顺序与自动隐藏 → §4 时间轴语义"),
+    ("字幕 / 隐藏式字幕 / WebVTT / 字幕样式", "video-player-captions.md §5 数据模型 → §6 规范数值表 → §7 字号与 ::cue → §11 自检 16 条"),
+    ("自动播放 / 画中画 / 全屏 / iOS 内联播放", "video-player-captions.md §8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与 PiP"),
 
 ]
 

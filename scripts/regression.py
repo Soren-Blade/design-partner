@@ -33,25 +33,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 realtime-collaboration.md 前 3。
-# #43 换轮：13 条覆盖模型选型 / 属性级冲突 / presence 五信号 / 延迟预算 / 评论锚点 /
-# 权限继承 / 断线重连 / 多人撤销 / 无障碍播报 / 选型对比 / 隐私 / 容量 / 工程实现，
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 video-player-captions.md 前 3。
+# #44 换轮：13 条覆盖控件构型 / 时间轴 / 字幕数值 / WebVTT 数据模型 / 自动播放 / 全屏 PiP /
+# 字幕样式 / 缓冲反馈 / 字幕无障碍 / 选型对比 / 直播 DVR / 短视频手势 / 封面性能，
 # 且混入「组件 / 无障碍 / 验收 / 度量 / 对比」等跨域词（#26 P1 教训）。
-# #42 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #43 沉淀块）。
+# #43 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #44 沉淀块）。
 NEW_QUERIES = [
-    "实时协作 多人同时编辑 协同编辑 冲突 验收",
-    "两个人同时改 同一段文字 冲突 谁赢 LWW",
-    "在线状态 实时光标 正在输入 头像 组件",
-    "多人编辑 光标位置 延迟 50ms 响应 预算",
-    "评论 定位 对象 删除 孤儿 线程 relative position",
-    "协作权限 链接分享 外部评审 继承 权限 矩阵",
-    "断线重连 离线编辑 重放 冲突 合并 状态机",
-    "多人撤销 undo 只撤自己的 redo 历史",
-    "协同编辑 无障碍 读屏 播报 状态 验收",
-    "CRDT OT 选型 Yjs Automerge 对比 设计",
-    "presence 隐私 鼠标轨迹 记录 用户 在线 状态",
-    "多人同时 编辑 性能 消息 频率 带宽 20 人",
-    "Figma 多人 协作 技术 属性级 冲突 组件",
+    "视频播放器 控件 顺序 自动隐藏 验收",
+    "视频 进度条 拖拽 时间轴 倍速 组件",
+    "字幕 字号 行长 42 字符 20 CPS 规范",
+    "字幕 WebVTT track 轨道 选择 语言 对比",
+    "自动播放 autoplay 静音 移动端 iOS 内联",
+    "视频 全屏 画中画 PiP 按钮 位置 无障碍",
+    "字幕 样式 ::cue 描边 背景 半透明",
+    "视频 缓冲 加载 状态 反馈 spinner",
+    "字幕 无障碍 读屏 隐藏式字幕 验收",
+    "视频播放器 选型 原生 自绘 库 对比",
+    "直播 时间轴 DVR 拖回 实时 边缘",
+    "短视频 竖屏 手势 双击 点赞 进度",
+    "视频 封面 首帧 海报 性能 组件",
 ]
 
 
@@ -291,9 +291,23 @@ HIST_QUERIES = [
     "预签名 URL 直传 对象 存储 权限",
     "批量 导入 CSV 模板 失败 行 导出",
     "上传 组件 库 选型 uppy filepond 对比",
+    # #44 沉淀：#43 主题门槛查询转为历史样本，验收「新增 video-player-captions.md 后不退化」。
+    "实时协作 多人同时编辑 协同编辑 冲突 验收",
+    "两个人同时改 同一段文字 冲突 谁赢 LWW",
+    "在线状态 实时光标 正在输入 头像 组件",
+    "多人编辑 光标位置 延迟 50ms 响应 预算",
+    "评论 定位 对象 删除 孤儿 线程 relative position",
+    "协作权限 链接分享 外部评审 继承 权限 矩阵",
+    "断线重连 离线编辑 重放 冲突 合并 状态机",
+    "多人撤销 undo 只撤自己的 redo 历史",
+    "协同编辑 无障碍 读屏 播报 状态 验收",
+    "CRDT OT 选型 Yjs Automerge 对比 设计",
+    "presence 隐私 鼠标轨迹 记录 用户 在线 状态",
+    "多人同时 编辑 性能 消息 频率 带宽 20 人",
+    "Figma 多人 协作 技术 属性级 冲突 组件",
 ]
 
-EXPECT_FILE = "realtime-collaboration.md"
+EXPECT_FILE = "video-player-captions.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
@@ -303,7 +317,13 @@ NEW_ASSETS = {EXPECT_FILE}
 # #43：新资产 §9「权限与分享」凭原词「权限」进入第 2 位；三条硬校验 a/b/c 全过：
 # HEAD top1（file-upload-media-input.md）未被顶掉，HEAD top3 的 visual-style-taxonomy /
 # dark-mode 仍在 NOW 第 4/5，新进入者 realtime-collaboration 在 --no-alias 下仍在前 3。
+# #44：新资产 §3「控制栏构型」凭原词「音量 / 控制」进入历史查询第 2 位；三条硬校验 a/b/c 全过：
+# HEAD top1（knowledge-map.md）未被顶掉，HEAD top3 的 sound-haptics-feedback 两条仍在 NOW 第 3/4，
+# 新进入者 video-player-captions 在 --no-alias 下仍在第 2。
 EXPECTED_EVOLUTION = {
+    "WCAG 1.4.2 三秒 自动播放 音量 控制 依据":
+        "video-player-captions §3 控制栏构型进驻第 2 位（音量 / 控制的原词相关性）；"
+        "HEAD top1 knowledge-map.md 未被顶掉，其 top3 的 sound-haptics-feedback 两条仍在 NOW 第 3/4。",
     "预签名 URL 直传 对象 存储 权限":
         "realtime-collaboration §9 权限与分享进驻第 2 位（协作权限的原词相关性）；"
         "HEAD top1 file-upload 未被顶掉，其 top3 的 visual-style-taxonomy / dark-mode 仍在 NOW 第 4/5。",

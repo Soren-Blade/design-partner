@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-17 21:59 ｜ 56 个文件 · 2324 个章节 · 2,022,673 字符
+> 自动生成于 2026-11-18 21:22 ｜ 57 个文件 · 2368 个章节 · 2,065,821 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -129,6 +129,8 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 邮件设计 / HTML 邮件 / EDM / 营销邮件排版 | email-design.md §1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型 |
 | Outlook 兼容 / 圆角按钮 / @font-face 回退 / 深色模式反色 | email-design.md §2 四种渲染引擎 → §4.1 特性替代表 → §6 深色三通道 → §9 对比度 |
 | 邮件体积 / Gmail 102KB 截断 / 主题行 / preheader | email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt |
+| 定价本地化 / 多币种价格 / 币种切换 / 含税口径 | pricing-localization.md §1 七问判层 → §2 ISO 4217 最小单位表 → §3 三种含税口径 → §9 price book 与结算币种 |
+| 税额反算 / 划线价原价 / 单位价格 / 地区价差 | pricing-localization.md §4 反算与取整记账 → §6 法定原价窗口 → §7 Grundpreis 与 10g 豁免 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -415,26 +417,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **实时协作** | 实时协作 · 多人协作 · 协同编辑 · 同时编辑 · 在线状态 · 实时光标 · 协作光标 · 正在输入 · 输入指示 · 协作冲突 · 多人撤销 · 协作权限 |
 | **视频播放器** | 视频播放器 · 播放器控件 · 视频控件 · 字幕 · 隐藏式字幕 · 字幕样式 · 画中画 · 媒体播放器 · 视频进度条 · 全屏播放 · WebVTT · 字幕轨 |
 | **邮件设计** | HTML 邮件 · EDM · 营销邮件排版 · 邮件模板设计 · Outlook 兼容 · 响应式邮件 · preheader · 邮件客户端 · 邮件排版 · 邮件深色模式 · 邮件体积 · 邮件宽度 |
+| **定价本地化** | 价格本地化 · 多币种 · 币种切换 · 货币本地化 · 含税口径 · 地区定价 · 区域价格 · 购买力定价 · 汇率换算 · 价格点 · 单位价格 · 税额反算 |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1092 行 · 快照 — · 12 节_
+_1102 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L158` — 资产已 54 份参考、约 160 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L160` — 资产已 54 份参考、约 160 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L173`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L432` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L447` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L473` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L504` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L953` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1043` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1056` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1063` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1079` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L163` — 资产已 55 份参考、约 162 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L165` — 资产已 55 份参考、约 162 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L178`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L440` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L455` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L481` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L512` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L961` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1052` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1065` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1072` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1088` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1763,7 +1766,7 @@ _942 行 · 快照 2026-11-14 · 52 节_
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_799 行 · 快照 2026-11-05 · 71 节_
+_809 行 · 快照 2026-11-05 · 72 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1835,7 +1838,8 @@ _799 行 · 快照 2026-11-05 · 71 节_
   - **支线 AN · 实时协作与多人编辑（Real-time Collaboration & Presence）** `L625` — - 这是什么（协作侧）：把「多人同时改同一份文档」拆成六层可验收链路——判层（真需要同步协作 / 异步接力即可）、模型选型（中心服务器 LWW / CRDT / OT）、文档模型（属性级冲突粒度、client ID、fractional i
   - **支线 AO · 视频播放器与字幕（Video Player UX & Captions / WebVTT）** `L636` — - 这是什么（交互 + 内容侧）：整条「媒体能不能被控制、时间能不能被理解」的链路——控件层构型、时间轴语义（拖拽 / ±5s / 倍速 / 直播 DVR）、字幕数据模型与规范数值、起播门控与移动端内联、字幕可访问性。
   - **支线 AP · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout）** `L646` — - 这是什么（介质 + 版式侧）：一条被四件事同时挤压的设计通道——客户端渲染引擎、体积截断线、图片默认屏蔽、深色模式反色；设计对象不是网页，而是「在不同客户端里都还读得下去的那一版」。
-- **能力自测（188 条，做到 ≥110 条即达 L2+）** `L656` — L0
+  - **支线 AQ · 定价本地化（Pricing Localization：币种、含税口径与法定原价）** `L656` — - 这是什么（商业数字 + 合规侧）：同一件商品卖到多个国家时「这个价怎么写」的三元归属问题——币种小数位、含税口径、地区价差、税额反算、法定原价窗口、单位价格。
+- **能力自测（190 条，做到 ≥112 条即达 L2+）** `L666` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2424,6 +2428,52 @@ _562 行 · 快照 — · 28 节_
   - **17.5 SC 3.3.4 承诺闸门验收器 + 总额播报片段** `L513`
 - **§18 取源限制（公开记录，不臆造）** `L553` — 1. Baymard 购物车放弃率榜单全文不可得：baymard.com/blog/cart-abandonment-rate（标题 "Cart Abandonment Rate: 50 Statistics (2026)"）两次抓取均被站
 
+### `references/pricing-localization.md` · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价
+_706 行 · 快照 — · 42 节_
+
+- **§0 一句话立场** `L8` — 价格不是一个数字，是一个三元组 (金额, 币种, 含税口径)；少任何一元，这个价格就是错的。 设计能决定的是这三元的展示归属与时机（哪个页面、哪一行、什么时候变），不能决定的是三元的取值（小数位由 ISO 4217 定、含税口径由销售地法规
+- **§1 判层：先问七个问题，再动手** `L14` — 本地化定价出问题，九成是没先判定自己落在哪一层就画界面。开工前把七问答完，答不出的一律回退到"只显示一个市场"。
+- **§2 币种与最小单位：价格是"金额+币种+小数位"** `L39` — ISO 4217 官方清单由 SIX 发布（本轮实测 List One，文件头 <ISO4217 Pblshd="2026-09-17"），每个币种在 <CcyMnrUnts 里给出"最小单位位数"。逐字样例：
+  - **2.1 小数位不是设计偏好，是 ISO 4217 的数据** `L41` — ISO 4217 官方清单由 SIX 发布（本轮实测 List One，文件头 <ISO4217 Pblshd="2026-09-17"），每个币种在 <CcyMnrUnts 里给出"最小单位位数"。逐字样例：
+  - **2.2 Intl.NumberFormat 的四个显示开关（MDN 原文）** `L64` — "The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as "USD" for the US d
+- **§3 含税口径：三种世界，三套写法** `L91` — 同一件 9.99 的商品，在三个市场必须写三个样子：
+  - **3.1 欧盟：标准税率下限 15%，减税率下限 5%（欧盟委员会原文）** `L102` — "This is the rate EU countries must apply when supplying most goods and services. It must be no less than 15%, but there
+  - **3.2 德国：19% / 7% / 0%（UStG §12 原文）** `L112` — "Die Steuer beträgt für jeden steuerpflichtigen Umsatz 19 Prozent der Bemessungsgrundlage (§§ 10, 11, 25 Abs. 3 und § 25
+  - **3.3 英国：20% / 5% / 0%** `L126` — "The standard VAT rate is 20%"
+  - **3.4 日本：総額表示是义务（消法 63）** `L134` — 国税庁 No.6902 逐字：
+  - **3.5 中国：人民币金额 + 明码标价** `L152` — 《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号）逐字：
+  - **3.6 美国：标不含税，但"总价"仍受 FTC 约束** `L166` — 美国零售商习惯标 $9.99 不含销售税，结账才加。注意这不是"可以不告诉用户总价"——FTC 的 total price 规则要求广告里能算出最终应付额（pricing-checkout.md §4 已详述）。多市场设计时最容易犯的错：把
+- **§4 税额反算与取整：四种取整位置，一种记账方式** `L172` — 含税价已知、税率已知时，税额不是乘出来的，是反算出来的：
+  - **4.1 取整位置决定会不会差 1 分** `L183`
+  - **4.2 Stripe 的官方处理方式（照抄这个思路）** `L192` — "For invoices where the amount is fractional after prorations, coupons, or taxes, Stripe automatically rounds that amoun
+  - **4.3 最小收款额的坑** `L202` — "Stripe enforces a minimum payment amount for all charges to make sure the Stripe fee doesn't exceed your charge. The mi
+  - **4.4 零小数币种的特殊写法** `L214` — "Enter 10 to charge 10 JPY (or any other zero-decimal currency)"
+- **§5 地区定价：三种体系，选一种并写进设计系统** `L224`
+  - **5.1 Apple App Store 的价格点（官方原文）** `L232` — "Apps with auto-renewable subscriptions can choose from 800 price points across all available currencies and price tiers
+  - **5.2 自建站：FX 缓冲与价格点三段式** `L250` — 自建多币种站的可执行流程（本文 §13 代码块 D 实现）：
+- **§6 「原价」不是设计自由度：法定回溯期对照（DE / CN / JP）** `L263` — 这是本轮第一条硬红线：划线价、-30%、省 €20 里的那个"原价"，在多数市场是有法定计算期间的，不是文案可以挑的数字。
+- **§7 单位价格：按量计价是义务，不是装饰** `L296` — 德国 PAngV §4(1) 逐字：
+- **§8 尾数与数字格式：符号、分组、空格、括号** `L324` — - x.99 不是普世最优：日本、韩国电商大量使用整数价（¥1,980、₩19,000），.99 反而显得廉价；德国/奥地利对 9.99 接受度高；中国偏好整数或 x8/x9 尾数。
+  - **8.1 格式层（i18n-localization.md §十 已给 locale 分组规则，这里只补价格专属项）** `L326`
+  - **8.2 尾数（charm pricing）的文化边界** `L336` — - x.99 不是普世最优：日本、韩国电商大量使用整数价（¥1,980、₩19,000），.99 反而显得廉价；德国/奥地利对 9.99 接受度高；中国偏好整数或 x8/x9 尾数。
+  - **8.3 价格排版的尺寸（沿用 pricing-checkout.md §3，不重复推导）** `L343` — 主价 40–48px、font-variant-numeric: tabular-nums、货币符号 0.5em 且上移 0.13em、价格差异 ≤20% 时不加额外强调。本地化新增两条：
+- **§9 多币种工程：price book、FX 缓冲、结算币种** `L352` — product
+  - **9.1 数据结构：price book 是三层，不是一层** `L354` — 设计评审要看的三件事：
+  - **9.2 展示币种 ≠ 结算币种时的三条 UI 义务** `L368` — 1. 显式告知：结账页展示"将以 EUR 结算，发卡行可能收取换汇费"。
+  - **9.3 免运费门槛、优惠券、阶梯价都要跟着币种走** `L374` — 满 $50 免运费 是多币种站最典型的断裂点：€ 站用户永远达不到 $50（因为展示的是 €）。规则：
+  - **9.4 汇率数据的工程约束（设计要能提需求）** `L382` — - 汇率记录必须带 updatedat 与 source；UI 上"价格约合"类文案要有"汇率更新于 …"的落点。
+- **§10 法标清单：按市场查表** `L390` — 产出前按下表核对该市场要出现的信息。"要不要标"不是偏好，是市场决定的。
+- **§11 反模式（20 条，看到即打回）** `L408` — 1. 全站一套价格写死，只在文案里把 $ 换成 €（汇率、税率、口径全错）。
+- **§12 自检清单（20 条，产出前逐条打勾）** `L433` — - [ ] 1. 每个价格都能回答"哪个币种、几位小数、含不含税"三元。
+- **§13 可跑校验代码（6 段，python -I -X utf8 <file 实跑通过）** `L458` — 全部只用标准库（decimal / datetime）。把每段存成 .py 单独跑，或拼在一个文件里按顺序执行。
+  - **段 A · 最小单位与展示位数** `L462`
+  - **段 B · 含税反算（零小数币种也要对）** `L504`
+  - **段 C · 逐行取整 vs 汇总取整的 1 分差** `L533`
+  - **段 D · FX 缓冲定价 + 价格点（两位小数 vs 零小数）** `L575`
+  - **段 E · "原价"法定窗口校验（DE 30 日 / CN 7 日）** `L614`
+  - **段 F · Grundpreis（单位价格）与 10g/10ml 豁免** `L655` — ---
+- **§14 取源限制（本轮实测，未取到的一律不臆造）** `L691` — 已逐字取到并可直接引用的源：SIX ISO 4217 List One、Stripe currencies.md、MDN Intl.NumberFormat、欧盟委员会 VAT rates 页、GOV.UK VAT rates、德国 USt
+
 ### `references/realtime-collaboration.md` · 实时协作与多人编辑（Real-time Collaboration & Presence）
 _769 行 · 快照 2026-11-16 · 73 节_
 
@@ -2915,7 +2965,7 @@ _317 行 · 快照 2026-11-07 · 40 节_
 - **13. 取源与权威边界** `L310` — - 权威史料与立场：Interaction Design Foundation（Design History：Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorph
 
 ### `memory/design-log.md` · 设计记忆（自我成长档案）
-_873 行 · 快照 — · 50 节_
+_889 行 · 快照 — · 51 节_
 
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** `L6` — （暂无——随使用积累）
 - **匹配与反馈日志（追加层，只增不改）** `L11`
@@ -2967,6 +3017,7 @@ _873 行 · 快照 — · 50 节_
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** `L831` — - 选源与验证：全量词频扫描 51 份参考 + SKILL.md——实时协作 仅 2 处（presentation-design 一句）、协同编辑 / 批注 / realtime 均为 0、presence 27 处里 22 处在 moti
 - **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** `L844` — - 本轮性质：v47→v48，补第 53 份参考 references/video-player-captions.md（26,536 字符 / 585 行 / 14 个 H2 / 26 个 H3 / 纯 LF），主题是「视频播放器 UX 
 - **2026-11-17 · 每日升级 #45：邮件设计与 EDM 排版——把「写封 HTML 邮件」判成渲染介质、客户端矩阵、600px 骨架与 102KB 预算（v48→v49）** `L859` — - 本轮性质：v48→v49，补第 54 份参考 references/email-design.md（39,044 字符 / 21 章 §0–§21 / 纯 LF），主题「邮件设计与 EDM 排版（HTML Email / EDM Lay
+- **2026-11-18 · 每日升级 #46：定价本地化——把「一个价格卖到多个国家」判成金额 / 币种 / 计税口径的三元组，最小单位、含税法定口径与原价回溯期（v49→v50）** `L874` — - 本轮性质：v49→v50，补第 55 份参考 references/pricing-localization.md（26,650 字符 / 15 节 §0–§14 / 纯 LF），主题「定价本地化（Pricing Localizatio
 
 ## 三、主题索引（章节标题 → 位置）
 
@@ -3343,6 +3394,7 @@ _873 行 · 快照 — · 50 节_
 - **2026-11-16 · 每日升级 #43：实时协作与多人编辑——把「加个光标」判成模型、冲突粒度、presence 与权限四层契约（v46→v47）** → `memory/design-log.md` L831
 - **2026-11-17 · 每日升级 #44：视频播放器与字幕——把「放个 video 标签」判成控件契约、时间语义、字幕规范数值与起播门控（v47→v48）** → `memory/design-log.md` L844
 - **2026-11-17 · 每日升级 #45：邮件设计与 EDM 排版——把「写封 HTML 邮件」判成渲染介质、客户端矩阵、600px 骨架与 102KB 预算（v48→v49）** → `memory/design-log.md` L859
+- **2026-11-18 · 每日升级 #46：定价本地化——把「一个价格卖到多个国家」判成金额 / 币种 / 计税口径的三元组，最小单位、含税法定口径与原价回溯期（v49→v50）** → `memory/design-log.md` L874
 - **21 · 与既有资产的边界矩阵** → `references/direct-manipulation.md` L509
 - **21 · 六步构建流程** → `references/content-findability.md` L439
 - **21 · 反模式（20）** → `references/shape-elevation.md` L485 · `references/typography-system.md` L322 · `references/visual-hierarchy-gestalt.md` L403
@@ -3617,7 +3669,7 @@ _873 行 · 快照 — · 50 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/email-design.md` L10 · `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
+- **§0 一句话立场** → `references/email-design.md` L10 · `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/pricing-localization.md` L8 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
 - **§0 一句话立场与三条裁决** → `references/file-upload-media-input.md` L3 · `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
@@ -3631,6 +3683,7 @@ _873 行 · 快照 — · 50 节_
 - **§1 判层：五问定「做不做、做哪一类、放哪里」** → `references/file-upload-media-input.md` L17
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
 - **§1 判层：先判「要不要」，再判「哪一种」** → `references/sound-haptics-feedback.md` L23
+- **§1 判层：先问七个问题，再动手** → `references/pricing-localization.md` L14
 - **§1 判层：六问决定你该改哪一层** → `references/auth-account-ux.md` L43
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 六个库的实测与选型（GitHub API 2026-11-14）** → `references/keyboard-shortcuts-command-palette.md` L619
@@ -3642,6 +3695,7 @@ _873 行 · 快照 — · 50 节_
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
 - **§10 场景速查（12 行，直接查表）** → `references/file-upload-media-input.md` L445
 - **§10 无障碍与合规（这一节决定「能不能用」）** → `references/auth-account-ux.md` L496
+- **§10 法标清单：按市场查表** → `references/pricing-localization.md` L390
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
 - **§10 费用透明：运费、税费、附加费** → `references/pricing-checkout.md` L236
@@ -3649,6 +3703,7 @@ _873 行 · 快照 — · 50 节_
 - **§11 交付前自检（18 条，逐条打勾）** → `references/video-player-captions.md` L397
 - **§11 交付规格：清单模板与四条硬规则** → `references/keyboard-shortcuts-command-palette.md` L675
 - **§11 体积预算：102 KB 是一条会腰斩内容的线** → `references/email-design.md` L533
+- **§11 反模式（20 条，看到即打回）** → `references/pricing-localization.md` L408
 - **§11 反模式（20 条，评审直接对照）** → `references/file-upload-media-input.md` L464
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
 - **§11 图片、图标、图表的替代文本** → `references/accessibility.md` L418
@@ -3668,6 +3723,7 @@ _873 行 · 快照 — · 50 节_
 - **§12 移动端与触摸：没有 hover，也没有「光标」** → `references/realtime-collaboration.md` L507
 - **§12 第三方登录的数值** → `references/auth-account-ux.md` L578
 - **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
+- **§12 自检清单（20 条，产出前逐条打勾）** → `references/pricing-localization.md` L433
 - **§12 自检清单（20 项，交付前逐条打勾）** → `references/file-upload-media-input.md` L489
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
 - **§13 信任与社会证明** → `references/pricing-checkout.md` L285
@@ -3677,6 +3733,7 @@ _873 行 · 快照 — · 50 节_
 - **§13 取源限制（本轮实测，绝不臆造）** → `references/video-player-captions.md` L579
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 可跑代码（python -I -X utf8 实跑通过）** → `references/file-upload-media-input.md` L514
+- **§13 可跑校验代码（6 段，python -I -X utf8 <file 实跑通过）** → `references/pricing-localization.md` L458
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
 - **§13 性能、成本与容量** → `references/realtime-collaboration.md` L518
 - **§13 测试流程：六步，从静态到真机** → `references/email-design.md` L615
@@ -3684,6 +3741,7 @@ _873 行 · 快照 — · 50 节_
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
 - **§14 反模式 20 条** → `references/auth-account-ux.md` L629
+- **§14 取源限制（本轮实测，未取到的一律不臆造）** → `references/pricing-localization.md` L691
 - **§14 取源限制（本轮实测，逐条登记）** → `references/file-upload-media-input.md` L699
 - **§14 可抄代码** → `references/feedback-states.md` L485
 - **§14 文案词表（直接抄）** → `references/email-design.md` L628 · `references/realtime-collaboration.md` L555
@@ -3731,6 +3789,7 @@ _873 行 · 快照 — · 50 节_
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 客户端矩阵：四种渲染引擎，各自丢什么** → `references/email-design.md` L54
 - **§2 对比度：四个阈值、一条铁律、一个中文陷阱** → `references/accessibility.md` L38
+- **§2 币种与最小单位：价格是"金额+币种+小数位"** → `references/pricing-localization.md` L39
 - **§2 时间阈值（唯一的权威刻度）** → `references/feedback-states.md` L46
 - **§2 架构选型：三种路线与它们能承诺的话** → `references/video-player-captions.md` L46
 - **§2 登录界面解剖（证明身份层）** → `references/auth-account-ux.md` L86
@@ -3744,6 +3803,7 @@ _873 行 · 快照 — · 50 节_
 - **§3 Toast / Snackbar / Message（轻提示）** → `references/feedback-states.md` L75
 - **§3 三个合规出口怎么落成产品（不是三选一写进文档，而是三选一写进 UI）** → `references/keyboard-shortcuts-command-palette.md` L99
 - **§3 价格数字排版（照数值抄）** → `references/pricing-checkout.md` L48
+- **§3 含税口径：三种世界，三套写法** → `references/pricing-localization.md` L91
 - **§3 控制栏构型：控件顺序、隐藏时机与命中区** → `references/video-player-captions.md` L73
 - **§3 文档模型：树、属性与 fractional index** → `references/realtime-collaboration.md` L70
 - **§3 栏数、gutter 与基线网格** → `references/editorial-layout.md` L74
@@ -3761,6 +3821,7 @@ _873 行 · 快照 — · 50 节_
 - **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** → `references/keyboard-shortcuts-command-palette.md` L121
 - **§4 时间轴语义：点按、拖拽、帧步进** → `references/video-player-captions.md` L128
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
+- **§4 税额反算与取整：四种取整位置，一种记账方式** → `references/pricing-localization.md` L172
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 能力清单：caniemail 实测表（2026-09-16 数据）** → `references/email-design.md` L173
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
@@ -3768,6 +3829,7 @@ _873 行 · 快照 — · 50 节_
 - **§5 Passkeys / WebAuthn（首选路径）** → `references/auth-account-ux.md` L250
 - **§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd** → `references/keyboard-shortcuts-command-palette.md` L221
 - **§5 图片：默认不显示的那一半设计** → `references/email-design.md` L243
+- **§5 地区定价：三种体系，选一种并写进设计系统** → `references/pricing-localization.md` L224
 - **§5 声音：能不能响、响给谁听、被谁打断** → `references/sound-haptics-feedback.md` L254
 - **§5 媒体输入特化** → `references/file-upload-media-input.md` L233
 - **§5 字号模数与层级（字号阶梯）** → `references/editorial-layout.md` L161
@@ -3778,6 +3840,7 @@ _873 行 · 快照 — · 50 节_
 - **§5 空态 / 空状态（五种"空"）** → `references/feedback-states.md` L177
 - **§5 装饰插画与图标：何时用、何时省、无障碍** → `references/empty-states.md` L105
 - **§6 key 与 code：键盘布局、输入法组合（IME）与输入框焦点** → `references/keyboard-shortcuts-command-palette.md` L304
+- **§6 「原价」不是设计自由度：法定回溯期对照（DE / CN / JP）** → `references/pricing-localization.md` L263
 - **§6 三通道配方表（设计交付时直接填）** → `references/sound-haptics-feedback.md` L358
 - **§6 冲突界面：三种冲突，三种说法** → `references/realtime-collaboration.md` L236
 - **§6 单主行动与 CTA 纪律** → `references/empty-states.md` L122
@@ -3791,6 +3854,7 @@ _873 行 · 快照 — · 50 节_
 - **§6 错误状态的分级** → `references/feedback-states.md` L230
 - **§7 一次性口令的单框** → `references/auth-account-ux.md` L399
 - **§7 作用域、绑定与冲突仲裁（含 chord 多段序列）** → `references/keyboard-shortcuts-command-palette.md` L361
+- **§7 单位价格：按量计价是义务，不是装饰** → `references/pricing-localization.md` L296
 - **§7 可访问性：这是硬约束，不是「关怀选项」** → `references/sound-haptics-feedback.md` L379
 - **§7 多人撤销：只撤自己的，且要能解释** → `references/realtime-collaboration.md` L284
 - **§7 字幕样式实现：从 ::cue 到自绘层** → `references/video-player-captions.md` L251
@@ -3807,6 +3871,7 @@ _873 行 · 快照 — · 50 节_
 - **§8 变体与承载位置（全屏 / 容器内 / 表格区 / 迷你 widget）** → `references/empty-states.md` L147
 - **§8 媒体策略：iOS 门控与静音开播** → `references/video-player-captions.md` L293
 - **§8 安全与隐私：客户端做体验，服务端做边界** → `references/file-upload-media-input.md` L379
+- **§8 尾数与数字格式：符号、分组、空格、括号** → `references/pricing-localization.md` L324
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 评论与批注：锚点会死，线程不能死** → `references/realtime-collaboration.md` L307
@@ -3817,6 +3882,7 @@ _873 行 · 快照 — · 50 节_
 - **§9 十个高频场景速查** → `references/feedback-states.md` L372
 - **§9 发现性：帮助面板、菜单标注与 kbd 样式** → `references/keyboard-shortcuts-command-palette.md` L571
 - **§9 可访问性：四条 SC + 一套键位** → `references/video-player-captions.md` L334
+- **§9 多币种工程：price book、FX 缓冲、结算币种** → `references/pricing-localization.md` L352
 - **§9 库选型：GitHub API 实测（2026-11-16）** → `references/file-upload-media-input.md` L406
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 权限与分享：角色矩阵、继承陷阱、即时回收** → `references/realtime-collaboration.md` L354
@@ -3915,7 +3981,7 @@ _873 行 · 快照 — · 50 节_
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L158
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L163
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3925,12 +3991,12 @@ _873 行 · 快照 — · 50 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（188 条，做到 ≥110 条即达 L2+）** → `references/knowledge-map.md` L656
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1043
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1056
+- **能力自测（190 条，做到 ≥112 条即达 L2+）** → `references/knowledge-map.md` L666
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1052
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1065
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1079
+- **边界与习惯** → `SKILL.md` L1088
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

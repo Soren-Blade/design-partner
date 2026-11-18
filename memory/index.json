@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-17T21:59:09",
+ "generated": "2026-11-18T21:22:04",
  "files": [
   {
    "path": "SKILL.md",
    "title": "Design Partner 设计伙伴",
    "snapshot": "—",
-   "lines": 1092,
-   "chars": 235077,
+   "lines": 1102,
+   "chars": 240793,
    "sections": []
   },
   {
@@ -9931,8 +9931,8 @@
    "path": "references/knowledge-map.md",
    "title": "设计能力知识路线图 — Knowledge Map（L0→L4）",
    "snapshot": "2026-11-05",
-   "lines": 799,
-   "chars": 85780,
+   "lines": 809,
+   "chars": 86897,
    "sections": [
     {
      "id": "全景-五级台阶与对应产出",
@@ -10495,11 +10495,19 @@
      "chars": 982
     },
     {
-     "id": "能力自测-188-条-做到-110-条即达-l2",
-     "level": 2,
-     "title": "能力自测（188 条，做到 ≥110 条即达 L2+）",
-     "summary": "L0",
+     "id": "支线-aq-定价本地化-pricing-localization-币种-含税口径与法定原价",
+     "level": 3,
+     "title": "支线 AQ · 定价本地化（Pricing Localization：币种、含税口径与法定原价）",
+     "summary": "- 这是什么（商业数字 + 合规侧）：同一件商品卖到多个国家时「这个价怎么写」的三元归属问题——币种小数位、含税口径、地区价差、税额反算、法定原价窗口、单位价格。",
      "line": 656,
+     "chars": 1064
+    },
+    {
+     "id": "能力自测-190-条-做到-112-条即达-l2",
+     "level": 2,
+     "title": "能力自测（190 条，做到 ≥112 条即达 L2+）",
+     "summary": "L0",
+     "line": 666,
      "chars": 8677
     }
    ]
@@ -14925,6 +14933,351 @@
    ]
   },
   {
+   "path": "references/pricing-localization.md",
+   "title": "定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价",
+   "snapshot": "—",
+   "lines": 706,
+   "chars": 26650,
+   "sections": [
+    {
+     "id": "0-一句话立场",
+     "level": 2,
+     "title": "§0 一句话立场",
+     "summary": "价格不是一个数字，是一个三元组 (金额, 币种, 含税口径)；少任何一元，这个价格就是错的。 设计能决定的是这三元的展示归属与时机（哪个页面、哪一行、什么时候变），不能决定的是三元的取值（小数位由 ISO 4217 定、含税口径由销售地法规",
+     "line": 8,
+     "chars": 213
+    },
+    {
+     "id": "1-判层-先问七个问题-再动手",
+     "level": 2,
+     "title": "§1 判层：先问七个问题，再动手",
+     "summary": "本地化定价出问题，九成是没先判定自己落在哪一层就画界面。开工前把七问答完，答不出的一律回退到\"只显示一个市场\"。",
+     "line": 14,
+     "chars": 819
+    },
+    {
+     "id": "2-币种与最小单位-价格是-金额-币种-小数位",
+     "level": 2,
+     "title": "§2 币种与最小单位：价格是\"金额+币种+小数位\"",
+     "summary": "ISO 4217 官方清单由 SIX 发布（本轮实测 List One，文件头 <ISO4217 Pblshd=\"2026-09-17\"），每个币种在 <CcyMnrUnts 里给出\"最小单位位数\"。逐字样例：",
+     "line": 39,
+     "chars": 1
+    },
+    {
+     "id": "2-1-小数位不是设计偏好-是-iso-4217-的数据",
+     "level": 3,
+     "title": "2.1 小数位不是设计偏好，是 ISO 4217 的数据",
+     "summary": "ISO 4217 官方清单由 SIX 发布（本轮实测 List One，文件头 <ISO4217 Pblshd=\"2026-09-17\"），每个币种在 <CcyMnrUnts 里给出\"最小单位位数\"。逐字样例：",
+     "line": 41,
+     "chars": 829
+    },
+    {
+     "id": "2-2-intl-numberformat-的四个显示开关-mdn-原文",
+     "level": 3,
+     "title": "2.2 Intl.NumberFormat 的四个显示开关（MDN 原文）",
+     "summary": "\"The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as \"USD\" for the US d",
+     "line": 64,
+     "chars": 1265
+    },
+    {
+     "id": "3-含税口径-三种世界-三套写法",
+     "level": 2,
+     "title": "§3 含税口径：三种世界，三套写法",
+     "summary": "同一件 9.99 的商品，在三个市场必须写三个样子：",
+     "line": 91,
+     "chars": 338
+    },
+    {
+     "id": "3-1-欧盟-标准税率下限-15-减税率下限-5-欧盟委员会原文",
+     "level": 3,
+     "title": "3.1 欧盟：标准税率下限 15%，减税率下限 5%（欧盟委员会原文）",
+     "summary": "\"This is the rate EU countries must apply when supplying most goods and services. It must be no less than 15%, but there",
+     "line": 102,
+     "chars": 654
+    },
+    {
+     "id": "3-2-德国-19-7-0-ustg-12-原文",
+     "level": 3,
+     "title": "3.2 德国：19% / 7% / 0%（UStG §12 原文）",
+     "summary": "\"Die Steuer beträgt für jeden steuerpflichtigen Umsatz 19 Prozent der Bemessungsgrundlage (§§ 10, 11, 25 Abs. 3 und § 25",
+     "line": 112,
+     "chars": 600
+    },
+    {
+     "id": "3-3-英国-20-5-0",
+     "level": 3,
+     "title": "3.3 英国：20% / 5% / 0%",
+     "summary": "\"The standard VAT rate is 20%\"",
+     "line": 126,
+     "chars": 364
+    },
+    {
+     "id": "3-4-日本-総額表示是义务-消法-63",
+     "level": 3,
+     "title": "3.4 日本：総額表示是义务（消法 63）",
+     "summary": "国税庁 No.6902 逐字：",
+     "line": 134,
+     "chars": 586
+    },
+    {
+     "id": "3-5-中国-人民币金额-明码标价",
+     "level": 3,
+     "title": "3.5 中国：人民币金额 + 明码标价",
+     "summary": "《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号）逐字：",
+     "line": 152,
+     "chars": 380
+    },
+    {
+     "id": "3-6-美国-标不含税-但-总价-仍受-ftc-约束",
+     "level": 3,
+     "title": "3.6 美国：标不含税，但\"总价\"仍受 FTC 约束",
+     "summary": "美国零售商习惯标 $9.99 不含销售税，结账才加。注意这不是\"可以不告诉用户总价\"——FTC 的 total price 规则要求广告里能算出最终应付额（pricing-checkout.md §4 已详述）。多市场设计时最容易犯的错：把",
+     "line": 166,
+     "chars": 188
+    },
+    {
+     "id": "4-税额反算与取整-四种取整位置-一种记账方式",
+     "level": 2,
+     "title": "§4 税额反算与取整：四种取整位置，一种记账方式",
+     "summary": "含税价已知、税率已知时，税额不是乘出来的，是反算出来的：",
+     "line": 172,
+     "chars": 155
+    },
+    {
+     "id": "4-1-取整位置决定会不会差-1-分",
+     "level": 3,
+     "title": "4.1 取整位置决定会不会差 1 分",
+     "summary": "",
+     "line": 183,
+     "chars": 270
+    },
+    {
+     "id": "4-2-stripe-的官方处理方式-照抄这个思路",
+     "level": 3,
+     "title": "4.2 Stripe 的官方处理方式（照抄这个思路）",
+     "summary": "\"For invoices where the amount is fractional after prorations, coupons, or taxes, Stripe automatically rounds that amoun",
+     "line": 192,
+     "chars": 453
+    },
+    {
+     "id": "4-3-最小收款额的坑",
+     "level": 3,
+     "title": "4.3 最小收款额的坑",
+     "summary": "\"Stripe enforces a minimum payment amount for all charges to make sure the Stripe fee doesn't exceed your charge. The mi",
+     "line": 202,
+     "chars": 873
+    },
+    {
+     "id": "4-4-零小数币种的特殊写法",
+     "level": 3,
+     "title": "4.4 零小数币种的特殊写法",
+     "summary": "\"Enter 10 to charge 10 JPY (or any other zero-decimal currency)\"",
+     "line": 214,
+     "chars": 394
+    },
+    {
+     "id": "5-地区定价-三种体系-选一种并写进设计系统",
+     "level": 2,
+     "title": "§5 地区定价：三种体系，选一种并写进设计系统",
+     "summary": "",
+     "line": 224,
+     "chars": 216
+    },
+    {
+     "id": "5-1-apple-app-store-的价格点-官方原文",
+     "level": 3,
+     "title": "5.1 Apple App Store 的价格点（官方原文）",
+     "summary": "\"Apps with auto-renewable subscriptions can choose from 800 price points across all available currencies and price tiers",
+     "line": 232,
+     "chars": 1065
+    },
+    {
+     "id": "5-2-自建站-fx-缓冲与价格点三段式",
+     "level": 3,
+     "title": "5.2 自建站：FX 缓冲与价格点三段式",
+     "summary": "自建多币种站的可执行流程（本文 §13 代码块 D 实现）：",
+     "line": 250,
+     "chars": 349
+    },
+    {
+     "id": "6-原价-不是设计自由度-法定回溯期对照-de-cn-jp",
+     "level": 2,
+     "title": "§6 「原价」不是设计自由度：法定回溯期对照（DE / CN / JP）",
+     "summary": "这是本轮第一条硬红线：划线价、-30%、省 €20 里的那个\"原价\"，在多数市场是有法定计算期间的，不是文案可以挑的数字。",
+     "line": 263,
+     "chars": 1568
+    },
+    {
+     "id": "7-单位价格-按量计价是义务-不是装饰",
+     "level": 2,
+     "title": "§7 单位价格：按量计价是义务，不是装饰",
+     "summary": "德国 PAngV §4(1) 逐字：",
+     "line": 296,
+     "chars": 920
+    },
+    {
+     "id": "8-尾数与数字格式-符号-分组-空格-括号",
+     "level": 2,
+     "title": "§8 尾数与数字格式：符号、分组、空格、括号",
+     "summary": "- x.99 不是普世最优：日本、韩国电商大量使用整数价（¥1,980、₩19,000），.99 反而显得廉价；德国/奥地利对 9.99 接受度高；中国偏好整数或 x8/x9 尾数。",
+     "line": 324,
+     "chars": 1
+    },
+    {
+     "id": "8-1-格式层-i18n-localization-md-十-已给-locale-分组规则-这里只补价格专属项",
+     "level": 3,
+     "title": "8.1 格式层（i18n-localization.md §十 已给 locale 分组规则，这里只补价格专属项）",
+     "summary": "",
+     "line": 326,
+     "chars": 388
+    },
+    {
+     "id": "8-2-尾数-charm-pricing-的文化边界",
+     "level": 3,
+     "title": "8.2 尾数（charm pricing）的文化边界",
+     "summary": "- x.99 不是普世最优：日本、韩国电商大量使用整数价（¥1,980、₩19,000），.99 反而显得廉价；德国/奥地利对 9.99 接受度高；中国偏好整数或 x8/x9 尾数。",
+     "line": 336,
+     "chars": 290
+    },
+    {
+     "id": "8-3-价格排版的尺寸-沿用-pricing-checkout-md-3-不重复推导",
+     "level": 3,
+     "title": "8.3 价格排版的尺寸（沿用 pricing-checkout.md §3，不重复推导）",
+     "summary": "主价 40–48px、font-variant-numeric: tabular-nums、货币符号 0.5em 且上移 0.13em、价格差异 ≤20% 时不加额外强调。本地化新增两条：",
+     "line": 343,
+     "chars": 258
+    },
+    {
+     "id": "9-多币种工程-price-book-fx-缓冲-结算币种",
+     "level": 2,
+     "title": "§9 多币种工程：price book、FX 缓冲、结算币种",
+     "summary": "product",
+     "line": 352,
+     "chars": 1
+    },
+    {
+     "id": "9-1-数据结构-price-book-是三层-不是一层",
+     "level": 3,
+     "title": "9.1 数据结构：price book 是三层，不是一层",
+     "summary": "设计评审要看的三件事：",
+     "line": 354,
+     "chars": 256
+    },
+    {
+     "id": "9-2-展示币种-结算币种时的三条-ui-义务",
+     "level": 3,
+     "title": "9.2 展示币种 ≠ 结算币种时的三条 UI 义务",
+     "summary": "1. 显式告知：结账页展示\"将以 EUR 结算，发卡行可能收取换汇费\"。",
+     "line": 368,
+     "chars": 178
+    },
+    {
+     "id": "9-3-免运费门槛-优惠券-阶梯价都要跟着币种走",
+     "level": 3,
+     "title": "9.3 免运费门槛、优惠券、阶梯价都要跟着币种走",
+     "summary": "满 $50 免运费 是多币种站最典型的断裂点：€ 站用户永远达不到 $50（因为展示的是 €）。规则：",
+     "line": 374,
+     "chars": 202
+    },
+    {
+     "id": "9-4-汇率数据的工程约束-设计要能提需求",
+     "level": 3,
+     "title": "9.4 汇率数据的工程约束（设计要能提需求）",
+     "summary": "- 汇率记录必须带 updatedat 与 source；UI 上\"价格约合\"类文案要有\"汇率更新于 …\"的落点。",
+     "line": 382,
+     "chars": 184
+    },
+    {
+     "id": "10-法标清单-按市场查表",
+     "level": 2,
+     "title": "§10 法标清单：按市场查表",
+     "summary": "产出前按下表核对该市场要出现的信息。\"要不要标\"不是偏好，是市场决定的。",
+     "line": 390,
+     "chars": 655
+    },
+    {
+     "id": "11-反模式-20-条-看到即打回",
+     "level": 2,
+     "title": "§11 反模式（20 条，看到即打回）",
+     "summary": "1. 全站一套价格写死，只在文案里把 $ 换成 €（汇率、税率、口径全错）。",
+     "line": 408,
+     "chars": 642
+    },
+    {
+     "id": "12-自检清单-20-条-产出前逐条打勾",
+     "level": 2,
+     "title": "§12 自检清单（20 条，产出前逐条打勾）",
+     "summary": "- [ ] 1. 每个价格都能回答\"哪个币种、几位小数、含不含税\"三元。",
+     "line": 433,
+     "chars": 852
+    },
+    {
+     "id": "13-可跑校验代码-6-段-python-i-x-utf8-file-实跑通过",
+     "level": 2,
+     "title": "§13 可跑校验代码（6 段，python -I -X utf8 <file 实跑通过）",
+     "summary": "全部只用标准库（decimal / datetime）。把每段存成 .py 单独跑，或拼在一个文件里按顺序执行。",
+     "line": 458,
+     "chars": 67
+    },
+    {
+     "id": "段-a-最小单位与展示位数",
+     "level": 3,
+     "title": "段 A · 最小单位与展示位数",
+     "summary": "",
+     "line": 462,
+     "chars": 1
+    },
+    {
+     "id": "段-b-含税反算-零小数币种也要对",
+     "level": 3,
+     "title": "段 B · 含税反算（零小数币种也要对）",
+     "summary": "",
+     "line": 504,
+     "chars": 1
+    },
+    {
+     "id": "段-c-逐行取整-vs-汇总取整的-1-分差",
+     "level": 3,
+     "title": "段 C · 逐行取整 vs 汇总取整的 1 分差",
+     "summary": "",
+     "line": 533,
+     "chars": 1
+    },
+    {
+     "id": "段-d-fx-缓冲定价-价格点-两位小数-vs-零小数",
+     "level": 3,
+     "title": "段 D · FX 缓冲定价 + 价格点（两位小数 vs 零小数）",
+     "summary": "",
+     "line": 575,
+     "chars": 1
+    },
+    {
+     "id": "段-e-原价-法定窗口校验-de-30-日-cn-7-日",
+     "level": 3,
+     "title": "段 E · \"原价\"法定窗口校验（DE 30 日 / CN 7 日）",
+     "summary": "",
+     "line": 614,
+     "chars": 1
+    },
+    {
+     "id": "段-f-grundpreis-单位价格-与-10g-10ml-豁免",
+     "level": 3,
+     "title": "段 F · Grundpreis（单位价格）与 10g/10ml 豁免",
+     "summary": "---",
+     "line": 655,
+     "chars": 6
+    },
+    {
+     "id": "14-取源限制-本轮实测-未取到的一律不臆造",
+     "level": 2,
+     "title": "§14 取源限制（本轮实测，未取到的一律不臆造）",
+     "summary": "已逐字取到并可直接引用的源：SIX ISO 4217 List One、Stripe currencies.md、MDN Intl.NumberFormat、欧盟委员会 VAT rates 页、GOV.UK VAT rates、德国 USt",
+     "line": 691,
+     "chars": 1646
+    }
+   ]
+  },
+  {
    "path": "references/realtime-collaboration.md",
    "title": "实时协作与多人编辑（Real-time Collaboration & Presence）",
    "snapshot": "2026-11-16",
@@ -18595,8 +18948,8 @@
    "path": "memory/design-log.md",
    "title": "设计记忆（自我成长档案）",
    "snapshot": "—",
-   "lines": 873,
-   "chars": 196714,
+   "lines": 889,
+   "chars": 206379,
    "sections": []
   }
  ],

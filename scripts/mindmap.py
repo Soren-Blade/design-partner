@@ -150,6 +150,8 @@ INTENTS = [
     ("邮件设计 / HTML 邮件 / EDM / 营销邮件排版", "email-design.md §1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型"),
     ("Outlook 兼容 / 圆角按钮 / @font-face 回退 / 深色模式反色", "email-design.md §2 四种渲染引擎 → §4.1 特性替代表 → §6 深色三通道 → §9 对比度"),
     ("邮件体积 / Gmail 102KB 截断 / 主题行 / preheader", "email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt"),
+    ("定价本地化 / 多币种价格 / 币种切换 / 含税口径", "pricing-localization.md §1 七问判层 → §2 ISO 4217 最小单位表 → §3 三种含税口径 → §9 price book 与结算币种"),
+    ("税额反算 / 划线价原价 / 单位价格 / 地区价差", "pricing-localization.md §4 反算与取整记账 → §6 法定原价窗口 → §7 Grundpreis 与 10g 豁免"),
 
 ]
 

@@ -748,3 +748,35 @@
 - https://github.com/maildev/maildev | [GH] 轻量 SMTP 捕获与 Web 预览；API 实测 6,160★ / MIT / push 2026-09-24 / 未归档（v49 API 实测）
 
 - 取源限制（v49）：caniemail 仅覆盖 308 条特性、无 Gmail iOS 20 KB 的官方页（该数值只引 Klaviyo 二手）；QQ 邮箱 / 163 邮箱无公开逐特性支持度数据，仅作 P1 真机抽测，不写成「支持 / 不支持」结论；`support.google.com/a/answer/13210984` 与 `documentation.mjml.io` 首页抓取 `fetch failed`，所有引用值均来自可取得的正文段落；`Dark Reader` 等反色工具不列入客户端矩阵（属用户端覆盖层，非邮件客户端行为）。
+
+## 三十四、定价本地化（Pricing Localization）【v50 本轮新增分区】
+
+- https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml | ISO 4217 List One 官方 XML（SIX 发布，文件头 `<ISO_4217 Pblshd="2026-09-17">`）：取 `<CcyMnrUnts>` 最小单位位数（JPY/KRW/VND/ISK/XOF=0，KWD/BHD/JOD/OMR/TND=3，CLF/UYW=4）（v50 一手源：定每个币种的金额小数位与最小单位换算）
+- https://docs.stripe.com/currencies.md | Stripe 支持币种与最小收款额：amount 用最小单位、最低额按结算币种、发票分数金额取整到 100 的倍数并记客户余额（v50 一手源：定支付侧最小单位传参、取整与余额处理）
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat | MDN Intl.NumberFormat：currencyDisplay 四档（symbol / narrowSymbol / code / name）、currencySign:「accounting」括号负数、JPY 无最小单位（v50 一手源：定前端货币格式化参数与负数展示）
+- https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en | 欧盟委员会 VAT 税率框架：标准税率不低于 15%（VAT 指令 Art.97）、减税率最低 5%（Art.98(1)），具体税率由成员国定（v50 一手源：定 EU 多国税率下限与「不可写死单一税率」的边界）
+- https://www.gov.uk/vat-rates | 英国 VAT 税率：标准 20% / 减税 5% / 零税率 0%（v50 一手源：定英国站点含税价换算与税率标注）
+- https://www.gesetze-im-internet.de/ustg_1980/__12.html | 德国 UStG §12：标准 19%、减税 7%、0%（光伏）（v50 一手源：定德国站点税率与含税价反推）
+- https://www.gesetze-im-internet.de/pangv_2022/__2.html | 德国 PAngV §2：Gesamtpreis 必须含增值税、Grundpreis 同含税口径（v50 一手源：定「总价含税」法定口径，禁止税前价当展示价）
+- https://www.gesetze-im-internet.de/pangv_2022/__4.html | 德国 PAngV §4：必须标基准价（每 kg/L/m），净重<10g 或净体积<10ml 豁免（v50 一手源：定基准价（unit price）字段与豁免判断）
+- https://www.gesetze-im-internet.de/pangv_2022/__11.html | 德国 PAngV §11：降价必须标「前 30 天曾适用最低总价」，个性化降价与易腐品豁免（v50 一手源：定折扣标签的参照价取数与例外）
+- https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6902.htm | 日本国税庁 No.6902：総額表示義務（含税价展示义务，依据 消法 63）（v50 一手源：定日本站点必须展示含税总价）
+- https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6101.htm | 日本国税庁 No.6101：标准 10%（含地方消费税 2.2%）、减税 8%（含 1.76%），并预告令和 9.4.1–令和 11.3.31 饮食料品税率下调（v50 一手源：定日本税率分组与未来税率可变的配置项）
+- https://www.caa.go.jp/policies/policy/representation/fair_labeling/faq/representation | 日本消费者厅 表示規約 FAQ：Q18 含税价义务、Q21 二重価格表示（8 周内过半且累计≥2 周、最后售卖日距展示未满 2 周）（v50 一手源：定「原价/划掉价」的合法参照窗口）
+- https://www.gov.cn/gongbao/content/2022/content_5699926.htm | 中国《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号）：第七条品名价格计价单位、第九条人民币金额、第十六条前 7 日最低价、第十七条禁止促销前临时提价、第二十条首页价不得低于详情价（v50 一手源：定中国站点划线价与促销价合规口径）
+- https://developer.apple.com/app-store/subscriptions/ | Apple App Store 订阅定价：800 个价格点 + 100 个更高价格点按需申请、默认价含税、汇率/税率变化默认不传导给用户（v50 一手源：定应用内订阅价格点选择与「不自动涨价」策略）
+
+## 三十四·附：定价本地化相关 GitHub 仓库（v50 GitHub API 实测）
+
+- https://github.com/dinerojs/dinero.js | 6814 ★ · MIT · pushed 2026-11-18 · archived=false | 不可变金额对象，规避浮点
+- https://github.com/unicode-org/cldr | 1173 ★ · Other (NOASSERTION) · pushed 2026-11-18 · archived=false | 货币/数字/复数本地化数据源
+- https://github.com/formatjs/formatjs | 14754 ★ · 无 license 声明 (NONE) · pushed 2026-11-18 · archived=false | react-intl / intl-messageformat，注意商用前确认授权
+- https://github.com/saleor/saleor | 23584 ★ · BSD-3-Clause · pushed 2026-11-18 · archived=false | 多市场多币种电商后端
+- https://github.com/medusajs/medusa | 37303 ★ · Other (NOASSERTION) · pushed 2026-11-18 · archived=false | 区域/币种价目表模型参考
+- https://github.com/vendurehq/vendure | 8604 ★ · Other (NOASSERTION) · pushed 2026-11-18 · archived=false | 多币种定价与税费插件架构（原 vendure-ecommerce/vendure 已重定向）
+- https://github.com/scurker/currency.js | 3375 ★ · MIT · pushed 2026-10-31 · archived=false | 轻量货币换算与格式化
+- https://github.com/globalizejs/globalize | 4835 ★ · MIT · pushed 2026-11-17 · archived=false | 基于 CLDR 的货币格式化
+- https://github.com/stripe/stripe-node | 4574 ★ · MIT · pushed 2026-11-18 · archived=false | 最小单位 amount 与多币种结算实现参考
+- https://github.com/taxjar/taxjar-node | 57 ★ · MIT · pushed 2026-02-03 · archived=false | 美国销售税计算 API 客户端（示例用，热度低）
+
+- 取源限制（v50）：EUR-Lex 指令 98/6/EC、2019/2161、2018/302 三个地址均返回 HTTP 202 空正文（/TXT/HTML/、/TXT/PDF/、/eli/ 变体同样），故 EU 侧法条一律改引成员国转写本（德国 UStG §12 与 PAngV §2/§4/§11、日本 消法63 与 CAA Q18/Q21、中国 56 号令）；iso.org 的 ISO 4217 页被 Cloudflare 403 拦截，改用 SIX 官方 list-one.xml；Google Play 开发者价格区间页与印度 Legal Metrology 站 fetch failed 未取到，相关数值不写入；Apple App Store Connect 定价帮助页正文为 Page Not Found，改用 app-store/subscriptions 页。

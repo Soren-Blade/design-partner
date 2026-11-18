@@ -19,7 +19,11 @@
 """
 
 import argparse
+import contextlib
 import json
+import os
+import shutil
+import time
 import subprocess
 import sys
 import tempfile
@@ -33,25 +37,25 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 email-design.md 前 3。
-# #45 换轮：13 条覆盖骨架 / 客户端兼容 / 体积截断 / 图片屏蔽 / 深色反色 / 字体栈 /
-# 主题行与 preheader / 可达性 / 合规位置 / 工程选型 / 测试流程 / EDM 版式 / 中文排版，
-# 且混入「组件 / 无障碍 / 验收 / 度量 / 对比」等跨域词（#26 P1 教训）。
-# #44 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #45 沉淀块）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 pricing-localization.md 前 3。
+# #46 换轮：13 条覆盖最小单位 / 含税口径 / 税额反算 / 法定原价 / 地区价差 / 单位价格 /
+# 汇率缓冲 / 价格点尾数 / 结算币种与最小收款额 / 切币一致性 / 折扣取整，且混入
+# 「校验 / 验收 / 合规 / 组件 / 策略」等跨域词（#26 P1 教训）。
+# #45 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #46 沉淀块）。
 NEW_QUERIES = [
-    "邮件模板 600px 表格 骨架 单列 排版 验收",
-    "Outlook 兼容 Word 引擎 圆角 按钮 VML 组件",
-    "HTML 邮件 体积 102KB 截断 预算 度量",
-    "图片 屏蔽 不显示 alt 替代 邮件 设计",
-    "邮件 深色模式 反色 prefers-color-scheme 对比度",
-    "邮件 字体栈 @font-face mso-font-alt 回退 中文",
-    "主题行 长度 preheader 预览文字 首屏 文案",
-    "邮件 可访问性 读屏 role table 对比度 验收",
-    "营销邮件 退订 位置 页脚 合规 广告法",
-    "MJML React Email 选型 对比 组件 库",
-    "邮件 测试 真机 客户端 矩阵 流程 验收",
-    "EDM 长图 营销 活动 邮件 版式 度量",
-    "中文 邮件 排版 字号 行高 行长 一行",
+    "多币种 价格 显示 小数位 校验 验收",
+    "日元 价格 小数位 ISO 4217 最小单位 规范",
+    "含税 不含税 价格 显示 欧洲 合规",
+    "日本 総額表示 税込 价格 标示 合规",
+    "税额 反算 取整 差额 记账 结账",
+    "划线价 原价 法定 回溯 窗口 最低价 期间",
+    "地区 定价 购买力 价差 成本 汇兑",
+    "单位价格 每公斤 Grundpreis 标示 组件",
+    "汇率 换算 价格 缓冲 上浮 策略",
+    "价格点 尾数 心理 定价 价格表",
+    "结算 币种 展示 币种 最小 收款 额 支付",
+    "币种 切换 展示币种 结算 币种 锁价 一致性",
+    "优惠券 折扣 叠加 取整 含税 价格 计算",
 ]
 
 
@@ -319,9 +323,23 @@ HIST_QUERIES = [
     "直播 时间轴 DVR 拖回 实时 边缘",
     "短视频 竖屏 手势 双击 点赞 进度",
     "视频 封面 首帧 海报 性能 组件",
+    # #46 沉淀：#45 主题门槛查询转为历史样本，验收「新增 pricing-localization.md 后不退化」。
+    "邮件模板 600px 表格 骨架 单列 排版 验收",
+    "Outlook 兼容 Word 引擎 圆角 按钮 VML 组件",
+    "HTML 邮件 体积 102KB 截断 预算 度量",
+    "图片 屏蔽 不显示 alt 替代 邮件 设计",
+    "邮件 深色模式 反色 prefers-color-scheme 对比度",
+    "邮件 字体栈 @font-face mso-font-alt 回退 中文",
+    "主题行 长度 preheader 预览文字 首屏 文案",
+    "邮件 可访问性 读屏 role table 对比度 验收",
+    "营销邮件 退订 位置 页脚 合规 广告法",
+    "MJML React Email 选型 对比 组件 库",
+    "邮件 测试 真机 客户端 矩阵 流程 验收",
+    "EDM 长图 营销 活动 邮件 版式 度量",
+    "中文 邮件 排版 字号 行高 行长 一行",
 ]
 
-EXPECT_FILE = "email-design.md"
+EXPECT_FILE = "pricing-localization.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
@@ -334,13 +352,23 @@ NEW_ASSETS = {EXPECT_FILE}
 # #44：新资产 §3「控制栏构型」凭原词「音量 / 控制」进入历史查询第 2 位；三条硬校验 a/b/c 全过：
 # HEAD top1（knowledge-map.md）未被顶掉，HEAD top3 的 sound-haptics-feedback 两条仍在 NOW 第 3/4，
 # 新进入者 video-player-captions 在 --no-alias 下仍在第 2。
+# #46：清空 #44 的两条登记（已随 #45 提交进入 HEAD 基线，按「已沉淀」判例移除）；
+# 同时登记本轮两条真实演进，三条硬校验 a/b/c 均已实测通过：
+# #46-1「价格数字 排版 货币符号 tabular-nums 字号」——HEAD top3 = [pricing-checkout ×2, typography-system]；
+#   NOW top5 = [pricing-checkout, pricing-checkout, pricing-localization, typography-system, pricing-localization]，
+#   a=HEAD top1 仍是 top1、b=typography-system 仍在第 4、c=新进入者只有 pricing-localization 且 --no-alias 仍在第 3。
+# #46-2「划线价 原价 划掉 折扣百分比 计算 合规」——HEAD top3 = [pricing-checkout ×2, content-findability]；
+#   NOW top5 = [pricing-checkout, pricing-localization, pricing-checkout, knowledge-map, content-findability]，
+#   a=HEAD top1 仍是 top1、b=content-findability 仍在第 5、c=新进入者只有 pricing-localization 且 --no-alias 仍在第 2。
+#   该条先做过内容层收敛：把 §6 的「6.1 设计层落法」从 `###` 小标题降为加粗引导句，
+#   让同一文件不再以两个分块重复占位（§6 从 38→52 分、6.1 从 30 分并入），不是改打分逻辑。
 EXPECTED_EVOLUTION = {
-    "WCAG 1.4.2 三秒 自动播放 音量 控制 依据":
-        "video-player-captions §3 控制栏构型进驻第 2 位（音量 / 控制的原词相关性）；"
-        "HEAD top1 knowledge-map.md 未被顶掉，其 top3 的 sound-haptics-feedback 两条仍在 NOW 第 3/4。",
-    "预签名 URL 直传 对象 存储 权限":
-        "realtime-collaboration §9 权限与分享进驻第 2 位（协作权限的原词相关性）；"
-        "HEAD top1 file-upload 未被顶掉，其 top3 的 visual-style-taxonomy / dark-mode 仍在 NOW 第 4/5。",
+    "价格数字 排版 货币符号 tabular-nums 字号":
+        "pricing-localization §8.3 价格排版尺寸进驻第 3 位（货币符号 / 排版的原词相关性）；"
+        "HEAD top1 pricing-checkout.md 未被顶掉，其 top3 的 typography-system 仍在 NOW 第 4。",
+    "划线价 原价 划掉 折扣百分比 计算 合规":
+        "pricing-localization §6 法定回溯窗口进驻第 2 位（原价 / 划线价的原词相关性）；"
+        "HEAD top1 pricing-checkout.md 未被顶掉，其 top3 的 content-findability 仍在 NOW 第 5。",
 }
 
 # 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，
@@ -374,6 +402,22 @@ def topn(search_py: Path, query: str, n: int = 3, no_alias: bool = False) -> lis
         raise RuntimeError(f"dp_search 未返回 JSON: {query}\n{s[:300]}")
     data, _ = json.JSONDecoder().raw_decode(s[start:])
     return [h["file"].rsplit("/", 1)[-1] for h in data["hits"][:n]]
+
+
+@contextlib.contextmanager
+def baseline_tmpdir():
+    """给出一个可被 git 写入的临时目录（Windows 沙箱兼容）。
+
+    tempfile.mkdtemp 建的目录 ACL 过严，git archive 写 head.tar 会被 Permission denied；
+    这里改用 Path.mkdir 建普通目录（继承父目录 ACL），收尾统一 rmtree(ignore_errors=True)。
+    """
+    base = ROOT / ".tmp_regression"
+    d = base / ("run-%d-%d" % (os.getpid(), int(time.time())))
+    d.mkdir(parents=True, exist_ok=True)
+    try:
+        yield d
+    finally:
+        shutil.rmtree(base, ignore_errors=True)
 
 
 def make_baseline(dest: Path) -> Path:
@@ -474,7 +518,7 @@ def main() -> int:
         print("\n（未启用 --baseline，跳过历史回归）")
         return rc
 
-    with tempfile.TemporaryDirectory(prefix="dp-regression-") as tmp:
+    with baseline_tmpdir() as tmp:
         base = make_baseline(Path(tmp))
         base_search = base / "scripts" / "dp_search.py"
         print("\n=== 历史回归（NOW vs git archive HEAD）===")

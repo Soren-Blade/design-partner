@@ -184,13 +184,7 @@ g100（暗色主题）映射（`packages/themes/src/v10/g100.ts`）：
 
 ### 4.1 实测：主流暗色的边框都不达 3:1
 
-| 值 | 来源 | 与底色对比 |
-|---|---|---|
-| `#424242`（Ant `colorBorder`，lighten 26%） | Ant dark | **2.09** |
-| `#303030`（Ant `colorBorderSecondary`，lighten 19%） | Ant dark | **1.59** |
-| gray60 `#6f6f6f`（Carbon `ui04`） | Carbon g100 | **3.60** ✅ |
-
-**这意味着**：抄 `#424242` 做输入框描边不满足 SC 1.4.11（3:1，且按落点底色反解，见 §4.3）；Carbon 的 `ui04` 达标，只是因为它落在 1.22:1 的层上。
+Ant dark 的 `colorBorder` `#424242`（lighten 26%）对底 **2.09**、`colorBorderSecondary` `#303030`（lighten 19%）**1.59**，都不满足 1.4.11；Carbon `ui04` `#6f6f6f` 对 g100 底 **3.60** 达标，只是因为它落在 1.22:1 的层上。**这意味着**：抄 `#424242` 做输入框描边不达标（按落点底色反解，见 §4.3），别记死值。
 
 ### 4.2 三条规则
 
@@ -364,15 +358,7 @@ A 股/中文金融场景的红涨绿跌在暗色下有两个坑：
 3. 之后才是 CSS 与 JS 包
 ```
 
-内联脚本必须在 CSS 之前、且不能 defer。Tailwind 官方示例也是这个思路（"best to add inline in `head` to avoid FOUC"）：
-
-```js
-document.documentElement.classList.toggle(
-  "dark",
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) && matchMedia("(prefers-color-scheme: dark)").matches)
-);
-```
+内联脚本必须在 CSS 之前、且不能 defer；Tailwind 官方示例同此（"best to add inline in `head` to avoid FOUC"）。完整脚本见 §14.2，不在此重复。
 
 ### 9.3 三态切换的存储约定
 
@@ -399,14 +385,11 @@ document.documentElement.classList.toggle(
 - 只有开了 `darkmode` 才拿得到 `theme`（`wx.getSystemInfoSync().theme`）并触发 `onThemeChange`；**但 WXSS 的 `@media (prefers-color-scheme: dark)` 不受这个开关影响**——最容易踩的坑：以为没开就不会变，结果样式被媒体查询改了、配置却没变。
 - 官方已知 bug：iOS 7.0.12 在 light 模式下把 tabBar `borderStyle` 设为 `white` 可能出现黑底。
 
-### 9.6 iOS / Android
+### 9.6 iOS / Android / 鸿蒙（三行）
 
-| 平台 | 要点 |
-|---|---|
-| iOS | 用 **base / elevated 两套系统背景色**，别自定义；`UIColor.labelColor` 等语义色自动适配；`UIUserInterfaceStyle` 不要硬设；Increase Contrast + Reduce Transparency 组合下要复测（Apple 明确警告可能出现「深字压深底」） |
-| Android | 主题继承 DayNight；三态用 `MODE_NIGHT_NO/YES/FOLLOW_SYSTEM`；API 31+ `UiModeManager#setApplicationNightMode`（启动屏也对齐），API 30- 用 `AppCompatDelegate` |
-| Android Force Dark | `forceDarkAllowed` 可自动反色但**必须逐屏复测**，可对单个 View 关闭；继承 DayNight 主题时不生效 |
-| 鸿蒙 | 用 `$r('app.color.xxx')` 资源 + `dark` 限定词目录，不要硬编码 hex |
+- **iOS**：用 base / elevated 两套系统背景与 `UIColor.labelColor` 等语义色，不硬设 `UIUserInterfaceStyle`；Increase Contrast + Reduce Transparency 组合要复测（Apple 警告可能出现「深字压深底」）。
+- **Android**：继承 DayNight，三态 `MODE_NIGHT_*`；API 31+ 用 `UiModeManager#setApplicationNightMode`（启动屏对齐），30- 用 `AppCompatDelegate`。Force Dark 可逐 View 关，**必须逐屏复测**；继承 DayNight 主题时不生效。
+- **鸿蒙**：`$r('app.color.xxx')` + `dark` 限定词目录，不硬编码 hex。
 
 ---
 
@@ -423,7 +406,7 @@ document.documentElement.classList.toggle(
 
 ## 11. 场景速查
 
-底色 → §2.5；正文不用纯白 → §3.3；卡片层级（surface 提亮 + 1px 边框，不靠阴影）→ §5.2 / §4.2；「半套能不能上」→ §1.3。
+底色 §2.5 · 正文不用纯白 §3.3 · 层级看 §5.2 / §4.2 · 半套能不能上 §1.3。
 
 ---
 
@@ -461,7 +444,7 @@ document.documentElement.classList.toggle(
 
 ## 13. 反模式（4 条）
 
-§12 已覆盖反相、纯白文字、`#424242` 边框、45% 辅助文字、`opacity` 禁用等 14 条。以下是清单查不出的四条：
+§12 已覆盖反相、纯白、`#424242` 边框、45% 辅助文字等；以下是清单查不出的四条：
 
 1. **只靠白 glow 表高度**——像"发霉"，与阴影同罪。
 2. **`transition: all .3s`**——切主题时整页卡顿。

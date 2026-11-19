@@ -660,11 +660,13 @@ body { font-size: var(--fs-body); line-height: 1.7; max-width: 38em; }
 ```css
 .action-bar {
   position: sticky; bottom: 0;
-  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
   background: var(--bg);
   border-top: 1px solid var(--border);
 }
 ```
+
+前提 `viewport-fit=cover`，否则 `env()` 恒 0；口径 `numeric-truth.md` §1.3，反例 `before-after.md` 案例 22。
 
 ### 17.6 只在真 hover 设备上做悬停效果
 

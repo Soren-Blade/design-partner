@@ -54,6 +54,7 @@
 | 间距基准 | **4px 基础网格，8px 主阶梯** | 组件内可用 4 的倍数；页面级用 8 的倍数 | design-tokens §2.3（2024）+ M3（2024） | numeric-truth §1.3 |
 | 触控目标 | **≥44×44 CSS px（推荐）** | 法条底线 24×24（AA）；AAA 44×44；适老 48–60 | WCAG 2.2 SC 2.5.8 / 2.5.5（2023）+ Apple HIG（2024） | numeric-truth §1.3 |
 | 点击热区 | 视觉图标 16–24px，热区 **≥44×44** | 桌面鼠标场景可降到 ≥32×32，但不得低于 24 | accessibility §6（2024）+ WCAG 2.2（2023） | numeric-truth §1.3 |
+| 安全区（safe area） | **不写死，取 `env(safe-area-inset-*)`** | 仅 `viewport-fit=cover` 后非 0，桌面恒 0；横屏在 left/right；固定栏用 `calc(基础 + env(…, 0px))` 兜底 | CSS env() / MDN viewport meta（2025） | numeric-truth §1.3 |
 | 动效时长（微交互） | **90–120ms**，ease-out | hover 变色 120–150ms；焦点环 0–100ms | Carbon 动效评估清单（2024） | numeric-truth §1.3 |
 | 动效时长（转场） | 200–300ms；全页路由 250–350ms | 位移 >300px 或全屏 300–400ms；**上限 400ms** | M3 motion（2024）+ Carbon（2024） | numeric-truth §1.3 |
 | 动效超过即需可中断 | **>400ms 必须可中断/可跳过** | 非必要动画还应遵行 `prefers-reduced-motion` | WCAG 2.2 SC 2.2.2（2023）+ 本库 | numeric-truth §1.3 |

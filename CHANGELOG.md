@@ -5,6 +5,20 @@
 
 ---
 
+## v56 · 2026-11-19（案例 22：移动安全区与键盘遮挡；安全区口径落进 §1.3）
+
+- 新增案例 22（移动·结算页）：`viewport-fit=cover` 抄来了，底栏仍是 `padding:0 16px 8px`、按钮 40 高贴底 → 全面屏被 Home 指示条压住，键盘弹起后整条底栏落在键盘后面（`interactive-widget` 默认 `resizes-visual`，缩的是视觉视口、布局视口不变）；改稿=`calc(8px + env(safe-area-inset-bottom, 0px))`、按钮 48、键盘出现时把支付按钮移入内容流。原暗色反相案例顺延为 23，案例集 23 组，§0 分组表改「移动端 21–22 / 暗色 23」。
+- `numeric-truth.md` §1.3 新增「安全区」行：裁决值**不写死、取 `env(safe-area-inset-*)`**；边界=仅 `viewport-fit=cover` 后非 0、桌面恒 0、横屏在 left/right、固定栏 `calc(基础 + env(…, 0px))`。补上 J7 引用 §1.3 却无对应行口的缺口。
+- `responsive-layout.md` §17.5 的 `env()` 补 `, 0px` 兜底，并补一行前提（cover 才非 0 + 口径/反例指针）。
+- 合并：dark-mode §9.7「切换动画」并入 §14.1 已给的「只给颜色加过渡 + reduced-motion」；§10 八条陷阱 → 二条（其余并入 §12 逐条自检）；form-table §17 自检 20 项与 §16 反模式一一对应 → 只留 §16 未覆盖的 7 条硬检查（并删 §16 第 9 条与 §17-1 重复的验证码单框）。
+- 被推翻的旧判断：「安全区是留白问题，`padding-bottom: env(...)` 加上去就对」——决定对错的是 `viewport-fit` 与设备，不是 padding 值；同一份 CSS 在无手势条设备上 `env()`=0，写死 34px 与「假定非 0」都会错位，所以规则必须是「不写死 + cover 前提 + 真机验证」。
+- 一进一出：新增 +1,146（before-after +847、numeric-truth +199、responsive +100），删除 −1,148（dark-mode −745、form-table −371、SKILL −32），净 **−2** 字符；SKILL.md 12,112→12,080 字符 / 276 行，before-after 759 行；SKILL 首行版本号从陈旧的 v54 修到 v56。
+- 门禁：`dp_search` 命中案例 22（69.7）、responsive §17.5（58.8）、presentation §2（67.2）；`audit.py` PASS 38 · WARN 0 · FAIL 0（A3 由 `build_readme.py` 重建 README 修复：9,510 字符 / 144 行，`--check` 通过）；mindmap 未跑（本轮无资产增删）。
+- 队列：#2 比较协议演练 v54 已完成、表内补勾；#3 进度 22→23 / 30，下一候选案例 24（暗色表单 `#424242` 边框 2.09:1 < 3:1）。
+- 发布：两处安装副本（`~/.agents/skills/design-partner`、`~/.workbuddy-ai/skills/design-partner`）已同步并对过 SKILL.md 哈希；本地提交 `466e170`。GitHub 推送仍失败：`fatal: unable to access '…': OpenSSL SSL_read: Connection was reset, errno 10054`（v55 的 HTTP 408 也未补推），按规则不重试，main 仍无 upstream —— **下轮发布前先补推 v55+v56**。
+
+---
+
 ## v55 · 2026-11-19（案例集 20→22：移动端整页缩放 + 暗色反相）
 
 - 新增 2 组案例（队列第 3 项「20→30」的第一批）：案例 21 移动·首屏（根节点 `transform: scale(calc(100vw / 1440))`，正文 4.2px、热区 41×12.5，同时破「正文 ≥12」与「热区 ≥24×24」，且 hover 下拉在触屏永不出现；改稿=断点重排、字号 32/40·16/26·12/18、底部 4–5 项导航、图片 4:5 裁切）；案例 22 暗色·全站（`filter: invert(1) hue-rotate(180deg)`，品牌红 `#E5484D`→`#1AB7B2`、白底 logo 变黑块、产品图肤色发绿；改稿=独立暗色 token：底 tone 6、表面 4 档且跨度 1.50 对亮色 1.23、文字 85% 白、品牌色 tone 80）。

@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v54 · 2026-11-19**：v54 用 3 条 golden brief 跑通比较协议（§8 演练），补 §2 门槛制（层级/一致性/风险 ≤1 出局）与三案 30% 结构差异检验；v53 用三个真实页面校准五轴判据（`taste-criteria.md` §10），更早见 `CHANGELOG.md`。
+**当前版本 v56 · 2026-11-19**：v56 补移动端安全区口径（`numeric-truth` §1.3）与案例 22（固定底栏 + 键盘遮挡）；v55 补案例 21–23、砍掉暗色/响应式的长清单；更早见 `CHANGELOG.md`。
 
 ---
 
@@ -107,10 +107,10 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 · §10 实测校准 |
 | `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 门槛 · §3 裁决 · §5 大众锚 · §8 演练 |
-| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 22 组案例（含移动端/暗色），按载体查 §0 判据 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 23 组案例（含移动安全区/暗色），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
-| `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、时长） | §1 口径表 · §2 六条纪律 |
+| `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
 | `references/design-measurement-research.md` | 指标、研究方法、统计验收 | §1 指标 · §4 方法 · §10 验收 |
 
 ### 4.2 视觉基础

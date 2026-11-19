@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v56` · 本页由 `scripts/build_readme.py` 生成于 2026-11-19 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v57` · 本页由 `scripts/build_readme.py` 生成于 2026-11-19 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -46,7 +46,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 |---|---|---:|---:|
 | 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 304 | 11 |
 | 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
-| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 760 | 8 |
+| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 782 | 8 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
 | 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
 | 判断与品味 | [`design-critique.md`](references/design-critique.md) · 设计评审与反馈 · Design Critique & Feedback | 261 | 23 |
@@ -57,11 +57,11 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 视觉基础 | [`iconography.md`](references/iconography.md) · 图标设计系统 · Iconography | 339 | 20 |
 | 视觉基础 | [`visual-style-taxonomy.md`](references/visual-style-taxonomy.md) · 视觉风格谱系与设计运动（Visual Style Taxonomy） | 318 | 14 |
 | 视觉基础 | [`chinese-design.md`](references/chinese-design.md) · 中文设计场景 — Chinese Design（排版规范 + 生态地图） | 193 | 4 |
-| 视觉基础 | [`design-tokens.md`](references/design-tokens.md) · 设计 Token 体系 — Design Tokens（深度蒸馏） | 232 | 6 |
+| 视觉基础 | [`design-tokens.md`](references/design-tokens.md) · 设计 Token 体系 — Design Tokens（深度蒸馏） | 229 | 6 |
 | 视觉基础 | [`brand-identity.md`](references/brand-identity.md) · 品牌视觉与 Logo 逻辑（Brand Identity） | 695 | 21 |
 | 版式与系统 | [`editorial-layout.md`](references/editorial-layout.md) · 版式与网格（Editorial Layout） | 772 | 21 |
 | 版式与系统 | [`responsive-layout.md`](references/responsive-layout.md) · 响应式与断点体系 · Responsive Layout | 717 | 20 |
-| 版式与系统 | [`dark-mode.md`](references/dark-mode.md) · 暗色模式体系（Dark Mode System） | 612 | 15 |
+| 版式与系统 | [`dark-mode.md`](references/dark-mode.md) · 暗色模式体系（Dark Mode System） | 576 | 15 |
 | 版式与系统 | [`motion-system.md`](references/motion-system.md) · 动效与微交互系统 — Motion System（深度蒸馏） | 349 | 12 |
 | 版式与系统 | [`dataviz.md`](references/dataviz.md) · 数据可视化规范 · Data Visualization | 377 | 14 |
 | 版式与系统 | [`performance-design.md`](references/performance-design.md) · 性能与设计的关系（Performance × Design） | 844 | 19 |
@@ -108,7 +108,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，53 条记录，其中 3 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，54 条记录，其中 3 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

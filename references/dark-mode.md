@@ -132,9 +132,9 @@ g100（暗色主题）映射（`packages/themes/src/v10/g100.ts`）：
 **M2 的原话立场**：默认用深灰 `#121212` 而非纯黑，因为"深灰能表达更丰富的色彩、高度和深度，因为阴影在灰色上比在黑色上更易看见"；**纯黑只留给"需要高效省电的产品"**。
 
 **决策**：
-- 移动端 OLED 为主、内容型 → 可用纯黑，但**必须**把文字从纯白降到 tone 90 档（§3），并用边框替代阴影。
+- OLED 内容型 → 可用纯黑，但文字降到 tone 90 档（§3）、用边框替代阴影。
 - 中后台 / 桌面 / 长时间阅读 → 深灰 `#161616`~`#1a1a1a`。
-- 大屏监控 → 纯黑（避免环境光反射），但要接受"层级别只能靠边框"。
+- 大屏监控 → 纯黑（避开环境光反射），接受「层级只能靠边框」。
 
 ---
 
@@ -161,7 +161,7 @@ g100（暗色主题）映射（`packages/themes/src/v10/g100.ts`）：
 | 四级 `colorTextQuaternary` | 25% | `#404040` | **2.03** ❌ | 2.25 | 2.28 |
 
 **这张表暴露了两个真实陷阱**：
-1. **三级文本 45% 只有 4.43–4.54**，正好压在 WCAG AA 4.5:1 的线上——**在纯黑底上直接不达标（4.43 < 4.5）**。如果你的设计系统抄了 Ant 的 45%，又在纯黑底上放辅助说明文字，**已经不合规**。修法：把三级提到 **50%–52%**，或底色调到 `#141414` 以上。
+1. **三级文本 45% 只有 4.43–4.54**，正压 AA 4.5:1 的线：纯黑底上 4.43 **不达标**。修法：提到 **50%–52%**，或把底色抬到 `#141414` 以上。
 2. **四级 25% 只有 2.03**，只能用于**装饰性**（图标底纹、分隔装饰），**绝不能承载文字**。
 
 > 对照：亮色的对应值是 88% / 65% / 45% / 25%（`colorText` 亮色是 **88%**，暗色是 **85%**——暗色反而更低，正是为了削晕光）。
@@ -190,13 +190,34 @@ g100（暗色主题）映射（`packages/themes/src/v10/g100.ts`）：
 | `#303030`（Ant `colorBorderSecondary`，lighten 19%） | Ant dark | **1.59** |
 | gray60 `#6f6f6f`（Carbon `ui04`） | Carbon g100 | **3.60** ✅ |
 
-**这意味着**：抄 Ant 的暗色边框（`#424242`）做输入框描边，**不满足 WCAG 2.2 SC 1.4.11（非文本对比 3:1）**——因为输入框边界是"识别控件所必需"的。Carbon 用 `ui04`（gray60）就达标。
+**这意味着**：抄 `#424242` 做输入框描边不满足 SC 1.4.11（3:1，且按落点底色反解，见 §4.3）；Carbon 的 `ui04` 达标，只是因为它落在 1.22:1 的层上。
 
 ### 4.2 三条规则
 
-1. **表单控件边界必须 ≥3:1**。用 `#6f6f6f` 起步，不要用 `#424242`。
+1. **表单控件边界必须 ≥3:1**：按落点底色反解（§4.3），别记死值。
 2. **装饰性分隔线可以低于 3:1**（1.4.11 只要求"识别控件与状态所必需"的边界）。表格横线、卡片分隔用 1.5–2.1 即可，太亮会"抢戏"。
 3. **暗色下"线"比"面"更可靠**。因为相邻 surface 只有 1.04–1.17 的差，纯靠 tone 分层在低亮度屏/差显示器上会完全糊掉。**暗色的卡片建议：surface 提亮 + 1px 边框（≥1.5:1）双保险**。
+
+### 4.3 达标边界的最小值：先算底色，再挑灰
+
+1.4.11 的 3:1 **不得四舍五入**（2.999:1 不算过），且细线经抗锯齿会比 CSS 值更淡。所以「达标边框」不是固定灰值，而由它**旁边的底色**反解：
+
+| 底色 | 达标起点 | 实算 |
+|---|---|---|
+| `#000000`（Ant） | `#5a5a5a` | 3.04 |
+| `#121212`（M2） | `#616161` | 3.02 |
+| `#141414`（Ant） | `#626262` | 3.02 |
+| `#1f1f1f`（Ant） | `#696969` | 3.00 |
+| `#262626`（Carbon） | `#6f6f6f` | 3.01 |
+| `#424242`（Ant） | `#8d8d8d` | 3.03 |
+
+**三条边界（这张表真正的用处）**：
+
+1. **1px 线不能贴着刀锋走**。3.00x 的起点在抗锯齿与低亮度屏上会掉到阈值下；线越细，抗锯齿占比越高、渲染越淡。设计值从 ≥3.3 起步，2px 以上的粗线才可以贴着 3.0 判。
+2. **表面越亮，达标边界越贵**。底从 `#121212` 提到 `#424242`，达标灰从 `#616161` 跳到 `#8d8d8d`——已与辅助文字同亮度。**「模态提到 +26」和「表单边界达标」抢的是同一份亮度预算**：含表单的浮层别提到 +26，面留在 `#1f1f1f` 级，靠 scrim ≥60% 与阴影造「前」感。
+3. **只给「识别控件」的边界上 3:1**。静态分隔线、卡片描边、表格横线不是 1.4.11 的对象（§4.2-2）；全站统一提到 3:1 的结果是一屏线框噪声，反而压掉内容。骨架里必须是两个 token：`--border-strong`（控件，≥3:1）、`--border-subtle`（装饰，1.5–2.1）——合并成一个 `--border`，就等着某个面提亮时一起失效。
+
+**焦点环**同属 1.4.11 管辖（状态含聚焦），并与 2.4.13「变化对比」双过才算（`accessibility.md §3`）；与边框同色 = 焦点不可见。
 
 ---
 
@@ -331,26 +352,9 @@ A 股/中文金融场景的红涨绿跌在暗色下有两个坑：
 :root { color-scheme: light dark; }
 ```
 
-```css
-/* ③ 变量换层，不换结构 */
-:root {
-  --bg: #ffffff;
-  --bg-elevated: #ffffff;
-  --text: #1f1f1f;
-  --border: #d9d9d9;
-}
-:root[data-theme="dark"] {
-  --bg: #161616;
-  --bg-elevated: #1f1f1f;   /* 提亮，不是变白 */
-  --text: #e6e6e6;          /* 不用 #fff */
-  --border: #424242;
-}
-```
+③ **变量换层**：骨架见 §14.1，不要另抄——旧版这里把 `--border` 写成 `#424242`，让装饰线与控件边界共用了一个 token。
 
-**MDN 明确的三点**：
-1. `color-scheme` 影响**画布背景色、滚动条、表单控件默认样式、拼写检查下划线**——不设它，暗色下滚动条还是白的。
-2. `color-scheme: only light` 可以**关掉 Chrome 的 Auto Dark Theme 强制反色**（对已有暗色的站点很有用，避免被浏览器二次处理）。
-3. `light-dark()` 函数可以替代双份声明：`color: light-dark(#1f1f1f, #e6e6e6)`——**前提是祖先设了 `color-scheme`**。
+**MDN 明确的三点**：① `color-scheme` 管画布背景、滚动条、表单控件默认样式与拼写下划线——不设它，暗色下滚动条还是白的；② `color-scheme: only light` 可关掉 Chrome 的 Auto Dark Theme 强制反色；③ `light-dark()` 可替代双份声明，前提是祖先设了 `color-scheme`。
 
 ### 9.2 防闪白（FOUC）：唯一正确顺序
 
@@ -378,51 +382,30 @@ document.documentElement.classList.toggle(
 | 深色 | `theme=dark` | 强制 dark |
 | 跟随系统 | **删除键**（不是存 `"system"`） | 读 `prefers-color-scheme` |
 
-删除键 vs 存 `"system"`：删键能让"用户从未选择过"和"用户主动选了跟随系统"在逻辑上合并，少一个分支。若要支持"系统主题变化时实时跟随"，监听 `matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ...)`，但**只在无存储值时生效**。
+删除键 vs 存 `"system"`：删键让「从未选」与「主动跟随」合并成一个分支，少一条状态路径；监听 `matchMedia` 的变化事件时**只在无存储值时跟随**（代码见 §14.3）。
 
-### 9.4 Tailwind v4 的两种写法
+### 9.4 Tailwind v4
 
 ```css
-/* 默认：跟随系统（media 策略） */
-@import "tailwindcss";
-
-/* 手动切换：class 策略 */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* 或用 data 属性 */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 ```
 
-**推荐 `data-theme`**：和 CSS 变量方案统一，且不会和第三方库的 `.dark` class 打架。
+**用 `data-theme`**：和 CSS 变量方案统一，也不与第三方库的 `.dark` class 打架；跟随系统不需要额外配置。
 
-### 9.5 微信小程序暗色适配（`theme.json` 官方配置逐字）
+### 9.5 微信小程序（只留两个坑）
 
-```json
-// app.json
-{ "darkmode": true, "themeLocation": "theme.json" }
-```
+`app.json` 配 `{"darkmode": true, "themeLocation": "theme.json"}`；`theme.json` 的 light / dark 两个对象都必填，值用 `@变量名` 引用，可变量化的属性清单见官方 DarkMode 适配指南（§15 已登记）。
 
-```json
-// theme.json —— light / dark 两个对象都是必填
-{
-  "light": { "navBgColor": "#f6f6f6", "navTxtStyle": "black" },
-  "dark":  { "navBgColor": "#191919", "navTxtStyle": "white" }
-}
-```
-
-- 用 `@变量名` 引用：`"navigationBarBackgroundColor": "@navBgColor"`。
-- 支持变量化的属性：`navigationBarBackgroundColor`、`navigationBarTextStyle`、`backgroundColor`、`backgroundTextStyle`、`backgroundColorTop`、`backgroundColorBottom`；tabBar 的 `color`、`selectedColor`、`backgroundColor`、`borderStyle`、`list[].iconPath`、`list[].selectedIconPath`。
-- **只有配置 `"darkmode": true` 才拿得到 `theme`**（`wx.getSystemInfoSync().theme`），**主题切换事件也才触发**（`App({ onThemeChange })` 或 `wx.onThemeChange`）。
-- **但 WXSS 的 `@media (prefers-color-scheme: dark)` 不受该开关影响**——只要微信客户端支持（iOS 7.0.12 / Android 7.0.13+），媒体查询就生效。**这是最容易踩的坑**：以为没开 darkmode 就不会变，结果样式被媒体查询改了、配置却没变。
+- 只有开了 `darkmode` 才拿得到 `theme`（`wx.getSystemInfoSync().theme`）并触发 `onThemeChange`；**但 WXSS 的 `@media (prefers-color-scheme: dark)` 不受这个开关影响**——最容易踩的坑：以为没开就不会变，结果样式被媒体查询改了、配置却没变。
 - 官方已知 bug：iOS 7.0.12 在 light 模式下把 tabBar `borderStyle` 设为 `white` 可能出现黑底。
 
 ### 9.6 iOS / Android
 
 | 平台 | 要点 |
 |---|---|
-| iOS | 用 **base / elevated 两套系统背景色**，别自定义；`UIColor.labelColor` 等语义色自动适配；`UIUserInterfaceStyle` 不要硬设；Increase Contrast + Reduce Transparency 组合下要复测（Apple 明确警告可能出现"深字压深底"） |
-| Android | 主题继承 `Theme.MaterialComponents.DayNight` 或 `Theme.AppCompat.DayNight`；三态用 `MODE_NIGHT_NO` / `MODE_NIGHT_YES` / `MODE_NIGHT_FOLLOW_SYSTEM`；API 31+ 用 `UiModeManager#setApplicationNightMode`（可让启动屏也对齐），API 30- 用 `AppCompatDelegate.setDefaultNightMode()` |
-| Android Force Dark | `android:forceDarkAllowed="true"` 可自动反色，但**必须逐屏复测**，且可用 `android:forceDarkAllowed="false"` 对单个 View 关闭。**继承 DayNight 主题时 Force Dark 不生效**（自动切换已接管） |
+| iOS | 用 **base / elevated 两套系统背景色**，别自定义；`UIColor.labelColor` 等语义色自动适配；`UIUserInterfaceStyle` 不要硬设；Increase Contrast + Reduce Transparency 组合下要复测（Apple 明确警告可能出现「深字压深底」） |
+| Android | 主题继承 DayNight；三态用 `MODE_NIGHT_NO/YES/FOLLOW_SYSTEM`；API 31+ `UiModeManager#setApplicationNightMode`（启动屏也对齐），API 30- 用 `AppCompatDelegate` |
+| Android Force Dark | `forceDarkAllowed` 可自动反色但**必须逐屏复测**，可对单个 View 关闭；继承 DayNight 主题时不生效 |
 | 鸿蒙 | 用 `$r('app.color.xxx')` 资源 + `dark` 限定词目录，不要硬编码 hex |
 
 ---
@@ -440,7 +423,7 @@ document.documentElement.classList.toggle(
 
 ## 11. 场景速查
 
-三个最常问的：底色 → §2.5；正文白 → §3.3；主色与卡片层级（surface 提亮 + 1px 边框，不靠阴影）→ §6 / §4.2。其余（阴影、图片、防白闪、小程序、半套能不能上）见 §7、§9、§12。
+底色 → §2.5；正文不用纯白 → §3.3；卡片层级（surface 提亮 + 1px 边框，不靠阴影）→ §5.2 / §4.2；「半套能不能上」→ §1.3。
 
 ---
 
@@ -472,7 +455,7 @@ document.documentElement.classList.toggle(
 13. [ ] 白底图已压暗 + 加边框；深色透明图换浅色版；图标 `currentColor`；Logo 有单色版
 
 **工程层**
-14. [ ] `meta color-scheme` + head 内联脚本（无 FOUC），`color-scheme` 已设；真机低亮度 + 灰度 + 系统高对比复测
+14. [ ] `color-scheme` 已设、无 FOUC（§9.2）；真机低亮度 + 灰度 + 系统高对比复测
 
 ---
 
@@ -487,7 +470,7 @@ document.documentElement.classList.toggle(
 
 ---
 
-## 14. 可抄代码（4 段）
+## 14. 可抄代码（3 段）与图片规则
 
 ### 14.1 完整变量骨架（亮/暗双套，含层级与文字四档）
 
@@ -535,12 +518,9 @@ body, .card, .btn { transition: background-color .2s ease, color .2s ease, borde
 @media (prefers-reduced-motion: reduce) { * { transition-duration: 0s !important; } }
 ```
 
-### 14.2 防 FOUC 的三行脚本（放 `<head>` 最前，不 defer）
+### 14.2 防 FOUC 脚本（meta 三行见 §9.1 ①，整段放 `<head>` 最前，不 defer）
 
 ```html
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#161616" media="(prefers-color-scheme: dark)">
 <script>
   (function () {
     var t = localStorage.getItem('theme');
@@ -572,25 +552,9 @@ mq.addEventListener('change', () => {
 });
 ```
 
-### 14.4 暗色图片处理
+### 14.4 暗色图片
 
-```css
-/* 照片：轻微压暗，不反相 */
-:root[data-theme="dark"] img.photo { filter: brightness(.88) contrast(1.02); }
-
-/* 白底截图：压暗 + 边框，避免"发光白块" */
-:root[data-theme="dark"] img.screenshot {
-  filter: brightness(.9);
-  outline: 1px solid rgba(255,255,255,.12);
-  border-radius: 6px;
-}
-
-/* 纯黑白线稿：可以反相（仅限真·纯黑白） */
-:root[data-theme="dark"] img.lineart { filter: invert(1) hue-rotate(180deg); }
-
-/* 图标一律跟随文字 */
-.icon { color: currentColor; }
-```
+照片与白底截图用 `filter: brightness(.88–.9)` 压暗，白底截图再加 1px `rgba(255,255,255,.12)` 描边防「发光白块」；只有真·纯黑白线稿才可 `invert(1) hue-rotate(180deg)`；图标一律 `currentColor`。四个死法见 §7.3。
 
 ---
 

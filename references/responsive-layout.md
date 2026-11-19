@@ -704,7 +704,7 @@ body { font-size: var(--fs-body); line-height: 1.7; max-width: 38em; }
 | 表格行高/列对齐/分页/批量（与宽度无关的部分） | `form-table.md` |
 | 加载/空态在窄屏的形态 | `feedback-states.md` |
 | 断点 token 怎么进三层 token 体系 | `design-tokens.md` |
-| DESIGN.md 里「Responsive Behavior」一章怎么写 | `design-md-format.md` §8 |
+| DESIGN.md 里「Responsive Behavior」一章怎么写 | `design-md-format.md` §2「九章骨架」 |
 
 ---
 

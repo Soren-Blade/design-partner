@@ -20,7 +20,7 @@
 
 圆角、阴影、字号、色彩都已有独立资产，唯独「用户先看哪、看完往哪走、走完累不累」始终散在边角。缺口用 `dp_search.py` 与全域词频统计判定为**结构性空白**而非覆盖不足。
 
-**缺口实测**（本轮 `python scripts/dp_search.py "格式塔 完形 组织律"` / `"视觉层级 视觉动线 F 模式 Z 模式 眼动"` / `"认知负荷 注意力 希克定律 米勒定律"` + `grep -ril` 全域统计）：`格式塔=0`、`Gestalt=0`、`邻近性=0`、`闭合性=0`、`希克定律=0`、`Fitts=0`、`菲茨=0`、`视觉层次=0`，`视觉层级=1`（且仅出现在 `shape-elevation.md §1` 的「下轮候选缺口」自述里）。三条查询的命中集中在四类边角：`editorial-layout.md §8`（Z 型 / F 型 / 单点式三行路径 + 视觉重量排序）、`navigation-ia.md`（项数铁律里引用米勒 7±2）、`design-ethics-inclusion.md`（"情境性认知负荷正是 dark pattern 的作用面" 一句）、`iconography.md`（"图标 + 文字降低认知负荷" 一行）。
+**缺口实测**（本轮 `python scripts/dp_search.py "格式塔 完形 组织律"` / `"视觉层级 视觉动线 F 模式 Z 模式 眼动"` / `"认知负荷 注意力 希克定律 米勒定律"` + `grep -ril` 全域统计）：`格式塔=0`、`Gestalt=0`、`邻近性=0`、`闭合性=0`、`希克定律=0`、`Fitts=0`、`菲茨=0`、`视觉层次=0`，`视觉层级=1`（且仅出现在 `shape-elevation.md §1` 的「下轮候选缺口」自述里）。三条查询的命中集中在四类边角：`editorial-layout.md §8`（Z 型 / F 型 / 单点式三行路径 + 视觉重量排序）、`navigation-ia.md`（项数纪律：一级项 5–7 为经验值）、`design-ethics-inclusion.md`（"情境性认知负荷正是 dark pattern 的作用面" 一句）、`iconography.md`（"图标 + 文字降低认知负荷" 一行）。
 
 上游文件都在**用**层级，没人讲**它为什么成立、什么时候失效、怎么与代码顺序对齐、怎么用公式估决策成本**。缺了这一层，「主标题再大一点」就永远是一条没有理由的口诀——放大到所有元素都"重要"等于没有层级；用 CSS `order` 把主内容挪到上面，读屏用户却仍从侧栏开始读；用 7±2 论证导航只能放 7 项，而 Miller 1956 讲的是即时记忆广度不是菜单容量。
 
@@ -242,9 +242,10 @@ IxDF 把 Figure/Ground 与 Multistability 分列，并明确指出二者常被�
 
 **7±2 的正确与错误用法**：
 
+- **本库口径（见 numeric-truth §1）**：工作记忆按 **3–5 个组块**设计；导航一级项 **5–7** 是经验值，不是米勒定律，也不是本文推导出来的上限。
 - Miller 1956 讲的是**即时记忆广度与绝对判断**的容量（Laws of UX Origins 逐字：*"the span of immediate memory and absolute judgment were both limited to around 7 pieces of information"*），信息单位是 **bit**——*"the amount of data necessary to make a choice between two equally likely alternatives"*，4 bits 对应 16 个二选一（4 次连续二元判断），混淆点称 channel capacity。
 - Laws of UX 三条 Takeaways 逐字：① *"Don't use the 'magical number seven' to justify unnecessary design limitations."* ② *"Organize content into smaller chunks to help users process, understand, and memorize easily."* ③ *"Remember that short-term memory capacity will vary per individual, based on their prior knowledge and situational context."*
-- **所以**：不能用 7±2 论证"导航最多 7 项""表单最多 7 个字段"。`navigation-ia.md` 里的项数铁律（全局 5–9 / 底部 ≤5）是**导航形态与移动端约束的工程约定**，不是 Miller 定律的推论；两者不要互相背书。真正可用的是 **chunking**（Laws of UX 定义：*"A process by which individual pieces of an information set are broken down and then grouped together in a meaningful whole."*）——把信息按语义分块，而不是砍数量。
+- **所以**：不能用 7±2 论证"导航最多 7 项""表单最多 7 个字段"。`navigation-ia.md` 里的项数纪律（一级项 5–7 经验值 / 硬上限 ≤9 / 底部 ≤5）是**导航形态与移动端约束的工程约定**，不是 Miller 定律的推论；两者不要互相背书。真正可用的是 **chunking**（Laws of UX 定义：*"A process by which individual pieces of an information set are broken down and then grouped together in a meaningful whole."*）——把信息按语义分块，而不是砍数量。
 
 ---
 

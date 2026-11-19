@@ -10,7 +10,7 @@
 
 | 你手上是什么问题 | 去哪份 | 本文件补什么 |
 |---|---|---|
-| 要一份给 AI 编码 agent 读的**风格约束文件** | `design-md-format.md`（DESIGN.md 九章骨架 + 54 品牌 DNA） | §7 把 DESIGN.md 定位成"一致性契约"，§8/§9 给生成它之前的 brief→prompt 转换 |
+| 要一份给 AI 编码 agent 读的**风格约束文件** | `design-md-format.md`（DESIGN.md 九章骨架 + 54 品牌 DNA） | §7 把 DESIGN.md 定位成"一致性契约"，§2 九章骨架给生成它之前的 brief→prompt 转换 |
 | 要把设计稿**交给开发** | `handoff-collaboration.md`（spec 9 字段 / 走查 / SemVer） | §14 生成→代码的衔接层、§15 prompt 版本化与 SemVer 对照 |
 | 想找**有哪些 AI 工具** | `tools.md`（153 条链接清单）、`resources.md` | §13 五层地图 + **选型判据** + 实测维护状态 |
 | 生成结果**不好看 / 有 AI 味** | 本文件 §11（AI Slop Test + 8 维 DO/DON'T） | 第 5 步原则、`impeccable` 风格判据 |

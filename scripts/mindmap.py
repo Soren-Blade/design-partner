@@ -5,7 +5,7 @@ design-partner 记忆树生成器
 
 扫描 SKILL.md / references/*.md / memory/*.md，产出两样东西：
   1) memory/index.json —— 机器索引（文件 → 章节 → 摘要 + 行号），供 dp_search.py 检索
-  2) memory/tree.md     —— 人/agent 可读的知识树 + 意图路由 + 主题索引 + 接线体检
+  2) memory/tree.md     —— 人/agent 可读的知识树 + 主题索引 + 接线体检（路由见 SKILL.md §4）
 
 为什么需要它：
     技能资产到 11 份、上千行后，"知识在哪个文件哪一节"本身成了问题。
@@ -37,126 +37,7 @@ LINK = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 EMPH = re.compile(r"[*_`>|]")
 
 # 意图 → 该去哪儿（保持与 SKILL.md 第 1 步的路由一致，树里做快捷方式）
-INTENTS = [
-    ("从零做视觉", "第 5 步原则 + patterns.md 取构型 + design-tokens.md 取数值"),
-    ("改进现有设计", "按第 5 步逐条诊断；动效问题查 motion-system.md §10 验收清单"),
-    ("要灵感 / 参考", "patterns.md（元素级）→ inspiration.md（风格级）→ portfolios.md（校准）"),
-    ("要设计规范 / 系统", "design-tokens.md（三层 token）→ design-md-format.md（九章骨架）"),
-    ("对标某品牌", "design-md-format.md §3 品牌 DNA + design-tokens.md 取精确值"),
-    ("中文项目", "chinese-design.md（排版/生态）→ motion-system.md §9（小程序）"),
-    ("动效 / 微交互 / 动画", "motion-system.md：§2 曲线 · §3 时长 · §4 场景表 · §7 代码 · §10 验收"),
-    ("滚动动画 / 页面转场", "motion-system.md §7.3 View Transitions · §7.4 scroll-driven"),
-    ("无障碍 / reduced-motion", "motion-system.md §8.1 三档降级"),
-    ("提示 / toast / 弹窗 / 确认", "feedback-states.md：§1 层级决策 · §3 toast 数值 · §7 确认与破坏性操作"),
-    ("加载 / 骨架屏 / 进度", "feedback-states.md：§2 时间阈值 · §4 加载与进度 · §14.2 骨架代码"),
-    ("空状态 / 无数据 / 失败空", "feedback-states.md §5（五种空 + 五件套结构 + 文案公式）"),
-    ("错误页 / 报错文案 / 重试", "feedback-states.md §6（五级错误 + 404/500 规则 + 三段式文案）"),
-    ("找工具 / 资产", "tools.md（工具）· resources.md（图标/字体/3D）· component-libraries.md（代码）"),
-    ("想提升自己 / 学习路径", "knowledge-map.md L0→L4 + 20 条自测"),
-    ("AI 生成设计 / AIGC 工作流", "ai-design-toolchain.md §1 五层人工闸门 · §9 八步工作流 · §13 选型三问"),
-    ("AI 内容标识 / 合规 / 版权 / 提示词 / AI 味验收", "ai-design-toolchain.md §2 标识 · §4 USCO 裁决 · §8 提示词 · §11 AI Slop Test · §20 自检"),
-    ("设计伦理 / 欺骗性设计 / 隐私同意 / 自动续费 / 一键关闭", "design-ethics-inclusion.md §1 三条立场 · §2 现行 18 类 · §4 对称选择 · §8 一键关闭 · §9 反陈旧裁决 · §21 脚本"),
-    ("包容性设计 / 认知无障碍 / 未成年人 / 成瘾设计", "design-ethics-inclusion.md §11 令第 766 号 · §12 成瘾四红线 · §14 三原则 · §15 七原则 · §16 COGA 八目标 · §17 四象限"),
-    ("组件 API / props 契约 / 受控非受控 / 组合 / 插槽 / asChild / 换元素", "component-api-design.md §1 三份所有权 · §2 受控契约 · §5 五种换元素 API · §7 合并优先级 · §8 compound components"),
-    ("ref 转发 / React 19 forwardRef / 复合组件键盘 / roving tabindex / 组件发版 SemVer / argTypes", "component-api-design.md §9 反陈旧裁决 · §12 APG 键盘契约 · §14 API SemVer 六冻结面 · §15 Storybook argTypes · §20 脚本"),
-    ("设计度量 / 用户研究 / 可用性测试 / SUS / 样本量 / HEART / A-B 测试", "design-measurement-research.md §0 分层导语 · §1 度量三步法 · §3 任务级指标 · §4 SUS/UMUX · §5 问卷量表 · §7 样本量 · §11 A/B 统计"),
-    ("满意度怎么量化 / 改版有没有效 / 要不要上线 A-B / 该做多少人的研究", "design-measurement-research.md §21 四段可抄代码（问题暴露率·比例样本量·SUS 计分·A/B z 检验）· §23 接线与其他资产"),
-    ("导航 / 导航栏 / 菜单 / 信息架构", "navigation-ia.md §1 四类职责 → §2 形态决策 → §3 项数铁律 → §7 移动端降级"),
-    ("信息架构 / 网站结构 / 菜单组织", "navigation-ia.md §4（深度 vs 广度 / 3-click 迷思 / 信息气味 / 卡片分类·树测试）"),
-    ("面包屑 / 当前位置", "navigation-ia.md §5（位置型/属性型/路径型 + 末级非链接 + aria-current）"),
-    ("标签页 Tabs", "navigation-ia.md §6（APG tabs 键盘契约 + tabpanel + 何时用 tabs vs 侧栏）"),
-    ("底部 Tab / 移动端导航 / 汉堡", "navigation-ia.md §7（Apple ≤5 项 / Material bar·rail·drawer / NN/g 可发现性）+ responsive-layout §9 降级路径"),
-    ("当前位置指示 / 激活态 / you are here", "navigation-ia.md §8（≥2 信号 + aria-current + 聚焦态独立）"),
-    ("导航可访问性 / skip link / 地标", "navigation-ia.md §9（2.4.1 skip link / 1.3.1 landmark / 2.4.5 multiple ways / 2.4.7 焦点）+ accessibility §3"),
-    ("搜索与导航", "navigation-ia.md §10（搜索是导航备份 + 占位符写示例 + 零结果三件套）"),
-    ("设计评审 / critique / 设计走查", "references/design-critique.md §1 两种评审分清 + §2 三前提 + §5 RACI/远程异步"),
-    ("给反馈 / 反馈话术 / I like I wish I wonder / 2 正 1 改", "references/design-critique.md §3 给反馈七铁律"),
-    ("接收反馈 / 怎么不辩护 / 别人挑刺怎么应对", "references/design-critique.md §4 接收反馈四步"),
-    ("设计 by committee / HiPPO / 谁说了算 / 委员会改稿", "references/design-critique.md §5 Decider + §7 反模式"),
-    ("决策留痕 / ADR / 评审结论去哪了", "references/design-critique.md §8 ADR / critique notes 模板"),
-    ("评判框架 / 严重度 0–4 / NN/g 10 启发式", "references/design-critique.md §6 评判框架"),
-    ("视觉风格 / 风格匹配 / 做成 XX 那种感觉 / 高级感 / 视觉调性", "references/visual-style-taxonomy.md §2 四维信号 → §4 匹配决策（参考站四步 / 形容词先确认语境）"),
-    ("风格谱系 / 设计运动 / 玻璃拟态 / 新拟态 / 野兽派 / Y2K / Bento", "references/visual-style-taxonomy.md §3 编年谱系 + §5 混搭纪律 + §6 趋势生命周期"),
-    ("风格诊断 / 风格不一致 / 潮流该不该跟", "references/visual-style-taxonomy.md §10 反模式 20 条 + §11 自检 20 项 + §6 生命周期"),
-    ("字体排印 / 字号 / 行高 / 行距 / 定一套字体系统 / 排版很挤", "references/typography-system.md §2 六层模型判层 → §4 rem 阶梯（px 不可访问）→ §5 行高两档与行长 → §17 M3 五角色×三尺寸落 token"),
-    ("文本间距 / WCAG 1.4.12 / 200% 缩放 / 放大就裁切 / 表单 label 重叠 / 可访问性验收", "references/typography-system.md §6 三关硬数值 + §7 注入验收五步（§23.3 书签）+ §8 两种缩放与容器弹性 + §23.5 静态扫描"),
-    ("中文排版 / 中英混排 / 缺字 tofu / 字体回退 / 全角半角 / 字素丛", "references/typography-system.md §16 W3C clreq（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29）+ §12 逐字符回退 + §13 unicode-range 分片"),
-    ("数字抖动 / tabular-nums / 可变字体 / 字体加载闪烁 / CLS / 字体商用授权", "references/typography-system.md §10 OpenType 数字特性 + §9 五注册轴 + §14 font-display 五档 + §15 size-adjust + §18 OFL 1.1 五条件 + §19 仓库实测"),
-    ("不确定知识在哪", "python scripts/dp_search.py \"关键词\""),
-    ("圆角 / 形状 / 半径", "shape-elevation.md §10 语法 · §11 corner overlap · §12 同心 r=R−p · §13 七体系精确值"),
-    ("阴影 / 投影 / 三层阴影", "shape-elevation.md §7 box-shadow 语法 · §8 七体系对照 · §9 物理分解 · §23.1 token"),
-    ("高度层级 / elevation / 表面浮起", "shape-elevation.md §3 语义裁决 · §4 六级 dp · §15 Carbon Layering · §19 深度语言"),
-    ("边界看不见 / 阴影当 3:1", "shape-elevation.md §5 实跑对比度 · §6 非文本 3:1 正确落点 · accessibility.md §2"),
-    ("材质 / 毛玻璃 / z-index", "shape-elevation.md §16 Apple Materials · §17 性能红线 · §18 语义 z-index · §23.6 渐进增强"),
-    ("格式塔 / 完形 / 组织律 / 邻近性 / 分组", "visual-hierarchy-gestalt.md §7 IxDF 12 条全表 · §8 可验收四规则 · §9 前注意 pop-out"),
-    ("视觉层级 / 重点不突出 / 主次不清 / 眯眼测试 / 单焦点", "visual-hierarchy-gestalt.md §2 三层模型判层 · §3 F 型非目标 · §10 图形背景与多稳态 · §15 Von Restorff"),
-    ("眼动 / F 型 / 扫描模式 / RTL 动线 / 用户只看标题", "visual-hierarchy-gestalt.md §3 NN/g 逐字裁决 · §4 八种扫描模式诊断表 · §6 RTL 与断点复核"),
-    ("认知负荷 / 7±2 / 选项太多 / 希克定律 / 菲茨定律 / 组块", "visual-hierarchy-gestalt.md §11 三分与 7±2 误用 · §12 Hick 公式与失效条件 · §13 Fitts 三形式 · §14 chunking"),
-    ("DOM 顺序 / 焦点顺序 / 标题结构 / tabindex / 三顺序一致性", "visual-hierarchy-gestalt.md §5 四条 WCAG 准则逐字原文 · §6 一致性验收 · §23.2 静态扫描器 · §23.5 C27 正例"),
-    ("内容找不到 / 搜不到 / 可发现性 / 多路径 / 站点地图", "content-findability.md §2 四层链路判层 → §3 SC 2.4.5 至少两条路 → §4 搜索入口 → §19 位置感清单"),
-    ("链接文案 / Learn More / 信息气味 / 前 11 个字符", "content-findability.md §10 SC 2.4.4 A · 2.4.9 AAA · 3.2.4 AA → §9 信息气味 → §12 nano-content → §13 三种改法 → §26.2 扫描器"),
-    ("可扫读 / 阅读等级 / 简明语言 / Flesch / 中文", "content-findability.md §11 NN/g 79%/16% → §14 SC 3.1.5 九年门槛 → §15 三公式不可换算 → §16 中文代理指标 → §17 Plain Writing Act → §26.1 计算器"),
-    ("零结果 / 404 / 自动补全 combobox / placeholder 不是 label", "content-findability.md §5 SC 3.3.2 → §6 APG combobox 契约 → §18 零结果与 GOV.UK 404 四条禁令 → §26.3 契约检查器"),
-    ("树测试 / findability / directness / 卡片分类", "content-findability.md §20 度量口径（定性结果不可冒充百分比）→ §21 六步构建流程"),
-    ("拖拽 / 拖放 / 列表重排 / 排序 / 直接操纵", "direct-manipulation.md §2 四段链路判层 → §3 SC 2.5.7 单指针无拖动 → §4 G219 四类替代 → §7 完整状态机"),
-    ("指针事件 / pointercancel / setPointerCapture / touch-action", "direct-manipulation.md §9 PE3 规范性抑制链 → §10 MDN 工程契约 → §11 touch-action 全值表 → §12 HTML DnD 七事件"),
-    ("拖动无障碍 / 键盘拖放 / 读屏播报 / Escape 取消", "direct-manipulation.md §5 SC 2.5.1 交叉约束 → §6 SC 2.5.2 与 G210 → §13 dnd-kit 键盘默认 → §14 live region"),
-    ("目标尺寸 / 点击区 / 触控目标 / 24×24 / 44×44 / 48dp", "direct-manipulation.md §8 三口径裁决表 → §17 阈值与时序决策表 → §25.1 目标尺寸判定器"),
-    ("手势 / 路径手势 / 长按 / 触屏拖动 / 磁吸", "direct-manipulation.md §5 SC 2.5.1 路径手势 → §15 NN/g signifier → §16 1cm×1cm 与约 100ms → §19 替代路径矩阵 → §20 库生态选型"),
-    ("对话式界面 / 聊天 UI / chatbot / 流式输出 / 打字机效果", "conversational-generative-ui.md §2 五段链路判层 → §3 SC 4.1.3 裁决一 → §4 ARIA23 role=log → §5 live region 契约 → §12 状态边界播报一次"),
-    ("生成式界面 / GenUI / streamUI / 组件白名单 / 动态组件", "conversational-generative-ui.md §6 裁决二 → §7 RSC experimental 与生产路径 → §8 message.parts → §20 代码 4 白名单分派"),
-    ("对话状态机 / useChat / message.parts / AG-UI 事件", "conversational-generative-ui.md §8 四态逐字 → §9 AG-UI 三模式与生命周期边界 → §13 状态归位表 → §20 代码 1 事件流校验器"),
-    ("AI 答错了 / 停止生成 / 重新生成 / 纠错 / 撤销自动化动作", "先读 conversational-generative-ui.md §11 HAX G9 四档恢复链 → §12 → §13；HAX 原则层 18 条归 ai-design-toolchain.md §10"),
-    ("混合界面 / Hybrid UI / RICH 范式 / 读屏刷屏 / aria-busy", "conversational-generative-ui.md §10 RICH 四要素与 WIMP 判型 → §5 aria-busy 三出口 → §16 来源与引用 → §17 场景 7/8"),
-    ("模态判型 / 焦点陷阱 / inert / aria-modal / 四问判型", "overlays-modality.md §1 四问判型 → §3 APG 焦点契约 → §4 aria-modal 双条件 → §20.1 判型器"),
-    ("原生 dialog / showModal / closedby / ::backdrop / returnValue", "overlays-modality.md §5 showModal 与 top layer → §7 ::backdrop 与 z-index 分界 → §13 关闭契约 → §20.4 原生骨架"),
-    ("Popover API / popover 三态 / auto hint manual / 顶层栈", "overlays-modality.md §6 always non-modal 与双栈六规则 → §7 top layer → §14 层叠嵌套 → §15 组件族谱"),
-    ("hover 浮层 / tooltip / SC 1.4.13 / Dismissible Hoverable Persistent", "overlays-modality.md §9 三条件 → §12 SC 3.2.1 help dialog 失败例 → §20.2 校验器"),
-    ("浮层遮挡 / SC 2.4.11 / F110 / C43 / 退出契约", "overlays-modality.md §10 modal always pass 与 Note 2 三出路 → §11 SC 2.1.2 → §13 关闭契约 → §20.3 遮挡裁决器"),
-    ("首次体验 / onboarding / 新手引导 / 要不要做教程", "onboarding-first-run.md §0 一句话立场 → §3 六问判型（Q4 先测无引导是闸门）→ §7 NN/g 实证全表与四条限制 → §20.1 判型器"),
-    ("教程 / coach mark / 产品导览 / 首启轮播 / 跳过后又弹", "onboarding-first-run.md §4 六类形态矩阵 → §9 Apple tips 阈值 → §12 Tour 精确 props 与叠加层契约 → §18 反模式"),
-    ("权限时机 / purpose string / pre-alert / 追踪弹窗 / 授权文案", "onboarding-first-run.md §2 裁决二 → §10 时机矩阵与 purpose string 三行正反例 + pre-alert 作用域警告 → §20.2 验收器"),
-    ("注册向导 / 重复输入 / 验证码 / 超时 / SC 3.3.7 3.3.8 3.2.1 2.2.1", "onboarding-first-run.md §2 裁决三 → §11 四条款合取表 → §20.3 检查器；条款明细归 form-table.md / accessibility.md"),
-    ("激活 / aha moment / time to value / 跳过率 / 零数据位", "onboarding-first-run.md §14 口径与跳过率陷阱 → §13 教学型零数据位 → §5 设置后置；统计方法归 design-measurement-research.md"),
-    ("渐进披露 / splash / launch screen / 首启性能 / 设置后置", "onboarding-first-run.md §5 四类可延后清单 → §6 三分界 → §8 Material 1 归档数值；LCP 与首包归 performance-design.md"),
-    ("空状态 / 零数据位 / 装饰插画 / starter content / 空状态文案矩阵", "empty-states.md §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量"),
-    ("定价页 / 三档套餐 / 月年切换 / 推荐档 / 价格数字排版", "pricing-checkout.md §2 四种构型 → §3 价格数字表 → §6 月年切换器 → §5 对比表与 CTA"),
-    ("结账流程 / checkout / 结算页 / 复核页 / 承诺闸门", "pricing-checkout.md §7 结账三型 → GOV.UK check answers 七条 → §11 SC 3.3.4 三选一（AA）→ §16 自检"),
-    ("划线价 / 原价折扣 / 运费税费 / 总价披露 / 隐藏费用", "pricing-checkout.md §4 FTC 464 total price → §10 费用三级披露 → §17.2 validate_was_price → §18 取源限制"),
-    ("通知与推送 / 站内信 / 邮件 / 短信 / 通道选型", "notifications-messaging.md §1 六段链路判层 → §2 三条裁决 → §4 通道矩阵 → §18 十二场景"),
-    ("消息中心 / 收件箱 / 未读 / 已读 / 分页", "notifications-messaging.md §8 五件套结构 → §8.3 未读三种定义 → §8.4 列表工程细节"),
-    ("角标 / 红点 / 未读数 / 99+ / 清除", "notifications-messaging.md §9 三态契约 → §9.2 五条硬规则 → §9.3 平台差异"),
-    ("免打扰 / 静音时段 / 通知偏好 / 设置页开关", "notifications-messaging.md §10 免打扰与频率预算 → §11 偏好矩阵 → §11.3 pre-permission"),
-    ("权限请求 / 拒绝之后 / 重新请求 / 引导去设置", "notifications-messaging.md §6 三平台权限四种失败模式 → §7 三态分流与 provisional"),
-    ("要不要加音效 / 震动 / 触觉反馈", "sound-haptics-feedback.md §1 五问判层 → §1.2 判层表 12 场景 → §1.3 四条拒绝条件 → §2 三通道分工"),
-    ("触觉常量 / 震动时长 / 振幅 / UIFeedbackGenerator", "sound-haptics-feedback.md §3 三平台语义表 → §4 精确值 → §4.5 跨端映射 → §11 校验器"),
-    ("提示音 / earcon / 静音开关 / autoplay / 声音可访问性", "sound-haptics-feedback.md §5 音频类别与 autoplay → §5.6 earcon 句法 → §7 WCAG 1.4.2 / 1.4.7 → §9 自检"),
-    ("登录 / 注册 / 认证 / 账号体验 / 密码规则 / 显示密码 / 游客结账", "auth-account-ux.md §1 六问判层（证明身份 vs 建立身份）→ §2 登录表单（autocomplete token / 泛化错误 / 提交态）→ §3 注册四纪律 → §4 反神话表；表单校验归 form-table.md，错误文案归 ux-writing.md"),
-    ("Passkeys / WebAuthn / 通行密钥 / 无密码登录 / 条件式认证 / 指纹登录", "auth-account-ux.md §5 参数表（challenge / rp.id / user.id / residentKey / timeout 300000 ms）→ §5.3 能力三层 → §5.4 四个创建时机 → §5.5 条件式 UI → §5.7 错误映射"),
-    ("MFA / 2FA / 验证码 / OTP / 找回密码 / 账户恢复 / 会话超时 / 登出", "auth-account-ux.md §6 因素排序与推送数字匹配 → §7 OTP 单框 → §8 恢复与防枚举 → §9 AAL 三档与到期提示 → §10 SC 3.3.8 边界"),
-    ("快捷键 / 键位 / 快捷键冲突 / 加速键 / 快捷键设置", "keyboard-shortcuts-command-palette.md §1 五问判层 → §2 SC 2.1.4 判据表 → §3 三个出口 → §4 平台修饰键契约 → §7 作用域与冲突仲裁"),
-    ("命令面板 / Command Palette / cmd-k / 快速跳转 / 命令搜索", "keyboard-shortcuts-command-palette.md §8 数据模型与 combobox 契约 → §8.3 检索与拼音 → §8.4 虚拟化上限 2000–3000 → §10 六库选型"),
-    ("aria-keyshortcuts / accesskey / kbd / 键盘可访问性 / 输入法 IME", "keyboard-shortcuts-command-palette.md §5 四层语义 → §6 key vs code 与 IME → §9 发现性与 ? 帮助面板 → §14 自检"),
-    ("文件上传 / 拖拽上传 / 选择文件 / 附件 / 上传进度", "file-upload-media-input.md §1 五问判层 → §2 控件契约（accept 五种写法 / capture / 拖放四件事）→ §3 三档校验与文案 → §4.2 进度规格"),
-    ("断点续传 / 大文件 / 弱网 / tus / 上传失败 重试", "file-upload-media-input.md §4.5 tus 1.0.0 逐字（Upload-Offset / 409 / 204 / 460 / Tus-Max-Size）→ §6 十种失败与退避 → §6.3 部分成功"),
-    ("图片裁剪 / 头像上传 / EXIF / 拍照上传 / HEIC / 媒体输入", "file-upload-media-input.md §5 媒体输入特化 → §5.1 EXIF from-image 与 canvas 坑 → §5.3 裁剪比例表 → §13.6 裁剪验收代码"),
-    ("实时协作 / 多人同时编辑 / 协同编辑 / 实时协同", "realtime-collaboration.md §2 三种模型选型 → §3 文档模型与属性级 LWW → §5 延迟预算 → §16 验收 18 条"),
-    ("在线状态 / 实时光标 / 正在输入 / 头像堆叠 / presence", "realtime-collaboration.md §4 presence 五信号 → §10 状态机（30s/15s/3s）→ §12 移动端"),
-    ("评论 / 批注 / 线程 / @提及 / 孤儿评论", "realtime-collaboration.md §8 三锚点与 relative position → §8 线程生命周期与孤儿处理"),
-    ("协作权限 / 链接分享 / 成员回收 / audience access", "realtime-collaboration.md §9 角色矩阵与继承陷阱 → §6 冲突界面文案"),
-    ("视频播放器 / 播放控件 / 播放器 UI", "video-player-captions.md §1 七层判层 → §2 架构选型 → §3 控制栏顺序与自动隐藏 → §4 时间轴语义"),
-    ("字幕 / 隐藏式字幕 / WebVTT / 字幕样式", "video-player-captions.md §5 数据模型 → §6 规范数值表 → §7 字号与 ::cue → §11 自检 16 条"),
-    ("自动播放 / 画中画 / 全屏 / iOS 内联播放", "video-player-captions.md §8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与 PiP"),
-    ("邮件设计 / HTML 邮件 / EDM / 营销邮件排版", "email-design.md §1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型"),
-    ("Outlook 兼容 / 圆角按钮 / @font-face 回退 / 深色模式反色", "email-design.md §2 四种渲染引擎 → §4.1 特性替代表 → §6 深色三通道 → §9 对比度"),
-    ("邮件体积 / Gmail 102KB 截断 / 主题行 / preheader", "email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt"),
-    ("定价本地化 / 多币种价格 / 币种切换 / 含税口径", "pricing-localization.md §1 七问判层 → §2 ISO 4217 最小单位表 → §3 三种含税口径 → §9 price book 与结算币种"),
-    ("税额反算 / 划线价原价 / 单位价格 / 地区价差", "pricing-localization.md §4 反算与取整记账 → §6 法定原价窗口 → §7 Grundpreis 与 10g 豁免"),
-    ("报价单 / 发票 / 订单确认 / 采购单据", "quote-invoice-documents.md §1 七问判层与四类构型 → §2 号码与日期 → §3 金额脊柱五数 → §5 三单字段映射"),
-    ("电子发票 / 数电票 / ZUGFeRD / Factur-X / Peppol", "quote-invoice-documents.md §6 载体 PDF/A-3+XML 与交付 → §2.3 20 位号码 → §4 税分类码与税号 → §10 法标清单"),
-    ("红冲 / 作废 / 贷项通知 / 对账单 / 账龄", "quote-invoice-documents.md §2.5 更正/作废/红冲三态 → §8 状态机与账龄桶 → §12 自检 20 条"),
-
-]
+# v52：意图路由只在 SKILL.md 第 4 节维护；本脚本不再硬编码意图表，避免两处漂移。
 
 
 def clean(text: str) -> str:
@@ -306,13 +187,12 @@ def build_tree(files: list, check: dict) -> str:
         "",
         "**检索纪律**：先用 `dp_search` 定位到「文件 §章节」，再只读那一段。不要整份读 references——十几份文件全读一遍会吃掉大量上下文，而命中往往只在一节。",
         "",
-        "## 一、意图 → 位置（快捷路由）",
+        "## 一、意图 → 位置（唯一路由源在 SKILL.md 第 4 节）",
         "",
-        "| 用户这么说 | 去哪儿 |",
-        "|---|---|",
+        "> 路由只有一份真相：`SKILL.md` 第 4 节「执行：按需读 1–3 份资产」。",
+        "> 本树不再复制路由表，避免两处漂移；要加路由，改 SKILL.md。",
+        "",
     ]
-    for intent, where in INTENTS:
-        out.append(f"| {intent} | {where} |")
 
     # 别名映射：检索层专用，只提升召回，不改上面的路由优先级
     alias_rows = load_aliases()
@@ -376,14 +256,11 @@ def build_tree(files: list, check: dict) -> str:
 def main():
     files = collect()
     check = wiring_check(files)
-    # 检索索引剔除变更日志：design-log.md 是流水账，关键词密度极高，
+    # 检索索引只剔除历史日志：design-log 归档是流水账，关键词密度高，
     # 会让「表单」「表格」这类查询的前 3 条全是日志而不是知识章节。
-    # 树里仍保留它（人可读），只是不参与 dp_search 排序。
-    # SKILL.md 常驻上下文（技能激活即全量可见），而它的「工作流」是 500+ 行的巨型章节，
-    # 放进索引会吞掉任何多词查询（例：查「商标注册」时 §工作流 因正文词频高排第一，
-    # 真正的 §17 反而被压到第二）。检索层的职责是定位 references/ 与 memory/ 里的知识，
-    # 所以这两类不进索引——树里仍保留，方便人看。
-    NOT_SEARCHABLE = {"memory/design-log.md", "SKILL.md"}
+    # SKILL.md 现在是 277 行的判断流程 + 路由，必须进索引（v52 修正：
+    # 旧版把 SKILL 整份排除，导致「检索不到技能本身」）。
+    NOT_SEARCHABLE = {"memory/design-log.md", "memory/archive/design-log-v51.md"}
     searchable = [
         {**f, "sections": []} if f["path"] in NOT_SEARCHABLE else f for f in files
     ]

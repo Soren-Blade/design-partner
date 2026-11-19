@@ -17,6 +17,13 @@ desktop.ini
 # 本地临时
 *.tmp
 *.log
+.tmp/
+.tmp_regression/
+.audit.json
 
-# 自动化/会话数据（不发布）
+# 自动生成的会话数据（不发布）
 .workbuddy-ai/
+
+# 派生索引：本地按需重建（python scripts/mindmap.py），不入库、不进安装包
+memory/index.json
+memory/tree.md

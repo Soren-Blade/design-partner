@@ -110,8 +110,8 @@ def merge_memory(other: Path):
         if not b.exists():
             continue
         for f in b.glob("*.md"):
-            if f.name == "design-log.md":
-                continue  # 日志文件单独处理
+            if f.name in {"design-log.md", "profile.md", "tree.md", "index.json"}:
+                continue  # 画像/派生文件不按行合并
             target = a / f.name
             src_lines = f.read_text(encoding="utf-8").splitlines()
             if not target.exists():
@@ -124,16 +124,22 @@ def merge_memory(other: Path):
             if add:
                 target.write_text("\n".join(existing + add) + "\n", encoding="utf-8")
                 changed = True
-    # design-log.md：按日期小节合并
+    # journal.jsonl：一行一条反馈，按整行并集合并（append-only，去重保序）
     for side_a, side_b in [(MEM_DIR, other / "memory"), (other / "memory", MEM_DIR)]:
-        fa, fb = side_a / "design-log.md", side_b / "design-log.md"
-        if not (fa.exists() and fb.exists()):
+        fa, fb = side_a / "journal.jsonl", side_b / "journal.jsonl"
+        if not fb.exists():
             continue
-        la = fa.read_text(encoding="utf-8").splitlines()
+        la = fa.read_text(encoding="utf-8").splitlines() if fa.exists() else []
         lb = fb.read_text(encoding="utf-8").splitlines()
-        add = [l for l in lb if l.strip() and l not in la]
+        seen, add = set(l for l in la if l.strip()), []
+        for line in lb:
+            if line.strip() and line not in seen:
+                seen.add(line)
+                add.append(line)
         if add:
+            fa.parent.mkdir(parents=True, exist_ok=True)
             fa.write_text("\n".join(la + add) + "\n", encoding="utf-8")
+            changed = True
 
 
 def sync_sibling(other: Path, summary):

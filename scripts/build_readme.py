@@ -1,585 +1,149 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-design-partner README 自动生成器
+"""README 单源生成器。
 
-从技能目录的真实文件统计条目数、快照日期、升级记录，重建 README.md。
-目的：每次知识库迭代后 README 数据自动对齐，避免手写数字过期。
+README.md 不再手写成第二本 SKILL：本脚本从
+  - CHANGELOG.md 的「当前版本 vNN」
+  - references/*.md 的真实标题 / 行数 / 章节数
+  - memory/journal.jsonl 的真实条数
+填充 `scripts/readme_template.md`，产出 README.md。
 
 用法:
-    python scripts/build_readme.py            # 写入 README.md
-    python scripts/build_readme.py --dry-run  # 只打印不写盘
+  python scripts/build_readme.py          # 生成
+  python scripts/build_readme.py --check  # 只检查是否过期（过期 exit 1）
 """
+import io
 import json
 import re
 import sys
 import time
 from pathlib import Path
 
-try:
+if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
 
 ROOT = Path(__file__).resolve().parent.parent
-REF = ROOT / "references"
-MEM = ROOT / "memory"
+TEMPLATE = ROOT / "scripts" / "readme_template.md"
+README = ROOT / "README.md"
 
-# (文件名, 中文名, 定位说明)
-ASSETS = [
-    ("knowledge-map.md", "知识路线图", "L0→L4 分级目标 / 必读 / 练习 / 验收 + {selftests} 条自测"),
-    ("patterns.md", "元素设计模式", "12 类高频元素的构型谱系、参数区间、速配规则"),
-    ("design-tokens.md", "设计 Token 体系", "三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵"),
-    ("motion-system.md", "动效与微交互系统", "曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收"),
-    ("motion-orchestration.md", "动效进阶·编排 / 状态机 / 共享元素转场", "三层分工判层 / 四种时间结构与 T≤400ms 总时长公式 / 两代 stagger API / FLIP 四步与 100ms 窗口 / 列表增删重排四策略 / View Transitions 伪元素树与 UA 默认 0.25s·ease·三 promise·单例中断 / Motion layoutId 与 scale correction / 四态状态机与 XState / 中断三策略与 WAAPI 全默认值 / @starting-style 四件套 / WCAG 2.3.3 与 JS 层降级 / 跨框架矩阵 / 16 场景 / 20 反模式 / 20 自检 / 8 段代码"),
-    ("dataviz.md", "数据可视化规范", "FT 九类关系选型 / Carbon·AntV 精确色板 / 坐标轴与图例数值 / 仪表盘布局 / 12 条反模式"),
-    ("form-table.md", "表单与表格规范", "标签对齐决策 / 字段定宽 / 校验三档与 12 条错误文案模板 / 行高三档 / 列对齐 / 分页·批量·空态 / 18 条反模式"),
-    ("accessibility.md", "可访问性实操", "WCAG 2.2 四档阈值 / 焦点三层标准与可抄样式 / 24px 圆间距例外 / ARIA 纪律 / aria-live / 读屏实测 / GB/T 37668 与适老化 / 25 条自检"),
-    ("feedback-states.md", "反馈与状态设计", "五层反馈决策树 / 0.1·1·10s 阈值 / 四体系 toast 时长与宽度 / 加载三形态 / 进度六铁律 / 五种空态 / 五级错误 / 确认框八条 / 五态模型 / WCAG 4.1.3 / 15 项自检"),
-    ("empty-states.md", "空状态与零数据位", "立场三裁决（引导不道歉 / 装饰插画 aria-hidden / 失败态≠缺省态·禁止伪装）/ 结构五件套一手解剖（Ant colorTextDescription · PRESENTED_IMAGE_SIMPLE·DEFAULT · margin 8·16·32 · footer action slot；Atlassian Anatomy wide 464 / narrow 304 / h600 / CTA imperative verbs / 装饰图 alt 规则）/ 五种空态判型器 / 中英抄写矩阵 8 类可抄 / 装饰插画取舍与无障碍清单 / 零数据位 starter content 四模式 / 单主行动 CTA 纪律 / 失败态≠缺省态 / 首次操作率度量 / 移动端小程序 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）"),
-    ("pricing-checkout.md", "定价页与结账流程", "立场三铁律（总价先行 / 结账是承诺不是表单 / 同一进程不重复索要）/ 判层六问 / 四种定价页构型与尺寸（卡内边距 32px · 价格 40–48px · 货币符号 0.5em 上移 0.13em · tabular-nums）/ 划线价合规（FTC 16 CFR 464 total price 逐字 + clear and conspicuous 八款 + 实际只覆盖票务与短租）/ 月年切换器 / 结账三型 / GOV.UK check answers 七条（two-thirds · Change 带 visually-hidden · 返回必预填 · Not provided）/ 13 字段 autocomplete token 表 / SC 1.3.5 AA · 3.3.7 A · 3.3.4 AA 三条款合取 / Apple Pay 标记规范（仅白色描边版 · 清space 1/4 · 不与其它按钮共享边框）/ 费用三级披露与一致性 / role=status 金额播报 / 移动端 / 20 反模式 / 20 自检 / 5 段 Python（严格模式实跑）/ 8 条取源限制"),
-    ("notifications-messaging.md", "通知与消息触达", "立场三裁决（通道归属先于内容 / 权限按功能时机且拒绝后给恢复路径 / 可关性一等验收）/ 六段链路判层表 / 三平台通道矩阵与中断级别（iOS interruptionLevel 四级 + HIG 能力表 · Android 五级 importance 创建后不可改 + MIN/NONE 官方矛盾声明 · Web Push 五件套）/ POST_NOTIFICATIONS 四个坑 / 消息中心三件套与未读口径 / 角标三态与 setNumber 建议语义 / 免打扰跨午夜 / 偏好页开关即时生效 / 交易与营销邮件判定（15 U.S.C. §7702 + 16 CFR §316.3(b)）/ 一键退订三协议细节（RFC 8058）/ SC 4.1.3 与 2.2.1 六项口径 / 12 场景 / 20 反模式 / 20 自检 / 5 段可跑代码（严格 5/5 rc=0）/ 取源限制 14 条"),
-    ("sound-haptics-feedback.md", "声音与触觉反馈", "立场「视觉是默认项，声音与触觉是例外项：先答它替代了用户哪个动作」/ 五问判层（看屏 · 时压 ≤1s · 高频 · 系统语义 · 已关闭）+ 12 场景判层表 + 四条拒绝 / 三通道分工 / iOS 三类 UIFeedbackGenerator · Android 21 个公开 HapticFeedbackConstants（20 行表 + KEYBOARD_PRESS 同值别名，含 API level）· watchOS 九种 WKHapticType / 振幅 1–255 与 DEFAULT_AMPLITUDE=-1 · Composition 原语常量 1–8（API 30/31）· 官方间隔 50 ms / 强度比 1.4 / 包络 20 ms · AOSP 注释 1 s 与 3 段 · W3C 10 段 / 10000 ms / sticky activation / 静音开关与 AVAudioSession 类别表 / autoplay 三条工程动作 + getAutoplayPolicy / 音频焦点 / earcon 五条音高句法 / 三通道配方 12 行 / WCAG 1.4.2 + 1.4.7 逐字 / 20 反模式 / 20 自检 / 1 段可跑校验器（实跑 PASS）/ 取源限制 17 条"),
-    ("responsive-layout.md", "响应式与断点体系", "六体系断点精确值对照 / 断点按内容定 / 跨断点五动词 / gutter 固定 column 流体 / 版心阶梯 / 容器查询 / clamp 无障碍公式 / 视口单位陷阱 / 窄屏表格四策略 / 中后台 1440 适配 / 20 条反模式"),
-    ("editorial-layout.md", "版式与网格（Editorial）", "五类载体决策 / 网格五型 / 12 栏与基线 / Van de Graaf 页边距 2:3:4:6 / 模数阶梯七档 / 行长 45–90 字符与行距 120–145% / 孤寡行与断行 / 海报出血 3mm 与安全区 / 长图字号换算 / 九平台社媒尺寸 / 印刷 CMYK 与总墨量 300% / 竖排与避头尾 / 18 项自检"),
-    ("brand-identity.md", "品牌视觉与 Logo 逻辑", "四层结构 / 三词定位与六维翻译 / 七型标志决策树 / 24dp 网格与四基形 / 光学修正四条 / 清space 三口径 / 最小尺寸 40px·10mm / 响应式标志四档 / 种子色四问 / 三条色阶路线（HCT·Radix 12 步·对比度优先）/ M3 亮暗 tone 全表 / 图标网格两体系 / 插画五参数 / 品牌语气四维 / 资产交付清单 / 商标与授权合规 / 18 项自检"),
-    ("performance-design.md", "性能与设计的关系", "CWV 七指标阈值与 p75 口径 / Lighthouse 10 权重 / LCP 四分解 40·10·40·10 / INP 三阶段与长任务 50ms / CLS 公式与 500ms 免责窗口 / 关键路径 170KB 与六类页面预算 / 图片格式矩阵与 25 倍像素浪费 / font-display 五档与中文字集化 / 视觉手法性能价格表 / 帧预算 16.67ms 与图层内存算术 / 三档决策分级 / 弱网三层降级 / 小程序单包 2MB / 18 项自检"),
-    ("dark-mode.md", "暗色模式体系", "该不该做的 NN/g 证据链 / 三态切换决策树 / 表面层级三套精确值（M3 tone 4·6·10·12·17·22 / Ant lighten 0·8·12·26 / Carbon g100 阶梯）/ 实测对比度陷阱（45% 白仅 4.43、边框仅 2.09:1）/ 不用纯白的四体系共识 / 阴影两派与合成方案 / 品牌色 tone 重映射 / 涨跌色双套 / 图像四死法 / 四端实现与防闪白 / 暗色专属八陷阱 / 22 项自检"),
-    ("multi-brand-theming.md", "多品牌与多主题 Token 架构", "四根正交轴 / 四层架构 L0–L3 / 品牌色阶四条生成路线 / 对比度护栏（亮度边界 0.1833·0.1750·0.3000 与九色实测）/ 轴独立选择器与 @layer / 多品牌同页共存 / 四套真实主题矩阵 / DTCG 与 Style Dictionary / Figma 变量模式 / 注入六步管线 / 18 项自检"),
-    ("handoff-collaboration.md", "设计交付与协作", "交付链六关卡与 intent·rule·value 三层 / spec 9 字段与 Carbon 规格六类 / 标注只标四类（8px mini unit·padding 16·gutter 32·spacing 13 档）/ 9 态矩阵 / 命名四套与默认变体规则 / 组件属性四类与 3–5 上限 / Given-When-Then 3–5 步 / 评审 30 分钟与 2 正 1 改 / 走查三遍法与 9 字段表 / P0–P3 门禁 / SemVer 11 条与 MAJOR 迁移表 / DTCG 与 Style Dictionary 管线 / 回归四层（80%·VRT·AVT·三读屏器）/ 六个交付指标 / 20 项自检 + 4 套模板"),
-    ("ux-writing.md", "内容设计与 UX 文案", "三级文案尺寸 / 五条不可商量原则（禁 OK）/ 按钮·错误·空态文案模板 / 语气四维 / 表单与对话框文案 / 术语管理 / sentence case 四体系共识 / 中文标点与数字日期 / 国际化写文案速记（短串膨胀口径见 i18n-localization.md）/ 文案 token / 18 项自检"),
-    ("i18n-localization.md", "国际化与本地化设计（i18n / L10n / RTL）", "三层判层（标记层 lang·dir / 布局层弹性·逻辑属性·镜像 / 数据层复数·日期·数字·姓名·排序）/ W3C-IBM 膨胀表（≤10 字符 200–300% → microcopy 2–3×）/ 裁决 ux-writing §13「+40%」对短串错误 / WCAG 3.1.1 A·3.1.2 AA 与 H57·H58 / W3C 硬禁令 Never use CSS to apply the base direction / CSS logical properties 全映射 / Material 镜像白黑名单 / CLDR 复数六类（one≠1·中文仅 other）/ ICU MessageFormat 禁拼接 / Intl API 与 Node v22.22.2 实测（DurationFormat 需能力检测）/ 日期·数字·货币·列表·排序 / 姓名单一 Full name / 伪本地化五变换 / 12 场景 / 20 反模式 / 20 自检"),
-    ("presentation-design.md", "演示文稿与幻灯片版式", "16:9=1920×1080 / 标题 5%·动作 3% 安全区 / 字号阶梯（最小 24pt 线上 28pt）/ 文字密度四规则 / 母版 6–8 版式 / 动画与转场区分三档 / 投影对比度高 50% / 线上与中文演示 / 三分法与 Z 模式 / 12 场景 / 18 自检"),
-    ("design-md-format.md", "DESIGN.md 规范", "九章骨架 + 54 品牌 DNA 速查 + 项目类型选型"),
-    ("design-system-docs.md", "设计系统文档写作", "Diátaxis 四象限判层 / GOV.UK 组件页九段式与活文档四件套 / 文档信息架构四条地基与 Google 写作规范 / 完整填充范例 / 组件成熟度（USWDS 三阶段·Carbon semver）/ Docusaurus 3.10.2 版本化（<10·preview 2–3·patch 不切）/ Keep a Changelog 1.1.0 七原则六类 / MAJOR 迁移文档 / DTCG published 2025.10 与 preview draft 裁决 / Storybook Autodocs·MDX·Doc Blocks·Figma Code Connect / GOV.UK 贡献与治理 / 新鲜度与漂移自举 / 12 场景 / 20 反模式 / 20 自检"),
-    ("ai-design-toolchain.md", "AI / 生成式设计工具链", "中国《标识办法》14 条设计动作与中欧美三法域矩阵 / USCO「提示词不构成作者身份」与可举证创作链 / C2PA 三概念分离 / DESIGN.md 给 AI 读的契约 / 提示词四区块与 prompt SemVer / HAX G1–G18 界面落点 / AI Slop Test 与 8 维 DO-DON'T / 12 类固有缺陷 / 5 层工具链 18 仓库 API 实测与选型三问 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（3 段已实跑）"),
-    ("chinese-design.md", "中文设计场景", "中文排版规范 + 中文设计生态地图 + 产品形态特征"),
-    ("inspiration.md", "灵感与阅读", "策展画廊与设计阅读"),
-    ("resources.md", "设计资源", "组件 / 图标 / 动效 3D / 字体配色"),
-    ("design-ethics-inclusion.md", "设计伦理与包容性", "CPPA §7004 对称选择与步数测量 / §7003 可读性与 WCAG 2.1 引用 / EDPB 03-2022 v2.0 六类机制 / PIPL 14·15·16·17·24 五条 UI 底线 / 广告办法第 10 条一键关闭三数值 / 网络交易办法第 18 条 2025 修正与「前五日」反陈旧裁决 / 未成年人条例令第 766 号 42-45·47 / deceptive.design 现行 18 类 / 成瘾机制四红线 / Inclusive Design 七原则与 COGA 八目标 / 合规×包容四象限 / 18 场景决策矩阵 / 20 反模式 / 22 自检 / 4 段可抄代码（3 段 Python 已实跑，含陈旧法条守卫）"),
-    ("component-api-design.md", "组件 API 设计与组合模式", "三份所有权（状态 / 渲染 / 契约与演进）/ Radix `prop !== undefined` 与受控生命周期告警 / React `<input>` 受控契约 / 五种换元素 API（asChild mergeProps · Ariakit render · MUI slots/slotProps · Vue slots · children） / 开放扩展四条与合并优先级 / **React 19 forwardRef 反陈旧裁决**与命令式 ref 红线 / APG 键盘契约与单 tab stop / data-* 状态暴露 / **API SemVer 六冻结面 = MAJOR + codemod** / Storybook argTypes / TypeScript 可辨识联合 / 16 场景 / 20 反模式 / 22 自检 / 4 段代码（3 段 Python 实跑全 PASS）"),
-    ("design-measurement-research.md", "设计度量与用户研究", "ISO 9241-11 可用性三要素（有效性/效率/满意度）/ 任务级指标（成功率·错误率·时长·SE）/ SUS·UMUX-Lite·SEQ·SUPR-Q·NPS 计分与基准（SUS 68 基准·一致作答恒 50）/ Google HEART 五维三层落地 / 样本量公式（定性 5 人≈84%·定量 n≈Z²p(1−p)/E²）/ 研究方法 2×2 与卡片分类·树测试 / 可用性测试（主持·非主持·出声思考）/ 问卷偏差避坑 / A/B 统计（双比例 z 检验·MDE·95% CI 跨 0 即无 winner·护栏指标·序贯检验）/ 行为分析与漏斗 / 证据分级与三角验证 / 研究 ops 与工具矩阵 / 12 场景 / 20 反模式 / 20 自检 / 4 段可抄代码（Python 全实跑）"),
-    ("iconography.md", "图标设计系统", "24×24 网格与 keyline（圆⌀20·方18·矩20×16）+ 描边（Lucide stroke=2 / Heroicons 1.5 / Carbon 1.5 / Material wght 100–700·GRAD −50..200·FILL 0–1）+ 尺寸阶梯 12/16/20/24/32/48 + 图标-文字间距 8px（最小 4px）+ 填充/描边/双色 + 光学对齐与过冲 + spinner 1–1.4s linear + 交付格式（内联 SVG/Sprite/字体子集/组件）+ 可访问性（aria-hidden+focusable=false / role=img+aria-label / ≥3:1 / 不靠颜色）+ 动画降级 + kebab-case 命名 + 库选型矩阵（Lucide 25.6k★/Tabler 22.6k★/Fluent 11k★/Radix 2.7k★ GitHub API 实测）+ 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码"),
-    ("design-critique.md", "设计评审与反馈", "评审是暴露盲点/对齐决策（非挑错非批准）+ 两种评审分清（standalone critique / design review）+ 三前提（范围/目标/对话）+ 给反馈七铁律（具体/挂目标/品味vs工艺/I like·I wish·I wonder/行为化/2正1改/给观察不给方案跳转）+ 接收反馈四步（不辩护/追问/归类/记录决策）+ RACI 与远程异步（48h 窗口）+ 评判框架（NN/g 10 启发式 + 严重度 0–4 + DFV 三问 + 重要性×确定性 + 可取性测试）+ 15 反模式（设计by committee/HiPPO/审美化争论/方案跳转/模糊反馈/现场改稿…）+ 决策记录（ADR / critique notes 模板）+ 工具（Figma comment/Figjam/Notion/PR review 类比/Loom）+ 20 自检 + 4 段可抄模板"),
-    ("navigation-ia.md", "导航与信息架构", "四类职责谱系（全局/局部/上下文/辅助）+ 形态决策矩阵（tab/侧栏/汉堡/rail/drawer）+ 项数铁律（米勒 7±2·全局 5–9·底部 ≤5）+ 深度 vs 广度（3-click 迷思/信息气味/卡片分类·树测试）+ 面包屑三型 + ARIA Tabs 键盘契约 + 移动端降级（Apple ≤5·Material bar/rail/drawer）+ 当前位置指示（aria-current）+ WCAG 2.4.x 导航口径 + 搜索协同 + 20 反模式 + 20 自检 + 5 段可抄代码"),
-    ("component-libraries.md", "组件库地图", "14 库元素覆盖矩阵（GitHub API 验证）"),
-    ("tools.md", "制作工具", "开发 / AI / 截取 / 效率工具"),
-    ("portfolios.md", "作品集", "一线从业者站点，用于审美校准"),
-    ("color-science.md", "色彩科学", "色彩空间谱系 sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3 / 感知均匀性与 HSL 为何撒谎 / OKLab 公式与 CSS oklch() / 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档）/ 色盲与 Okabe–Ito 8 色 / 色板生成四路线（OKLCH 旋转·Radix 12 步·M3 tonal·Leonardo 对比度优先·HCT）/ 渐变 OKLab 插值 / 色彩无障碍 beyond 1.4.11 / 工程实现 color()·color-mix·相对颜色语法·culori·colorjs.io·Figma 变量 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码"),
-    ("visual-style-taxonomy.md", "视觉风格谱系与设计运动", "立场：风格不是名词贴标签，是四维信号的组合签名 / 四维信号表（Typography·Color·Shape&Material·Motion&Space 逐维标注）/ 17 条编年谱系（Swiss 1950s→Bauhaus→Brutalism→Memphis 1981→Skeuomorphism→Flat 2013→Material 2014→Neumorphism 2019→Glassmorphism 2020→Y2K→Vaporwave→Cyberpunk→Bento 2022→Claymorphism→企业中性，各给何时用/何时不用）/ 匹配决策（参考站四步拆解·形容词先确认语境）/ 风格 vs 品牌三词定位 / 混搭纪律（depth language 只一种主导·装饰密度只一个极端·趋势叠加上限=1）/ 趋势生命周期（技术驱动 vs 纯视觉潮流 12–24 个月）/ 中文与出海 / 风格→token 映射与 DTCG / 新拟态与玻璃拟态硬红线 / 12 场景 / 20 反模式 / 20 自检 / 3 段可抄清单或代码"),
-    ("typography-system.md", "字体排印系统", "立场：排印不是选一款字体，是六层契约（覆盖·尺度·节奏·字形·加载·授权）/ 三条裁决（px 写正文不可访问·MDN 原文与 rem 阶梯 / WCAG 2.2 SC 1.4.12 文本间距是用户覆盖抗压测试非默认样式表 / font-family 逐字符回退 + unicode-range 命中一字即整片下载）/ 字体选型三前置 / 行高两档（M3 大字号 1.2×·小正文标签 1.5×）与 SC 1.4.8 行宽·禁 justify·200% 无横向滚动 / 注入式 1.4.12 验收五步与两种 200% 缩放 / 可变字体五注册轴与 GRAD / OpenType 数字特性 8 值全表与 tabular-nums / 高位 font-variant-* 优先与低位 API 纪律 / font-display 三阶段五档 / size-adjust 度量对齐压 CLS / W3C clreq 中文排版（1/4 汉字宽·1:1 正方形·全角 ASCII·UAX #29 字素丛）/ M3 五角色×三尺寸与 --md-sys-typescale-* token 化 / OFL 1.1 五条件 / 9 仓库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（含可实跑的排印可访问性静态扫描）"),
-    ("shape-elevation.md", "形状与深度系统", "立场：形状是几何契约·深度是语义层级 / 三条裁决（elevation 非可抄阴影值·阴影不算 3:1 边界·圆角受几何约束）/ 五层模型 / M3 六级 0·1·3·6·8·12dp / 七体系阴影与圆角 token 精确对照（Tailwind v4 八值·MUI 0.2·0.14·0.12 三层·Ant boxShadow·TDesign shadow1~3·M3 shape 4/8/12/16/28）/ box-shadow 2·3·4 length 语法 / corner overlap f=min(L_i/S_i) 与同心 r=R−p / Carbon Layering·Apple Liquid Glass 分层 / 语义 z-index / 深度语言三选一 / 12 场景 / 20 反模式 / 20 自检 / 6 段代码（3 段 Python 实跑）"),
-    ("visual-hierarchy-gestalt.md", "视觉层级与格式塔组织律", "立场：视觉层级不是放大加粗，是注意力的分配契约 / 三条裁决（F 型是缺引导时的默认省力扫描非设计目标·NN/g 逐字原文 / 层级必须兑现为 DOM 阅读顺序+焦点顺序+标题树·W3C SC 1.3.2 A·2.4.3 A·2.4.6 AA·2.4.10 AAA 逐字原文 / 7±2 不是菜单上限·Sweller 1988 三分·Hick log2 适用前提·Fitts Shannon 形式）/ 三层模型（组织 L1·引导 L2·负荷 L3）/ IxDF 12 条格式塔原则全表（Emergence→Common Fate，Koffka 原话 other than）/ 组织律可验收四规则（间距比为工程约定）/ NN/g 8 种扫描模式诊断表与 RTL flipped F / Treisman & Gelade 1980 特征整合理论（前注意阶段·feature vs conjunction search·18%·23%·页面无视觉搜索斜率）/ 图形背景与多稳态 / 认知负荷三分与 Miller 1956 bit / Hick 五 Takeaways 与失效条件 / Fitts 三形式与 edge-corner / chunking 与渐进披露 / 序列位置与 Von Restorff 相对差异 / Laws of UX 注意力相关 12 条 + NN/g 10 启发式 / 六步构建流程 / 三关度量 / 与既有资产边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（Hick-Fitts 计算器·三顺序静态扫描器·间距比校验器 3 段 Python 实跑）"),
-    ("content-findability.md", "内容可发现性与可扫读性", "立场：可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度 / 四层链路模型（L1 有路·L2 认得出·L3 读得动·L4 走得出，先判层再改文案）/ 三条裁决（SC 2.4.5 AA 至少两条找路路径·G161 只是六项充分技术之一 / 链接目的脱离上下文仍成立·SC 2.4.4 A·2.4.9 AAA·3.2.4 AA·NN/g 前 11 字符 / SC 3.1.5 AAA 门槛是九年学校教育·FRE/FKGL/SMOG 精确系数且不可换算·音节公式禁套中文）/ APG combobox 全套 aria 与 DOM focus 契约 / M3 Search specs 精确尺寸 / 信息气味与 nano-content / NN/g 79%·16% 与 58/47/27/124% 口径边界 / GOV.UK 404 四条禁令 / tree testing 的 findability·directness / Plain Writing Act 2010 与中文六个代理指标（工程约定）/ 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
-    ("direct-manipulation.md", "直接操纵与指针交互", "立场：直接操纵不是把对象跟着指针走，而是四条并存且互不替代的完成路径 / 四段链路模型（单指针无拖动·指针取消·键盘·读屏播报）/ 三条裁决（补键盘快捷键不满足 SC 2.5.7·2.5.1·G219 四类无拖动替代 / pointercancel 是 PE3 规范性必达事件·MUST suppress a pointer event stream 四步链·touch-action 因果 / 目标尺寸三口径·2.5.8 AA 24×24 含圆 spacing 例外·2.5.5 AAA 44×44·M2 48dp）/ PE3 事件契约与 capture 三方法 / touch-action 形式语法与三条陷阱 / HTML DnD 七事件与 DataTransfer 读写窗口 / dnd-kit 键盘默认 25px（自述 arbitrary）/ live region 播报 position 而非 index / NN/g signifier 双义·1cm×1cm·约 100ms / GitHub API 实测 10 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
-    ("conversational-generative-ui.md", "对话式与生成式界面", "立场：对话式与生成式界面不是把聊天气泡套皮，是五段并存且每段都会失败的链路 / 五段判层模型（L1 发得出·L2 等得住·L3 读得动·L4 改得动·L5 收得回）/ 三条裁决（流式回答正文不是 SC 4.1.3 状态消息·状态边界才播报一次 / 生成式 UI 是组件白名单里的路由而非模型返回任意组件·streamUI tools 返回 React components / 纠错是停止·重试·编辑原消息重放·撤销自动化动作四档恢复链，不是单个重新生成按钮）/ W3C ARIA23 role=log 隐性 aria-live=polite 与 aria-atomic=false / F103 失败族与 assertive 双播 / aria-busy 三出口复位与空容器契约 / AI SDK RSC experimental 逐字句只在该页的口径纪律 / useChat submitted·streaming·ready·error 四态与 message.parts 优先于 content / AG-UI RunStarted·RunFinished|RunError 强制边界与 Start-Content-End 三模式 / Ant Design X RICH 四要素与 Hybrid UI 判型 / HAX G9 与原则层 18 条分流 / 状态归位表 / 流式 Markdown 未闭合围栏分片 / 来源引用与置信度 / GitHub API 实测 7 库 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）"),
-    ("overlays-modality.md", "叠加层与模态性", "立场：模态不是一层半透明遮罩，是「外部还能不能被操作」的交互契约 / 四问判型决策树（Q1 背景 inert·Q2 焦点进层且 Tab 不越界·Q3 显式 activate 还是 hover/focus·Q4 无鼠标无物理键盘也能退出）/ 三条裁决（APG Windows under a modal dialog are inert + Escape 关闭 + 焦点归位·aria-modal 双条件 / MDN Popovers created using the Popover API are always non-modal·showModal 才模态·closedby 三值 / WCAG 2.2 正确构建的 modal dialog will always pass SC 2.4.11·伪模态 dialog-like overlay 风险最高·F110）/ Popover 三态 auto·hint·manual 与双栈六规则 / top layer·::backdrop 与 z-index 分界 / WCAG 四条款矩阵（1.4.13 三条件·2.4.11 Note 2 三出路与 C43·F110·2.1.2 标准退出法·3.2.1 禁 focus 抢焦点）/ 关闭契约矩阵与层叠嵌套 / 12 类组件族谱判型 / Apple HIG·Radix·GitHub API 实测 10 库 / 取源限制与边界矩阵 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3）"),
-    ("onboarding-first-run.md", "首次体验与用户引导", "立场：Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计 / 五段链路（Launch·First-run·Teach·Activate·Return）/ 三条裁决（默认不加教程：NN/g 70 人 4 app 逐字 91% vs 94% p=0.443·93.49s vs 85.17s p>0.1·SEQ 4.92 vs 5.49 p=0.047 + Apple Teach through interactivity + 先测无引导四步闸门 / 权限按功能时机不按会话起点：purpose string 四标准·pre-alert 平台特定禁外推 Web 同意层·tracking 四禁令 / SC 3.3.7·3.3.8·3.2.1·2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 autocomplete 不算满足 3.3.7）/ 六问判型决策树与四条硬约束 / 六类引导形态矩阵与 push·pull 用词勘误 / 渐进披露与设置后置 / launch≠splash≠onboarding 三分界 / NN/g 实证全表与四条研究限制 / Material 1 **归档**精确值（非现行 M3）/ Apple tips 阈值 / 权限时机矩阵 / WCAG 四条款合取表 / Ant Design Tour 精确 props / 教学型零数据位与 Carbon 五件套 / activation·TTV 口径与跳过率陷阱 / 12 库 GitHub API 实测 / 12 场景 / 20 反模式 / 20 自检 / 5 段代码（5/5 Python 严格模式实跑 rc=0）/ 取源限制与边界矩阵"),
-    ("auth-account-ux.md", "认证与账户体验", "立场：认证不是一道门，是一条可失败、可恢复、可退出的路径 / 三条裁决（证明身份 vs 建立身份·SC 3.3.8 明确不覆盖建账号 / 密码共识已整体反转·NIST 800-63B-4 单因素 ≥15 字符·禁组合·禁轮换·至少允许 64·ASVS 8 的版本错位 / Passkeys 在账号验证之后再种·web.dev Avoid password-only verification）/ §1 六问判层 + 12 场景表 + 边界矩阵 / §2 登录表单（autocomplete 全表·off 拦不住管理器·F109 禁粘贴·泛化错误文案·提交态）/ §3 注册四纪律（游客优先 Baymard 18%·规则常驻·去重复字段·邮箱验证降级）/ §4 反神话表 13 行 + 限速 100 次 / §5 Passkeys（参数表·能力三层·四个创建时机·条件式 UI·错误映射·管理页）/ §6 MFA 因素排序与推送数字匹配 / §7 OTP 单框与禁自动跳格 / §8 恢复与防枚举 / §9 AAL 三档会话 / §10 WCAG 3.3.8 全文与失败清单 + NIST §8 可用性 / §11 冲突裁决 8 条 / §12 Apple 140pt×30pt 与 Google 三配色 / 20 反模式·20 自检 / 4 段可抄代码（含 Python 静态校验器 4/4 PASS）"),
-    ("keyboard-shortcuts-command-palette.md", "键盘快捷键与命令面板", "立场：快捷键不是彩蛋，是一份带退出条款的加速契约 / 三条裁决（SC 2.1.4 判据是「是否依赖可打印字符」而非按了几个物理键，序列与 Shift+字符同在范围内 / 修饰键是平台契约·aria-keyshortcuts 只声明不绑定·accesskey 劝退 / 命令面板 = 命令注册表 + combobox 检索层·IME 组字期不响应·cmdk 无虚拟化上限 2000–3000）/ §1 五问判层 + 12 场景 / §2 SC 2.1.4 判据表 9 形态 + 2.1.1/2.1.2 分工 / §3 三出口 + GitHub 实证 / §4 macOS 顺序 Control→Option→Shift→Command 与 Hyphen、Windows +、ARIA 五个修饰键名 / §5 四层语义 + 五条 MUST + WHATWG accesskey / §6 key vs code + IME 守卫 / §7 五层作用域 + 四类仲裁 + VS Code 自下而上 / §8 面板解剖 + 数据模型 + 逐键契约 / §9 五个发现触点 + kbd 样式 / §10 六库 API 实测（cmdk 13,147★ / kbar 5,264★ / tinykeys 4,106★）/ §11 四条硬规则 / 12 场景·20 反模式·20 自检 / 2 段代码实跑 PASS / 取源限制 16 条"),
-    ("file-upload-media-input.md", "文件上传与媒体输入", "立场：上传不是「选个文件传上去」，是一条可失败、可恢复、可验收的五段链路 / 三条裁决（accept 只提示不校验，MDN 逐字 *doesn't validate the types*，服务端必须重验且不信 Content-Type·OWASP 逐字 / 拖放区必须有「选择文件」等价路径·SC 2.5.7 *single pointer without dragging* + SC 2.1.1 键盘兜底 / 五态 uploading·processing·succeeded·rejected·failed，rejected≠failed 决定用户动作，SC 4.1.3 播报节流）/ §1 五问判层 + 12 场景 / §2 控件契约（accept 五种 specifier 逐字·capture user/environment·拖放四件事）/ §3 三档校验（即时/提交前/服务端权威）与文案 / §4 传输与进度（0.1/1/10 s·取消语义·tus 1.0.0 逐字 Upload-Offset/409/204/460/Tus-Max-Size）/ §5 媒体输入特化（EXIF from-image·createImageBitmap 三值·裁剪比例表·HEIC）/ §6 十种失败与退避·部分成功 / §7 无障碍（2.5.7·2.5.8 24×24·4.1.3 播报 5 s 节流）/ §8 安全（OWASP 十条·双扩展名·空字节·NTFS ADS·SVG 净化·预签名直传）/ §9 八库 GitHub API 实测（uppy 31,075★·sharp 32,855★·squoosh 26,195★）/ §10 场景速查 12 行 / 20 反模式·20 自检 / 6 段代码实跑 PASS / 取源限制 14 条"),
-("realtime-collaboration.md", "实时协作与多人编辑", "立场：协作不是加个光标，是让每个人判断「我的改动在哪、别人的在哪、冲突时谁说了算」/ 三条裁决（① 冲突粒度取属性级 LWW，同对象同属性裁决、AB 与 BC 并发永不 ABC，不引入 OT；② presence 只放临时信号，Yjs outdatedTimeout 30s / 15s 续期 / 3s 巡检，永久内容进 Storage；③ 评论钉相对位置、类型被删返回 null 即孤儿；权限逐文件/文件夹判 audience access，继承不自动下传）/ §1 六层判层 / §2 三种模型选型（中心 LWW·CRDT·OT）/ §3 文档模型（client ID·fractional index·删除与 undo buffer）/ §4 presence 五信号 / §5 延迟预算 / §6 冲突与软锁 / §7 多人撤销 / §8 评论三锚点与线程 / §9 角色矩阵与继承陷阱 / §10 四态状态机 / §11 SC 4.1.3 与 aria-live / §12 移动端 / §13 容量 / §14 文案 / §15 反模式 / §16 18 条验收 / §17 度量 / §18 交付检查 / §19 4 段 Python 实跑 PASS / §20 取源限制 / §21 10 库 GitHub API 实测"),
-    ("video-player-captions.md", "视频播放器与字幕", "立场：播放器不是皮肤，是一份关于时间的契约（现在播到哪 / 能不能控制 / 听不见时看什么）/ 三条裁决（控件层是契约层·Space·K·←→±5s·↑↓ 音量·M·F·C 先接受再扩展 / 字幕是内容不是样式·42 字符×2 行×20 CPS（儿童 17）与 5/6–7 秒同时成立 / 默认不自动播放有声视频·WebKit 只放行 muted 或无音轨）/ 七层判层 / 控制栏顺序与自动隐藏三态 / 时间轴语义 / WebVTT 与 TextTrack 三态 / 16 行精确值表 + 中文 20–22 汉字/行 / ::cue 与自绘层 / GIF 12× 带宽 2× 能量 / 四条 WCAG 逐字 / 14 反模式 / 3 段 Python 校验"),
-    ("email-design.md", "邮件设计与 EDM 排版", "立场：邮件不是网页的降级版，是一条被客户端引擎、体积截断与深色反色共同挤压的版式通道 / 三条裁决（四种渲染引擎血统·Outlook 用 Word 引擎，600px 是产物·图片可删文字必达·体积是排版约束 102KB/85KB/`<style>` 16KB）/ 七层判层 / caniemail 实测 40 行与 11 行特性替代表 / 图片三事实与 VML 圆角按钮 / 深色三通道与双写模板 / 中文 25–32 字一行与 `mso-font-alt` / 主题行·preheader·首屏·CTA·页脚 / 20 条反模式 + 20 条自检 + 6 段可跑校验"),
-    ("quote-invoice-documents.md", "报价与发票单据", "立场：发票是一条能被机器逐行复核的金额脊柱 + 一条能回溯到报价与订单的身份链；设计能决定字段层级与版式，不能决定税基、编号规则与红冲条件 / 三条裁决（五个数被 BR-CO-10/13/15/16 锁死，页面只有一个「应付」BT-115·舍入逐层发生 1 分钱必有落点·已开出的单据只能更正 384 或红冲 381，不能编辑）/ 七问判层与四类构型 / 数电票 20 位号码与票面 17 项 / 金额脊柱实跑样例与一分钱去向 / 三单字段映射与 Skonto / PDF/A-3+XML 同源载体 / A4 版式与多页规则 / 状态机与账龄桶 / 20 条反模式 / 20 条自检 / 六段可跑校验"),
-    ("pricing-localization.md", "定价本地化", "立场：价格不是一个数字，是一个三元组「金额 + 币种 + 含税口径」——设计能决定三元的展示归属与时机，不能决定取值 / 三条裁决（ISO 4217 最小单位是数据·JPY 0 位 KWD 3 位，`¥1,234.50` 不存在·含税口径由销售地法定，同一件 9.99 在美/德/日是三种写法·「原价」是法定回溯窗口不是文案自由，DE 30 日 / CN 7 日 / JP 8 周·税额由含税价反算 r/(1+r) 且只取整一次、差额必须记账）/ 七问判层与四种构型 / 最小单位表与 `currencyDisplay` 四档 / 三种含税口径（EU 15% 框架·德 19-7-0·英 20-5-0·日 10-8 総額表示·中人民币金额·美不含税）/ 反算与取整记账 / 价格点与 FX 缓冲 / 三地法定原价窗口 / Grundpreis 与 10g 豁免 / 格式与尾数 / price book 与结算币种 / 20 条反模式 + 20 条自检 + 6 段可跑校验"),
+GROUPS = [
+    ("判断与品味", ["taste-criteria", "comparison-protocol", "before-after", "user-modeling",
+                    "numeric-truth", "design-critique"]),
+    ("视觉基础", ["typography-system", "color-science", "visual-hierarchy-gestalt", "shape-elevation",
+                  "iconography", "visual-style-taxonomy", "chinese-design", "design-tokens",
+                  "brand-identity"]),
+    ("版式与系统", ["editorial-layout", "responsive-layout", "dark-mode", "motion-system", "dataviz",
+                    "performance-design", "multi-brand-theming"]),
+    ("界面与交互", ["component-api-design", "form-table", "feedback-states", "empty-states",
+                    "navigation-ia", "overlays-modality", "content-findability", "direct-manipulation",
+                    "keyboard-shortcuts-command-palette", "onboarding-first-run", "sound-haptics-feedback",
+                    "conversational-generative-ui", "realtime-collaboration", "video-player-captions"]),
+    ("领域与商业", ["presentation-design", "email-design", "pricing-checkout", "pricing-localization",
+                    "quote-invoice-documents", "auth-account-ux", "notifications-messaging",
+                    "file-upload-media-input", "handoff-collaboration", "design-measurement-research",
+                    "ux-writing"]),
+    ("合规与工具链", ["accessibility", "i18n-localization", "design-ethics-inclusion",
+                      "ai-design-toolchain", "design-system-docs", "component-libraries"]),
+    ("索引与资源", ["knowledge-map", "patterns", "portfolios", "resources", "tools", "inspiration",
+                    "design-md-format"]),
 ]
 
-ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]", re.M)
-SNAPSHOT_RE = re.compile(r"快照\s*(\d{4}-\d{2}-\d{2})")
-VERIFY_RE = re.compile(r"(\d{4}-\d{2}-\d{2})\s*经?\s*GitHub\s*API")
 
-
-def count_entries(path: Path) -> int:
-    if not path.exists():
-        return 0
-    return len(ENTRY_RE.findall(path.read_text(encoding="utf-8")))
-
-
-def snapshot(path: Path) -> str:
-    if not path.exists():
-        return "—"
-    text = path.read_text(encoding="utf-8")[:1500]
-    for rx in (SNAPSHOT_RE, VERIFY_RE):
-        m = rx.search(text)
-        if m:
-            return m.group(1)
-    return "—"
-
-
-def alias_count() -> int:
-    """从 memory/aliases.json 实时统计别名组数，避免手写数字过期。"""
-    p = MEM / "aliases.json"
-    if not p.exists():
-        return 0
-    try:
-        data = json.loads(p.read_text(encoding="utf-8"))
-        return len(data.get("groups", []))
-    except Exception:
-        return 0
-
-
-def changelog() -> list:
-    """从 design-log.md 提取 `## YYYY-MM-DD · 标题` 作为升级记录。"""
-    p = MEM / "design-log.md"
-    if not p.exists():
-        return []
-    rows = []
-    for line in p.read_text(encoding="utf-8").splitlines():
-        m = re.match(r"^## (\d{4}-\d{2}-\d{2}) · (.+)$", line.strip())
-        if m:
-            rows.append((m.group(1), m.group(2)))
-    return rows[-8:][::-1]
-
-
-def skill_facts() -> dict:
-    """从 SKILL.md 与 references/ 实时推导版本号、路由数、自检数、字数。
-
-    README 里的数字一律不手写——上一轮就出现过「11 份参考」「12 类意图路由」
-    这类硬编码过期的问题。全部改为从真实文件统计。
-    """
-    facts = {"version": "?", "routes": 0, "checks": 0, "refs": 0, "chars": 0, "selftests": 0, "branches": [], "check_names": []}
-    refs = sorted(REF.glob("*.md"))
-    facts["refs"] = len(refs)
-    facts["chars"] = sum(len(p.open(encoding="utf-8", newline="").read()) for p in refs)
-
-    km = REF / "knowledge-map.md"
-    if km.exists():
-        kt = km.read_text(encoding="utf-8")
-        facts["selftests"] = len(re.findall(r"^- \[ \]", kt, re.M))
-        # 专题支线：`### 支线 X · 名称（…）` → 只取名称部分
-        # 支线 ID 已用到双字母（Z 之后是 AA），必须用 [A-Z]+ 否则会漏掉 AA 及之后所有支线
-        facts["branches"] = [re.sub(r"（.*$", "", b).strip()
-                             for b in re.findall(r"^### 支线 [A-Z]+ · (.+)$", kt, re.M)]
-
-    sk = ROOT / "SKILL.md"
-    if not sk.exists():
-        return facts
-    text = sk.read_text(encoding="utf-8")
-
-    m = re.search(r"当前版本\s*v(\d+)", text)
+def version() -> str:
+    skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+    m = re.search(r"当前版本\s*(v\d+)", skill)
     if m:
-        facts["version"] = m.group(1)
-
-    # 意图路由：第 1 步表格中以 `| **` 开头的行
-    seg = re.search(r"### 第 1 步.*?(?=### 第 2 步)", text, re.S)
-    if seg:
-        facts["routes"] = len(re.findall(r"^\|\s*\*\*", seg.group(0), re.M))
-
-    # 自检项：第 6 步中以 `N. **` 开头的行
-    seg = re.search(r"### 第 6 步.*?(?=\n---)", text, re.S)
-    if seg:
-        facts["checks"] = len(re.findall(r"^\d+\.\s*\*\*", seg.group(0), re.M))
-        # 自检关名也实时提取，避免 README 里那串「含中文关、系统关…」每轮过期
-        facts["check_names"] = [n for n in re.findall(r"^\d+\.\s*\*\*(.+?)\*\*", seg.group(0), re.M)
-                                if n.endswith("关")]
-
-    return facts
+        return m.group(1)
+    text = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+    m = re.search(r"当前版本\s*(v\d+)", text) or re.search(r"v(\d+)", text)
+    return m.group(1) if m else "v0"
 
 
-def build() -> str:
-    f = skill_facts()
-    check_names = "、".join(f["check_names"]) or "各项"
-    rows, total_entries, total_files = [], 0, 0
-    for fname, name, desc in ASSETS:
-        desc = desc.replace("{selftests}", str(f["selftests"]))
-        p = REF / fname
-        n = count_entries(p)
-        snap = snapshot(p)
-        total_files += 1 if p.exists() else 0
-        total_entries += n
-        rows.append(f"| [{name}](references/{fname}) | {desc} | {n if n else '规则型'} | {snap} |")
-
-    log = changelog()
-    log_md = "\n".join(f"| {d} | {t} |" for d, t in log) or "| — | 尚无记录 |"
-    today = time.strftime("%Y-%m-%d")
-    wan = f"{f['chars'] / 10000:.0f}"
-
-    return f"""# Design Partner · 设计伙伴
-
-> 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
-
-![version](https://img.shields.io/badge/version-v{f['version']}-1677ff)
-![assets](https://img.shields.io/badge/reference_files-{total_files}-2ea44f)
-![entries](https://img.shields.io/badge/curated_entries-{total_entries}-e60023)
-![updated](https://img.shields.io/badge/updated-{today}-6e7781)
-
----
-
-## 它解决什么问题
-
-| 问题 | 表现 | 本 Skill 的解法 |
-|---|---|---|
-| **需求不清** | "做个好看点的页面" | 第 2 步：设计 brief 澄清（给选项，不问开放题） |
-| **不知可行与否** | 做完才发现做不出来 | 第 3 步：可行性 × 美观性预判，执行前先给评审 |
-| **没有参照** | 只会一种做法，遇到新场景就硬套 | 第 4 步：三级精准匹配（元素级 / 风格级 / 实现级） |
-| **系统不统一** | 第 5 个页面和第 1 个不像同一产品 | 三层 token + DESIGN.md 契约 |
-| **动效凭感觉** | 时长随手写 500ms、入场出场一样慢 | `motion-system.md` 语义曲线 + 时长刻度 + 场景表 |
-| **图表不像专业出品** | 饼图切 8 片、柱状图截断轴、配色靠感觉 | `dataviz.md` 九类关系选型 + 精确色板 + 坐标轴铁律 |
-| **表单难填、表格难读** | 一进来就全红、错误只说"格式不正确"、表格全列居中 | `form-table.md` 校验三档 + 错误文案模板 + 行高与列对齐铁律 |
-| **无障碍过不了验收** | 焦点框被 `outline:none` 杀掉、只靠颜色表状态、读屏念不出、适老化尺寸不够 | `accessibility.md` 四档阈值 + 焦点三层 + 24/44/60 三档 + 25 条自检 |
-| **反馈要么吵要么没** | 保存成功弹一堆 toast、严重错误 3 秒就消失、加载转圈 15 秒没进度、空态只放插画 | `feedback-states.md` 五层决策树 + toast 精确时长 + 五种空态 + 五级错误 |
-| **多端就散架** | 手机上横向滚动、`100vh` 被地址栏挡住、8 列表格硬变卡片、大屏只是把手机版放大 | `responsive-layout.md` 六体系断点对照 + 五动词降级 + 窄屏表格四策略 + 版心阶梯 |
-| **内容找不到 / 全是"了解更多"** | 只放一个搜索框就当导航、搜索藏进放大镜、链接全是 Learn More、零结果只写"没有结果"、404 讲俏皮话、长文案没人看 | `content-findability.md` 四层链路判层 + SC 2.4.5 至少两条路 + 链接目的契约族 + APG combobox + 零结果三件套 + 阅读等级门槛 + 树测试度量 |
-| **拖拽不好用 / 拖到一半断了** | 只有鼠标能拖、手指一拖页面就滚、补个键盘快捷键就当无障碍、pointercancel 没回滚、按钮 24px 当成推荐点击区、读屏播报 index | `direct-manipulation.md` 四段链路 + SC 2.5.7 单指针无拖动 + G219 四类替代 + PE3 pointercancel 因果链 + 目标尺寸三口径 + dnd-kit 键盘与播报契约 |
-| **AI 聊天界面难用 / 生成到一半收不回来** | 逐字输出把读屏刷到停不下来、「正在生成」没有状态播报、生成式卡片直接执行模型返回的任意组件、答错了只有一个重新生成按钮、停止之后按钮还在转圈、纯 chat 不给精确操作 | `conversational-generative-ui.md` 五段链路判层 + SC 4.1.3 状态边界 + ARIA23 `role=log` + `aria-busy` 三出口复位 + 组件白名单路由 + HAX G9 四档恢复链 + 状态归位表 + Hybrid UI 判型 |
-| **弹窗盖上去就管不住焦点 / 浮层把焦点项挡死** | 加了遮罩 Tab 还能点到背后、`aria-modal` 随手就标、`z-index: 9999` 修不好滚动穿透、popover 被当成「轻量模态」、Escape 关不掉或关掉焦点不返回、hover 内容一秒消失、底部 banner 把焦点项完全盖住 | `overlays-modality.md` 四问判型 + APG inert 与焦点契约 + `aria-modal` 双条件 + `showModal()` 与 Popover 三态双栈 + WCAG 四条款矩阵（1.4.13 / 2.4.11 / 2.1.2 / 3.2.1）+ 关闭契约与焦点归位 + C43·F110 |
-| **首启引导该不该做 / 权限一启动就要 / 教程没人看** | 第一次打开先塞五屏欢迎轮播、把教程当界面缺陷的补丁、一启动就批发通知定位追踪、授权文案写「需要访问麦克风以提升体验」、跳过之后下次又弹、第三步又要填一遍邮箱、禁止粘贴验证码、超时把整张表清空、把「注册成功」当激活、把跳过率下降当好消息 | `onboarding-first-run.md` 六问判型（Q4 先测无引导是闸门）+ 默认不加教程的 NN/g 实证全表 + 权限时机矩阵与 purpose string 四标准 + WCAG 四条款合取表 + coach mark 非模态契约 + activation/TTV 口径与跳过率陷阱 |
-| **导航让人迷路** | 找不到入口、汉堡藏了关键功能、当前页不知道在哪、tab 放太多、面包屑末级还能点 | `navigation-ia.md` 四类职责 + 形态决策 + 项数铁律 + 当前位置指示 + 面包屑 + 可访问性 |
-| **评审会变成挑刺或拍板** | 反馈模糊没法改、领导一句话就改、当场改稿、决策两周后被推翻、委员会改出平庸方案 | `design-critique.md` 两种评审分清 + 给反馈七铁律 + 接收四步 + 评判框架（NN/g 10 启发式 + 严重度 0–4）+ 反模式（design by committee/HiPPO）+ 决策记录 ADR |
-| **版式全靠感觉** | 一行 130 字读不下去、海报裁切露白边、长图字小到看不清、印出来颜色发暗 | `editorial-layout.md` 行长行距联动表 + 出血与安全区 + 长图字号换算 + 印刷五查 |
-| **品牌立不住** | logo 好看但说不清为什么、缩小就糊、品牌色一进暗色模式就脏、交付缺图标尺寸、没注册商标 | `brand-identity.md` 三词定位 + 七型决策树 + 24 网格构造 + 清space 与最小尺寸 + 色阶三路线 + tone 映射 + 交付清单 + 商标合规 |
-| **暗色模式一开就脏** | 把亮色反一下就当暗色、纯白字刺眼、卡片和背景分不开、切换闪白、辅助文字看不清 | `dark-mode.md` 该不该做的证据链 + 三套表面层级精确值 + 不用纯白 + 实测对比度陷阱 + 四端实现与防闪白 |
-| **配色凭感觉** | 配出来脏、对比度不达标、渐变发灰、色板错序、色盲分不清 | `color-science.md` 色彩空间谱系 + OKLCH 生成 + APCA 对比度 + OKLab 渐变插值 + 色盲 Okabe–Ito 8 色 |
-| **风格说不清** | "做成 XX 那种感觉""要高级感"却拆不出做法、潮流叠满、前后页不像一个产品 | `visual-style-taxonomy.md` 四维信号拆解 + 17 条编年谱系 + 混搭纪律 + 风格→token 映射 |
-| **字号行距全凭感觉** | 正文写死 px 用户改不了字号、放大到 200% 按钮被切、WCAG 文本间距一覆盖表单就重叠、表格数字每秒抖一次、中文出现方框乱码、字体不敢自托管 | `typography-system.md` 六层契约 + rem 阶梯 + 1.4.12 注入验收 + 200% 缩放 + `tabular-nums` + 逐字符回退与 `unicode-range` 分片 + `size-adjust` 压 CLS + clreq 中文排版 + OFL 1.1 授权 |
-| **圆角阴影全凭感觉** | 白底白卡只加浅阴影、写了 50px 圆角却没变、卡片套卡片弧线错位、弹窗在暗色下浮不起来、顶栏毛玻璃上字发虚、z-index 写到 9999 | `shape-elevation.md` 三条裁决 + 五层模型 + 七体系精确 token + 几何校验器 + 语义 z-index 刻度 |
-| **重点不突出 / 顺序对不上** | 主次全靠加大字号、卡片分区没有 `<h2>`、`order: -1` 把主内容搬到上面读屏却先读侧栏、Tab 键乱跳、拿 7±2 论证导航只能放 7 项、把 F 型当版式模板 | `visual-hierarchy-gestalt.md` 三条裁决 + 三层模型 + IxDF 12 条组织律 + 四条 WCAG 准则原文 + 三顺序一致性验收 + 3 段可跑的静态/计算脚本 |
-| **交付就翻车** | 标注全凭感觉、开发反复问"这里多少 px"、上线后走查一堆 P0、组件库发版没人敢升、改了默认值全站变样 | `handoff-collaboration.md` spec 9 字段 + 只标例外 + 9 态矩阵 + 命名四套 + P0–P3 门禁 + SemVer 与迁移表 + 走查三遍法 |
-| **中文场景翻车** | 直接套英文规范，字号小、行距挤、标点乱 | `chinese-design.md` 中文排版修正 |
-| **定价看不懂、结账不敢付** | 三档套餐看不出差别、价格数字大小随意、划线价没有成交依据、到结账才冒出运费与服务费、改一次地址要重填五遍、付款前没有复核页、总价变了没人播报 | `pricing-checkout.md` 四种定价页构型 + FTC 464 总价披露 + GOV.UK 复核页七条 + SC 3.3.4 承诺闸门 + SC 3.3.7 不重复索要 + 13 字段 autocomplete token |
-| **通知乱发、用户全关** | 上线先弹推送权限、一天三条营销推送、免打扰设了夜里还被吵醒、角标数字对不上未读、退订要登录再填十个字段 | `notifications-messaging.md` 六段链路判层 + 三平台权限失败模式 + 角标三态 + 免打扰跨午夜 + RFC 8058 一键退订 + 20 自检 |
-| **要不要加音效 / 震动** | 按钮点一下也震、成功提示音听着刺耳、手机静音了 App 还在响、网页自动播放被浏览器拦掉、iOS 的触觉到底该用哪个生成器 | `sound-haptics-feedback.md` 五问判层 + 三平台语义常量 + 振幅/时长精确值 + 音频类别与静音开关 + autoplay 三条动作 + WCAG 1.4.2/1.4.7 |
-| **快捷键记不住 / 按了没反应 / 和系统抢** | 单字母快捷键没有关闭开关、`aria-keyshortcuts` 写完以为能触发、Mac 用户看到 Control、输入框里打 `?` 弹出帮助面板、中文输入法回车直接执行命令、命令面板 Tab 切不动、2000 条命令卡死 | `keyboard-shortcuts-command-palette.md` 五问判层 + SC 2.1.4 三出口 + 平台修饰键契约 + 四层语义 + IME 守卫 + 冲突仲裁 + 命令面板 combobox 契约 + 六库实测 |
-| **上传框做出来很别扭 / 传一半断了** | `accept` 写了以为就校验了、用户拖进来一张 8 MB 的图只看到转圈、几十秒后弹一句"上传失败"、断网重传又从 0 开始、头像传上去是横的、多选 5 个错 1 个不知道哪个、超了数量限制文件凭空消失 | `file-upload-media-input.md` 五问判层 + 三档校验分工 + 0.1/1/10 s 进度规格 + tus 断点续传逐字 + EXIF 方向 + 十种失败与退避 + OWASP 上传十条 |
-| **视频播放器像半成品 / 字幕挡画面** | 控件只有播放暂停、进度条 2px 高拖不中、一行字幕挤 60 个字、字号写死 14px、手机上一进页面就被暂停、全屏后控件全消失、GIF 当视频用 | `video-player-captions.md` 七层判层 + 控制栏顺序 + 42×2 行·20 CPS·5/6 秒数值表 + WebKit autoplay 四场景 + GIF 12×/2× |
-| **邮件发出去就乱 / 被截断** | Outlook 里两栏塌成一列、圆角按钮变成方块、Gmail 只显示前一半内容、图片全被屏蔽后只剩空白框、深色模式里灰字消失、主题行被截成半句、中文一行挤 50 字 | `email-design.md` 四种渲染引擎判层 + 600px 表格骨架 + caniemail 实测替代表 + 102KB/85KB 体积预算 + 深色三通道 + 20 条自检 |
-| **多币种价格看不懂 / 划线价不敢写** | 美元站和日文站价格位数不一样、切个币种价格就和结账对不上、欧盟站没说含不含税、日本站忘了标税込、划线价随便填一个数、德国站没标每公斤价、折扣率前后对不上 | `pricing-localization.md` 七问判层 + ISO 4217 最小单位表 + 三种含税口径 + 税额反算与取整记账 + 三地法定原价窗口 + Grundpreis 单位价 + 20 条自检 |
-| **报价单 / 发票开出来不敢给人看** | 报价单没有有效期和版本、订单确认和发票字段对不上、发票上的合计减明细不等于应付、多税率混在一张表、开错了想直接改 PDF、多页单据打印后拼不回来、数电票号码位数说不清、红冲要不要确认单不知道 | `quote-invoice-documents.md` 七问判层 + 五数四等式（BT-106→115）+ 逐层舍入与一分钱落点 + 数电票 20 位结构 + 三单回溯 + 更正/作废/红冲三态 + 多页与黑白打印验收 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 {f['checks']} 项自检 |
-| **知识找不到** | {f['refs']} 份参考、{wan} 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
-| **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
-
----
-
-## 知识资产（自动统计，随迭代更新）
-
-| 资产 | 内容 | 条目 | 快照 |
-|---|---|---|---|
-{chr(10).join(rows)}
-
-> 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
-> 快照 > 30 天时执行 `python scripts/refresh_catalog.py` 自动重抓。
-
----
-
-## 七步工作流
-
-```
-第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  {f['routes']} 类意图路由（全表见 SKILL.md 第 1 步）
-第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
-第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
-第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
-第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  {f['checks']} 项自检（含{check_names}）+ 交付说明三段式
-```
-
-**核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
-
----
-
-## 记忆树与快捷检索
-
-资产过千行后，"知识在哪"本身成了问题。本技能自带一层索引：
-
-```bash
-python scripts/dp_search.py "缓动曲线"    # → references/motion-system.md §2 (L30) + 摘要
-python scripts/dp_search.py --topic       # 全部主题总览
-python scripts/mindmap.py                 # 重建 memory/tree.md + index.json，并做接线体检
-python scripts/regression.py --baseline   # 收口门槛：新主题可发现性 + HEAD 基线 top3 零退化
-```
-
-| 文件 | 作用 |
-|---|---|
-| [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
-| `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：{alias_count()} 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
-| `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
-| `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
-| `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
-| `scripts/audit.py` | 常驻自检：换行 / 数字声明 / 资产覆盖 / 别名健康 / 可解析性 / 检索抽检 28 条，FAIL 非零退出 1 |
-
-**接线体检**是自我进化的自检项：新增参考文件却忘了在 `SKILL.md` 加路由时，`mindmap.py` 会直接报「未接线」——避免"写了等于没写"。
-
----
-
-## 知识路线图 L0→L4
-
-| 级别 | 目标 | 可交付物 |
-|---|---|---|
-| **L0** 视觉感知 | 能**看出**两个设计的高低 | 一份"好在哪/差在哪"的书面判断 |
-| **L1** 界面语汇 | 知道每个元素**有几种做法** | 元素级设计板（4–6 变体） |
-| **L2** 系统秩序 | 用**一套 token** 统管全站 | token 表 + DESIGN.md |
-| **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
-| **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
-
-含 {len(f['branches'])} 条专题支线（{' / '.join(f['branches'])}）、学习节奏表、{f['selftests']} 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
-
----
-
-## 自我进化机制
-
-```
-每日  ┌─ 取源：Design-related websites.txt + 上轮待挖项 + 知识缺口
-      ├─ 验证：GitHub API 实测 star/许可；规范数值读官方原文
-      ├─ 蒸馏：产出可执行判断规则（数值/构型/验收），不是链接清单
-      ├─ 接线：更新 SKILL.md 路由 + 补 memory/aliases.json 别名（单组 ≤12 词）+ mindmap 重建记忆树（含接线体检）
-      ├─ 自检：audit.py，统计口径 / 覆盖关系 / 别名健康 / 检索抽检全部一致，FAIL 数为 0
-      ├─ 回归：regression.py --baseline，新主题门槛全过 + 历史 top3 零退化，退出码 0 才继续
-      └─ 归档：design-log 追加 → build_readme 重算 → git commit → REST API 推送 → 双份全局安装
-```
-
-**质量门槛**：一轮升级至少要让某类问题**不再含糊**（能给具体数值或明确立场）。只多了几条链接 = 无效升级，重做。
-
-**检索门槛**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条，否则说明标题不像索引。测试集含「主题词 + 通用跨域词」组合；泛化跨域查询按 **路由边界** 单列（不计通过率但仍校验与 HEAD 一致），新权威资产上位按 **登记演进** 判定（须过 top1 不变 / 原答案仍在 top5 / `--no-alias` 仍在前 3 三条硬校验），别名抢词则拆组修掉——三类例外由 `regression.py` 统一裁定，不许拿来凑数。
-
-**记忆协议**：偏好信号出现 ≥2 次即升级为画像规则；画像优先于通用推荐；记录只增不改，保持可审计。
-
----
-
-## 升级记录
-
-| 日期 | 内容 |
-|---|---|
-{log_md}
-
----
-
-## 数据来源
-
-- [designeer.xyz](https://designeer.xyz/) — 按 craft / utility / clarity / relevance 人工策展的 657 条资源
-- [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) — 54 个真实产品 DESIGN.md
-- [Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn) — 价值观 / 色彩 / 字体 / 布局 / 动效原文
-- [Material 3 · Easing & duration tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs) — 曲线与时长 token 全表
-- [Carbon Design System · Motion](https://www.carbondesignsystem.com/elements/motion/overview/) — productive/expressive 二分与评估清单
-- [Fluent 2 · Motion](https://fluent2.microsoft.design/motion) — 四种转场模式与编排原则
-- [MDN](https://developer.mozilla.org/) — View Transition API / scroll-driven animations / prefers-reduced-motion
-- [FT Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary) — 九类数据关系与图形选型（含简体中文版）
-- [IBM Carbon · Data visualization color palettes](https://carbondesignsystem.com/data-visualization/color-palettes/) — 分类/顺序/发散色板精确 hex 与取用顺序
-- [AntV G2](https://github.com/antvis/G2) — 色板、坐标轴、图例、Tooltip 默认值（源码实测）
-- [W3C WCAG 2.2 SC 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) — 图形对象 3:1 非文本对比度
-- [Datawrapper](https://www.datawrapper.de/blog/dual-axis-charts-guide) — 双轴图的适用条件与误导机制
-- [W3C clreq](https://www.w3.org/TR/clreq/) — 中文排版需求
-- [Apple HIG](https://developer.apple.com/design/human-interface-guidelines)
-- [Björn Ottosson · OKLab](https://bottosson.github.io/posts/oklab/) — OKLab/OKLCH 感知均匀色彩空间原始定义与公式
-- [Evil Martians · OKLCH in CSS](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl) — OKLCH 生产可用性、浏览器支持与 `oklch()` 实战
-- [MDN · oklch()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) — `oklch()` 语法、色域与降级
-- [APCA · W3C Community Group](https://www.w3.org/TR/apa/) — 下一代对比度算法 Lc 等级与可读性阈值
-- [color.js](https://colorjs.io/) — 现代色彩空间计算库（OKLab/OKLCH/Display P3）教学站点
-- [culori](https://github.com/EvilMartians/culori) — 轻量色彩计算库（OKLab/OKLCH 插值、色板生成）
-- [Okabe–Ito 8 色](https://jfly.uni-koeln.de/tools/colorblind/ColorUniversalDesign.pdf) — 色盲安全 8 色 hex 表（学术原版）
-- [W3C WCAG 2.1 · Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) — 4.5:1 文本对比度定义
-- [Radix Colors](https://www.radix-ui.com/colors) — 感知均匀、可访问的色阶生成器
-- [Material 3 · Tonal Palette](https://m3.material.io/styles/color/the-color-system/tonal-palettes) — HCT 色阶与品牌色派生
-- [Adobe Leonardo](https://leonardo.cc/) — 基于对比度的可访问色板生成工具
-- [Michal Malewicz · Neumorphism in user interfaces](https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6) — 2019-12-17 原文：New Skeuomorphism 由 Jason Kelley 在评论区命名，Malewicz 去掉 "o" 定型
-- [UX Collective / UX Planet · Neumorphism](https://uxplanet.org/neumorphism-design-the-future-of-ui-ux-design-d4dc01c6a382) — Plyuto 2019 原作与低对比可见性缺陷
-- [Interaction Design Foundation · Design History](https://www.interaction-design.org/literature/topics/design-history) — Bauhaus 1919–1933 / De Stijl 1917–1931 / Swiss style / Skeuomorphic→Flat 编年
-- [MDN · font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) — 相对单位可访问性建议 / px not accessible / em compounding / rem 消除 compounding
-- [W3C WCAG 2.2 · Understanding SC 1.4.12 Text Spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) — 四项门槛 / Exception / Note 1「非默认样式表」/ Author Responsibility
-- [W3C WCAG 2.2 · SC 1.4.4 / 1.4.8](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html) — Resize Text 200% / Visual Presentation 行宽与禁 justify
-- [Material 3 · Applying type](https://m3.material.io/styles/typography/applying-type) — 五角色×三尺寸 / 行高 1.2×·1.5× / tabular figures / 3:1·4.5:1 / 链接下划线 / half-leading
-- [W3C clreq](https://www.w3.org/TR/clreq/) — §2.1.3 ≤1/4 汉字宽 / §1.2 1:1 正方形 / §4.1 全角 ASCII / §4.2.1 UAX #29 字素丛
-- [SIL Open Font License 1.1](https://openfontlicense.org/open-font-license-official-text/) — 官方英文原文：五条件 / RFN / 文档不受字体 license 约束
-- [MDN · font-display / unicode-range / font-variant-numeric / font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) — 字体加载三阶段五档 / 子集化 / OpenType 数字特性 / 低位 API 纪律
-- [Google Fonts](https://github.com/google/fonts) · [rsms/inter](https://github.com/rsms/inter) · [fonttools](https://github.com/fonttools/fonttools) — 字体源与子集化工具链（star / 许可 GitHub API 实测）
-- [Calinou/awesome-design](https://github.com/Calinou/awesome-design) — UI/UX 高质量资源策展（GitHub API 实测 10★）
-- [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 设计资源合集（GitHub API 实测 67,340★ · MIT）
-- [Material 3 · Component elevation](https://m3.material.io/styles/elevation/overview) — 六级 `0/1/3/6/8/12 dp` / *"Elevation has no shadow or value of its own by default."* / *"Surface tint color is deprecated."*
-- [Material 3 · Shape overview](https://m3.material.io/styles/shape/overview) — M3 Expressive 2025-05：35 shapes / morphing / `full` 取代 50% / Web not currently available
-- [material-foundation/material-tokens](https://github.com/material-foundation/material-tokens) — `css/shape.css` 与 `css/elevation.css` 静态 token 精确值（GitHub raw 实测）
-- [MDN · box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) — 2/3/4 `<length>` 正式语法 / 逗号顺序 / 不影响 box model / 跟随圆角
-- [MDN · border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) — `<length-percentage[0,∞]>{1,4}` / 百分比参照 width·height / 负值无效 / elliptical corners
-- [MDN · corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) — Experimental / 依赖有效 `border-radius` / round·squircle·scoop·bevel·notch·superellipse()
-- [W3C WCAG 2.2 · Understanding SC 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) — 非文本 3:1 adjacent color(s) / 3D drop-shadow 例外 / focus 仍需对比度
-- [CSS Backgrounds 3 · corner overlap](https://drafts.csswg.org/css-backgrounds-3/#corner-overlap) — `f = min(L_i/S_i)` 等比缩减（TR 页被 Cloudflare 拦截，本轮仅以公式 + Python 实跑验证）
-- [Tailwind CSS v4 · box-shadow](https://tailwindcss.com/docs/box-shadow) — `shadow-2xs` 至 `shadow-2xl` 八个默认值逐字
-- [MUI · shadows.js](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/shadows.js) — umbra 0.2 / penumbra 0.14 / ambient 0.12 三层 25 档源码
-- [Ant Design 5 · Customize Theme](https://ant.design/docs/react/customize-theme) — `borderRadius` 系列与 `boxShadow` 逐字默认值
-- [TDesign · design token](https://tdesign.tencent.com/design/token) — 五类 token；精确值见 `Tencent/tdesign-common` `_radius.less` / `_light.less`
-- [Arco Design · Design Token](https://arco.design/react/docs/token) — 边框圆角五档与四类 shadow token
-- [Carbon · Color / Layering](https://carbondesignsystem.com/elements/color/overview/) — `White ↔ Gray 10` 交替、暗色逐级变浅、`2px border` focus 与 3:1
-- [Apple HIG · Materials](https://developer.apple.com/design/human-interface-guidelines/materials) — Liquid Glass vs standard materials / functional layer / `clear` 35% dimming / `quaternary` 禁配
-- [pbakaus/impeccable · spatial-design.md](https://github.com/pbakaus/impeccable) — semantic z-index scale 与 `sm→md→lg→xl` elevation scale / *"if you can clearly see it, it's probably too strong"*
-- [W3C SC 2.4.5 Multiple Ways](https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html) — 逐字条文 / In Brief「至少两条路」/ G125·G64·G63·G161·G126·G185 六项充分技术 / process 例外
-- [W3C SC 2.4.4 Link Purpose (In Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html) — A 级：link text + programmatically determined context / F63·F89 失败例
-- [W3C SC 2.4.9 Link Purpose (Link Only)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html) — AAA 级：*"from link text alone"*
-- [W3C SC 3.1.5 Reading Level](https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html) — AAA 级：*"more than nine years of school"* / 5% 多语言规则 / G86·G103·G79·G153·G160
-- [W3C SC 3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html) — A 级：placeholder 不是 label / persistently available
-- [W3C SC 3.2.4 Consistent Identification](https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html) — AA 级：同功能同标识
-- [W3C SC 2.4.8 Location](https://www.w3.org/WAI/WCAG22/Understanding/location.html) — AAA 级：G65·G63·G128·ARIA26·G127（与 404 禁面包屑的张力裁决）
-- [W3C ARIA APG · Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) — `role=combobox` / `aria-expanded`·`aria-controls`·`aria-activedescendant`·`aria-autocomplete` 三档 / DOM focus 留在 combobox / selection follows focus / dialog 例外
-- [NN/g · How Users Read on the Web](https://www.nngroup.com/articles/how-users-read-on-the-web/) — 1997-09-30：*"79 percent ... always scanned"* / *"only 16 percent read word-by-word"* / 五版本 58·47·27·124%（单站点相对提升）
-- [NN/g · First 2 Words: A Signal for Scanning](https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/) — 2009-04-06：前 11 字符 / 80 人 20 站 / 35% 不可预测 / Ann Taylor 85%→100%
-- [NN/g · "Learn More" Links](https://www.nngroup.com/articles/learn-more-links/) — 2015-12-13：三种改法与读屏 links list 理由
-- [NN/g · Search: Visible and Simple](https://www.nngroup.com/articles/search-visible-and-simple/) — 2001-05-12：搜索常驻每页 / 首次·二次·三次查询 51·32·18% / 平均 2.0 词
-- [NN/g · Information Scent](https://www.nngroup.com/articles/information-scent/) — 2020-02-02：信息气味是相对量 / 小屏上下文警告
-- [NN/g · Tree Testing](https://www.nngroup.com/articles/tree-testing/) — findability / directness / 定性结果不可冒充百分比
-- [GOV.UK · Page not found pages](https://design-system.service.gov.uk/patterns/page-not-found-pages/) — 禁面包屑 / 禁 404·Bad Request / 禁 oops / 禁红字
-- [Material 3 · Search specs](https://m3.material.io/components/search/specs) — 56dp / 360–720dp / 24→12dp / 16dp / 30dp / docked 240dp–2/3 屏高
-- [Digital.gov · Plain Language](https://digital.gov/guides/plain-language/) — Plain Writing Act of 2010 与四份官方指南
-- [ReadabilityFormulas.com](https://readabilityformulas.com/flesch-reading-ease-readability-formula.php) — FRE / FKGL / SMOG 精确系数与 30 句采样约定（逐字页）
-- [Wikipedia · Flesch–Kincaid readability tests](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) — FRE 最高 121.22 / FKGL 理论最低 −3.40 / *"not directly comparable and cannot be converted"*
-- [Ant Design · AutoComplete（中文）](https://ant.design/components/auto-complete-cn) — 中文官方：AutoComplete 与 Select 的区别 / options 为空不展开下拉 / 受控 `onSearch` 无法输入中文 FAQ
-- [Algolia autocomplete](https://github.com/algolia/autocomplete) · [Algolia DocSearch](https://github.com/algolia/docsearch) · [textstat](https://github.com/textstat/textstat) — 搜索 UX 与可读性实现（GitHub API 实测 star / 许可 / archived）
-- [W3C SC 2.5.7 Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html) — AA：*single pointer without dragging* / essential 与 UA 例外
-- [W3C G219](https://www.w3.org/WAI/WCAG22/Techniques/general/G219) — 四类无拖动替代：箭头逐步 / 数字位置 / 移动到下拉 / 点击目标位置
-- [W3C SC 2.5.1 Pointer Gestures](https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html) — A：*"keyboard operability is not sufficient"* 与 2.5.7 交叉引用
-- [W3C SC 2.5.2 Pointer Cancellation](https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html) · [G210](https://www.w3.org/WAI/WCAG22/Techniques/general/G210) — A：四选一与 up-event 激活
-- [W3C SC 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — AA：24×24 CSS px 与 24 CSS px 直径圆 spacing 例外
-- [W3C SC 2.5.5 Target Size (Enhanced)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html) — AAA：44×44 CSS px，无 spacing 例外
-- [W3C Pointer Events Level 3](https://www.w3.org/TR/pointerevents3/) — *"MUST suppress a pointer event stream"* 四步链 / capture 三方法 / implicit pointer capture
-- [MDN · Pointer events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) · [touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) · [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) — 统一模型 / 形式语法与祖先求交 / 七事件与 data store 读写窗口
-- [W3C ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) — 焦点可见 / 快捷键不替代导航 / 单 tab stop / roving tabindex
-- [dnd-kit · Accessibility](https://docs.dndkit.com/guides/accessibility) — Keyboard sensor 默认 25 px（自述 arbitrary）/ Space·Enter·方向键·Escape / 四段 defaultAnnouncements / position 优于 index
-- [NN/g · Drag-and-Drop](https://www.nngroup.com/articles/drag-drop/) — 2020-02-23：signifier 双义 / 1cm×1cm / a few milliseconds（未量化）/ roughly 100 ms / 触屏 only-when 两条件
-- [Material 2 · Accessibility](https://m2.material.io/design/usability/accessibility.html) · [Gestures](https://m2.material.io/design/interaction/gestures.html) — 48×48 dp / about 9mm / 7–10mm / iOS 44×44 pt / pointer 44×44 dp / 8dp（M3 accessibility-basics 本轮 404）
-- [dnd-kit](https://github.com/clauderic/dnd-kit) · [react-dnd](https://github.com/react-dnd/react-dnd) · [Sortable](https://github.com/SortableJS/Sortable) · [pragmatic-drag-and-drop](https://github.com/atlassian/pragmatic-drag-and-drop) · [interact.js](https://github.com/taye/interact.js) · [use-gesture](https://github.com/pmndrs/use-gesture) — 拖放 / 手势库生态（star / license / pushed_at 均 GitHub API 实测）
-- [W3C WCAG 2.2 · Understanding SC 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) — AA 逐字条文 / 搜索结果列表不是 status update / too chatty 风险 / F103 失败族
-- [W3C · ARIA23 Using role=log](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA23) — 隐性 `aria-live=polite` 与 `aria-atomic=false` / 聊天记录官方示例
-- [W3C · ARIA22 / ARIA19 / ARIA25 / ARIA27](https://www.w3.org/WAI/WCAG22/Techniques/aria/) — status / error / alert / region 各自的 live region 适用边界
-- [W3C · F103 Failure of SC 4.1.3](https://www.w3.org/WAI/WCAG22/Techniques/failures/F103) — `aria-live=assertive` 用于非紧急内容的失败判定
-- [MDN · ARIA log role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/log_role) · [Live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) · [aria-busy](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy) — 隐性值 / polite 排队 / busy 期间暂停播报
-- [Microsoft · Guidelines for Human-AI Interaction G9](https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/) — *"Make it easy to edit, refine, or recover when the AI system is wrong."* / G9-A~E 落地清单
-- [Microsoft HAX Design Library](https://www.microsoft.com/en-us/haxtoolkit/design-library/) — 18 条原则的模式库（原则层，链路层归本轮新资产）
-- [arXiv:2010.11761v1 · Human-AI Interaction Guidelines 综述](https://arxiv.org/html/2010.11761v1) — Google PAIR 6 章 113 条 / Microsoft 18 条 / Apple 59 条的统一分类与差异（HTML 版，PDF 未取）
-- [Ant Design X · RICH 设计范式](https://x.ant.design/docs/spec/introduce) — Intention / Role / Conversation / Hybrid UI 四要素与 WIMP 边界
-- [Ant Design X · Components Overview](https://x.ant.design/components/overview/) — Bubble / Sender / ThoughtChain / Prompts / Sources 组件分组
-- [Vercel AI SDK UI · Chatbot](https://ai-sdk.dev/docs/ai-sdk-ui/chatbot) — `useChat` 四态 `submitted·streaming·ready·error` / `message.parts` 优先于 `content` / `stop`·`regenerate`·`setMessages`
-- [Vercel AI SDK RSC · Streaming React Components](https://sdk.vercel.ai/docs/ai-sdk-rsc/streaming-react-components) — *"AI SDK RSC is currently experimental. We recommend using AI SDK UI for production."* / `streamUI` 的 tools 返回 React components（该逐字句只在此页）
-- [AG-UI · Events](https://docs.ag-ui.com/concepts/events) · [Reasoning](https://docs.ag-ui.com/concepts/reasoning) — `RunStarted` + `RunFinished|RunError` 强制边界 / Start-Content-End 与 Snapshot-Delta / `THINKING_*` 弃用迁移
-- [GitHub · vercel/ai](https://github.com/vercel/ai) · [ant-design/x](https://github.com/ant-design/x) · [assistant-ui/assistant-ui](https://github.com/assistant-ui/assistant-ui) · [CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit) — 对话式 UI 与生成式 UI 实现（star / license / pushed_at 均 GitHub API 实测）
-- [GitHub · open-webui/open-webui](https://github.com/open-webui/open-webui) · [ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui) · [vercel/streamdown](https://github.com/vercel/streamdown) — 聊天前端 / 事件协议 / 流式 Markdown 渲染（GitHub API 实测 7 库）
-- [W3C APG · Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) · [Alert and Message Dialogs](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/) · [Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) — *"Windows under a modal dialog are inert."* / Tab·Shift+Tab 不越界 / `Escape` 关闭 / 焦点归位 / `aria-modal` 双条件（Tooltip 页自述 WIP，只取明确文本）
-- [MDN · `<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) · [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) · [Using](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using) — `showModal()` 与 top layer / `closedby` 三值 / *"Popovers created using the Popover API are always non-modal."* / auto·hint 双栈与 light dismiss
-- [W3C WCAG 2.2 · SC 1.4.13](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html) · [SC 2.4.11](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html) · [SC 2.1.2](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html) · [SC 3.2.1](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) · [C43](https://www.w3.org/WAI/WCAG22/Techniques/css/C43) · [F110](https://www.w3.org/WAI/WCAG22/Techniques/failures/F110) — Dismissible·Hoverable·Persistent / modal always pass 与 Note 2 三出路 / 标准退出法 / help dialog 失败例
-- [Apple HIG · Modality](https://developer.apple.com/design/human-interface-guidelines/modality) · [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) — *"prevents interaction with the parent view and requires an explicit action to dismiss"* / `modal` 默认 true 与焦点自动捕获
-- [WHATWG HTML · Popover](https://html.spec.whatwg.org/multipage/popover.html) · [Open UI · Popover Explainer](https://open-ui.org/components/popover.research.explainer/) · [GitHub · radix-ui/primitives](https://github.com/radix-ui/primitives) · [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui) — 规范与提案入口 / overlay·dialog·popover 实现（star / license / pushed_at 均 GitHub API 实测 10 库）
-- [Apple HIG · Onboarding](https://developer.apple.com/design/human-interface-guidelines/onboarding) · [Launching](https://developer.apple.com/design/human-interface-guidelines/launching) · [Offering help](https://developer.apple.com/design/human-interface-guidelines/offering-help) · [Privacy](https://developer.apple.com/design/human-interface-guidelines/privacy) — *"Teach through interactivity."* / launch screen 与首屏 nearly identical / tips 60–75 字符·once every 24 hours / *"Request permission only when your app clearly needs access"* / purpose string 四标准 / pre-alert 平台特定规则
-- [NN/g · Mobile Tutorials: Wasted Effort or Efficiency Boost?](https://www.nngroup.com/articles/mobile-tutorials/) — A. Kendrick 2020-03-08 一手实证：70 人 / 35+35 / 4 apps / 91% vs 94% p=0.443 / SEQ 4.92 vs 5.49 p=0.047 / 93.49s vs 85.17s p>0.1 / geometric mean / 剔除 13 trials (5%) / 四条研究限制
-- [NN/g · Mobile-App Onboarding](https://www.nngroup.com/articles/mobile-app-onboarding/) · [Onboarding Tutorials vs. Contextual Help](https://www.nngroup.com/articles/onboarding-tutorials/) — *"Instructional onboarding should not be used to supplement poor design."* / 先测无引导四步；P. Laubheimer 2023-02-12 逐字 `push revelation` / `pull revelation` 定义与 Implementing Pull Revelations 五条（本轮勘误源）
-- [NN/g · Mobile Instructional Overlay](https://www.nngroup.com/articles/mobile-instructional-overlay/) · [Progressive Disclosure](https://www.nngroup.com/articles/progressive-disclosure/) — brief·optional·minimum / staged disclosure / 交叉核对，未作数值依据
-- [Material Design 1 · Onboarding（归档版）](https://m2.material.io/design/communication/onboarding.html) — Quickstart / Self-Select / Top User Benefits 三模型与组合禁令 / fewer than ten choices / 90% of the way through the first session / up to three benefits / 2–3 秒 / 24sp·32sp·56dp·48dp（**历史规范，非现行 M3**）
-- [W3C WCAG 2.2 · SC 3.3.7 Redundant Entry](https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html) · [SC 3.3.8 Accessible Authentication (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html) — A / AA 逐字条文与三例外 / 浏览器 autocomplete 不足够 / **3.3.8 不覆盖账号创建** / OTP 手动转录不合规
-- [W3C WCAG 2.2 · SC 3.2.1 On Focus](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html) · [SC 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html) — help dialog 官方失败例与 G107 / 六选项·20 seconds·ten times·10x·20 hours / essential 豁免后仍要过 3.3.8
-- [Ant Design · Tour](https://ant.design/components/tour) · [Empty](https://ant.design/components/empty) — `mask` / `disabledInteraction` / `keyboard` / `gap` / `zIndex` 默认值与版本、非模态用法、token 精确值（实现默认值，非设计规范刻度）
-- [IBM Carbon · Empty states](https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states) — anatomy 五件套 / 替换原本要显示的元素 / 单主行动 / starter content 与 in-line documentation（无逐字数值）
-- [W3C WCAG 2.2 · SC 3.3.4 Error Prevention (Legal, Financial, Data)](https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html) · [SC 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html) — 3.3.4 为 **AA** 且三选一（Reversible / Checked / Confirmed）+ G164·G98·G155；1.3.5 autocomplete Input Purposes token、H98 / F107、`transaction-amount` 例外
-- [GOV.UK Design System · Check answers](https://design-system.service.gov.uk/patterns/check-answers/) — two-thirds 布局 / 每段 `Change` 带 `govuk-visually-hidden` / 返回必预填 / 未答可选 "Not provided" / 提交按钮写清动作 / `govuk-summary-list` 与 `dl·dt·dd`
-- [FTC 16 CFR Part 464 · Rule on Unfair or Deceptive Fees](https://ecfr.io/Title-16/Part-464) — §464.1 total price 与 clear and conspicuous 八款（含 interactive electronic medium 的 unavoidable）/ §464.2(a)(b)(c) 隐藏费禁止 / 实际覆盖品类仅 live-event tickets 与 short-term lodging（Daily eCFR 2026-10-30，Source 90 FR 2166）
-- [Apple · Apple Pay Marketing Guidelines](https://developer.apple.com/apple-pay/marketing/) · [`canMakePayments`](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaysession/1778027-canmakepayments/) — 标记仅白色描边版 / 清space ≥ 标记高度 1/4 / 不与其它按钮共享边框 / 浅色背景优先
-- [Directive (EU) 2019/2161 · Article 6a（价格标示指令 98/6/EC）](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L2161) — prior price = 不少于 30 天内的最低价 / 渐进加码取首次加码前价 / 上市 <30 天可另定短周期（EUR-Lex 对脚本返回 202 + WAF，经 headless Chrome 渲染取证）
-- [中国 · 明码标价和禁止价格欺诈规定（总局令第 56 号）](https://www.gov.cn/gongbao/content/2022/content_5699926.htm) · [市场监管总局同文](https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/jls/art/2023/art_72865dc294a14432aff931038b02c210.html) — 第十六条前七日最低成交价兜底 / 第十七条禁止折价前临时提价 / 第十九条八项价格欺诈 / 第二十一条三类除外；该规章不用“原价”一词
-- [消费者权益保护法实施条例（国务院令第 778 号）](https://www.gov.cn/zhengce/content/202403/content_6940158.htm) — 第十条第二款：自动展期/自动续费须在接受服务前与每次续费日期前以显著方式提请注意
-- [Baymard · Cart Abandonment Rate](https://baymard.com/blog/cart-abandonment-rate) — 取源限制：两次抓取均被站点导航超截断，**未引用其任何百分比**；Google Pay 品牌规范两次 `fetch failed`、Apple HIG 为 JS 渲染，均未引用条文
-- [GitHub · kamranahmedse/driver.js](https://github.com/kamranahmedse/driver.js) · [usablica/intro.js](https://github.com/usablica/intro.js) · [shipshapecode/shepherd](https://github.com/shipshapecode/shepherd) · [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride) · [elrumordelaluz/reactour](https://github.com/elrumordelaluz/reactour) — product tour / coach mark 实现（star / license / pushed_at / archived 均 GitHub API 2026-11-12 实测 12 库）
-- [Apple HIG · Notifications](https://developer.apple.com/design/human-interface-guidelines/notifications) — 中断级别、角标、Focus 与通知设置原文
-- [Android · 通知渠道](https://developer.android.com/develop/ui/views/notifications/channels) — 五级 importance 与「创建后不可改」原文
-- [Android 13 · 通知权限](https://developer.android.com/develop/ui/views/notifications/notification-permission) — 四个坑与拒绝后行为
-- [RFC 8058](https://www.rfc-editor.org/rfc/rfc8058) / [RFC 8030](https://www.rfc-editor.org/rfc/rfc8030) — 一键退订头与 TTL 强制
-- [Apple HIG · Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics) — 七条 Best practices / 三类生成器 / watchOS 九种类型原文
-- [Apple HIG · Playing audio](https://developer.apple.com/design/human-interface-guidelines/playing-audio) — 静音开关语义与 AVAudioSession 类别表
-- [Apple HIG · Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) — 声音必须配视觉或 haptics 的三条原文
-- [W3C · Vibration API](https://www.w3.org/TR/vibration/) — 10 段 / 10000 ms / sticky activation 规范
-- [WCAG 2.2 · SC 1.4.2 / 1.4.7](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html) — 3 秒阈值、独立音量控制与 20 dB
-- [Android · Haptics overview](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) — 何时用触觉 / 常量 API level / 用户设置 / 不建议 createOneShot
-- [Android · Haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) — 原语时长 / 包络 20 ms 与 16 点 / 振幅在无支持设备的回退 / 音频焦点与 sonification
-- [AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java) — 21 个公开常量源码注释
-- [WCAG 2.2 · SC 2.1.4 Character Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html) — 三个出口的逐字条文 / 可打印字符判据 / 序列与 accesskey 例外
-- [WAI-ARIA 1.2 · aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts) — 五个合法修饰键名 / 修饰键在前 / UA MUST NOT 改行为 / 禁用同时失效
-- [WAI-ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) — 通用函数约定表 / 三类应避免分配 / AT 四类冲突 / 有意冲突四条件
-- [MDN · aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts) — 只声明不绑定 / 与 accesskey 的关系
-- [MDN · KeyboardEvent.key / code / isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) — 布局无关的物理键 / 字符键 / 组字期判据
-- [Apple HIG · Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards) — Command 主修饰 / Control,Option,Shift,Command 顺序 / Hyphen 书写 / 双字符键与 Shift 警告
-- [Microsoft · Keyboard accelerators](https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators) — 视觉树第一个命中 / control 与 app 加速键 / 自动重复不可关 / 通用表
-- [VS Code · Key Bindings](https://code.visualstudio.com/docs/configure/keybindings) — 自下而上求值 / when 子句 / 扫描码 / systemWide 五条限制 / 改键面板
-- [GitHub · Keyboard shortcuts](https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts) — ? 帮助面板 / 可关闭字符键保留修饰键 / G 系列序列
-- [cmdk](https://github.com/dip/cmdk) / [kbar](https://github.com/timc1/kbar) / [tinykeys](https://github.com/jamiebuilds/tinykeys) — 命令面板与热键层六库 GitHub API 实测（2026-11-14）
-
-- [MDN · `<input type="file">` / accept](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/accept) — 五种 unique file type specifier 逐字 / *"doesn't validate the types of the selected files"* / 服务端重验
-- [MDN · createImageBitmap()](https://developer.mozilla.org/en-US/docs/Web/API/Window/createImageBitmap) — `imageOrientation` 三值 `from-image`（默认）/ `flipY` / `none` 逐字
-- [MDN · HTTP 413 Content Too Large](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/413) — RFC 9110 前称 `Payload Too Large` / 示例响应体 `Maximum allowed upload size is 4MB`
-- [OWASP · File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) — 白名单与 Content-Type 不可信 / 双扩展名·空字节·NTFS ADS / CDR 与解压后计大小 / 目录配置覆盖
-- [tus · resumable upload protocol 1.0.0](https://github.com/tus/tus-resumable-upload-protocol/blob/main/protocol.md) — `Tus-Resumable` / `Upload-Offset`·`Upload-Length` / 204·409·460 / `Tus-Max-Size` 全逐字
-- [Ant Design · Upload](https://github.com/ant-design/ant-design/blob/master/components/upload/index.en-US.md) — `accept`·`maxCount`·`beforeUpload`·`listType`·`customRequest`；源码 `toggleFileListMaxCount` 超限静默丢弃
-- [GOV.UK · File upload](https://design-system.service.gov.uk/components/file-upload/) — *"only ask users to upload something if it's critical"* / 2MB 与 10 files 均为文案示例
-- [USWDS · File input](https://designsystem.digital.gov/components/file-input/) — `usa-hint` 提示限制 / 组件不支持异步上传
-- [uppy](https://github.com/transloadit/uppy) · [react-dropzone](https://github.com/react-dropzone/react-dropzone) · [FilePond](https://github.com/pqina/filepond) · [Cropper.js](https://github.com/fengyuanchen/cropperjs) · [Dropzone](https://github.com/dropzone/dropzone) · [tus-js-client](https://github.com/tus/tus-js-client) · [Squoosh](https://github.com/GoogleChromeLabs/squoosh) · [sharp](https://github.com/lovell/sharp) — 八库 star / license / pushed_at GitHub API 实测（2026-11-16）
-
-- [Netflix · Timed Text Style Guide: General Requirements](https://partnerhelp.netflixstudios.com/hc/en-us/articles/215758617) — 逐字：最短 5/6 秒（24fps 20 帧）/ 最长 7 秒 / 2 行 / 居中置顶或置底 / `tts:fontSize` 100% 禁像素 / 断行 6 条（标点后·连词前·介词前）
-- [Netflix · Subtitle Timing Guidelines](https://partnerhelp.netflixstudios.com/hc/en-us/articles/360051554394) — 逐字：最短 20 帧（4/5 秒）/ 最小间隔 2 帧（任意帧率）/ 24fps 下 3–11 帧必须闭合到 2 帧 / in-time 首帧音频 ±1–2 帧 / out-time 音频结束后 ≥0.5 秒
-- [Netflix · English (USA) Timed Text Style Guide](https://partnerhelp.netflixstudios.com/hc/en-us/articles/217350977) — 逐字：42 字符/行 / 最多 2 行 / 成人 20 CPS·儿童 17 CPS / Arial·白色 / bottom-heavy pyramid / 双人对话连字符
-- [W3C WCAG 2.2 · SC 1.2.2 Captions (Prerecorded)](https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html) — A：所有预录音频须有字幕；Note 4 *"Captions should not obscure or obstruct relevant information in the video."*
-- [W3C WCAG 2.2 · SC 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) — 4.5:1 / 大文本 3:1（≥18pt 或 14pt 粗体 ≈18.5px·24px）/ *"4.499:1 would not meet the 4.5:1 threshold"*
-- [W3C WCAG 2.2 · SC 2.2.2 Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html) — 自动播放且超 5 秒须可暂停·停止·隐藏 / 焦点在即停不算机制
-- [W3C WCAG 2.2 · SC 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — 24×24 CSS px / spacing 例外（24px 直径圆不相交）/ 2.5.5 为 44×44
-- [WebKit · New <video> Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) — 2016-07-25：无音轨或 muted 才允许 autoplay / 加音轨或取消静音即 pause / 仅可见时播放 / `playsinline` 才内联 / 手势四事件 / GIF 12× 带宽 2× 能量
-- GitHub API 实测（2026-11-17）：[videojs/video.js](https://github.com/videojs/video.js) 40,211★ NOASSERTION · [sampotts/plyr](https://github.com/sampotts/plyr) 29,985★ MIT（已 deprecated）· [muxinc/media-chrome](https://github.com/muxinc/media-chrome) 2,772★ MIT · [shaka-project/shaka-player](https://github.com/shaka-project/shaka-player) 8,283★ Apache-2.0 · [video-dev/hls.js](https://github.com/video-dev/hls.js) 17,058★ NOASSERTION
-- [Microsoft · On Word & Outlook 2007（归档博客）](https://learn.microsoft.com/en-us/archive/blogs/michael_affronti/on-word-outlook-2007) — 逐字 *"unify the rendering and editing engine in Outlook by using Word's engine"* / *"the capabilities that our customers most wanted for their HTML newsletters are supported by Outlook 2007"*
-- [Microsoft Support · Block automatic picture downloads](https://support.microsoft.com/en-us/office/block-or-unblock-automatic-picture-downloads-in-classic-outlook-email-messages) — 逐字 *"configured by default to block automatic picture downloads from the Internet"*
-- [Apple · Mail Privacy Protection](https://www.apple.com/privacy/features/) — 逐字隐藏 IP、*"they can't tell if you've opened their email"*：打开率不再是设计信号
-- [Klaviyo · Gmail clipping](https://help.klaviyo.com/hc/en-us/articles/115000591251) — 逐字 *"the email size limit is generally 102 KB"* / *"keep your email code below 102 KB once sent … does not include image file sizes"*；iOS Gmail 20 KB；风险带 <85 / 85–95 / ≥95 KB
-- [caniemail · data.json](https://www.caniemail.com/api/data.json) — `last_update_date = 2026-09-16`，308 条特性：`vertical-align` 41/41、`max-width` 39/41（Outlook 仅 `<table>`）、`@media` 16y/8n/17a、`prefers-color-scheme` 18y/25n、`@font-face` 9y/31n、`border-radius` 28y/7n（Outlook 需 VML `RoundRect`）、`<style>` 29y/10n/7a（Gmail 限 16 KB）
-- [W3C WCAG 2.2 · SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) · [SC 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) — 4.5:1 与 *"should not be rounded"* / 24×24 CSS px：邮件正文与 CTA 同样适用
-- [MJML 文档](https://documentation.mjml.io/) — 逐字 *"divide the section space (600px by default …)"*：600px 的工程来源
-- [《广告法》第四十三条](https://www.gov.cn/) · [《互联网电子邮件服务管理办法》（信息产业部令第 38 号）](https://www.gov.cn/gongbao/content/2007/content_554185.htm) — 未经同意不得以电子信息方式发送广告 / 标题前部注明「广告」或「AD」/ 拒收联系方式 30 日内有效
-- 取源限制（v49）：caniemail 仅 308 条特性、不含 Gmail iOS 20 KB 官方页（该数值只引 Klaviyo 二手）；QQ 邮箱 / 163 邮箱无公开逐特性支持度数据，只作 P1 真机抽测；`support.google.com` 与 `documentation.mjml.io` 首页抓取曾 `fetch failed`，引用值均来自可取到的正文段落
-- GitHub API 实测（2026-11-17）：[mjmlio/mjml](https://github.com/mjmlio/mjml) 18,296★ MIT（push 2026-11-10）· [resend/react-email](https://github.com/resend/react-email) 19,941★ MIT（2026-11-14）· [zurb/foundation-emails](https://github.com/zurb/foundation-emails) 7,787★ MIT（2026-03-13）· [maizzle/maizzle](https://github.com/maizzle/maizzle) 2,861★ MIT（2026-06-16）· [SparkPost/heml](https://github.com/SparkPost/heml) 4,288★ **2020-02-09 停更** · [premailer/premailer](https://github.com/premailer/premailer) 2,418★（2026-11-03）· [unlayer/react-email-editor](https://github.com/unlayer/react-email-editor) 5,259★（2026-11-01）· [hteumeuleu/caniemail](https://github.com/hteumeuleu/caniemail) 950★（2026-09-16）· 本地测试 [axllent/mailpit](https://github.com/axllent/mailpit) 10,958★ · [maildev/maildev](https://github.com/maildev/maildev) 6,160★
-- [SIX · ISO 4217 List One（官方 XML）](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml) — 文件头 `<ISO_4217 Pblshd="2026-09-17">`，条目 `<Ccy>JPY</Ccy><CcyNbr>392</CcyNbr><CcyMnrUnts>0</CcyMnrUnts>`：0 位 JPY/KRW/VND/ISK/XOF、2 位 EUR/USD/HUF/TWD/IDR、3 位 KWD/BHD/JOD/OMR/TND、4 位 CLF/UYW、XDR `N.A.`
-- [Stripe · Supported currencies](https://docs.stripe.com/currencies.md) — 逐字 *"All API requests expect `amount` values in the *currency's minor unit*"* / *"Enter 10 to charge 10 JPY"* / *"Stripe automatically rounds that amount to the nearest number evenly divisible by 100. We credit or debit any difference from rounding to the customer balance."*；最小收款额 0.50 USD / 50 JPY / 50 KRW / 4.00 HKD / 175.00 HUF …；ISK 以两位 `.00` 表示
-- [MDN · Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) — `currencyDisplay` 四档 `"code"` / `"symbol"`（默认）/ `"narrowSymbol"`（"$100" rather than "US$100"）/ `"name"`；`currencySign: "accounting"` 逐字 *"wrap the number with parentheses instead of appending a minus sign"*；*"// The Japanese yen doesn't use a minor unit"*
-- [欧盟委员会 · VAT rates](https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en) · [GOV.UK · VAT rates](https://www.gov.uk/vat-rates) — 逐字 *"It must be no less than 15%, but there is no maximum (Art.97 VAT Directive)"* / *"up to two reduced rates as low as 5%"* / *"The standard VAT rate is 20%"*
-- [德国 UStG §12](https://www.gesetze-im-internet.de/ustg_1980/__12.html) · [PAngV §2](https://www.gesetze-im-internet.de/pangv_2022/__2.html) · [§4](https://www.gesetze-im-internet.de/pangv_2022/__4.html) · [§11](https://www.gesetze-im-internet.de/pangv_2022/__11.html) — 19 / 7 / 0 Prozent；Gesamtpreis 含税定义；Grundpreis 义务与 10 g / 10 ml 豁免；*"den niedrigsten Gesamtpreis … innerhalb der letzten 30 Tage"*
-- [日本国税庁 No.6902](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6902.htm) · [No.6101](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6101.htm) · [消费者厅 · 表示規約 FAQ](https://www.caa.go.jp/policies/policy/representation/fair_labeling/faq/representation) — 総額表示義務逐字；標準 10%（地方消費税 2.2）/ 軽減 8%（1.76）；二重価格 8 週過半且累計 ≥2 週
-- [《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号）](https://www.gov.cn/gongbao/content/2022/content_5699926.htm) — 第七条标名价单位 / 第十六条前 7 日最低成交价 / 第十七条禁止折价前临时提价 / 第九条人民币金额
-- [Apple · App Store subscriptions](https://developer.apple.com/app-store/subscriptions/) — *"800 price points … with an additional 100 higher price points"* / *"The default pricing … is inclusive of applicable taxes that Apple collects and remits"* / *"If there's a tax change or currency adjustment in a particular region, the price of subscriptions won't generally be affected"*
-- 取源限制（v50）：EUR-Lex 指令 98/6/EC、2019/2161、2018/302 三地址均 HTTP 202 空正文，EU 侧法条改引成员国转写本（德国 UStG §12 / PAngV §2·§4·§11、日本 消法63 与 CAA Q18·Q21、中国 56 号令）；iso.org 被 Cloudflare 403，改用 SIX 官方 list-one.xml；Google Play 价格区间页与印度 Legal Metrology 站 fetch failed 未取到；App Store Connect 定价帮助页正文为 Page Not Found
-- GitHub API 实测（2026-11-18）：[dinerojs/dinero.js](https://github.com/dinerojs/dinero.js) 6,814★ MIT · [unicode-org/cldr](https://github.com/unicode-org/cldr) 1,173★ Other · [formatjs/formatjs](https://github.com/formatjs/formatjs) 14,754★ NONE · [saleor/saleor](https://github.com/saleor/saleor) 23,584★ BSD-3-Clause · [medusajs/medusa](https://github.com/medusajs/medusa) 37,303★ Other · [vendurehq/vendure](https://github.com/vendurehq/vendure) 8,604★ Other · [scurker/currency.js](https://github.com/scurker/currency.js) 3,375★ MIT · [globalizejs/globalize](https://github.com/globalizejs/globalize) 4,835★ MIT · [stripe/stripe-node](https://github.com/stripe/stripe-node) 4,574★ MIT · [taxjar/taxjar-node](https://github.com/taxjar/taxjar-node) 57★ MIT
-
-- [Peppol BIS Billing 3.0 · BR-CO 计算规则](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-tc434/BR-CO-15/) · [rules/ubl-peppol](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-peppol/) · [UBL 发票字段树](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/tree/) — BR-CO-10/13/15/16 与 BT-1…BT-115 逐字定义；金额等式一律 `round(值 * 10 * 10) div 100`（每层各舍 2 位）
-- [Peppol · UNCL1001-inv](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-inv/) · [UNCL1001-cn](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-cn/) · [UNCL5305](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL5305/) · [UNCL4461](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL4461/) — 发票 380/384/389、贷项 381、税分类 S/Z/E/AE/K/G/O、付款方式 30/58/49/59 逐字定义
-- [FeRD · ZUGFeRD / Factur-X](https://www.ferd-net.de/standards/zugferd) · [Order-X](https://www.ferd-net.de/standards/order-x) — ZUGFeRD 2.5.2（2026-08-04）混合载体 PDF/A-3+XML 与 §14 Abs. 4 UStG 同源要求；Order-X 1.0（2021-04-13）ORDER / ORDER_RESPONSE / ORDER_CHANGE
-- [国家税务总局公告 2024 年第 11 号](https://www.gov.cn/zhengce/zhengceku/202411/content_6989164.htm) · [《发票管理办法》（2023 修订）](https://dalian.chinatax.gov.cn/art/2023/7/20/art_2893_647610.html) — 数电票 2024-12-01 施行 / 20 位号码结构 / 票面 17 项 / 红冲 72 小时确认 / 存根 5 年 / 不合规可拒收
-- 取源限制（v51）：EUR-Lex 2014/55/EU 与 2006/112/EC 两地址 HTTP 202 空正文（指令与 VAT 指令第 226 条只引 Peppol 转述）；factur-x.org `fetch failed`；docs.peppol.eu `codelist/UNCL1001/` 404（改 `UNCL1001-inv/`·`UNCL1001-cn/`）；陕西税务 412 WAF；ISO 216 与 19005-3 付费未取；XPath `fn:round` 的 .5 方向无官方原文
-- GitHub API 实测（2026-11-19）：[ZUGFeRD/mustangproject](https://github.com/ZUGFeRD/mustangproject) 498★ Apache-2.0 · [gflohr/e-invoice-eu](https://github.com/gflohr/e-invoice-eu) 383★ NOASSERTION · [pretix/python-drafthorse](https://github.com/pretix/python-drafthorse) 184★ Apache-2.0 · [VladSez/easy-invoice-pdf](https://github.com/VladSez/easy-invoice-pdf) 1,125★ AGPL-3.0 · [firsttris/haben](https://github.com/firsttris/haben) 721★ AGPL-3.0 · [DRYTRIX/TimeTracker](https://github.com/DRYTRIX/TimeTracker) 644★ GPL-3.0 · [EthanYoQ/Invoice-Downloader](https://github.com/EthanYoQ/Invoice-Downloader) 553★ Apache-2.0 · [SMEWebify/WebErpMesv2](https://github.com/SMEWebify/WebErpMesv2) 228★ LGPL-3.0 · [yooongchun/Invoice2Excel](https://github.com/yooongchun/Invoice2Excel) 249★ NONE（2023-10-10 停更）
-
-## 目录结构
-
-```
-design-partner/
-├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
-├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（{total_files} 份，见上表）
-├── memory/
-│   ├── tree.md               # 记忆树（自动生成）
-│   ├── index.json            # 检索索引（自动生成）
-│   ├── aliases.json          # 检索层别名映射（手维护）
-│   └── design-log.md         # 偏好画像 + 匹配日志（只增不改）
-└── scripts/
-    ├── dp_search.py          # 章节级快捷检索
-    ├── regression.py         # 检索回归门槛（门槛 + HEAD 基线对比）
-    ├── audit.py              # 常驻自检（统计口径 / 覆盖 / 别名健康 / 检索抽检）
-    ├── mindmap.py            # 重建记忆树 + 接线体检
-    ├── refresh_catalog.py    # 重抓目录 API，重建 references
-    ├── build_readme.py       # 统计并重建 README
-    └── publish_github.py     # REST API 发布（git push 被网络策略拦截时用）
-```
-
-## License
-
-MIT
-"""
+def refs() -> list:
+    out = []
+    for p in sorted((ROOT / "references").glob("*.md")):
+        text = p.read_text(encoding="utf-8")
+        first = next((l for l in text.splitlines() if l.startswith("# ")), "")
+        title = re.sub(r"^#\s*", "", first).strip()
+        out.append({
+            "stem": p.stem,
+            "title": title,
+            "lines": text.count("\n") + 1,
+            "sections": sum(1 for l in text.splitlines() if l.startswith("## ")),
+            "chars": len(text),
+        })
+    return out
 
 
-def main():
-    text = build()
-    if "--dry-run" in sys.argv:
-        print(text)
-        return
-    (ROOT / "README.md").write_text(text, encoding="utf-8")
-    print(f"README.md 已生成 · {len(text.splitlines())} 行")
+def asset_table(items: list) -> str:
+    known = {s for _, stems in GROUPS for s in stems}
+    grouped = []
+    for name, stems in GROUPS:
+        rows = [i for s in stems for i in items if i["stem"] == s]
+        if rows:
+            grouped.append((name, rows))
+    rest = [i for i in items if i["stem"] not in known]
+    if rest:
+        grouped.append(("未归组（请补 GROUPS）", rest))
+
+    lines = ["| 组 | 资产 | 行 | 节 |", "|---|---|---:|---:|"]
+    for name, rows in grouped:
+        for r in rows:
+            title = r["title"][:70].replace("|", "／")
+            lines.append(f"| {name} | [`{r['stem']}.md`](references/{r['stem']}.md) · {title} "
+                         f"| {r['lines']} | {r['sections']} |")
+    return "\n".join(lines)
+
+
+def memory_stats() -> dict:
+    rows = real = 0
+    path = ROOT / "memory" / "journal.jsonl"
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            rows += 1
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if rec.get("user_quote") or (rec.get("signal_type") not in (None, "none")):
+                real += 1
+    profile = ROOT / "memory" / "profile.md"
+    state = "尚未建立"
+    if profile.exists():
+        text = profile.read_text(encoding="utf-8")
+        state = f"{text.count(chr(10)) + 1} 行"
+    return {"rows": rows, "real": real, "profile": state}
+
+
+def render() -> str:
+    items = refs()
+    stats = memory_stats()
+    tpl = TEMPLATE.read_text(encoding="utf-8")
+    return (tpl
+            .replace("{{VERSION}}", version())
+            .replace("{{DATE}}", time.strftime("%Y-%m-%d"))
+            .replace("{{REF_COUNT}}", str(len(items)))
+            .replace("{{ASSET_TABLE}}", asset_table(items))
+            .replace("{{JOURNAL_ROWS}}", str(stats["rows"]))
+            .replace("{{JOURNAL_REAL}}", str(stats["real"]))
+            .replace("{{PROFILE_STATE}}", stats["profile"]))
+
+
+def main() -> int:
+    text = render()
+    old = README.read_text(encoding="utf-8") if README.exists() else ""
+    if "--check" in sys.argv:
+        if old != text:
+            print("[过期] README.md 与源文件不一致，运行 python scripts/build_readme.py")
+            return 1
+        print("[新鲜] README.md 与源文件一致")
+        return 0
+    README.write_text(text, encoding="utf-8", newline="\n")
+    print(f"[完成] README.md {len(text):,} 字符 / {text.count(chr(10)) + 1} 行 / {len(text.encode()):,} 字节")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

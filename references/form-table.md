@@ -1,5 +1,7 @@
 # 表单与表格 — Forms & Tables（深度蒸馏）
 
+
+> 控件尺寸、间距、对比度的数值以 `numeric-truth.md` §1 为准。
 > 中文 B 端产品的两个最高频元素，也是"看起来没问题、用起来处处硌人"的重灾区。本文件只给**可执行的判断规则与数值**：标签怎么摆、框多宽、什么时候校验、错误怎么说、表格行多高、哪列右对齐、多少条该分页。
 > 所有数值来自官方规格页或组件源码（Ant Design `form/table/input` style token、Carbon Specifications、GOV.UK Design System、W3C WCAG 2.2），非二手总结。**快照 2026-10-31**
 

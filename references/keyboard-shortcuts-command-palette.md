@@ -467,35 +467,11 @@ navigator.keyboard.lock(["KeyW", "KeyA", "KeyS", "KeyD"]); // 需 secure context
 
 ## §8 面板解剖：数据模型、检索、无障碍与性能
 
-### §8.1 它不是输入框，是「combobox + listbox + 命令注册表」
+### §8.1 契约不在这里重复
 
-最小正确结构（ARIA 1.2 combobox 模式）：
+combobox + listbox + 命令注册表契约见 `content-findability.md` §6：角色与状态、DOM 焦点不进 popup（`aria-activedescendant`）、selection 跟随 focus、键盘与 `aria-autocomplete` 三档，全部以该节为准，本文件不再复述。
 
-```html
-<div role="dialog" aria-label="命令面板">
-  <input id="cp-input" role="combobox" aria-expanded="true"
-         aria-controls="cp-list" aria-autocomplete="list"
-         aria-activedescendant="cp-item-3" />
-  <ul id="cp-list" role="listbox" aria-label="命令">
-    <li id="cp-item-3" role="option" aria-selected="true">新建文件</li>
-    <li id="cp-item-4" role="option" aria-selected="false">打开设置</li>
-  </ul>
-</div>
-```
-
-要点：
-
-- **焦点永远在输入框**，选中态用 `aria-activedescendant` 指向 option id；**不要**用 Tab 或 DOM 焦点在项间移动（否则输入框失焦，用户无法继续输入）。
-- `aria-selected` 只标当前项，其余 `false`；列表滚动要保证选中项可见（`scrollIntoView({block:"nearest"})`）。
-- 打开时记住「打开前的焦点元素」，关闭时**归还焦点**（SC 2.1.2 / 2.4.3）。
-- 面板是模态时，外部内容要 `inert` 或 `aria-hidden`（详见 `overlays-modality.md`）。
-
-**cmdk 的实测契约**（源码，不是 README）：
-
-- `ArrowDown` → 下一项、`ArrowUp` → 上一项、`Home` / `End` 首尾、`Enter` 派发选中；`Ctrl+n` / `Ctrl+j` 下移、`Ctrl+p` / `Ctrl+k` 上移（`vimBindings` 默认 `true`）。
-- **`Tab` 不在 keydown switch 里**——README 也没写 Tab 行为。所以「Tab 在项间切换」是**未实现**，不要写进契约。
-- `input` 上是 `aria-autocomplete="list"`、`aria-expanded={true}`、`aria-controls`、`aria-activedescendant`；item 上 `aria-selected` / `aria-disabled`。
-- 官方自述：*"Labeling, aria attributes, and DOM ordering tested with Voice Over and Chrome DevTools."*
+命令面板特有、§6 未覆盖的只有三件事：**结果分组**（§8.2）、**快捷键提示**（§8.5）、**空结果出口**（§8.3）。cmdk 的 `Tab` 未实现、`aria-*` 属性等实测差异，也并入 §6 的契约叙述，不单独维护第二份。
 
 ### §8.2 数据模型（命令注册表的字段）
 
@@ -531,7 +507,7 @@ type Action = {
 - **别把过滤和排序交给浏览器默认**：`shouldFilter={false}` 时 *"you must conditionally render valid items based on the search query yourself"*，但换来 *"Better memory usage and performance. Bring your own virtualization this way."*
 - **中文检索**：英文按前缀/模糊匹配够用；中文必须补**拼音首字母**与**拼音全拼**（`新建文件` → `xjwj` / `xinjianwenjian`），否则用户打拼音时零结果。`keywords` 字段就是放这些的地方。
 - **空结果要有出口**：`<Command.Empty>` 一类组件 + 一句「没有匹配的命令，试试 …」；不要显示空白面板。
-- **结果分组 ≤7**：符合工作记忆（见 `visual-hierarchy-gestalt.md` 的 7±2 辨析），超过就折叠或改成两级。
+- **结果分组 ≤7（经验值）**：不是米勒定律的推论（见 `visual-hierarchy-gestalt.md` §11 与 numeric-truth §1），超过就折叠或改成两级。
 
 ### §8.4 性能上限：数字要记住
 

@@ -12,8 +12,7 @@
         "提示条",
         "消息提示",
         "浮层提示",
-        "冒泡",
-        "轻提示"
+        "冒泡"
       ]
     },
     {
@@ -144,7 +143,6 @@
         "dashboard",
         "大屏",
         "BI",
-        "KPI",
         "折线图",
         "柱状图",
         "饼图",
@@ -220,7 +218,6 @@
     {
       "canonical": "导航栏",
       "aliases": [
-        "导航栏",
         "navbar",
         "顶栏",
         "tab bar",
@@ -235,7 +232,6 @@
     {
       "canonical": "位置感",
       "aliases": [
-        "位置感",
         "侧边栏",
         "sidebar",
         "面包屑",
@@ -284,12 +280,10 @@
       "canonical": "响应式",
       "aliases": [
         "responsive",
-        "断点",
         "breakpoint",
         "移动端",
         "适配",
-        "自适应",
-        "容器查询"
+        "自适应"
       ]
     },
     {
@@ -363,7 +357,6 @@
         "全屏高度",
         "地址栏遮挡",
         "safe-area",
-        "安全区",
         "刘海屏",
         "满屏"
       ]
@@ -380,7 +373,6 @@
         "懒加载",
         "lazy",
         "图片跳动",
-        "CLS",
         "艺术指导"
       ]
     },
@@ -397,9 +389,7 @@
         "小屏",
         "窄屏",
         "中后台适配",
-        "1366",
-        "1440",
-        "1920"
+        "1366"
       ]
     },
     {
@@ -439,10 +429,7 @@
         "图标字体",
         "图标可访问性",
         "图标对比度",
-        "图标按钮",
-        "图标间距",
-        "图标尺寸",
-        "sprite 图标"
+        "图标按钮"
       ]
     },
     {
@@ -458,10 +445,7 @@
         "Heroicons",
         "Tabler",
         "Material Symbols",
-        "Fluent Icons",
-        "Radix Icons",
-        "Phosphor",
-        "Feather Icons"
+        "Fluent Icons"
       ]
     },
     {
@@ -506,7 +490,6 @@
         "网格系统",
         "分栏",
         "栏数",
-        "版心",
         "页边距",
         "基线网格",
         "baseline grid"
@@ -525,7 +508,6 @@
         "line-height",
         "字距",
         "tracking",
-        "缩进",
         "段间距"
       ]
     },
@@ -570,7 +552,6 @@
         "分享卡",
         "小红书封面",
         "公众号封面",
-        "视频封面",
         "头图"
       ]
     },
@@ -583,13 +564,10 @@
         "safe area",
         "CMYK",
         "300dpi",
-        "300ppi",
         "印厂",
         "交印",
         "PDF/X",
-        "总墨量",
         "转曲",
-        "套印",
         "裁切线"
       ]
     },
@@ -717,7 +695,6 @@
       "canonical": "品牌语气",
       "aliases": [
         "tone of voice",
-        "语气",
         "品牌声音",
         "文案语气",
         "品牌人格",
@@ -750,10 +727,8 @@
         "夜间模式",
         "暗黑模式",
         "暗色主题",
-        "暗色版",
         "night mode",
         "黑色主题",
-        "深色版",
         "暗色",
         "暗黑"
       ]
@@ -769,11 +744,9 @@
         "高度层级",
         "卡片层级",
         "浮层",
-        "层阶",
         "层叠",
         "深度",
-        "z轴",
-        "表面变亮"
+        "z轴"
       ]
     },
     {
@@ -804,7 +777,6 @@
         "三态",
         "亮暗切换",
         "换肤",
-        "theme.json",
         "color-scheme"
       ]
     },
@@ -983,8 +955,7 @@
         "交付物",
         "交付清单",
         "切图",
-        "交图",
-        "交接"
+        "交图"
       ]
     },
     {
@@ -1030,7 +1001,6 @@
         "方案评审",
         "design review",
         "设计批评",
-        "设计走查",
         "评审会"
       ]
     },
@@ -1041,7 +1011,6 @@
         "feedback",
         "给反馈",
         "接收反馈",
-        "评审反馈",
         "怎么评审",
         "i like i wish i wonder",
         "design by committee",
@@ -1052,7 +1021,6 @@
     {
       "canonical": "决策留痕",
       "aliases": [
-        "决策留痕",
         "adr",
         "hippo"
       ]
@@ -1094,7 +1062,6 @@
         "语义化版本",
         "版本号",
         "发版",
-        "变更日志",
         "changelog",
         "废弃",
         "deprecation",
@@ -1178,7 +1145,6 @@
       "canonical": "变量作用域",
       "aliases": [
         "scoped variables",
-        "变量作用域",
         "data-brand",
         "data-theme",
         "作用域化",
@@ -1194,7 +1160,6 @@
       "aliases": [
         "@layer",
         "cascade layer",
-        "层叠层",
         "层叠优先级",
         "未分层样式",
         "覆盖不掉",
@@ -1219,7 +1184,6 @@
       "aliases": [
         "品牌注册表",
         "品牌准入",
-        "主题治理",
         "品牌白名单",
         "客户自定义边界",
         "换肤审计",
@@ -1282,7 +1246,6 @@
       "canonical": "语气",
       "aliases": [
         "语气语调",
-        "品牌语气",
         "tone",
         "voice"
       ]
@@ -1305,7 +1268,7 @@
         "capitalization",
         "sentence case",
         "title case",
-        " casing",
+        "casing",
         "大写",
         "小写",
         "全大写",
@@ -1322,10 +1285,8 @@
         "slides",
         "deck",
         "演示",
-        "讲演",
         "slide deck",
         "keynote",
-        "google slides",
         "汇报",
         "答辩",
         "课件"
@@ -1339,7 +1300,6 @@
         "母版",
         "模板",
         "template",
-        "版式",
         "占位符",
         "placeholder",
         "主题模板",
@@ -1400,7 +1360,7 @@
         "Zoom演示",
         "Teams分享",
         "屏幕共享",
-        " webinar",
+        "webinar",
         "网络研讨会",
         "视频会议演示"
       ]
@@ -1438,7 +1398,6 @@
     {
       "canonical": "FLIP",
       "aliases": [
-        "flip",
         "First Last Invert Play",
         "布局动画",
         "layout animation",
@@ -1469,7 +1428,6 @@
         "view-transition",
         "startViewTransition",
         "view-transition-name",
-        "match-element",
         "伪元素树",
         "快照转场",
         "跨文档转场",
@@ -1621,8 +1579,7 @@
         "印度数字分组",
         "BCP 47",
         "zh_CN",
-        "navigator.language",
-        "localeMatcher"
+        "navigator.language"
       ]
     },
     {
@@ -1742,7 +1699,6 @@
       "aliases": [
         "contribution criteria",
         "贡献规范",
-        "贡献指南",
         "CONTRIBUTING",
         "提案门槛",
         "准入标准"
@@ -1752,7 +1708,6 @@
       "canonical": "文档治理",
       "aliases": [
         "governance",
-        "文档治理",
         "文档评审",
         "docs governance",
         "维护责任",
@@ -1764,7 +1719,6 @@
       "canonical": "活文档",
       "aliases": [
         "living documentation",
-        "活文档",
         "研究证据",
         "已知问题",
         "近期变更",
@@ -1777,7 +1731,6 @@
       "canonical": "文档模板",
       "aliases": [
         "doc template",
-        "文档模板",
         "documentation template",
         "文档骨架",
         "文档范例"
@@ -1791,7 +1744,6 @@
         "Doc Blocks",
         "Storybook docs",
         "代码即文档",
-        "自动生成文档",
         "Code Connect"
       ]
     },
@@ -2191,7 +2143,6 @@
       "canonical": "状态提升",
       "aliases": [
         "lifting state up",
-        "状态提升",
         "单一数据源",
         "single source of truth",
         "状态所有权",
@@ -2216,7 +2167,6 @@
       "aliases": [
         "slot",
         "slots",
-        "插槽",
         "具名插槽",
         "named slots",
         "scoped slots",
@@ -2229,7 +2179,6 @@
     {
       "canonical": "asChild",
       "aliases": [
-        "asChild",
         "换元素",
         "换标签",
         "Radix Slot",
@@ -2330,7 +2279,6 @@
       "canonical": "组件库",
       "aliases": [
         "component library",
-        "组件库",
         "design system 代码",
         "headless ui",
         "Radix",
@@ -2342,7 +2290,6 @@
     {
       "canonical": "设计度量",
       "aliases": [
-        "设计度量",
         "设计指标",
         "度量设计效果",
         "设计衡量",
@@ -2354,7 +2301,6 @@
     {
       "canonical": "用户研究",
       "aliases": [
-        "用户研究",
         "用研",
         "用户调研",
         "UXR",
@@ -2365,7 +2311,6 @@
     {
       "canonical": "可用性测试",
       "aliases": [
-        "可用性测试",
         "usability testing",
         "出声思考",
         "think aloud",
@@ -2397,7 +2342,6 @@
     {
       "canonical": "样本量",
       "aliases": [
-        "样本量",
         "样本大小",
         "多少人",
         "sample size",
@@ -2409,7 +2353,6 @@
     {
       "canonical": "任务成功率",
       "aliases": [
-        "任务成功率",
         "任务完成率",
         "completion rate",
         "成功失败率",
@@ -2442,7 +2385,6 @@
     {
       "canonical": "置信区间",
       "aliases": [
-        "置信区间",
         "95% 置信区间",
         "confidence interval",
         "CI",
@@ -2454,7 +2396,6 @@
       "canonical": "问卷设计",
       "aliases": [
         "问卷",
-        "问卷设计",
         "survey",
         "量表",
         "李克特",
@@ -2474,7 +2415,6 @@
     {
       "canonical": "卡片分类",
       "aliases": [
-        "卡片分类",
         "card sorting",
         "开放式分类",
         "封闭式分类",
@@ -2485,7 +2425,6 @@
     {
       "canonical": "树测试",
       "aliases": [
-        "树测试",
         "tree testing",
         "信息架构测试",
         "IA 测试"
@@ -2494,7 +2433,6 @@
     {
       "canonical": "研究方法",
       "aliases": [
-        "研究方法",
         "定性研究",
         "定量研究",
         "态度行为",
@@ -2521,7 +2459,6 @@
     {
       "canonical": "色板生成",
       "aliases": [
-        "色板生成",
         "配色方案",
         "调色",
         "色相旋转",
@@ -2543,8 +2480,7 @@
         "复古感",
         "科技感",
         "温暖感",
-        "做成XX感觉",
-        "做成XX那种感觉"
+        "做成XX感觉"
       ]
     },
     {
@@ -2557,7 +2493,6 @@
         "glassmorphism",
         "新拟态",
         "neumorphism",
-        "soft ui",
         "野兽派",
         "brutalism",
         "新野兽派",
@@ -2569,10 +2504,7 @@
       "aliases": [
         "极简主义",
         "minimalism",
-        "极简风",
-        "极繁",
         "maximalism",
-        "便当盒",
         "bento",
         "瑞士风格",
         "swiss style",
@@ -2712,7 +2644,6 @@
     {
       "canonical": "圆角",
       "aliases": [
-        "圆角",
         "radius",
         "border-radius",
         "倒角",
@@ -2727,7 +2658,6 @@
     {
       "canonical": "阴影",
       "aliases": [
-        "阴影",
         "box-shadow",
         "drop-shadow",
         "投影",
@@ -2922,7 +2852,6 @@
       "aliases": [
         "搜索框",
         "站内搜索",
-        "搜索体验",
         "site search",
         "search UX",
         "自动补全",
@@ -2956,7 +2885,6 @@
         "阅读等级",
         "reading level",
         "Flesch",
-        "FKGL",
         "SMOG",
         "简明语言",
         "plain language",
@@ -2967,7 +2895,6 @@
     {
       "canonical": "信息气味",
       "aliases": [
-        "信息气味",
         "information scent",
         "线索密度",
         "首词",
@@ -2978,7 +2905,6 @@
     {
       "canonical": "零结果",
       "aliases": [
-        "零结果",
         "no results",
         "没有结果",
         "无搜索结果",
@@ -3076,7 +3002,6 @@
         "聊天 UI",
         "对话 UI",
         "AI 助手",
-        "对话式界面",
         "聊天气泡",
         "会话界面",
         "Copilot",
@@ -3087,7 +3012,6 @@
       "canonical": "流式输出",
       "aliases": [
         "streaming",
-        "流式输出",
         "逐字输出",
         "打字机效果",
         "逐字蹦",
@@ -3194,7 +3118,6 @@
         "auto state",
         "hint state",
         "manual state",
-        "auto stack",
         "hint stack"
       ]
     },
@@ -3211,8 +3134,7 @@
         "C43",
         "scroll-padding",
         "SC 2.1.2",
-        "No Keyboard Trap",
-        "SC 3.2.1"
+        "No Keyboard Trap"
       ]
     },
     {
@@ -3448,7 +3370,6 @@
     {
       "canonical": "通知",
       "aliases": [
-        "通知",
         "推送",
         "push",
         "推送通知",
@@ -3463,7 +3384,6 @@
     {
       "canonical": "消息中心",
       "aliases": [
-        "消息中心",
         "通知中心",
         "收件箱",
         "inbox",
@@ -3478,7 +3398,6 @@
     {
       "canonical": "角标",
       "aliases": [
-        "角标",
         "badge",
         "小红点",
         "红点",
@@ -3493,7 +3412,6 @@
     {
       "canonical": "免打扰",
       "aliases": [
-        "免打扰",
         "勿扰",
         "静音",
         "免扰时段",
@@ -3508,7 +3426,6 @@
     {
       "canonical": "通知偏好",
       "aliases": [
-        "通知偏好",
         "通知设置",
         "偏好中心",
         "订阅偏好",
@@ -3523,7 +3440,6 @@
     {
       "canonical": "营销邮件",
       "aliases": [
-        "营销邮件",
         "交易邮件",
         "newsletter",
         "订阅邮件",
@@ -3538,7 +3454,6 @@
     {
       "canonical": "一键退订",
       "aliases": [
-        "一键退订",
         "退订链接",
         "unsubscribe",
         "CAN-SPAM",
@@ -3552,7 +3467,6 @@
     {
       "canonical": "推送授权",
       "aliases": [
-        "推送授权",
         "通知权限",
         "权限弹窗",
         "临时授权",
@@ -3567,7 +3481,6 @@
     {
       "canonical": "声音反馈",
       "aliases": [
-        "声音反馈",
         "音效",
         "提示音",
         "earcon",
@@ -3609,8 +3522,7 @@
         "生物识别登录",
         "指纹登录",
         "面容登录",
-        "硬件密钥",
-        "安全密钥"
+        "硬件密钥"
       ]
     },
     {
@@ -3624,7 +3536,6 @@
         "两步验证",
         "验证码",
         "OTP",
-        "TOTP",
         "动态口令",
         "短信验证",
         "恢复码"
@@ -3633,7 +3544,6 @@
     {
       "canonical": "快捷键",
       "aliases": [
-        "快捷键",
         "热键",
         "加速键",
         "键位",
@@ -3650,7 +3560,6 @@
     {
       "canonical": "快捷命令面板",
       "aliases": [
-        "快捷命令面板",
         "命令面板检索",
         "命令面板搜索",
         "快速命令",
@@ -3665,7 +3574,6 @@
     {
       "canonical": "键盘可访问性",
       "aliases": [
-        "键盘可访问性",
         "全键盘操作",
         "键盘导航",
         "键盘陷阱",
@@ -3697,7 +3605,6 @@
     {
       "canonical": "实时协作",
       "aliases": [
-        "实时协作",
         "多人协作",
         "协同编辑",
         "同时编辑",
@@ -3714,7 +3621,6 @@
     {
       "canonical": "视频播放器",
       "aliases": [
-        "视频播放器",
         "播放器控件",
         "视频控件",
         "字幕",
@@ -3737,7 +3643,6 @@
         "邮件模板设计",
         "Outlook 兼容",
         "响应式邮件",
-        "preheader",
         "邮件客户端",
         "邮件排版",
         "邮件深色模式",
@@ -3758,8 +3663,7 @@
         "购买力定价",
         "汇率换算",
         "价格点",
-        "单位价格",
-        "税额反算"
+        "单位价格"
       ]
     },
     {
@@ -3775,8 +3679,7 @@
         "订单确认",
         "采购订单",
         "对账单",
-        "账龄",
-        "ZUGFeRD"
+        "账龄"
       ]
     }
   ]

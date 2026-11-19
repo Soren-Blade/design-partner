@@ -1,1114 +1,276 @@
 ---
 name: design-partner
-description: 设计伙伴——把模糊的想法变成有品味的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报/长图/信息图/社媒图/印刷品、版式与网格/栏数/页边距/行长/行距/出血、演示文稿、配色、字体/字体排印/字号/行高/行距/字体加载/字体授权/可变字体/tabular-nums/字体回退/中文排版、图标/图标设计/Iconography/图标系统/图标网格/图标可访问性/图标字体/spinner、**AI 生成设计/AIGC/生成式 AI/提示词工程/AI 生成界面/AI 商用授权/AI 内容标识/Content Credentials/DESIGN.md 给 AI 读/AI 设计工具选型**、**设计伦理/欺骗性设计/dark patterns/deceptive design/诱导设计/默认勾选/一键关闭/自动续费/取消订阅/隐私同意/cookie 同意/成瘾设计/防沉迷/未成年人模式/包容性设计/认知无障碍/反操纵红线**、**组件 API 设计/组件契约/props 语义/受控组件/非受控组件/组合模式/compound components/插槽 slot/asChild/render prop/ref 转发/forwardRef/React 19/换元素/组件库发版/API SemVer/codemod/argTypes**、**设计度量与用户研究/可用性测试/SUS/UMUX/系统可用性量表/样本量/任务成功率/HEART 框架/A-B 测试/置信区间/用户研究/满意度量化/可用性指标/研究方法/NPS/问卷设计**、动效/微交互/动效编排/交错动画/共享元素转场/列表增删动画/动画状态机、数据可视化/图表/仪表盘/大屏、表单与表格/中后台列表、反馈与状态（toast/弹窗/加载/骨架屏/空态/空状态设计/零数据位/starter content/装饰插画/错误页/确认框）、**首次体验与用户引导/onboarding/新手引导/首启/First-Run/教程/coach mark/产品导览/product tour/progressive disclosure/渐进披露/权限时机/purpose string/pre-alert/追踪弹窗/激活/activation/aha moment/time to value/starter content/splash screen/launch screen/SC 3.3.7/SC 3.3.8/SC 2.2.1**、**定价页与结账流程/pricing page/价格表/价目表/三档定价/推荐档/月付年付/年付折扣/划线价/原价/折扣价/优惠券/结账/checkout/结算页/购物车付款/运费/税费/服务费/总价/total price/复核页/check answers/游客结账/支付方式/Apple Pay/SC 3.3.4/SC 1.3.5/SC 3.3.7**、响应式与断点/多端适配/移动端/容器查询/视口单位、暗色模式、多品牌与多主题/白标/租户换肤/主题矩阵/客户品牌色注入、品牌视觉/logo/标志/VI 手册/清space/最小尺寸/品牌色/色阶/商标注册、作品集、简历排版、视觉风格谱系/设计运动/做成XX那种感觉/风格匹配、设计系统文档站/组件文档页/文档信息架构/文档版本化/changelog/贡献指南/文档治理/docs-as-code,**国际化与本地化/i18n/L10n/多语言/翻译适配/RTL/阿拉伯语/希伯来语/双向文本/文案膨胀/复数规则/日期货币格式/伪本地化/出海设计**、**认证与账户体验/登录/注册/Passkeys/WebAuthn/通行密钥/无密码登录/条件式认证/MFA/2FA/二次验证/验证码/OTP/TOTP/忘记密码/找回密码/账户恢复/会话超时/记住我/登出/单点登录/SSO/密码规则/密码强度/显示密码/自动填充/认知功能测试/第三方登录按钮/SC 3.3.8/SC 3.3.9**；或涉及 AI 生成内容标识 / AI 版权 / 提示词 / 内容凭证 / AI 生成界面验收时；或用户说"这个图是 AI 做的能商用吗""AI 生成的页面怎么验收""要不要打 AI 标"；或用户说"帮我看这个设计好不好""没灵感""做个好看点的页面""提升审美""评估这个需求可行吗""做成 XX 那种感觉""给我一套设计规范""帮我设计个 logo""这套 VI 怎么做""客户要换成他们的品牌色"时。内置需求澄清、可行性×美观性预判、灵感匹配（蒸馏自 designeer.xyz 657 条人工策展资源 + 54 品牌 DESIGN.md，可自动刷新）、设计 token 体系、动效系统（曲线/时长/场景/降级四件套）、动效进阶编排（交错 stagger / FLIP / 共享元素转场 / 动画状态机 / 中断策略 / View Transitions / @starting-style 四件套）、数据可视化规范（FT 九类关系选型 + Carbon/AntV 精确色板 + 坐标轴数值 + 反模式清单）、表单与表格规范（标签对齐决策 + 字段定宽 + 校验时机 + 错误文案模板 + 行高/列对齐/分页/批量操作）、可访问性实操（WCAG 2.2 全量阈值 + 焦点三件套 + 目标尺寸三档 + ARIA 纪律 + 读屏实测脚本 + GB/T 37668 与适老化硬指标）、反馈与状态设计（五层反馈决策树 + 四体系 toast 时长精确值 + 加载三形态分工 + 五种空态 + 五级错误 + 确认框八条 + 五态数据模型）、**响应式与断点体系（六体系断点精确值 + 版心阶梯 + 容器查询 + clamp 无障碍公式 + 视口单位陷阱 + 窄屏表格四策略）**、**版式与网格（Van de Graaf 页边距 2:3:4:6 + 12 栏与基线网格 + 行长 45–90 字符 / 中文 25–40 字 + 模数阶梯 + 海报出血与安全区 + 长图字号换算 + 九平台社媒尺寸 + 印刷 CMYK 与总墨量）**、**品牌视觉与 Logo 逻辑（七型标志选择决策 + 24dp 网格与四基形 + 光学修正四条 + 清space 三口径 + 最小尺寸 40px/10mm + 响应式标志四档 + 种子色选色四问 + HCT·Radix 12 步·对比度优先三条色阶路线 + M3 官方 tone 映射表 + 图标网格两体系 + 品牌语气四维 + 资产交付清单 + 商标与授权合规）**、**暗色模式体系（该不该做的证据链与三态切换 + 表面层级三套精确值 M3 tone 4·6·10·12·17·22 / Ant lighten 0·8·12·26 / Carbon g100 阶梯 + 实测对比度陷阱 45%白仅4.43·边框仅2.09:1 + 不用纯白的四体系共识 + 阴影两派与合成方案 + 品牌色 tone 重映射 + 涨跌色双套 + 图像四死法 + 四端实现与防闪白 + 22 项自检）**、**设计交付与协作（spec sheet 9 字段 + 标注只标例外 + 9 态矩阵 + 命名四套 + 组件属性 3–5 个 + Given/When/Then 3–5 步 + 评审 30 分钟 2 正 1 改 + 走查三遍法与 P0–P3 门禁 + SemVer 11 条与 MAJOR 迁移表 + DTCG token 管线 + 回归四层 80%·VRT·AVT·三读屏器 + 六个交付指标 + 4 套模板）**、**性能与设计的关系（三条硬因果与 Pinterest/CNN 实测 + CWV 三指标阈值 LCP 2.5s·INP 200ms·CLS 0.1 与 75 分位口径 + Lighthouse 10 权重 TBT30/LCP25/CLS25 + LCP 四分解 40/10/40/10 + INP 三阶段与长任务 50ms + CLS 公式与 500ms 免责窗口 + 关键路径 170KB 与六类页面预算表 + 图片格式矩阵与 25 倍像素浪费 + font-display 五档与中文字集化 + 视觉手法性能价格表（视频/玻璃拟态/视差/3D/粒子逐项定价）+ 帧预算 16.67ms 与图层内存算术 + 三档设计决策分级 A效率/B平衡/C表达 + 弱网三层降级 + 小程序单包 2MB 与 setData 纪律 + 18 项自检）**、**多品牌与多主题 Token 架构（四个正交轴 品牌/模式/对比度/密度 + 四层架构 L0 品牌输入→L1 原始→L2 语义→L3 组件 + 品牌色阶四条生成路线（M3 HCT 色度常量 2021 TONAL_SPOT 36·16·24·6·8 / 2025 phone 32·16·28·5 与 VIBRANT 200→74 + Fluent BrandRamp 16 档 10–160 + Radix 12 步 Lc 60/90 保证 + TDesign HCT 拟合 10 档与 12% 品牌倾向中性色）+ 品牌色对比度护栏（亮度边界 0.1833/0.1750/0.3000 + 九色实测：Ant 品牌色白字仅 4.10 不达 AA、品牌黄压暗 45.9% 才够 + 三档修正策略）+ 轴独立选择器与 @layer 顺序 + 运行时 vs 构建期判据 + 多品牌同页共存与 portal 逃逸 + 四套真实主题矩阵对照（Primer 9 主题与反向色阶 / Carbon 四主题 / Fluent 16 档 / Ant 三算法）+ 语义层分叉边界 + DTCG 多品牌目录与 $extends + Style Dictionary 多品牌构建 + Figma 变量模式 4/40 上限 + 品牌注入六步管线与输入安全 + 防闪烁三件套 + 治理与 SemVer）**、**字体排印系统（px 不可访问裁决 / WCAG 2.2 SC 1.4.4·1.4.8·1.4.12 文本间距覆盖验收 / 200% 缩放 / rem 阶梯 / 可变字体五注册轴 / tabular-nums 与 OpenType 数字特性 / font-family 逐字符回退 / unicode-range 子集化 / font-display 五档 / size-adjust 度量对齐 / W3C clreq 中文排版 / M3 type scale token 化 / OFL 1.1 字体授权）**、**形状与深度系统（圆角/border-radius/圆角重叠/corner overlap/同心圆角/阴影/box-shadow/三层阴影/elevation/高度层级/表面层级/z-index/深度语言/材质/毛玻璃/Liquid Glass/backdrop-filter/corner-shape/squircle/卡片浮起/边界3:1）**、**视觉层级与格式塔组织律（格式塔/完形/Gestalt/邻近性/相似性/闭合性/共同区域/共同命运/图形背景/前注意/pop-out/视觉层级/视觉动线/重点不突出/单焦点/眯眼测试/眼动/F 型扫描/扫描模式/认知负荷/工作记忆/组块/chunking/希克定律/Hick/菲茨定律/Fitts/米勒定律/7±2/序列位置/Von Restorff/选择性注意/DOM 顺序/焦点顺序/标题结构/WCAG 1.3.2/2.4.3/2.4.6/2.4.10/三顺序一致性）**、**内容可发现性与可扫读性（内容找不到/搜不到/可发现性/findability/搜索体验/站内搜索/搜索框/自动补全/autocomplete/combobox/联想词/零结果/无搜索结果/404 页面/信息气味/information scent/链接目的/link purpose/Learn More/了解更多/描述性链接/前 11 个字符/nano-content/front-loading/可扫读/scannability/阅读等级/reading level/Flesch/FKGL/SMOG/简明语言/plain language/树测试/tree testing/多路径/WCAG 2.4.5/2.4.4/2.4.9/3.1.5/位置感）**、**直接操纵与指针交互（拖拽/拖放/drag and drop/direct manipulation/指针事件/Pointer Events/pointercancel/setPointerCapture/touch-action/手势/path-based gesture/列表重排/排序交互/dnd-kit/react-dnd/SortableJS/目标尺寸/24×24/44×44/48dp/单指针无拖动/拖动替代/键盘拖放/Space 拿起/Escape 取消/读屏播报/live region/WCAG 2.5.7/2.5.1/2.5.2/2.5.8/2.5.5/G219/G210/长按/磁吸/snapping/触屏拖放）**、中文排版规范、L0→L4 知识路线图、记忆树与别名检索、设计执行原则、产出自检与偏好记忆七步流程；；**对话式与生成式界面**（chatbot/聊天 UI/AI 助手/对话式界面/流式输出/streaming/生成式界面/Generative UI/GenUI/streamUI/useChat/message.parts/AG-UI/Hybrid UI/RICH 范式/混合界面/ThoughtChain/停止生成/重新生成/编辑原消息/撤销自动化动作/role=log/ARIA23/aria-busy/aria-live/status messages/SC 4.1.3/HAX G9/逐 chunk 播报/读屏刷屏/组件白名单）**、**叠加层与模态性**（modal/dialog/焦点陷阱/焦点循环/inert/aria-modal/非模态/Popover API/popover/closedby/showModal/top layer/::backdrop/tooltip/底部抽屉/bottom sheet/命令面板/浮层/light dismiss/Escape 关闭/焦点返回/Focus Not Obscured/SC 1.4.13/SC 2.4.11/SC 2.1.2/SC 3.2.1/键盘陷阱）****AI 生成设计必须先过标识、授权、AI 味三道闸门**、**键盘快捷键与命令面板/快捷键/键位/热键/组合键/快捷键冲突/命令面板/命令搜索/⌘K/快速跳转/aria-keyshortcuts/accesskey/key vs code/输入法 IME/全键盘操作/帮助面板/保留键/实时协作/多人协作/协同编辑/在线状态/实时光标/多人撤销/评论批注/协作权限/audience access**。
+description: 设计伙伴——把模糊想法变成有品味、可执行的设计决策，并随使用自我成长。凡涉及视觉产出即使用：网页、落地页、产品界面/UI、组件、海报/长图/信息图/社媒图/印刷品、版式与网格/栏数/页边距/行长/行距/出血、演示文稿（PPT）、配色、字体/字体排印/字号/行高/中文排版、图标/Iconography、AI 生成设计/AIGC/提示词/AI 商用授权/Content Credentials、设计伦理/dark patterns/欺瞒性设计/自动续费/隐私同意/成瘾设计/包容性、组件 API 设计/props 语义/受控非受控/compound components/asChild、设计度量与用户研究/SUS/UMUX/样本量/A-B 测试、动效/微交互/共享元素转场、数据可视化/仪表盘、表单与表格/中后台、反馈与状态/toast/加载/空态/错误页、首次体验与用户引导/onboarding/激活/aha moment、定价页与结账/checkout/总价、响应式/断点/容器查询、暗色模式、多品牌与多主题、品牌视觉/logo/VI、作品集、视觉风格谱系、设计系统文档、国际化与本地化/i18n/RTL、认证与账户/Passkeys/MFA、以及「这个设计好不好看」「没灵感」「提升审美」「评估这个需求可行吗」「做成 XX 那种感觉」「给我一套设计规范」「帮我设计 logo」这类请求。内置：五问澄清 → 判层 → 三案并置与强制裁决 → 按需读 56 份资产 → 12 条证据自检 → 反馈入记忆。
 ---
 
 # Design Partner 设计伙伴
 
-你（agent）现在具备一位设计总监的判断框架 + 一份会成长的记忆。本技能解决七个问题：**需求不清**（先澄清）、**不知可行与否**（执行前预判并反馈）、**没有参照**（策展知识库匹配）、**系统不统一**（token 体系 + DESIGN.md）、**中文场景翻车**（中文排版规范）、**产出平庸**（按原则执行并自检）、**不记得用户偏好**（记忆档案持续蒸馏）。
+> 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v51 · 2026-11-19**
-
-**v51 基线（v50→v51 新增：**报价与发票单据（Quote, Invoice & Order Documents：报价单、发票、订单确认与红冲）**）** v50 全库 `报价单` 1 处、`发票` 9 处（pricing-localization 5 / file-upload-media-input 3 / pricing-checkout 1）、`invoice` 2 处，`订单确认` / `收据` / `对账单` / `采购订单` / `电子发票` / `Peppol` / `EN 16931` / `Factur-X` / `ZUGFeRD` / `PDF/A` / `付款条件` / `开票` **全 0 命中**，`作废` 4 处全在 onboarding-first-run / auth / typography（误命中）；`dp_search.py "报价单 发票 订单确认 采购订单 收据"` 的 top8 全部落在 feedback-states §7 与 auth §6.4 的「弹窗确认」，`"invoice VAT number 税号 电子发票 Peppol PDF/A"` 的 top8 落在 shape-elevation §3 与 pricing-localization §14——判为结构性空白：`pricing-localization.md` 只答「价格怎么定与怎么显示」、`pricing-checkout.md` 只答「结账页怎么收钱」，没有一份回答「这笔钱怎么被开成一张能被别人核对的单据」。补 `references/quote-invoice-documents.md`（34,877 字符 / §0–§14 十五节 / 6 段 Python 6/6 PASS）。
-- 三条裁决：① **发票是一组恒等式，不是版式**——五个数被四条规则锁死（BR-CO-10 *"Sum of Invoice line net amount (BT-106) = Σ Invoice line net amount (BT-131)."*、BR-CO-15 *"Invoice total amount with VAT (BT-112) = Invoice total amount without VAT (BT-109) + Invoice total VAT amount (BT-110)."*、BR-CO-16 *"Amount due for payment (BT-115) = Invoice total amount with VAT (BT-112) -Paid amount (BT-113) +Rounding amount (BT-114)."*），页面只有一个「应付」BT-115，任何「预计 / 参考 / 以实际为准」都不能靠近它；② **舍入发生在每一层，1 分钱必须有落点**——EN 16931 的 XPath 一律 `round(值 * 10 * 10) div 100`，行净额、税基、税额、价税合计各自舍到 2 位；实测 `3.99+19.99+0.99` 逐行 4.75 vs 汇总 4.74（+0.01）、`7.49+12.49+5.95` 4.92 vs 4.93（−0.01），两个方向都会出现，只能以 BT-115 为唯一应付数；③ **已开出的单据不可编辑，只能更正或红冲**——`384 Corrected invoice` 与 `381 Credit note` 是两种单据而非两种操作，中国数电票红冲须先有《红字发票信息确认单》且 *"《确认单》发起后72小时内未经确认的，自动作废。"*；页面上给「编辑」按钮，就等于允许改出与税务留存不一致的 PDF。
-- 接线：资产表 +1 行、路由表 +3 行（报价/发票单据 / 电子发票载体 / 红冲与对账）、knowledge-map 支线 AR 四条 + 2 条自测、aliases 新增「报价与发票单据」组 12 词（281 组 / 2,371 词，只补召回、不改路由）、第 6 步自检 +1 条（第 52 条报价与发票单据关）、Design-related websites 第三十五分区 + 附（11 条一手源 + 9 个 GitHub API 实测）。
-- 统计：56 份参考 / 1,653,526 字符 / 253 类意图路由 / 52 项自检 / 44 支线 192 自测 / 47 个 `##` 分区（35 主题 + 12 GitHub 附区） / Python 验算 6/6。
-**v50 基线（v49→v50 新增：**定价本地化（Pricing Localization：币种、含税口径、地区价差与法定原价）**）** v49 全库 `定价本地化` / `价格本地化` / `币种` / `地区定价` / `购买力` / `PPP` / `汇率` / `当地货币` / `价格尾数` / `MRP` **全 0 命中**，`含税` 仅 1 处（pricing-checkout.md §10 三级披露）、`VAT` 5 处全部在 `sound-haptics-feedback.md`（振动强度误命中）；`dp_search.py "定价 本地化 币种 含税 地区差价 购买力"` 与 `"…currency 货币 增值税 含税价 价格尾数…"` 两条 top8 全部落在 i18n-localization（数字/货币**格式**）、pricing-checkout（一国之内定价页结构）与 knowledge-map 支线——判为结构性空白：`i18n-localization.md §十` 只答"货币符号与千分位怎么排"，`pricing-checkout.md` 只答"一国之内的价格页与结账"，没有一份回答"同一个价格卖到多国时币种小数位、含税口径、地区价差、税额反算、法定原价窗口怎么定"。补 `references/pricing-localization.md`（26,650 字符 / §0–§14 十五节 / 6 段 Python 6/6 PASS）。
-- 三条裁决：① **价格是三元组 `(金额, 币种, 含税口径)`，不是数字**——小数位由 ISO 4217 定（SIX `List One` 实测 `<Ccy>JPY</Ccy><CcyNbr>392</CcyNbr><CcyMnrUnts>0</CcyMnrUnts>`：JPY/KRW/VND/ISK/XOF 0 位，KWD/BHD/JOD/OMR/TND 3 位），`¥1,234.50` 是伪造精度；含税口径由销售地法定（德国 PAngV §2(3) *"„Gesamtpreis" den Preis, der einschließlich der Umsatzsteuer und sonstiger Preisbestandteile für eine Ware oder eine Leistung zu zahlen ist"*、日本国税庁 No.6902 *"消費税額（地方消費税額を含む。）を含めた価格（税込価格）を表示することを義務付ける"*、中国 56 号令第九条人民币金额），同一件 9.99 在美/德/日必须写成三种样子；② **"原价"不是设计自由度，是法定回溯窗口**——德国 PAngV §11(1) 须标"前 30 天曾向消费者适用的最低总价"、中国 56 号令第十六条"被比较价格应当不高于…前七日内的最低成交价格"、日本 CAA Q21 须 8 周内过半且累计 ≥2 周，且中国第十七条明令禁止"折价、减价前临时显著提高标示价格"；③ **含税价先反算税额，取整只发生一次并有会计落点**——税额 = 含税价 × r/(1+r)，逐行取整与汇总取整必差 1 分（实测 `3.99+7.49+19.99`：逐行 5.03 vs 汇总 5.02），差额必须记账（Stripe 原文 *"Stripe automatically rounds that amount to the nearest number evenly divisible by 100. We credit or debit any difference from rounding to the customer balance."*）。
-- 接线：资产表 +1 行、路由表 +3 行（多币种价格显示 / 含税口径与税额明细 / 原价与单位价格合规）、knowledge-map 支线 AQ 四条 + 2 条自测、aliases 新增「定价本地化」组 12 词（280 组 / 2,359 词，只补召回、不改路由）、第 6 步自检 +1 条（第 51 条定价本地化关）、Design-related websites 第三十四分区 + 附（14 条一手源 + 10 个 GitHub API 实测）。
-- 统计：55 份参考 / 1,624,941 字符 / 250 类意图路由 / 51 项自检 / 43 支线 190 自测 / 45 个 `##` 分区（34 主题 + 11 GitHub 附区） / Python 验算 6/6。
-**v49 基线（v48→v49 新增：**邮件设计与 EDM 排版（HTML Email Design / EDM Layout）**）** v48 全库 `邮件设计` / `HTML 邮件` / `响应式邮件` / `Outlook` / `EDM` / `newsletter` / `Apple Mail` / `102KB` / `caniemail` / `VML` **全 0 命中**，`邮件模板` 仅 1 处（dark-mode.md）、`preheader` 1 处（notifications-messaging.md）、`邮件客户端` 2 处、`600px` 6 处（4 处在 responsive-layout.md）——判为结构性空白：`notifications-messaging.md §12` 只覆盖**该不该发 / 退订 / 认证**（合规与时序），邮件作为**渲染介质**（客户端引擎、体积截断、图片屏蔽、深色反色、版式骨架）零覆盖。补 `references/email-design.md`（39,044 字符 / §0–§21 二十二节 / 6 段 Python 6/6 PASS）。
-- 三条裁决：① **邮件不是网页的降级版，是被四种渲染引擎夹住的版式通道**——Outlook 2007 起用 Word 引擎（Microsoft 原文 *"we made the decision to unify the rendering and editing engine in Outlook by using Word's engine"*），`display:flex` / `grid` / `position` / `box-shadow` / `border-radius` 在它下面全废，600px 是这条血统的产物；② **图片是可删装饰，文字才是必达内容**——Outlook 默认 *"is configured by default to block automatic picture downloads from the Internet"*，Apple Mail Privacy Protection 让「打开率」不再是信号，图里写字等于把信息交给一个可能不被加载的层；③ **体积是排版约束不是工程细节**——Gmail 桌面 102KB 后截断（Klaviyo 原文 *"the email size limit is generally 102 KB"* / *"keep your email code below 102 KB once sent"*），中文 3 字节/字使「多一层嵌套」直接吃掉首屏预算，安全线 85KB。
-- 接线：资产表 +1 行、路由表 +3 行（邮件设计 / 客户端兼容与深色反色 / 体积与主题行）、knowledge-map 支线 AP、aliases 新增「邮件设计」组 12 词（279 组 / 2,347 词，只补召回、不改路由）。
-- 统计：54 份参考 / 1,590,882 字符 / 247 类意图路由 / 50 项自检 / 42 支线 188 自测 / 37 个 `##` 分区 / Python 验算 6/6。
-**v48 基线（v47→v48 新增：**视频播放器与字幕（Video Player UX & Captions / WebVTT）**）** v47 全库 `video player` / `webvtt` / `srt` 均 **0 命中**，`字幕` 仅 5 处、`caption` / `subtitle` 各 8 处且全是零散提及，标题扫描里与视频相关的只有三条次级小节（`file-upload-media-input.md §5.4` 视频上传、`motion-orchestration.md §10.2` WAAPI 播放控制、`sound-haptics-feedback.md §5.2` 短音效）——判为结构性空白，补 `references/video-player-captions.md`（26,536 字符 / 14 章 / 3 段 Python 3/3 PASS；补 §3.5 海报首帧、§4.1 竖屏短视频手势、§8.4 内联与静音开播、§9.5 读屏与隐藏式字幕四个小节，自检 16→18 条）。
-- 三条裁决：① **控件层是契约层不是皮肤**——`<video controls>` 的既有行为（Space/K 播放暂停、←/→ ±5s、↑/↓ 音量、M 静音、F 全屏、C 字幕）先接受再扩展，自绘控件少一条就是退化；② **字幕是内容不是样式**——42 字符/行 × 2 行 × 20 CPS（儿童 17 CPS）与 5/6 秒–7 秒时长同时成立，读速超限只能拆条或缩短停留，不许压字号或拉长时间；③ **默认不自动播放有声视频**——WebKit 只放行 muted 或无音轨，加音轨或取消静音立刻 pause；GIF 换 `<video>` 省 12× 带宽、2× 能量。
-- 接线：资产表 +1 行、路由表 +3 行（视频播放器 / 字幕 / 自动播放与全屏）、knowledge-map 支线 AO、aliases 新增「视频播放器」组 12 词（278 组 / 2,335 词，只补召回、不改路由）。
-- 统计：53 份参考 / 1,557,070 字符 / 244 类意图路由 / 49 项自检 / 41 支线 186 自测 / 37 个 `##` 分区 / Python 验算 3/3。
-**v47 基线（v46→v47 新增：**实时协作与多人编辑（Real-time Collaboration & Presence）**）** v46 全库 `实时协作` 仅 2 处（presentation-design 一句），`协同编辑` / `批注` / `realtime` 均为 0；`dp_search.py "多人协作 实时光标 在线状态 协同编辑"` top3 落在保存状态 / 动效 / 文档规范，全不相关——判为结构性空白，补 `references/realtime-collaboration.md`（26,826 字符 / 21 章 / 4 段 Python 4/4 PASS）。
-- 三条裁决：① 冲突粒度取**属性级 LWW**（同对象同属性裁决，AB 与 BC 并发只能得 AB 或 BC、永不 ABC），不引入 OT；② presence 只放临时信号（光标 / 选区 / 输入 / 工具 / 视口 / agent），Yjs 30s 过期、15s 续期、3s 巡检，永久内容进 Storage；③ 评论钉**相对位置**（类型被删解析返回 null，即孤儿线程），权限逐文件 / 文件夹判 audience access，继承不自动下传。
-- 接线：资产表 +1 行、路由表 +4 行（模型选型 / 在线状态 / 评论 / 权限）、knowledge-map 支线 AN、aliases 新增「实时协作」组 12 词（277 组 / 2,323 词，只补召回、不改路由）。
-- 统计：52 份参考 / 1,529,577 字符 / 241 类意图路由 / 48 项自检 / 40 支线 184 自测 / 37 个 `##` 分区 / Python 验算 4/4。
-**v46 基线（v45→v46 新增：**文件上传与媒体输入（File Upload & Media Input）**）** 补齐「用户手里有一份文件 → 系统确认收到并可用」这条链路：v45 之前全库 `上传` 25 处但全是零散提及（多为「上传前脱敏」「附件入口」「断点续传提示」），`upload`=1（仅 tools.md）、`accept 属性`=0、`拖拽上传`=1（accessibility.md:281「同时提供『选择文件』按钮（必须，不是可选）」）、`EXIF`=3（全在 AI 素材语境）、`文件大小`=1，`dp_search.py "文件上传 拖拽 大小限制 进度"` 首位落在 `direct-manipulation.md §1` 的「无独立资产」自述，判定为结构性空白。**三条裁决**：① **`accept` 是提示不是校验**——MDN 逐字 *"The `accept` attribute doesn't validate the types of the selected files; it provides hints for browsers to guide users towards selecting the correct file types."*，类型判定必须在服务端（OWASP 逐字 *"Validate the file type, don't trust the Content-Type header as it can be spoofed"*）；② **拖放是增强不是通道**，上传的每条路径都要能用单指针完成（SC 2.5.7 AA 逐字 *"All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging…"*），拖放区必须配「选择文件」按钮；③ **失败态是主设计对象**：每文件独立七态（排队/校验/上传/处理/成功/失败/取消），`rejected`（改文件）与 `failed`（重试）文案必须分开，单文件失败不阻塞同批。含五问判层 + 12 场景表 + 8 种失败文案矩阵 + 三档反馈阈值（0.1 s / 1 s / 10 s）+ **tus 1.0.0 协议逐字**（`Tus-Resumable`、`Upload-Offset`/`Upload-Length` 非负整数、PATCH 必须 `application/offset+octet-stream` 否则 415、offset 不匹配 MUST 409、成功 MUST 204、校验和不符 **460**、`Tus-Max-Size` 由服务端播报、**协议未规定分片字节数**）+ 8 库 GitHub API 实测（uppy 31,075★ / filepond 16,396★ / cropperjs 13,918★ / dropzone 18,408★ / tus-js-client 2,640★ / squoosh 26,195★ / sharp 32,855★ / react-dropzone 11,024★）+ Ant Design `maxCount` 超限**静默丢弃**（源码注释 *"We should ignore event if current file is exceed maxCount"*）且无 size-limit prop + OWASP 十条安全边界（改文件名由系统生成、拒冒号防 NTFS 备用数据流、重编码剥离元数据）+ 20 反模式 / 20 自检 / 6 段代码（6/6 实跑 rc=0）/ 12 条取源限制 → **`references/file-upload-media-input.md`**
-
-**v45 基线（v44→v45 新增：**键盘快捷键与命令面板（Keyboard Shortcuts & Command Palette）**）** 补齐「快捷键 / 命令面板」这一结构性空白：v44 之前全库 `快捷键` 仅 21 处、且几乎全是 direct-manipulation 里「补个键盘快捷键不是答案」的反面语境，`aria-keyshortcuts` 与 `SC 2.1.4` 均 **0 命中**。**三条裁决**：① SC 2.1.4（Level A）判的是「**是否只依赖可打印字符**」而非按了几个物理键——`Shift+/` 与两段序列 `G` 后 `A` 同在范围内，必须三选一：**Turn off / Remap / Active only on focus**；② 修饰键是平台契约（macOS 以 Command 为主、Windows 以 Ctrl 为主），`aria-keyshortcuts` **只声明不绑定**（WAI-ARIA 1.2：*"User agents MUST NOT change keyboard behavior in response to the aria-keyshortcuts attribute."*），`accesskey` 因 UA 行为差异大而劝退；③ 命令面板 = **命令注册表 + combobox 检索层**，焦点留在输入框、靠 `aria-activedescendant` 标选中、**IME 组字期（`isComposing`）不响应选中键**。资产 `keyboard-shortcuts-command-palette.md`：§1 五问判层 + 12 场景 / §2 SC 2.1.4 判据表 9 形态与 2.1.1/2.1.2 分工 / §3 三出口 + GitHub 产品实证 / §4 平台修饰键契约与显示格式（macOS Control→Option→Shift→Command、Hyphen 书写；ARIA 只有 Alt/Control/Shift/Meta/AltGraph 五个名）/ §5 四层语义（行为·`aria-keyshortcuts`·`accesskey`·`<kbd>`）/ §6 `key` vs `code` 与 IME 守卫 / §7 五层作用域 + 四类仲裁 + VS Code 自下而上求值 / §8 面板解剖 + 数据模型 + 逐键契约 / §9 五个发现触点 + `?` 帮助面板 / §10 六库 GitHub API 实测选型（cmdk 13,147★ / kbar 5,264★ / tinykeys 4,106★）/ §11 四条硬规则 / §12 场景速查 12 / §13 反模式 20 / §14 自检 20 / §15 两段代码实跑 PASS / §16 取源限制 16 条。别名层新增 3 组 33 词（275 组 2,300 词），既有路由顺序一行未动。
-
-**v44 基线（v43→v44 新增：**认证与账户体验（Authentication & Account UX）**）** 补齐「用户怎么证明自己是本人、进不来时怎么出来」这条链路，此前 48 份参考对它近乎零覆盖：全域词频实测 `passkey`=0、`Passkey`=0、`WebAuthn`=0、`MFA`=0、`多因素`=0、`单点登录`=0、`忘记密码`=0，`登录`=47 / `注册`=107 / `密码`=39 / `验证码`=58 全是零散提及，`dp_search.py "登录 表单 密码"` 首位落在 `form-table.md` 校验与 `ux-writing.md` 错误文案，判定为结构性空白。**三条裁决**：① **先判「证明身份」还是「建立身份」**——WCAG 2.2 SC 3.3.8 原文 *"does not cover creation of a username or initiation of an account"*，把注册页按 3.3.8 去引条文是这一行最常见的引用错误；② **密码的现行共识已整体反转**——NIST 800-63B-4（2025-08-26）单因素 SHALL ≥15 字符、SHALL NOT 组合规则、SHALL NOT 周期改密、SHOULD 至少允许 64（是下限不是上限）、必须接受空格与 Unicode、黑名单比对整串不截断，配 ASVS 5.0 六条与「ASVS 5.0 正文仍链 800-63-3、8 vs 15 必须分标来源」的版本错位；③ **Passkeys 是默认推荐路径，且必须在账号验证之后再种**——web.dev 逐字 *"Avoid password-only verification. If the password is leaked, attackers could create a passkey and compromise the account."*，`residentKey` 无字面默认（requireResidentKey=true 才 required，否则 discouraged）、`userVerification` 默认 preferred、`attestation` 默认 none、`timeout` 默认 300000 ms，条件式必须 `autocomplete="username webauthn"` + `mediation:"conditional"` 且只对可发现凭证生效。资产 `auth-account-ux.md`：§1 六问判层 + 12 场景表 + 边界矩阵、§2 登录表单与 `autocomplete` token 表（`autocomplete="off"` 拦不住密码管理器，且编造 token 同时违反 SC 1.3.5）、§3 注册（游客优先 · Baymard 18% *"The site wanted me to create an account"* · 去重复字段 · 邮箱验证降级）、§4 反神话表 13 行（限速单账户单认证器 ≤100 次、计数绑账号不绑 IP、退避 1s 起翻倍）、§5 Passkeys（参数表 / 能力三层 / 四个创建时机 / 错误映射：`NotAllowedError` catch-all 静默回退、`InvalidStateError` 不该当错误、`SecurityError` 是 rp.id 配置事故）、§6 MFA（因素排序 / 推送必须数字匹配 / 恢复码 ≥64 bits）、§7 OTP 单框（禁 6 框自动跳格；手抄 OTP 即 transcription，属 3.3.8 认知测试）、§8 恢复（防枚举文案模板 / 不得绕过 MFA）、§9 会话（AAL1 30 天 / AAL2 24h·空闲 1h / AAL3 12h·空闲 15min，到期前 2 分钟提示）、§10 无障碍（3.3.8 原文四例外 + 明确失败清单 + NIST §8 最小 12 points 与至少 10 次尝试）、§11 冲突裁决 8 条、§12 Apple 140×30pt 与 Google 三主题 hex/14-20/12-10-12、§13 场景速查 12 行、§14 反模式 20、§15 自检 20、§16 四段可抄代码（Python 静态校验器 `python -I -X utf8` 实跑 PASS）、§17 取源限制 15 条（含 W3C 页内伪装成系统提示的注入文本已按不可信内容忽略）；别名层新增 3 组 35 词（272 组 2,267 词），既有路由顺序一行未动。
-
-**v43 基线（v42→v43 新增：**声音与触觉反馈（Sound & Haptics Feedback）**）** 补齐「视觉之外的两条反馈通道该不该用、用哪一条、给到多长多强」这条链路，此前 47 份参考对它近乎零覆盖：全域词频实测 `音效`=0、`earcon`=0、`震动`=0、`Haptic`=0、`触觉`=1（仅伦理附录一笔带过）、`haptic`=4（direct-manipulation 三处 + 路由一句），对照 `播报`=151 全属读屏语义而非本主题。三条裁决：① **视觉是默认项，声音与触觉是例外项**——先答「它替代了用户哪个动作」，五问判层（看屏 / 时压 ≤1s / 高频 / 系统语义 / 用户已关闭）任一问答完即停；② **能借系统语义就别自造**——iOS 三类 `UIFeedbackGenerator`、Android `HapticFeedbackConstants` 21 个公开常量、watchOS 九种 `WKHapticType`，AOSP 源码注释把 1 s 与 3 段当作「已经不是触觉反馈」的界；③ **可关闭性是验收项**——HIG *"Make haptics optional."*、Android `FLAG_IGNORE_GLOBAL_SETTING` 自 TIRAMISU 起仅特权应用可绕过系统触感设置、WCAG 1.4.2 明确「静音系统音量不算暂停或停止」。资产 `sound-haptics-feedback.md`：五问判层 + 三通道分工 + 三平台触觉语义表 + 振幅 1–255 / `DEFAULT_AMPLITUDE`=-1 / W3C 10 段 10000 ms 精确值 + 音频类别与静音开关响应表 + autoplay 三条工程动作 + earcon 音高句法 + 三通道配方表 12 行 + 20 条反模式 + 20 条自检 + §11 可实跑校验器（`python -I -X utf8` 通过）。
-
-**v42 基线（v41→v42 新增：**通知与消息触达（Notifications & Messaging）**）** 补齐「有了事件之后，该不该发、发到哪个通道、用户怎么关掉」这条链路，此前 46 份参考对它近乎零覆盖：全域词频实测 `通知`=38、`push`=42 次命中里绝大多数是图标角标与提醒语的顺带提及，`免打扰`=0、`消息中心`=0、`未读`=2、`inbox`=1；`dp_search.py "通知"` 前三条全是 `ux-writing.md §7.3` 右上角通知文案与 `feedback-states.md §3.2` 尺寸，`"消息中心"` 八条全是文案串误命中，判定为结构性空白。**三条裁决**：① **通道归属先于内容设计**——同一事件先按「用户是否要求过 / 能否延后 / 是否一人一事件」分进六段链路（触发 → 判层 → 通道 → 内容 → 偏好 → 度量），否则内容再对也是错通道；② **权限按功能时机、拒绝后给恢复路径而不是二次弹窗**——Apple *"Subsequent authorization requests don't prompt the person again."*、Permissions §5.2 *"If current state is not "prompt", return current state and abort these steps."*、Android *"All notification channels are blocked, except for a few specific roles."*，provisional 是第三条路（静默进通知中心 + keep/turn off）；③ **可关性是一等验收项**——GOV.UK *"Never send subscription messages unless the user has explicitly asked for them"*、RFC 8058 一键退订 `List-Unsubscribe-Post: List-Unsubscribe=One-Click` 且 POST 不得带 cookie，营销与交易按 15 U.S.C. §7702 + 16 CFR §316.3(b) 判定。新增 `references/notifications-messaging.md`：六段链路判层表、三平台通道矩阵、iOS interruptionLevel 四级与 HIG 能力表（Time Sensitive 破 Focus 不压静音 / critical 需 entitlement）、Android 五级 importance 创建后不可改与 MIN/NONE 官方矛盾声明、POST_NOTIFICATIONS 四个坑（13+ 新装默认关 / 升级预授权需已有渠道 / 滑开可再问 / target≤12L 一次拒绝永不再弹）、Web Push 五件套（用户手势必需 / TTL 强制 / `renotify` 必带 `tag` / `silent` 与 `vibrate` 互斥 / 移动端 `new Notification()` 抛 TypeError）、消息中心与未读三件套、角标三态与平台差异、免打扰跨午夜、偏好页开关即时生效、SC 4.1.3 与 2.2.1 六项口径、12 场景 / 20 反模式 / 20 自检 / 5 段 Python（**5/5 严格模式实跑 rc=0**）、取源限制 14 条（Apple HIG 为 JS 渲染改 tutorials/data JSON、`w3.org/TR/notifications/` Cloudflare 403、M3 角标页仅 JS 骨架、Gmail 帮助全站不可达 → 不引用其任何百分比）；别名层新增 8 组 80 词（268 组 2,221 词）；既有路由顺序一行未动。
-
-**v41 基线（v40→v41 **维护轮**，不新增参考文件、不改路由顺序）：** 修三处「文档写的是理想、跑起来会打脸」的地方——① **回归门槛在提交之后必然失败**：`EXPECTED_EVOLUTION` 里的登记项一旦随提交进入 HEAD，`newcomers` 恒为空、硬校验 c 恒 False，实测 `128/128 + 0/1`、退出码 1，等于**每轮提交完就把仓库打成红的**；补 **settled（已沉淀）** 状态——NOW top3 与 HEAD 完全一致即判「该演进已进入基线」，只有出现新分歧时才走三条硬校验。② **别名层历史债**：253 组里有 2 对**组名重复**（`导航` 8 词 / 28 词、`设计评审` 9 词 / 21 词）、**跨组撞词 100 种 67 个成员**被重复扩充，按「组名唯一 + 成员唯一 + 超 16 词必拆」重整为 **260 组 2,142 词**（拆出 导航栏 / 位置感 / 评审反馈 / 决策留痕 / 风格流派·质感 / 风格流派·构图 / 图标风格与图标库 / 色板生成，新增 月年切换），撞词与重名各归零。③ **收口检查没有沉淀**：新增 `scripts/audit.py` 常驻自检（换行 / 数字声明 / 资产覆盖 / 别名健康 / 脚本与 JSON 可解析 / 28 条检索抽检），把每轮靠 `.tmp_audit*.py` 手写的「统计一致性」变成一条命令，FAIL 非零即退出 1。检索门槛同时多一种**可验证的放行口径 —— 别名卫生（HYG）**：内容层 `--no-alias` 的 top3 与 HEAD 完全一致（证明内容一字未动）+ top3 至少 2 个重叠 + NOW top1 就是原词 top1，三条全过才算「结果变干净了」，否则仍判退化。
-
-**v40 基线**（v39→v40 新增：**定价页与结账流程（Pricing & Checkout）**——补齐「用户决定买之后，价格怎么呈现、钱怎么付出去」这条链路，此前 45 份参考对它近乎零覆盖：全域词频实测 `结账`=0、`checkout`=2、`运费`=0、`税费`=0、`PSD2`=0、`优惠券`=2，`定价`/`价格表` 仅落在 `patterns.md §定价表` 五行速记里，判定为结构性空白。**三条裁决**：① **总价先行且不可变**——FTC 16 CFR 464 §464.1 把 total price 定义为 *"the maximum total of all fees or charges a consumer must pay for any good(s) or service(s) and any mandatory ancillary good or service…"*，§464.2(b) 要求总价比**任何其他价格信息**更显著，§464.1(4) 要求电子媒介的披露 *"must be unavoidable"*；落地为「填地址前可见费用政策 → 付款前锁总额 → 购物车/结账/支付页三处逐字一致」。② **结账是承诺不是表单**——SC 3.3.4 Error Prevention（**Level AA，不是 A**）三选一 Reversible / Checked / Confirmed，充分技术 G164 / G98 / G155；复核页照 GOV.UK check answers（two-thirds 布局、每段一个 Change + 视觉隐藏文本、返回必预填、未答可选显示 "Not provided"、提交按钮写动作）。③ **同一进程内不重复索要**——SC 3.3.7（Level A）官方 Intent 逐字 *"The autocomplete feature of browsers is not considered sufficient because it is the content (the website) that needs to provide the stored information for a redundant entry…"*，且 *"if a check-out process includes a 3rd party payment provider, that would be in scope"*；配套 SC 1.3.5（Level AA）要求 `autocomplete` token 暴露字段用途，*"Whether or not user agents actually autofill inputs is not relevant when evaluating this criterion."*。新增 `references/pricing-checkout.md`：判层六问、四种定价页构型与尺寸（卡内边距 32px / 价格 40–48px / 货币符号 0.5em 上移 0.13em / `tabular-nums`）、划线价台账与折扣率可算回、月年切换用 radio group（不用 switch）、结账三型与步骤 ≤ 3、复核页规范、13 字段 autocomplete token 表、SC 3.3.4 承诺闸门验收、总价变化 `role="status"` 播报、Apple Pay 标记规范（仅白色描边版 / 清space = 标记高度 1/4 / 不与其它按钮共享边框）、移动端结账、20 反模式 / 20 自检 / 5 段 Python（**5/5 严格模式实跑 rc=0**）、取源限制 8 条（Baymard 正文被导航超截断、Google Pay 规范 `fetch failed`、Apple HIG 为 JS 渲染、EUR-Lex/政府站点对脚本返回 HTTP 202 + WAF 挑战 → 欧盟 Article 6a 与中国 56 号令第十六/十七/十九/二十一条、消保条例第十条第二款改为**浏览器渲染官方页后逐字补入**（只引已核对句子））；既有路由顺序一行未动。
-
-**v39 基线**（v38→v39 新增：**空状态与零数据位（Empty States & Zero-Data）**——补齐「用户第一次看到某个视图、或某个操作清空后，注意力最集中却只收到一句暂无数据」这条被浪费的引导位，与 `feedback-states.md §5`（五种空分类）、`onboarding-first-run.md §13`（教学型零数据位）、`content-findability.md`（零结果出路）、`design-measurement-research.md`（首次操作率）构成「判型 → 引导 → 度量」闭环。此前 44 份参考零独立资产，`dp_search.py "空状态 文案 矩阵"` 首位返回 `feedback-states.md` / `ux-writing.md` / `onboarding-first-run.md`，全域词频实测 `starter content` / `blank slate` / `零数据位` / `装饰插画` / `首次操作率` 几乎零命中，判定为结构性空白。**三条裁决**：① **默认引导不道歉不留白**——Atlassian 逐字 *"Empty states can be a chance to celebrate, educate, and inform people of what they can do next."*、Ant Design *"User tutorial to create something in fresh new situation."*；② **装饰性插画必须 `aria-hidden` 且不让焦点滞留**——Atlassian Accessibility 逐字 *"If it's only for decoration, avoid alt text or remove the image altogether."*，纯装饰图 `aria-hidden` + `alt=""` 且不进 Tab 顺序（SC 1.1.1 / 2.4.3）；③ **失败空态 ≠ 无数据空态，禁止伪装**——失败空态必须给原因 + 重试，不得渲染成"暂无数据"，否则用户不再重试。新增 `references/empty-states.md`：五种空态判型器、结构五件套（Ant `colorTextDescription rgba(0,0,0,0.45)` / `PRESENTED_IMAGE_SIMPLE`·`DEFAULT`、Atlassian wide 464px·narrow 304px·h600）、**中英抄写矩阵 8 类可直接抄**、装饰插画取舍与无障碍、单主行动 CTA 纪律、零数据位/starter content 四模式、变体承载位置（全屏/容器内/表格区/迷你 widget）、可访问性清单、移动端/小程序、失败空态禁伪装、首次操作率度量、12 场景·20 反模式·20 自检·5 段代码（**5/5 Python 严格模式实跑 rc=0**）、取源限制 5 条（NN/g 文章 404、Material 3 / Apple HIG JS 渲染、Shopify Polaris 重定向、Baymard / Luke Wroblewski 搜索结果级）；Atlassian / Ant Design 一手逐字核验，**既有路由顺序一行未动**。）
-
-**v38 基线**（v37→v38 新增：**首次体验与用户引导（Onboarding / First-Run Experience / Activation / Progressive Disclosure）**——补齐「用户第一次从启动到完成第一个有价值动作之间，该不该教、教什么、什么时候教、什么时候要权限、什么时候算成功」这条链路；此前 43 份参考对 `first-run` / `progressive disclosure` / `coach mark` / `aha moment` / `Splash screen` / `SC 2.2.1` 等 25 个主题词全域零命中，`onboarding` 仅零散落在 4 份文件、无独立资产，判定为结构性空白。**三条裁决**：① **默认不加教程**——NN/g 70 人 / 4 app 实测：教程组与跳过组任务成功率 91% vs 94%（p=0.443 不显著）、耗时 93.49s vs 85.17s（p>0.1 不显著），唯一显著项是 SEQ 4.92 vs 5.49（p=0.047）且方向对教程不利；Apple HIG 逐字 *"Teach through interactivity."* / *"Consider providing a collection of context-specific tips instead of a single onboarding flow."*，NN/g 逐字 *"Instructional onboarding should not be used to supplement poor design."*，落地为「先测无引导 → 先改界面 → 才原型化引导 → 有成功率提升才上线」四步闸门。② **权限按功能时机请求，不按会话起点批发**——Apple HIG Privacy 逐字 *"Request permission only when your app clearly needs access to the data or resource."* / *"Avoid requesting permission at launch unless the data or resource is required for your app to function."*；Onboarding 页允许整合权限的硬前置条件是 *"before it can function"*（被断章取义最多的一句）；purpose string 逐字四标准「brief, complete sentence / sentence case / avoid passive voice / include a period at the end」；pre-alert 单按钮·禁 `Allow`·禁 cancel/close 属**平台特定规则**，明确禁止外推到 Web cookie 同意层。③ **首次体验的可访问性是四条 SC 的合取**——SC 3.3.7（浏览器 `autocomplete` 不足够，站点须自己回填）、SC 3.3.8（**明确不覆盖账号创建**，但注册建议照做；OTP 手动转录不合规）、SC 3.2.1（官方失败例恰是抢焦点的 help dialog）、SC 2.2.1（六选项 / 20 秒 / 10 次 / 20 小时，且 OTP 靠 essential 豁免后仍要过 3.3.8）。新增 `references/onboarding-first-run.md`：五段链路判层、六问判型、六类形态选型矩阵、渐进披露与设置后置、`launch screen ≠ splash screen ≠ onboarding` 三分界、NN/g 实证全表与研究限制、Material 1 **归档**数值（`fewer than ten choices` / `90% of the way through the first session` / `up to three benefits` / 2–3 秒 / 24sp·32sp·56dp·48dp，标注为非现行 M3）、Apple tips 阈值（>3 actions 不宜 / 1–2 句 / once every 24 hours / 60–75 字符）、权限时机矩阵、WCAG 四条款合取表、Ant Design Tour 精确 props 与 token、Carbon 空态五件套作为首启教学位、activation / TTV 口径与跳过率陷阱、12 库 GitHub API 实测、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（**5/5 Python 严格模式实跑 rc=0**）、取源限制与边界矩阵。coach mark 作为 overlay 的 inert / 焦点 / 退出契约归 `overlays-modality.md`、五种空态结构归 `feedback-states.md`、SUS / 样本量 / A-B 归 `design-measurement-research.md`、cookie 同意合法性归 `design-ethics-inclusion.md`，**既有路由顺序一行未动**。）
-
-**v37 基线**（v36→v37 新增：**叠加层与模态性（Overlays & Modality / Dialog / Popover / Top Layer）**——补齐「一层内容盖在另一层之上时，谁还能被操作、焦点去哪、怎么退出、会不会挡住焦点项」这条判型链路；此前 42 份参考对 `Popover API` / `closedby` / `top layer` / `inert` / `SC 2.4.11 Focus Not Obscured` 全域零命中或近零命中，`弹窗` 只散落在 `feedback-states.md` 的确认框八条、`shape-elevation.md` 的 z-index 刻度与 `component-api-design.md` 的焦点循环，判定为结构性空白。**三条裁决**：① **模态不是一层半透明遮罩，是一份「外部还能不能被操作」的交互契约**——W3C APG 逐字 *"Windows under a modal dialog are inert."* / *"Tab and Shift + Tab do not move focus outside the dialog."* / *"Escape: Closes the dialog."* / *"focus returns to the element that invoked the dialog"*；`aria-modal="true"` 仅在「代码阻止所有用户与外内容交互」**且**「视觉样式遮蔽外内容」双条件同时成立时才标，声明不代劳实现。② **Popover API 永远非模态；`<dialog>` 只有 `showModal()` 才模态**——MDN 逐字 *"Popovers created using the Popover API are always non-modal."*，`popover` 三态 `auto`/`hint`/`manual` 分别参与 auto stack / hint stack / 不入栈；`show()`、`open` 属性、CSS `display` 都只产生非模态对话框，`closedby` 三值 `any`/`closerequest`/`none`。③ **最糟的形态是「看起来像弹窗，但既不接管焦点、也不让外部 inert、还不自动消失」的伪模态**——SC 2.4.11 官方裁决正确构建的 modal dialog *"will always pass this SC"*，dialog-like overlay *"will be at risk of failing"*，作者预置 sticky footer 是 F110；SC 1.4.13 明确 *"Modal dialogs are out of scope ... because they must take keyboard focus and thus should not appear on hover or focus"*；SC 2.1.2 承认焦点循环不是陷阱但要求标准退出法；SC 3.2.1 禁止 focus 触发 change of context。新增 `references/overlays-modality.md`：四问判型决策树（inert / 焦点循环 / 触发方式 / 退出路径）、APG 焦点契约、`aria-modal` 双条件、原生 `<dialog>` 与 top layer / `::backdrop`、Popover 三态双栈六规则、WCAG 四条款矩阵、关闭契约矩阵、层叠嵌套、12 类组件族谱、Apple HIG / Radix / GitHub API 实测 10 库、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3 rc=0）、取源限制与边界矩阵。toast 时长归 `feedback-states.md`、z-index 数值归 `shape-elevation.md`、WCAG 全量阈值归 `accessibility.md`、cookie 同意合法性归 `design-ethics-inclusion.md`，**既有路由顺序一行未动**。）
-
-**v36 基线**（v35→v36 新增：**对话式与生成式界面 / AI 产品交互（Conversational & Generative UI）**——补齐「输出本身在流动、可能出错、可能带副作用」这条链路，与 `direct-manipulation.md`（按下指针之后）、`content-findability.md`（能不能找到）并列为认知链路下游的**输出端**；此前 41 份参考零独立资产，`Chatbot` / `streaming` / `生成式界面` / `GenUI` / `role=log` / `ARIA23` / `aria-busy` / `message.parts` / `streamUI` 全域零命中。**三条裁决**：① 流式回答正文不是 status message——SC 4.1.3 逐字 + W3C「搜索结果列表不是 status update」，`role=log` 隐性 polite/atomic=false 负责追加、`role=status` 只在状态边界播报一次、逐 chunk 进 assertive 属官方 Failure 族与 too "chatty" 风险；② 生成式 UI 是「模型在受控组件目录里做路由」——Vercel 逐字 *"the model is akin to a dynamic router"*，组件名查白名单 + `inputSchema` 校验，RSC 页自述 *"currently experimental"* 且推荐 AI SDK UI 用于生产，渲染 `message.parts` 而非 `content`；③ 纠错是 HAX G9 四档恢复链（停止 / 重试 / 编辑原消息 / 撤销副作用），不是「重新生成」一个按钮。新增 `references/conversational-generative-ui.md`：五段链路判层（发得出·等得住·读得动·改得动·收得回）、`useChat` 四态与 AG-UI 三模式映射、Hybrid UI / RICH 范式、状态归位表、12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）、GitHub API 实测 7 库、取源限制 8 条。`ai-design-toolchain.md §10` 的 HAX 18 条原则层与该文件链路层分流，**既有路由顺序一行未动**。）
-
-**v35 基线**（v34→v35 新增：**直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop）**——补齐「用户按下指针之后，浏览器接管了什么、规范强制了什么、以及不用拖动的人怎么完成同一件事」这条执行端链路，与 `content-findability.md`（能不能找到）、`visual-hierarchy-gestalt.md`（目光先看哪）构成「找到 → 看到 → 挪过去并可反悔」的完整闭环。此前 40 份参考零独立资产，`dp_search.py "拖拽 手势 指针交互"` 首位返回 `performance-design.md` / `design-system-docs.md` / `ai-design-toolchain.md`，全域词频实测 `Drag and drop` / `Pointer Events` / `setPointerCapture` / dnd 库名几乎零命中，判定为结构性空白。**三条最重要裁决**：① **「补个键盘快捷键」不满足 SC 2.5.7，也不满足 SC 2.5.1**——W3C SC 2.5.7（AA）逐字 *"All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author."*，要求的是**单指针、无拖动**；SC 2.5.1 Intent 逐字 *"keyboard operability is not sufficient to conform to this success criterion."*（理由 *"some users rely entirely on pointing devices"*），唯一列出的充分技术是 **G219** 的四类替代（箭头逐步 / 数字位置输入 /「移动到…」下拉 / 点击目标位置），且 SC 2.5.1 加注 *"the single pointer non-path-based alternative can't exclusively rely on a dragging movement, as this would fail the requirements of 2.5.7"*——两条准则互为约束。② **`pointercancel` 不是异常分支，是 W3C 规范性必达事件**——PE3 逐字 *"The user agent MUST suppress a pointer event stream when it detects that the web page is unlikely to continue to receive pointer events with a specific pointerId."*，抑制步骤首步 *"Fire a pointercancel event."*，随后 `pointerout` / `pointerleave` / `Implicitly release the pointer capture`；同规范 *"Viewport manipulations (panning and zooming) ... are intentionally NOT a default action of pointer events"*、*"Authors must instead use `touch-action`..."*，MDN 同口径 *"An application using Pointer events will receive a pointercancel event when the browser starts handling a touch gesture."*——浏览器把手指判成滚动时 `pointermove` 链必然断，无回滚实现是确定性缺陷而非偶发 bug。③ **目标尺寸是三套不同口径**——SC 2.5.8（AA）*"at least 24 by 24 CSS pixels"* 且允许 *"a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target"* 的 spacing 例外；SC 2.5.5（AAA）*"at least 44 by 44 CSS pixels"* 且无例外；Material 2 *"at least 48 x 48 dp"* / *"about 9mm"* / *"7-10mm"* / *"iOS, 44 x 44 pt"* / *"pointer targets at least 44 x 44 dp"* / *"Android target sizes are 48 x 48 dp"* / *"separated by 8dp of space or more"*——24 是 AA 法条下限、44 是 AAA / iOS / 指针目标、48 是平台设计值。另：**四段链路模型**（单指针无拖动 / 指针取消 / 键盘 / 读屏播报，四条并存互不替代）、PE3 事件契约（`pointerType` / `isPrimary` / capture 三方法 / 隐式捕获）、`touch-action` 全值形式语法与三条陷阱、HTML DnD 七事件与 `dragover` 必须 `preventDefault()`、data store 只在 `dragstart` 可写 / `drop` 可读、dnd-kit Keyboard sensor 逐字默认值（Space/Enter 拿起、方向键移动、Escape 取消、`25` pixels 且自述 arbitrary、`role="button"` + `aria-roledescription="draggable"` + `aria-describedby`、position 而非 index 播报）、NN/g signifier 双义 / `1cm × 1cm` / `a few milliseconds` 未量化 / roughly `100 ms` 让位动画、SC 2.5.2 与 G210 四选一（No Down-Event / Abort or Undo / Up Reversal / Essential）、GitHub API 实测 10 个仓库 star / license / pushed_at、12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（3 段 Python 实跑 PASS）。）
-
-**v34 基线**（v33→v34 新增：**内容可发现性与可扫读性（Content Findability / Search UX / Scannability）**——补齐「用户带着一个具体问题时，能不能靠线索一路走到答案」这条链路，与 `visual-hierarchy-gestalt.md`（目光先看哪）、`typography-system.md`（字怎么排）、`navigation-ia.md`（结构怎么搭）并列为**注意力链路的下游验收端**。此前 39 份参考里零独立资产，`dp_search.py` + 全域词频实测「搜索体验 / 内容可发现性」无独立命中，只有 `navigation-ia.md §4`（信息气味一句）、`§10`（搜索协同五条）、`feedback-states.md §5/§6`（五种空态与 404 文案模板）、`ux-writing.md §14.3`（文案可读性）、`design-measurement-research.md §11`（A/B 与统计）局部覆盖，判定为结构性空白。**三条最重要裁决**：① **多种找路方式是 WCAG AA 硬要求，搜索不是导航的替身**——W3C SC 2.4.5（AA）逐字 *"More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process."*，In Brief *"Provide at least two options for reaching the same content."*，充分技术 G125/G64/G63/G161/G126/G185；404 是失败态、不属于正常 set of web pages 层级，与 SC 2.4.8（AAA，G65/G63/G128/ARIA26/G127）无冲突。② **链接目的必须能在脱离上下文时成立；前 11 个字符决定用户会不会读完整句**——SC 2.4.4（A）*"link text alone or from the link text together with its programmatically determined link context"*、SC 2.4.9（AAA）*"from link text alone"*、SC 3.2.4（AA）一致识别；NN/g（2009-04-06）11 字符研究：80 人 / 20 站 / 35% 完全无法预测、Ann Taylor 85%→100%、Barclays 75%→95%、Chase 15%、Directgov 25%、Xerox 5%；NN/g `how-users-read-on-the-web/`（1997-09-30）*"79 percent ... always scanned"* / *"only 16 percent read word-by-word"* 与五版本可用性提升 58%/47%/27%/124%（**单站点相对提升，不是通用 ROI**）。③ **阅读等级的合规门槛是「九年学校教育」，不是某个 Flesch 分数；音节公式不能套中文**——SC 3.1.5（AAA）逐字 *"requires reading ability more advanced than the lower secondary education level after removal of proper names and titles"*；FRE `206.835 − 1.015×ASL − 84.6×ASW`、FKGL `0.39×ASL + 11.8×ASW − 15.59`、SMOG `1.043×√(n_poly×30/n_sent)+3.1291` 系数取自 ReadabilityFormulas.com 逐字页，Wikipedia 明确 FRE/FKGL *"not directly comparable and cannot be converted"*、FRE 最高 121.22 无理论下限、FKGL 理论最低 −3.40 无上限，且公式忽略 between-reader differences / content / layout / retrieval aids；中文改用 §16 六个可解释代理指标（平均句长 / 单段字数 / 标题密度 / 前 6–8 汉字含主题词 / 生僻字词比例 / 列表化比例），**均标注工程约定，非实验常数、非标准**。另：**四层链路模型**（L1 有路 / L2 认得出 / L3 读得动 / L4 走得出，先判层再谈改文案）、APG combobox 契约（`role=combobox` + `aria-expanded`/`aria-controls`/`aria-activedescendant`/`aria-autocomplete`、DOM focus 留在 combobox、selection follows focus、dialog popup 例外）、M3 Search specs（56dp / 360–720dp / 24→12dp / 16dp / 30dp / docked 240dp–2/3 屏高）、NN/g 首次/二次/三次查询成功率 51%/32%/18% 与平均 2.0 words、GOV.UK Design System 404（禁面包屑 / 禁 404·Bad Request / 禁 oops / 禁红字）、tree testing 的 findability 与 directness（定性结果不可冒充百分比）、Plain Writing Act of 2010 与 Digital.gov 四份指南、12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（3 段 Python 实跑 PASS）。）
-
-**v33 基线**（v32→v33 新增：**视觉层级与格式塔组织律 / 注意力与认知负荷（Visual Hierarchy & Gestalt）**——补齐与「色彩科学」「字体排印」「形状与深度」并列的**第四根基础支柱**。此前 38 份参考里零独立文件，格式塔/眼动/认知负荷只散落在 `editorial-layout.md §8`（Z/F 三行构图）、`navigation-ia.md`（米勒 7±2 项数）、`design-ethics-inclusion.md`（dark pattern 与情境负荷一句）、`iconography.md`（图标+文字降负荷一行）；`dp_search.py` + 全域词频实测 `格式塔=0`/`Gestalt=0`/`邻近性=0`/`闭合性=0`/`希克定律=0`/`Fitts=0`/`菲茨=0`/`视觉层次=0`，`视觉层级=1` 且仅见于上轮自述的下轮候选，判定为结构性空白。**三条最重要裁决**：① **F 型不是设计目标，是缺引导时的默认最低成本扫描**——NN/g（Kara Pernice, 2017-11-12 / 2026-08-19 复审）逐字 *"The F-pattern is the default pattern when there are no strong cues to attract the eyes towards meaningful information."* 与 *"they will choose the path of minimum effort"*；原文另列 Layer-cake / Spotted / Marking / Bypassing / Commitment / RTL flipped F / 移动端 F，并明确 *"alive and well in today's world — both on desktop and on mobile"*；"像 E" 只是描述、未正式命名。② **视觉层级必须同时落在三条顺序上，视觉呈现本身不构成结构**——W3C WCAG 2.2 SC 1.3.2（A）*"a correct reading sequence can be programmatically determined"* + 充分技术 **C27 Making the DOM order match the visual order** + 失败例 **F1**（CSS 定位改变含义）；SC 2.4.3（A）*"focusable components receive focus in an order that preserves meaning and operability"*，且无脚本无 `tabindex` 时焦点顺序 = content stream 顺序；SC 2.4.6（AA）*"Headings and labels describe topic or purpose"*；SC 2.4.10（AAA）Intent 逐字 *"visual presentation is not sufficient to identify document sections"*。③ **7±2 不是菜单项数上限、认知负荷要拆三类**——Laws of UX Miller's Law 第一条 Takeaways 逐字 *"Don't use the 'magical number seven' to justify unnecessary design limitations."*；Sweller 1988 分 intrinsic / extraneous / germane；Hick–Hyman `RT = a + b·log₂(n+1)` 的 `log₂` 隐含可按选择树逐层排除，随机无序菜单线性扫描时不适用；Fitts Shannon 形式 `ID = log₂(D/W+1)`，`W` 是沿运动轴宽度，`MT = a + b·log₂(2D/W)` 不是 Shannon formulation。另：IxDF 12 条格式塔原则全表（含 Koffka 原话是 *"other than"* 不是 *"greater than"*）、Treisman & Gelade 1980 特征整合理论与 feature/conjunction search（18% / 23% 两个实验数据、页面无视觉搜索斜率数值）、Laws of UX 注意力相关 12 条速查、NN/g 10 启发式（1990 开发 / 1994-04-24 发布 / 2024-01-30 最后审阅）、三层模型（组织→引导→负荷）、三顺序一致性验收、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（3 段 Python 实跑 PASS）。）
-
-**v32 基线**（v31→v32 新增：**形状与深度系统（Shape & Elevation）**——补齐与「色彩科学」「字体排印」并列的**第三根基础支柱**。此前 37 份参考里零独立文件，圆角/阴影/高度/材质只散落在 `dark-mode.md §2/§5`、`design-tokens.md §2.4`、`visual-style-taxonomy.md §2.3`、`performance-design.md §10` 等边角；用 `dp_search.py` + 词频统计判定为结构性空白（`圆角=18`/`阴影=15`/`elevation=5`/`高度层级=0`）。**三条最重要裁决**：① **elevation 是语义 z-height，不是可直接抄写的阴影值**——M3 官方原文 *"Elevation has no shadow or value of its own by default."*，而 `material-foundation/material-tokens/css/elevation.css` 的 `box-shadow: var(--md-sys-elevation-level1)` 展开为单长度 `1px`，MDN 正式语法要求 **two, three, or four `<length>`**，属误读陷阱；M3 六级 `0/1/3/6/8/12 dp` 是层级顺序不是 CSS 参数，`Surface tint color is deprecated.`。② **阴影不能充当 WCAG 2.2 SC 1.4.11 的 3:1 识别边界**——本轮 Python 实跑：白底 `5%/8%/10%/12%` 黑阴影只有 `1.119/1.192/1.248/1.320:1`，达到 3:1 需 `alpha≈0.4176`（≈`#949494`），已不是轻投影；Understanding 另给 3D drop-shadow 例外；正解是边界线/focus ring/状态形状独立满足 3:1，阴影只作附加线索。③ **圆角是几何契约**——`border-radius` 百分比水平参照 width、垂直参照 height、负值无效；corner overlap 按 `f=min(L_i/S_i)` 整体缩减（`100×40` 写 30px 与 50px 都只生效 20px，已实跑）；嵌套同心须 `r=R−p`，`r≤0` 时公式失效而非硬套负数。另：七体系圆角/阴影 token 精确对照（M3 `4/8/12/16/28`、TDesign `2/3/6/9/12/999`、Ant `2/4/6/8`、Arco `0/2/4/8`、Tailwind v4 八个 `shadow-*` 逐字值、MUI `0.2/0.14/0.12` 三层、TDesign `--td-shadow-1/2/3`）、Carbon 用表面色阶而非阴影、Apple Liquid Glass 只属 functional layer、语义 z-index 刻度、深度语言三选一、12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（3 段 Python 实跑 PASS）。）
-
-**v31 基线**（v30→v31 新增：**字体排印系统（Typography System）**——把「字体靠挑好看的、字号随手写、行距凭感觉」变成**六层契约**（覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权）。这是与「色彩科学」并列的**基础设计支柱**，但此前 36 份参考里没有独立文件，字体知识只散落在 `performance-design.md`（19 行，加载）、`brand-identity.md`（13 行，人格）、`visual-style-taxonomy.md`（10 行，风格信号）等边角，故本轮补结构性空白而非做维护轮。**三条最重要裁决**：① **`font-size` 用 px 写正文＝把用户的最小字号设置锁死**，MDN 原文 *"Defining font sizes in `px` is **not accessible**, because the user cannot change the font size in some browsers"*，正解是 `rem`（`em` 会 compounding，MDN 实测 16px 基准外层 25.6px、内层 40.96px）；配合 **WCAG 2.2 SC 1.4.4** 文本须无辅助技术放大到 **200%** 且无内容/功能损失。② **SC 1.4.12 Text Spacing 是「用户覆盖抗压测试」不是「作者默认样式表」**，官方 Note 1 原文 *"Content is not required to use these text spacing values. The requirement is to ensure that when a user overrides the authored text spacing, content or functionality is not lost."*；四项门槛 `line-height ≥1.5×` / `段后距 ≥2×` / `letter-spacing ≥0.12×` / `word-spacing ≥0.16×` font size，**同时设置且 changing no other style property**；验收动作是注入后看固定高度按钮、表单 label、ellipsis 单元格是否裁切/重叠/丢功能，不是把默认样式写成 1.5。**SC 1.4.8（AAA）**另要求行宽 ≤80 字符（CJK ≤40）、`Text is not justified`、段内行距 space-and-a-half、段间距 ≥1.5× 行距、200% 无横向滚动。③ **`font-family` 是逐字符回退**（第一款装了但缺 glyph 会继续往下找，generic family 必须放最后且**不加引号**），配 `unicode-range` 分片——MDN 原文 *"if it uses at least one, **the whole font is downloaded**"*，故 CJK 必须按高频字集切。**另**：M3 `applying-type` 五角色×三尺寸、大字号行高 1.2× / 小正文·标签 1.5×、表格与频繁变化值用 `tabular-nums`、大文本 3:1 / 小文本 4.5:1、**超链接必须带下划线**；`font-variant-*` 高层属性优先于 `font-feature-settings`（MDN 明确后者**不应**用于 small caps）；五个注册轴 `wght/wdth/slnt/ital/opsz`（custom 轴大写，如 `GRAD` 不改 advance 因而 hover 不触发 reflow）；`font-display` 三阶段（block/swap/failure）与五档，初始值 `auto`、Baseline 2020-01，`size-adjust` 初始值 100% 与 `font-size-adjust` 公式 `u=(m/m′)s` 用于 fallback 度量对齐压 CLS；**W3C clreq** 汉字与西文空白「不多于 1/4 汉字宽」且行首行尾不加、汉字与标点 1:1 正方形、文本存储层避免全角 ASCII、光标/删除/选择按 **UAX #29 字素丛**；**OFL 1.1** 可随软件 use/embed/modify/redistribute/sell 但**不可单独售卖字体**、衍生字体必须继续 OFL、Modified Version 不得用 RFN、每份拷贝必须带版权声明与 license、**文档不受字体 license 约束**。全文件 30 节 / 588 行 / 35.5k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码（Python 静态扫描已实跑：6/6 反模式命中、合规样例 0 误报）；9 个仓库 GitHub API 实测。**取源限制**：M3 15 档精确 `size/line-height/weight/tracking` 表为动态渲染页未取得，clreq 标点挤压/避头尾/着重号未证实 → **一律不臆造数值，§24 公开记录**；`NOASSERTION` ≠ 无许可，须逐字体目录读 `OFL.txt`。）
-
-**v29 基线**（v28→v29 新增：**色彩科学（Color Science）**——把"配色靠感觉/对比度靠试/色板靠抄"变成**可计算的决策**。**三条最重要裁决**：① **HSL/HSV 不是感知均匀坐标**，等数值步长 ≠ 等视觉步长（蓝区 L 段比红区长 30%+），色板生成与明度判定必须走 **OKLCH/OKLab**（Björn Ottosson 2020；CSS `oklch()` 自 2023-05 跨浏览器广泛可用）；② **对比度不止 WCAG 2.x 一套算法**，正文 4.5:1 是 WCAG 2.x 相对亮度公式结论、**不可四舍五入**（4.499 不达标），而 **APCA** 用 `Lc`（感知亮度对比）分 15/30/45/60/75 档，长文与暗色更准；③ **色板生成有四条可复现路线**（OKLCH 旋转 / Radix 12 步 / M3 tonal / Leonardo 对比度优先），混用会色阶错序。**另**：渐变与插值必须在 **OKLab 空间**（sRGB 直插发灰发脏）；色盲用 **Okabe–Ito 8 色**（含 hex）；非文本对比度 ≥3:1 且**永不只靠颜色**；Display P3 比 sRGB 多约 25% 色域但需 `color(display-p3 …)` + sRGB 降级。全文件 22 节 / ~620 行 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码；APCA 精确阈值与 Display P3 浏览器版本以 apcawiki / MDN 为准，本机未逐条联网核验，§16 公开记录取源限制。
-
-**v26 基线**（v25→v26 新增：**图标设计系统（Iconography）**——图标是「视觉速记」不是装饰，本轮只深挖一个主题。**三条最重要裁决**：① **24×24 viewBox 是行业事实标准**，同一 keyline（圆⌀20/方18/矩20×16）同形状才视觉重量一致，跨库碎片化的根因是网格不统一。② **描边二选一且全库统一**：固定 `stroke-width=2`（Lucide 系）或光学缩放（Material 系），混用会让视觉抖动；圆头圆角、圆角 1–2px。③ **可访问性铁律**：装饰图标 `aria-hidden="true"` **且** `focusable="false"`，有意义/icon-only 必带可访问名，非文本对比度 ≥3:1，**永不只靠颜色**。另：spinner `1–1.4s linear infinite` 且 `prefers-reduced-motion` 降级；图标字体整库必须 `aria-hidden`；`currentColor` 让暗色零改图；图标-文字间距默认 8px（最小 4px）；可点图标命中区 ≥44px。22 节 / 470 行 / 19.5k 字符 / 12 场景 / 20 反模式 / 20 自检 / 4 段可抄代码；Lucide 25.6k★·Tabler 22.6k★·Fluent 11k★·Radix 2.7k★ GitHub API 实测，Material Symbols Apache-2.0（字体 295KB→1.7KB 子集化））
-
-**v24 基线**（v23→v24 新增：**组件 API 设计与组合模式**——组件 API 不是 props 清单，是**三份所有权的书面划分**：谁持有状态（受控 / 非受控）、谁渲染 DOM（组合 / 换元素）、谁负责无障碍与演进（键盘契约 / 语义冻结）。**本轮最重要的三条裁决**：① **React 19 反陈旧裁决**：官方 `forwardRef` 页已标 `### Deprecated`，原文 *"In React 19, `forwardRef` is no longer necessary. Pass `ref` as a prop instead."*；React 19 博客写明 *"In future versions we will deprecate and remove `forwardRef`."* → **写组件 API 规范必须标注目标 React 版本**，不能把「自定义组件必须 `forwardRef`」当跨版本硬规范；同时守住官方 Pitfall *"Do not overuse refs."* / *"If you can express something as a prop, you should not use a ref."*——暴露 `{ open, close }` 命令式 handle 是官方点名反例，正解 `<Modal isOpen={isOpen} />`。② **受控判定有唯一口径**：Radix 上游 `useControllableState` 源码 `const isControlled = prop !== undefined`，并在开发态警告**组件生命周期内不得在受控 / 非受控之间切换**；React `<input>` 官方契约要求 `value` / `checked` 与 `onChange` 同步更新、**无 `onChange` 即只读**、`defaultValue` 只定义初始值、`value` 不得为 `undefined` / `null`。③ **换元素不是同一个 API**：Radix `asChild` 的 `mergeProps` 让 child props override、事件串联、`style` / `className` / `aria-describedby` 合并；Ariakit `render={<el/>}` 元素形态自动合并 `style` / `className` / `ref` / event，显式值含 `null` 覆盖、`undefined` 忽略，而**显式 render function 不自动合并 HTML props，责任在调用方**；MUI `component` 保留 slot 样式而 `slots` 可能丢样式、`slotProps` 可为 callback 收 `ownerState`；Vue 的 `<slot>` / scoped slots / `v-model` 是另一套所有权（props one-way-down、Boolean absent cast `false`）。另：**复合组件只让一个元素进 tab sequence**（APG roving `tabindex` / `aria-activedescendant` 二选一）、focus 与 selection 必须视觉区分、dialog 的 `Tab` 循环与 `Escape` + 关闭后焦点返回触发元素；Storybook `argTypes` 把 API 契约摆到 Controls 面板（`control: false` 保留文档不给控件、`table.disable: true` 连文档删）；**组件 API 的 SemVer 冻结面**是改默认值 / props 合并优先级 / 受控判定 / 键盘与 tab stop 策略 / 自动生成的 `role`·`aria-*` → **MAJOR**（必须带可执行 codemod），新增可选 prop·slot → MINOR，文档与类型注释 → PATCH。23 节 / 918 行 / 49.4k 字符 / 16 场景 / 20 反模式 / 22 自检 / 4 段可抄代码（3 段 Python 已实跑：6+1、11、7 断言全 PASS）/ 15 仓库 GitHub API 实测；Radix controlled-state 文档 404、Storybook argtypes 旧 URL 404、APG keyboard 页含未写完占位符 → **一律不臆造逐字与数值，§22 公开记录取源限制**）
-
-**v25 基线**（v24→v25 新增：**设计度量与用户研究：可用性指标、研究方法与统计验收**——设计评审不能只剩「我觉得」，也不能一上来就做 200 人问卷；先问**要度量什么**（有效性/效率/满意度/转化/留存）、再问**用什么工具**（1 个用户出声思考 vs 5 vs 100 vs A/B）、最后才谈数值。**本轮最重要的三条裁决**：① **ISO 9241-11:2018 把可用性拆成三件独立的事**：Effectiveness（对不对）、Efficiency（快不快）、Satisfaction（爽不爽）——满意度高不代表任务能完成，三件要分别度量、分别签字。② **样本量不是越大越好，是「够检出你要的结论」就好**：定性研究 5 个用户约能发现 84% 的问题（二项暴露模型 λ≈0.31，n=5→84%、n=10→98%、n=20→100%，Python 实跑确认）；定量比例估计 `n ≈ Z²·p(1−p)/E²`（p=50%→97 人、p=80%→62 人、p=5%→19 人）。③ **SUS 68 是行业基准不是及格线**：SUS 10 题奇偶数反向计分 ×2.5，一致作答恒为 50 是已知特性（非缺陷）；UMUX-Lite→SUS 必须用**自有数据回归校准**，文献系数会出荒谬值，故文档只给确定性重标定 `((u+e)/2−1)/6×100` 而不给伪回归；A/B 的 p<0.05 只说明「不太可能纯巧合」，不说明改动值得上线——必须同时报 **相对提升 + 95% CI（CI 跨 0 即无 winner）+ 护栏指标 + 随机单元=用户 + 序贯检验 alpha 消耗**。另：**可用性与无障碍是两件事**（「能不能用」vs「愿不愿用」），两张表分别签字；HEART 五维（Happiness/Engagement/Adoption/Retention/Task success）用 Signal→Metric→Data Source 三层落地；研究方法按 态度/行为 × 定性/定量 2×2 选，卡片分类/树测试解决 IA 而非视觉；问卷要避引导/社会期许/顺序效应。23 节 / 506 行 / 19.5k 字符 / 12 场景 / 20 反模式 / 20 自检 / 4 段可抄代码（4 段 Python 全实跑：问题暴露率·比例样本量·SUS 计分·A/B 双比例 z 检验）/ GitHub API 限频未实测 star 与许可 → **§22 公开记录取源限制，凡未取实时数值的一律不写入**）
-
-**v23 基线**（v22→v23 新增：**设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍**——把「别做坏事」变成**可写进 CI 的路径长度、按钮构型、点击次数和默认值**。**本轮最重要的两条裁决**：① **CPPA §7004「对称选择」给出了测量方法**：opt-out 步数从点击 `Do Not Sell or Share My Personal Information` 起算到请求完成、opt-in 从首次表示兴趣起算到完成，**拒绝路径不得更长/更难/更耗时**；法规点名 `Accept All + More Information / Preferences`、`Yes + Ask me later` 为不对称，正解是 `Accept All + Decline All`、`Yes + No`；五条原则（易读 / 对称 / 禁双重否定与按钮顺序反转 / 不捆绑不兼容用途 / 端到端可执行）+ §7004(c) **「设计意图不是决定性因素，知情不修仍可成立」**；§7003 把 **WCAG 2.1（2018-06-05）** 写进引用并要求 conspicuous link 字号颜色与相邻链接相当。② **反陈旧裁决**：《网络交易监督管理办法》第十八条经 **2025-03-18 总局令第 101 号修正、2025-05-01 施行**，旧版「自动续费日期前五日」已被现行「**等日期前**」取代——现行要求拆成**接受服务前 + 每次展期/续费日期前**两个时点显著提醒、**服务期内显著简便的随时取消或变更**、**不得收不合理费用**，第四十一条对违反第二款可处 3 万元以下罚款；**不得再把「前五日」当普适法定数值写进规范**。另：EDPB Guidelines 03/2022 **v2.0（2023-02-14）** 六类机制 `Overloading/Skipping/Stirring/Obstructing/Fickle/Left in the dark` 与 mirroring effect、`deceptive.design` **现行 18 类**（已非旧教程的 Roach Motel / Privacy Zuckering 那套，新增 `addictive-design`/`preselection`/`hard-to-cancel`/`currency-confusion`）、PIPL 第 14/15/16/17/24 条（**cookie wall 违反第 16 条**、个性化推送须给非个性化选项或便捷拒绝）、《互联网广告管理办法》第 10 条**一键关闭 ≤1 次点击·无需计时·同页同文档不复弹**、《未成年人网络保护条例》**国务院令第 766 号**第 42–45/47 条（四维度未成年人模式 + 监护人三类管理 + **单次与单日累计**双消费限额 + 打榜/应援/控评**整体下线**）、Inclusive Design Principles 七原则与 **W3C COGA 3.1–3.8 八目标 + Test with real users**。**无障碍审查看「能不能用」，伦理审查看「是不是被引导着用」，两张表分别签字**。24 节 / 800 行 / 39.3k 字符 / 18 类现行分类 / 20 反模式 / 22 自检 / 4 段可抄代码（3 段 Python 已实跑双用例：14+6+6 断言，含能拦截「前五日」旧文案的守卫）/ 10 仓库 GitHub API 实测；EUR-Lex DSA 原文 202 空响应、FTC/HHS/OECD/ICO 正文未取得 → **一律不臆造逐字与数值，§22 公开记录取源限制**）
-
-**v22 基线**（v21→v22 新增：**AI / 生成式设计工具链：工作流、提示词、质量验收与合规边界**——AI 是设计流程里的**产能层**，不是**判断层**；把 `tools.md` 的链接清单升级为「合规 + 工作流 + 提示词 + 质量验收 + CI 脚本」。**本轮最重要的两条裁决**：① 中国《人工智能生成合成内容标识办法》（国信办通字〔2025〕2 号，**2025-09-01 施行**）把打标写成**法定义务**而非设计建议——显式标识（文字/声音/图形，用户可感知）与隐式标识（文件元数据）双轨；第 4/5/6/9/10 条逐条落成设计动作：导出·下载·复制保留标识、元数据含「生成合成内容属性信息 / 服务提供者名称或编码 / 内容编号」、传播平台三档文案「属于 / 可能为 / 疑似」、用户申请无标版须协议约定并留日志 **≥6 个月**、**禁止提供恶意删除·篡改·伪造·隐匿标识的功能**；与《生成式人工智能服务管理暂行办法》（令第 15 号，2023-08-15）第 7 条训练数据合法来源、第 11 条输入与记录保护串成授权链；国标 GB 45438-2025 同期施行，**未逐字取得全文故不臆造像素/字号/时长数值**。② USCO《Copyright and Artificial Intelligence》Part 2 官方解读原文 *"but not the mere provision of prompts"*——**提示词写得再细也不构成作者身份**，可保护的只有「human author has determined sufficient expressive elements」；设计侧结论是留下**可举证的创作链**（brief→参考→草图→迭代→人工选择→终稿），不是赌 prompt。**三概念必须分离**：法定内容标识 / C2PA Content Credentials 溯源 / 版权归属与商用授权互不替代；C2PA 只断言 provenance manifest 格式良好·未篡改·签名可信·与 asset 绑定，**不判断事实真伪、版权归属、法律有效性、内容准确性**，官方 Explainer 明言 *"not a cure-all for misinformation"*。出海对照 **EU AI Act Article 50**（依 Art. 113 **2026-08-02 适用**）：机器可读标记、deepfake 披露、首次交互或首次暴露时清晰区分告知、无障碍要求。**AI 功能界面**按微软 HAX **G1–G18** 十八条逐条给界面落点（口径纪律：官方给出 18 条编号与四阶段名称，但**未逐条标注编号与阶段归属**，只按编号分四组，不臆造边界）。**提示词工程**用 OpenAI 官方 `Identity → Instructions → Examples → Context` + 结构化输出 + 固定模型快照 + eval suite/fixtures/rubric + prompt 入代码库 + feature flag 灰度；**prompt SemVer**：改默认措辞 / 换模型快照 / 改输出 schema = MAJOR，新增可选模板 = MINOR，错别字或 XML 标签修复 = PATCH。**DESIGN.md 是给 AI 读的契约**（九章，第 9 章 `Agent Prompt Guide` 不可省），与给人读的设计系统文档站分属两层。**AI 味验收**：`impeccable` 的 **AI Slop Test**——「展示给别人说『这是 AI 做的』，对方立刻相信吗？如果是，那就是问题」+ 8 维 DO/DON'T + 生成前必答 Design Context 三问（target audience / use cases / brand personality），**不能从代码库反推上下文**。**AI 生成界面 12 类固有缺陷**（焦点与 a11y / 对比度 / 九态缺失 / 假数据 / 输入泄露 / 按钮文案 / 图表 / 表单表格 / 响应式 / 动效 / 性能 / token 漂移）逐条接回既有专项。**可判 PASS/FAIL 的 4 段脚本**：标识合规 checklist（含 4 个自测用例）、HTML 静态扫描（禁词用词边界，避免 `BOOKMARK` 误判为 OK）、元数据存活抽检、AI eval YAML；3 段 Python 已实跑通过。**选型三问**比 star 更重要：许可（GPL-3.0 / AGPL-3.0 / NOASSERTION 三红灯）、活源（pushed_at >12 个月不进生产依赖）、可验收；18 个仓库 GitHub REST API 实测，ComfyUI **GPL-3.0**、AUTOMATIC1111 **AGPL-3.0**、tldraw 与 awesome-chatgpt-prompts **NOASSERTION** 均标红灯，ControlNet / segment-anything / Real-ESRGAN 推送已趋缓；404 线索剔除不臆造。22 节 / 790 行 / 38.2k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码）
-
-**v21 基线**（v20→v21 新增：**设计系统文档写作**——`DESIGN.md` 是**给机器读的约束**，设计系统站点是**给人读的系统**，别把两者混写；先用 **Diátaxis 四象限**判层（tutorials 不给选择 / how-to 必须能分支 / reference *"Describe and only describe"*·*"Adopt standard patterns"* / explanation），再按 **GOV.UK 组件页九段式**落页（When to use / When not to use / How it works / Accessibility / Research / Recent changes / Help improve…），**五问验收 + 字段清单**能打分才算规范；**文档信息架构四条地基**（目录/命名/链接/检索）+ Google 三层参考层级与 style highlights（sentence case·第二人称·主动语态·descriptive link·alt·serial comma）+ **示例代码五条硬规则** + 完整填充范例（Button 精简版）+ **活文档四件套**（研究证据/已知问题/近期变更/帮助改进）；**组件成熟度**（USWDS 三阶段十二子状态 · 45 天评论期 + Carbon 逐改动类型 semver 对照）；**文档版本化**以 Docusaurus 3.10.2 官方口径为准（`versioned_docs`/`versioned_sidebars`/`versions.json`、官方明言多数站点**不需要版本化**、版本数 **<10**、dev preview **2–3** 个、**patch 不切版本**、旧版 banner `unmaintained`）+ **Keep a Changelog 1.1.0** 七原则六类（`Added/Changed/Deprecated/Removed/Fixed/Security`、`[Unreleased]`、ISO 8601、**反对倒 git log**）+ **MAJOR 迁移文档必须能被机器校验**；**本轮最重要的一条口径裁决**：`tr.designtokens.org/format/` 是 **preview draft**（页首 *"Do not reference this version as authoritative in any way"*），权威应引用 **DTCG published 2025.10**（`designtokens.org/TR/2025.10/format/`），`$description`/`$deprecated`/`$extensions` 直接当 token 文档源；**docs-as-code**（Storybook `tags: ['autodocs']` / `['!autodocs']`、MDX `of={}` 与 attached/unattached、默认六 Doc Block、`Meta` 空行规则、Figma Code Connect 命名一致性）；**GOV.UK 贡献与治理**（Useful/Unique 提案门槛 · Usable/Consistent/Versatile 发布门槛 · 社区资源 1 个月/3 个月阈值）+ **文档新鲜度与漂移可测指标**（自举到本技能 `mindmap.py` 接线体检与 `build_readme.py` 实时统计）；16 仓库 GitHub REST API 实测发现 **`Shopify/polaris` 与 `adobe/spectrum-css` 均已 archived=true**，规范内容可读但别当活源；22 节 / 949 行 / 47.3k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码）
-
-**v20 基线**（v19→v20 新增：**国际化与本地化设计（i18n / L10n / RTL）**——出海不是「加个语言包」，是**标记层（`lang`/`dir`）+ 布局层（弹性/逻辑属性/镜像）+ 数据层（复数/日期/数字/姓名/排序）三层同时改**；**本轮最重要的修正：`ux-writing.md` §13 的「按钮容纳 +40%」对短串是错的**——W3C 转引 IBM 官方表：英译欧洲语言 **≤10 字符平均膨胀 200–300%**、11–20 为 180–200%、21–30 为 160–180%、31–50 为 140–160%、51–70 为 151–170%（**原表非单调，照录不平滑**）、>70 为 130%；Flickr `views` 实测比例 韩 0.8 / 英 1 / 中 1.2 / 葡 2.6 / 法 2.6 / 德 2.8 / **意 3.0**（中韩字符按 2 英文字符宽计）→ **microcopy 按 2–3× 弹性、短文案 1.6–2.0×、段落 1.3×**；Microsoft 的 +40% 是**伪本地化测试串加长量**，极端 200%/400%，不是设计余量；W3C 四因素（德语复合词 `Eingabeverarbeitungsfunktionen` 不换行 / `desktop→デスクトップ` 少一字更宽 / 泰文·Nastaliq·天城文更高行高 / 缩写不可复制）；**`lang` 与 `dir` 是两个东西**：WCAG **3.1.1 Level A**（H57 在 `html` 上写 lang）+ **3.1.2 Level AA**（H58 标 passage，passage 可短到一个词）；BCP 47 / IANA、禁 `<meta http-equiv=Content-Language>`、CSS 不能声明语言编码推不出语言；**W3C 硬禁令「Never use CSS to apply the base direction」**（方向影响语义、CSS 失效时仍要存在，CSS 与 HTML 两规范同告诫），RTL 必须 `<html dir="rtl">` 且带来 **8 个连带效果**（块右对齐/双向流/标点/表格列右起/表单右起/alt·title 继承/CSS 自动镜像/overflow 方向）；`lang` 不能推断方向（`az` 可 LTR 可 RTL）、`Intl.Locale().textInfo.direction` 只能做兜底校验不能生成 `dir`；`dir="auto"` 看首强字符且不 foolproof、`dirname` 提交方向；行内双向文本**紧包裹** + `bdi` + `&rlm;`U+200F/`&lrm;`U+200E + U+2067/2066/2069/2068；**CSS logical properties** block/inline 轴与 start/end 全映射（`margin-left→margin-inline-start`、`width→inline-size`、`left→inset-inline-start`、`text-align:left→start`）；**Material 镜像白/黑名单**：布局/文本右对齐/字段图标/导航按钮/方向图标/进度条/时间线该镜像，数字·未翻译文本·图表·时钟与圆形刷新·媒体播放控件·物理对象·右手持物·斜线不镜像（**一般进度条镜像但媒体进度条不镜像**；数字不镜像≠不本地化，`ar-EG` 用 `arab`、`he-IL` 用 `latn`）；**CLDR 复数六类** `zero/one/two/few/many/other`，**`one`≠数字 1**（法/印地语 0→one、俄语 21→one 而 11→many），`other` required，中/日/韩/印尼/越南仅 `other`（**中文产品最易漏测**），`ar` 全 6 类、`ru`/`pl` 四类、`fr` 三类；**ICU MessageFormat** 禁拼接/单句完整翻译/`select` 外层 `plural` 内层/`offset:1` 与 `#`/`=0`·`=1`/ASCII 撇号转义与推荐 **U+2019**/skeleton `::` 优于 string pattern/MF2 在制定；**`Intl` 不是构造器**，10 构造器 + 2 静态方法，本机 Node v22.22.2 实测 **`Intl.DurationFormat` 抛 TypeError（文档已列但运行时未实现）→ 必须能力检测**；`localeMatcher` lookup/best fit、`zh_cn` 抛 RangeError（BCP 47 用连字符）；日期 `03/09/2026` 英美歧义、数字 `hi-IN` **12,34,567.89** 印度 3-2-2 分组、`de-DE` 分隔符与 en 对调、`JPY` 无小数、`ListFormat` 牛津逗号、`Collator` 德语/瑞典语 `ä` 排序相反、`Segmenter` 中文分词、`weekInfo` 周起始日（zh 一 / en-US 日 / ar-EG 六）；**姓名单一 `Full name`**（W3C：强制 family name 会让用户填 `.` 或 `Mr.`；4 字日文名 UTF-8 可能 12 字节；毛泽东姓在前且无空格、西语双姓、冰岛 patronymic 按 given name 排序、南印/马/印尼单名）；**伪本地化** 五变换（音标/①–⑨ U+2460–2468/`^` 定界暴露截断与拼接/唯一 id/+40% 与 200%·400%）、`en-XA`·`en-XB`、Windows `qps-ploc`·`qps-plocm`·`qps-ploca`、RFC 4646 `qaa–qtz` 私有段与 `tk-TM` 撞真实 locale 的教训；10 仓库 star/许可 API 实测；22 节 / 1058 行 / 49.7k 字符 / 12 场景 / 20 反模式 / 20 自检 / 6 段可抄代码）
-
-**v19 基线**（v18→v19 新增：**动效进阶——编排、状态机与共享元素转场**——动效 bug 八成不在曲线而在**状态没建模**；**三层分工** L1 单动效→`motion-system.md` / L2 编排 / L3 状态机→本文件；**四种时间结构**（并行 max(d) / 串行 Σd / 重叠 d₁+(1−p)d₂ / 交错 d+(n−1)s）与**总时长公式** `T = T_parent + d_child + (n−1)×s ≤ 400ms`，反解 `s ≤ (400−d)/(n−1)` → 6 项×30ms=350ms ✅、12 项×40ms=640ms ❌ 故 **n>6 改整组淡入**；**Motion 两代编排 API**（新版 `delayChildren: stagger(0.3)` + `when: beforeChildren/afterChildren`、旧版 `staggerChildren`/`staggerDirection`）+ variants 沿组件树向下传播 + CSS `--index` 级联（必写 `both`）+ Vue `data-index`/GSAP `delay`/必须调 `done()` + Svelte 双向可反转；**单位统一表** CSS 秒 / WAAPI 毫秒 / Motion 秒 / RTG 毫秒；**FLIP 四步** F/L/I/P 与算式 `invertY = first.top − last.top`、`scaleX = first.width / last.width`、`transform-origin: top left`，**100ms 响应窗口**内做 `getBoundingClientRect` 预计算、三条 caveat（别超窗口 / 别两个编排互相测量 / scale 拉伸内容）、**先全读再全写**避免 N 次强制同步布局、官方曲线 `300ms cubic-bezier(0,0,0.32,1)`；**列表增删四操作**（新增让位 / 删除合拢 / 重排位移 / 整批替换）与 Vue `.list-leave-active{position:absolute}`、Motion `mode="sync"/"wait"/"popLayout"`（父容器必须非 static、自定义组件 forwardRef、混合 exit+layout 要 LayoutGroup）、**key 禁用 index**；**共享元素两条路线** View Transitions（六步流程 / 伪元素树 `::view-transition`→group→image-pair→old/new / 旧快照静态不可交互·新快照 live 可交互 / **UA 默认 0.25s·ease·fill both** / 三个 `-ua-*` keyframes / group 动态 width·height·transform / `view-transition-name` 必须唯一否则 `ready` reject 但 `updateCallback` 总执行、`finished` 仍 fulfill / `match-element` 自动唯一命名 + `view-transition-class` 只去重样式 / 三 promise `updateCallbackDone`·`ready`·`finished` / `skipTransition()` 只跳动画不跳 DOM / `types` + `:active-view-transition-type()` / **单例**：新转场启动时旧的 skip to end / 网络请求必须前置否则页面冻结 / 主流程别 await `ready`）vs Motion `layout`/`layoutId`/`LayoutGroup`（scale correction、`layout="position"` 治拉伸、`layoutScroll`/`layoutRoot`/`layoutAnchor`、允许多个同名 layoutId、parent-relative 不会被落下、VT 不计滚动）；**MPA 跨文档** `@view-transition{navigation:auto}` 同源双页（Chrome 111 SPA / 126 MPA）、`pageswap`/`pagereveal`、bfcache 残留 name 导致返回键转场被 skip、`<link rel="expect" blocking="render">` 必须在 head；**动画状态机** react-transition-group 四态 `entering/entered/exiting/exited` + 六回调 + timeout 三档、XState `createMachine` 确定性迁移、状态×事件矩阵（连点时 `exiting` 收 `OPEN` → 反向 `entering` 且从当前值继续）、并行 region 分离「动画轴」与「数据轴」消灭不可能状态；**中断与取消** 可中断＝从当前视觉值平滑迁移、三策略（重启 / `composite:add` 叠加 / `finish` 跳终点）、`cancel()`（finished reject）/ `finish()` / `commitStyles()`（推荐替代长期 `fill:forwards`）/ `persist()` / `updatePlaybackRate()`（直接设 playbackRate 不平滑）、自动移除 filling 动画**五条件**与 `replaceState` 三值、`transitionend` 四坑（冒泡 / cancel 不触发 / display:none 不触发 / 多属性多次）、清理挂 `finished`+`finally`；**WAAPI 精确默认** duration 0（0 不播放）/ easing **linear**（CSS 默认 ease）/ iterations 1 或 `Infinity`（非字符串）/ iterationStart 0.0 / `composite` replace·add·accumulate（`blur(2)`+`blur(5)`→`blur(7)`）/ 至少两关键帧 / `offset:0.3`；**CSS 进出场四件套** `@starting-style` 三状态（starting/transitioned/default，回程走 default 故进出可不同路径）+ `display` + `overlay` + `transition-behavior:allow-discrete`，离散属性 50% 翻转但 display 例外（none→block 在 0%、block→none 在 100%）、简写会重置故独立声明必须写在后、`@starting-style` 与原规则同 specificity 必须写在后、只对 CSS transitions 有效、Chrome 116/117 + Baseline 2024-08、DOM 增删要 `setTimeout` 延迟 remove；**无障碍** WCAG 2.3.3 AAA 原文（motion animation 可关闭，除非 essential；颜色/模糊/opacity 不算 motion animation）+ 2.2.2 + 2.3.1、`prefers-reduced-motion` no-preference=false / reduce=true、**编排层要整段跳过而非逐项归零**、⚠️ **Svelte/WAAPI 过渡由 JS 驱动，全局 CSS media 归零对它们无效**必须用 `prefersReducedMotion`/`matchMedia`/`getAnimations()`/VT `skipTransition()` 在 JS 层降级；**跨框架矩阵** 原生 CSS·WAAPI·View Transitions·Motion·Vue·Svelte·GSAP·小程序（禁 `wx.createAnimation`）；20 节 / 16 场景 / 20 反模式 / 20 自检 / 8 段可抄代码）
-
-**v18 基线**（v17→v18 新增：**演示文稿与幻灯片版式**——演示文稿不是"缩小的文档"是"放大的瞬间"，每张幻灯片停留 20–60 秒、**3 秒法则**决定生死；**尺寸与比例**：16:9（1920×1080）为事实标准（PowerPoint/Google Slides/Keynote/reveal.js 全部默认）、4:3 仅旧投影和打印讲义、同一文件不支持混比例；**安全区**：标题安全区边距 ≥5%（96px/2.54cm）、动作安全区 ≥3%（58px/1.48cm）、投影过扫预留四边 0.5"（1.27cm）；**字号阶梯**：现场演示最小 **24pt**（线上 **28pt**）、封面标题 44–60pt、幻灯片标题 28–36pt、正文 24–28pt、标注 20–22pt、页脚 14–16pt；阅读型讲义可降至 14pt；**字体选择**：Sans-serif 系统字体（Helvetica/Calibri/Arial/思源黑体/微软雅黑）、全篇最多 2 种（一中文一英文）、禁 Comic Sans/ALL CAPS/全加粗/Word Art/阴影描边；**可读性验证**（Nancy Duarte 法）：屏幕对角线英寸数 = 后退英尺数；**文字密度四规则**：Godin（≤6 词/页）、5×5（5行×5词）、6×6、1-6-6（1观点×6条×6词）、中文 5×5 = 5行×10字、Godin = ≤20字/页；**母版与占位符**：6–8 种版式上限（封面/章节/标题+正文/图文左/图文右/全图/数据/引用）、占位符保证无障碍阅读顺序、logo 高 0.5–1" 右下角或左上角；**动画与转场区分**：动画作用于单元素（入场/退出/强调/动作路径）、转场作用于整张幻灯片（每页仅 1 个）、转场三档（细微 Fade/Cut/Push/Wipe/Morph ✅ / 适度 ⚠️ / 华丽 ❌ 禁用）、Morph 用于元素跨页平滑位移非炫技、全篇统一 1 种转场、转场 ≤0.5s、禁声音转场；**投影对比度**：正文 ≥4.5:1 / 大字 ≥3:1、投影对比度损失 20–40% 设计时需高 50%、深底浅字或浅底深字、禁红绿/红蓝/亮色背景；**图表在幻灯片中**：一页一图表、图表占 60–70%、坐标轴 ≥18pt、图例 ≥16pt；**可访问性**：WCAG 2.1 AA、用占位符不用手动文本框（阅读顺序）、所有图片 alt 文本、Accessibility Checker 0 错误、闪烁 ≤3 次/秒（WCAG 2.3.1 不可豁免）、闪烁面积 ≤25%；**远程线上**：字号 +4pt、减少动画、高对比、关通知、用 PowerPoint Live / Zoom 全屏共享；**中文演示**：最小 26–28pt、行距 1.4–1.6、思源黑体/微软雅黑、中英加半角空格、标题不加句号；**版式构图**：三分法则（2横+2纵=9区、交叉点最吸引）、Z 模式阅读（左上→右下）、留白 30–50%、视觉引导（人物/运动方向面向内部）；**演示节奏**：主题演讲 15–30s/页、商务 30–60s、教学 60–120s、切换后等 2–3s 再讲（Mayer 分裂注意力研究）；**工具**：reveal.js 67000★ MIT / Slidev 36000★ MIT / Marp 8000★ MIT / python-pptx；18 节 / 20 条反模式 / 18 项自检 / 6 段可抄代码）
-
-**v17 基线**（v16→v17 新增：**内容设计与 UX 文案**——界面文字不是"写得短"是"让用户读完知道该干什么"；**三级文案尺寸**（long ≥3 段 / short 2–3 段 / micro <3 句，micro 占界面 80%）；**五条不可商量原则**（动词开头 / 说会发生什么不说当前状态 / 不加冠词 / **禁用 OK** / 保留用户输入）；**扫描数据**：用户在线只读 **20%** 文字、前 **11 字符**决定是否继续读、倒金字塔是黄金法则；**按钮文案**：动词开头 **2–4 词**、描述结果状态、禁 OK/Submit/Confirm/Click here、加省略号表示需更多信息、中文 **2–4 字**不加"请"；**错误文案三层结构**（发生了什么+为什么+怎么修）、**禁用词表 9 条**（invalid/非法/incorrect/请重新输入/Oops/We're having trouble/格式不正确…）、位置紧贴字段下方 4–8px、时机失焦+提交不一进来就红、中文 **≤30 字**、10 类模板（必填为空/格式错误/长度不足/已存在/不匹配/网络/权限/系统/操作失败）；**空态五件套**（标题+说明+按钮+次要链接+视觉）与**五种空态**区分（首次/搜索无果/筛选无果/错误/完成）、禁俏皮话禁纯"No data"；**语气四维**（NN/g：正式↔随意 / 严肃↔幽默 / 尊重↔不恭 / 就事论事↔热情）+**场景矩阵**（错误禁幽默、危险确认升正式、成功可升热情）、**禁用语气 6 条**（责怪用户/道歉过多/We 指代不明/过度承诺/网络流行语/强迫语气）；**表单文案**：标签名词 ≤8 字不加句号、占位符写示例**禁替代标签**、帮助文案 ≤16 字与错误共用位置、设置项说"开启后做什么"；**对话框文案**：标题说发生了什么≤1 行（禁"提示/警告"）、正文写后果、按钮具体动作（禁 OK）、危险操作写清对象；**Toast**：写具体什么成功 ≤20 字、成功 3s 错误不消失；**引导文案**：价值优先+做中学+可跳过+持续引导、禁功能清单禁"开始使用"；**导航标签**：名词 ≤4 字统一粒度不用动词；**术语管理**：建术语表同概念同一词、新建≠创建≠导入≠上传；**大小写**：默认 **sentence case** 禁全大写（Apple+Microsoft+GOV.UK+M3 四体系共识）；**中文标点**：全角/中英之间加空格/数字与单位加空格/按钮标题不加句号；**数字日期**：在线用数字不用拼写、千分位、大数用万/亿、日期不用序数词 `2 June` 不用 `2nd June`、范围用 to 不用 `-`；**国际化**：文案膨胀 +40%（英文→德文，**v20 已裁决此值不适用于 microcopy，见 `i18n-localization.md` §2**）、禁拼接字符串用模板变量、ICU 复数、RTL 镜像；**可访问性**：图标按钮必须有 aria-label 且与可见文案一致、链接文字有意义（禁 Click here/Learn more 无上下文）、读屏测试、阅读等级 ≤Grade 8、句长 ≤20 词/≤30 字；**文案系统化**：文案 token JSON 结构（buttons/errors/empty/toast）、评审清单 8 项、链接文案检查脚本；12 场景速查 + 20 条反模式 + 18 项自检 + 6 段可抄代码）
-
-**v16 基线**（v15→v16 新增：**多品牌与多主题 Token 架构**——先判**要不要做**（品牌数 >1 且模式数 >1 才上架构，只有模式 >1 是 `dark-mode.md` 的活）；主题是**四根正交轴**（品牌 brand / 模式 mode / 对比度 contrast / 密度 density，另可选方向与色觉），4 轴 × 3 值 = **81 组合**，**只有品牌轴允许动 L1 色阶**，其余轴都是同一 L1 上的不同指针；架构加一层成**四层**（L0 品牌输入种子 → L1 原始色阶 → L2 语义 → L3 组件），**L2/L3 跨品牌共享、客户一个字不能改**，品牌只注入 L0/L1；**单色生成整套色阶四条路线**（① M3 HCT 色度常量：2021 全表 TONAL_SPOT **36/16/24/6/8**、FIDELITY 继承种子 C、VIBRANT **200**、MONOCHROME 全 0；2025 phone 改成 TONAL_SPOT **26(dark)/32**、VIBRANT **74**、NEUTRAL **1.4** 且 neutralVariant = neutral×**1.7/2.2/1.29** ② Fluent **BrandRamp 16 档 10–160** 与 ColorVariants **13 档**、Greys **50 档**，用类型强制完整 ③ Radix **12 步**用途定死、第 11/12 档在 step-2 背景上保证 **Lc 60 / Lc 90**、第 9 档色度最高且 Sky/Mint/Lime/Yellow/Amber **配深色字** ④ TDesign 主题色取**第 7 档**、功能色 **10 档**、中性 **14 档 L96→L8**、品牌倾向中性色 = **12%（8–12%）RGB 混色**）；**品牌色对比度护栏（本技能自算，非二手）**：由 `1.05/(L+0.05)≥4.5` 反解出**白字上限 L ≤ 0.1833**、黑字下限 **L ≥ 0.1750**、白字 3:1 上限 **L ≤ 0.3000**；九色实测——**Ant 自己的品牌色 #1677FF 配白字只有 4.10，不达 AA**、品牌黄 `#FADB14` 仅 **1.38** 且要压暗 **45.9%** 才够（压完已不是品牌色）、成功绿 2.58 / 警示橙 2.38 / 青 2.21 全部只能配黑字；**三档修正**＝换档位（首选，80% 够用）/ 调明度（Ant 蓝压 5.3% 即达 4.50）/ **换前景字色（浅色品牌唯一解）**；落地层：**轴独立选择器**（禁 2^N 穷举）+ `@layer` 顺序 `tokens.base→brand→mode→contrast→components→overrides`（**未分层样式永远赢**，这是"覆盖不掉"的头号原因）+ **portal 逃逸陷阱**（`position:fixed` 弹层离开 `[data-brand]` 作用域 → 永远默认品牌色）+ 运行时 vs 构建期判据（品牌数 ≥3 或客户自助 → 运行时；单客户私有化 → 构建期；Ant `cssVar`/`zeroRuntime` 正是这个取舍）+ **语义层分叉默认禁止**（代价 = 组件数 × 状态数 = 20×9×3 = **540 个映射点**，替代方案是"条件映射"只改指针不改结构）；四套真实矩阵对照（**Primer 9 主题** = 2 模式 × 5 变体、中性阶 0–13 且**亮暗方向反向**使同一 functional token 无需覆写、3 个 data 属性；**Carbon 4 主题** token 名不变值变、`$border-strong` 50→**60 变亮**；**Fluent 16 档**；**Ant** seed→map→alias 三算法可数组组合）；DTCG 多品牌目录（core 只放 L2/L3、brands 只放 L0/L1、`$extends` 深合并）+ Style Dictionary（`include` 基座 + `source` 品牌覆盖、**source 覆盖 include 不告警**、每品牌独立 `buildPath`、`outputReferences:true` 是换肤前提）+ **Figma 一 collection 一轴**（模式上限 **4 / 40**，3 品牌 × 2 模式装不进一个 collection 要拆两根轴）+ 品牌注入**六步管线**与**输入安全**（色值正则、字体白名单、SVG sanitize）+ 防闪烁三件套（`data-brand` 服务端写首屏 + 关键变量内联 `<head>` + CSS 在变量之后）+ 治理（品牌注册表、准入白名单、**改 L2 映射 = MAJOR**））
-
-**v15 基线**（v14→v15 新增：**设计交付与协作**——交付链**六个关卡**（需求对齐→评审→规格→实现→走查→复盘）与"交付的是**决策**不是图"的三层信息模型（intent / rule / value，只给 value 开发必须反推）；spec sheet **9 字段**（含 Carbon 设计规格**六类**：只用 color/type/spacing token、**所有**间距与对齐都要标、含 hover·focus·selected·disabled·read-only·error·warning、含响应式·溢出重排·展开·滚动、文字 **4.5:1**（disabled 例外）+ 非文本 **3:1** + 焦点流转必须写清）；标注**只标四类**（例外值 / 对齐关键线 / 尺寸约束 / 断点切换），Carbon 硬数值 **8px mini unit · padding 恒 16 · gutter 合计 32 · sizing 8/16/24/32/48/64/80 · spacing 13 档 2/4/8/12/16/24/32/40/48/64/80/96/160**、断点 320·672·1056·1312·1584（**4→8→16 列**，Margin 0/16/16/16/24）；**9 态矩阵**与组合爆炸三刀砍；命名**四套**（斜杠层级 / `Button/Primary/Large/Default/False` → 4 属性 / 变体禁视觉名 / token CTI）与"默认变体=左上角"；组件属性四类（variant·boolean·text·instance swap）与 **3–5 属性 × ≤5 值**上限、图标不用变体、Dev resources 传播到所有实例；AC 用 **Given/When/Then 3–5 步**（只验可观测、单动作、禁验数据库）；评审 **30 分钟/周**、round robin、quota **2 正 1 改**、facilitator 轮换、reframing 与五坑；走查**三遍法**（流程→交互→视觉）、文档 **9 字段**、环境**六变量**、**P0–P3 门禁**（P0=0 才可上线、P1 需书面豁免）；SemVer **11 条**与设计系统映射（**改默认值 = MAJOR**）、废弃需**至少一个 MINOR**、MAJOR 必带迁移表/codemod；token 管线 DTCG **`.tokens.json` / `$value` / `{}` 别名 / `$extends` / dimension 仅 px·rem**（**预览草稿，不可当标准**）+ Style Dictionary（两套格式不可混、include→source 后覆盖前、CTI）；回归四层 **80% 覆盖 / VRT ≥1 默认 story / AVT 全复杂态 / JAWS·VoiceOver·NVDA**；六个交付指标与 **20 条反模式 + 20 项自检 + 4 套可抄模板**）
-
-**v14 基线**（v13→v14 新增：性能与设计的关系——三条硬因果（中位页面 JS ~350KB → 移动端 TTI >14s；同一份 JS 高端机与低端机处理差 **9 倍**，CNN 实测 4s/13s/36s；Pinterest 2.5MB→200KB 带来注册 +753%）、七指标阈值表（LCP 2.5/4.0 · INP 200/500 · CLS 0.1/0.25 · TTFB/FCP/TBT/SI）与 **75 分位 + 移动桌面分段 + 现场优先**口径、Lighthouse 10 权重（**TBT 30 / LCP 25 / CLS 25 / FCP 10 / SI 10**）与 0.96 分水岭、**LCP 四分解 40/10/40/10** 与"不可换算成绝对秒数"、INP 三阶段与长任务 **50ms** / RAIL **100ms**、CLS 公式 `impact × distance` 与三个算例 / 会话窗口 <1s 且 ≤5s / `hadRecentInput` **500ms** 仅离散输入、**关键路径 <170KB + TTI <5s（3G）** 与六类页面预算表、图片格式矩阵 + **DPR 像素 4 倍**与 **25 倍浪费** + LCP 图三规则、`font-display` 五档精确值 + WOFF2 省 **30%** + CJK **>10000 字形** + `size-adjust` 防抖、**视觉手法性能价格表**（视频 2.5MB / 玻璃拟态 / 视差 / 3D / 粒子 / 轮播逐项定价与替代）、**帧预算 16.67ms** 与图层内存 `宽×高×4` 算术（1920×1080 = **7.93MB**）、`will-change` 纪律、**三档设计决策分级**（A 效率不许花 / B 平衡 / C 表达必须降级）、弱网三层降级（`prefers-reduced-data` / `Save-Data` / `effectiveType`）、小程序**单包 2MB** 与 `setData` 两条铁律、**18 项自检 + 20 条反模式 + 6 段可抄代码**）
-
-**v13 基线**（v12→v13 新增：暗色模式体系——该不该做的 NN/g 反面证据链（正极性优势 / 字号越小浅色越优 / 夜间浅色仍胜 / 白内障用户例外）、三态切换决策树、表面层级三套精确值（M3 surface tone 4/6/10/12/17/22/24 与 ContrastLevel 四级、Ant lighten 0/8/12/26 与 85·65·45·25 文本 alpha、Carbon g100 的 gray100→gray10 阶梯）、实测对比度表（Ant 45% 白在纯黑上仅 4.43 不达标、边框 `#424242` 仅 2.09:1 不过 1.4.11）、"不用纯白"四体系共识、阴影两派分歧与合成方案、品牌色 tone 重映射（outline 50→60 变亮、onErrorContainer 80 不对称）、涨跌色双套、图像四死法、四端实现（`meta color-scheme` + head 内联脚本防 FOUC、小程序 theme.json、DayNight、Tailwind v4 `@custom-variant`）、暗色专属无障碍八陷阱、22 项自检 + 20 条反模式 + 4 段可抄代码）
-
-资产一览（均在技能目录内，按需读取）：
-
-| 资产 | 内容 | 何时用 |
-|---|---|---|
-| `memory/tree.md` | **记忆树**：意图→位置路由 + 别名映射 + 全资产章节树 + 接线体检 | **不确定知识在哪时先看这里** |
-| `memory/index.json` | 机器索引（文件→章节→行号→摘要） | `dp_search.py` 的数据源 |
-| `memory/aliases.json` | **检索层别名映射**（组数由 README 实时统计；toast↔轻提示、弹窗↔dialog、转圈↔loading、断点↔breakpoint、版心↔container、流式排版↔clamp、标志↔logo、清space↔clear space、种子色↔seed color、商标↔trademark、**性能↔加载速度、首屏↔LCP、卡顿↔INP、抖动↔CLS、压缩↔图片格式、字体闪烁↔font-display、省流↔弱网、分包↔小程序性能**、**交付↔handoff、走查↔还原度、验收↔acceptance criteria、评审↔critique、P0–P3↔缺陷分级、变体↔variant、发版↔semver、tokens.json↔DTCG**、**多品牌↔白标/租户换肤、主题架构↔主题矩阵、品牌色生成↔brand ramp、对比度护栏↔白字还是黑字、变量作用域↔data-brand、层叠层↔@layer、运行时主题↔modifyVars**…、**编排↔orchestration、交错↔stagger、FLIP↔布局补间、共享元素↔layoutId、视图过渡↔View Transitions、状态机↔XState、动画中断↔cancel/skipTransition、进出场↔@starting-style**） | 用户用词与知识库用词不一致时；只影响召回，不改路由 |
-| `references/knowledge-map.md` | **L0→L4 知识路线图**（每级目标/必读/练习/验收 + 能力自测清单 + 专题支线，条数由 README 实时统计） | 判断该补哪一级、教学、系统性提升 |
-| `references/patterns.md` | 元素设计模式图鉴（12 类高频元素的构型/参数/变体） | **元素级需求必读**（导航栏/Hero/页脚/CTA/定价…） |
-| `references/design-tokens.md` | Token 三层架构 + Ant Design 数值全量 + 三大体系对比 + 中文设计系统矩阵 | 系统级/主题/暗色模式/**必须给数值时** |
-| `references/motion-system.md` | **动效系统**：曲线语义表（M3/Carbon/Ant 精确值）+ 时长刻度 + 20 个场景速查 + View Transitions/scroll-driven 代码 + reduced-motion 三档降级 + 10 条验收 | **任何动效/微交互/转场/滚动动画** |
-| `references/motion-orchestration.md` | **动效进阶·编排 / 状态机 / 共享元素转场**：三层分工判层（L1 单动效 / L2 编排 / L3 状态机）+ 四种时间结构与总时长公式（`T = T_parent + d + (n−1)×s ≤ 400ms`、**n>6 改整组淡入**）+ Motion variants 向下传播与两代 stagger API（新版 `delayChildren: stagger()` / 旧版 `staggerChildren`）+ CSS `--index` 级联 · Vue `data-index`+`done()` · Svelte 可反转 · GSAP timeline + **单位统一表**（CSS 秒 / WAAPI 毫秒 / Motion 秒 / RTG 毫秒）+ **FLIP** F·L·I·P 算式（`invertY=first.top−last.top`）、**100ms 响应窗口**、三条 caveat、**先全读再全写** + 列表增删重排四策略（key 禁 index / `.list-leave-active{position:absolute}` / `AnimatePresence` 三 mode / `LayoutGroup` / `match-element`）+ **View Transitions** 六步流程 · 伪元素树 · **UA 默认 0.25s·ease·both** · 三个 `-ua-*` keyframes · `view-transition-name` 唯一性（`ready` reject 但 DOM 照常更新）· 三 promise · `skipTransition()` · `types` · **单例与中断** · MPA `@view-transition` / `pageswap` / bfcache 陷阱 + Motion `layout`/`layoutId`/scale correction 与 VT 三条差异 + **四态状态机**（`entering/entered/exiting/exited`）+ XState `createMachine` + 状态×事件矩阵（连点反向恢复）+ **中断三策略**与 `cancel()`/`finish()`/`commitStyles()`/`updatePlaybackRate()`、自动移除**五条件**、`transitionend` 四坑 + **WAAPI 全默认值表**（easing 默认 `linear`、`Infinity`、`composite` add/accumulate）+ **CSS 进出场四件套**（`@starting-style` 三状态 / `display` / `overlay` / `allow-discrete` 50% 翻转例外 / 两处顺序陷阱 / Chrome 116·117 / Baseline 2024-08）+ **WCAG 2.3.3 AAA** 与 JS 层降级（⚠️ Svelte/WAAPI 不受 CSS media 影响）+ 跨框架矩阵与选型树 + 16 场景 + 20 反模式 + 20 自检 + 8 段可抄代码 | **任何多个元素一起动 / 交错 stagger / 依次出现 / 列表增删重排 / 共享元素转场 / 卡片放大成详情 / View Transitions / layoutId / 动画状态机 / 连点就乱 / 动画中断取消 / 进出场动画 / display:none 动画 / @starting-style** |
-| `references/dataviz.md` | **数据可视化规范**：FT 九类关系选型表 + 选型决策树与硬上限 + Carbon/AntV 分类·顺序·发散色板精确 hex + 坐标轴/图例/Tooltip 数值 + 中文数字单位 + 仪表盘布局 + 双轴立场 + 12 条反模式 + 12 项自检 | **任何图表/仪表盘/大屏/数据看板/BI** |
-| `references/form-table.md` | **表单与表格规范**：五件套结构 + 标签三对齐决策 + 字段按内容定宽 + 控件尺寸精确值（Ant/Carbon）+ 校验三档 + 12 条错误文案模板 + 中文特有字段（手机号/身份证/验证码/金额）+ 四级布局梯度与可编辑列表阈值 + 行高三档 + 列对齐/列宽 + 分页·固定列·批量·空态 + 18 条反模式 + 20 项自检 | **任何表单/登录/设置页/中后台列表/数据表格** |
-| `references/accessibility.md` | **可访问性实操**：WCAG 2.2 结构与 86 条口径 + 四档对比度阈值（不可四舍五入）+ 中文笔画修正 + 焦点三层标准（2.4.7/2.4.13/1.4.11）与三套可抄样式 + 键盘顺序/模态焦点/inert + 2.4.11 遮挡 + 24px 圆间距例外 + 拖动替代表 + ARIA 四条高频错误 + aria-live 纪律 + alt 决策树 + 色盲 Okabe–Ito 8 色 + forced-colors + 读屏 15 分钟脚本 + GB/T 37668 与适老化硬指标 + 25 条上线自检 + 18 条反模式 | **任何界面上线前、无障碍/适老化/合规要求、焦点与键盘问题、读屏播报、色盲可辨** |
-| `references/feedback-states.md` | **反馈与状态设计**：五层反馈决策树（L0–L4）+ 0.1/1/10s 时间阈值与组件映射 + 四体系 toast 时长·位置·宽度精确值（Ant 3s/4.5s·384px、Carbon 5s、M3 4–10s、微信 1.5s）+ 加载三形态分工 + 骨架屏禁用清单 + 进度条六铁律 + 五种空态与五件套结构 + 五级错误与 404/500 文案规则 + 确认框 NN/g 八条 + M3 弹窗尺寸 + 五态数据模型 + 乐观更新回滚 + WCAG 4.1.3/2.2.1 + 10 场景速查 + 20 条反模式 + 15 项自检 + 4 段可抄代码 | **任何 toast/弹窗/加载/骨架屏/空态/错误页/确认框/保存状态/乐观更新** |
-| `references/empty-states.md` | **空状态与零数据位**：立场「空状态是被浪费的引导位」+ **三条裁决**（① 默认引导不道歉不留白，Atlassian *"celebrate, educate, and inform"* / Ant *"tutorial to create something"*；② 装饰插画必须 aria-hidden 且不让焦点滞留，Atlassian *"if it's only for decoration, avoid alt text"*；③ 失败空态 ≠ 无数据空态，禁止伪装）+ 五种空态判型器 + 结构五件套（Ant token `colorTextDescription rgba(0,0,0,0.45)` / `PRESENTED_IMAGE_SIMPLE`·`DEFAULT`、Atlassian wide 464px·narrow 304px·h600）+ **中英抄写矩阵 8 类可直接抄** + 装饰插画取舍与无障碍 + 单主行动 CTA 纪律 + 零数据位/starter content 四模式 + 变体承载位置 + 可访问性清单 + 移动端/小程序 + 失败空态禁伪装 + 首次操作率度量 + 12 场景·20 反模式·20 自检·5 段代码实跑 | **任何空状态/零数据位/空页面/空购物车/装饰插画/空状态文案/starter content/首次操作率** |
-| `references/pricing-checkout.md` | **定价页与结账流程**：立场「定价页不是把价格说清楚，是让人敢点；结账不是收集信息，是让人敢付完」+ **三条裁决**（① 总价先行且不可变，FTC 16 CFR 464 total price 定义 + §464.2(b) 显著性 + §464.1(4) *"must be unavoidable"*；② 结账是承诺不是表单，SC 3.3.4 **AA** 三选一 Reversible/Checked/Confirmed + G164/G98/G155 + GOV.UK check answers 复核页；③ 同一进程不重复索要，SC 3.3.7 A + SC 1.3.5 AA）+ 判层六问 + 四种定价页构型（三档并排 / 两档+企业横条 / 单档+用量 / 纯定制）与尺寸（卡内边距 32px、价格 40–48px、货币符号 0.5em 上移 0.13em、`tabular-nums`、差异 ≤ 20%）+ 划线价台账与折扣率可算回 + 月/年切换 radio group 与 URL 状态 + 结账三型（单页/分段/多步，步骤 ≤ 3）+ 复核页七条规范 + 13 字段 autocomplete token 表（含 `shipping`/`billing` 前缀）+ 卡号分组与粘贴纪律 + 支付方式（Apple Pay 仅白色描边版·清space 1/4 高度·不与其它按钮共享边框·`canMakePayments`）+ 费用三级披露与一致性检查 + SC 3.3.4 承诺闸门 + 总价变化 `role="status"` 播报（`aria-atomic`、防抖 300ms）+ 移动端结账 + 信任与社证不伪造 + 20 反模式 + 20 自检 + 5 段可跑代码（严格模式 5/5 rc=0）+ 取源限制 8 条 | **任何定价页/价格表/三档定价/月付年付/划线价/原价/折扣/优惠券/结账/checkout/结算页/购物车付款/运费/税费/花呗钱包按钮/复核页/SC 3.3.4** |
-| `references/notifications-messaging.md` | **通知与消息触达**：立场「通知不是发得越多越显得产品活跃，是每一条都在消耗用户的注意力预算；该不该发先于怎么发」+ **三条裁决**（① 通道归属先于内容：六段链路 触发→判层→通道→内容→偏好→度量；② 权限按功能时机、拒绝后给恢复路径不给二次弹窗；③ 可关性一等验收：一键退订 + 偏好页即时生效）+ 三平台通道矩阵 + iOS interruptionLevel 四级与 HIG 能力表 + Android 五级 importance 与 POST_NOTIFICATIONS 四个坑 + Web Push 五件套（用户手势 / TTL 强制 / renotify 带 tag / silent 与 vibrate 互斥 / SW showNotification）+ 消息中心三件套 + 角标三态 + 免打扰跨午夜 + 交易/营销邮件判定 + SC 4.1.3 / 2.2.1 + 12 场景 + 20 反模式 + 20 自检 + 5 段代码（严格模式 5/5 rc=0）+ 取源限制 14 条 | **任何推送 / 通知 / 站内信 / 消息中心 / 收件箱 / 未读 / 角标 / 小红点 / 免打扰 / 通知偏好 / 权限拒绝 / 营销邮件 / 一键退订 / 通知去重 / iOS interruptionLevel / Android 通知渠道 / web push 时用** |
-| `references/sound-haptics-feedback.md` | **声音与触觉反馈**：立场「视觉是默认项，声音与触觉是例外项：先答它替代了用户哪个动作」+ **三条裁决**（① 五问判层：看屏 / 时压 ≤1s / 高频 / 系统语义 / 已关闭；② 系统语义常量优先，iOS 三类生成器、Android 21 个公开常量、watchOS 九种类型；③ 可关闭性是验收项，静音开关与系统触感设置不可绕过）+ 三通道分工表 + iOS/Android/Web 精确值（振幅 1–255、`DEFAULT_AMPLITUDE`=-1、W3C 10 段 / 10000 ms、AOSP 注释 1 s / 3 段）+ 音频类别与静音开关响应表 + autoplay 三条工程动作（策略检查 / 接住 `NotAllowedError` / `AudioContext.resume()`）+ earcon 句法与资源工程 + 三通道配方表 12 行 + 20 条反模式 + 20 条自检 + §11 可实跑校验器 | 任何涉及音效 / 提示音 / earcon / 触觉 / 震动 / haptic / Vibration API / 静音开关 / autoplay / 声音可访问性 |
-| `references/responsive-layout.md` | **响应式与断点体系**：六体系断点精确值对照（Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584 与 4→8→16 列 · M3 600/840/1200/1600）+ 断点该定在哪（内容断而非设备断）+ 跨断点五动词（露出/分割/缩放/移位/换件）+ gutter 固定 column 流体 + 版心宽度表 + 容器查询 `cq*` 单位与退化 + `clamp()` 无障碍公式（max ≥ 2×min）+ 视口单位陷阱（`vh`≡`lvh`、`svh`/`dvh`）+ `srcset`/`sizes` 五条规则 + 窄屏表格四策略决策 + 中后台 1440 画板与 1366 验收 + 20 条反模式 + 15 项自检 + 6 段可抄代码 | **任何多端/响应式/移动端/平板/断点/容器查询/视口/表格在窄屏怎么变** |
-| `references/design-md-format.md` | DESIGN.md 九章骨架 + 54 品牌 DNA 速查 + 项目类型选型 | 用户说"做成 XX 那种感觉"、要设计规范 |
-| `references/editorial-layout.md` | **版式与网格**：五类载体决策表 + 网格五型选择 + 12 栏与 gutter 推导 + 基线网格 + Van de Graaf 页边距 2:3:4:6（1/9·2/9）+ 模数阶梯七档 + 行长 45–90 字符与行距 120–145% 联动表 + 孤寡行与断行三件套（balance 6/10 行上限）+ 视觉动线 + 留白占比 + 海报尺寸·出血 3mm·安全区·远距字号公式 + 长图字号换算（设计字号=目标×宽/375）与分段节奏 + 九平台社媒尺寸（官方/惯例分级）+ 印刷 CMYK·总墨量 300%·K100·0.25pt 细线 + 竖排与避头尾 CSS + 20 条反模式 + 18 项自检 + 3 套模板 | **任何海报/长图/社媒图/印刷品/长文版式/网格与栏数/行长行距** |
-| `references/brand-identity.md` | **品牌视觉与 Logo 逻辑**：四层结构（定位/语言/系统/资产）+ 三词定位与六维翻译表 + 七型标志选择决策树 + 24dp 网格与四基形（方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20）+ 光学修正四条 + 清space 三口径（字高 / 半符号直径 / 高度折半）与可抄 CSS + 最小尺寸 40px·10mm 与「最细笔画 ÷0.75」公式 + 响应式标志四档 + 种子色选色四问 + 三条色阶路线（HCT tone / Radix 12 步语义 / Leonardo 对比度优先）+ M3 官方亮暗 tone 映射全表 + 品牌色在图表·大屏·印刷·多品牌的边界 + 字体三档配置与中文三坑 + 图标网格两体系对照（Material 24 / Carbon 16-20-24-32）+ 插画五参数 + 品牌语气四维（NN/g）+ 资产交付清单（SVG/ico/180/192/512/maskable 40% 安全区/1024/OG 1200×630）+ 商标与授权合规 + 20 条反模式 + 18 项自检 | **任何 logo / 标志 / VI / 品牌色 / 色阶 / 品牌手册 / favicon·应用图标 / 商标与授权** |
-| `references/dark-mode.md` | **暗色模式体系**：该不该做（NN/g 正极性优势证据链 + 五类适用场景 + 决策树）+ 三态切换（不提供应用级独立开关）+ 表面层级三套精确值（M3 surface tone 4·6·10·12·17·22·24 与 ContrastCurve 四级 / Ant `lighten(0/8/12/26)` 与亮色 `lighten(4/0/0)` 的反转 / Carbon g100 的 gray100→gray10 全 hex）+ 底色三选（纯黑·深灰 `#161616`·带主色倾向 `#1F1B24`）+ **实测对比度表**（Ant 45% 白在纯黑上 4.43 不达标、边框 `#424242` 仅 2.09:1、`#424242` 上白字 10.05）+ 不用纯白的四体系共识 + 文字四档（85/65/52/32）+ 边框 3:1 规则 + 阴影两派分歧与合成方案 + 品牌色 tone 重映射（outline 50→60 变亮、onErrorContainer 80 不对称）+ 涨跌色双套 + 图像四死法 + 状态七项差异（hover 提亮、scrim 60–80%、skeleton 要更亮）+ 四端实现（`meta color-scheme` + head 内联脚本防 FOUC、`light-dark()`、Tailwind v4 `@custom-variant`、小程序 `theme.json`、DayNight/`forceDarkAllowed`）+ 暗色专属无障碍八陷阱 + 12 场景速查 + 22 项自检 + 20 条反模式 + 4 段可抄代码 | **任何暗色/深色主题/夜间模式/纯黑 vs 深灰/主题切换/闪白/小程序暗色/暗色下看不清** |
-| `references/multi-brand-theming.md` | **多品牌与多主题 Token 架构**：判据（品牌数 >1 且模式数 >1 才上架构）+ **四根正交轴**（品牌/模式/对比度/密度，81 组合必须收敛，只有品牌轴动 L1）+ **四层架构**（L0 品牌输入 → L1 原始 → L2 语义 → L3 组件，L2/L3 跨品牌共享）+ **单色生成色阶四条路线**（M3 HCT 色度常量 2021 全表 TONAL_SPOT 36/16/24/6/8 与 2025 phone 26·32/74/1.4、Fluent BrandRamp 16 档 10–160 与 Greys 50 档、Radix 12 步 Lc 60/90、TDesign 第 7 档与 10/14 档与 12% 混色）+ **品牌色对比度护栏**（亮度边界 **0.1833/0.1750/0.3000** + 九色实测 **Ant 品牌色白字仅 4.10 不达 AA**、品牌黄 1.38 需压暗 45.9% + 三档修正：换档位/调明度/换前景字色）+ **轴独立选择器**与 `@layer` 顺序（未分层样式永远赢）+ **portal 逃逸陷阱** + 运行时 vs 构建期判据（Ant `cssVar`/`zeroRuntime`）+ **多品牌同页共存**（嵌套 Provider、`cssVar` 独立 key）+ **语义层分叉默认禁止**（代价 540 个映射点，替代方案条件映射）+ 四套真实矩阵对照（Primer 9 主题与**反向色阶**、Carbon 4 主题、Fluent 16 档、Ant 三算法）+ DTCG 多品牌目录与 `$extends` + Style Dictionary 多品牌构建 + **Figma 一 collection 一轴（模式上限 4/40）** + 品牌注入**六步管线**与输入安全 + 防闪烁三件套 + 治理与 SemVer + 12 场景速查 + 20 条反模式 + 18 项自检 + 6 段可抄代码 | **任何多品牌/白标/租户换肤/客户自带品牌色/多主题/主题矩阵/主题切换架构/换肤闪一下/品牌色配白字看不清/多品牌同页/色阶生成器/主题覆盖不掉/设计系统对外售卖** |
-| `references/ux-writing.md` | **内容设计与 UX 文案**：三级文案尺寸（long ≥3 段 / short 2–3 段 / micro <3 句）+ 五条不可商量原则（动词开头/说结果不说当前/不加冠词/**禁 OK**/保留输入）+ 扫描数据（只读 20%、前 11 字符、倒金字塔）+ 按钮文案（动词 2–4 词、描述结果状态、禁 OK/Submit、省略号规则、中文 2–4 字）+ 错误文案三层结构（发生了什么+为什么+怎么修）+ 禁用词表 9 条 + 位置时机（失焦+提交）+ 中文 ≤30 字 + 10 类模板 + 空态五件套与五种空态 + 语气四维（NN/g 正式/幽默/尊重/热情）+ 场景矩阵 + 禁用语气 6 条 + 表单文案（标签/占位符/帮助/设置项）+ 对话框文案 + Toast 文案 + 引导文案 + 导航标签 + 术语管理 + 大小写（sentence case 四体系共识）+ 中文标点 + 数字日期 + 国际化速记（**膨胀口径 v20 已修正：microcopy 2–3×，详见 `i18n-localization.md` §2** / ICU 复数 / RTL）+ 可访问性（aria-label/读屏/阅读等级）+ 文案 token 系统 + 评审清单 + 12 场景速查 + 20 条反模式 + 18 项自检 + 6 段可抄代码 | **任何界面上的文字**：按钮/标签/错误提示/空态文案/引导/设置项/对话框/通知/tooltip/导航菜单/术语统一/大小写/标点/数字日期/国际化文案/文案系统化 |
-| `references/i18n-localization.md` | **国际化与本地化设计（i18n / L10n / RTL）**：三层判层（**标记层** `lang`/`dir` + **布局层** 弹性/逻辑属性/镜像 + **数据层** 复数/日期/数字/姓名/排序）+ **W3C 转引 IBM 文案膨胀表**（英文 ≤10 字符 **200–300%** → microcopy **2–3×**；11–20 180–200%；21–30 160–180%；31–50 140–160%；51–70 151–170% **原表非单调**；>70 130%）+ **裁决 `ux-writing.md` §13「按钮 +40%」对短串是错的**（Microsoft +40% 是伪本地化加长量，不是设计余量）+ W3C 膨胀四因素（`Eingabeverarbeitungsfunktionen` 不换行 / `desktop→デスクトップ` 少一字更宽 / 泰文·Nastaliq 行高 / 缩写不可复制）+ **WCAG 3.1.1 Level A**（H57 `<html lang>`）+ **3.1.2 Level AA**（H58 passage）+ **W3C 硬禁令「Never use CSS to apply the base direction」**、`dir="rtl"` 八连带效果、`dir="auto"` 不 foolproof、`dirname`、`bdi`、RLM U+200F / LRM U+200E、Unicode isolates + **CSS logical properties 全映射**（`margin-left→margin-inline-start` / `width→inline-size` / `left→inset-inline-start` / `text-align:left→start`）+ **Material 镜像白/黑名单**（布局·对齐·字段图标·方向图标·进度条镜像；数字·未翻译文本·时钟·媒体播放控件·物理对象·右手持物不镜像；**一般进度条镜像但媒体进度条不镜像**；数字不镜像 ≠ 不本地化）+ **CLDR 复数六类** `zero/one/two/few/many/other`（**`one`≠数字 1**、`other` 必需、中/日/韩/印尼/越南**仅 `other`**、`ar` 全 6 类、`ru`/`pl` 四类、`fr` 三类）+ **ICU MessageFormat** 禁字符串拼接·单句完整翻译·`select` 外层 `plural` 内层·`offset:1` 与 `#`·`=0`/`=1`·ASCII 撇号转义与推荐 U+2019·skeleton `::` 优于 string pattern + **`Intl` 不是构造器**（10 构造器 + 2 静态方法；Node v22.22.2 实测 **`Intl.DurationFormat` 抛 TypeError → 必须能力检测**；`zh_cn` 抛 RangeError、`zh-CN` 才合法；`localeMatcher` lookup / best fit）+ 日期 `03/09/2026` 英美歧义 · `hi-IN` **12,34,567.89** 3-2-2 分组 · `JPY` 无小数 · `ListFormat` 牛津逗号 · `Collator` 德/瑞 `ä` 排序相反 · `Segmenter` 中文分词 · `weekInfo` 周起始日 + **姓名单一 `Full name`**（W3C：强拆姓/名会让用户填 `.` 或 `Mr.`）+ 地址/排序/文化适配 + **伪本地化五变换**（音标 / ①–⑨ U+2460–2468 / `^` 定界暴露截断与拼接 / 唯一 id / +40% 与 200%·400%）、`en-XA`·`en-XB`·Windows `qps-ploc*`·RFC 4646 `qaa–qtz` 私有段 + 译者交付包与框架落地 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码 | **任何出海 / 多语言 / 本地化 / i18n / L10n / RTL / 阿拉伯语 / 希伯来语 / 双向文本 / 文案膨胀 / 翻译后按钮被截断 / 复数规则 / 日期货币数字格式 / 姓名地址表单 / 伪本地化 / locale 协商 / ICU MessageFormat / Intl / 逻辑属性 / 图标镜像** |
-| `references/performance-design.md` | **性能与设计的关系**：三条硬因果（中位页面 JS ~350KB→移动端 TTI >14s / 同份 JS 高低端机差 **9 倍** / Pinterest 2.5MB→200KB 换注册 +753%）+ 七指标阈值表（**LCP 2.5·4.0 / INP 200·500 / CLS 0.1·0.25** / TTFB 800·1800 / FCP 1.8·3.0 / TBT 200·600 / SI 3.4·5.8）与 **p75 + 移动桌面分段 + 现场优先**口径 + Lighthouse 10 权重（**TBT 30 / LCP 25 / CLS 25 / FCP 10 / SI 10**）与对数正态曲线 0.96 分水岭 + **LCP 四分解 40/10/40/10**（TTFB / load delay / load duration / render delay）与"不可换算成秒"警告 + INP 三阶段（input/processing/presentation）与长任务 **50ms**、RAIL **100ms**、每 50 次交互忽略最高 1 次、`durationThreshold` 默认 104ms + CLS 公式 `impact × distance` 与三个算例、会话窗口 **<1s 且 ≤5s**、`hadRecentInput` **500ms**（仅离散输入）+ **关键路径 <170KB / TTI <5s（3G + 中位设备）** 与六类页面预算表（落地页/内容页/电商/中后台/H5/小程序）+ 图片格式矩阵与 **DPR 像素 4 倍**、**25 倍像素浪费**算术、`srcset` 五规则、LCP 图三规则 + 字体 `font-display` 五档（block 2–3s / swap 0ms / fallback 100ms·3s / optional 100ms·无）、默认阻塞 3s 与 Safari 无限期、WOFF2 省 **30%**、拉丁 100–1000 vs CJK **>10000** 字形、`size-adjust` 防抖可抄 CSS + **视觉手法性能价格表**（CSS 渐变★1 → 首屏视频★★★★★ 2.5MB / 玻璃拟态★★★★ / 视差★★★★ / 3D★★★★★ / 粒子★★★★★ / 自动轮播★★★★★，逐项给机制与替代）+ **帧预算 16.67ms**（120Hz 仅 8.33ms）与图层内存 `宽×高×4` 算术（375×812=1.22MB / 1920×1080=**7.93MB**）+ `will-change` 只临时加 + 三档设计决策分级（**A 效率不许花 / B 平衡 / C 表达必须降级**）+ 弱网三层降级（`prefers-reduced-data` / `Save-Data` / `effectiveType`）+ 小程序**单包 2MB**、ZSTD、分包四手段、`setData` 两铁律（Shadow 树节点量影响**大于**数据量）+ 18 项自检 + 20 条反模式 + 6 段可抄代码 | **任何"这个效果会不会太慢"/首屏大图与视频/字体加载与闪烁/图片格式与尺寸/性能预算与验收/LCP·INP·CLS 不达标/弱网与低端机/小程序包体积** |
-| `references/presentation-design.md` | **演示文稿与幻灯片版式**：尺寸比例（16:9=1920×1080 事实标准 / 4:3 仅旧投影和讲义 / 不支持同文件混比例）+ 安全区（标题 ≥5%=96px / 动作 ≥3%=58px / 投影过扫 0.5"）+ 字号阶梯（封面 44–60pt / 标题 28–36pt / 正文 24–28pt / 最小 24pt 线上 28pt / 阅读型 14pt / 页脚 14–16pt）+ 字体（Sans-serif 系统字体 / 最多 2 种 / 禁 Comic Sans/ALL CAPS/全加粗/Word Art）+ Duarte 可读性验证法 + 文字密度四规则（Godin ≤6 词 / 5×5 / 6×6 / 1-6-6 / 中文 5×5=5行×10字）+ 母版与占位符（6–8 种版式 / 占位符保无障碍阅读顺序 / logo 0.5–1"）+ 动画与转场区分（动画=单元素 / 转场=整页每页 1 个 / 三档 Fade✅华丽❌ / Morph 跨页位移非炫技 / 全篇统一 1 种 / ≤0.5s / 禁声音）+ 投影对比度（正文 4.5:1 / 大字 3:1 / 投影损失 20–40% 需高 50% / 禁红绿红蓝亮背景）+ 图表在幻灯片中（一页一图表 / 占 60–70% / 坐标轴 ≥18pt）+ 可访问性（WCAG 2.1 AA / 占位符 / alt 文本 / Accessibility Checker 0 错 / 闪烁 ≤3 次/秒 2.3.1 / ≤25% 面积）+ 远程线上（字号 +4pt / 减少动画 / 高对比 / 关通知）+ 中文演示（最小 26–28pt / 行距 1.4–1.6 / 思源黑体 / 中英加空格）+ 三分法则 + Z 模式 + 留白 30–50% + 视觉引导 + 演示节奏（主题 15–30s / 商务 30–60s / 教学 60–120s / 切换后等 2–3s）+ 工具（reveal.js 67k★ / Slidev 36k★ / Marp / python-pptx）+ 12 场景速查 + 20 条反模式 + 18 项自检 + 6 段可抄代码 | **任何 PPT / 幻灯片 / 演示文稿 / Keynote / Google Slides / reveal.js / 答辩 / 汇报 / 发布会 / 课件 / 培训 / 线上演示 / 幻灯片模板 / 母版 / 字号太小 / 转场动画 / 投影看不清 / 演示节奏** |
-| `references/handoff-collaboration.md` | **设计交付与协作**：交付链**六关卡**与三层信息模型（intent/rule/value）+ **spec sheet 9 字段**（含 Carbon 规格六类：只用 color/type/spacing token、所有间距对齐都要标、7 交互态、5 类行为、文字 4.5:1 非文本 3:1 焦点流转）+ **标注只标四类**（例外值/对齐关键线/尺寸约束/断点切换）与 Carbon 硬数值（**8px mini unit / padding 恒 16 / gutter 32 / sizing 8·16·24·32·48·64·80 / spacing 13 档 / 断点 320·672·1056·1312·1584 与 4→8→16 列**）+ **9 态矩阵**与组合爆炸三刀砍 + **命名四套**（斜杠层级 / `Button/Primary/Large/Default/False`→4 属性 / 变体禁视觉名 / token CTI）与"默认变体=左上角" + 组件属性四类与 **3–5 属性 × ≤5 值**、图标不用变体、Dev resources 传播 + **AC 用 Given/When/Then 3–5 步**（只验可观测、禁验数据库）+ **评审 30 分钟/周 · round robin · quota 2 正 1 改 · facilitator 轮换 · reframing · 五坑** + **走查三遍法**（流程→交互→视觉）与文档 **9 字段**、环境**六变量** + **P0–P3 门禁**（P0=0 才上线、P1 需书面豁免）+ **SemVer 11 条**与设计系统映射（**改默认值=MAJOR**）、废弃需至少一个 MINOR、MAJOR 必带迁移表/codemod + **token 管线**（DTCG `.tokens.json`/`$value`/`{}` 别名/`$extends`/dimension 仅 px·rem，**预览草稿**；Style Dictionary 两套格式不可混、include→source 后覆盖前、CTI）+ **回归四层**（80% 覆盖 / VRT ≥1 默认 story / AVT 全复杂态 / JAWS·VoiceOver·NVDA）+ 六个交付指标 + 20 条反模式 + 20 项自检 + 4 套可抄模板 | **任何"把设计交给别人做"的时刻**：出标注稿、写交付文档、定组件命名、写验收标准、开评审会、做设计走查、发组件库版本、建 token 管线、判 P0/P1、对外/外包交付 |
-| `references/design-system-docs.md` | **设计系统文档写作**：Diátaxis 四象限判层 + **GOV.UK 组件页九段式**（When to use / When not to use / How it works / Research / Recent changes / Help improve…）与五问验收 + 文档信息架构四条地基（目录/命名/链接/检索）+ Google 三层参考层级与 style highlights + 示例代码五条硬规则 + 完整填充范例（Button 精简版）+ 活文档四件套 + 组件成熟度（USWDS 三阶段十二子状态 / 45 天评论期 + Carbon semver 对照）+ 文档版本化（Docusaurus 3.10.2 `versioned_docs`·`versions.json`·<10·preview 2–3·patch 不切·`unmaintained`）+ Keep a Changelog 1.1.0 七原则六类 + MAJOR 迁移文档可机器校验 + **DTCG 口径裁决**（preview draft 不可作权威，应引用 published 2025.10）+ token 文档自动生成 + docs-as-code（Storybook Autodocs `tags` / MDX `of={}` 与 attached-unattached / 六 Doc Block / Figma Code Connect）+ GOV.UK 贡献与治理（Useful·Unique 提案 / Usable·Consistent·Versatile 发布 / 1 个月·3 个月阈值）+ 新鲜度与漂移指标（自举到 `mindmap.py`）+ 16 仓库 API 实测（**Polaris / spectrum-css 已归档**）+ 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码 | **任何设计系统文档站 / 组件文档页 / 文档信息架构 / 文档版本化 / changelog / 迁移文档 / 贡献与治理 / docs-as-code / 文档没人看 / 文档与代码对不上** |
-| `references/ai-design-toolchain.md` | **AI / 生成式设计工具链**：中国《标识办法》14 条逐条设计动作 + 中欧美三法域矩阵 + USCO「提示词不构成作者身份」裁决与可举证创作链 + C2PA 三概念分离 + DESIGN.md 契约 + 提示词四区块与 prompt SemVer + HAX G1–G18 界面落点 + AI Slop Test 与 8 维 DO/DON'T + 12 类固有缺陷 + 5 层工具链 18 仓库 API 实测与选型三问 + 12 场景 + 20 反模式 + 20 自检 + 6 段可抄代码（3 段已实跑） | **任何 AI 生成设计 / AIGC 合规 / 内容标识 / AI 版权与商用授权 / 提示词 / AI 味验收 / AI 功能界面 / 设计工具选型** |
-| `references/design-ethics-inclusion.md` | **设计伦理与包容性**：CPPA §7004 对称选择（步数起止点 + `Accept All`/`Decline All` 固定构型）+ §7003 可读性与 WCAG 2.1 引用 + EDPB 03/2022 v2.0 六类机制与 mirroring effect + PIPL 14/15/16/17/24 五条 UI 底线 + 《互联网广告办法》10 条一键关闭三数值 + **《网络交易办法》18 条 2025 修正与「前五日」反陈旧裁决** + 第 13/16/17 条默认值禁区 + 未成年人条例（令第 766 号）42–45/47 条 + `deceptive.design` 现行 18 类 + 成瘾机制四红线 + Inclusive Design 七原则 / COGA 八目标 + 合规×包容四象限 + 18 场景决策矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 已实跑，含陈旧法条守卫） | **任何同意弹窗 / cookie banner / 权限申请 / 订阅与自动续费 / 取消流程 / 开屏与弹窗广告 / 未成年人模式 / 信息流机制 / 设计伦理评审 / 认知无障碍** |
-| `references/component-api-design.md` | **组件 API 设计与组合模式**：三份所有权（状态 / 渲染 / 契约与演进）+ Radix `useControllableState` 源码 `prop !== undefined` 与生命周期切换告警 + React `<input>` 受控契约 + 组合优于继承与**五种换元素 API**（`asChild` `mergeProps` / Ariakit `render` 元素形态与 render function 分界 / MUI `component`·`slots`·`slotProps` / Vue slots·`v-model` / children·render prop）+ 开放扩展四条与 props 合并优先级 + **React 19 `forwardRef` 反陈旧裁决**与「别暴露 open/close」命令式 ref 红线 + API surface 十类字段与回调契约 + APG 键盘契约（单 tab stop / roving tabindex / focus≠selection / dialog 焦点返回）+ `data-*` 状态暴露 + **API SemVer 六冻结面（改默认值=MAJOR，必带 codemod）** + Storybook `argTypes` + TypeScript 可辨识联合 + 16 场景矩阵 + 20 反模式 + 22 自检 + 4 段可抄代码（3 段 Python 实跑全 PASS） + 15 仓库 GitHub API 实测 | **任何写组件 props / 受控非受控 / 组合与插槽 / asChild 换元素 / ref 转发 / 复合组件键盘契约 / 组件库发版与迁移 / Storybook Controls / 组件 API 难用诊断** |
-| `references/design-measurement-research.md` | **设计度量与用户研究**：ISO 9241-11 可用性三要素（有效性/效率/满意度）+ 任务级指标（成功率/错误率/时长/SE 满意度）+ SUS/UMUX-Lite/SEQ/SUPR-Q/NPS 计分与基准（SUS 68 基准、一致作答恒 50）+ Google HEART 五维三层落地 + 样本量公式（定性 5 人≈84%、定量 `n≈Z²p(1−p)/E²`）+ 研究方法 2×2 与卡片分类/树测试 + 可用性测试（主持/非主持、出声思考、任务脚本）+ 问卷偏差避坑 + A/B 统计（双比例 z 检验、MDE、95% CI 跨 0 即无 winner、护栏指标、序贯检验、随机单元）+ 行为分析与漏斗 + 证据分级与三角验证 + 研究 ops 与工具矩阵 + 12 场景决策矩阵 + 20 反模式 + 20 自检 + 4 段可抄代码（Python 全实跑） | **任何「这个设计到底好不好/用户会不会用/改版有没有效/该不该上线 A/B/要不要做可用性测试/样本量多少/满意度怎么量化/SUS 多少分算好/HEART 怎么落地」** |
-| `references/iconography.md` | **图标设计系统**：何时用图标/文字/两者决策树 + 24×24 viewBox 网格与 keyline（圆⌀20·方18·矩20×16）+ 描边（Lucide stroke=2 / Heroicons 1.5 / Carbon 1.5 / Material wght 100–700·GRAD −50..200·FILL 0–1，圆头圆角、固定 vs 光学缩放二选一）+ 尺寸阶梯 12/16/20/24/32/48 + 图标-文字间距 8px（最小 4px）+ 填充/描边/双色决策 + 光学对齐与过冲 + 状态图标（spinner 1–1.4s linear infinite）+ 交付格式（内联 SVG / Sprite / 字体 295KB→1.7KB 子集 / 组件）+ 可访问性（装饰 aria-hidden+focusable=false / 有意义 role=img+aria-label / 非文本对比度 ≥3:1 / 永不只靠颜色）+ 动画与 reduced-motion 降级 + kebab-case 命名与交付清单 + 库选型矩阵（Lucide 25.6k★/Tabler 22.6k★/Fluent 11k★/Radix 2.7k★ GitHub API 实测）+ 与 8 份既有参考接线 + 12 场景 + 20 反模式 + 20 自检 + 4 段可抄代码 | **任何图标设计 / Iconography / 图标系统 / 图标网格 / 图标描边 / 图标尺寸 / 图标与文字间距 / 图标字体 vs SVG / 图标可访问性 / spinner / 加载转圈 / 图标库选型（Lucide/Heroicons/Material/Tabler）** |
-| `references/design-critique.md` | **设计评审与反馈**：评审是暴露盲点/对齐决策（非挑错非批准）+ 两种评审分清（standalone critique / design review）+ 三前提（范围/目标/对话）+ 给反馈七铁律（具体/挂目标/品味 vs 工艺/I like·I wish·I wonder/行为化/2 正 1 改/给观察不给方案跳转）+ 接收反馈四步（不辩护/追问/归类/记录决策）+ RACI 与远程异步（48h 窗口）+ 评判框架（NN/g 10 启发式 + 严重度 0–4 + DFV 三问 + 重要性×确定性 + 可取性测试）+ 15 反模式（设计 by committee/HiPPO/审美化争论/方案跳转/模糊反馈/现场改稿…）+ 决策记录（ADR / critique notes 模板）+ 工具（Figma comment/Figjam/Notion/PR review 类比/Loom）+ 20 自检 + 4 段可抄模板 | **任何设计评审 / critique / 设计走查 / 给反馈 / 怎么评审 / 怎么接收反馈 / 反馈太模糊 / 设计 by committee / HiPPO / 决策怎么留痕 / design review 怎么开 / 评审会 / 反馈话术 / ADR** |
-| `references/navigation-ia.md` | **导航与信息架构**：四类职责谱系（全局/局部/上下文/辅助）+ 形态决策矩阵（tab/侧栏/汉堡/rail/drawer）+ 项数铁律（米勒 7±2·全局 5–9·底部 ≤5）+ 深度 vs 广度（3-click 迷思/信息气味/卡片分类·树测试）+ 面包屑三型 + ARIA Tabs 键盘契约 + 移动端降级（Apple ≤5·Material bar/rail/drawer）+ 当前位置指示（aria-current）+ WCAG 2.4.x 导航口径 + 搜索协同 + 20 反模式 + 20 自检 + 5 段可抄代码 | **任何导航栏/菜单/侧边栏/底部 tab/汉堡/面包屑/tabs/网站结构/信息架构/移动端导航/导航可访问性/skip link/搜索框/当前位置指示** |
-| `references/chinese-design.md` | 中文排版规范（字号/行高/字体栈/避头尾/混排）+ 中文设计生态地图 | **任何中文界面开工前必读** |
-| `references/inspiration.md` | 灵感画廊 + 设计阅读（137 条） | 视觉调研、风格定位、找参考站点 |
-| `references/resources.md` | 组件/图标/动效3D/字体配色（201 条） | 需要设计资产 |
-| `references/component-libraries.md` | GitHub/组件库地图（14 库 + 元素覆盖矩阵，已验证） | 从设计参考推进到代码实现 |
-| `references/tools.md` | 开发/AI/截取/效率工具（153 条） | 工具落地（截图、录屏、生成、优化） |
-| `references/portfolios.md` | 一线从业者作品集（166 条） | 校准"什么是好的"、推荐可对标风格 |
-| `memory/design-log.md` | 用户偏好画像 + 匹配日志 | **每次匹配灵感前必读**；收到反馈后追加 |
-| `scripts/dp_search.py` | **快捷检索**：关键词 → 命中章节 + 行号 + 摘要（含别名扩展，`--no-alias` 可关） | 任何"知识在哪"的时刻（第 0 步） |
-| `scripts/regression.py` | **检索回归门槛**：固化新主题门槛 + `git archive HEAD` 基线 top3 对比，含路由边界、登记演进三条硬校验、已沉淀（settled）与别名卫生三条硬校验 | 每轮升级收口前必跑（`--baseline`） |
-| `scripts/audit.py` | **常驻自检**：换行 / 数字声明 / 资产覆盖 / 别名健康 / 脚本与 JSON 可解析 / 检索抽检 28 条；FAIL 非零即退出 1 | 每轮收口前必跑（`--no-retrieval` 跳过抽检） |
-| `scripts/mindmap.py` | 重建记忆树与索引 + 接线体检 | 资产变更后 |
-| `scripts/refresh_catalog.py` | 知识库自动刷新脚本（designeer 目录 → references） | 快照过期或用户要求更新时执行 |
-| `scripts/build_readme.py` | README 统计自动生成脚本 | 每次知识库变更后同步文档 |
-| `scripts/publish_github.py` | REST API 发布器（git push 被拦截时用） | 每日迭代后推送到 GitHub |
-| `references/color-science.md` | **色彩科学**：色彩空间谱系（sRGB/HSL/HSV/Lab/LCH/OKLab/OKLCH/Display P3）· 感知均匀性与 HSL 为何撒谎 · OKLab 公式与 CSS oklch() · 对比度双算法（WCAG 2.x 相对亮度 + APCA Lc 分档，均不四舍五入）· 色盲与 Okabe–Ito 8 色 · 色板生成四路线（OKLCH 旋转/Radix 12 步/M3 tonal/Leonardo 对比度优先/HCT）· 渐变 OKLab 插值 · 色彩无障碍 beyond 1.4.11 · 工程实现 color()/color-mix/相对颜色语法/culori/colorjs.io/Figma 变量 · 12 场景 · 20 反模式 · 20 自检 · 6 段可抄代码 | **任何配色 / 对比度计算 / 色板生成 / 渐变发灰 / 色相旋转 / 色盲安全 / Display P3 / 色彩坐标选错** |
-| `references/visual-style-taxonomy.md` | **视觉风格谱系与设计运动**：立场「风格不是名词贴标签，是四维信号的组合签名」+ 风格识别四维信号表（Typography / Color / Shape&Material / Motion&Space，逐维标注而非整体感受）+ 17 条编年谱系（Swiss 1950s·Bauhaus 1919·Brutalism·Neo-brutalism·Memphis 1981·Skeuomorphism·Flat 2013·Material 2014·Neumorphism 2019·Glassmorphism 2020·Minimalism·Maximalism·Y2K/Frutiger Aero·Vaporwave·Cyberpunk·Bento 2022·Claymorphism·企业中性，各给四维签名 + 何时用 / 何时不用）+ 风格匹配决策（给参考站四步：截三屏→逐维标注→抽交集→落 token；给形容词先确认语境分支）+ 风格 vs 品牌三词定位（风格服务个性、不替个性做主）+ 混搭纪律（材质层可叠 / **depth language 只一种主导** / 装饰密度只一个极端 / 趋势叠加上限 = 1 / 功能色回归语义）+ 趋势生命周期（技术驱动 vs 纯视觉潮流、12–24 个月、过期信号）+ 中文与出海风格注意 + 风格→token 映射表与 DTCG 固化 + **新拟态硬红线**（低对比违背非文本 3:1、只装饰/低频、禁主操作与表单、暗色禁入）+ **玻璃拟态硬红线**（文字 ≥4.5:1、正文区禁用、`backdrop-filter` 低端机成本）+ 12 场景 · 20 反模式 · 20 自检 · 3 段可抄清单/代码 | **任何「做成 XX 那种感觉」/ 高级感 / 复古感 / 科技感 / 温暖感 / 视觉调性 / 风格匹配 / 设计运动 / 拟物 vs 扁平 / 玻璃拟态 / 新拟态 / Y2K / 瑞士风格 / 野兽派 / Memphis / Bento / 风格不一致 / 潮流该不该跟** |
-| `references/typography-system.md` | **字体排印系统**：立场「排印不是选一款字体，是六层契约（覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权）」+ **三条裁决**（① `font-size` 用 px 写正文不可访问，MDN 原文 + rem 阶梯 + em compounding 25.6/40.96px + WCAG 2.2 SC 1.4.4 200% 缩放；② SC 1.4.12 文本间距四项 ≥1.5×/2×/0.12×/0.16× 是**用户覆盖抗压测试**非默认样式表，Note 1 原文 + 注入验收五步 + SC 1.4.8 行宽 ≤80 字符/CJK ≤40·禁 justify·200% 无横向滚动；③ `font-family` 逐字符回退 + generic 放最后不加引号 + `unicode-range` 命中一字即整片下载）+ 字体选型三前置（覆盖/回退/授权）+ 行高两档（M3 大字号 1.2× / 小正文·标签 1.5×）+ **Variable Fonts 五注册轴**（`wght/wdth/slnt/ital/opsz`，高层属性优先，`GRAD` 不改 advance）+ **OpenType 数字特性全表**（`lnum/onum/pnum/tnum/frac/afrc/ordn/zero`，表格·时钟·实时值用 `tabular-nums`）+ 低位 API 纪律（`font-feature-settings` 4 字符 tag / on·off=1·0 / 禁用于 small caps）+ `font-display` 三阶段五档（初始 `auto`、Baseline 2020-01）+ `size-adjust` / `font-size-adjust` 度量对齐压 CLS + **W3C clreq 中文排版**（§2.1.3 不多于 1/4 汉字宽·行首行尾无空白 / §1.2 1:1 正方形 / §4.1 全角 ASCII 不入存储层 / §4.2.1 UAX #29 字素丛）+ M3 五角色×三尺寸与 `--md-sys-typescale-*` token 化 + **OFL 1.1 五条件**（不可单独售卖 / 带版权声明与 license / RFN / 不得借名背书 / 衍生仍 OFL，文档不受约束）+ 9 仓库 GitHub API 实测 + 12 场景 · 20 反模式 · 20 自检 · 6 段可抄代码（含可跑的排印可访问性静态扫描） | **任何字体/字号/行高/行距/字距/排版节奏/字体回退/缺字 tofu/中英混排/中文排版/字体授权/字体商用/可变字体/tabular-nums/数字抖动/font-display/字体加载闪烁/FOIT·FOUT/CLS 抖动/unicode-range 子集化/WCAG 文本间距/200% 缩放/字号锁死/M3 type scale** |
-| `references/shape-elevation.md` | **形状与深度系统**：立场「形状是几何契约、深度是语义层级」+ **三条裁决**（① elevation 是语义 z-height 非可抄阴影值，M3 原文 + `elevation.css` 单长度 `box-shadow` 陷阱 + MDN 2/3/4 `<length>` 语法；② 阴影不能充当 WCAG 2.2 SC 1.4.11 的 3:1 识别边界，Python 实跑 `5%–12%` 黑阴影仅 1.119–1.320:1、需 `alpha≈0.4176` 才过线；③ 圆角是几何契约，百分比参照 width/height、corner overlap `f=min(L_i/S_i)` 等比缩减、嵌套 `r=R−p` 且 `r≤0` 失效）+ 五层模型（几何/高度/表面/材质/层叠）+ M3 六级 `0/1/3/6/8/12dp` + **七体系阴影 token 精确对照**（Tailwind v4 八值逐字 / MUI `0.2·0.14·0.12` 三层 25 档 / Ant 5 `boxShadow` 逐字 / TDesign `--td-shadow-1~3` 逐字 / Arco 四名 / Carbon 表面色阶 / M3 语义高度）+ 三层阴影物理分解（umbra·penumbra·ambient）+ **七体系圆角 token**（M3 `0/4/8/12/16/28` · TDesign `2/3/6/9/12/999` · Ant `2/4/6/8` · Arco `0/2/4/8` · Material Web shorthand · Carbon 直角 · Tailwind `--radius-*`）+ M3 Expressive 2025-05 更新（35 shapes / morphing / `full` 取代 50% / Web not currently available）+ `corner-shape` Experimental 纪律 + Carbon Layering 与暗色重排 + Apple HIG Materials（Liquid Glass 仅 functional layer / 35% dimming / `clear` 变体禁配）+ 玻璃性能与对比度红线 + 语义 z-index 刻度与 stacking context + **深度语言三选一** + 12 场景 · 20 反模式 · 20 自检 · 6 段可抄代码（3 段 Python 已实跑） | **任何圆角/倒角/半径/胶囊/阴影/投影/高度层级/elevation/表面层级/材质/毛玻璃/玻璃拟态/Liquid Glass/backdrop-filter/z-index 魔法数/卡片浮不起来/卡片套卡片/圆角对不上设计稿/输入框没边界/阴影当边界/暗色弹窗不够前/squircle/corner-shape** |
-| `references/visual-hierarchy-gestalt.md` | **视觉层级与格式塔组织律**：立场「视觉层级不是放大加粗，是注意力的分配契约」+ **三条裁决**（① F 型是缺引导时的默认省力扫描、非设计目标，NN/g 原文 + 8 种扫描模式 + RTL 翻转 + 移动端仍成立；② 层级必须同时兑现为 DOM 阅读顺序 / 焦点顺序 / 标题树，W3C SC 1.3.2 A + C27 + F1、SC 2.4.3 A、SC 2.4.6 AA、SC 2.4.10 AAA 逐字原文，*"visual presentation is not sufficient"*；③ 7±2 不是导航项数上限，Sweller 1988 三分 + Hick `RT=a+b·log₂(n+1)` 的适用前提 + Fitts `ID=log₂(D/W+1)` 三种写法）+ **三层模型**（组织 L1 / 引导 L2 / 负荷 L3，先判层再谈字号）+ **IxDF 12 条格式塔原则全表**（Emergence·Closure·Common Region·Continuity·Proximity·Multistability·Figure/Ground·Invariance·Prägnanz·Similarity·Symmetry and Order·Common Fate）+ 组织律可验收四规则（间距比 `g_in×1.5≤g_out` 为工程约定、共同区域、相似 token、对齐轴）+ **Treisman & Gelade 1980 特征整合理论**（前注意阶段、pop-out、feature vs conjunction search、18%/23% 实验、明确页面无视觉搜索斜率）+ 图形背景与多稳态 + 认知负荷三分与 Miller 1956 bit 定义 + Hick 五条 Takeaways 与失效条件 + Fitts 三形式与 edge/corner + 工作记忆/chunking/渐进披露 + 序列位置（primacy/recency、15–30 秒干扰）与 Von Restorff 相对差异 + Laws of UX 注意力相关 12 条 + NN/g 10 启发式 + 六步构建流程 + 三关度量 + 与既有资产边界矩阵 + 12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（Hick/Fitts 计算器、三顺序静态扫描器、间距比校验器 3 段 Python 实跑 PASS） | **任何格式塔/完形/Gestalt/邻近性/相似性/闭合性/连续性/共同区域/共同命运/图形背景/多稳态/普雷格南茨/视觉层级/视觉层次/视觉动线/重点不突出/主次不清/单焦点/眯眼测试/眼动/F 型/F 模式/Z 型/扫描模式/Layer-cake/Spotted/Marking/Bypassing/Commitment/RTL 翻转/前注意/pop-out/特征整合/Treisman/认知负荷/工作记忆/组块/chunking/选择过载/希克定律/Hick/决策时间/菲茨定律/Fitts/目标尺寸/按钮太小/点不到/米勒定律/7±2/序列位置/首因效应/近因效应/孤立效应/Von Restorff/选择性注意/DOM 顺序/焦点顺序/tabindex/标题结构/标题跳级/阅读顺序/CSS order 重排/C27/F1/WCAG 1.3.2/2.4.3/2.4.6/2.4.10/三顺序一致性** |
-| `references/content-findability.md` | **内容可发现性与可扫读性**：立场「可发现性不是搜索框的属性，是内容在整条链路上留下的线索密度」+ **三条裁决**（① SC 2.4.5 AA 至少两条找路路径、搜索不是导航替身，逐字原文 + G161/G125/G64 + 404 与 SC 2.4.8 的边界裁决；② 链接目的脱离上下文仍须成立，SC 2.4.4 A / 2.4.9 AAA / 3.2.4 AA + NN/g 11 字符 80 人 20 站 35% 与各案例百分比；③ SC 3.1.5 AAA 门槛是「九年学校教育」而非 Flesch 分数，FRE/FKGL/SMOG 精确系数 + 不可换算 + 音节公式禁套中文）+ **四层链路模型**（L1 有路 / L2 认得出 / L3 读得动 / L4 走得出，先判层再改文案）+ APG combobox 契约全套 aria 与 focus 规则 + M3 Search specs 精确尺寸 + 信息气味与 nano-content / front-loading + NN/g 79%/16% 与 58/47/27/124% 口径边界 + 首次查询 51/32/18% + GOV.UK 404 四条禁令 + tree testing 的 findability/directness + Plain Writing Act 2010 与 Digital.gov 四份指南 + 中文可读性六个代理指标（工程约定）+ 六步构建流程 + 与既有资产边界矩阵 + 12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（英文可读性计算器含中文守卫、链接文本静态扫描器、可发现性契约静态检查器 3 段 Python 实跑 PASS） | **任何内容找不到/搜不到/可发现性/findability/搜索体验/站内搜索/搜索框放哪/自动补全/autocomplete/combobox/aria-activedescendant/联想词/搜索建议/零结果/no results/无搜索结果/404 页面/信息气味/information scent/线索密度/链接目的/link purpose/Learn More/了解更多/点击这里/描述性链接/前 11 个字符/nano-content/front-loading/可扫读/scannability/扫读/阅读等级/reading level/Flesch/FKGL/SMOG/简明语言/plain language/倒金字塔/tree testing/树测试/findability/多路径/站点地图/位置感/WCAG 2.4.5/2.4.4/2.4.9/2.4.8/3.1.5/3.2.4/G161/G65** |
-| `references/direct-manipulation.md` | **直接操纵与指针交互**：立场「直接操纵不是把对象跟着指针走，而是四条并存且互不替代的完成路径」+ **三条裁决**（① 补键盘快捷键不满足 SC 2.5.7 / 2.5.1，逐字条文 + G219 四类无拖动替代 + 两准则交叉引用；② `pointercancel` 是 PE3 规范性必达事件，`MUST suppress a pointer event stream` 四步链 + `touch-action` 因果 + 无回滚即确定性缺陷；③ 目标尺寸三口径，2.5.8 AA 24×24 + 24 CSS px 圆 spacing 例外 / 2.5.5 AAA 44×44 无例外 / M2 48dp·9mm·7–10mm·44pt iOS·44dp pointer·8dp 间距）+ **四段链路模型**（单指针无拖动 / 指针取消 / 键盘 / 读屏播报）+ PE3 事件契约（`pointerType` / `isPrimary` / capture 三方法 / 隐式捕获 / down-up 取消）+ `touch-action` 形式语法与三条陷阱 + HTML DnD 七事件与 DataTransfer 读写窗口 + dnd-kit 键盘默认值（25px 自述 arbitrary）+ live region 中文 announcements + NN/g signifier 双义与 1cm×1cm / 约 100ms + 决策表与一图流 + 替代路径矩阵 + GitHub API 实测 10 库 + 边界矩阵 + 12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（目标尺寸判定器、三口径规格与 touch-action 静态扫描、拖拽四段路径静态接线检查 3 段 Python 实跑 PASS） | **任何拖拽/拖放/拖动/直接操纵/direct manipulation/drag and drop/指针交互/Pointer Events/pointercancel/setPointerCapture/隐式指针捕获/touch-action/手势/path-based gesture/路径手势/列表重排/排序交互/看板拖动/dnd-kit/react-dnd/SortableJS/pragmatic-drag-and-drop/interact.js/use-gesture/键盘拖放/Space 拿起/Escape 取消/读屏播报/live region/aria-roledescription/aria-describedby/position 播报/目标尺寸/24×24/44×44/48dp/8dp/touch target/触控目标/单指针无拖动/拖动替代/G219/G210/No Down-Event/Up Reversal/Abort or Undo/长按/长按延迟/magnetism/snapping/磁吸/haptics/触屏拖放/WCAG 2.5.7/2.5.1/2.5.2/2.5.3/2.5.4/2.5.5/2.5.8** |
-| `references/conversational-generative-ui.md` | **对话式与生成式界面**：立场「不是把聊天气泡套皮，是五段并存且每段都会失败的链路」+ 三条裁决（流式正文不是 status message·SC 4.1.3 逐字·ARIA23 `role=log` 隐性 polite/atomic=false·`role=status` 边界播报一次 / 生成式 UI 是受控组件目录里的路由·`streamUI`·`inputSchema`·组件白名单·RSC experimental / 纠错是 HAX G9 四档恢复链）+ 五段链路判层 + `useChat` 四态状态机 + `message.parts` + AG-UI 三模式事件协议 + Hybrid UI / RICH 范式 + 状态归位表 + 12 场景 / 20 反模式 / 20 自检 / 5 段代码（3 段 Python 实跑）/ GitHub API 实测 7 库 | **任何 chatbot / 聊天 UI / 流式输出 / 生成式界面 / AI 助手 / 停止生成 / 重新生成 / 纠错 / 混合界面** |
-| `references/overlays-modality.md` | **叠加层与模态性**：立场「模态不是一层半透明遮罩，是外部还能不能被操作的交互契约」+ **三条裁决**（① APG 逐字 `Windows under a modal dialog are inert` + `Tab`/`Shift+Tab` 不越界 + `Escape` 关闭 + 焦点归位；`aria-modal="true"` 仅在「代码阻止一切外部交互 + 视觉遮蔽外内容」双条件成立时才标 / ② MDN 逐字 `Popovers created using the Popover API are always non-modal`；`<dialog>` 只有 `showModal()` 才模态，`show()`/`open`/CSS `display` 均非模态，`closedby` 三值 `any`·`closerequest`·`none` / ③ WCAG 2.2 正确构建的 modal dialog `will always pass` SC 2.4.11，「三不」dialog-like overlay 风险最高、F110 是官方 Failure）+ **四问判型决策树**（Q1 inert / Q2 焦点循环 / Q3 触发方式 / Q4 退出路径）+ top layer 与 `::backdrop` / z-index 分界 + Popover 三态与 auto·hint 双栈六规则 + **WCAG 四条款矩阵**（1.4.13 Dismissible·Hoverable·Persistent / 2.4.11 Note 2 三条出路与 C43·F110 / 2.1.2 标准退出法 / 3.2.1 禁 focus 触发 change of context）+ 关闭契约矩阵与层叠嵌套 + 12 类组件族谱判型 + Apple HIG / Radix / GitHub API 实测 10 库 + 12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（§20.1–§20.3 三段 Python 严格模式实跑 3/3） | **任何 modal / dialog / 弹窗 / 对话框 / 模态框 / 焦点陷阱 / Tab 跑出弹窗 / Escape 关不掉 / 焦点不返回 / inert / aria-modal / 非模态 / Popover API / popover / closedby / showModal / top layer / ::backdrop / 遮罩层 / 浮层 / tooltip / hover 内容 / 底部抽屉 / bottom sheet / 命令面板 / 持久浮层挡住焦点 / sticky footer 遮挡 / F110 / C43 / 键盘陷阱 / light dismiss / 点击外部关闭 / 嵌套弹窗** |
-| `references/onboarding-first-run.md` | **首次体验与用户引导**：立场「Onboarding 不是第一次打开时播放的介绍，是从启动到第一个保留相关动作的路径设计」+ **三条裁决**（① 默认不加教程：NN/g 70 人 4 app 逐字 91%/94%·p=0.443、93.49/85.17s·p>0.1、SEQ 4.92/5.49·p=0.047 + Apple *"Teach through interactivity"* + 「先测无引导」四步闸门；② 权限按功能时机不按会话起点：purpose string 四标准、pre-alert 平台特定禁外推到 Web 同意层；③ SC 3.3.7/3.3.8/3.2.1/2.2.1 四条款合取，3.3.8 明确不覆盖账号创建、浏览器 `autocomplete` 不算满足 3.3.7）+ 五段链路 / 六问判型 / 六类形态矩阵 / Material 1 归档精确值 / Apple tips 阈值 / Ant Design Tour props / 教学型零数据位 / activation·TTV 口径 / 12 库实测 / 12 场景·20 反模式·20 自检 / 5 段代码实跑 | **首启引导 / 新手教程 / 产品导览 / 权限时机 / 激活与 TTV / 渐进披露**必读 |
-| `references/auth-account-ux.md` | **认证与账户体验**：立场「认证不是一道门，是一条可失败、可恢复、可退出的路径」+ **三条裁决**（① 先判「证明身份」还是「建立身份」——SC 3.3.8 明确不覆盖建账号，把注册页按 3.3.8 引条文是常见引用错误 / ② 密码共识已整体反转——NIST 800-63B-4 单因素 ≥15 字符、禁组合规则、禁周期改密、至少允许 64、接受空格与 Unicode、整串黑名单，配 ASVS 5.0 与 8 vs 15 版本错位 / ③ Passkeys 是默认路径且必须在账号验证后再种——web.dev *"Avoid password-only verification"*）+ **六问判层** + 12 场景表 + 边界矩阵 + 登录表单解剖（`autocomplete` token 全表 / `off` 拦不住管理器且违反 SC 1.3.5 / 默认遮挡 + 显示密码 / 禁粘贴即 F109 / 泛化错误文案 / 提交态）+ 注册（游客优先 Baymard 18% / 规则常驻 / 去重复字段 / 邮箱验证降级 / 防枚举文案）+ **密码反神话表 13 行**（含 SMS 是 RESTRICTED 不是禁用、限速 ≤100 次、计数绑账号）+ Passkeys（`challenge` ≥16 bytes·100 bits / `user.id` 1–64 不含 PII / `rp.id` 可注册域后缀 / residentKey 无字面默认 / timeout 300000 ms / 能力三层 / 四个创建时机 / 条件式 UI / 错误映射表 / 凭证管理页与 signal 系列）+ MFA（因素排序 / TOTP ±1 窗口 / 推送数字匹配 / 恢复码 ≥64 bits）+ OTP 单框（禁 6 框跳格）+ 恢复（G218 / 不绕 MFA / 无邮箱兜底）+ 会话（AAL 三档 / 到期前 2 分钟提示 / 记住我语义 / 全局登出）+ 无障碍（3.3.8 原文四例外 + 失败清单 + 3.3.9 差异 + NIST §8）+ 冲突裁决 8 条 + Apple 140×30pt 与 Google 三主题精确值 + 12 场景 · 20 反模式 · 20 自检 · 4 段可抄代码（Python 静态校验器已实跑） | **任何登录 / 注册 / 认证 / 身份验证 / Passkeys / WebAuthn / 通行密钥 / 无密码登录 / 条件式认证 / MFA / 2FA / 二次验证 / 验证码 / OTP / TOTP / 忘记密码 / 找回密码 / 账户恢复 / 会话超时 / 记住我 / 登出 / 单点登录 / SSO / 限速 / 锁定 / 撞库 / 密码规则 / 密码强度 / 显示密码 / 自动填充 / autocomplete / 3.3.8 / 3.3.9 / 认知功能测试 / 第三方登录按钮** |
-| `references/keyboard-shortcuts-command-palette.md` | **键盘快捷键与命令面板**：立场「快捷键不是给熟练用户的彩蛋，而是一份**带退出条款的加速契约**」+ **三条裁决**（① SC 2.1.4 判据是「只依赖可打印字符」而非物理键数，序列与 `Shift+字符` 同在范围内，三选一关掉/重映射/聚焦才生效；② 修饰键是平台契约，`aria-keyshortcuts` 只声明不绑定，`accesskey` 劝退；③ 命令面板 = 命令注册表 + combobox 检索层，`aria-activedescendant` 标选中、IME 组字期不响应）+ §1 五问判层 12 场景 / §2 判据表 9 形态 / §3 三出口 / §4 平台修饰键与显示格式 / §5 四层语义 / §6 key vs code 与 IME / §7 五层作用域 + 四类仲裁 / §8 面板解剖 / §9 发现性 / §10 六库实测 / §11 交付规格 / §12 场景速查 12 / §13 反模式 20 / §14 自检 20 / §15 两段代码 / §16 取源限制 16 条 | **快捷键 / 键位 / 热键 / 组合键 / 快捷键冲突 / 快捷键设置 / 命令面板 / 命令搜索 / ⌘K / 快速跳转 / aria-keyshortcuts / accesskey / key vs code / 输入法 IME / 全键盘操作 / 帮助面板** |
-| `references/file-upload-media-input.md` | **文件上传与媒体输入**：立场「上传不是一个按钮，是选→验→传→处理→存下/失败五段、每段都会失败的链路」+ **三条裁决**（① `accept` 只影响选择器过滤，MDN 逐字说不校验，类型安全在服务端；② 拖放必须配单指针替代，SC 2.5.7；③ 失败态是主设计对象，七态 + `rejected`≠`failed` + 单文件失败不阻塞）+ §1 五问判层 12 场景 / §2 控件契约（accept 五种写法全列、capture 前后置、拖放四件事、粘贴上传）/ §3 三档校验 + 8 组文案矩阵 + 文件名三必判 + EXIF 与像素/DPI 换算 / §4 三档阈值 + 进度条 6 条规格 + 七态播报 + 并发 3 + **tus 1.0.0 续传逐字表** / §5 媒体输入（EXIF from-image、客户端/服务端压缩分工、裁剪比例表、视频封面帧、预览 alt）/ §6 十种失败与退避 + 部分成功 / §7 无障碍六段键盘链路 + 播报清单 + 24/44 目标尺寸 / §8 OWASP 十条 + 直传最小权限 / §9 8 库 API 实测 + 选型决策树 + AntD props / §10 12 行速查 / §11 反模式 20 / §12 自检 20 / §13 六段可跑代码 + §14 取源限制 12 条 | **文件上传 / 拖拽上传 / 附件 / 选择文件 / 上传进度 / 断点续传 / 文件大小限制 / accept / 图片裁剪 / 头像上传 / 拍照上传 / EXIF 方向 / 视频上传 / 批量导入 / 预签名直传** |
-| `references/realtime-collaboration.md` | **实时协作与多人编辑**：立场「协作不是加个光标，是让每个人在任何时刻都能判断：我的改动在哪、别人的在哪、冲突时谁说了算」+ **三条裁决**（① 冲突粒度是**属性级 LWW**，同对象同属性裁决、AB 与 BC 并发永不 ABC，不引入 OT；② presence 只放临时信号，Yjs 30s 过期 / 15s 续期 / 3s 巡检，永久内容进 Storage；③ 评论钉相对位置、类型被删返回 null 即孤儿；权限逐文件/文件夹判 audience access，继承不自动下传）+ 二十一章：§1 六层判层 / §2 三种模型选型 / §3 文档模型 / §4 presence 五信号 / §5 延迟预算 / §6 冲突界面 / §7 多人撤销 / §8 评论 / §9 权限 / §10 状态机 / §11 无障碍 / §12 移动端 / §13 性能容量 / §14 文案 / §15 反模式 / §16 18 条验收 / §17 度量 / §18 交付检查 / §19 Python 验算 / §20 取源限制 / §21 来源实测 | "多人协作""实时协作""协同编辑""在线状态""实时光标""正在输入" |
-| `references/video-player-captions.md` | **视频播放器与字幕**：立场「播放器不是皮肤，是一份关于时间的契约：任何时刻用户都要能回答『现在播到哪、能不能控制、听不见时看什么』」+ **三条裁决**（① 控件层是契约层，`<video controls>` 的键位/焦点/全屏先接受再扩展，自绘必须逐条还回 Space/K、←→ ±5s、↑↓ 音量、M 静音、F 全屏、C 字幕；② 字幕是内容不是样式，42 字符 × 2 行 × 20 CPS（儿童 17）与 5/6 秒–7 秒同时成立，超限拆条不压字号；③ 默认不自动播放有声视频，WebKit 只放行 muted 或无音轨，未静音即播会 pause）| 视频播放器 / 视频控件 / 字幕 / WebVTT / 自动播放 / 画中画 / 全屏 / 移动端内联播放 |
-| `references/email-design.md` | **邮件设计与 EDM 排版**：立场「邮件不是网页的降级版，是一条被客户端引擎、体积截断与深色反色共同挤压的版式通道」+ **三条裁决**（① 四种渲染引擎血统（Word / WebKit / Blink / Gecko），600px 是产物；② 图片可删、文字必达，屏蔽态仍要能读；③ 体积是排版约束，102KB 截断线 · 85KB 安全线 · `<style>` 16KB）+ 七层判层 / caniemail 40 行实测与 11 行特性替代表 / 图片三事实 / 深色三通道 / 主题行与 preheader 预算 / 中文 25–32 字一行 / 20 条反模式与 20 条自检 / 6 段可跑校验 |
-| `references/quote-invoice-documents.md` | **报价与发票单据**：立场「发票是一条能被机器逐行复核的金额脊柱 + 一条能回溯到报价与订单的身份链；设计能决定字段层级与版式，不能决定税基、编号规则与红冲条件」+ **三条裁决**（① 五个数被 BR-CO-10/13/15/16 锁死，页面只有一个「应付」BT-115；② 舍入逐层发生、1 分钱必有落点；③ 已开出的单据只能更正或红冲，不能编辑）+ §1 七问判层与四类构型（报价 / 订单确认 / 发票 / 贷项）/ §2 号码与日期（20 位数电票结构、`YYYY-MM-DD`）/ §3 金额脊柱与两税率实跑样例 / §4 税分类码与票面 17 项 / §5 三单字段映射与 Skonto / §6 ZUGFeRD 混合载体与数电票交付 / §7 A4 版式与首屏骨架 / §8 状态机与账龄 / §9 数据模型与渲染管线 / §10 法标清单 / §11 反模式 20 / §12 自检 20 / §13 六段可跑校验 / §14 取源限制 9 条 | **报价单 / 报价 / 形式发票 / 发票 / 电子发票 / 增值税发票 / 数电票 / 红字发票 / 红冲 / 贷项通知 / 订单确认 / 采购订单 / PO 号 / 收据 / 对账单 / 账龄 / 付款条件 / ZUGFeRD / Factur-X / Peppol / XRechnung / PDF/A-3** |
-| `references/pricing-localization.md` | **定价本地化**：立场「价格不是一个数字，是一个三元组 `(金额, 币种, 含税口径)`；设计能决定三元的展示归属与时机，不能决定取值」+ **三条裁决**（① 小数位由 ISO 4217 定、含税口径由销售地法规定，`¥1,234.50` 不存在；② "原价"是法定回溯窗口——DE 30 日 / CN 7 日 / JP 8 周，不是文案自由；③ 税额由含税价反算 `×r/(1+r)`，逐行取整与汇总取整必差 1 分，差额必须记账）+ §1 七问判层与四种构型 / §2 最小单位表与 `currencyDisplay` 四档 / §3 三种含税口径（EU 15% 框架 / 德 19-7-0 / 英 20-5-0 / 日 10-8 与総額表示 / 中人民币金额）/ §4 反算与取整记账 / §5 价格点与 FX 缓冲 / §6 法定原价窗口 / §7 Grundpreis 与 10g 豁免 / §8 格式与尾数 / §9 price book 与结算币种 / §10 法标清单 / §11 反模式 20 / §12 自检 20 / §13 六段可跑校验 / §14 取源限制 7 条 | **定价本地化 / 价格本地化 / 多币种 / 币种切换 / 货币小数位 / 含税价 / 不含税 / VAT / 消费税 / 総額表示 / 税额 / 税额反算 / 地区定价 / 区域价格 / 购买力定价 / 汇率换算 / 划线价 / 原价 / 折扣率 / 单位价格 / Grundpreis / 价格点 / 结算币种 / 最小收款额** |
+**当前版本 v52 · 2026-11-19**：v52 是一次减法——11.5 万字符的版本史迁入 `CHANGELOG.md`，逐版来源迁入 `SOURCES.md`，600 条规范还给 `references/`；主文件从 1,114 行收敛为「判断流程 + 按需读取的资产路由」。v38–v51 的逐版基线见 `CHANGELOG.md`。
 
 ---
 
-## 工作流：接到任何设计任务时按此执行
-
-### 第 0 步 · 先检索，别整份读
-
-资产已 56 份参考、约 165 万字符。**整份读完等于浪费上下文，而答案通常只在一节**。动手前：
-
-```bash
-python scripts/dp_search.py "关键词"      # 命中章节 + 行号 + 摘要
-python scripts/dp_search.py --topic       # 不确定关键词时，先看全部主题
-```
-
-**别名层**：`memory/aliases.json` 把用户的口语与知识库术语对上（"转圈"→loading、"弹窗"→dialog、"冒泡"→toast）。检索会自动以 0.45 权重追加同义词召回，**只影响召回、不改变下面的意图路由优先级**；规范词命中仍占主导。查不到时先 `--no-alias` 对比一次，确认是"没这个词"还是"别名没收录"。AIGC / 内容标识 / C2PA / AI 味等新说法已进别名层，仍只影响召回；设计伦理侧把「暗黑模式 / 诱导 / 一键关闭 / 自动续费 / 取消订阅 / 默认勾选 / 防沉迷 / 包容性」等口语也接进别名层（**注意「暗黑模式」在口语里指 dark patterns，与「暗色模式」dark mode 是两回事，别名只补召回、路由仍按意图判定**）；组件 API 侧把「换标签 / 插槽 / 受控非受控 / 透传 props / 组件发版」等口语也接进别名层（**「插槽」在 Vue 语境与 React `children` 语义不完全等价，别名只补召回，判层仍按 §5 五套 API 对照**）；字体排印侧把「排版 / 字体 / 字号 / 行高 / 行距 / 字距 / 字体回退 / 缺字 / 字重 / 可变字体 / 等宽数字 / 字体加载 / 字库 / 字体商用」等口语也接进别名层（**「字体加载」既可能问 `font-display` 也可能问授权或子集化，别名只补召回，判层仍按 `typography-system.md` §2 六层模型**）。形状与深度侧把「圆角 / 倒角 / 半径 / 阴影 / 投影 / 材质 / 毛玻璃 / squircle / 同心圆角 / 层叠顺序」等口语也接进别名层（**「层级」「深度」「浮层」「z轴」等词已在既有「表面层级」组，本轮不重复收录；别名只补召回，判层仍按 `shape-elevation.md` §2 五层模型**）。视觉层级侧把「格式塔 / 完形 / Gestalt / 邻近性 / 相似性 / 闭合性 / 共同区域 / 视觉动线 / 眼动 / F 型 / 认知负荷 / 希克定律 / 菲茨定律 / 7±2 / 组块 / 前注意 / 序列位置 / DOM 顺序 / 焦点顺序 / 标题结构」等口语也接进别名层（**别名只补召回，判层仍按 `visual-hierarchy-gestalt.md` §2 三层模型；「层级」「深度」「浮层」「z轴」等词已在既有「表面层级」组，本轮不重复收录；「7±2」是记忆广度不是导航项数上限，路由仍按意图判定**）。**别名组粒度纪律（#27 实测 + #37 重整）**：新建组 ≤12 词、历史组容忍到 16 词、**>16 词必须拆**，且**组名唯一、成员不跨组重复**（`scripts/audit.py` 会把撞词 / 重名 / 超 16 词判成 FAIL）——一个 95 词的巨型组只要被任一查询词触发，就会注入整组 0.45 权重词，把浓缩摘要型章节顶到不该有的 top1，污染历史查询；新说法多时**拆成多个子主题小组**，不要攒成一个大组。内容可发现性侧把「可发现性 / findability / 搜不到 / 内容找不到 / 搜索框 / 站内搜索 / 自动补全 / autocomplete / 信息气味 / information scent / Learn More / 链接文案 / 可扫读 / scannability / 阅读等级 / Flesch / 简明语言 / 零结果 / no results」等口语也接进别名层（**别名只补召回，判层仍按 `content-findability.md` §2 四层链路模型；「404」已在既有「错误」组、「树测试」已有独立组、「面包屑 / 导航」已在既有「导航」组，本轮不重复收录；「Flesch 分数」不等于 SC 3.1.5 的合规门槛，路由仍按意图判定**）。 直接操纵与指针交互侧把「拖拽 / 拖放 / 拖动 / 指针 / 手势 / 直接操纵 / drag and drop / pointercancel / touch-action / 拖动替代 / 列表重排 / 长按 / 磁吸 / 触控目标」等口语也接进别名层（**「目标尺寸」「命中区域」「按钮太小」「点不到」已在既有「菲茨定律」组，本轮不重复收录；「取消」相关口语已在「取消订阅」「动画中断」组，本轮只收「拖动取消」这一复合说法；别名只补召回，判层仍按 `direct-manipulation.md` §2 四段链路模型**）。；对话式 / 生成式界面侧把「聊天机器人 / AI 助手 / 逐字蹦 / 打字机效果 / 停止生成 / 重新生成 / 读屏刷屏 / 生成式卡片」等口语也接进别名层（**仍是检索层别名，不改下面的意图路由优先级**）；叠加层与模态性侧把「焦点陷阱 / 背景不可交互 / 顶层栈 / Popover API / closedby / 轻量关闭 / 底部抽屉 / 命令面板 / 遮挡焦点 / 退出路径」等口语也接进别名层（**「弹窗」「对话框」「模态框」「遮罩」「popconfirm」已在既有「模态」组，本轮不重复收录；「层级」「深度」「浮层」「z轴」已在既有「表面层级」组，本轮不重复收录；别名只补召回，判层仍按 `overlays-modality.md` §1 四问判型；不改下面的意图路由优先级**）；定价与结账侧把「定价页 / 价格表 / 价目表 / 三档 / 档位 / 推荐档 / 最受欢迎 / 月付 / 年付 / 按月 / 按年 / 划线价 / 原价 / 折扣 / 打折 / 优惠券 / 结账 / 结算 / 下单 / checkout / 运费 / 包邮 / 税费 / 服务费 / 附加费 / 总价 / 实付 / 复核页 / 核对页 / 支付方式 / 钱包 / 免密支付 / 游客结账」等口语也接进别名层（**「购物车」「支付」「定价」「价格表」已在既有组，本轮不重复收录；「弹窗」「遮罩」等已在既有组不动；别名只补召回，判层仍按 `pricing-checkout.md` §1 判层六问；不改下面的意图路由优先级**）；通知与触达侧把「推送 / 推送通知 / push / 站内信 / 站内通知 / 系统通知 / 告警 / 提醒 / 消息中心 / 收件箱 / inbox / 未读 / 已读 / 小红点 / 红点 / 角标 / badge / 免打扰 / 勿扰 / 静音 / 免扰时段 / 通知偏好 / 通知设置 / 订阅偏好 / 偏好中心 / 营销邮件 / 交易邮件 / 摘要邮件 / 周报邮件 / digest / 系统权限 / 推送授权 / 通知权限 / 临时授权 / provisional / 一键退订 / 拒绝后 / 二次请求」等口语也接进别名层（**「退订」已在既有「取消订阅」组、不重复收录；别名只补召回，判层仍按 `notifications-messaging.md` §1 六问判层；不改下面的意图路由优先级**）认证与账户侧把「登录 / 登录页 / 注册页 / 认证 / 身份验证 / 账户 / 忘记密码 / 找回密码 / Passkey / 通行密钥 / WebAuthn / 无密码 / 指纹登录 / 面容登录 / 安全密钥 / MFA / 2FA / 二次验证 / OTP / 动态口令 / 恢复码 / 会话超时 / 登出 / 单点登录」等口语也接进别名层（**「注册」「登录页」已在既有「表单」组、「退出登录」相关口语归「设置」侧，本轮不重复收录；「验证码」在口语里既指 OTP 也指图形 CAPTCHA，别名只补召回，判层仍按 `auth-account-ux.md` §1 六问与 §10 认知测试边界；不改下面的意图路由优先级**）。键盘侧把「快捷键」「键位」「热键」「组合键」「快捷键冲突」「快捷命令面板」「快速跳转」「全键盘操作」这些口语也接进别名层（**快捷键 / 快捷命令面板 / 键盘可访问性**三组 33 词；不改既有 `_weight` 0.45 与路由顺序）。协作侧把「实时协作」「多人协作」「协同编辑」「在线状态」「实时光标」「正在输入」等口语也接进别名层（**实时协作** 1 组 12 词；只补召回，不改路由优先级与 0.45 权重）。定价侧把「定价本地化」「价格本地化」「多币种」「币种切换」「含税口径」「地区定价」「区域价格」「购买力定价」「汇率换算」「价格点」「单位价格」「税额反算」等口语也接进别名层（**定价本地化** 1 组 12 词；只补召回，不改路由优先级与 0.45 权重）。
-
-拿到「文件 §章节 + 行号」后**只读那一段**（`Read` 带 offset/limit）。检索不到再全读或联网。若命中为空且判断知识缺口真实存在，这本身就是升级信号——记进 `memory/design-log.md` 的待挖项。
-
-### 第 1 步 · 识别设计意图
-
-| 意图 | 典型说法 | 走哪些步 |
-|---|---|---|
-| **从零做视觉** | "做个落地页/海报/官网" | 2→3→4→5→6 全流程 |
-| **改进现有设计** | "这个页面不好看/帮我优化" | 3（针对现状）→4→5→6 |
-| **只要灵感** | "给我些参考/导航栏怎么设计" | 第 4 步：元素级→输出可视化设计板；风格级→推荐清单 |
-| **审美判断** | "这两个方案哪个好" | 用第 5 节原则逐条对照，给立场明确的结论 |
-| **评估需求** | "这个想法可行吗/好看吗" | 第 3 步单独输出完整评审 |
-| **要设计规范/系统** | "给我一套规范""统一一下风格" | 4（定气质）→5.5（token 表）→产出 DESIGN.md |
-| **对标某品牌** | "做成 Linear/Vercel 那种感觉" | 查 `design-md-format.md` §3 品牌 DNA → 定制化 |
-| **中文项目** | 任何中文界面（默认情况） | **先读 `chinese-design.md`**，再走对应流程 |
-| **动效/微交互** | "加个动效""这个动画好怪""按钮反馈""页面切换" | **先读 `motion-system.md`**：§1 判该不该动 → §3 取时长 → §2 取曲线 → §4 查场景 |
-| **图表/仪表盘/大屏** | "做个数据看板""这个图表好丑""用什么图表""KPI 卡怎么排" | **先读 `dataviz.md`**：§1 判关系 → §2 选图形 → §3 取色板 → §4 定轴 → §7 排布局 |
-| **图表配色/图例/轴** | "图表颜色太乱""轴怎么设""图例放哪" | `dataviz.md` §3（三类色板 hex）· §4（坐标轴铁律 + G2 数值）· §5（图例与直标） |
-| **图表审美诊断** | "这个图表哪里不对" | `dataviz.md` §10 反模式逐条对照，给立场明确的结论 |
-| **表单/输入页** | "做个注册页""这个表单好难填""校验怎么提示""字段太多怎么排" | **先读 `form-table.md`**：§2 定标签对齐 → §3 按内容定宽 → §6 定校验时机 → §7 写错误文案 → §10 选布局梯度 |
-| **表格/列表页** | "做个数据列表""表格太挤/太丑""哪列该右对齐""要不要分页" | `form-table.md` §12 定行高 → §13 列设计 → §14 分页·固定列·批量·空态 |
-| **登录/验证码/身份验证** | "登录页怎么设计""验证码框""能不能自动填充" | `form-table.md` §9（验证码单框、密码可粘贴）+ §11（WCAG 3.3.7/3.3.8） |
-| **表单/表格诊断** | "这个表单/表格哪里不对" | `form-table.md` §16 反模式 18 条逐条对照，给立场明确的结论 |
-| **滚动/转场实现** | "滚动渐显""切页过渡""卡片放大" | `motion-system.md` §7（View Transitions / scroll-driven 代码） |
-| **无障碍/合规** | "要过无障碍检测""符合 WCAG""政府/金融项目验收""读屏能用吗" | **先读 `accessibility.md`**：§1 定口径 → §2 对比度 → §3 焦点 → §17 自检 25 条 |
-| **焦点/键盘问题** | "Tab 键走不了""焦点框看不见""弹窗里 Tab 跑到背景""点了不显示焦点" | `accessibility.md` §3（三层标准 + 可抄样式）· §4（顺序/陷阱/返回）· §5（被粘性栏遮住） |
-| **读屏/播报** | "读屏念不出来""动态更新没反应""错误提示要播报吗" | `accessibility.md` §8（语义与 ARIA）· §10（aria-live 纪律）· §14（15 分钟实测脚本） |
-| **色盲/对比度争议** | "红绿色盲能分清吗""这个灰够不够""要不要上 APCA" | `accessibility.md` §2（四档阈值）· §12（不靠颜色 + Okabe–Ito 8 色）· §19（APCA 立场） |
-| **色彩科学 / 配色 / 色板生成** | "配色丑""渐变假发灰""对比度怎么算""色板怎么生成""HSL 还是 OKLCH""色相旋转""色盲安全""Display P3" | `references/color-science.md` §2（色彩空间谱系）· §3（感知均匀性·HSL 为何撒谎）· §5（OKLab/OKLCH 公式与 CSS）· §6（对比度双算法）· §8（色板生成四路线）· §9（渐变 OKLab 插值）· §7（色盲与 Okabe–Ito 8 色） |
-| **适老化/银发产品** | "做个长辈版""字号要大""工信部适老化改造" | `accessibility.md` §16（60/48/44 dp、行距 1.3、法标三层）+ `chinese-design.md` |
-| **提示/toast/消息条** | "保存成功提示""toast 停留多久""要不要弹提示""消息放哪" | **先读 `feedback-states.md`**：§1 定层级（L0–L4）→ §3 取时长/位置/宽度 → §3.3 判该不该用 toast |
-| **加载/骨架屏/进度** | "加载中怎么显示""要骨架屏吗""进度条""转圈转太久" | `feedback-states.md` §2（时间阈值→组件映射）· §4（三形态分工 + 进度六铁律）· §14.2（骨架代码） |
-| **空态/无数据** | "列表空的怎么办""没有数据""搜不到结果""空页面" | `feedback-states.md` §5（先判五种空 → 五件套 → 文案公式） |
-| **空状态设计 / 零数据位 / 装饰插画 / starter content** | "空状态怎么设计""空状态文案矩阵""零数据位怎么填示例""装饰插画无障碍""空状态变体全屏容器内""首次操作率怎么算" | `empty-states.md` §4 中英抄写矩阵 → §3 结构五件套 → §7 零数据位 → §5 装饰插画 → §8 变体 → §9 无障碍 → §12 度量 |
-| **错误页/报错文案/重试** | "报错了怎么说""404/500 页""失败后怎么办""错误提示太笼统" | `feedback-states.md` §6（五级错误 + 404/500 规则 + 三段式文案 + 重试纪律） |
-| **删除确认/危险操作** | "删除要不要确认""二次确认怎么写""不可撤销" | `feedback-states.md` §7（NN/g 八条 + 文案模板 + M3 弹窗尺寸 + 焦点纪律） |
-| **保存状态/乐观更新** | "自动保存怎么提示""点了立刻变但失败了""草稿状态" | `feedback-states.md` §4.5（乐观更新三态）· §8.3（保存五态） |
-| **反馈诊断** | "这个提示很烦""为什么用户没看到""弹窗太多了" | `feedback-states.md` §12 反模式 20 条逐条对照，给立场明确的结论 |
-| **响应式/多端适配** | "手机上怎么显示""做个响应式""要适配平板""H5 和 PC 两套吗" | **先读 `responsive-layout.md`**：§1 定策略（视口 or 容器）→ §3 定断点 → §4 选降级动词 → §6/§9/§11 取数值 |
-| **断点怎么定** | "断点设多少""用哪套断点""为什么要 768" | `responsive-layout.md` §2（六体系精确值对照）· §3（内容断而非设备断 + 默认五档）· §3.3（移动优先 vs 桌面优先） |
-| **跨断点怎么变** | "大屏多出来空间怎么用""桌面版要加什么" | `responsive-layout.md` §4（五动词：露出/分割/缩放/移位/换件 + 换件三纪律） |
-| **栅格/版心/最大宽度** | "版心多宽""24 栅格怎么分""内容区要不要限宽" | `responsive-layout.md` §5（gutter 固定 column 流体 + 版心宽度表）· §12（中后台 1440 画板） |
-| **容器查询/组件复用** | "同一个卡片放主栏和侧栏都难看""组件要自适应所在宽度" | `responsive-layout.md` §1（`container-type` / `@container` / `cqi` + 塌陷坑） |
-| **流式字号/clamp** | "字号要跟着屏幕变""clamp 怎么写""大屏字太小" | `responsive-layout.md` §6（公式 + max ≥ 2×min 无障碍要求 + 各断点字号表） |
-| **全屏高度/地址栏遮挡** | "手机底部被挡住""100vh 不对""全屏遮罩多高" | `responsive-layout.md` §7（`vh`≡`lvh`、`svh`/`dvh` 选型、`safe-area-inset`） |
-| **响应式图片** | "图片要几套尺寸""移动端加载大图""图片加载跳动" | `responsive-layout.md` §8（`srcset`/`sizes` 五规则 + `x` 描述符 + `<picture>` + 防 CLS） |
-| **表格在手机/窄屏** | "表格在手机怎么办""要不要变卡片""横向滚动好不好" | `responsive-layout.md` §9（四策略决策 + WCAG 1.4.10 例外边界 + 粘性首列代码） |
-| **中后台适配** | "1366 上错位""侧栏宽度多少""大屏浪费空间" | `responsive-layout.md` §12（1440 画板 / 1366 必测 / 侧栏 208·64 / 内容最小 720） |
-| **响应式诊断** | "这个页面缩放就乱""手机上要横着滑" | `responsive-layout.md` §15 反模式 20 条 + §14 调试与验收（8 档宽度 + 溢出脚本） |
-| **海报/展板/活动图** | "做个海报""A2 展板""活动主视觉""远处要看得清" | **先读 `editorial-layout.md`**：§10（尺寸·出血·安全区·三层信息·远距字号公式）→ §8 定动线 → §19.1 套模板 |
-| **长图/信息长图** | "做张长图""信息图""公众号长图""往下滑的那种" | `editorial-layout.md` §11（字号换算 = 目标×宽÷375 + 一屏一点 + 分段节奏 + 切图规则） |
-| **社媒图/封面/缩略图** | "小红书封面""公众号首图""视频封面""分享卡/OG 图" | `editorial-layout.md` §12（九平台尺寸表 + 120px 缩略图测试 + 各平台裁切区） |
-| **印刷/交印厂** | "要打印""出血多少""印出来颜色不对""CMYK" | `editorial-layout.md` §13（300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 0.25pt / PDF-X4）+ §10.2 |
-| **网格/栏数/gutter** | "分几栏""栅格怎么分""基线网格""版心多宽" | `editorial-layout.md` §2（五型网格选择）· §3（12 栏理由 + gutter 比例 + 基线 4/8px）· §4（版心与页边距 2:3:4:6） |
-| **长文排版/行长行距** | "一行字太多了""行距多少合适""正文读不下去" | `editorial-layout.md` §6（45–90 字符 / 中文 25–40 字 + 120–145% 联动表）· §7（孤寡行 + 断行三件套） |
-| **竖排/繁体直排** | "竖排文字""直排书""从右往左" | `editorial-layout.md` §14.5（`writing-mode` + `text-combine-upright`）· §15（clreq 竖排规则） |
-| **版式诊断** | "排版很挤/很空""看着乱""说不上哪不对" | `editorial-layout.md` §17 反模式 20 条 + §18 自检 18 项逐条对照 |
-| **logo / 标志设计** | "帮我设计个 logo""做个标志""标怎么画""图形标还是字标" | **先读 `brand-identity.md`**：§3 三词定位 → §4 七型选择决策树 → §5 网格与基形 → §7 降级四档 |
-| **VI / 品牌规范手册** | "做套 VI""品牌手册""视觉识别系统""给我一份品牌规范" | `brand-identity.md` §2 四层结构 → §15.3 手册两种体量 → §16 一致性十条 |
-| **品牌色 / 主色定不下来** | "主色选什么""品牌色怎么定""这个颜色能当主色吗" | `brand-identity.md` §8（选色四问 + 配额）→ §9（色阶三条路线）→ §10（tone 映射） |
-| **色阶生成 / 品牌色双主题** | "生成一套色阶""暗色模式品牌色怎么变""色阶有断层/错序" | `brand-identity.md` §9（HCT / Radix 12 步 / 对比度优先）· §10（亮暗 tone 全表） |
-| **清space / 最小尺寸** | "logo 周围留多少""最小能缩到多大""小尺寸就糊" | `brand-identity.md` §6（三口径 + 可抄 CSS）· §7（40px / 10mm + 笔画公式） |
-| **响应式 logo / 多版本** | "小屏 logo 怎么变""要不要做简化版""只放符号行不行" | `brand-identity.md` §7.2（四档与切换阈值） |
-| **图标风格统一** | "图标粗细不一""图标和 logo 不搭""要几套图标" | `brand-identity.md` §13.1（Material/Carbon 两体系 + 四条纪律） |
-| **favicon / 应用图标** | "网站图标怎么做""APP 图标要哪些尺寸""桌面图标糊" | `brand-identity.md` §15.2（ico / 180 / 192 / 512 / maskable 40% / 1024） |
-| **商标 / 素材授权** | "logo 要注册商标吗""字体能商用吗""图标许可能商用吗" | `brand-identity.md` §17（版权≠商标 + 尼斯 45 类 + 四项授权链） |
-| **品牌语气 / 文案调性** | "文案该什么调子""品牌声音怎么定""语气不统一" | `brand-identity.md` §14（NN/g 四维 + 语气词 + 反语气词） |
-| **品牌诊断** | "这个 logo 哪里不对""品牌看着不统一" | `brand-identity.md` §19 反模式 20 条 + §20 自检 18 项逐条对照 |
-| **暗色模式/深色主题** | "做个暗色模式""深色版怎么设计""要不要做夜间模式""暗色下颜色全糊了" | **先读 `dark-mode.md`**：§1 判该不该做（含 NN/g 反面证据）→ §2 取表面层级数值 → §3 定文字档位 → §12 自检 22 项 |
-| **暗色配色/底色选值** | "暗色背景用纯黑还是深灰""#121212 还是 #000""底色多少合适" | `dark-mode.md` §2.5（三种做法取舍）· §2.2/§2.3/§2.4（M3 tone / Ant lighten / Carbon g100 三套精确值） |
-| **暗色文字/对比度不够** | "暗色下字太刺眼""白字看着发虚""辅助文字看不清" | `dark-mode.md` §3（纯白禁用 + 四档实测表 + 45% 陷阱） |
-| **暗色层级/卡片浮不起来** | "暗色下卡片和背景分不开""暗色阴影看不见""弹窗不够前" | `dark-mode.md` §2.1（亮色靠阴影、暗色靠提亮）· §5（两派阴影做法 + 层级对照表） |
-| **暗色边框/分隔线** | "暗色下输入框边界看不见""分割线太亮/太暗" | `dark-mode.md` §4（Ant `#424242` 仅 2.09:1 的实测陷阱 + 3:1 规则） |
-| **暗色品牌色/涨跌色** | "品牌色在暗色下怎么变""红绿在深色底上刺眼" | `dark-mode.md` §6（tone 重映射 + outline 变亮 + 涨跌色双套） |
-| **暗色图片/logo/图标** | "白底图在暗色里发光""logo 深色版怎么办""图标要两套吗" | `dark-mode.md` §7（Apple 双套规则 + 四种死法 + 可抄 CSS） |
-| **主题切换实现/闪白** | "切换时闪一下白""怎么记住用户选择""要不要跟随系统" | `dark-mode.md` §9（`meta color-scheme` + head 内联脚本顺序 + 三态存储约定 + Tailwind v4 写法） |
-| **小程序暗色适配** | "小程序暗色模式怎么配""theme.json 怎么写""切换不生效" | `dark-mode.md` §9.5（`darkmode`/`themeLocation`/变量清单 + 媒体查询不受开关影响的坑） |
-| **暗色诊断** | "暗色版看着脏/灰/闷""这个暗色哪里不对" | `dark-mode.md` §13 反模式 20 条 + §12 自检 22 项逐条对照 |
-| **性能/页面太慢** | "这个页面好慢""加载要好几秒""怎么优化速度""性能预算怎么定" | **先读 `performance-design.md`**：§2 取指标口径 → §3 查 LCP 四分解 → §6 定预算 → §10 过价格表 |
-| **首屏/LCP 不达标** | "首屏白屏久""LCP 4 秒""首屏大图怎么放""首屏要放视频吗" | `performance-design.md` §3（四分解 40/10/40/10 + LCP 图三规则）· §10（首屏视频 ★★★★★ 的代价与替代） |
-| **卡顿/点了没反应** | "点了半天没反应""滚动卡""INP 超了""按钮要等一下" | `performance-design.md` §4（INP 三阶段 + 长任务 50ms + 100ms 可见反馈）· §11.4（强制同步布局） |
-| **抖动/CLS 超标** | "页面会跳一下""图片加载完就顶下去""CLS 0.3" | `performance-design.md` §5（公式 + 五位移源 + `hadRecentInput` 500ms）· §8.5（`size-adjust` 防抖） |
-| **性能预算** | "这个页面能放多少图""JS 不能超过多少""预算怎么定" | `performance-design.md` §6（170KB / 5s 基线 + 六类页面预算表 + 进 CI） |
-| **图片优化/选格式** | "用 WebP 还是 AVIF""图片太大""要几套尺寸""要不要懒加载" | `performance-design.md` §7（格式矩阵 + 25 倍浪费算术 + `srcset` 五规则 + LCP 图三规则） |
-| **字体加载/字体闪烁** | "字体晚到字会跳""首屏没字""中文字体太大""font-display 怎么选" | `performance-design.md` §8（五档数值 + 子集化 + WOFF2 + `size-adjust` 可抄 CSS） |
-| **这个效果贵不贵** | "想加玻璃拟态/视差/3D/粒子/背景视频""高级感怎么不卡" | `performance-design.md` §10（**视觉手法性能价格表** ★1–★5 逐项 + 替代方案）· §12（三档决策分级） |
-| **动效掉帧/渲染慢** | "动画一卡一卡""滚动掉帧""手机发热""will-change 该不该加" | `performance-design.md` §11（16.67ms 帧预算 + 图层内存 w×h×4 + 只动 transform/opacity） |
-| **弱网/低端机/省流** | "用户网很差""低端安卓卡""要不要做省流版" | `performance-design.md` §13（三层降级 + 弱网设计对策）· §12.2（C 档四条硬约束） |
-| **小程序包体积/启动慢** | "主包超 2MB""要不要分包""setData 卡""小程序启动慢" | `performance-design.md` §14（单包 2MB / ZSTD / 分包四手段 / `setData` 两铁律 / 5 条自检） |
-| **性能诊断** | "这页面到底慢在哪""Lighthouse 60 分""怎么验收性能" | `performance-design.md` §15（工具分工 + 验收顺序 + CI 配置）· §16 反模式 20 条 · §17 自检 18 项 |
-| **设计交付 / 标注 / 切图** | "出个标注稿""怎么交给开发""切图要几套""spec 怎么写" | **先读 `handoff-collaboration.md`**：§3 取 spec 9 字段 → §4 只标四类 → §6 命名四套 |
-| **写验收标准 / AC** | "怎么算做完""验收标准怎么写""这个需求怎么验收" | `handoff-collaboration.md` §8（Given/When/Then 3–5 步 + 五维模板 + 三种坏写法） |
-| **设计评审会** | "评审会怎么开""总被说不好看""评审没结论" | `handoff-collaboration.md` §9（两种评审之别 + 30 分钟节奏 + 2 正 1 改 + reframing + 五坑） |
-| **设计走查 / 还原度** | "走查怎么做""还原度差""上线就变样""怎么跟开发对齐" | **先读 `handoff-collaboration.md`**：§10 三遍法 → §10.4 文档 9 字段 → §11 定 P0–P3 |
-| **缺陷分级 / 能不能上线** | "这算 P0 吗""这个能上线吗""哪些必须修" | `handoff-collaboration.md` §11（P0–P3 判定 + 门禁 + 三条分级纪律） |
-| **组件命名 / 变体属性** | "组件怎么命名""变体属性怎么设""为什么报冲突""属性太多了" | `handoff-collaboration.md` §6（四套命名）· §7（四类属性 + 3–5 上限 + 三条禁令） |
-| **组件库版本 / 变更通告** | "这次改动算大版本吗""怎么发版""怎么废弃旧 token" | `handoff-collaboration.md` §12（SemVer 11 条 + 映射表 + 废弃需 1 个 MINOR + MAJOR 带迁移表） |
-| **token 交付 / 设计变量导出** | "设计变量怎么给代码""tokens.json 怎么写""Style Dictionary 怎么配" | `handoff-collaboration.md` §13（DTCG 格式 + SD 合并顺序 + 五条纪律） |
-| **交付质量 / 回归** | "改 A 崩 B""怎么防止视觉回归""走查问题太多" | `handoff-collaboration.md` §14（回归四层 + 工具实测选型）· §17（六个指标） |
-| **按钮文案 / 操作文案** | "按钮文字怎么写""OK 还是确认""提交还是发送""按钮文字太长" | **先读 `ux-writing.md`**：§2 动词开头 2–4 词 · §2.3 中文 2–4 字 · §2.4 省略号规则 |
-| **错误文案 / 报错文案** | "错误提示怎么写""格式不正确好不好""报错了怎么说""错误文案太笼统" | `ux-writing.md` §3 三层结构（发生了什么+为什么+怎么修）· §3.2 禁用词表 · §3.4 中文模板 10 类 · ≤30 字 |
-| **空态文案** | "空状态怎么写""没有数据文案""空页面文字""搜索无结果提示" | `ux-writing.md` §4 五件套 + 五种空态区分（首次/搜索/筛选/错误/完成） |
-| **语气 / 语调 / 品牌声音** | "文案什么调子""语气不统一""该不该幽默""太正式/太随意" | `ux-writing.md` §5 四维度模型（NN/g 正式/幽默/尊重/热情）· §5.2 场景矩阵 · §5.3 校准三步 |
-| **表单标签 / 占位符 / 帮助文案** | "标签怎么写""占位符写什么""帮助文案多长""设置项怎么描述" | `ux-writing.md` §6（名词 ≤8 字 / 占位符写示例禁替代标签 / 帮助 ≤16 字 / 设置项说开启后效果） |
-| **对话框 / Toast / 通知文案** | "对话框标题怎么写""toast 写什么""通知文案""确认框文字" | `ux-writing.md` §7（标题说发生了什么禁"提示"/ toast 写具体什么成功 ≤20 字 / 通知 ≤2 行 ≤2 操作） |
-| **引导 / Onboarding 文案** | "引导页怎么写""onboarding 文案""新手引导文字""功能介绍页" | `ux-writing.md` §8（价值优先+做中学+可跳过+持续引导 / 禁功能清单禁"开始使用"） |
-| **导航标签 / 菜单文案** | "导航怎么命名""菜单标签多长""tab 名怎么取""面包屑文案" | `ux-writing.md` §9（名词 ≤4 字统一粒度不用动词 / tab 同级平行 / 面包屑最后一级纯文字） |
-| **术语管理 / 文案一致性** | "术语不统一""叫法不一致""同一个东西叫不同名""文案规范" | `ux-writing.md` §10（术语表结构 + 一致性规则 + 新建≠创建≠导入≠上传） |
-| **大小写 / 标点 / 数字** | "大小写怎么用""标题大写还是小写""中文标点怎么用""数字怎么写" | `ux-writing.md` §11（sentence case 四体系共识 / 中文全角中英加空格 / §12 在线用数字千分位大数万/亿） |
-| **国际化文案** | "多语言文案""翻译要注意什么""文案长度不一样""RTL 文案" | `ux-writing.md` §13 写文案侧速记（禁拼接字符串 / ICU 复数 / 颜色文化差异）+ **`i18n-localization.md` §2 修正膨胀口径：§13 的「按钮 +40%」只对长段落 Safe，microcopy 应按 2–3× 弹性设计** |
-| **文案系统化 / 文案 token** | "文案怎么管理""文案 token""文案评审""文案变量化" | `ux-writing.md` §15（文案 token JSON + 评审清单 8 项 + §19.4 可抄 token 结构） |
-| **文案诊断** | "这个文案哪里不对""写得好不好""文案太啰嗦" | `ux-writing.md` §17 反模式 20 条 + §18 自检 18 项逐条对照 |
-| **演示文稿 / PPT / 幻灯片** | "做个PPT""幻灯片设计""演示文稿""做汇报""做课件""答辩PPT" | `presentation-design.md` 全文（尺寸/安全区/字号/密度/母版/动画转场/投影/可访问性/中文/线上） |
-| **幻灯片模板 / 母版** | "PPT模板""幻灯片母版""版式设计""layout" | `presentation-design.md` §5 母版与占位符（6–8 版式 / 占位符 / logo / Slide Master 步骤） |
-| **字号太小 / 投影看不清** | "PPT字太小""投影看不清""后排看不到" | `presentation-design.md` §3 字号阶梯（最小 24pt / 线上 28pt / Duarte 验证法）+ §7 投影对比度（损失 20–40% 需高 50%） |
-| **转场 / 动画选择** | "用什么转场""PPT动画""Morph""切换效果" | `presentation-design.md` §6 动画与转场（三档 / Fade ✅ / 华丽 ❌ / Morph 用法 / 全篇统一 1 种 / ≤0.5s / 禁声音） |
-| **线上演示 / 远程** | "线上汇报""Zoom演示""Teams分享" | `presentation-design.md` §10 远程与线上（字号 +4pt / 减少动画 / 高对比 / 关通知） |
-| **演示诊断** | "这个PPT哪里不对""幻灯片好不好" | `presentation-design.md` §16 反模式 20 条 + §17 自检 18 项逐条对照 |
-| **动效编排 / 交错 stagger** | "几个元素依次出现""列表入场太慢""动画顺序怎么排""时间轴" | **先读 `motion-orchestration.md`**：§1 判层 → §2 算总时长（≤400ms、n>6 改整组）→ §3 定 stagger 实现 → §16 查场景 |
-| **列表增删 / 重排动画** | "删掉一项会跳""筛选后整表重新入场""列表重排""key 怎么给" | `motion-orchestration.md` §4 FLIP 算式 · §5 四种操作策略与 mode 三档 · §19.3/§19.4 代码 |
-| **共享元素 / 卡片放大成详情页** | "缩略图变大图""切页元素连着动""共享元素转场""layoutId" | `motion-orchestration.md` §4 vs §6 选型表 · §6 View Transitions · §7 Motion layout 系列 |
-| **View Transitions / 跨文档转场** | "startViewTransition""MPA 页面转场""前进后退不同动画""view-transition-name 重复" | `motion-orchestration.md` §6 六步/伪元素树/三 promise/单例 · §8 MPA·types·bfcache · §19.5 封装 |
-| **动画状态机 / 四态** | "弹窗状态怎么管""entering/exiting""XState""状态迁移" | `motion-orchestration.md` §9 四态模型 + 状态×事件矩阵 + 并行 region · §19.6 代码 |
-| **动画中断 / 连点就乱** | "连点跳回起点""动画取消""转场并发""cancel/finish""动画卡在中间" | `motion-orchestration.md` §10 三策略 · §11 WAAPI 精确参数与自动移除五条件 · §6.6 单例 |
-| **进出场动画 / display:none** | "popover 没有入场动画""@starting-style""退场看不见""overlay" | `motion-orchestration.md` §12 四件套与两处顺序陷阱 · §19.7 代码 |
-| **动效编排诊断** | "这两个动画打架""动画顺序乱""编排哪里不对" | `motion-orchestration.md` §17 反模式 20 条 + §18 自检 20 项逐条对照 |
-| **出海 / 多语言适配总判层** | "要做出海版""加个语言包""多语言怎么做""i18n / L10n 从哪下手" | **先读 `i18n-localization.md` §1 三层判层**：标记层（`lang`/`dir`）+ 布局层（弹性/逻辑属性/镜像）+ 数据层（复数/日期/数字/姓名/排序）**三层同时改**，不是翻译完字符串就完事 → §12 场景 / §20 自检 |
-| **RTL / 阿拉伯语 / 希伯来语 / 双向文本** | "阿拉伯语版怎么排""RTL 图标要翻吗""数字要不要镜像""dir 怎么设" | `i18n-localization.md` §3（`<html dir="rtl">` + W3C「Never use CSS to apply the base direction」+ 八连带效果 + `dir="auto"`·`dirname`·`bdi`·RLM/LRM·isolates）· §4 logical properties 全映射 · §5 Material 镜像白/黑名单（媒体进度条不镜像 / 数字不镜像但需本地化） |
-| **翻译后文案变长 / 按钮被截断** | "德语一翻就撑破""按钮文字溢出""翻译后折行难看""要留多少余量" | `i18n-localization.md` §2 W3C/IBM 膨胀表（**≤10 字符 200–300% → microcopy 2–3×**，11–50 字符 1.6–2.0×，段落 1.3×）+ §2.3 对 `ux-writing.md` §13「+40%」的裁决 + 四因素 + `min-inline-size`/`max-inline-size`/允许换行 |
-| **复数 / 数量文案 / ICU MessageFormat** | "1 item 和 2 items 怎么翻""俄语复数""中文没有复数还要分支吗""字符串拼接" | `i18n-localization.md` §6 CLDR 六类（`one`≠1 / `other` 必需 / 中日韩仅 `other`）+ §7 ICU MessageFormat 禁拼接、`select` 外层 `plural` 内层、`offset:1`、`=0`/`=1`、ASCII 撇号与 U+2019、skeleton `::` |
-| **日期 / 数字 / 货币 / 列表 / 排序本地化** | "日期格式各国不一样""03/09 到底哪天""印度数字分组""日元没有小数""Intl 怎么用" | `i18n-localization.md` §8 `Intl` 全 API 与 Node v22.22.2 实测（`DurationFormat` 需能力检测 / `zh_cn` 抛 RangeError）+ §9 日期 · §10 数字与货币（`hi-IN` 12,34,567.89 / `JPY` 无小数）· §11 `ListFormat`·`Collator`·`Segmenter`·`weekInfo` |
-| **姓名 / 地址 / 文化适配** | "要不要拆姓和名""海外地址表单""名字排序""颜色在别国有忌讳吗" | `i18n-localization.md` §12 姓名单一 `Full name`（W3C 反例：强拆会让用户填 `.` 或 `Mr.`）· 地址/单名/双姓/patronymic · §15 文化适配（不靠刻板印象，图标/颜色/图像需本地复核） |
-| **伪本地化 / 多语言测试 / 译者交付** | "怎么在没翻译前测出溢出""pseudolocalization""en-XA""给译者什么" | `i18n-localization.md` §14 五变换（音标 / ①–⑨ / `^` 定界暴露截断与拼接 / 唯一 id / 加长 40%·200%·400%）+ `en-XA`·`en-XB`·`qps-ploc*`·`qaa–qtz` 私有段 + §16 译者交付包（上下文截图/字符上限/变量说明/复数样例/术语表）+ §17 框架落地 |
-| **国际化诊断** | "这个多语言页面哪里不对""RTL 看着别扭""本地化评审" | `i18n-localization.md` §19 反模式 20 条 + §20 自检 20 项逐条对照（含 `lang`/`dir`、逻辑属性、镜像、复数、伪本地化、能力检测） |
-| **找工具/资产** | "要个图标库/截图工具" | 查 `references/tools.md` 或 `resources.md` |
-| **想提升自己** | "我该怎么学设计""从哪开始" | 查 `knowledge-map.md`，按 L0→L4 定位 |
-| **建 / 重写设计系统文档站** | "搭个设计系统文档站""文档站怎么组织""写一套设计系统文档""文档没人看" | `design-system-docs.md` §1 Diátaxis 四象限判层 + §4 信息架构四条地基 + §7 完整组件页填充范例 |
-| **组件文档页怎么写** | "组件文档写哪几节""props 表之外还要写什么""组件页模板" | `design-system-docs.md` §2 GOV.UK 九段式逐节拆解 + §3 五问验收与字段清单 + §7 可复制范例 |
-| **文档信息架构 / 目录 / 命名 / 链接** | "文档导航怎么分""链接该怎么命名""找不到文档" | `design-system-docs.md` §4 四条地基 + §5 Google 三层参考层级与 style highlights + §6 示例代码五条硬规则 |
-| **文档版本化 / docs versioning** | "文档要不要分版本""多版本怎么维护""Docusaurus 版本化" | `design-system-docs.md` §10 官方规则（`versioned_docs`/`versions.json`/<10/preview 2–3/patch 不切版本）+ §9 Carbon semver 对接 |
-| **changelog / 迁移文档 / 发版说明** | "更新日志怎么写""发版说明""MAJOR 要迁移指南吗" | `design-system-docs.md` §11 Keep a Changelog 1.1.0 七原则六类 + §12 MAJOR 迁移文档必须可机器校验 |
-| **贡献指南 / 文档治理 / 准入** | "谁能往设计系统里加组件""贡献标准""怎么审文档 PR" | `design-system-docs.md` §16 GOV.UK 准入（Useful·Unique 提案 / Usable·Consistent·Versatile 发布 / 1 个月·3 个月阈值）+ §9 状态与成熟度 |
-| **docs-as-code / Autodocs / MDX / Code Connect** | "文档跟代码一起维护""Storybook 自动生成文档""MDX 怎么写""Figma 和代码对不上" | `design-system-docs.md` §14 Autodocs `tags` / MDX `of={}` 与 attached-unattached / 六 Doc Block + §15 Figma Code Connect + §13 DTCG `$description` |
-| **文档陈旧 / 漂移诊断** | "文档半年没更新""数值和代码对不上""文档评审" | `design-system-docs.md` §17 新鲜度与漂移可测指标（自举到 `mindmap.py` 接线体检）+ §19 反模式 20 条 + §20 上线自检 20 项 |
-| **AI 生成设计 / 工作流** | "用 AI 做个页面""AI 生成的设计怎么用""要不要上 AI 工具""AI 出图流程" | **先读 `ai-design-toolchain.md` §1 五层地图（每层人工闸门）→ §9 八步工作流 → §13 选型三问** |
-| **AI 内容标识 / 合规 / 打标** | "AI 图要不要打标""生成内容标识怎么做""导出后水印没了""AIGC 合规" | `ai-design-toolchain.md` §2 中国法规栈与 14 条设计动作 · §3 中欧美三法域矩阵 · §21.1 标识检查脚本 |
-| **AI 版权 / 商用授权 / prompt 算不算作者** | "AI 生成的图能商用吗""提示词算不算作者""版权归谁""客户资产能不能贴进模型" | `ai-design-toolchain.md` §4 USCO 裁决与可举证创作链 · §5 三概念分离 · §6 训练数据与授权四查 |
-| **提示词 / 结构化输出 / eval** | "提示词怎么写""prompt 怎么管版本""换模型输出变了""怎么评估生成结果" | `ai-design-toolchain.md` §8 四区块结构与评估工程化 · §15 prompt SemVer 与 eval · §21.2 模板 · §21.6 YAML |
-| **AI 味 / 生成界面验收** | "这页面一看就是 AI 做的""AI 生成的 HTML 怎么验""AI Slop Test""九态没做" | `ai-design-toolchain.md` §11 AI Slop Test 与 8 维 DO/DON'T · §12 12 类固有缺陷 · §20 20 项自检 · §21.4 静态扫描 |
-| **AI 功能界面 / 人机交互 / 不确定性披露** | "AI 助手怎么设计""要不要告诉用户这是 AI""生成错了怎么改""置信度怎么展示" | `ai-design-toolchain.md` §10 HAX G1–G18 界面落点 · §16 不确定性与披露 · §17 隐私与全局控制 |
-| **设计伦理 / 欺骗性设计 / dark patterns** | "这个弹窗是不是诱导""有没有暗黑模式""怎么判合规""客户要加挽留屏" | **先读 `design-ethics-inclusion.md` §1 三条立场 → §2 现行 18 类 → §3 EDPB 六类机制 → §18 判法域 → §19 反模式 → §21.1 对称性脚本**；**注意旧教程分类与「前五日」口径均已过时（§2 / §9）** |
-| **隐私同意 / cookie banner / 撤回同意 / 权限申请** | "同意弹窗怎么设计""拒绝按钮放哪""能不能不授权不让用""撤回入口在哪" | `design-ethics-inclusion.md` §4 CPPA §7004 五原则与步数测量 · §5 §7003 可读性 · §6 PASS/FAIL 构型表 · §7 PIPL 五条底线 · §21.1 脚本 |
-| **自动续费 / 取消订阅 / 默认勾选 / 搭售** | "自动续费要提前几天提醒""取消流程怎么做""能不能默认勾上""搭售默认选哪个" | `design-ethics-inclusion.md` §9 **2025 修正的现行第十八条 + 反陈旧裁决** · §10 第 13/16/17 条默认值禁区 · §21.3 脚本（含旧文案拦截） |
-| **一键关闭 / 开屏广告 / 弹窗广告** | "关闭按钮要做多大""能不能等 5 秒再关""关了又弹出来" | `design-ethics-inclusion.md` §8 第 10 条五类禁止与三条数值 · §21.2 静态扫描 |
-| **未成年人 / 防沉迷 / 成瘾设计 / 无限滚动** | "未成年人模式怎么做""要不要做消费上限""信息流要不要自动播放""连胜打卡" | `design-ethics-inclusion.md` §11 国务院令第 766 号 42–45/47 条逐条动作 · §12 成瘾机制四红线 |
-| **包容性设计 / 认知无障碍 / COGA** | "怎么照顾认知障碍用户""包容性和无障碍有什么区别""要给几种完成方式" | `design-ethics-inclusion.md` §14 Microsoft 三原则与 Persona Spectrum · §15 七原则 · §16 COGA 八目标与 Test with real users · §17 合规×包容四象限 · §21.4 YAML |
-| **组件 API / props 契约 / 受控非受控** | "组件 props 怎么设计""这个组件好不好用""value 和 defaultValue 能同时给吗""受控能转非受控吗" | **先读 `component-api-design.md` §2 受控契约 → §3 状态提升 → §10 API surface 十类字段 → §14 SemVer** |
-| **组合 / 插槽 / compound components / children** | "组件怎么组合""要不要拆成子组件""插槽怎么传""render prop 和 children 选哪个" | `component-api-design.md` §4 组合优于继承 · §5 五种换元素 API · §8 compound components |
-| **asChild / render / slots / component / 换元素** | "想把 Button 渲染成 a 标签""自定义组件接不上 asChild""slotProps 和直接 props 谁优先" | `component-api-design.md` §5 五套 API 对照 · §6 开放扩展四条 · §7 props 合并优先级 · §20.2 合并断言脚本 |
-| **ref 转发 / 命令式 API / React 19 forwardRef** | "要不要 forwardRef""暴露 open/close 方法行不行""React 19 还要包 forwardRef 吗" | `component-api-design.md` §9 **React 19 反陈旧裁决** · §11 回调契约 · §16 TypeScript 契约 |
-| **复合组件键盘 / roving tabindex / aria-activedescendant** | "Tab 键能不能只停一次""方向键怎么管焦点""弹窗关闭后焦点去哪" | `component-api-design.md` §12 APG 键盘契约 · §13 `data-*` 状态暴露 · `accessibility.md` §3 焦点三件套 |
-| **组件库发版 / API SemVer / codemod / argTypes** | "改了默认值算什么版本""组件文档怎么自动生成""Controls 面板怎么配" | `component-api-design.md` §14 API SemVer（改默认值=MAJOR）· §15 Storybook `argTypes` · §20.1 lint 脚本 |
-| **图标系统 / 图标设计** | "图标怎么设计""图标风格不统一""图标网格多少""图标多大""图标和文字间距""图标字体还是 SVG""图标规范" | **先读 `iconography.md` §1 决策树 → §2 网格与 keyline → §3 描边 → §4 尺寸阶梯 → §10 可访问性 → §13 库选型** |
-| **图标可访问性** | "图标读屏读不出""装饰图标要 aria 吗""icon-only 按钮怎么命名""图标对比度不够" | `iconography.md` §10（装饰 `aria-hidden`+`focusable=false` / 有意义 `role=img`+`aria-label` / icon-only 按钮命名 / 非文本对比度 ≥3:1 / 永不只靠颜色） |
-| **加载转圈 / spinner / 状态图标** | "转圈怎么转""loading 图标""spinner 转太快""加载动画" | `iconography.md` §8（1–1.4s linear infinite）+ §11（`prefers-reduced-motion` 降级） |
-| **图标库选型** | "用哪个图标库""Lucide 还是 Heroicons""Material Icons 怎么用""图标库 star" | `iconography.md` §13 库选型矩阵（Lucide 25.6k★/Tabler 22.6k★/Fluent 11k★/Radix 2.7k★ GitHub API 实测）+ 选型三问 |
-| **导航 / 导航栏 / 菜单 / 信息架构** | "导航怎么设计""菜单放几个""侧边栏还是顶部""汉堡还是 tab""导航栏布局""网站结构" | **先读 `navigation-ia.md` §1 四类职责 → §2 形态决策 → §3 项数铁律 → §7 移动端降级** |
-| **信息架构 / 网站结构 / 菜单组织** | "网站结构怎么规划""菜单怎么分组""层级多深合适""栏目怎么排""导航项放几个" | `navigation-ia.md` §4（深度 vs 广度 / 3-click 迷思 / 信息气味 / 卡片分类·树测试） |
-| **面包屑 / 当前位置** | "面包屑怎么写""怎么告诉用户在第几层""当前页要不要可点" | `navigation-ia.md` §5（位置型/属性型/路径型 + 末级非链接 + aria-current） |
-| **标签页 Tabs** | "TAB 怎么设计""标签页还是侧栏""tab 键盘怎么管""ARIA tabs" | `navigation-ia.md` §6（APG tabs 键盘契约 + tabpanel + 何时用 tabs vs 侧栏） |
-| **底部 Tab / 移动端导航 / 汉堡** | "移动端导航怎么做""底部几个 tab""汉堡菜单好不好" | `navigation-ia.md` §7（Apple ≤5 项 / Material bar·rail·drawer / NN/g 可发现性）+ `responsive-layout.md` §9 降级路径 |
-| **当前位置指示 / 激活态 / you are here** | "怎么标当前页""激活态怎么设计""aria-current" | `navigation-ia.md` §8（≥2 信号 + aria-current + 聚焦态独立） |
-| **导航可访问性 / skip link / 地标** | "导航读屏怎么读""跳过导航怎么加""nav aria-label" | `navigation-ia.md` §9（2.4.1 skip link / 1.3.1 landmark / 2.4.5 multiple ways / 2.4.7 焦点）+ `accessibility.md` §3 |
-| **搜索与导航** | "要不要加搜索""搜索框怎么放""搜索零结果" | `navigation-ia.md` §10（搜索是导航备份 + 占位符写示例 + 零结果三件套） |
-| **设计评审 / critique / 设计走查** | "怎么评审设计""开个评审会""critique 怎么搞""设计走查流程" | `design-critique.md` §1（两种评审分清）+ §2（三前提）+ §5（RACI/异步） |
-| **给反馈 / 反馈话术** | "怎么给设计反馈""反馈太模糊""I like I wish I wonder""2 正 1 改" | `design-critique.md` §3（七铁律：具体/挂目标/品味 vs 工艺/行为化/给观察不给方案跳转） |
-| **接收反馈** | "怎么接收批评""别人挑刺怎么应对""怎么不辩护" | `design-critique.md` §4（四步：不辩护/追问/归类/记录决策） |
-| **设计 by committee / HiPPO** | "委员会改稿""领导一句话就改""谁说了算" | `design-critique.md` §7（反模式：委员会/HiPPO/审美化争论）+ §5（明确 Decider） |
-| **决策留痕 / ADR** | "决策怎么记""为什么这么定""评审结论去哪了" | `design-critique.md` §8（ADR / critique notes 模板）+ §10 自检 19 |
-| **评判框架 / 严重度** | "好不好怎么评""问题严重吗""NN/g 启发式" | `design-critique.md` §6（NN/g 10 启发式 + 严重度 0–4 + DFV + 可取性测试） |
-
-| **视觉风格 / 风格匹配 / 做成 XX 感觉** | "做成 Linear/Vercel 那种感觉""这个风格叫什么""想要高级感/复古感/科技感/温暖感""帮我定个视觉调性""风格匹配""提升审美" | **先读 `visual-style-taxonomy.md` §2 四维信号 → §4 匹配决策**：给参考站走 §4.1 四步拆解，给形容词走 §4.2 信号映射，先拆再选、不套词 |
-| **风格谱系 / 设计运动 / 历史参考** | "这是扁平还是拟物""玻璃拟态能不能用""新拟态是什么""Y2K 风""瑞士风格""野兽派""Memphis" | `visual-style-taxonomy.md` §3 编年谱系（四维签名/何时用/何时不用）+ §5 混搭纪律 + §6 趋势生命周期 |
-| **风格诊断** | "这个风格哪里不对""风格前后不一致""怎么定视觉调性" | `visual-style-taxonomy.md` §10 反模式 20 条 + §11 自检 20 项逐条对照 |
-| **字体排印 / 字号 / 行高 / 行距** | "正文用多大字号""行高多少合适""字距怎么调""定一套字体系统""字号阶梯""排版很挤" | **先读 `typography-system.md`**：§2 六层模型判在哪一层 → §4 rem 阶梯（px 不可访问）→ §5 行高两档与行长 → §17 M3 五角色×三尺寸落 token |
-| **可访问性 / 文本间距 / 200% 缩放验收** | "WCAG 文本间距怎么过""1.4.12 怎么验收""放大到 200% 会不会塌""按钮文字被切""表单 label 重叠" | `typography-system.md` §6（1.4.4 / 1.4.8 / 1.4.12 三关硬数值）· §7（间距覆盖注入验收五步 + §23.3 书签）· §8（两种缩放置 + 容器弹性 + i18n 叠乘）· §23.5 静态扫描 |
-| **中英混排 / 中文排版 / 缺字 tofu** | "中文和英文之间要不要空格""中文标点怎么排""出现方框乱码""字体回退怎么写""全角半角" | `typography-system.md` §16（W3C clreq §2.1.3 ≤1/4 汉字宽·行首行尾无空白 / §1.2 1:1 正方形 / §4.1 全角 ASCII 不入存储层 / §4.2.1 UAX #29 字素丛）· §12 `font-family` 逐字符回退 · §13 `unicode-range` 分片 |
-| **数字抖动 / 等宽数字 / 可变字体 / 字体授权** | "表格数字左右跳""倒计时会抖""tabular-nums 怎么用""可变字体怎么配""字体能商用吗""自托管合规吗" | `typography-system.md` §10（`font-variant-numeric` ↔ OpenType tag 全表）· §9（五注册轴与高层属性优先）· §11（低位 API 纪律）· §18（OFL 1.1 五条件 + 文档不受约束）· §19（9 仓库 GitHub API 实测） |
-| **字体加载 / FOIT·FOUT / CLS 抖动 / 子集化** | "字体晚到字会跳""首屏没字""中文字体太大""font-display 怎么选""size-adjust 怎么调" | `performance-design.md` §8（性能预算侧）+ **`typography-system.md` §14**（三阶段五档决策）· §15（`size-adjust` / `font-size-adjust` 度量对齐）· §13（`unicode-range` 命中一字即整片下载） |
-
-| **圆角 / 形状 / 半径 token** | "卡片圆角多少""圆角怎么统一""写了 50px 怎么没变""胶囊按钮怎么做""圆角和设计稿对不上" | **先读 `shape-elevation.md`**：§10 `border-radius` 语法（百分比参照 width/height、负值无效）→ §11 corner overlap `f=min(L_i/S_i)` 与 `min(w,h)/2` 上限 → §12 嵌套同心 `r=R−p` → §13 七体系圆角 token 精确值 |
-| **阴影 / 投影 / 三层阴影** | "卡片加什么阴影""阴影太重/太淡""三层阴影怎么配""Tailwind shadow 默认值""MUI 阴影参数" | `shape-elevation.md` §7 `box-shadow` 2/3/4 `<length>` 正式语法 · §8 七体系精确对照 · §9 umbra/penumbra/ambient 物理分解与克制原则 · §23.1 可直接抄的 token 表 |
-| **高度层级 / elevation / 表面浮起** | "弹窗要比卡片高几层""M3 elevation 6dp 怎么写 CSS""暗色下卡片浮不起来""表面色阶怎么排" | `shape-elevation.md` §3 裁决一（语义 z-height 非阴影值 + `elevation.css` 单长度陷阱）· §4 六级 `0/1/3/6/8/12dp` · §15 Carbon Layering 与暗色重排 · §19 深度语言三选一 · §23.5 亮暗同 level 表达 |
-| **边界看不见 / 阴影能不能当 3:1** | "白底白卡没边界""输入框只加了浅阴影""无障碍说边界不够 3:1""焦点框能用阴影代替吗" | **先读 `shape-elevation.md` §5**（Python 实跑：5%–12% 黑阴影仅 1.119–1.320:1，3:1 需 `alpha≈0.4176`）→ §6 非文本 3:1 正确落点（边界线 / focus ring / 状态形状）· 全档阈值见 `accessibility.md §2` |
-| **材质 / 毛玻璃 / z-index** | "顶栏能不能用毛玻璃""Liquid Glass 怎么用""玻璃上字看不清""z-index 9999 对吗""浮层被父容器裁了" | `shape-elevation.md` §16 Apple HIG Materials（仅 functional layer / 35% dimming）· §17 玻璃拟态合成开销与降级顺序（含 `backdrop-filter` 性能红线）· §18 语义 z-index 刻度与 stacking context · §23.6 渐进增强代码 |
-
-| **格式塔 / 分组 / 邻近性** | "卡片里塞了两组东西""标签离输入框太远""怎么让用户看出是一组""格式塔怎么用在界面上""完形法则有哪些" | **先读 `visual-hierarchy-gestalt.md`**：§7 IxDF 12 条组织律全表 → §8 可验收四规则（间距比 `g_in×1.5≤g_out` 为工程约定 / 共同区域 / 相似 token / 对齐轴）→ §9 前注意阶段：强调只改一个特征维度才 pop-out |
-| **视觉层级 / 重点不突出 / 眯眼测试** | "页面很乱找不到重点""主次不清""两个按钮都很重""重点不突出怎么办""眯眼测试怎么过" | `visual-hierarchy-gestalt.md` §2 三层模型判层（组织 / 引导 / 负荷，别一上来改字号）→ §3 裁决一 F 型是默认非目标 → §8 单焦点 + §10 Figure/Ground 与多稳态 → §15 Von Restorff 的相对差异 → §17 六步构建流程 |
-| **眼动 / F 型 / 扫描模式 / RTL 动线** | "F 型布局怎么做""用户只看标题行""侧栏总被跳过""阿拉伯语版动线""移动端还适用 F 型吗" | `visual-hierarchy-gestalt.md` §3 NN/g 逐字原文（default pattern / path of minimum effort / 2006 发现 / 移动端仍成立 / RTL flipped F）→ §4 八种扫描模式诊断表 → §6 RTL 与断点各验一遍；构图路径仍归 `editorial-layout.md §8` |
-| **认知负荷 / 7±2 / 选项太多 / 组块** | "导航最多放几项""7±2 能放 7 个字段吗""用户说信息太多记不住""表单怎么分块""渐进披露怎么做" | **先读 `visual-hierarchy-gestalt.md` §11**（Laws of UX 逐字 *"Don't use the 'magical number seven' to justify unnecessary design limitations."* + Sweller 1988 三分）→ §12 Hick 公式与「随机无序菜单不适用」→ §14 chunking 与渐进披露 → §16 12 条速查；导航项数工程约定归 `navigation-ia.md` |
-| **DOM 顺序 / 焦点顺序 / 标题结构 / 三顺序一致性** | "视觉在上读屏却先读侧栏""Tab 键乱跳""用 order 搬主内容行不行""卡片分区要不要 h2""正 tabindex 能用吗" | **先读 `visual-hierarchy-gestalt.md` §5**（SC 1.3.2 / 2.4.3 / 2.4.6 / 2.4.10 四条逐字原文，*"visual presentation is not sufficient to identify document sections"*）→ §6 三顺序一致性验收（C27 / F1 / 禁正 `tabindex` / 不跳级）→ §23.2 三顺序静态扫描器 · §23.5 C27 正例与 F1 反例 |
-| **内容找不到 / 搜不到 / 可发现性** | "用户说找不到内容""搜索框放哪""只放一个搜索行不行""深层页怎么回去""还要站点地图吗" | **先读 `content-findability.md`**：§2 四层链路模型判层（L1 有路 / L2 认得出 / L3 读得动 / L4 走得出）→ §3 SC 2.4.5（AA）逐字原文与 G161/G125/G64 多路径 → §4 搜索入口可发现性 → §19 位置感清单 |
-| **链接文案 / Learn More / 信息气味** | "全是了解更多""链接点开才知道是什么""信息气味怎么验""前几个字该放什么" | `content-findability.md` §10 SC 2.4.4 A / 2.4.9 AAA / 3.2.4 AA 契约族 → §9 information scent 定义 → §12 前 11 字符与 nano-content → §13 Learn More 三种改法 → §26.2 链接文本静态扫描器 |
-| **可扫读 / 阅读等级 / 简明语言** | "文案太长没人看""Flesch 多少算合格""中文能用 Flesch 吗""怎么写简明语言" | `content-findability.md` §11 NN/g 79%/16% 与 124% 原文口径 → §14 SC 3.1.5「九年学校教育」门槛 → §15 三公式精确系数与不可换算 → §16 中文代理指标（工程约定）→ §17 Plain Writing Act 与四份指南 → §26.1 可读性计算器（含中文守卫） |
-| **零结果 / 404 / 自动补全 combobox** | "搜不到只显示没有结果""404 页写什么""自动补全读屏不念""aria-activedescendant 怎么用" | `content-findability.md` §5 placeholder 不是 label（SC 3.3.2 A）→ §6 APG combobox 契约 → §7 首次查询 51/32/18% → §18 零结果三件套与 GOV.UK 404 四条禁令 → §26.3 可发现性契约静态检查器；空态五分法归 `feedback-states.md §5` |
-| **树测试 / findability 度量** | "怎么证明用户找得到""树测试看哪两个指标""卡片分类和树测试选哪个" | `content-findability.md` §20 tree testing 的 findability / directness 与「定性结果不可统计」→ §21 六步构建流程；A/B 与样本量归 `design-measurement-research.md §11` |
-| **拖拽 / 拖放 / 列表重排 / 排序** | "加个拖拽排序""拖不动""手指一拖页面就滚了""只有鼠标能拖""拖到一半断了" | **先读 `direct-manipulation.md`**：§2 四段链路模型判层 → §3 SC 2.5.7 单指针无拖动逐字条文 → §4 G219 四类替代 → §7 拖放完整状态机 |
-| **指针事件 / pointercancel / touch-action** | "pointercancel 什么时候触发""setPointerCapture 怎么用""touch-action 该写什么""拖动时页面跟着滚" | `direct-manipulation.md` §9 PE3 规范性因果链（`MUST suppress a pointer event stream` 四步）→ §10 MDN 工程契约 → §11 touch-action 全值表与三条陷阱 → §12 HTML DnD 七事件 |
-| **拖动无障碍 / 键盘替代 / 读屏播报** | "补个键盘快捷键算不算无障碍""读屏怎么播报拖动""Escape 取消怎么写" | `direct-manipulation.md` §3 SC 2.5.7 + §5 SC 2.5.1 交叉约束 → §6 SC 2.5.2 / G210 四选一 → §13 dnd-kit 键盘默认 → §14 live region 与中文 announcements |
-| **目标尺寸 / 点击区 / 触控目标** | "按钮 24px 够吗""44 还是 48""iOS 要多大""间距怎么算" | `direct-manipulation.md` §8 三口径裁决表（2.5.8 AA 24×24 + 24px 圆 spacing 例外 / 2.5.5 AAA 44×44 / M2 48dp）→ §17 阈值表 → §25.1 目标尺寸判定器 |
-| **手势 / 路径手势 / 长按 / 触屏拖动** | "画个 Z 才能删""长按多久算长按""触屏拖拽要不要做""磁吸怎么做" | `direct-manipulation.md` §5 SC 2.5.1 路径手势 → §15 NN/g signifier 双义 → §16 1cm×1cm / 几毫秒未量化 / 约 100ms → §19 替代路径矩阵 → §20 库生态选型 |
-
-
-| **对话式界面 / 聊天 UI / 流式输出** | "做个 chatbot""回答一个字一个字蹦出来""读屏一直在念""生成中途想打断" | **先读 `conversational-generative-ui.md`**：§2 五段链路判层 → §3 SC 4.1.3 裁决一 → §4 ARIA23 `role=log` → §5 live region 契约 → §12 状态边界播报一次 |
-| **生成式界面 / streamUI / 组件白名单** | "让模型直接吐出一个卡片""模型能返回任意组件吗""streamUI 怎么用""要不要上 RSC" | `conversational-generative-ui.md` §6 裁决二（模型当路由 + 白名单 + `inputSchema`）→ §7 RSC experimental 与生产路径 → §8 `message.parts` → §20 代码 4 |
-| **对话状态机 / useChat / AG-UI 事件** | "status 有哪几个""RunError 之后还收到 chunk""messageId 怎么归属""节流会不会丢最后一帧" | `conversational-generative-ui.md` §8 四态逐字 → §9 AG-UI 三模式与生命周期边界 → §13 状态归位表 → §20 代码 1 |
-| **AI 答错了 / 纠错 / 撤销自动化动作** | "只有重新生成""想改原话重来""编辑消息后旧回答还在""模型改了数据能撤回吗" | **先读 `conversational-generative-ui.md` §11**（HAX G9 四档恢复链）→ §12 `stop`/`regenerate`/`setMessages` 与队列清空 → §13 收口复位；原则层 18 条归 `ai-design-toolchain.md §10` |
-| **混合界面 / Hybrid UI / RICH 范式** | "筛选填表也用对话吗""下单只有一句自然语言""工具调用过程要不要给用户看" | `conversational-generative-ui.md` §10 RICH 四要素与 WIMP 判型决策表 → §16 来源与引用 → §17 场景 7/8 |
-
-
-| **模态判型 / 焦点陷阱 / inert** | "弹窗打开后 Tab 还能点到背后""加了遮罩怎么还读得到背景""aria-modal 什么时候能标" | **先读 `overlays-modality.md`**：§1 四问判型 → §3 APG 焦点契约逐字 → §4 `aria-modal` 双条件 → §20.1 判型器 |
-| **原生 dialog / showModal / closedby** | "用 `<dialog>` 还是自己 div""showModal 和 show 差在哪""Escape 怎么不关" | `overlays-modality.md` §5 `showModal()` 与 top layer / `closedby` 三值 / `autofocus`·`returnValue` → §7 `::backdrop` 与 z-index 分界 → §13 关闭契约矩阵 → §20.4 原生骨架 |
-| **Popover API / 非模态 / 顶层栈** | "popover 能做成模态吗""auto hint manual 怎么选""两个浮层一起打开谁关谁" | `overlays-modality.md` §6 MDN 逐字「always non-modal」+ 三态双栈六规则 → §7 top layer → §14 层叠嵌套 → §15 组件族谱 |
-| **hover 浮层 / tooltip / SC 1.4.13** | "鼠标移上去的内容没法点""tooltip 一秒就消失""字段一获焦就弹帮助" | `overlays-modality.md` §9 Dismissible·Hoverable·Persistent 三条件 → §12 SC 3.2.1 help dialog 失败例 → §20.2 校验器 → APG tooltip WIP 置信度见 §22 |
-| **浮层遮挡 / SC 2.4.11 / 退出路径** | "底部 banner 把焦点项盖住了""Tab 回去才能点关闭""焦点锁住算不算键盘陷阱" | **先读 `overlays-modality.md` §10**（modal always pass / dialog-like overlay 风险 / Note 2 三条出路与 F110）→ §11 SC 2.1.2 → §13 关闭契约 → §20.3 遮挡裁决器；同意机制合法性归 `design-ethics-inclusion.md` |
-| **首次体验 / onboarding / 新手引导** | "要不要做新手引导""第一次打开给几屏介绍""教程到底有没有用" | **先读 `onboarding-first-run.md`**：§0 一句话立场 → §3 六问判型（Q4「先测无引导版本」是闸门）→ §7 NN/g 实证全表与四条研究限制 → §20.1 判型器 |
-| **教程 / coach mark / 产品导览 / walkthrough** | "首启轮播几屏合适""遮罩聚光灯把按钮盖住了""跳过之后又弹出来了" | `onboarding-first-run.md` §4 六类形态矩阵 → §9 Apple tips 阈值 → §12 Tour 精确 props 与叠加层契约（inert / 焦点 / 退出归 `overlays-modality.md`）→ §18 反模式 |
-| **权限时机 / purpose string / 追踪弹窗** | "一启动就问通知定位追踪""授权文案怎么写""系统弹窗前能不能先放说明页" | `onboarding-first-run.md` §2 裁决二 → §10 时机矩阵 + purpose string 三行正反例 + pre-alert 作用域警告 + tracking 四禁令 → §20.2 验收器 |
-| **注册向导 / 重复输入 / 验证码 / 超时** | "第三步又要填一遍邮箱""禁止粘贴密码""超时把整张表清空了" | `onboarding-first-run.md` §2 裁决三 → §11 四条款合取表（3.3.7 `autocomplete` 不足 / 3.3.8 不覆盖注册 / 3.2.1 help dialog 失败例 / 2.2.1 六选项）→ §20.3 检查器 |
-| **激活 / aha moment / time to value / 零数据位** | "注册成功算激活吗""跳过率涨了是不是变好了""空白仪表盘怎么处理" | `onboarding-first-run.md` §14 口径与跳过率陷阱 → §13 Carbon 五件套作为首启教学位 → §5 设置后置；统计方法归 `design-measurement-research.md`、五种空态结构归 `feedback-states.md` |
-| **渐进披露 / splash / launch screen / 首启性能** | "启动屏放 logo 动画行吗""什么时候把设置挪走""引导要不要拆成几步" | `onboarding-first-run.md` §5 四类可延后清单 → §6 三分界（launch≠splash≠onboarding）→ §8 Material 1 归档数值；LCP / 首包归 `performance-design.md` |
-| **定价页 / 三档定价 / 价格表 / 推荐档** | "三档怎么排""要不要企业档""价格数字多大""月付年付默认哪个" | **先读 `pricing-checkout.md`**：§1 判层六问 → §2 四种构型与尺寸 → §3 数字排版（40–48px / `tabular-nums` / 货币 0.5em）→ §5 推荐档与 CTA → §6 radio group 切换；`patterns.md §定价表` 是速记版，冲突以本资产为准 |
-| **结账流程 / checkout / 复核页 / 游客结账** | "结账几步""要不要 review 页""能不能不注册就买" | `pricing-checkout.md` §7 三型骨架与步骤 ≤ 3 → §11 SC 3.3.4 三选一（G164/G98/G155）→ GOV.UK check answers 七条（two-thirds / Change 链接 / 预填 / "Not provided"）；表单细节归 `form-table.md` |
-| **划线价 / 原价 / 折扣 / 运费税费 / 优惠券** | "划线价能这么标吗""运费什么时候出现""省 X% 怎么写""加个服务费行不行" | `pricing-checkout.md` §4 三条合规纪律（FTC 464 total price 逐字）+ §10 费用三级披露与三处一致性 + §15 反模式 1/2/3/11/12；暗黑模式归 `design-ethics-inclusion.md`，折扣文案归 `ux-writing.md` |
-| **通知与推送 / 该不该发 / 通道选型** | "这个要发推送吗""站内信还是邮件""一天能发几条""用户会不会嫌烦" | **先读 `notifications-messaging.md`**：§1 判层六问（用户要求过吗 / 能否延后 / 是否一人一事件）→ §2 六段链路 → §3 通道矩阵 → §4 内容三行（标题 ≤1 行 / 正文 ≤2 行 / 操作 ≤2）→ §15 时序与频控 → §18 场景 |
-| **消息中心 / 收件箱 / 未读 / 已读** | "要不要做消息中心""未读数怎么算""已读回执要不要""站内信怎么归档" | `notifications-messaging.md` §8 消息中心三件套（列表 / 详情 / 未读态）→ §8.2 未读口径与批量已读 → §8.3 分页与保留期 → §19 反模式；列表密度归 `form-table.md` |
-| **角标 / 小红点 / badge / 99+** | "角标数字还是点""超过 99 显示什么""通知读完了角标怎么清" | `notifications-messaging.md` §9 角标三态（0 清 / >0 显示 / nil 不变）→ §9.2 iOS *"the number of unread notifications"* → §9.3 Android setNumber 只是建议 + setBadgeIconType → §9.4 Web setAppBadge 非 Baseline |
-| **免打扰 / 勿扰时段 / 通知偏好页** | "晚上能不能发""静音时段怎么设""偏好开关要不要保存按钮""关掉后多久生效" | `notifications-messaging.md` §10 免扰时段（跨午夜区间与 23:00–08:00 判例）→ §11 偏好页（开关即时生效 / 分组 ≤7 / 每项可解释）→ §19 反模式；设置项文案归 `ux-writing.md` §六 |
-| **权限拒绝 / 推送授权 / provisional / 各平台机制** | "用户拒绝推送后怎么办""要不要再弹一次""iOS 临时授权是什么""Android 渠道建好能改吗" | **先读 `notifications-messaging.md` §6**（三平台四种失败模式 + Permissions §5.2 逐字）→ §7 拒绝后三条恢复路径（站内设置入口 / provisional / 系统设置深链）→ §5.3 Android 渠道四条硬约束；「何时问」归 `onboarding-first-run.md` §10 |
-| **要不要加音效 / 震动 / 触觉反馈** | "这个按钮要不要震一下""成功要不要响一声""滑动加震动会不会太吵""触觉反馈怎么设计" | `sound-haptics-feedback.md` §1 五问判层（看屏 / 时压 / 高频 / 系统语义 / 已关闭）→ §1.2 判层表 12 场景 → §1.3 四条拒绝条件（冗余 / 打断 / 不可控 / 语义挪用）→ §2 三通道分工 |
-| **触觉常量 / 震动时长 / 振幅** | "iOS 用哪个 UIFeedbackGenerator""Android 用 CONFIRM 还是 REJECT""震动多长合适""振幅 1–255 是什么意思" | `sound-haptics-feedback.md` §3 三平台语义表（iOS 三类 / Android 21 常量 / watchOS 九种）→ §4 精确值（1000 ms / 3 段 / 振幅 1–255 / 包络 0–1 且须收于 0）→ §11 校验器 |
-| **提示音 / autoplay / 静音开关 / 声音可访问性** | "静音了为什么还响""网页自动播放被拦""提示音怎么设计""WCAG 1.4.2 怎么写" | `sound-haptics-feedback.md` §5 音频类别与 autoplay（Playback 无视静音开关 / `getAutoplayPolicy` / `NotAllowedError`）→ §5.6–5.7 earcon 与音高句法 → §7 WCAG 1.4.2 / 1.4.7 逐字 → §9 自检 |
-| **登录 / 注册 / 认证 / 账号体验** | "登录页怎么设计""注册要几个字段""能不能不注册就买""密码规则怎么写""要不要加验证码" | **先读 `auth-account-ux.md`**：§1 六问判层（证明身份 vs 建立身份）→ §2 登录表单（`autocomplete` token / 显示密码 / 泛化错误）→ §3 注册四纪律（游客优先 / 规则常驻 / 去重复字段 / 邮箱验证降级）→ §4 反神话表；表单校验归 `form-table.md`，错误文案归 `ux-writing.md` |
-| **Passkeys / WebAuthn / 无密码登录** | "要不要上 passkey""怎么做无密码登录""指纹登录怎么接""passkey 什么时候弹" | `auth-account-ux.md` §5：参数表（challenge / rp.id / user.id / residentKey / timeout 300000 ms）→ §5.3 能力三层检测 → §5.4 四个创建时机（账号验证之后）→ §5.5 条件式 UI（`autocomplete="username webauthn"` + `mediation:"conditional"`）→ §5.7 错误映射（`NotAllowedError` 静默回退） |
-| **MFA / 二次验证 / 验证码 / 账户恢复 / 会话** | "要不要做 2FA""验证码要不要分 6 个框""忘记密码流程""登录多久过期""怎么退出所有设备" | `auth-account-ux.md` §6 因素排序与推送数字匹配 → §7 OTP 单框（禁自动跳格）→ §8 恢复（不绕 MFA / 防枚举文案）→ §9 AAL 三档与到期前 2 分钟提示 → §10 SC 3.3.8 认知测试边界；会话存储归 `dark-mode.md` 之外的工程侧 |
-| **快捷键 / 键位 / 热键 / 快捷键冲突** | "加个快捷键吧""按了没反应""和系统抢键""Mac 上显示 Control" | **先读 `keyboard-shortcuts-command-palette.md`**：§1 五问判层 → §2 SC 2.1.4 判据表 → §3 三个出口 → §4 平台修饰键契约 → §7 冲突仲裁 |
-| **命令面板 / 命令搜索 / ⌘K / 快速跳转** | "做个命令面板""Cmd+K 搜不到""2000 条命令卡" | **先读 `keyboard-shortcuts-command-palette.md`**：§8 数据模型与 combobox 契约 → §8 检索与虚拟化上限 → §10 六库选型 → §9 发现性 |
-| **aria-keyshortcuts / 键盘可访问性 / 输入法 IME** | "快捷键要朗读吗""中文输入法回车直接执行""不用鼠标能不能做完" | **先读 `keyboard-shortcuts-command-palette.md`**：§5 四层语义 → §6 key vs code 与 IME → §9 `?` 帮助面板 → §14 自检 |
-| **文件上传 / 拖拽上传 / 附件 / 选择文件** | "加个上传按钮""只让传图片怎么限制""10MB 上限怎么写""拖进去没反应" | **先读 `file-upload-media-input.md`**：§1 五问判层 → §2 控件契约 → §3 校验与文案 → §6 失败与重试 |
-| **上传进度 / 断点续传 / 大文件 / 弱网** | "传一半断了""进度条怎么画""200MB 视频传不上去""离开页面进度还在吗" | **先读 `file-upload-media-input.md`**：§4.1 三档阈值 → §4.3 七态与播报 → §4.5 tus 续传 → §6.2 退避 |
-| **图片裁剪 / 拍照上传 / EXIF / 头像上传** | "传上去是横的""头像怎么裁""iPhone 的 HEIC 传不了""证件照要多大" | **先读 `file-upload-media-input.md`**：§5 媒体输入特化 → §13.6 裁剪验收 → §8.2 EXIF 剥离 |
-| **实时协作 / 多人同时编辑 / 协同编辑** | "多人同时改一个页面怎么做""要不要上 CRDT""两个人改同一段文字会怎样" | **先读 `realtime-collaboration.md`**：§2 三种模型选型 → §3 文档模型与冲突粒度 → §5 延迟预算 → §16 验收 18 条 |
-| **在线状态 / 实时光标 / 正在输入 / 头像堆叠** | "显示谁在线""光标跟着人走""正在输入提示""头像最多几个" | **先读 `realtime-collaboration.md`**：§4 presence 五信号 → §10 状态机 → §12 移动端 |
-| **评论 / 批注 / @提及 / 线程** | "评论怎么定位到画布位置""被删对象的评论怎么办""@ 重复怎么去重" | **先读 `realtime-collaboration.md`**：§8 三锚点与 relative position → §8 线程生命周期 |
-| **协作权限 / 链接分享 / 成员回收** | "谁能编辑这个文件""分享链接给外部人""离职后权限怎么收回" | **先读 `realtime-collaboration.md`**：§9 角色矩阵与继承陷阱 → §6 冲突界面文案 |
-| **视频播放器 / 视频控件 / 播放器 UI** | "视频控件怎么排""要不要自己写播放器""进度条怎么拖""倍速按钮放哪" | **先读 `video-player-captions.md`**：§1 七层判层 → §2 架构选型（原生 / 自建控件层 / 框架）→ §3 控制栏顺序与自动隐藏三态 → §4 时间轴语义 |
-| **字幕 / 隐藏式字幕 / WebVTT / 字幕样式** | "字幕放哪""一行几个字""字号写死多少""字幕挡住画面怎么办""中文字幕怎么断行" | **先读 `video-player-captions.md`**：§5 字幕数据模型 → §6 规范数值表（42×2 行 / 20 CPS / 5-6 秒）→ §7 样式与 ::cue → §11 自检 18 条 |
-| **自动播放 / 画中画 / 全屏 / 移动端内联播放** | "怎么自动播放""iOS 上为什么播不了""要不要加 playsinline""全屏按钮要不要放" | **先读 `video-player-captions.md`**：§8 WebKit 原文四场景 → §8.2 GIF→video 12×/2× → §8.3 全屏与画中画 |
-| **邮件设计 / HTML 邮件 / EDM / 营销邮件版式** | "邮件模板怎么做""HTML 邮件怎么写才不乱""EDM 长图怎么排""营销邮件怎么排版" | **先读 `email-design.md`**：§1 七层判层 → §3 600px 表格骨架 → §4 caniemail 实测表 → §12 工程选型 |
-| **邮件客户端兼容 / Outlook 乱版 / 深色模式反色** | "Outlook 里全乱了""按钮圆角没了""深色模式字看不见""Gmail 和 QQ 邮箱显示不一样" | **先读 `email-design.md`**：§2 四种渲染引擎 → §4.1 特性替代对照 → §6 深色三通道 → §9 对比度 |
-| **邮件体积 / Gmail 截断 / 主题行与 preheader** | "邮件被截断""打开率低""预览文字不对""邮件太大发不出去" | **先读 `email-design.md`**：§11 102KB 与 85KB 预算 → §8 主题行与 preheader → §5 图片 |
-| **多币种价格显示 / 币种切换 / 价格小数位** | "美元站和日文站价格怎么显示""切币种后价格不对""日元能不能写小数""KWD 要几位小数""价格列切币后跳动" | **先读 `pricing-localization.md`**：§1 七问判层 → §2 ISO 4217 最小单位表（JPY 0 位 / KWD 3 位）→ §2.2 `currencyDisplay` 四档 → §8 格式与尾数 → §9 展示币种 vs 结算币种 |
-| **含税 / 不含税 / 税额明细 / 地区税率** | "价格含不含税""欧盟站要不要标 VAT""日本税込怎么标""结账多出来的税怎么算""税额差一分钱" | **先读 `pricing-localization.md`**：§3 三种含税口径（EU/JP/CN vs US）→ §3.2–§3.5 逐市场税率原文 → §4 税额反算 r/(1+r) 与取整记账 → §10 法标清单 |
-| **原价 / 划线价 / 单位价格 / 地区价差** | "划线价能随便写吗""折扣百分比怎么算""德国要不要标每公斤价""各市场定价凭什么不一样" | **先读 `pricing-localization.md`**：§6 法定回溯窗口（DE 30 日 / CN 7 日 / JP 8 周）→ §7 Grundpreis 与 10g 豁免 → §5 价格点与 FX 缓冲 |
-
-| **报价单 / 发票 / 订单确认 / 单据版式** | "报价单怎么排""发票要放哪些字段""订单确认和发票有什么区别""PO 号放哪""单据多页怎么排" | **先读 `quote-invoice-documents.md`**：§1 七问判层与四类构型 → §2 号码/日期/版本 → §3 金额脊柱五数 → §5 三单字段映射 → §7 A4 版式与首屏骨架 |
-| **电子发票 / ZUGFeRD / Factur-X / Peppol / 数电票** | "电子发票怎么做""PDF 里要不要嵌 XML""数电票号码几位""Peppol 校验不过""发票要不要存 XML" | **先读 `quote-invoice-documents.md`**：§6 载体（PDF/A-3 + XML 同源）→ §2.3 20 位号码结构 → §4 税分类码与税号 → §10 法标清单 |
-| **红冲 / 作废 / 贷项 / 对账单 / 账龄** | "开错了怎么改""能不能作废重开""红字发票怎么开""对账单怎么做""逾期怎么分桶" | **先读 `quote-invoice-documents.md`**：§2.5 更正/作废/红冲三态 → §8 状态机与账龄桶 → §12 自检 20 条 |
-
-### 第 2 步 · 完善需求（设计 brief 澄清）
-
-动手前检查以下要素。**只问缺失且影响方向的项**（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-
-| 要素 | 澄清方式（给选项） | 兜底默认 |
-|---|---|---|
-| 载体与媒介 | 网页 / 桌面 / 移动端 / 海报 / 幻灯片 / 社媒图 | 从上下文推断 |
-| 目标用户与场景 | 面向谁、在什么场合看到 | 大众消费者 |
-| 调性（选 2–3 个词） | 极简↔丰富、克制↔张扬、专业↔亲和、经典↔前卫、温暖↔冷静、工业↔有机 | 极简、专业 |
-| 明暗基调 | 浅色 / 深色 / 双主题 | 浅色（技术类产品可深色） |
-| 参考与禁忌 | 喜欢的站点？要避开什么 | 无则由第 4 步匹配 |
-| 品牌约束 | 既有 logo/字体/主色 | 无则自定并成套交付 |
-
-同时**主动提示盲区**：指出用户没提到但显著影响结果的决策点（"首屏要动效吗？""海报要打印还是仅线上？"）。价值在替用户发现盲区，不是走问卷。
-
-### 第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）
-
-执行前对需求本身给出结构化评审——**这一步的产出是给用户的反馈，不是自我怀疑**。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-
-**可行性四查**：
-1. **技术**：目标媒介是否支持所需手法（如复杂 CSS 动效在邮件客户端不可行；暗色模式需双套色板）
-2. **范围**：需求粒度 vs 交付形态（一次要 10 个页面 → 建议分期，先交付首屏+1 个代表性页面）
-3. **资源**：所需资产（插画/3D/摄影/字体授权）是否可得、是否预算内
-4. **性能**：重动效/大图/3D 在低端设备与弱网的代价，有无降级方案
-
-**美观性预判**（对照第 5 节原则找 brief 里的审美风险）：
-- 风格自相矛盾（同时要求"极简"和"信息密集"→ 指出冲突，建议取舍）
-- 指定配色/字体的对比度、可读性隐患（提前给修正值）
-- 堆砌趋势的过期风险（同时上渐变+玻璃拟态+3D → 建议只保留一种）
-
-**输出格式**：
-
-```
-【可行性】✅ 可行 / ⚠️ 有条件可行 / ❌ 不可行
-  风险：每条一行，写明影响与缓解建议
-【美观性】预判风险 + 改良方向（引用第 5 节具体原则）
-【结论】直接建议：做什么、不做什么、先做什么
-```
-
-判定必须给立场。⚠️ 时给出"满足什么条件就可行"；❌ 时给出最接近用户意图的可行替代方案。
-
-### 第 4 步 · 匹配灵感（三级精准匹配）
-
-**先读 `memory/design-log.md` 的「当前画像」**：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-
-**L1 元素级**——需求点名了元素（导航栏/Hero/页脚/CTA/定价/登录/仪表盘/卡片/表单…）：
-1. 读 `references/patterns.md` 对应小节，取其构型谱系与参数
-2. 交付**可视化设计板**（规范见下）——把 4–6 个构型变体**真实渲染**出来，而不是给网站链接
-3. 用户选定方向后，从 `references/component-libraries.md` 覆盖矩阵给出代码落地点
-
-**L2 风格/系统级**——整页、整站、品牌调性：
-- SaaS 落地页 → Saaspo、Landingfolio、Land-book（按行业）、SaaSFrame；单页站 → One Page Love；获奖级 → Awwwards、SiteInspire；首屏 → Supahero；按区块 → SEESAW
-- 极简 → Minimal Gallery；深色 → Sombra、Dark Mode Design；按美学筛 → Curated Design；移动端真实流 → Mobbin、Pttrns、Screenlane
-- **对标具体品牌** → `design-md-format.md` §3（54 品牌 DNA）+ §4（项目类型选型），再取其精确 token
-- **中文视觉/品牌/海报** → 站酷、花瓣；**中文图标** → iconfont（确认版权）、IconPark（易统一风格）；**中后台** → Ant Design（见 `chinese-design.md` §2 检索策略）
-- 微交互 → Details、Hover States；动效 → 60fps；校准审美 → `references/portfolios.md`；设计资产（图标/字体/3D）→ `references/resources.md`
-- **用 Dribbble 的纪律**：只取视觉不取结构（先问"有空状态吗/有错误态吗/数据放大 10 倍还成立吗"）
-
-**L3 实现级**——要代码/组件：
-- 页面区块现成代码：shadcn/ui blocks、HyperUI、TailGrids、Flowbite、Preline
-- 动效组件：Magic UI、Aceternity UI、Motion Primitives（克制原则下每页 1–2 处）
-- 完整矩阵与技术栈选型规则 → `references/component-libraries.md`
-
-**知识库无命中时**：联网查阅 designeer 目录 API `https://designeer.xyz/api/catalog?q=关键词` 或 WebSearch（注明"未经策展验证"）；发现新 GitHub 库先按 component-libraries.md「维护协议」验证再推荐。
-
-**可视化设计板规范**（L1 的标准交付物）：
-- 单文件 HTML、零外部依赖；深浅两种底色分区，变体风格统一（同一示例品牌与色板）——让用户比的是**构型**，不是花哨度
-- 每个变体用真实文案（禁 lorem ipsum），右上角标注「构型名 · 关键参数」（如"经典单行 · 高 64px · 链接 14px"）
-- 4–6 个变体覆盖该元素谱系的主要分野（含 1 个移动端形态，若适用）
-- 板尾附「参照」清单：该元素的画廊 2–3 条 + 落地组件库 1–2 条（链接原样）
-- 交付时提醒用户：选定变体后可直接进入第 5 步深化，或按 L3 拉取对应组件代码
-
-### 第 5 步 · 按设计原则执行
-
-从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-
-**设计伦理与包容性（对称优先，默认值即决定）**
-- 同意 UI **先做拒绝路径**：与接受路径等长、等难、等耗时；`同意全部` 必须配**同屏同级**的 `拒绝全部`，`管理偏好` 只能是第三入口（`design-ethics-inclusion.md` §4 / §6）。
-- 非必需授权项默认值一律 `false`；不捆绑不兼容用途、不用双重否定、不在流程中途反转按钮顺序；**不同意仍要能用服务**（PIPL 16 条）。
-- 取消 / 撤回 / 关闭必须与开通 / 授予 / 展示**同层级可达**；一键关闭 **≤1 次点击**、无需计时、同页不复弹；拒绝后不重复纠缠（§8 / §9 / §10）。
-- 面向未成年人时按**另一套产品构型**设计，不是加一层弹窗；信息流必须有终点、可关闭、状态被记住（§11 / §12）。
-- **无障碍表与伦理表分别签字**：前者看「能不能用」，后者看「是不是被引导着用」；「我们没恶意」不构成辩护理由，知情不修同样可能被认定（CPPA §7004(c)）。
-- 引用法规前先复核**现行文本与令号**：分类与条文都会修订，别把旧稿、旧教程、AI 复述当现行法（§2 现行 18 类 / §9 「前五日」已被「等日期前」取代 / §22 取源限制）。
-
-**AI 生成内容（产能层不是判断层）**
-- AI 只出**候选**，不出**结论**：构型、配色、文案、代码可以生成；该不该做、给谁用、什么语气、上不上线必须由人判定。
-- 任何生成件进交付链前过三道闸门：**法定标识**（§2 / §21.1）、**授权与可举证创作链**（§4 / §6）、**AI 味与 12 类缺陷**（§11 / §12 / §21.4）；三道缺一不交付。
-- 风格一致性靠 `DESIGN.md` 九章契约（第 9 章 `Agent Prompt Guide` 不可省），不靠每次重写提示词；prompt 入代码库、固定模型快照、换版跑 eval。
-
-**层级（Clarity 之首）**
-- 每屏只有一个主角；主标题、正文、辅助说明用字号/字重/颜色拉开差距，不全靠加粗。
-- 删掉不承载信息的东西；留白是层级工具，重要元素周围留白更多。
-
-**排版**
-- 字号阶梯（如 12/14/16/20/24/32/48）只用阶梯值；正文 16px 起，行高 1.5–1.7，行长 60–75 字符。
-- 中英混排：标题避免逐字换行；数字与单位间留半角空格。最多 2 种字体，字重对比优于换字体。
-- **排印不是选字体，是六层契约**（覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权，见 `references/typography-system.md` §2）：字号走 `rem` 不写死 `px`（MDN 明确 px **not accessible**，`em` 会 compounding）；承载文字的元素写 `min-height` + `padding` 而非 `height`，否则用户把文本间距改到 WCAG 2.2 SC 1.4.12 四项门槛（`line-height ≥1.5×` / 段后距 ≥2× / `letter-spacing ≥0.12×` / `word-spacing ≥0.16×` font size）或放大到 200% 时会裁切丢功能——**这是抗压测试，不是要你把默认样式写成 1.5**；行宽 ≤80 字符（CJK ≤40）、禁 `text-align: justify`；表格 / 时钟 / 实时数值开 `tabular-nums`（不是换成等宽字体）；大标题行高约 1.2×、小正文/标签约 1.5×（M3）；`font-family` 逐字符回退，generic family 放最后且不加引号；中文与西文间空白不多于 1/4 汉字宽且行首行尾不加（W3C clreq），文本存储层不写全角 ASCII。
-
-**色彩**
-- 60–30–10；强调色只用于可交互/需突出的元素。
-- 正文对比度 ≥ 4.5:1、大字号 ≥ 3:1（WCAG AA）。深色模式不是反色：降饱和、提浅色文字层级。
-- 同屏颜色 ≤ 5 种（含灰阶）；灰阶带色相倾向，避免纯灰 #808080 大面积出现。
-- 配色与对比度算法见 `references/color-science.md`：HSL/HSV 非感知均匀坐标，色板生成与明度判定走 OKLCH/OKLab；对比度不止 WCAG 2.x 一套（APCA Lc 分档长文/暗色更准）；渐变必须在 OKLab 空间插值（sRGB 直插发灰）；色盲用 Okabe–Ito 8 色且不靠颜色单通道。
-
-**间距与对齐**
-- 4/8 倍数间距系统（4/8/12/16/24/32/48/64）；相关元素间距小、无关间距大——比"对齐"更强的分组手段。
-  - 一条对齐轴贯穿到底；出现第 3 种对齐方式前先停。
-
-**图标（视觉速记，不是装饰）**
-- 图标只在「图形比文字更快被识别」时胜出；歧义或首现的品牌图标配文字，正文与导航一级用文字（`iconography.md` §1 决策树）。
-- 统一 **24×24 viewBox**、活动区留 2px 边；同一 keyline 用同形状（圆 ⌀20 / 方 18 / 矩 20×16），否则视觉重量飘（`iconography.md` §2）。
-- 描边二选一并全库统一：固定 `stroke-width=2`（Lucide 系）或光学缩放（Material 系）；圆头圆角、圆角 1–2px（`iconography.md` §3）。
-- 尺寸阶梯 **12/16/20/24/32/48** 密度驱动；图标-文字间距默认 **8px**（最小 4px）；用 `currentColor` 控色，暗色零改图（`iconography.md` §4/§5/§12）。
-- 可访问性铁律：装饰图标 `aria-hidden="true"` **且** `focusable="false"`；有意义/icon-only 必带可访问名；非文本对比度 ≥3:1；**永不只靠颜色**（`iconography.md` §10）。
-
-**导航与信息架构（结构先于装饰）**
-- **先分四类职责**：全局（跨站常驻）/ 局部（当前区域下钻）/ 上下文（内容体内相关跳转）/ 辅助（页脚·帮助）——别把页脚链接或上下文链接塞进主导航；先定性再用形态（`navigation-ia.md` §1）。
-- **项数有科学依据**：米勒法则 **7±2**，全局主导航 **5–9 项**一组；底部 tab **≤5 项**（Apple + Material 共识）；侧栏无 5 项硬上限，但每 7–9 项做一次视觉分组（`navigation-ia.md` §3）。
-- **形态按场景选**：≤5 同级顶级 → 底部 tab / 顶部水平；6–12 → 侧栏；≥13 或层级深 → 汉堡抽屉（**牺牲可发现性**，只在真放不下时用）；内容区并列视图用 tabs，**不是**主导航（`navigation-ia.md` §2）。
-- **深度优先于广度**：3-click 规则是迷思，用户只在乎每步的「信息气味」（点下去得到什么）；宁可一层多并列、不要路径深 5 层；深度 ≤3（内容）/ ≤4（工具）（`navigation-ia.md` §4）。
-- **当前位置必须有 ≥2 种信号**：颜色 + 字重 + 图标 + 左条至少两项，**永不只靠颜色**；机器端用 `aria-current="page"`，纯 CSS 高亮对读屏无效（`navigation-ia.md` §8）。
-- **可访问性是及格线**：第一个可聚焦元素是 skip link（`#main`）；每个 `<nav>` 带可区分 `aria-label`；DOM 顺序 = 焦点顺序、禁 `tabindex>0`；WCAG 2.4.5 要求导航 + 搜索 ≥2 种找路方式（`navigation-ia.md` §9）。
-- **Tabs ≠ 导航**：`role="tab"` 只用于同一内容区的并列视图，跨页跳转用导航 + 链接；面板 `role="tabpanel"` + `aria-labelledby` + 键盘 ←/→/Home/End（`navigation-ia.md` §6）。
-- 完整形态决策矩阵、项数铁律、信息架构地基、面包屑三型、Tabs 键盘契约、移动端降级、当前位置指示、WCAG 2.4.x 导航口径、搜索协同、20 反模式、20 自检、5 段可抄代码 → **`navigation-ia.md`**。
-
-**设计评审与反馈（先对齐再动手）**
-- **评审是暴露盲点不是挑错**：目的 = 结构化对话对齐决策，产出「问题清单（带严重度）+ 决策记录」；不是"批准"也不是"现场改稿"（`design-critique.md` §0/§1）。
-- **两种评审分清**：standalone critique（同伴、开放探索）与 design review（有 Decider、做决策）别混一场，否则既没改进也没结论（`design-critique.md` §1）。
-- **给反馈七铁律**：具体非模糊、挂得上目标、分离品味与工艺、用行为化语言、I like / I wish / I wonder、先肯定再建议（2 正 1 改）、给观察不给方案跳转（`design-critique.md` §3）。
-- **接收反馈不辩护**：用"记下来"代替"但是"；追问到具体；归类目标/偏好/已覆盖；每条写处置进 ADR（`design-critique.md` §4/§8）。
-- **评判要有尺子**：NN/g 10 启发式 + 严重度 0–4（≥3 才进必改）+ DFV 三问 + 重要性×确定性双轴，别靠"我觉得"（`design-critique.md` §6）。
-- **明确 Decider 防委员会**：HiPPO 与 design by committee 是头号反模式；无 Decider 的评审人人可否决、产出平庸（`design-critique.md` §5/§7）。
-- **决策留痕**：每条反馈 → 采纳/搁置/反驳，写进 ADR / critique notes，没有处置结论 = 没发生（`design-critique.md` §8）。
-
-**动效（有目的才动）**
-- 三种合法用途：反馈、引导（空间关系/过程）、个性（品牌表达，每页 ≤ 1 处）。纯装饰删掉。
-- **曲线看语义不看心情**：入场用**减速**（`cubic-bezier(0.05,0.7,0.1,1)`）、出场用**加速**（`cubic-bezier(0.3,0,1,1)`）、双向位移用**标准**（`cubic-bezier(0.2,0,0,1)`）、循环用 `linear`。**出场时长 = 入场 × 0.7**。
-- **时长四档够用**：120ms 状态反馈 / 200ms 常规转场 / 300ms 大面积 / 400ms 上限。用户输入触发的反馈必须 ≤120ms；任何点击触发的动画 **>400ms 都是错的**。
-- **可中断**：交互反馈一律用 `transition`（可中断），`animation` 只用于"播完即结束"的序列。
-- **只动 `transform` / `opacity`**；展开别动 `height`，用 `grid-template-rows: 0fr→1fr`。
-- **必须降级**：`prefers-reduced-motion: reduce` 下杀掉位移/缩放/循环，但保留 ≤100ms 的色彩反馈。
-- 完整数值表（M3/Carbon/Ant 三体系精确对照）、20 个场景速查、View Transitions 与 scroll-driven 代码 → **`motion-system.md`**。
-
-**数据可视化（有图表时必做）**
-- **先判关系再选图形**：偏差/相关/排名/分布/随时间/部分整体/数量/空间/流向——九类关系各有首选图形，选错图形后面全错。完整对照表见 `dataviz.md` §1。
-- **硬上限**：饼图 ≤5 片、折线 ≤5 条、颜色编码 ≤7 类、一屏图表 ≤5 张。超限换图形，不要硬塞。
-- **三类色板不许混用**：分类（无序类别，按固定顺序取）、顺序（连续值，浅色主题**最深=最大**）、发散（有中点，**必须对称**）。精确 hex 见 `dataviz.md` §3。
-- **柱状图必须 0 基线**；刻度 4–6 条且取整（1/2/2.5/5×10ⁿ）；网格线只留横向、不加虚线。
-- **信息优先级：直接标注 > 图例 > Tooltip**。1–2 条序列不要图例，线末端直接写名字。
-- **双 Y 轴默认禁用**——除非受众是专业读者 + 单位确实不同 + 两轴刻度增长率已对齐。替代方案优先级见 `dataviz.md` §10.2。
-- **中文数字**：≥1万用「万」、≥1亿用「亿」，保留 1 位小数；单位只写在轴标题，刻度上不重复；轴标签字号比英文 +1px。
-- **图表动效可突破 400ms**（不阻塞输入）：入场 450ms 减速、数据更新 400ms 标准、离场 350ms；但**悬停反馈仍 ≤120ms**。
-- **对比度 ≥3:1**（WCAG 1.4.11，不可四舍五入）：数据线与背景、网格线与背景都要过；折线 2px 起，1px 细线抗锯齿后几乎不可见。
-
-**表单（有输入时必做）**
-- **五件套齐全**：标签 → 控件 → 帮助 → 错误 → 动作。帮助与错误占同一位置，有错时错误**替换**帮助，不要并排两行小字。
-- **标签位置三选一、全站统一**：移动端一律顶对齐；桌面 ≤6 字段顶对齐、≥7 字段右对齐（省空间）；需用户慢填的合规表单左对齐。标签 14px、中文 ≤8 字、不加句号（顶对齐不加冒号）。
-- **输入框按内容长度定宽**：验证码 130px、手机号 160px、身份证 240px、金额 200px 右对齐、姓名 200px、长文本全宽。**全部等宽 = 放弃了「该填多长」这条免费提示**。
-- **必填只标少数派**：多数必填→只标「（选填）」；多数可选→标红色 `*` 并加一行「带 * 为必填」。不要两套语言并用。
-- **校验三档**：键入只用于格式/强度（密码、字数）；必填与格式错误在**失焦**报；提交时兜底 + 聚焦第一个错误字段。两个主流库（Ant/Semi）默认都是 `onChange`，**必须显式改**。
-- **错误文案写「哪里错 + 怎么改」**，≤30 字，不用「格式不正确/非法/请重新输入」；位置在框下 4–8px，红字**加图标**（不只靠颜色）。提交失败**绝不清空**已填内容（WCAG 3.3.7）。
-- **中文特有**：验证码用**单框 6 位**（拆 6 个框导致粘贴失效，违反 WCAG 3.3.8）；手机号 `inputmode="numeric"` 自动分段；身份证宽 240px、末位 X 大小写都接受；金额右对齐 + 千分位 + 单位在框外。
-- **布局**：一个区域内**禁多列**（破坏阅读顺序）；可编辑列表按每条目字段数选形态（≤3 动态行 / 2–5 可编辑表格 / 6–8 折叠面板 / >8 抽屉）；分步 3–5 步、每步 ≤7 字段、回退不丢数据。
-- **按钮与输入框左对齐**，主左次右；字段 <3 可禁用主按钮，>5 **不要**禁用（用户看不懂为什么点不动）。
-
-**表格（有列表时必做）**
-- **行高三档**：39 / 47 / 55px（Ant 源码：padding 8/12/16 × 2 + 22 行高 + 1 线）；或 Carbon 五档 24/32/40/48/64。**表头、工具栏、批量条、分页四处必须与行高同高**。
-- **对齐铁律**：文本左、**数字右**（配 `font-variant-numeric: tabular-nums`，否则数字列跳动）、操作列右固定、选择列最左 32px；表头对齐跟随内容。
-- **列宽按内容分配**，不要所有列 `flex: 1`；关键列（名称/主键）不截断，长文本省略 + Tooltip；**空值统一「—」**（不写 0、不留白）。
-- 表头**浅灰底、14px、字重 600**（不要照搬英文 12px 大写——中文没有大小写）；行线与斑马纹**二选一**。
-- 分页默认 20 条并可切 10/20/50；筛选变化**重置到第 1 页**；序号用 `(page−1)×size+index+1`（每页从 1 开始是常见 bug）。
-- **空态分两种**：无任何数据→给「新建」按钮；有筛选无结果→给「清除筛选」。加载用骨架屏优于 spinner。
-- 批量：表头复选框三态、显示「已选 N 项」、跨页选择说明范围、危险操作二次确认并写清对象与数量。
-
-**可访问性（任何界面都必做，不是"额外需求"）**
-- **对比度四档背下来**：正文 **4.5:1**、大文本 **3:1**（≥24px 或 ≥18.5px 粗体）、非文本（图标/边框/图表/焦点框）**3:1**、AAA 正文 **7:1**。**不可四舍五入**——`4.499:1` 不达标。中文笔画密，实际按 **+1 档**做（正文冲 5.5:1）。
-- **焦点框三层都要过**：存在（2.4.7）→ 面积 ≥2px 周长且状态变化 ≥3:1（2.4.13）→ 与相邻色 ≥3:1（1.4.11）。**内嵌焦点框要 ≥3px**（2px 不够）。只用 `:focus-visible`，**永不写 `outline:none` 而不给替代**。焦点框颜色不能等于品牌主色。
-- **键盘是硬要求**：顺序 = DOM 顺序；`tabindex` 只用 `0`/`-1`，**`tabindex>0` 一律禁止**；首元素是"跳到主要内容"；模态打开焦点入框、`Esc` 关、关闭后焦点回触发元素、背景用 `inert`。
-- **目标尺寸三档**：桌面图标 **24×24**（或相邻间距让 24px 圆不相交）、触屏 **44×44**、适老版主组件 **60×60 dp**。视觉 16px 图标用 padding 撑热区，不要画大图标。
-- **拖动必须有替代**：滑块给方向键、排序给上下移按钮、拖拽上传给"选择文件"按钮。
-- **不只靠颜色**：错误 = 红 + 图标 + 文案；必填 = `*` + 说明；状态 = 颜色 + 文字；涨跌 = 颜色 + 符号。色盲用 **Okabe–Ito 8 色**（`#000000 #E69F00 #56B4E9 #009E73 #F0E442 #0072B2 #D55E00 #CC79A7`）。
-- **原生优先**：`<button>` 自带 5 件事，`<div role="button">` 自带 0 件。装饰图标 `aria-hidden="true"`；图标按钮必须有 `aria-label`；`aria-label` 必须包含可见文本（2.5.3）。
-- **播报**：`aria-live` 容器**先存在再改内容**（渲染时插入不播报）；`role="status"` 用于成功/计数，`role="alert"` 只给错误；播报增量不播报整块。
-- **强制色彩模式**：`forced-colors: active` 下阴影/渐变/背景图全被抹掉——靠阴影表达层级的界面会变一片白，必须有边框兜底。
-- 完整阈值、可抄 CSS、25 条上线自检、读屏实测脚本、GB/T 37668 与适老化硬指标 → **`accessibility.md`**。
-
-**反馈与状态（有交互时必做，不是"加个 toast"）**
-- **先定层级再选组件**：L0 微反馈（hover/按下，≤120ms）→ L1 轻提示（toast，3–5s）→ L2 就地状态（inline/banner/空态，常驻）→ L3 阻塞模态 → L4 结果页。**严重度决定层级，不决定颜色**——把严重错误做成红 toast 仍是错的。
-- **时间刻度背下来**：点击后 **100ms 内**必须有视觉变化；**<1s 不加任何加载态**（闪一下反而焦虑）；**1–2s** 按钮内 loading；**2–10s** 骨架屏/局部 spinner；**>10s** 进度条 + 粗略时间 + **取消**。
-- **toast 数值**：Ant `message` **3s** / `notification` **4.5s** 且宽 **384px**；Carbon **5s**（默认常驻）；M3 **4–10s**；微信 `showToast` **1.5s**。**≤2 行、≤14 字、只允许 1 个动作（1–2 个词）**。
-- **一个动作只给一次主反馈**：按钮变"已保存"就不要再弹 toast。编辑器每次保存都弹 = 一天弹上百次。
-- **严重失败不用 toast**：改用 L2 inline 或 L3 对话框（Ant 原文：3s 太短会漏）。**关键警告永不自动消失**（Atlassian）。
-- **加载三形态不许混用**：骨架屏只给容器型/数据型组件（卡片/列表/表格/首屏）；**按钮、输入框、开关、toast、下拉菜单、弹窗本身不做骨架**；**不要 frame-only 骨架**。
-- **进度条六铁律**：>10s 才用百分比；宁慢勿快（问卷相反）；不后退、不卡 99%；不知道总量就显示"3 / 50"；必须能取消；循环动画只用于 ≤10s。
-- **空态分五种**：首次空（给新建）/ 无结果空（给清除筛选）/ 无权限空（给申请）/ **失败空（给重试，不要伪装成无数据）** / 完成空（给肯定）。结构五件套：图（可选）+ **正向标题** + 说明 + 一个主操作 + 次链接。表格空态**必须替换表头与分页**。
-- **空状态深入（一手解剖 + 可抄矩阵）**：结构五件套的 Ant/Atlassian token 级精确值、中英抄写矩阵（8 类可直接抄）、零数据位（starter content）四模式、装饰插画无障碍取舍、变体承载位置、首次操作率度量，见 `empty-states.md`。
-- **错误文案三段式**：发生了什么 + 为什么 + 怎么办，**≤30 字**，不责怪用户（"我们连接出了问题"而非"你的网络有问题"）。提交失败**不清空已填内容**。
-- **确认框只给严重后果**：不写"确定吗"，要写**对象名 + 数量 + 不可逆性**；按钮写**动词**（"删除 3 个文件"）不写"是/否"；**默认焦点不给危险按钮**；能撤销就优先撤销。
-- **五态都要设计**：`loading / empty / error / partial / success`——**`partial` 最常被漏**（6 张卡片挂 2 张，应 4 张正常 + 2 张各自重试，而不是整页报错）。
-- 完整数值表、五级错误规则、10 场景速查、可抄代码 → **`feedback-states.md`**。
-
-**响应式（页面会在不同宽度被看时必做）**
-- **先定策略再定数值**：页面骨架（导航形态/栏数/版心）用 `@media`；可复用组件（卡片/列表项/统计块）用 `@container`。**同一组件要在 2 种以上宽度复用，就必须用容器查询**，否则一边必然难看。
-- **断点是结果不是输入**：把窗口从 320 连续拖到 1920，找出布局第一次难看的宽度，+1~8px 就是断点。**按内容断，不按设备断**——`iphone14` 这种命名换机即失效。
-- **一套用到底**：Ant 576/768/992/1200/1600/1920 · MUI 600/900/1200/1536 · Tailwind 640/768/1024/1280/1536 · Bootstrap 版心 540/720/960/1140/1320 · Carbon 320/672/1056/1312/1584（列数 4→8→16）· M3 <600/600/840/1200/1600。**混用两套会出现双断点区间**。
-- **断点 ≤5 个**，每个都要能说出"这个宽度下什么变了"。3 档（<768 单栏 / 768–1199 双栏 / ≥1200 三栏+侧栏）也能做出好响应式。
-- **跨断点只能做五件事**：露出 / 分割 / 缩放 / 移位 / **换件**。换件必须**功能等价、信息不丢**（底部 tab 5 项换 rail 还是 5 项）；**禁止**按钮换 chip、列表换卡片这类不等价替换。
-- **gutter 固定、column 流体**。gutter 用百分比 = 大屏松、小屏挤。推荐 16/24/32（8 倍数），可 `{xs:8, sm:16, md:24}`。
-- **版心到顶后，多出的宽度给留白，不给内容**。长文 680–760px（中文 38em）、营销页 1140–1280px、表单 ≤640px、中后台不限宽。
-- **`clamp()` 最大值必须 ≥ 最小值的 2 倍且用相对单位**，否则 200% 放大失效（WCAG 1.4.4）。`clamp(MIN,VAL,MAX)` 写反了会静默取 MIN。
-- **全屏高度禁用 `100vh`**（当前等同于 `lvh`，地址栏一展开就遮住底部）。首屏用 `100svh`、遮罩用 `100dvh`、底部栏配 `env(safe-area-inset-bottom)`。满宽用 `width:100%` 不用 `100vw`（含滚动条宽）。
-- **320px 必须无横向滚动**（WCAG 1.4.10 硬要求，不看你是不是中后台）。表格是唯一例外：**只把 `<table>` 包进横滚容器**，标题/搜索/分页留在外面正常回流；横滚表格**必须配粘性首列**（背景不透明）。
-- **窄屏表格四选一**：横向对比需求强 → 横滚+粘性首列；列 ≤4 且每行独立 → 卡片化；有主次 → 减列+详情入口；字段多需逐条处理 → 主从。**8 列表格禁止卡片化**。
-- **移动端表单**：1 列、标签顶对齐、输入框字号 **≥16px**（否则 iOS 聚焦自动放大）、`inputmode` 齐、提交栏 `sticky bottom` + 安全区。**禁 `user-scalable=no`**。
-- **导航降级路径**：<768 汉堡或底部 tab（≤5 项）→ 768–1023 顶部导航/图标条 → ≥1024 常驻侧栏。折叠侧栏 **64px**、展开 **208–240px**、内容区最小 **≥720px**。
-- **中后台**：画板 1440，主流 1920/1440/**1366**（必测）、1280（不可崩）；左右布局固定侧栏+内容缩放，上下布局先保留白下限再压内容。
-- 完整对照表、决策树、可抄代码、20 条反模式、15 项自检 → **`responsive-layout.md`**。
-
-**版式与网格（海报/长图/社媒图/印刷/长文时必做）**
-- **先判载体再排版**：观看距离决定字号，停留时长决定信息量，媒介决定安全区。海报（1–5m，3 秒）≠ 长图（30cm，连续滑）≠ 社媒图（缩略图 120px）≠ 印刷品（有物理约束）。**用网页版式做海报 = 远处一片灰**。
-- **页边距借方法不借数字**：Van de Graaf 内:上:外:下 = **2:3:4:6**（1/9 与 2/9），那是**书页装订**系统；网页/海报只需记住两条——**下边距比上边距大 6mm（0.25″）**，**非对称时左右差 ≥25mm** 否则看着像没对齐。
-- **12 栏不是审美是数学**：能被 2/3/4/6 整除。**栏数 × 2 > 屏上元素数时，网格就只是装饰**。gutter **固定**、栏宽流体，gutter ≈ 栏宽 1/4–1/3（桌面 16–24px / 印刷 4–5mm）。
-- **基线网格是最容易跳过、收益最大的一项**：所有垂直尺寸都是 **4 或 8px** 的整数倍。16px × 1.5 = 24px ✓；× 1.6 = 25.6px ✗（取 24 或 32）。**检验法：压暗到只剩文字，基线能连成等距横线**。
-- **字号只用一个比例**：1.2（稳）/ 1.25（常用）/ 1.333（编辑感）/ 1.414（海报）/ 1.5（远看）/ 1.618（大标题）。**正文:主标题 = 2–4 倍**（海报可 6–8 倍），阶梯值取整到偶数。混用两套比例会出现"两个差不多大"的标题。
-- **行长背下来**：西文 **45–90 字符**（2–3 个字母表）；中文 **25–40 字/行**、移动端 15–20。**中文上限比西文更严**（无词间空格，超 45 字回行找首字明显变慢）。
-- **行距与行长联动**：西文 **120–145%**、中文 **1.6–1.8**；`line-height ≈ 1.2 + (字符数−45) × 0.005`。**中文行距必须落回基线**（16px 取 24 或 32，不要 25.6）。
-- **缩进与段间距二选一**：中文缩进 **2em**（首段不缩进）/ 段间距 **0.75–1.0 倍行高**。**并用 = 双重分段，关系反而模糊**。
-- **孤寡行要 3 不是 2**：CSS 默认 `orphans/widows: 2` 只够及格线，书籍用 **3**；标题 `break-after: avoid`。`text-wrap: balance` 只对 **Chromium ≤6 行 / Firefox ≤10 行**生效，超限静默退化。
-- **海报三件事**：① 画布 = 成品 **+ 出血 3mm ×2**（大幅面 6.35mm），底色必须画进出血区；② 文字全在**安全区**（出血内再缩 3–5mm）；③ 信息**三层封顶**（主张 / 支撑 / 细节），L3 字号 **≥18pt**。远距离可读经验公式：**字高(mm) ≈ 观看距离(m) × 8**（下限，主张应 3–5 倍）。
-- **长图字号要换算**：`设计稿字号 = 目标 CSS 字号 × (设计宽 ÷ 375)`。1080 宽 → 正文 **≥44px**（写 28px 在手机上只有 9.7pt）。**一屏一个信息点**（屏高 ≈ 1080×1.4），每 3–5 屏一个气口，单张高 ≤20000px，接缝避开文字行。
-- **社媒图唯一硬指标是缩略图**：缩到 **120px** 还认得出主标题吗？三铁律——**字 ≤12 个、主体 ≤2 个、对比拉到极限**。关键信息避开各平台裁切区（YT 右下 15%、微信首图两侧、小红书底部 20%）。
-- **印刷五查**：成品尺寸下 **300ppi**（A1+ 可 150）/ **CMYK** / 总墨量 **≤300%** / 正文 **K100 单黑**（四色黑 400% 必糊）/ 细线 **≥0.25pt**、中文 **≥7pt**。交 **PDF/X-4**、字体转曲、图片嵌入。
-- **中文版式三条最常翻车**：① 用 `letter-spacing` 拉大字距冒充高级感（方块结构散了）；② `justify` 但不处理标点挤压（孤字成行）；③ 中英混排不留 **1/4 字宽**空隙。中文**不用斜体、不用 500 字重**。
-- 完整尺寸表、出血规则、九平台数据、可抄 CSS（subgrid / initial-letter / 竖排 / 多栏）、20 条反模式、18 项自检 → **`editorial-layout.md`**。
-
-**品牌视觉与 Logo（有标志/品牌色/VI 时必做）**
-- **别从 logo 开始**。顺序是 定位 → 语言 → 系统 → 资产。定位层只要三样：**3 个形容词 + 3 个反义词 + 一句"我们不是谁"**。形容词必须可翻译成参数——"专业/高端/科技感"不可翻译（说了等于没说），"克制/锐利/档案感"可翻译。
-- **三个词必须分属不同维度**（形 / 色 / 字 / 图 / 动 / 声）。三个词都落在"形"上 = 只有一个词。**反义词是排除法**，用来挡掉 80% 的评审争论。
-- **标志七型**：字标 / 字母标 / 图形标 / 抽象标 / **组合标（新品牌默认）** / 徽章 / 动态标。新品牌只做图形标 = 前 18 个月靠投放硬砸；**徽章缩到 24px 必糊**，必须另配仅符号版；**动态标必须带静态兜底**。
-- **画在 24dp 网格上**（与界面图标同源）：内容区 **20×20**、四周 padding **2**、基形取**方 18 / 圆 20 / 竖矩 20×16 / 横矩 16×20**、默认圆角 **2**、描边 **2**（复杂形状局部可降到 **1.5**）。标志画布取 24 的整数倍（48/96/192），**笔画取 2 的整数倍**。
-- **一个标志只允许两档笔画**（主 + 细节 ×0.5 或 ×0.75）；端点与转角风格全标志统一。出现第三档就是没控制住。
-- **光学修正四条**：圆要溢出（直径 20 的圆 ≈ 18 的方）、尖角要收（顶点 −10%）、直曲交接要收口（曲线侧 −0.25~0.5dp）、重心上压 1–2%。
-- **清space 必须给一个可计算单位**，不许写"留足空间"。三口径选一：字高口径 **0.5x–1x** / 半符号口径（= 符号圆直径的一半）/ 高度折半。CSS 用 `padding` 不用 `margin`，且 `line-height: 0`。
-- **最小尺寸有实测口径**：数字端 **40px**、印刷 **10mm**；**40–80px（数字）/ 9–18mm（印刷）改用简化版**。通用判定公式：**最小可用尺寸 = 最细笔画 ÷ 0.75px**——笔画虚了就换版，不要继续缩。
-- **响应式标志四档**：主组合（≥160px）/ 简化组合（80–160px）/ 仅符号（24–80px）/ 仅字标（窄条）。四档**同几何体系**，切换**只按尺寸不按感觉**。最常被漏的是"仅符号"，最后拿主标硬缩糊掉。
-- **主色是种子色不是最终色**。选色四问（顺序不能反）：① 做按钮底压白字过 **4.5:1**？② 能生成 10–12 档且第 9 档（实心）与第 11 档（文字）都成立？③ CMYK 转换后是否偏色、要不要专色？④ 同品类前 5 名是不是都用这个色相？**先跑色阶，色阶崩了换种子，不要手调 12 个值硬凑**。
-- **色阶三条路线选一条，不许混**：① **HCT tone**（固定 hue+chroma 只变 tone，tone 0–100 与感知亮度对齐——这是它比 HSL 好用的唯一理由）；② **Radix 12 步语义**（1–2 背景 / 3–5 组件底 / 6–8 边框与焦点环 / **9 实心且彩度最高** / 10 hover / 11–12 文字，11/12 步保证 APCA Lc60/Lc90）；③ **对比度优先**（Leonardo：以目标对比度反解颜色，输出略高于目标，因为 WCAG 是最低要求）。
-- **暗色模式不是反色，是 tone 重映射**：primary **40 → 80**、onPrimary 100 → 20、container 90 → 30、onContainer 10 → 90、surface 99 → 10、onSurface 10 → 90、**outline 50 → 60（暗底反而更亮）**。
-- **主色不许当图表分类色**。主色是"强调"，分类色是"区分"；图表分类色另起一套（`dataviz.md` §3），主色只出现在"当前选中系列"或"目标参考线"。
-- **主色占屏 ≤10%**（大屏可放到 15–20%，仍 ≤25%）。60-30-10 里主色超过 15% 就不再是强调，而是噪音。
-- **语义色四档不得与主色同色相**，否则"错误"看起来像"强调"。
-- **图标与标志同网格同笔画**：一个产品只用一套图标；图标与文字**居中对齐**（不是基线对齐）；图标颜色**跟文字同色**（对比度 4.5:1）；交互热区 **≥44×44**（用 padding 撑，不画大图标）。
-- **字体 ≤2 族、字重 ≤3 档**。两族搭配的唯一硬指标是 **x-height 差 ≤8%**。品牌字体只用于品牌露出位（logo/大标题/封面），**正文用系统栈**。中文**不用 500 字重**（伪粗）、**不用斜体**、**不靠 `letter-spacing` 冒充高级感**；数字开 `tabular-nums`。
-- **品牌语气四维**（NN/g）：正式↔随意、严肃↔幽默、尊重↔不恭、就事论事↔热情。定位后只挑**少量**语气词 + **反语气词**（"权威但不说教"）。人格一致、语气随场景变；**幽默不进错误/支付/删除**；一屏感叹号 ≤1。
-- **插画/影像写五个参数**才算定义了风格：视角 / 光源 / 材质 / 细节密度（单图形 ≤7 个形状）/ 色域（只用哪几档）。写完返工率会直接下降——争议从"感觉不对"变成"光源方向错了"。
-- **交付包不许缺件**：转曲的 SVG（主标/单色/反白/仅符号/横竖锁版）+ AI/EPS/PDF（CMYK）+ ico（16/32/48）+ **apple-touch 180** + manifest **192/512** + **maskable 512（内容压进中心半径 40% 的圆内，圆外不保证可见）** + **iOS 1024（正方形，自己别切圆角，系统统一遮罩）** + OG **1200×630** + 手册。
-- **Apple 图标三条**：图层必须**未遮罩**（自切圆角会破坏高光并产生锯齿）；**文字只在必要时**（不支持无障碍与本地化，禁"Watch/Play/New"这类词）；考虑 default / dark / clear / tinted 四外观且**核心视觉一致**。
-- **商标 ≠ 版权**：版权创作完成自动产生；**商标必须注册**，否则同类被抢注可能要改标。尼斯分类 **1–34 商品 / 35–45 服务**；互联网产品至少覆盖 **9 / 35 / 42 类**（内容加 41、餐饮加 43）。注册前必做近似检索；周期以 CNIPA 当期公告为准，别引用旧口径。
-- 完整决策树、tone 全表、可抄代码、20 条反模式、18 项自检 → **`brand-identity.md`**。
-
-**一致性**
-- 同义元素同款：主按钮同款、卡片同圆角、图标同线宽同风格。一套 token（色/字/距/圆角/阴影）贯穿全局。
-
-
-**系统化（≥3 页或需长期维护时必做）**
-- 用三层 token：base（原始值）→ semantic（语义角色）→ component（组件覆盖）。组件只引用后两层，禁止硬编码色值。
-- 色阶 10 档、字阶 3–5 种、间距 8 倍数、圆角 2–3 档、阴影 3 层——**具体数值见 `design-tokens.md`**。
-- 中性色优先用透明度实现（`#000000E0` / `#FFFFFFD9` 这类），暗色模式只需改语义层映射。
-- 多页产品先出 **DESIGN.md**（九章骨架见 `design-md-format.md`），再逐页实现，防风格漂移。
-
-**暗色模式（涉及暗色/深色/夜间模式时必做，`dark-mode.md` 详解）**
-- **先决定要不要做**：正常视力用户在**浅色**下表现更好（Piepenbrock 2013 全维度胜出；**字号越小浅色优势越大**；夜间浅色仍更快）。暗色的正当理由是：低视力/白内障、暗环境、OLED 省电、沉浸式媒体、长文阅读选项。**中后台与表单密集系统不要默认暗色**（12–14px 正文字号正好是暗色最吃亏的区间）。
-- **三态而非两态**：浅色 / 深色 / **跟随系统**，默认跟随系统。**不提供"仅本应用"的独立开关**（Apple 明确反对，用户会以为应用坏了）。做了就**全站做完**，半套暗色比没有更糟。
-- **表面层级是重排不是反相**：亮色靠阴影表达高度，暗色靠**表面变亮**。亮色层级往下压（98→90，跨度 1.23），暗色往上提（tone 6→22，跨度 **1.50**）——**照抄亮色的层级差是头号错误**。三套可直接抄的精确值：M3 `surface 6 / cLow 10 / c 12 / cHigh 17 / cHighest 22`、Ant `lighten(0/8/12/26)`、Carbon `#161616→#262626→#393939`。
-- **底色三选**：默认**深灰**（`#121212` / `#161616` / tone 6）；移动 OLED 内容型可用纯黑但**文字必须降档 + 用边框替代阴影**；带主色倾向用 `#121212` + 8% 主色（M2 官方示例 `#1F1B24`）。纯黑有 OLED 滚动拖影风险。
-- **文字不用纯白**：四体系共识（M3 tone 90 / Ant 85% 白 / Carbon `#f4f4f4` / Radix 第 12 步）。四档 **85/65/52/32**——注意 Ant 原生的 45% 三级在纯黑上只有 **4.43**，**不达 4.5:1**，必须提到 50–52%。**暗色下不降字重**，中文正文 ≥14px。
-- **边框 ≥3:1**：表单控件边界用 `#6f6f6f`（3.6:1），**别抄 Ant 的 `#424242`（仅 2.09:1，不过 WCAG 1.4.11）**；装饰分隔线 1.5–2.1 即可。
-- **阴影两派**：有层级体系时用"surface 提亮 + 极轻黑投影"（M2 立场：不要用光晕替代投影）；只有一层底时必须浮起时用"黑投影做体积 + 极淡白描边做分离"（`0 6px 16px rgba(0,0,0,.48), 0 0 0 1px rgba(255,255,255,.06)`）。
-- **品牌色重映射不是反相**：主色 tone 40→**80**，容器 90→**30**、容器字 10→**90**；**`outline` 是 50→60（变亮）**；`onErrorContainer` 暗色 **80 而非 90**（官方实现的不对称，别"修正"）。涨跌/语义色**必须双套**并重跑对比度与色盲模拟。
-- **状态方向反过来**：hover/active 在暗色是**提亮**不是加深；focus 环用亮色 ≥3:1；scrim 提到 **60–80%**；skeleton 必须比卡片底**亮一档**；禁用态加边框而非只降透明度。
-- **资产四种死法**：白底图发光（压暗 8–12% + 1px 边框）、深色透明图消失（换浅色版）、图标不用 `currentColor`、logo 没有浅色版。**禁止整页 `filter: invert(1)`**。
-- **防闪白三件套顺序**：`<meta name="color-scheme" content="light dark">` → `<head>` 内联脚本读 `localStorage` 立刻设 `data-theme` → 才是 CSS。**必须另设 `:root{color-scheme:light dark}`**，否则滚动条与原生表单控件仍是白的。
-- 完整对比度实测表、四端实现、22 项自检、20 条反模式 → **`dark-mode.md`**。
-
-**性能（任何视觉产出都受性能约束，`performance-design.md` 详解）**
-- **性能是设计约束，不是开发收尾**。改首屏构图在设计阶段是 10 分钟，上线后发现 LCP 4.2s 是重做首屏。**预算必须在需求阶段定**，写进 brief。
-- **七个数背下来**：LCP **2.5s**（差 >4.0）、INP **200ms**（差 >500）、CLS **0.1**（差 >0.25）；辅助 TTFB **800ms**、FCP **1.8s**、TBT **200ms**、SI **3.4s**。判定取**第 75 百分位**，移动/桌面**分别**统计，三项全过才算过。
-- **看现场数据，不看本地分数**。Lighthouse 测不了 INP（用 TBT 代理）；本地缓存 + 好网络会让分数虚高。**"本地 100 分"不是验收通过**。
-- **首屏主视觉直接决定 LCP 上限**：CSS 渐变/几何构成最快（LCP 常是文本）；一张照片 = 它的字节数就是 LCP 下限；**背景视频不是 LCP 元素，但会抢带宽把 LCP 推后**——5s 1080p@4Mbps ≈ **2.5MB**。
-- **LCP 图三条禁令**：禁 `loading="lazy"`、禁 `data-src`、`fetchpriority="high"` 全页**最多 1–2 张**（给多了等于没给）。CSS 背景图必须 `preload`。
-- **别给"保险"尺寸**。浏览器下载整张图再缩放：400×300 的位（DPR2）配 4000×3000 源图 = **25 倍像素浪费**。DPR 翻倍，像素总数**变 4 倍**。
-- **格式按内容选**：照片 → **AVIF** → WebP → JPEG 兜底；图标/logo → **SVG**；动图 → **`<video>`**（GIF ≤256 色且体积远大于视频）；**图里不要放文字**（不可选/不可搜/不可访问）。
-- **字体是最易被低估的成本**：**≤2 个文件、≤3 字重**；中文**必须子集化**（CJK >10000 字形，未子集化 3–8MB）；只用 **WOFF2**（比 WOFF 省约 **30%**）。`font-display` 不写时 Chromium/Firefox 阻塞 **3s**、**Safari 无限期**——这就是"某些手机上首屏一片空白"。
-- **字体抖动用 `size-adjust` 治**：把回退字体度量校正到目标字体，交换时不重排。**百分比必须实测**，写个"看起来对"的值比不写更糟。
-- **每次点击 100ms 内必须有可见变化**（RAIL：50ms 处理 → 100ms 可见响应）。超过就用户重复点击，INP 更差。这条与 `feedback-states.md` 的 0.1/1/10s 是同一物理规律。
-- **滚动回调是性能黑洞**：回调里读 `offsetTop`/`getBoundingClientRect` 再改样式 = **强制同步布局**，每帧一次全量重排。用 `IntersectionObserver` 替代"滚到某处就……"。
-- **只动 `transform` / `opacity`**（仅合成，可在 GPU 线程完成）。改 `height`/`width`/`top`/`left` 会走 布局→绘制→合成，还会计 CLS。展开用 `grid-template-rows: 0fr→1fr`。
-- **`will-change` 是"临时借"不是"常驻开"**：一个合成层内存 = **宽×高×4 字节**（1920×1080 = **7.93MB**，2x 全屏图 = **17.8MB**）。同时活跃合成层建议 **≤5–8 个**，写在常驻 CSS 里是最常见的反模式。
-- **任何"全屏每帧重算"的效果都是红灯**：全屏 `backdrop-filter: blur()`、全屏 canvas 粒子、全屏滤镜、多层视差。**限定面积**是唯一便宜的解法（只给标题条做玻璃、噪点做成静态图叠层）。
-- **预算基线**：关键路径 **<170KB**（压缩后）、TTI **<5s**（慢速 3G + 中位设备）；移动端 JS **<170KB**（min+gz）。超预算只有三选一：**优化 / 删掉 / 不加**，没有"先上再说"。
-- **三档决策分级**：**A 效率优先**（中后台/表单/支付，几乎不许花，INP 优先于一切）· **B 平衡**（电商/内容/SaaS，1 张首屏大图 + 1–2 字体 + 1 处动效）· **C 表达优先**（品牌首页/活动/作品集，可上视频/3D，但**首屏仍要 2.5s、必须有静态降级、必须可跳过、移动端单独设计**）。
-- **降级三层**：`prefers-reduced-motion`（杀位移保留色彩反馈）→ `prefers-reduced-data` / `Save-Data`（不自动播视频、降图质量）→ 运行时 `effectiveType` / `deviceMemory`（不加载 3D/粒子）。**触屏设备不该为桌面效果付费**（光标拖尾、hover 视差零收益）。
-- **小程序是另一套物理**：**单个代码包上限 2MB**（官方原文）、ZSTD 压缩、包内图片/字体**难以再压缩**且影响远大于代码 → **图片走 CDN**。分包是"效果最明显的手段"，独立分包（广告/支付页）**进入时不下载主包**。`setData` 两铁律：**只传 diff**、**`data` 只放渲染字段**；官方明确 **Shadow 树节点量的影响大于数据量**，所以**拆组件比减数据更有效**。
-- 完整阈值表、LCP/INP/CLS 分解、**视觉手法性能价格表**、图层内存算术、六类页面预算表、小程序五手段、可抄代码 → **`performance-design.md`**。
-
-**交付与协作（设计稿要交给别人实现时必做，`handoff-collaboration.md` 详解）**
-- **交付的是决策，不是图**。一张稿子里有三层：**intent**（为什么）、**rule**（什么情况用什么）、**value**（多少 px）。只给 value，开发必须反推 rule 与 intent，偏差从这里开始。**判断法：拿掉设计稿，开发只看文档能不能做出第二个页面。**
-- **spec sheet 九个字段**：标识（含版本与状态）/ 布局规则 / 间距与尺寸 / 字体与颜色 / 交互状态 / 行为与边界 / 无障碍 / 素材与链接 / 沟通字段（对应开发、提测时间、验收人）。**缺第 9 项 = 上线前找不到人。**
-- **只用 token，不写野生值**。Carbon 的规格要求里"only"出现三次：**只用系统 color token、只用 type token、只用 spacing token**；代码侧"**不得包含未 token 化的魔法数字或颜色**"。
-- **标注只标四类**：① **例外值**（不在阶梯上，必须写原因）② **对齐关系**（哪几个元素共用一条基线/左轴——开发最难从图上量出来的就是这个）③ **尺寸约束**（min/max、固定宽、谁自适应）④ **断点切换点**。**不要全量标**——满屏红线等于没有红线。
-- **网格先定死，标注量掉一个数量级**：Carbon **8px mini unit**、**padding 恒 16px**、**gutter 合计 32px**、sizing **8/16/24/32/48/64/80**、spacing **13 档 2·4·8·12·16·24·32·40·48·64·80·96·160**、断点 **320/672/1056/1312/1584**（列数 **4→8→16**）。**文字要对齐到 padding 边缘，不能压在 padding 上**；**Figma 文本框默认带内边距，标注前先清掉**。
-- **单位说清**：设计稿 px、代码 rem（`24px = 1.5rem`）；DTCG 的 `dimension` **只接受 px 与 rem**，`value:0` 时 `unit` 仍必填。
-- **9 态都要有出处**：default / hover / focus / active / selected / disabled / **read-only** / error / loading（Carbon 原文 7 态 + 本技能补 2）。**read-only 必须过 4.5:1**——Carbon 的 4.5:1 例外**只给 disabled**，把灰字都当 disabled 是最常见的合规漏洞。
-- **别画 2ⁿ**：每组件选 **1–3 条主路径**出全态，其余尺寸只出 default；视觉差 <5% 的两态**写规则代替出图**。验收口径是"每一态都能在设计稿或规则表里找到出处"。
-- **命名四套，一套都别省**：图层（`Frame 12`/`副本` 必须清零）→ 组件（`类别/修饰`，斜杠 ≤4 层）→ 变体属性（**语义名，禁 `color=红色`**）→ token（**CTI：`color-background-button-danger`**）。**默认变体 = 组件集左上角**，所以左上角放**最常用**的那版，不是最漂亮的。
-- **组件属性 3–5 个、每属性 ≤5 值**（组合是乘积）。Boolean 用 `is/has/can` 前缀，默认值取最常见。**图标不要用变体分组**（Figma 明确不建议）；**组件集里不能放文字/标注**；**Dev resources 会传播到所有实例**，所以链接必须长期有效。
-- **验收标准写 Given/When/Then，3–5 步**：Given 只写状态、When 只写**单个动作**、Then 只写**用户看得见的**结果（**禁验数据库**）。五维覆盖：视觉 / 状态 / 交互 / 无障碍 / 性能。**"美观、流畅"不是 AC。**
-- **评审会 30 分钟、每周一次、round robin**；要破冰用 quota（**2 条做得好 + 1 条可改进**）；facilitator **每轮轮换**；所有反馈**挂在目标上**（"这布局太糟"→"它怎么帮用户更快完成？"）。**会议必须产出：决策 / 待定 / 负责人 / 期限**——没有这四项等于没开。
-- **走查三遍法，别从像素开始**：① 主流程能不能走通 ② 交互说明/AC **逐条打勾**（含异常态）③ 才看视觉与间距。走查在**提测后、测试跑完一遍**时介入，通常占项目**约 1/4** 时间。
-- **走查表 9 字段**：模块 / **环境（机型·系统·分辨率·浏览器·缩放·明暗）** / 问题描述（**带正确值**，如"应为 `#E74957`"）/ 截图 / 设计稿链接 / 优先级 / 开发 / 状态 / 验收结果。**一条一问题**——一条写 5 个，必然修 3 漏 2。
-- **P0–P3 只看"用户还能不能完成目标"**：P0 主流程断/数据丢/无障碍阻断/品牌事故（**必须为 0 才可上线**）；P1 主流程错或关键状态缺失（**需书面豁免，写清谁批何时补**）；P2 非主流程偏差/token 未用（**下迭代清零**）；P3 1–2px/标点（可合并发布）。
-- **SemVer 照搬**：MAJOR 不兼容、MINOR 兼容新增、PATCH 兼容修复；**已发布内容不可改**；**标记废弃也必须升 MINOR**；**移除前至少隔一个 MINOR**。映射到设计系统：**改默认值 = MAJOR**（所有没传值的调用点视觉全变）；删组件/改 token 名 = MAJOR；新增 = MINOR；修对比度/修图标 = PATCH。
-- **MAJOR 必须带迁移表或 codemod**（Carbon 原话：迁移成本会乘上所有团队）。变更日志用六类：Added / Changed / Deprecated / Removed / Fixed / Security，**每条写影响面**。
-- **三个版本号不要混**：设计稿版本 / 组件库 SemVer / 产品版本，交付文档里**三个都写**。
-- **token 管线**：Figma 变量 → `.tokens.json`（DTCG）→ Style Dictionary → CSS/JS/iOS/Android → 组件引用 → Storybook。DTCG 是**预览草稿**（不可当标准）：含 `$value` 才是 token、不含才是组、名称禁 `$ { } .`、别名 `{}` 与 `$ref` 两种都要支持、`$extends` 深合并、循环必须报错。SD 侧：**两套格式不能混用**、**include 先于 source、后者覆盖前者**、`source` 之间冲突才警告。
-- **回归四层**：单测覆盖 **≥80%**、视觉回归**至少 1 条默认 story**、无障碍自动测**默认态 + 全部复杂态**、读屏**JAWS + VoiceOver + NVDA** 人工过一遍。工具实测：Storybook 91420★ / Playwright 99007★ / BackstopJS 7192★ / reg-suit 1305★ / addon-designs 952★（**lost-pixel 已归档，勿新采用**）。
-- **六个交付指标**（先测自己基线再谈改善）：走查问题密度 ≤5/页、一次通过率 ≥70%、**P0 = 0**、返工率 ≤15%、token 覆盖率 ≥90%、单次 MAJOR 影响面 ≤30%。两个过程指标：**开发问"这里多少 px"的次数趋近 0**、**同类问题不重复出现**。
-- 完整字段表、P0–P3 判定、SemVer 全 11 条、DTCG 类型表、20 条反模式、20 项自检、4 套模板 → **`handoff-collaboration.md`**。
-
-**中文排版修正（面向中文用户必做，默认情况）**
-- 字号比英文规范 **+1~2px**：正文 16–18px（内容页）/ 14px（中后台），行高 **1.6–1.8**（不是 1.5）。
-- 字体栈中文字体在前：`'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Source Han Sans SC',...`
-- 中文**不用斜体**；不依赖 500 字重（多数中文字体缺该档会触发伪粗体）——强调用字号+颜色。
-- 标点全角；省略号 `……`；破折号 `——`；开 `line-break: strict` 实现避头尾；中英之间留 1/4 em。
-- 行长按字数算：正文 25–40 字/行，移动端 15–20 字。**完整规范见 `chinese-design.md`。**
-
-**内容设计与 UX 文案（界面有文字时必做，`ux-writing.md` 详解）**
-- **按钮动词开头、禁 OK**。"Save changes" / "删除"是对的；"OK" / "Submit" / "确认" / "提交" / "Click here"是错的。中文按钮 **2–4 字**不加"请"。描述**点击后进入的状态**（视频在播时写 "Pause" 不写 "Playing"）。加省略号表示需更多信息（`Save As…`）。
-- **错误文案三层**：发生了什么 + 为什么 + 怎么修。≤30 字（中文）。禁用词 9 条：`Invalid`/`非法`/`Incorrect`/`不正确`/`Error` 单独用/`Please try again`/`请重新输入`/`Oops`/`We're having trouble`/`格式不正确`。位置紧贴字段下方 4–8px。时机**失焦+提交**不一进来就红。
-- **空态五件套**：标题 + 说明 + 按钮（+ 可选次要链接 + 视觉）。五种空态要分清：首次使用（给"新建"）/ 搜索无果（给"清除筛选"）/ 筛选无果（给"清除筛选"）/ 错误导致（给"重试"）/ 完成后空（庆祝感）。禁纯 "No data"、禁俏皮话。
-- **语气四维**（NN/g）：正式↔随意、严肃↔幽默、尊重↔不恭、就事论事↔热情。**品牌人格定基线，场景定偏移**：错误时**禁幽默**；危险确认升正式；成功可升热情。禁责怪用户、禁 "We" 开头（Apple HIG 明确禁用）、禁道歉过多、禁过度承诺（"绝对""一定"）。
-- **标签名词 ≤8 字**不加句号；**占位符写示例禁替代标签**（WCAG 3.3.2）；帮助文案 ≤16 字与错误**共用位置**（有错时替换帮助）；设置项说"开启后做什么"不说"关闭后不做什么"。
-- **对话框标题说发生了什么**（"删除项目？"），禁用"提示/警告/注意"；正文写后果+不可撤销提示；主按钮写具体动作（"删除"）禁 OK；危险操作正文写清对象名。
-- **Toast 写具体什么成功**（"已保存"不是"操作成功"），≤20 字，成功 3s / 错误不自动消失。
-- **引导价值优先**——说"帮你做什么"不说"有什么功能"；可跳过；做中学；持续引导（新功能 tooltip）。禁功能清单禁"开始使用"。
-- **导航标签名词 ≤4 字**统一粒度不用动词；术语表同概念同一词（"新建"≠"创建"、"导入"≠"上传"）。
-- **大小写默认 sentence case**（Apple + Microsoft + GOV.UK + M3 四体系共识），禁全大写。中文标点全角、中英之间加空格、数字与单位加空格、按钮标题不加句号。在线用数字不用拼写、千分位、大数用万/亿。
-- 完整禁用词表、10 类错误模板、五件套结构、场景语气矩阵、术语表结构、文案 token JSON、20 条反模式、18 项自检 → **`ux-writing.md`**。
-
-#### 演示文稿与幻灯片版式
-
-- **3 秒法则**：观众在 3 秒内决定是否继续看这张幻灯片。每张停留 20–60 秒，不是"缩小的文档"是"放大的瞬间"。
-- **尺寸**：16:9（1920×1080）为事实标准（PowerPoint 2013+ / Google Slides / Keynote / reveal.js 全部默认）。4:3 仅旧投影和打印讲义。同一文件不支持混比例。
-- **安全区**：标题安全区边距 ≥5%（96px / 2.54cm），动作安全区 ≥3%（58px / 1.48cm），投影过扫预留四边 0.5"（1.27cm）。用 PowerPoint 辅助线或 Slide Master 设置。
-- **字号阶梯**：封面标题 44–60pt / 章节标题 36–44pt / 幻灯片标题 28–36pt / 正文 24–28pt / 标注 20–22pt / 页脚 14–16pt。**最小 24pt（线上 28pt）**。阅读型讲义可降至 14pt。全篇同一层级字号一致（母版设的）。单页最多 3 种字号。
-- **字体**：Sans-serif 系统字体（Helvetica / Calibri / Arial / 思源黑体 / 微软雅黑）。全篇最多 2 种（一中文一英文）。禁 Comic Sans / ALL CAPS / 全加粗 / Word Art / 阴影描边 / 装饰字体。
-- **可读性验证**（Duarte 法）：测量屏幕对角线英寸数 → 后退相同数值的英尺数 → 检查是否清晰。
-- **文字密度**：Godin（≤6 词/页，极简演讲）/ 5×5（5 行×5 词，商务）/ 6×6（教学）/ 1-6-6（1 观点×6 条×6 词，专业标准）/ 中文 5×5 = 5 行×10 字 / Godin = ≤20 字/页。
-- **母版与占位符**：6–8 种版式（封面 / 章节 / 标题+正文 / 图文左 / 图文右 / 全图 / 数据 / 引用），每种命名。用占位符不用手动文本框（保无障碍阅读顺序）。logo 右下角或左上角，高 0.5–1"。
-- **动画 = 单元素效果**（入场/退出/强调/动作路径），一页可有多个。**转场 = 整张幻灯片切换**，每页仅 1 个。三档：细微（Fade/Cut/Push/Wipe/Morph ✅）/ 适度（⚠️）/ 华丽（❌ 禁用）。全篇统一 1 种转场，≤0.5 秒，禁声音。Morph 用于元素跨页平滑位移（列表重排/数据变化），不是炫技。
-- **投影对比度**：正文 ≥4.5:1 / 大字 ≥3:1。投影损失 20–40%，设计时需高 50%。深底浅字或浅底深字。禁红绿、红蓝、亮色背景。用 WebAIM 对比度检查器验证。
-- **图表**：一页一图表，占 60–70% 幻灯片面积。坐标轴 ≥18pt / 图例 ≥16pt / 标注 ≥18pt。色盲安全 3–4 色。
-- **可访问性**：WCAG 2.1 AA。用占位符（阅读顺序）/ alt 文本 / 对比度 ≥4.5:1 / Accessibility Checker 0 错误 / 闪烁 ≤3 次/秒（WCAG 2.3.1 不可豁免）/ 闪烁面积 ≤25%。
-- **线上演示**：字号 +4pt / 减少动画 / 高对比 / 关通知 / 用 PowerPoint Live 或 Zoom 全屏共享。
-- **中文演示**：最小 26–28pt / 行距 1.4–1.6 / 思源黑体或微软雅黑 / 中英加半角空格 / 标题不加句号。
-- **版式构图**：三分法则（2 横+2 纵=9 区，交叉点最吸引）/ Z 模式（左上→右下）/ 留白 30–50% / 人物和运动方向面向内部。
-- **演示节奏**：主题演讲 15–30s/页 / 商务 30–60s / 教学 60–120s。切换后等 2–3 秒再讲（Mayer 分裂注意力研究）。
-- 完整尺寸表、安全区推导、字号阶梯、动画转场分类、12 场景速查、20 条反模式、18 项自检、6 段可抄代码 → **`presentation-design.md`**。
-
-#### 动效编排、状态机与共享元素转场
-
-- **先判层再动手**：L1 单动效（一个元素一个变化）→ `motion-system.md`；L2 编排（≥2 个元素或分先后）→ 本节；L3 状态机（有互斥状态 / 跨视图配对 / 会被中途打断）→ 本节 §9–§11。**动效 bug 八成是状态没建模，调 easing 修不好**。
-- **四种时间结构**：并行 `max(d)` / 串行 `Σd` / 重叠 `d₁+(1−p)d₂` / 交错 `d+(n−1)s`。总时长 `T = T_parent + d_child + (n−1)×s ≤ 400ms`；反解 `s ≤ (400−d)/(n−1)`。**6 项×30ms=350ms ✅，12 项×40ms=640ms ❌ → n>6 一律改整组淡入或分组**（每组 4–6 项并行）。
-- **编排顺序**：父先子后 `when: "beforeChildren"` / 子先父后 `when: "afterChildren"`；同一逻辑组并行（别把一张卡的标题图标正文拆成三个 stagger）；入场正向、反向交错只用于收起/撤销。
-- **单位必须先统一**：CSS `0.3s` · WAAPI `300`（毫秒，默认 easing 是 **`linear`** 不是 CSS 的 `ease`）· Motion `0.3`（秒）· React Transition Group `timeout={300}`（毫秒）。混用是「动画快/慢 10 倍」头号原因。
-- **动画是增强**：DOM 更新、数据提交、焦点迁移**不能**依赖动画结束事件。View Transitions 主流程等 `updateCallbackDone`/`finished`，**不要 await `ready`**（重名会 reject，但 DOM 已经改了）。
-- **FLIP 是共享元素位移的通用解**：先读 First、直接改到 Last、用 `transform` 反演回 First、再放开跑到 Last。预计算必须落在**交互后 100ms 响应窗口**内；**批量先全读再全写**，别「读一个写一个」触发 N 次强制同步布局；同一时刻只允许一个 FLIP 编排在跑。
-- **列表增删 ≠ 重新入场**：新增让位、删除合拢、重排位移、整批替换是四种不同策略。退场元素必须脱离布局流（Vue `.list-leave-active{position:absolute}` / Motion `mode="popLayout"`）；**key 一律用稳定 id，禁用 index**；重排/筛选走 FLIP 位移保住空间连续性。
-- **共享元素两条路线**：View Transitions（浏览器快照，跨文档 MPA 首选，UA 默认 **0.25s / ease / both**，`view-transition-name` 必须唯一）vs Motion `layoutId`（真实 DOM transform，允许多个同名、能补滚动、parent-relative 不会被落下）。**宽高比变化的内容用 `layout="position"`**，别让 scale 拉伸文字和图片。
-- **转场是单例**：新 `startViewTransition()` 启动时旧的会 skip to end。快速连点要显式 `skipTransition()` → `await updateCallbackDone` → 起新的；清理挂 `finished` + `finally`。**网络请求放在调用之前**，callback 期间页面被冻结。MPA 里 `pageswap` 临时设的 name 必须在 `finished` 后清掉，否则 bfcache 返回时重名导致转场被跳过。
-- **进出场要有状态机**：最小完备模型是 `entering / entered / exiting / exited` 四态；快速连点应有明确迁移（如 `exiting` 收 `OPEN` → 反向 `entering`、从当前值继续）。把「动画轴」与「数据轴」做成并行 region，避免 `isLoading && isSuccess` 这类不可能状态。
-- **可中断＝从当前视觉值迁移**：三策略（读计算样式重启 / `composite: add` 叠加 / `finish()` 跳终点）。保态用 `commitStyles()`，别长期挂 `fill: forwards`（耗资源且 cascade 优先级压过指定样式）；改速率用 `updatePlaybackRate()` 而非直接赋值。**清理不要只挂 `transitionend`**（冒泡、cancel 不触发、display:none 不触发、多属性多次触发四坑）。
-- **`display:none` 进出场四件套缺一不可**：`@starting-style`（起始态，与原规则同 specificity **必须写在后**）+ `display` 进 transition 清单 + `overlay` 进清单 + `transition-behavior: allow-discrete`（简写会重置它，**独立声明必须写在简写之后**）。离散属性一般 50% 翻转，但 `display` 例外（none→block 在 0%、block→none 在 100%）。DOM 移除要延迟到退场结束。
-- **降级要做两层**：CSS 层（`prefers-reduced-motion`）＋ **JS 层**（WAAPI / Svelte 过渡 / View Transitions 都不吃 CSS media 归零，必须用 `matchMedia` / `prefersReducedMotion` / `getAnimations()` / `skipTransition()`）。**编排层要整段跳过交错，别把每项 duration 归零**（那是 N 个变化一帧内重叠闪现）。WCAG **2.3.3（AAA）** 要求交互触发的 motion animation 可关闭；颜色/模糊/opacity 变化不算 motion animation，可保留作功能反馈。
-- 完整 FLIP 算式、View Transitions 伪元素树与 UA 默认值、WAAPI 全默认参数表、四态状态机与状态×事件矩阵、跨框架矩阵与选型树、16 场景速查、20 反模式、20 自检、8 段可抄代码 → **`motion-orchestration.md`**。
-
-#### 国际化与本地化设计（i18n / L10n / RTL）
-
-- **出海不是「加个语言包」，是三层同时改**：**标记层**（`<html lang>` + `dir`）、**布局层**（弹性 / logical properties / 镜像）、**数据层**（复数 / 日期 / 数字 / 姓名 / 排序）。只做翻译字符串，一定在 RTL 或复数上翻车。先判层再动手 → `i18n-localization.md` §1。
-- **⚠️ 本技能修正过的口径**：`ux-writing.md` §13 的「按钮容纳 +40%」**对 microcopy 是错的**。W3C 转引 IBM 表：英文 **≤10 字符平均膨胀 200–300%**、11–20 为 180–200%、21–30 为 160–180%、31–50 为 140–160%、51–70 为 151–170%（**原表非单调，别自作主张平滑**）、>70 为 130%；Flickr `views` 实测意语 **3.0×**。**microcopy 按 2–3×、短文案 1.6–2.0×、段落 1.3× 设计弹性**；Microsoft 的 +40% 只是伪本地化测试串加长量，不是设计余量。
-- **余量 ≠ 把按钮做宽**：用 `min-inline-size` + `max-inline-size` + 允许换行/省略（有 `title`/tooltip 兜底）做成**能伸缩**。另外记住 W3C 四因素：德语复合词不换行、`desktop→デスクトップ` 少一字反而更宽、泰文/Nastaliq/天城文需要更高行高、缩写不可跨语言复制。
-- **`lang` 和 `dir` 是两个东西**：WCAG **3.1.1 Level A**（H57 在 `html` 上写 `lang`）+ **3.1.2 Level AA**（H58 给局部 passage 标语言）；`lang` 推不出方向（`az` 可 LTR 可 RTL），`Intl.Locale().textInfo.direction` 只能做兜底校验。**W3C 硬禁令：「Never use CSS to apply the base direction」**——方向影响语义且 CSS 失效时仍要存在，RTL 必须写 `<html dir="rtl">`（它会连带块右对齐、表格列右起、表单右起、`alt`/`title` 继承、overflow 方向等 8 项）。运行时方向未知用 `dir="auto"`（看首强字符，**不 foolproof**），表单提交方向用 `dirname`；行内双向文本**紧包裹** + `bdi` + `&rlm;`U+200F / `&lrm;`U+200E + Unicode isolates。
-- **方向相关的 CSS 一律换逻辑属性**：`inline`/`block` 轴 + `start`/`end`，`margin-left→margin-inline-start`、`width→inline-size`、`left→inset-inline-start`、`text-align:left→start`。**RTL 里 `start` 不永远是 left**，写死 left/right 等于把镜像做死。
-- **镜像有白名单也有黑名单**（Material Bidirectionality）：该镜像——整体布局、文本右对齐、导航按钮、方向性图标、字段图标、进度条、时间线；**不镜像**——数字、未翻译文本、时钟/电话号、图表/图形、媒体播放控件、顺时针刷新、物理对象图标、右手持物图标、斜线。两个最容易错：**一般进度条镜像但媒体进度条不镜像**；**数字不镜像 ≠ 不本地化**（`ar-EG` 用 `arab` 数字字形、`he-IL` 用 `latn`）。
-- **复数不是 `n === 1 ? a : b`**：CLDR 六类 `zero/one/two/few/many/other`，**`one` 不等于数字 1**（法语/印地语 0→`one`，俄语 21→`one` 而 11→`many`），`other` 必需，中/日/韩/印尼/越南**只有 `other`**（中文产品最易漏测，因为本地永远测不出分支），阿拉伯语全 6 类、俄/波四类、法三类。
-- **ICU MessageFormat 三条铁律**：**禁止拼接字符串**（语序、格、性别都会变）、**整句作为一条完整消息交给翻译**、**`select` 放外层 `plural` 放内层**。用 `offset:1` / `=0` / `=1` / `#` 处理「你和其他 N 人」；ASCII 撇号是转义符，正文建议用 U+2019 避免踩坑；格式优先 skeleton `::` 而非 string pattern。
-- **`Intl` 不是构造器**，是一组构造器 + 静态方法的命名空间：`DateTimeFormat` / `NumberFormat` / `PluralRules` / `ListFormat` / `DisplayNames` / `RelativeTimeFormat` / `Segmenter` / `Collator` / `Locale` / `DurationFormat` + `getCanonicalLocales()` / `supportedValuesOf()`。本机 Node v22.22.2 实测 **`Intl.DurationFormat` 抛 TypeError（MDN 已列但运行时未实现）→ 生产必须 `typeof … === 'function'` 能力检测 + 降级**；`zh_cn` 抛 `RangeError`，BCP 47 必须用连字符 `zh-CN`。`navigator.language(s)` + `localeMatcher: 'lookup' | 'best fit'` 做协商，别自己猜用户语言。
-- **数据展示别用英文直觉**：`03/09/2026` 在英美是两个月不同日；`hi-IN` 是 **12,34,567.89**（3-2-2 分组）；`de-DE` 小数点/千分位与 en 对调；`JPY` 无小数；`ListFormat` 决定牛津逗号；`Collator` 下德语与瑞典语对 `ä` 的排序相反；`weekInfo` 决定周起始日（zh 一 / en-US 日 / ar-EG 六）。姓名用**单一 `Full name` 字段**（W3C：强制拆姓/名会让用户填 `.` 或 `Mr.`），别假设空格分隔、别假设单名不存在。
-- **没翻译也要能测**：伪本地化五变换——拉丁音标替换、数字换 ①–⑨（U+2460–2468）、`^` 定界符暴露截断与拼接、唯一 id 定位漏译、按 §2 分档加长（microcopy 3× / 段落 1.3–1.4×）；用 `en-XA` / `en-XB` / Windows `qps-ploc*`，私有段用 RFC 4646 `qaa–qtz`（**别用 `tk-TM`，会撞真实 locale**）。给译者的交付包要有上下文截图、字符上限、变量说明、复数样例、术语表。
-- 完整膨胀表与四因素、`lang`/`dir` 与 H57/H58、logical properties 映射、镜像白黑名单、CLDR 复数类别表、ICU 嵌套范式、`Intl` API 实测输出、伪本地化可抄代码、12 场景、20 反模式、20 自检 → **`i18n-localization.md`**。
-
-#### 设计系统文档写作（组件页 / 信息架构 / 版本化 / 治理）
-
-- **先分层，再判层**：`design-md-format.md` 的 DESIGN.md 是给机器读的约束清单，`handoff-collaboration.md` 的终点是"开发能做出第二个页面"；本节的终点是"半年后第三个团队也能自己查到、自己改对、自己升级"。写之前先用 **Diátaxis 四象限**判清是哪一种文档——tutorials（学习导向、不给选择）/ how-to（任务导向、必须能分支）/ reference（工作时查、*"Describe and only describe"*）/ explanation；**把四种混进一个组件页，四象限会同时失效** → `design-system-docs.md` §1。
-- **组件页照九段式落，别只给截图 + props 表**：GOV.UK Button 的 `When to use this component` / `When not to use` / `How it works` / 变体与状态 / Accessibility / Props·API / Research / Recent changes / Help improve 九段各有义务；**最常被砍掉的后三段正是"活文档四件套"**（研究证据 / 已知问题 / 近期变更 / 帮助改进），砍掉文档就停止生长 → §2、§7、§8。
-- **能验收才算规范**：五问（找得到 / 看得懂 / 抄得走 / 对得上代码 / 半年后有人改）+ 字段清单逐条打分；示例代码五条硬规则（可直接复制运行、零隐式依赖、给出 import、结果与截图一致、随版本回归）；写作按 Google style highlights：sentence case、第二人称、主动语态、**descriptive link text（禁 "click here"）**、alt 非文件名、serial comma → §3、§5、§6。
-- **文档版本化不是"每次发版切一份"**：Docusaurus 官方明说多数站点**不需要版本化**；真要做就守住 `versioned_docs` / `versioned_sidebars` / `versions.json` 三件套、版本数 **<10**、dev·deploy preview 只留 **2–3** 个、**patch 不切新版本**、旧版挂 `unmaintained` banner → §10。
-- **changelog 是写给人读的，不是 git log**：Keep a Changelog 1.1.0 七原则 + 六类 `Added/Changed/Deprecated/Removed/Fixed/Security` + 常驻 `[Unreleased]` + ISO 8601；**MAJOR 必带迁移文档且能被机器校验**（codemod / 脚本可跑），否则升级全靠人肉试错 → §11、§12。
-- **规范引用认 published 不认 preview**：`tr.designtokens.org/format/` 页首明写 *"Do not reference this version as authoritative in any way"*，权威是 **DTCG published 2025.10**；token 的 `$description` / `$deprecated` / `$extensions` 直接当文档源，别再手抄一份必然漂移的表 → §13。
-- **docs-as-code 让文档与代码同源**：Storybook `tags: ['autodocs']` / `['!autodocs']`、MDX `of={}` 与 attached / unattached 的区别、默认六 Doc Block、`Meta` 后的空行规则；Figma Code Connect 把设计稿与组件命名绑死 → §14、§15。
-- **治理写门槛不写口号**：GOV.UK **Useful / Unique**（提案）+ **Usable / Consistent / Versatile**（发布）+ 社区资源 1 个月 / 3 个月使用阈值；组件状态用 USWDS 三阶段十二子状态与 45 天评论期标明成熟度 → §16、§9。
-- **把"防漂移"做成可测指标**：链接失效率、文档与 props 一致性、最后更新时间、示例可运行率；本技能自己就用 `mindmap.py` 接线体检 + `build_readme.py` 实时统计来自举，**不手抄会过期的数字** → §17。
-- 完整九段字段表、四象限对照、Docusaurus 目录结构、changelog 模板、Autodocs/MDX 配置、GOV.UK 准入清单、新鲜度脚本、12 场景、20 反模式、20 自检、6 段可抄代码 → **`design-system-docs.md`**。
-
-#### 组件 API 设计与组合模式（三份所有权）
-
-- **先划所有权再写 props**：组件 API 不是字段清单，是**状态所有权**（受控 / 非受控）、**渲染所有权**（组合 / 换元素）、**契约所有权**（键盘无障碍 / 语义与演进）三份书面划分；组件库"不好用"多数不是样式问题，而是状态两边都存、props 被中间层吞掉、键盘契约没人认领、改默认值却只发 PATCH → `component-api-design.md` §1。
-- **受控只有一条判定**：Radix 上游 `useControllableState` 源码 `const isControlled = prop !== undefined`；React `<input>` 要求 `value` / `checked` 与 `onChange` 同步更新、**无 `onChange` 即只读**、`defaultValue` 只定义初始值、`value` 不得为 `undefined` / `null`；开发态告警明确**组件生命周期内不得在受控与非受控之间切换** → §2、§3。
-- **组合优于继承，且"换元素"有五套互不相同的 API**：Radix `asChild`（`mergeProps`：child 覆盖 / 事件串联 / `style`·`className`·`aria-describedby` 合并）、Ariakit `render={<el/>}`（元素形态自动合并 `style` / `className` / `ref` / event，含 `null` 的显式值覆盖、`undefined` 忽略；**显式 render function 不自动合并，责任在调用方**）、MUI `component` / `slots` / `slotProps`（`component` 保留 root slot 样式，`slots` 可能丢样式，`slotProps` 可为 callback 收 `ownerState`）、Vue `<slot>` / named / scoped slots 与 `v-model`、原生 `children` / render prop → §4、§5、§7。
-- **自定义组件必须"开放扩展"**：spread 剩余 props、转发 ref、合并 `className` / `style`、事件处理器组合而非覆盖；中间层吞掉一个 prop 就等于把用户的 `aria-*` / `data-*` / `onClick` 全丢了 → §6。
-- **⚠️ React 19 反陈旧裁决（本段最该记住的一条）**：官方 `forwardRef` 页已标 `### Deprecated`、原文 *"In React 19, `forwardRef` is no longer necessary. Pass `ref` as a prop instead."*；React 19 博客写明 *"In future versions we will deprecate and remove `forwardRef`."* → **写组件 API 规范必须标注目标 React 版本**，别把「自定义组件必须 `forwardRef`」当成跨版本硬规范。同时守住官方 Pitfall *"Do not overuse refs."* / *"If you can express something as a prop, you should not use a ref."*——暴露 `{ open, close }` 命令式 handle 是官方点名反例，正解 `<Modal isOpen={isOpen} />` → §9、§11。
-- **键盘契约是 API 的一部分，不是无障碍附录**：APG 要求所有交互元素可键盘操作、**复合组件通常只让一个元素进 tab sequence**（roving `tabindex` 或 `aria-activedescendant` 二选一）、focus 与 selection 必须视觉区分、modal dialog 的 `Tab` / `Shift+Tab` 循环 + `Escape` 关闭 + 关闭后焦点返回触发元素；状态同时以 `data-*` 暴露给样式与测试 → §12、§13。
-- **把契约摆到面板上**：Storybook `argTypes` 编码 args 元数据，`control: false` 保留 prop 文档但不给控件、`table.disable: true` 连文档一起删、`parameters.controls.sort: 'requiredFirst'` 与 `expanded: true` 让必填字段先出现；TypeScript 用可辨识联合把"互斥 props"写成类型错误而不是运行时警告 → §15、§16。
-- **API 改动按"冻结面"判级**：改默认值 / props 合并优先级 / 受控判定 / 键盘与 tab stop 策略 / 自动生成的 `role`·`aria-*` → **MAJOR**（必须带可执行 codemod）；新增可选 prop 或 slot → MINOR；文档与类型注释 → PATCH → §14。
-- **先跑 lint 再发版**：`§20.1` 静态扫描六类坏味道（只读输入、`value`+`defaultValue` 同用、未 spread rest、命令式 handle、`useId` 当 `key`、布尔 props 爆炸），`§20.2` 用可执行断言固化 Radix / Ariakit 两套合并规则，`§20.3` 把 SemVer 判级表跑成 7 个用例；三段 Python 已实跑全 PASS → §20。
-- 完整三份所有权框架、16 场景决策矩阵、20 反模式、22 项自检、4 段可抄代码、15 仓库 GitHub API 实测与取源限制 → **`component-api-design.md`**。
-
-#### 设计度量与用户研究（指标、方法与统计验收）
-
-- **先问要度量什么，再问工具，最后才谈数值**：有效性（任务对不对）/ 效率（快不快）/ 满意度（爽不爽）三件独立，分别度量分别签字；「满意度高」不能替你证明「任务能完成」 → `design-measurement-research.md` §1、§3。
-- **样本量够检出结论就好，不是越大越好**：定性 5 个用户约暴露 84% 的可用性问题（n=5→84%、10→98%、20→100%，二项暴露模型实跑确认）；定量比例估计 `n ≈ Z²·p(1−p)/E²`（p=50%→97 人、80%→62 人、5%→19 人）→ §7。
-- **SUS 68 是行业基准不是及格线**：10 题奇偶数反向计分 ×2.5；**一致作答恒为 50 是 SUS 的已知特性，不是缺陷**；UMUX-Lite→SUS 必须用**自有数据回归校准**，文档只给确定性重标定 `((u+e)/2−1)/6×100` 而不给会出荒谬值的伪回归系数 → §4、§5。
-- **A/B 的 p<0.05 只说明「不太可能纯巧合」，不说明改动值得上线**：必须同时报相对提升 + 95% CI（CI 跨 0 即无 winner）+ 护栏指标 + 随机单元=用户 + 序贯检验的 alpha 消耗；MDE 先算再决定样本量，别做完才发现检不出 → §11。
-- **可用性与无障碍是两件事，分别签字**：「能不能用」是可用性问题，「愿不愿用 / 是不是被引导着用」是伦理与体验问题；两张表各自有人签字，不能拿「我们没恶意」替已知缺陷辩护 → §3、§15。
-- **研究方法按 态度/行为 × 定性/定量 2×2 选**：要 IA 结构用卡片分类/树测试，要出问题用出声思考可用性测试，要推断总体用问卷/实验，别拿问卷去发现「用户说不出」的可用性 bug → §8、§9、§10。
-- 完整度量三要素框架、12 场景决策矩阵、20 反模式、20 自检、4 段可抄代码（Python 全实跑）、取源限制 §22 → **`design-measurement-research.md`**。
-
-#### 视觉风格谱系与设计运动（把"感觉"翻译成可执行的信号）
-
-- **风格不是名词，是四维信号的组合签名**：任何"做成 XX 感觉 / 高级感 / 科技感"的需求，先按 `visual-style-taxonomy.md` §2 拆成 Typography / Color / Shape&Material / Motion&Space 四组信号，再落成 token；直接套"极简""高级"六个字等于把差异退化成留白+灰字 → §1、§2。
-- **给参考站走四步**：截三屏 → 逐维标注（填 §2 四维表）→ 抽多个参考的交集（交集才是真需求）→ 落成 token 组（圆角档/阴影档/色板基调/字号阶/字重对比/间距基调/动效密度），给开发 token 而非截图 → §4.1。
-- **给形容词先确认语境**："高级"在奢侈品（留白+衬线+低饱和）与科技（克制网格+单色调+轻投影）指向完全不同信号集，先问清再选 → §4.2。
-- **风格服务品牌个性，不替个性做主**：先用 `brand-identity.md` §3 定三词定位，风格只是把个性翻译成视觉语言的候选之一；冲突时个性优先 → §4.3。
-- **材质语言只许一种主导、装饰密度只许一个极端**：拟物+扁平、玻璃+硬边阴影都打架；渐变/玻璃/3D/新拟态同时上 = AI slop，只留一种 → §5。
-- **新拟态 / 玻璃拟态有硬红线**：新拟态只做装饰/低频、禁主操作与表单、暗色禁入（可见性崩）；玻璃拟态文字 ≥4.5:1、正文区禁用、`backdrop-filter` 低端机测成本 → §3.8、§3.9。
-- **趋势分两类**：技术/平台驱动（暗色、容器查询、可变字体）值得跟；纯视觉潮流（新拟态、玻璃、黏土）谨慎，看是否被模板化/meme 化 → §6。
-- **中文 / 出海加一层**：中文笔画密、极简留白更克制、字号 ≥14px、黑体优先；出海按目标市场文化信号、不套刻板符号、图标/色/图本地复核 → §7、§7.2。
-- 完整四维信号表、17 条编年谱系、匹配决策、混搭纪律、趋势生命周期、token 对接、12 场景、20 反模式、20 自检 → **`visual-style-taxonomy.md`**。
-
-#### 形状与深度系统（先定层级，再谈圆角与阴影）
-
-- **形状是几何契约、深度是语义层级**：不要把"圆角 8px + 阴影"当装饰常数；先按 `shape-elevation.md` §2 五层模型判落在几何 / 高度 / 表面 / 材质 / 层叠哪一层，再取数值。
-- **elevation 是"第几层"，不是 `blur` 或 `offset-y`**：M3 六级 `0/1/3/6/8/12dp` 是层级顺序；`box-shadow: 1px` 这种单长度声明无效；全项目只用一套完整的三层配方 → §3 §4 §8。
-- **阴影不算 3:1 边界**：白底 `5%–12%` 黑阴影实测只有 1.119–1.320:1；输入框、开关、次要按钮、focus ring 必须有独立 ≥3:1 的边界信号，阴影只做氛围 → §5 §6。
-- **圆角跟着盒尺寸走**：百分比水平参照 width、垂直参照 height；相邻角之和超边长按 `f=min(L_i/S_i)` 整体缩减，`100×40` 写 30px 与 50px 都只生效 20px；交付要同时给半径 token 与适用尺寸带 → §10 §11。
-- **嵌套要同心**：`r = R − p`，`r ≤ 0` 时减 padding / 增外圆角 / 去掉内圆角，不许硬套负数；这也是「卡片套卡片」显得廉价的几何根因 → §12。
-- **深度语言只许一种主导**：阴影 / 表面色阶 / 材质三选一；暗色靠表面提亮重排而非照搬亮色阴影；材质只用于覆盖内容的 functional layer 且一个视图 ≤1 处 → §15 §16 §19。
-- **层级要有刻度**：用 `dropdown → sticky → backdrop → modal → toast → tooltip` 的语义 z-index，不写 `9999`；浮层被裁先查父级 `overflow` / stacking context → §18。
-- 完整七体系精确值、12 场景、20 反模式、20 自检、6 段可抄代码 → **`shape-elevation.md`**。
-
-#### 视觉层级与格式塔组织律（先定顺序，再谈放大加粗）
-
-- **层级是注意力契约，不是字号竞赛**：先按 `visual-hierarchy-gestalt.md` §2 三层模型判落在组织（分组错）/ 引导（顺序错）/ 负荷（太费脑）哪一层；三层都用"加大字号"处理，必然把 L1/L3 问题推给 L2 → §2 §17。
-- **F 型是诊断不是模板**：NN/g 逐字 *"The F-pattern is the default pattern when there are no strong cues to attract the eyes towards meaningful information."* 别把"我们是 F 型布局"当设计理由；F 之外还有 Layer-cake / Spotted / Marking / Bypassing / Commitment，RTL 要翻转、移动端仍有 F 型 → §3 §4。
-- **视觉呈现不构成结构**：W3C SC 2.4.10 Intent 逐字 *"visual presentation is not sufficient to identify document sections"*；卡片 + 分隔线不等于 `<h2>`，DOM 阅读顺序、键盘焦点顺序、标题树必须讲同一个故事（SC 1.3.2 A / 2.4.3 A / 2.4.6 AA）→ §5 §6。
-- **优先让 DOM 顺序 = 视觉顺序**（C27），禁正 `tabindex`、禁 `order: -1` 搬主内容、标题不跳级；无脚本无 `tabindex` 时焦点顺序天然等于 content stream → §6 §23.5。
-- **分组靠构型不靠感觉**：Common Region 一个闭合区域只承载一组；组内间距明显小于组间（工程约定 `g_in×1.5≤g_out`，非实验常数）；眯眼测团块数 = 大纲分组数；一个视图只允许一个最重元素与主操作 → §7 §8 §15。
-- **强调只改一个特征维度**：Treisman & Gelade 1980 的 feature search 才能 pop-out，同时改颜色/大小/形状/位置会退化成需要串行注意的 conjunction search；熟悉语义（图标 + 文字）能降低错误绑定 → §9。
-- **7±2 不是菜单上限**：Laws of UX 逐字 *"Don't use the 'magical number seven' to justify unnecessary design limitations."*；认知负荷拆 intrinsic / extraneous / germane，先删外在负荷、按语义 chunking、Hick 只对可逐层排除的选项成立、Fitts 里 `W` 是沿运动轴的宽度 → §11 §12 §13 §14。
-- 完整 12 条组织律、8 种扫描模式、四条 WCAG 准则原文、三顺序验收、12 场景、20 反模式、20 自检、5 段可抄代码（3 段 Python 实跑）→ **`visual-hierarchy-gestalt.md`**。
-
-#### 内容可发现性与可扫读性（先判哪一层断，再谈改文案）
-
-- **可发现性不是搜索框的属性，是线索密度**：任何「找不到」先按 `content-findability.md` §2 判落在 L1 有路 / L2 认得出 / L3 读得动 / L4 走得出哪一层；四层都用「文案写短点」处理，必然把结构问题推成「用户不会搜」→ §2 §21。
-- **至少两条路是 AA 硬要求**：SC 2.4.5 逐字 *"More than one way is available to locate a web page within a set of web pages"*；搜索是导航的备份不是替身，深层页还要有目录 / 站点地图 / 面包屑；404 是失败态，用清晰出路替代位置指示 → §3 §19。
-- **链接目的要能脱离上下文成立**：SC 2.4.4（A）/ 2.4.9（AAA）/ 3.2.4（AA）；NN/g 11 字符研究里 35% 完全无法预测、Ann Taylor 改后 85%→100%；主题词前置、禁「Learn More / 点击这里 ×N」、同一目的不换文案 → §10 §12 §13 §26.2。
-- **79% 是扫不是读，但 124% 不是通用 ROI**：NN/g 1997 逐字 *"79 percent ... always scanned"* / *"only 16 percent read word-by-word"*；五版本 58/47/27/124% 是单站点相对提升，不得外推；倒金字塔、一段一意、标题描述主题或用途（SC 2.4.6）→ §11。
-- **阅读等级门槛是「九年学校教育」，公式只是代理**：SC 3.1.5（AAA）逐字 *"lower secondary education level"*；FRE / FKGL / SMOG 系数照抄、Wikipedia 明确两者 *"not directly comparable and cannot be converted"*、FRE 无理论下限 / FKGL 无上限；**音节公式不能套中文**，改用 §16 六个代理指标，全部标注工程约定而非标准 → §14 §15 §16 §26.1。
-- **自动补全不是弹个下拉**：APG 要求 `role=combobox` + popup `listbox`/`grid`/`tree`/`dialog`、`aria-expanded` / `aria-controls` / `aria-activedescendant` / `aria-autocomplete`，DOM focus 留在 combobox、selection follows focus（dialog popup 例外）；placeholder 不是 label（SC 3.3.2 A）→ §5 §6 §26.3。
-- **死胡同必须有出路**：零结果给「改词 / 清筛选 / 去目录」三件套，404 用 GOV.UK 口径「Page not found」+ `H1` + 联系信息，禁面包屑 / 禁技术术语 / 禁俏皮话 / 禁红字，不怪用户 → §18；空态五分法归 `feedback-states.md §5`。
-- 完整四层模型、APG 契约、M3 Search specs、tree testing 口径、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（3 段 Python 实跑）→ **`content-findability.md`**。
-
-#### 直接操纵与指针交互（先凑齐四条完成路径，再谈动画）
-
-- **四条路径互不替代**：单指针无拖动（SC 2.5.7 / G219）、指针取消（SC 2.5.2 / G210）、键盘（APG + dnd-kit 契约）、读屏播报（live region + position）——只做视觉跟随等于把交互做成单点通道 → §2 §19。
-- **「补个键盘快捷键」不是答案**：SC 2.5.1 逐字 *"keyboard operability is not sufficient to conform to this success criterion."*；替代路径本身也不能继续依赖 dragging movement（2.5.1 对 2.5.7 的交叉引用）→ §3 §5。
-- **`pointercancel` 必须完整回滚**：PE3 规范性链条 `pointercancel` → `pointerout` → `pointerleave` → `Implicitly release the pointer capture`；回滚要释放 capture、移除 ghost、还原 transform、清状态、播报「已取消」→ §9 §25.4。
-- **`touch-action` 不是全局开关**：形式语法与祖先求交、手势开始后改值无效、全站 `none` 会掐掉 WCAG 1.4.4 缩放；用 `setPointerCapture` 保持指针移出手柄后仍可跟踪 → §10 §11 §25.2。
-- **目标尺寸先问是哪套口径**：24×24 CSS px 是 AA 合规下限（含 24 CSS px 直径圆 spacing 例外）、44×44 是 AAA / iOS / 指针目标、48×48 dp 是 Material 2 平台设计值；把 24 当推荐点击区或把 48 当 WCAG 要求都是口径错置 → §8 §17。
-- **读屏播报 position 不是 index**：`role="button"` + `aria-roledescription="draggable"` + `aria-describedby` 给指令，live region 只播报「从第 2 位移到第 5 位」这类位置语义；`25px` 位移是 dnd-kit 自述 arbitrary 的库默认，不是规范值 → §13 §14。
-- 完整四段链路、PE3 因果链、`touch-action` 形式语法、HTML DnD 七事件、dnd-kit 默认值、NN/g 时序口径、GitHub API 实测 10 库、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（3 段 Python 实跑）→ **`direct-manipulation.md`**。
-
-#### 对话式与生成式界面（先把五段链路凑齐，再画气泡）
-
-- **流式正文不是状态消息**：SC 4.1.3 逐字只管 *status messages*，W3C 明确「搜索结果列表不是 status update」；回答正文进 `role="log"`（隐性 polite / atomic=false），`role="status"` 只在 submitted / streaming / ready / error 与「已停止」「已重新生成」播报一次短句；逐 chunk 进 `aria-live="assertive"` 属官方 Failure 族 + too "chatty" → §3 §4 §5。
-- **`aria-busy` 必须三个出口复位**：挂在正在生成的气泡、不挂整个 log 容器；ready / error / stop 三个出口都置回 `false`，漏一个读屏就永久静音该区 → §5 §13。
-- **生成式 UI 是白名单路由**：Vercel 逐字 *"the model is akin to a dynamic router"*；模型只输出 `{name, props}`，`name` 查 `COMPONENT_REGISTRY`、`props` 过 `inputSchema`，禁 `dangerouslySetInnerHTML` / eval；RSC 页自述 experimental 并推荐 AI SDK UI 用于生产，默认 `useChat` + `message.parts` → §6 §7 §8。
-- **四档恢复链而非一个按钮**：HAX G9 逐字 *"Make it easy to edit, refine, or recover when the AI system is wrong."*；停止 / 重试 / 编辑原消息 / 撤销自动化动作；编辑与重生成必须清空队列并截断后续分支，有写操作必须给同级可见的撤销 → §11 §12。
-- **混合界面而非纯 chat**：筛选、填表、下单必须补表单 / 表格 / 确认卡片（Hybrid UI / RICH），生成完成不抢焦点、用户上滚后停止自动跟随 → §10 §14。
-- 完整五段链路、四态状态机与 AG-UI 三模式映射、状态归位表、7 库实测、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（3 段 Python 实跑）→ **`conversational-generative-ui.md`**。
-
-#### 叠加层与模态性（先判外部还能不能被操作，再画遮罩）
-
-- **模态由 inert 定义，不由遮罩定义**：APG 逐字 *"Windows under a modal dialog are inert."*，`Tab` / `Shift+Tab` 不越界、`Escape` 关闭、关闭后焦点返回触发元素；`aria-modal="true"` 只在「代码阻止一切外部交互」**且**「视觉遮蔽外内容」双条件齐备时才标，标了不会替你实现 inert → §3 §4 §5。
-- **Popover API 永远非模态**：MDN 逐字 *"Popovers created using the Popover API are always non-modal."*；要模态就用 `<dialog>` + `showModal()`，`show()` / `open` 属性 / CSS `display` 都只是非模态；`popover` 三态 `auto`/`hint`/`manual` 是三套关闭与堆叠契约，不是三种动画 → §6 §7。
-- **四问判型先于实现**：Q1 背景是否 inert / Q2 焦点是否必须进层且循环 / Q3 触发是显式 activate 还是 hover·focus / Q4 有没有不依赖鼠标、不依赖物理键盘、也不依赖「先找到关闭按钮」的退出路径；hover·focus 触发一律不模态 → §1 §9 §12。
-- **伪模态是四条款合取的最坏形态**：既不接管焦点、也不让外部 inert、还不自动消失的 dialog-like overlay 同时踩 SC 2.4.11 遮挡、2.1.2 出不去、1.4.13 不可消隐；正确构建的 modal dialog *"will always pass this SC"*，作者预置 sticky footer 是 F110；user-opened 持久层必须能「不推进键盘焦点」就显形（`Escape` / 滚动键 / `F6` 切层）→ §10 §11 §13。
-- **能重排就别叠**：SC 2.4.11 最稳的通过形态是内容重排而非覆盖；必须叠时按 §13 关闭契约矩阵把 `Escape`、可见关闭按钮、焦点归位、背景滚动锁、`aria` 复位与监听器清理逐项补齐 → §10.4 §13。
-- 完整四问判型、APG 焦点契约、`aria-modal` 双条件、Popover 三态双栈、WCAG 四条款矩阵、12 类组件族谱、10 库实测、12 场景 / 20 反模式 / 20 自检 / 5 段可抄代码（§20.1–§20.3 三段 Python 严格实跑）→ **`overlays-modality.md`**。
-
-
-#### 首次体验与用户引导（先问该不该教，再画那五屏轮播）
-
-- **默认不加教程**：NN/g 70 人 / 4 app 逐字 91% vs 94%（p=0.443）、93.49s vs 85.17s（p>0.1）均不显著，唯一显著项 SEQ 4.92 vs 5.49（p=0.047）方向对教程不利；四步闸门「先测无引导版本 → 先改界面 → 才原型化引导 → 用户更成功才上线」，NN/g 逐字 *"Instructional onboarding should not be used to supplement poor design."* → §2 §3 §7。
-- **引导按时机而非按屏幕**：Apple *"context-specific tips"* + NN/g *"highlight it when it's actionable for them"*；tip ≤1–2 句、>3 步不宜、全局节流、已用过就不再提示；字段一获焦就弹并抢焦点逐字命中 SC 3.2.1 官方失败例 `Example of a Failure: A help dialog` → §9 §11。
-- **权限不是首启批发窗口**：每个请求都要能指向用户刚表现出兴趣的具体功能入口，`before it can function` 是硬条件；purpose string 要「brief, complete sentence / sentence case / avoid passive voice / include a period at the end」；Apple pre-alert「不许 cancel/close」只在受保护资源的系统权限弹窗之前成立，**禁止外推到 Web cookie 同意层** → §2 §10。
-- **首启四条款是合取不是单选**：SC 3.3.7 站点须自己回填（浏览器 `autocomplete` 不算）、SC 3.3.8 明确不覆盖账号创建但注册建议照样允许粘贴、SC 3.2.1 用 `G107` 以 activate 取代 focus 触发、SC 2.2.1 六选项且超时不得清空已填内容；OTP 即使靠 essential 豁免仍要过 3.3.8 → §11 §20.3。
-- **别把跳过率当激活率**：激活事件须定义为「与留存相关的首个核心动作」并按 cohort 度量；Material 1 Quickstart 的适用条件恰是「你已识别该行为」；空白首屏按 Carbon 五件套替换原元素、只给一个主行动 → §13 §14；统计方法归 `design-measurement-research.md`。
-- 完整五段链路、六问判型、六类形态矩阵、Material 1 **归档**精确值（非现行 M3）、Apple tips 阈值、Ant Design Tour 精确 props、12 库 GitHub API 实测、12 场景 / 20 反模式 / 20 自检 / 5 段代码实跑 → **`onboarding-first-run.md`**。
-
-
-### 第 6 步 · 产出前自检 + 交付评审
-
-交付前逐条检查，不达标先修再交：
-
-1. **5 秒测试**：扫一眼能说出主角是什么、想让我做什么吗？
-2. **层级**：眯眼再看，层次是否清晰？有没有两个元素打架？
-3. **一致性**：颜色/字号/圆角/间距是否同一套系统？有没有"只出现一次"的孤立样式？
-4. **细节工艺**：对齐差 1–2px？溢出/换行受控？空状态/加载态设计了？图标风格统一？
-5. **克制动效**：每处动效说得出用途吗？说不出就删。
-6. **可用性底线**：对比度达标？触控目标 ≥ 44px？信息不只靠颜色传达？
-7. **中文关**（中文项目）：字号 ≥14px？行高 ≥1.6？无中文斜体？无伪粗体？标点全角？避头尾生效？行长 ≤40 字？
-8. **系统关**（多页项目）：所有颜色/字号/间距都能在 token 表里找到出处？有没有"只出现一次"的孤立值？
-9. **动效关**（有动效时）：每处动效说得出用途？入场减速/出场加速？反馈 ≤120ms？有没有点击触发 >400ms？二次操作会不会跳回起点？`reduced-motion` 下是否只剩功能反馈？
-10. **图表关**（有图表时）：图形匹配数据关系吗？柱状图 0 基线吗？色板类型用对吗（分类/顺序/发散）？颜色编码 ≤7 类吗？数据线与背景 ≥3:1 吗？只靠颜色区分吗（色盲能否读）？单位与数据来源齐吗？标题是结论还是"XX 趋势图"？空数据/加载中/数据放大 10 倍都成立吗？
-
-11. **表单关**（有输入时）：每个字段有可见标签（不是占位符）？标签对齐全表统一？框宽反映内容长度？必填只标少数派且有解释？校验在失焦+提交而非一进来就红？错误文案说清「哪里错+怎么改」且 ≤30 字？提交失败保留已填内容？验证码是单框 6 位？`autocomplete` 齐、不禁粘贴、没用 `type=number`？按钮与输入框左对齐？
-12. **表格关**（有列表时）：行高取自 39/47/55 且表头·工具栏·批量条·分页同高？文本左/数字右/操作右固定？数字列开了 `tabular-nums`？空值是「—」？两种空态区分？筛选变化重置页码？序号全局连续？批量有已选数与跨页说明？表头是浅灰 14px 而非黑底 12px 大写？行线与斑马纹没同时用？
-
-13. **无障碍关**（每个交付都要过）：正文 4.5:1 / 大文本 3:1 / 非文本 3:1，且**没四舍五入**？焦点框存在且 ≥2px、颜色 ≠ 主色、没被 `outline:none` 杀掉？只用键盘能走完全流程、无 `tabindex>0`、弹窗焦点锁住并能返回？目标 ≥24×24（触屏 44、适老 60）？图片有 alt（装饰用空串）、图标按钮有 `aria-label`、`aria-label` 含可见文本？错误有 `aria-invalid` + 播报、动态更新容器预先存在？信息不只靠颜色（色盲可读）？`forced-colors` 下还有边框？
-
-14. **反馈关**（有交互/有数据时）：每次点击 **100ms 内**有可见变化？**<1s 的请求没加多余 loading**？2–10s 有骨架/局部 spinner 且骨架结构与真实布局一致？>10s 有进度 + 时间估计 + 取消？**严重错误没用 toast**？toast ≤2 行 ≤14 字且**另有就地出口**？一个动作**只给了一次主反馈**？空态**分对了五类**且有一个主操作、标题正向？表格空态**替换了表头与分页**？错误文案含「哪里错 + 为什么 + 怎么改」且 ≤30 字？确认框写了对象名与数量、按钮是动词、**默认焦点不在危险按钮**？破坏性操作有撤销或二次确认？`partial` 态（部分失败）设计过吗？
-
-15. **响应式关**（会在多宽度被看时）：断点 **≤5** 且每个都能说出一句"什么变了"？断点值**同属一套体系**？**320px 无横向滚动**（表格容器除外）？400% 缩放只有**单向滚动**、200% 缩放文字不截断？正文行宽 **25–40 字**、版心到顶后多余宽度**给了留白**？跨断点变化能归到**五动词**之一、换件**功能等价且信息不丢**？gutter 固定 column 流体？全屏高度用 `svh`/`dvh` 且底部栏有 `safe-area-inset`？`clamp()` 最大值 **≥2× 最小值**？图片有 `width`/`height` 且首屏未 lazy？窄屏表格策略是**四选一**而非默认卡片化、横滚表格有**粘性首列**？触屏目标 **≥44px**、hover 内容有触屏路径、**没禁缩放**？过完 **320/375/768/1024/1366/1440/1920** 七档？
-
-16. **版式关**（海报/长图/社媒图/印刷/长文时）：**先判了载体**（观看距离/停留时长/媒介）再排版？行长落在 **45–90 字符**（中文 **25–40 字**）、行距 **120–145%**（中文 1.6–1.8）且与行长联动？全项目**只用一套字号比例**、正文:主标题 **2–4 倍**？所有垂直尺寸都是**基线（4/8px）整数倍**（压暗后基线能连成等距线）？缩进与段间距**只用一个**？`orphans/widows ≥3`、标题 `break-after: avoid`、`text-wrap: balance` 行数在 **6 行内**？下边距**比上边距大 6mm**？留白占比在区间（海报 40–60% / 编辑 30–45% / 长图 20–30%）？**海报**：画布含 **3mm 出血×2**、文字在安全区（再缩 3–5mm）、L3 **≥18pt**、只有**一个最重元素**？**长图**：字号按 **×设计宽÷375** 换算（1080 宽正文 ≥44px）、一屏一点、单张 ≤20000px、接缝不在文字行上？**社媒图**：缩到 **120px** 仍认得出主标题、关键信息避开裁切区？**印刷**：300ppi / CMYK / 总墨量 ≤300% / 正文 K100 / 细线 ≥0.25pt / PDF-X4？**中文**：无斜体、无 500 字重、无 `letter-spacing` 疏排、标点全角、避头尾生效、中英混排留 1/4 字宽？
-
-17. **品牌关**（有 logo / 品牌色 / VI 时）：能说出 **3 个形容词 + 3 个反义词**，且每个词能落到六维表 ≥2 个维度？标志类型是**按决策树选的**而不是"画着画着变成这样"？画在 **24 网格**上、基形取自方/圆/竖矩/横矩之一？**笔画只有两档**、端点与转角统一、做过光学修正？**清space 有明确单位与四个方向的数值**（不是"留足空间"）？有 **40px / 10mm** 下限且知道从哪档换简化版？**响应式四档齐全**（主组合/简化/仅符号/仅字标）且每档都过 24px 检验？种子色跑过色阶、**第 9 档与第 11 档都成立**、**无错序**（9 不比 10 亮）？主色压白字过 **4.5:1**、非文本过 3:1？亮暗走的是 **tone 映射不是反色**（primary 40↔80、outline 50↔60）？语义色**不与主色同色相**？**主色没被当图表分类色**、占屏 ≤10%？图标与标志**同网格同笔画**、图标与文字**居中对齐**、热区 **≥44**？字体 **≤2 族 ≤3 字重**、中文无伪粗无伪斜、数字开 `tabular-nums`？**语气四维 + 反语气词**定过，幽默没进错误文案？交付包**无缺件**（转曲 SVG 全档 / ico / 180 / 192 / 512 / maskable 40% 安全区 / 1024 未自切圆角 / OG 1200×630 / 手册）？**商标类别与素材授权链**查过（版权≠商标）？
-
-18. **暗色关**（有暗色/深色主题时）：确认过**该不该做**（不是"别人都有所以我也要"）、且没有默认强推给普通大众/中后台？是**三态**（浅/深/跟随系统）而非应用级独立开关？**全站覆盖**（登录页/错误页/邮件/空态/第三方嵌入都过了）？底色是独立选定值而**不是把亮色反相**？**暗色层级跨度大于亮色**、相邻层除了 tone 差还配了边框或阴影、**最亮那层表面上的正文仍 ≥4.5:1**？主文本**不是 `#fff`**（tone 90 / 85% 白）？辅助文字**实测**过 4.5:1（不是照抄 45% alpha）？表单控件边界 **≥3:1**？hover/active 是**提亮**？focus 环在暗底 ≥3:1？scrim **≥60%**？skeleton 比卡片底**亮**？品牌主色走 **tone 重映射**（40↔80）而非反相？涨跌/语义色**有暗色专套**且过色盲模拟？白底图已压暗+加边框、深色透明图已换浅色版、图标用 `currentColor`、logo 有浅色版？`meta color-scheme` + head 内联脚本**顺序正确无 FOUC**、`:root` 设了 `color-scheme`？真机**低亮度 + 灰度 + 系统高对比**三种条件复测过？
-
-19. **性能关**（每个交付都要过，因为性能就是设计约束）：**需求阶段定过预算**（不是上线才想起来）？首屏主视觉的**字节数**说得出来、且在预算内？LCP 元素明确、有 `fetchpriority="high"`、**没有** `lazy`/`data-src`（CSS 背景图有 `preload`）？每张图/视频都有 `width`/`height` 或 `aspect-ratio`、**骨架屏与真实内容同尺寸**？字体 **≤2 文件**、中文**已子集化**、只用 WOFF2、`font-display` 显式声明、回退字体调过 `size-adjust`？图片是 **AVIF/WebP + 兜底**、尺寸按显示位×DPR 给（**没有 25 倍浪费**）、折叠线下才 `lazy`？每次点击 **100ms 内**有可见变化？滚动回调里**没有**读布局/改样式/setData？动效**只动 transform 与 opacity**、`will-change` 不是常驻、**没有全屏每帧重算**（blur/粒子/滤镜/多层视差）？同屏活跃合成层 **≤5–8 个**？`prefers-reduced-motion` 与 `prefers-reduced-data` 都有分支、移动端没加载桌面专属效果？在 **3G + 4x CPU 降速**下首屏可读？预算进了 CI、验收看的是**现场 p75** 而不是本地分数？
-
-20. **交付关**（要把设计交给别人实现时）：拿掉设计稿，开发只看文档能做出**第二个页面**吗？spec 的 **9 个字段**齐了吗？颜色/字号/间距**只用 token**，没有野生 hex 与野字号，例外值都写了原因？标注只标了**例外值/对齐关键线/尺寸约束/断点切换**，没有满屏红线？**9 态**（default/hover/focus/active/selected/disabled/read-only/error/loading）都有出处，且 **read-only 与 disabled 视觉可分、read-only 过 4.5:1**？图层名没有 `Frame 12`/`副本`，变体属性是**语义名**（不是 `红色`/`大号`），**默认变体是最常用那版**（左上角）？组件属性 **3–5 个**、每属性 ≤5 值，设计属性名 = 代码 props 名？每条主流程都有 **3–5 步** AC，Then 是**可观测**的（没验数据库），且覆盖视觉/状态/交互/无障碍/性能五维？评审会有**决策/待定/负责人/期限**四项产出？走查走的是**三遍法**（流程→交互→视觉），表里 **9 字段齐、一条一问题、带正确值**，环境**六变量**（含缩放与明暗）已对齐？**P0 = 0**，P1 的豁免写了**谁批何时补**？本次变更的**版本级别**判过（**改默认值 = MAJOR**），MAJOR 带了迁移表/codemod，三个版本号都写清了？
-
-21. **文案关**（界面有文字时都要过）：所有按钮**动词开头**？禁 OK/Submit/Confirm/Click here？中文 **2–4 字**不加"请"？错误文案有**「发生了什么+怎么修」**且 ≤30 字？禁"格式不正确/非法/请重新输入/Oops"？空态**五件套齐全**且五种空态分清了？**禁俏皮话**和纯"No data"？语气四维定位了？**错误场景禁幽默**？禁责怪用户？禁"We"开头？标签是**名词 ≤8 字**不加句号？占位符**写示例不替代标签**？对话框标题**说发生了什么**（禁"提示/警告"）？主按钮**写具体动作**？Toast **写具体什么成功** ≤20 字？引导**价值优先**且**可跳过**？导航标签**名词 ≤4 字统一粒度**？有**术语表**且同概念同一词？英文**sentence case**禁全大写？中文标点**全角中英加空格**？链接文字**有意义**（禁 Click here/Learn more 无上下文）？图标按钮有 **aria-label** 且与可见文案一致？
-
-22. **演示关**（做 PPT / 幻灯片 / 演示文稿时）：比例是 **16:9**（1920×1080）？安全区四边 **≥5%**（标题）/ ≥3%（内容）？**最小字号 24pt**（线上 28pt）？封面标题 44–60pt / 幻灯片标题 28–36pt / 正文 24–28pt？同一层级全篇字号一致（母版设的）？**5×5 或 1-6-6** 规则（中文 5 行×10 字）？**一页一信息**？用了**占位符**不是手动文本框？版式 **≤8 种**且命名了？转场**全篇统一 1 种**（Fade 或 Cut）？**禁华丽转场和声音**？Morph 只用于元素跨页位移？对比度正文 **≥4.5:1** / 大字 **≥3:1**？投影场景对比度比目标**高 50%**？背景色全篇一致？**禁红绿/红蓝**配色？图表**一页一个**且占 60–70%？坐标轴 **≥18pt**？所有图片有 **alt 文本**？闪烁 **≤3 次/秒**？Accessibility Checker **0 错误**？中文最小 **26–28pt**、行距 **1.4–1.6**？线上演示字号 **+4pt** 且减少了动画？字体**嵌入**了？logo 全篇一致且高 **0.5–1"**？
-
-23. **编排关**（多个元素一起动 / 共享元素 / 会被打断时）：判过 **L1/L2/L3** 层了吗？编排归到并行·串行·重叠·交错哪一种，**总时长 `d+(n−1)s ≤ 400ms`** 算过吗？**n>6 改成整组淡入**了吗？入场正向、退场 `when:"afterChildren"`？**单位统一**（CSS 秒 / WAAPI 毫秒 / Motion 秒 / RTG 毫秒）核对过、WAAPI 显式写了 `easing`（默认 linear）吗？列表每项 **key 是稳定 id 不是 index**？退场元素脱离布局流（`.list-leave-active{position:absolute}` / `popLayout` 且父容器非 static、自定义组件 `forwardRef`）？重排/筛选走 FLIP 位移而非整表重新入场？共享元素选了 VT 还是 `layoutId`、宽高比变化用 `layout="position"` 避免拉伸了吗？所有 `view-transition-name` **唯一**、`pageswap` 临时 name 在 `finished` 后清理了？转场是**单例**、快速连点显式 `skipTransition()`、清理在 `finished`+`finally`、网络请求在 `startViewTransition()` **之前**？主流程等的是 `updateCallbackDone` 而非 `ready`？四态模型画过**状态×事件矩阵**、连点能从当前值反向恢复吗？保态用 `commitStyles()` 而非长期 `fill:forwards`、改速率用 `updatePlaybackRate()`、清理不只挂 `transitionend`？`@starting-style` **四件套齐**（起始样式/display/overlay/allow-discrete）且两处顺序（简写之后、原规则之后）对了吗？DOM 移除延迟到退场结束？**降级做了 CSS + JS 两层**（WAAPI/Svelte/View Transitions 在 JS 层接 `prefers-reduced-motion`）、且是**整段跳过交错**而非逐项归零？FLIP 是**先全读再全写**、预计算在 100ms 窗口内、只动 transform/opacity？
-
-24. **国际化关**（出海 / 多语言 / RTL / 有翻译时都要过）：`<html lang="…">` 写了且**没有被 CSS 声明 base direction**（W3C 硬禁令）、局部外语 passage 单独标了 `lang`（WCAG 3.1.1 A / 3.1.2 AA）？RTL 用的是 `<html dir="rtl">` 而不是 CSS `direction`、方向未知的 UGC 用了 `dir="auto"` 且行内双向文本紧包裹？**所有 `left/right/width/height` 方向相关声明都换成 `inline-start`/`inline-size` 等逻辑属性**？镜像白/黑名单逐项过了（**媒体进度条没镜像**、数字没镜像但**数字字形已本地化**）？**microcopy 按 2–3× 而不是 +40%** 做过弹性验证，按钮能换行/伸缩且无硬编码宽度？德语长复合词、日文片假名、泰文高行高各测过一遍？**所有带数量的句子走 CLDR 复数分支**（`one`≠1、`other` 必需、中文只有 `other` 也要有兜底），且**没有任何字符串拼接**？日期/数字/货币/列表/排序全走 `Intl`（`hi-IN` 分组、`JPY` 无小数、`Collator` 排序），`zh_cn` 之类下划线 locale 已转成 BCP 47？用到 `Intl.DurationFormat` 等新 API **做了 `typeof` 能力检测并写了降级**？姓名是**单一 `Full name`** 没强拆姓/名？**跑过伪本地化**（音标 + ①–⑨ + `^` 定界 + microcopy 3× 加长）且暴露的截断/拼接/漏译都修了？给译者的上下文、字符上限、变量说明、复数样例、术语表齐了吗？
-
-25. **文档关**（设计系统文档站 / 组件文档页 / 发版说明 / 贡献规范时）：判过 **Diátaxis 四象限**、没把教程·参考·解释混进一页？组件页九段齐了吗（含 `When not to use` 与 **Research / Recent changes / Help improve 活文档四件套**）？示例代码**能直接复制运行**、链接文字 descriptive、alt 非空？版本化守住 **<10 个版本 / preview 2–3 / patch 不切版本 / 旧版 `unmaintained`**？changelog 用**六类变更 + `[Unreleased]`** 而不是倒 git log、**MAJOR 迁移文档能机器校验**？引用的是 **DTCG published 2025.10** 而非 preview draft？`tags: ['autodocs']` / MDX `of={}` 与代码同源、token `$description` 没有手抄第二份？贡献门槛（Useful/Unique → Usable/Consistent/Versatile）与组件状态写清楚了？最后逐条跑 `design-system-docs.md` §20 的 20 项上线自检。
-
-26. **AI 关**（用了生成式工具 / 交付含 AI 生成内容时都要过）：三道闸门都过了吗——**法定标识**（导出·下载·复制后显式标识仍在、元数据三类要素齐全、传播端三档文案「属于 / 可能为 / 疑似」到位、无标版有协议且日志 ≥6 个月、**没有任何删除·篡改·伪造·隐匿标识的功能**）？**授权链**（训练数据来源合法、客户资产未贴进外部模型、许可与商用范围查过、留下 brief→草图→人工选择→终稿的可举证创作链、**没把 prompt 当作者身份**）？**AI 味与质量**（AI Slop Test 三人盲测无 2 人以上一眼识破、8 维 DO/DON'T 过完、12 类固有缺陷逐条回查：焦点/对比度/九态/假数据/按钮文案/图表/表单表格/响应式/动效/性能/token）、§21.4 静态扫描 PASS、元数据经压缩与 CDN 后仍存活？**AI 功能界面**：HAX 的能力边界披露、可关闭且记住、可纠错回退、全局控制开关、变更通知齐吗？**工程**：prompt 版本化判过 MAJOR/MINOR/PATCH、模型快照固定、eval suite 换版全量跑过、失败能回退？出海叠加 **EU AI Act Art. 50（2026-08-02）** 机器可读标记与首次暴露告知，且**没把 Content Credentials 当版权证明或事实真伪证明**？
-
-27. **伦理关**（任何同意 / 授权 / 订阅 / 广告 / 未成年人 / 信息流界面都要过）：同意弹窗是 `同意全部` + **同屏同级** `拒绝全部` 吗，没有拿 `管理偏好 / 了解更多 / 稍后再说` 顶替拒绝？按 §7004 的起止点实测**拒绝路径步数 ≤ 接受路径**、无挽留屏、无双重否定、按钮顺序全程恒定、端到端真的能完成（坏链/循环/等待测过）？非必需授权项默认全为 `false`、用途按项拆分且敏感信息逐项同意？**不同意或撤回后服务仍可用**（没做 cookie wall）、撤回入口与授权入口同层级？隐私入口与相邻链接字号颜色相当、含「隐私」字样、小屏可读可打印？自动续费按 **2025 修正的现行第十八条**写了「接受服务前 + 每次日期前」两个时点提醒吗，**规范里没有把旧版「前五日」当现行法定数值**？服务期内有显著·简便的随时取消/变更且不收不合理费用、取消路径不深于开通路径？搭售无默认勾选、**没把历史选择继承成后续默认**？营销退订显著·简便·免费、拒绝后立即停止且不换名义再发？开屏/弹窗广告 **≤1 次点击可关**、无需计时、关闭标志清晰可辨、同页同文档不复弹？未成年人模式覆盖**时段/时长/功能/内容**四维度 + 监护人**时间/权限/消费**三类管理，有**单次与单日累计**双消费限额，打榜/应援/控评入口整体下线，适龄提示在下载·注册·登录三处显著可见？信息流有明确终点、可关闭且状态被记住、未用损失厌恶文案驱动回访？个性化推送给了「不针对个人特征」选项或便捷拒绝？**COGA 八目标各有一条可判 PASS/FAIL 的用例、测试包含认知与学习障碍者本人**？**无障碍表与伦理表分别签字**、没有拿「我们没恶意」为已知缺陷辩护？最后：`§21.1/§21.2/§21.3` 三段脚本都跑过了吗（尤其**陈旧法条守卫**）？
-28. **组件 API 关**（写组件 / 发组件库版本 / 评审 design system 代码时都要过）：三份所有权写清楚了吗——状态由 props 还是 local state 持有（**`prop !== undefined` 单一判定**）、谁渲染 DOM、谁认领键盘与演进？`value` / `checked` 有同步的 `onChange` 吗，没把 `defaultValue` 当受控值、没在生命周期里从受控切到非受控、`value` 不为 `undefined` / `null`？自定义组件 **spread 了剩余 props、转发了 ref、合并了 `className` / `style` 与事件**吗？换元素用的是哪一套（`asChild` / `render` / `slots` / `component` / Vue slot），**合并优先级按该套的官方规则**写了吗，显式 render function 有没有自己合并 HTML props？**规范标注了目标 React 版本**吗，React 19 下没把「必须 `forwardRef`」当硬规范、也没暴露 `{ open, close }` 之类命令式 handle 替代 `isOpen` prop？复合组件**只有一个 tab stop**、焦点策略（roving `tabindex` / `aria-activedescendant`）选定且与 selection 视觉区分、dialog 的 `Tab` 循环 + `Escape` + 关闭后焦点返回触发元素都测过？状态有 `data-*` 暴露、`role` / `aria-*` 没被用户 props 意外覆盖？Storybook `argTypes` 把必填项排前、内部字段用 `table.disable` 而非裸 `control: false`？这次改动若碰了**六个冻结面**中的任一个，是否判为 **MAJOR 并附上可执行 codemod**，而不是只发 PATCH？最后：`§20.1`/`§20.2`/`§20.3` 三段脚本都跑过了吗？
-
-29. **度量关**（任何「这个设计好不好 / 改版有没有效 / 要不要上线 A/B / 满意度怎么量化」都要过）：先判了**要度量什么**（有效性/效率/满意度/转化/留存），三件分开度量、没有拿满意度替任务成功率？定性研究**样本量按结论需要定**（5 人≈84% 问题暴露，没为了「显得科学」硬凑 200 人问卷）？定量结论报了**样本量 + 方法 + 95% CI**，没有只甩一个百分比？SUS 用了**奇偶数反向计分 ×2.5**，知道一致作答恒为 50 是特性不是缺陷、68 是基准不是及格线？A/B 报了**相对提升 + 95% CI（CI 跨 0 即无 winner）+ 护栏指标**，随机单元=用户、序贯检验管住了 alpha，没把 p<0.05 当「值得上线」？可用性与无障碍**两张表分别签字**，没拿「我们没恶意」替已知缺陷辩护？研究方法选型对（IA 用卡片分类/树测试、发现问题用出声思考、推总体用问卷/实验），没拿问卷去发现用户说不出自己卡哪的可用性 bug？最后：`§21.1`/`§21.2`/`§21.3`/`§21.4` 四段 Python 都跑过了吗（问题暴露率/比例样本量/SUS 计分/A/B z 检验）？
-
-30. **图标关**（界面有用图标 / 图标按钮 / spinner / 图标字体时都要过）：每个图标 **viewBox 都是 `0 0 24 24`**？装饰图标 **`aria-hidden` + `focusable="false"`** 了吗、图标字体整库 **`aria-hidden`** 了吗？每个有意义 / icon-only 图标**有可访问名**？有意义图标**对比度 ≥3:1**？状态**至少有形状+颜色+文字两样**、没只靠颜色？描边策略全库统一、小尺寸**单独优化稿**非大图缩放？图标-文字间距 **≥4px（默认 8px）**？可点图标**命中区 ≥44px**？用 **`currentColor`**、暗色零改图？spinner **`1–1.4s linear infinite`** 且 **`prefers-reduced-motion` 降级**？RTL 下方向性图标**镜像**了？命名 **kebab-case** 统一？最后：`iconography.md` §17 的 20 项自检逐条过？
-
-31. **导航关**（有全局/局部/移动端导航 / 菜单 / 面包屑 / tabs / 搜索时都要过）：主导航项 ≤9 且做了视觉分组？底部 tab ≤5、核心功能没全藏抽屉？每个导航项用名词、同级平行、≤4 字？当前项用 ≥2 种视觉信号且含 `aria-current`？第一个可聚焦元素是 skip link 且指向 `#main`？每个 `<nav>` 都有可区分的 `aria-label`？面包屑末级是纯文字非链接？tabs 用 ARIA tab pattern、键盘 ←/→/Home/End 可达？下拉/mega menu 键盘可开、可停留、Esc 关、不挡焦点？焦点顺序 = DOM 顺序、无 `tabindex>0`？导航链接焦点框 ≥2px 且变化 ≥3:1？搜索与导航并存（≥2 种找路方式，2.4.5）？搜索框占位符写具体示例而非「搜索」？搜索零结果给「换词/清除/联系」三件套？信息架构深度 ≤3（内容）/ ≤4（工具）、广度靠分组而非深路径？分组按用户心智模型非字母序？窄屏导航无横向滚动？激活态与聚焦态视觉可区分？最后：`navigation-ia.md` §12 的 20 项自检逐条过？
-
-33. **色彩科学关**（任何涉及配色 / 对比度 / 色板生成 / 渐变时都要过）：配色不是只凭感觉——色板生成走在 **OKLCH/OKLab** 而非 HSL 旋转（混用会色阶错序）？对比度按场景选算法（正文 ≥4.5:1 走 WCAG 2.x 且**不四舍五入**；长文/暗色补 APCA `Lc` 分档）？渐变在 **OKLab** 空间插值（sRGB 直插发灰）？色盲用户能区分（**Okabe–Ito 8 色** + 不靠颜色单通道）？非文本元素对比度 ≥3:1？Display P3 用了 `color(display-p3 …)` 且带 sRGB 降级？最后：`references/color-science.md` §14 的 20 项自检逐条过？
-32. **评审关**（有人要你"评一下 / 给反馈 / 开评审会 / critique / 设计走查"时都要过）：评审前范围与目标写死、材料提前 24h 发出、Decider 明确？给反馈具体挂目标、分离品味与工艺、用 I like / I wish / I wonder、不方案跳转？接收反馈不辩护、追问到具体、归类目标/偏好/已覆盖？评判用 NN/g 10 启发式 + 严重度 0–4（≥3 进必改）+ DFV 三问？防 design by committee / HiPPO（有无 Decider）？每条反馈写处置进 ADR / critique notes（采纳/搁置/反驳 + 负责人 + 截止）？最后：`design-critique.md` §10 的 20 项自检逐条过？
-
-34. **风格关**（任何涉及"做成 XX 感觉/高级感/复古感/科技感/风格匹配/设计运动"时都要过）：用户的需求被拆成了 `visual-style-taxonomy.md` §2 四维信号（Typography/Color/Shape&Material/Motion&Space）而非停在"感觉"？给形容词时确认了本案语境的具体信号分支（"高级"是奢侈品还是科技）？风格服务于品牌三词定位、没替个性做主？depth language 全站只一种主导（无拟物+扁平打架）、装饰密度只一个极端？只上了一种材质/潮流语言（无多潮流叠加）？新拟态仅装饰/低频且避主操作与表单、暗色禁入？玻璃拟态文字 ≥4.5:1、正文区禁用、低端机测过 `backdrop-filter`？圆角档全站统一？功能色回归语义没被装饰撞色吞掉？中文字号 ≥14px 黑体优先行高 ≥1.6？出海按目标市场文化信号未套刻板符号？暗色+玻璃/霓虹双查了对比度？风格落成了 token 组而非仅截图？最后：`visual-style-taxonomy.md` §11 的 20 项自检逐条过？
-
-35. **字体排印关**（任何涉及字体 / 字号 / 行高 / 行距 / 中文排版 / 字体加载 / 字体授权时都要过）：先按 `typography-system.md` §2 **六层模型**判问题落在哪一层（覆盖 / 尺度 / 节奏 / 字形 / 加载 / 授权），没有一上来就换字体？正文字号是 **`rem`** 而非 `px`（MDN 原文 `Defining font sizes in px is not accessible`）、没有 `em` 嵌套 compounding？承载文字的元素用 **`min-height` + `padding`** 而非写死 `height`？跑过 **200% 仅文字缩放**与**整页缩放**两种测试、且注入 **SC 1.4.12** 四项（`line-height ≥1.5×` / 段后距 ≥2× / `letter-spacing ≥0.12×` / `word-spacing ≥0.16×`，**同时设置且未改其他属性**）后表单 label、按钮、ellipsis 单元格无裁切/重叠/丢功能？知道这是**用户覆盖抗压测试**、不是要作者默认写成 1.5？行宽 **≤80 字符（CJK ≤40）**、没用 `text-align: justify`、段间距 ≥1.5× 行距（SC 1.4.8）？改完字号**重算过**大文本 3:1 / 小文本 4.5:1 且超链接带下划线？表格 / 时钟 / 金额 / 实时数值开了 **`tabular-nums`**（不是换 `monospace`）、ID/验证码开了 `slashed-zero`，并确认字体真有 `tnum` 表？用 `font-variant-*` 高层属性而非 `font-feature-settings`（后者**不用于 small caps**）？`font-family` 链顺序正确（西文→CJK→系统→generic）、generic 放最后**未加引号**、`system-ui` 没被拿去排大段正文？`unicode-range` 按高频字集分片且每片同一 `font-display`、配 `size-adjust` / `font-size-adjust` 对齐度量并实测过 CLS？中文与西文空白 **≤1/4 汉字宽**、行首行尾不加、由 CSS 而非手敲空格实现，文本存储层没有全角 ASCII、光标/计数按 UAX #29 字素丛？逐字体查过 license（非仅仓库级 `NOASSERTION`）、带了版权声明与 license、确认 RFN 与 self-host 权限？最后：`typography-system.md` §22 的 20 项自检逐条过？
-
-36. **形状与深度关**（任何涉及圆角 / 阴影 / 卡片浮起 / 弹窗层级 / 毛玻璃 / z-index 时都要过）：先按五层模型判层了？所有 `box-shadow` 至少 2 个 `<length>`、没把 elevation token 直接塞进阴影？需要识别的组件关掉阴影后仍 ≥3:1 可辨（没拿 5% 投影当边界）？圆角过了 `min(w,h)/2` 上限、嵌套按 `r=R−p` 且无负值？全站只用一套深度语言、阴影档位 ≤6 且有语义解释？亮暗两套保持同一 level 只换表达？材质只在 functional layer 且 ≤1 处、文字按合成像素验过 4.5:1、`@supports` 实色回退在？所有 `z-index` 都能在语义刻度查到出处、浮层没被 `overflow:hidden` 裁掉？最后：`shape-elevation.md` §22 的 20 项自检逐条过？
-
-37. **视觉层级与格式塔关**（任何涉及分组 / 主次 / 重点不突出 / 眼动扫描 / 选项数量 / 顺序一致性 / RTL 动线时都要过）：先按 `visual-hierarchy-gestalt.md` §2 三层模型判层了（组织 L1 / 引导 L2 / 负荷 L3），没有一上来就改字号？没把 F 型当版式模板、能给足引导信号让目光不必走最低成本路径，且 RTL 翻转、断点重排各验过？三顺序（DOM 阅读 / 键盘焦点 / 标题树）导出过且讲同一个故事，没有 `order: -1` / 正 `tabindex` / `h1→h3` 跳级 / 用 `div` 冒充标题？视觉分区都能在标题树找到对应节点、标题文案描述主题或用途（2.4.6）？眯眼测团块数 = 大纲分组数、一个视图只有一个最重元素与主操作、组内间距明显小于组间（1.5× 是工程约定不是实验常数）？强调只改一个特征维度（没把 feature search 推成 conjunction search）、关键状态无 figure/ground 歧义？没拿 7±2 论证导航/字段上限、负荷按 intrinsic/extraneous/germane 分过类并删掉至少一处外在负荷？Hick 的选项确实可逐层排除（不是随机无序线性扫描）、Fitts 里 `W` 按运动轴宽度量、高频目标有足够尺寸与间距？序列位置的首末项放了关键入口与收尾动作、孤立效应靠相对差异而非全页加粗？最后：`visual-hierarchy-gestalt.md` §22 的 20 项自检逐条过？
-
-38. **内容可发现性关**（任何涉及搜索 / 找不到内容 / 链接文案 / 长文案 / 零结果 / 404 / 自动补全时都要过）：先按 `content-findability.md` §2 判断在 L1 有路 / L2 认得出 / L3 读得动 / L4 走得出哪一层，没有一律改成「文案写短点」？同一内容至少有 2 条独立找路路径（SC 2.4.5 AA）、搜索常驻每页且不是唯一入口、深层页有目录 / 站点地图 / 面包屑可退？自动补全按 APG 给了 `role=combobox` + popup + `aria-expanded` / `aria-controls` / `aria-activedescendant` / `aria-autocomplete`，DOM focus 留在 combobox、selection follows focus，搜索框有真 label 而非只靠 placeholder（SC 3.3.2 A）？链接目的脱离上下文仍成立（2.4.4 A / 2.4.9 AAA / 3.2.4 AA）、主题词前置、没有「Learn More ×8」或同目的不同文案，§26.2 扫描器跑过？正文按 79% 扫读组织（倒金字塔、一段一意、标题描述主题）、SC 3.1.5 按「九年学校教育」判而不是拿 Flesch 分数当合规、中文没套音节公式、§16 代理指标标注为工程约定？零结果给了改词 / 清筛选 / 去目录三件套、404 是 GOV.UK 口径（无面包屑 / 无 404 术语 / 无 oops / 无红字 / 不怪用户）、§26.3 契约检查器跑过？最后：`content-findability.md` §25 的 20 项自检逐条过？
-
-39. **直接操纵与指针交互关**（任何涉及拖拽 / 拖放 / 排序重排 / 指针事件 / 手势 / 目标尺寸 / 键盘拖放 / 触屏拖动时都要过）：先按 `direct-manipulation.md` §2 凑齐四条并存完成路径（单指针无拖动 / 指针取消 / 键盘 / 读屏播报）、没有拿「补个键盘快捷键」当 SC 2.5.7 的答案？G219 四类替代至少给了一类（箭头逐步 / 数字位置 /「移动到…」下拉 / 点击目标位置），且替代路径本身不继续依赖 dragging movement（SC 2.5.1 交叉引用）？`pointercancel` 处理里释放了 `setPointerCapture`、移除 ghost、还原 transform、清状态、播报「已取消」，PE3 的 `pointerout` / `pointerleave` / 隐式释放链没有漏？激活走 up-event 或满足 G210 四选一（No Down-Event / Abort or Undo / Up Reversal / Essential），复杂拖放提供 Abort / Undo？`touch-action` 按形式语法逐元素写、没全站 `none` 掐掉 1.4.4 缩放、没在手势开始后改值、祖先求交算过？HTML 原生 DnD 在 `dragover` 里 `preventDefault()`、data store 只在 `dragstart` 写 / `drop` 读？目标尺寸按三口径分开判（2.5.8 AA 24×24 + 24 CSS px 圆 spacing 例外 / 2.5.5 AAA 44×44 无例外 / M2 48dp 设计值），没把 24 当推荐值或把 48 当法条？键盘给了 Space / Enter 拿起、方向键移动、Escape 取消，`role="button"` + `aria-roledescription="draggable"` + `aria-describedby` 齐全，live region 播报 position 而非 index、`25px` 标注为库默认非规范？§25.3 四段路径静态接线检查跑过、§24 的 20 项自检逐条过？
-
-40. **对话式与生成式界面关**（任何涉及 chatbot / 聊天 UI / 流式输出 / 生成式组件 / AI 答错纠错 / 混合界面时都要过）：先按 `conversational-generative-ui.md` §2 判在 L1 发得出 / L2 等得住 / L3 读得动 / L4 改得动 / L5 收得回哪一段，没有一上来改气泡样式？`role="log"` 承担追加、`role="status"` 只在状态边界播报一次、没有任何逐 chunk 的 assertive？`aria-busy` 三个出口都复位？组件名查白名单且 props 过 schema？四档恢复链齐、有副作用给撤销、生成完成不抢焦点？
-
-41. **叠加层与模态性关**（任何涉及弹窗 / 对话框 / 模态 / 浮层 / popover / 抽屉 / 命令面板 / 遮罩 / tooltip / 持久提示条时都要过）：先按 `overlays-modality.md` §1 四问判型（Q1 背景 inert / Q2 焦点进层且 Tab 不越界 / Q3 显式 activate 还是 hover·focus / Q4 无鼠标·无物理键盘也能退出），没有一上来就画半透明遮罩或调 `z-index: 9999`？`aria-modal="true"` 只在「代码阻止一切外部交互 + 视觉遮蔽外内容」双条件齐备时才标、且原生 `showModal()` 才真 inert？`show()` / `open` / CSS `display` 与 Popover API 一律按非模态处理，`auto`·`hint`·`manual` 的栈规则与 light dismiss 写清楚？`Escape` 能关、有可见关闭控件、关闭后焦点返回触发元素、背景滚动锁与 `aria` 状态都复位？hover / focus 内容过 SC 1.4.13 三条件、字段获焦不弹抢焦点的 help dialog（SC 3.2.1）？持久浮层不把焦点项**完全**盖住，或能 `Escape` / 滚动 / `F6` 不推进焦点就显形（SC 2.4.11），作者预置 sticky footer 走重排或 `scroll-padding` 而不是覆盖（F110 / C43）？焦点循环配了标准退出法且用户知道怎么退（SC 2.1.2）？
-
-42. **首次体验与用户引导关**（任何涉及新手引导 / onboarding / 首启轮播 / 教程 / coach mark / 产品导览 / 权限弹窗时机 / 注册向导 / 激活指标 / 渐进披露 / splash 时都要过）：先按 `onboarding-first-run.md` §3 六问判型（Q1 无用户信息能否完成核心动作 / Q2 是否高度依赖用户上下文 / Q3 是否真有猜不到的独特交互 / **Q4 有没有测过完全无引导的版本** / Q5 能否靠改界面消除 / Q6 有没有成功率提升的证明），没有一上来就画五屏欢迎页？每个首启问项都能说出「它改变了第一屏的什么」，外观偏好、可推断偏好、营销授权、与非首屏相关的资料都已移出首启（§5）？引导可跳过、跳过状态已持久化、跳过后在帮助/设置里找得回（§3 硬约束 3/4）？没有用教程补救本该重做的界面？每个权限请求都落在功能首次被使用而非会话起点，purpose string 是句末带句号的主动具体完整句，且没把 Apple pre-alert 的「禁 cancel/close」搬到 Web 同意层（§10）？多步注册没有重复索要同一信息、没有只靠浏览器 `autocomplete` 交差、没有禁止粘贴验证码、没有「聚焦即弹引导并抢焦点」、限时流程落在 SC 2.2.1 六选项之一且超时不清空表单（§11 四条款合取）？coach mark 非模态优先、有 Escape / 关闭 / 焦点归位 / 不盖住被解释的控件（§12 + `overlays-modality.md`）？零数据位替换了原本的元素、只给一个主行动、没用行话（§13）？激活事件已定义为与留存相关的首个核心动作并按 cohort 度量，没有把「注册成功」或「跳过率下降」当激活（§14）？
-
-43. **定价与结账关**（任何涉及定价页 / 价格表 / 档位推荐 / 月付年付 / 划线价 / 原价 / 折扣 / 优惠券 / 结账 / checkout / 运费 / 税费 / 支付方式 / 复核页 / SC 3.3.4 时都要过）：先按 `pricing-checkout.md` §1 六问判层（「选哪个」是说服问题，「敢不敢付」是信任与合规问题），没有把两件事硬塞进一个页面？总价在**同意付款之前**唯一且锁定，购物车 / 结账 / 支付跳转三处逐字一致，且**填地址之前**就能看到运费与税费政策（§10 三级披露；FTC 464 §464.2(b) 要求总价比任何其他价格信息更显著，§464.1(4) 要求电子媒介披露 *"must be unavoidable"*）？划线价绑定的是**历史成交价字段**而不是设计师手填的数字，折扣率能从两个价格算回（`1 - now/was`，与文案误差 ≤ 0.5%），且没有同时给两个不同口径的"省多少"（§4 三条纪律）？三档功能行**同行对齐**、卡片等高、CTA 底对齐，推荐档用「描边 2px + 文字角标」而不是放大，只靠颜色区分即判不合格（SC 1.4.1），"不支持"配了屏幕阅读器文本（SC 1.1.1）？价格数字 `tabular-nums`、对比表金额右对齐、货币符号 ≥ 0.75 倍正文字号、同页小数位统一（§3）？月/年用 **radio group**（不是 switch）、两个标签同屏、折合月价与一次性扣款两个数都给、状态进 URL 可分享（§6）？结账步骤 ≤ 3 且有复核页——复核页每段一个 `Change` + 视觉隐藏文本、返回必预填、未答可选项显示 "Not provided"、提交按钮写金额或动作（§7）？每个收集用户信息的字段 `autocomplete` token 正确且带 `shipping`/`billing` 前缀（`type=tel` 只表类型不表用途）、账单地址可复用、校验失败不清空已填、卡号允许粘贴且分组空格不进 `value`（SC 1.3.5 AA / 3.3.7 A）？SC 3.3.4（**AA**）三选一至少成立一条（推荐 G98 + G155 + 撤销窗口 G164），不可逆后果写在提交按钮**上方**而不是折叠里，且没有给每次保存都加确认？金额变化走 `role="status" aria-live="polite" aria-atomic="true"` 且防抖 300ms、不用 `assertive`（§12）？Apple Pay 标记是白色描边原图、清space = 标记高度 1/4、不与其它按钮共享边框、按 `canMakePayments` 显隐（§9）？
-44. **通知与消息触达关**（任何涉及推送 / 通知 / 站内信 / 消息中心 / 未读 / 角标 / 免打扰 / 通知偏好 / 营销邮件 / 一键退订 / 系统权限时都要过）：先按 `notifications-messaging.md` §1 六问判层（用户要求过吗 / 能不能延后 / 是不是一人一事件 / 关掉后还能不能用 / 有没有更少打扰的通道 / 度量口径定没定），没有先想清楚就画通知模板？每条通知都能说出「它替代了用户的哪个动作」而不是「我们想让他回来」？权限在用户表现出兴趣的功能入口处问，拒绝后给站内设置入口或 iOS provisional 而不是再弹系统框（Apple *"Subsequent authorization requests don't prompt the person again."*）？角标数字等于未读通知数、读完清零、不做与通知无关的数字（iOS *"Don't use a badge to convey numeric information that isn't related to notifications"*）？免打扰时段跨午夜边界正确、偏好开关即时生效且不需要保存按钮（NN/g *"Toggle switches should take immediate effect"*）？营销邮件与交易邮件按 15 U.S.C. §7702 / 16 CFR §316.3(b) 判定、退订入口清晰显著且一键可退（RFC 8058 + §7704(a)(4)(A)(i) 十个工作日），交易邮件不夹带广告？
-45. **声音与触觉反馈关**（任何涉及音效 / 提示音 / earcon / 触觉 / 震动 / haptic / Vibration API / UIFeedbackGenerator / HapticFeedbackConstants / 静音开关 / autoplay / 声音可访问性时都要过）：先按 `sound-haptics-feedback.md` §1 五问判层（用户看屏吗 / 有时压吗 / 高频吗 / 有系统语义吗 / 用户关掉了吗），任一问答完即停；再从 §3 取平台常量、§4 取精确值（Android 振幅 1–255、`DEFAULT_AMPLITUDE`=-1、AOSP 注释 1 s / 3 段；W3C 10 段 / 10000 ms、需 sticky activation）；音频侧先按 §5.1 选 Ambient 一侧的类别（Playback 会无视静音开关），Web 侧必须查 `getAutoplayPolicy` 并接住 `play()` 的 `NotAllowedError`；最后过 §7（WCAG 1.4.2 三秒与独立音量控制、1.4.7 的 20 dB、声音不得是唯一通道）与 §9 二十条自检。
-
-46. **认证与账户体验关**（任何涉及登录 / 注册 / Passkeys / WebAuthn / MFA / 2FA / 验证码 / OTP / 忘记密码 / 账户恢复 / 会话超时 / 登出 / 第三方登录时都要过）：先按 `auth-account-ux.md` §1 六问判层——这一步是**证明身份**还是**建立身份**、失败后有没有第二条路、AAL 目标是多少、在什么设备场景、首次还是回归、后面有没有不能失败的商业动作？证明身份侧：`autocomplete` 是 `username` / `current-password`（注册 `new-password`，确认框也用 `new-password`），没有 `autocomplete="off"`、没有禁粘贴、没有禁密码管理器？失败文案不区分「不存在 / 密码错 / 已锁定」，且密码框保留、错误用 `aria-describedby` 关联并管理焦点？建立身份侧：去掉了重复字段、规则常驻可见、有强度计（基于猜测次数）、最大长度 ≥64 且无组合规则、无周期改密？游客可先买再建账号，没有注册墙挡在结账前？Passkeys：创建发生在账号验证之后（不是注册第一步），能力检测失败时不渲染按钮，条件式用 `autocomplete="username webauthn"` + `mediation:"conditional"`，`NotAllowedError` 静默回退而不是弹「认证失败」，`InvalidStateError` 不当错误，管理页最后一把不能删且删除后调 `signalUnknownCredential`？MFA：因素按 passkey > TOTP > 推送 > 短信排序，推送带数字匹配，恢复码 ≥64 bits 且可下载，没有安全问题？OTP：单框 + `inputmode="numeric"` + `autocomplete="one-time-code"`、允许粘贴、无 6 框自动跳格、错误给剩余次数？恢复：不暴露账号是否存在、流程不绕过 MFA、无邮箱有兜底、改密后撤销其他会话并通知？会话：按 AAL 定档（30 天 / 24h·空闲 1h / 12h·空闲 15min）、到期前 2 分钟提示、固定超时前提示存稿、「记住我」写明时长、全局登出真让 token 失效？无障碍：没有认知功能测试（含手抄 OTP、按位输密码、算术 CAPTCHA），触发式 CAPTCHA 同样过 3.3.8，多步认证每步都合规，账户恢复也被覆盖，且有效 `autocomplete` 同时满足 SC 1.3.5？最后过 §15 二十条自检。
-47. **键盘快捷键关**（任何「加个快捷键 / 做个命令面板 / 全键盘操作」的产出）：先过 §1 五问——**没有频次就不做**；单字符键必须给「关掉 / 重映射 / 聚焦才生效」三出口之一（SC 2.1.4）；`aria-keyshortcuts` 只写声明，别当绑定 API；Mac 显示 ⌘、Win 显示 Ctrl，显示格式写在一处不硬编码；命令面板用 combobox + `aria-activedescendant`，IME 组字期不响应 Enter，超过 200 条必须虚拟化；`?` 帮助面板要有入口，且在任何输入框内有守卫；冲突按「浏览器保留键 > 系统 > 辅助技术 > 应用全局 > 页面 > 组件」仲裁。
-48. **文件上传关**（任何「加个上传 / 拖拽上传 / 附件 / 头像上传 / 大文件 / 断点续传 / 批量导入」的产出都要过）：先按 `file-upload-media-input.md` §1 五问定判层——拖放区必须同时有「选择文件」按钮（SC 2.5.7，没有就等于只有鼠标能上传）；`accept` 只当提示，**服务端必须按文件头判定真实类型**（OWASP；前端写了 accept 不等于校验）；大小/数量/类型上限要写在**选择前**的提示里，错误文案给「实际值 + 上限 + 怎么办」（GOV.UK 示例口径、服务端 413）；>1 s 给信号、>10 s 必须百分比 + 已传/总量 + 可取消（SC 2.2.1 / SC 4.1.3，播报节流 ≤5 s 一次）；>10 MB 或弱网优先 tus 续传（`Upload-Offset` / 409 / 204 / 460，协议没规定分片字节数）；七态里 `processing` 不能省（转码/扫描期间不得显示完成）；`rejected`（改文件）与 `failed`（重试）文案必须分开；单文件失败不阻塞同批；Ant Design `maxCount` 超限是**静默丢弃**，用它就得自己补提示。
-49. **视频与字幕关**（任何涉及视频播放器 / 播放控件 / 字幕 / 自动播放 / 画中画 / 全屏的产出都要过）：先按 `video-player-captions.md` §1 七层判层定层——自绘控件必须还回原生键位（Space·K 播放暂停、←/→ ±5s、↑/↓ 音量、M 静音、F 全屏、C 字幕）；字幕同时满足 42 字符 × 2 行 × 20 CPS（儿童 17 CPS）与 5/6 秒–7 秒时长，中文字幕按 20–22 汉字/行换算；自动播放只允许 muted 或无音轨（WebKit 原文），带声必须用户手势；字幕不得遮挡画面关键信息（SC 1.2.2 Key Terms）。
-50. **邮件设计关**（任何邮件模板 / EDM / 营销邮件 / 通知邮件正文的产出都要过）：先按 `email-design.md` §1 七层判层定层——单列 600px、表格骨架、内联 CSS；字体栈带 `mso-font-alt` 兜底，圆角按钮必须配 VML `RoundRect` 回退；图片必须有 alt 且屏蔽态仍可读；体积 ≤85KB 且 `<style>` ≤16KB；对比度 ≥4.5:1 且不得四舍五入；主题行 ≤40 字符（中文 20 字）、preheader 不重复主题行。
-51. **定价本地化关**（任何多市场 / 多币种 / 含税价 / 划线价 / 单位价格的产出都要过）：先按 `pricing-localization.md` §1 七问判层——每个价格能否说出 `(金额, 币种, 含税口径)` 三元？小数位是否按 ISO 4217 最小单位（JPY/KRW/VND/ISK/XOF 0 位、KWD/BHD/JOD/OMR/TND 3 位，`¥1,234.50` 不存在）？含税市场的主价是不是含税价、税额是否由 `×r/(1+r)` 反算并只取整一次且有记账落点？划线价旁有没有来源标签、原价是否落在法定窗口（DE 30 日最低总价 / CN 前 7 日最低成交价 / JP 8 周过半且累计 ≥2 周）？≥10g/10ml 的按量商品有没有 `€9.96 / 1 kg` 形式的单位价格？展示币种 ≠ 结算币种时有没有换汇告知与会话内锁价、低价档是否过结算币种最小收款额？
-
-52. **报价与发票单据关**（任何报价单 / 发票 / 订单确认 / 贷项 / 对账单的产出都要过）：先按 `quote-invoice-documents.md` §1 七问判层——这是「请求」还是「凭证」？五个数能否自洽（BT-106 → BT-109 → BT-112 → BT-115，页面只留一个应付）？日期是否一律 `YYYY-MM-DD` 且到期日或付款条件至少有一个？多税率是否按税率分组小计、免税/零税/反向征收是否各有法定文案？已开出的单据有没有给「编辑」入口（必须没有，只能更正或红冲）？多页单据每页是否有单据号 + 页码 `n/N` + 客户名？黑白打印后应付金额与红字是否仍可辨？
-
-**交付说明结构**（给用户的最终反馈）：① 第 3 步预判的兑现情况（风险是否被处理）② 设计决策依据（对应第 5 节哪条原则）③ 对照自检的美观性结论（✅ 通过 / ⚠️ 已知妥协及原因）。
+## 0 世界观：总纲 12 条
+
+每条都是一个可以被反证的判断。冲突时，以上位原则为准。
+
+1. **留白是内容决策，不是剩余空间。** 留白放在哪里，决定谁被看见；不是把元素推开后剩下的地方。
+2. **层级靠对比，不靠装饰。** 先改字号、字重、明度、间距；阴影、描边、色块是最后手段。
+3. **一个画面只有一处允许挥霍。** 强调色、超大字、动效同时用三处，等于没有重点。
+4. **节奏来自重复与间隔。** 同一种间距只在一个尺度上重复；第二次破例必须说得出理由。
+5. **比例先于细节。** 先定版心、栏数、字号阶梯，再谈圆角、图标与阴影。
+6. **一致不是复制，是同一条规则的不同表达。** 同一语义在网页、海报、PPT 上可以长得不同，但必须由同一条规则推出。
+7. **颜色是角色，不是色值。** 主色 / 强调 / 语义 / 中性四类；一个界面只允许一个强调色系统。
+8. **字体先解决可读，再解决气质。** 字号、行长、行高错了，换字体救不回来。
+9. **动效只解释变化，不表演。** 用户看不懂「什么变成了什么」，就不该动。
+10. **密度是选择。** 信息密度与呼吸感不能同时最大化；先决定这一屏让人做一件事，还是看一张图。
+11. **主流是基线，不是答案。** 符合大众审美是及格线；记忆点来自一个被克制住的例外。
+12. **能被指认的才叫设计。** 说不出「改哪一笔、为什么」的，就还没做完。
 
 ---
 
-## 自我成长机制（用得越多越准）
+## 1 五问：先把「谁、怕什么」问清
 
-记忆档案 `memory/design-log.md` 分两层，协议如下：
+不要一次问完。**只问缺失且影响方向的项，一次最多 3 个，给选项不给开放题**；用户不在场就取缺省值并注明假设。
 
-- **读**：每次匹配灵感前读「当前画像」；画像规则优先于速查表和通用判断。
-- **写**：以下时机在「匹配与反馈日志」追加一条（日期+需求一句话+推荐与用户取舍+反馈原话偏好信号+效果）：
-  - 用户对推荐/产出表达好恶（"太花了""就要这种感觉"）
-  - 用户主动给出参考或禁忌
-  - 交付后用户要求改方向（记录改了什么、为什么）
-- **升级**：同一偏好信号出现 ≥2 次，提炼成一条规则移入「当前画像」，标注起始日期与确认次数。
-- **冲突**：画像与最新反馈矛盾时，以最新反馈为准，并更新画像。
-- 记录只增不改（追加层），保持档案可审计。
+| 问 | 为什么问 | 怎么问（给选项） | 缺省 |
+|---|---|---|---|
+| **谁 + 场景** | 决定尺度、密度、语气 | 「给新用户还是老用户？手机还是桌面？一次用多久？」 | 通用成年用户 / 桌面 |
+| **怕什么** | 决定红线与取舍 | 「最怕出现什么：太花、太素、像竞品、不合规、卖不动？」 | 无明显禁忌 |
+| **什么媒介** | 决定网格、出血、安全区、字号下限 | 「网页 / 海报 / PPT / 表格 / 邮件 / 视频？」 | 网页 |
+| **什么气质** | 决定风格、配色、字体 | 六轴选 2–3：极简↔丰富、克制↔张扬、专业↔亲和、经典↔前卫、温暖↔冷静、工业↔有机 | 极简、专业、浅色 |
+| **什么禁忌** | 决定不能碰的颜色、字体、说法 | 「有没有品牌禁用色 / 不能用的词 / 法务要求？」 | 无 |
 
-## 自我进化机制（知识保鲜）
+问完写一句 brief：「给 **谁**，在 **什么场景**，要 **什么气质**，最怕 **什么**。」写不出这句，不进下一步。
 
-- **自动刷新**：references 头部标注快照日期。快照 > 30 天、或用户说"更新知识库/刷新灵感库"时，执行 `python <技能目录>/scripts/refresh_catalog.py`——它重抓 designeer.xyz 目录 API、重建 references、双向同步安装副本并保留记忆。刷新后向用户报告一行变更摘要（各集合条数、新增条目）。
-- **按需联网查阅**：知识库无命中时，用第 4 步的 API 检索或 WebSearch 补充，结果注明"未经策展验证"。
-- **组件库保鲜**：`component-libraries.md` 头部标注验证快照；用户报告某库失效/质量下降时，按其「维护协议」用 GitHub API 复核（star/推送/许可）再决定降级或替换。
-- **失效处理**：链接失效时告知用户，建议访问原站或立即触发刷新。
+---
 
-### 每日升级协议（Deep Distillation Loop）
+## 2 判层：这是哪一类问题
 
-定时任务按此五步跑，**每次只深挖一个主题，不做广度摊平**：
+先判三件事，再决定读什么：
 
-1. **取源**：读 `Design-related websites.txt`（用户指定清单）+ 上一轮 `memory/` 里记的待挖项；不足则按 `knowledge-map.md` 找缺口补源（设计站、GitHub 仓库）。
-2. **验证**：凡涉及 star/许可/更新时间，用 GitHub API 实测，不凭记忆写数字。凡涉及规范数值，读**官方原文**（如 ant.design/docs/spec/*），不用二手总结。
-3. **蒸馏**：产出**可执行的判断规则**（数值、构型、验收标准），不是链接清单。新增条目必须能回答"所以该怎么做"。
-4. **接线**：更新 `SKILL.md` 的资产表与路由，让新知识**在正确时机被读到**；否则等于没写。然后跑 `python scripts/mindmap.py` 重建记忆树——它会做**接线体检**，把"写了但没路由"的文件直接报出来。若新知识引入了一批新说法（用户口语、英文别名），同步在 `memory/aliases.json` 加一组——**别名只进检索层，不许改路由顺序**，且**新建组 ≤12 词、>16 词必须拆、成员不与既有组重复、组名不与既有组重复**（巨型组与重复组都会污染历史查询，见第 0 步粒度纪律；`scripts/audit.py` 的别名健康四项会直接判 FAIL）。接线后跑 `python scripts/audit.py --no-retrieval`（统计口径与覆盖关系）与 `python scripts/regression.py --baseline`（新主题门槛须全过，历史查询 top3 须与 `git archive HEAD` 基线逐条一致）。
-5. **归档**：`memory/design-log.md` 追加一条；`python scripts/audit.py` 全量自检（FAIL 必须为 0）；`scripts/build_readme.py` 重算 README；`git commit` → `scripts/publish_github.py` 推送；最后同步全局安装（`~/.agents/skills/design-partner/` 与 `~/.workbuddy-ai/skills/design-partner/` 双份，保留各自 memory）。
+1. **任务类型**：从零做视觉 / 改造现有设计 / 只评审不改稿。改造与评审必须**先看现状**再开药。
+2. **尺度**：单屏（首屏、一张海报）/ 单页（整页、整套幻灯片）/ 系统（组件库、多端、多品牌）。尺度决定要不要谈 token 与规则。
+3. **约束**：品牌（有无 VI）/ 合规（无障碍、隐私、行业法务）/ 技术（框架、性能、载体限制）。
 
-**检索可用性是升级的一部分**：新知识必须能被 `dp_search.py "关键词"` 命中前 3 条。命中不了说明标题/摘要写得像散文而不像索引——改标题，别改检索器。若用户口语与术语差太远（"转圈"vs loading），补别名而不是改标题。测试集要含「主题词 + 通用跨域词（对比度/可访问性/表单/验收）」的真实组合；章节首行自然带高频说法是最低成本的可发现性设计（`mindmap.py` 取首行作摘要、检索 ×4）。
+输出一句再动手：**「这是 <类型> 的 <尺度> 问题，先读 `<文件>`，必要时再看 `<文件>`。」**
 
-**四类例外不许拿来凑数**：① **路由边界**——泛化跨域查询（如「字体 对比度 大文本 3:1 下划线」本质是对比度问题）正确答案归既有权威文档，按 #26 判例单列 BOUNDARY、不计通过率，但仍须校验 top3 与 HEAD 一致；② **登记演进**——新权威资产凭原词相关性进入 top3 属升级而非退化，但必须过三条硬校验（HEAD top1 不变 / HEAD top3 至少 2 个仍在 NOW top5 / 新进入者是本轮新增资产且 `--no-alias` 下仍在前 3，证明非别名污染）；③ **别名卫生**（#37 新增）——维护轮只动别名层、不动内容时，若 `--no-alias` 的 top3 与 HEAD 完全一致且 top3 至少 2 个重叠、NOW top1 就是原词 top1，则判定「结果变干净了」而非退化（三条硬校验见 `check_alias_hygiene()`）；④ **别名污染**——巨型组或超级章节抢词属真实缺陷，拆组或改内容层修掉，不改检索器打分逻辑。四者统一由 `scripts/regression.py` 判定，退出码非 0 不得收口。
+**可行性预判四查**（改造/从零都做）：技术能否实现、范围是否过大、资源（图/字体/内容）是否齐、性能是否会被拖垮。预判结论要**给立场**：`可行 ✅ / 有条件 ⚠️ / 不可行 ❌`，并写清条件。
 
-**质量门槛**：一轮升级至少要让 agent 在**某类问题上不再含糊**（能给出具体数值或明确立场）。若只是多了几条链接，判为无效升级，重做。
+---
 
-## 边界与习惯
+## 3 三案与裁决：本技能的核心动作
 
-- **给立场**：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
-- **不臆造资源**：知识库内条目直接引用；库外站点注明"未经验证"。
-- **不臆造数值**：token、字号、行高等数值必须能追溯到 `design-tokens.md` / `chinese-design.md` 或官方文档；估的就说"建议值"。
-- **先诊断后开药**：改进现有设计先按第 5 节逐条诊断（引用具体 CSS 值/元素），再修改。
-- **记忆优先**：有画像规则时，推荐与执行先过画像这一关。
-- **中文默认**：未说明语言时按中文用户处理，中文排版修正默认生效。
-- 数据来源：[designeer.xyz](https://designeer.xyz/)（按 craft/utility/clarity/relevance 人工策展）、[VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)（54 品牌 DESIGN.md）、[Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)、[W3C clreq](https://www.w3.org/TR/clreq/)、[Material 3 动效 tokens](https://m3.material.io/styles/motion/easing-and-duration/tokens-specs)、[Carbon Motion](https://www.carbondesignsystem.com/elements/motion/overview/)、[Fluent 2 Motion](https://fluent2.microsoft.design/motion)、[Carbon Notifications](https://carbondesignsystem.com/components/notification/usage/)、[M3 Snackbar](https://m3.material.io/components/snackbar/guidelines)、[NN/g Response Times](https://www.nngroup.com/articles/response-times-3-important-limits/)、[NN/g Skeleton Screens](https://www.nngroup.com/articles/skeleton-screens/)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[微信小程序 wx.showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)、[Ant Design Grid 断点](https://ant.design/components/grid)、[Ant Design 布局规范](https://ant.design/docs/spec/layout-cn)、[MUI Breakpoints](https://mui.com/material-ui/customization/breakpoints/)、[Tailwind 响应式](https://tailwindcss.com/docs/responsive-design)、[Bootstrap 5.3 Containers](https://getbootstrap.com/docs/5.3/layout/containers/)、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)、[M3 Breakpoints](https://m3.material.io/foundations/layout/breakpoints/window-size-classes)、[MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)、[WCAG 2.2 SC 1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)、[Butterick's Practical Typography](https://practicaltypography.com/)（行长 45–90 字符 / 行距 120–145%）、[Canons of page construction](https://en.wikipedia.org/wiki/Canons_of_page_construction)（Van de Graaf 2:3:4:6）、[ISO 216](https://en.wikipedia.org/wiki/ISO_216)、[Bleed (printing)](https://en.wikipedia.org/wiki/Bleed_(printing))、[Instagram 图片分辨率](https://help.instagram.com/1631821640426723)、[X Ads creative specs](https://business.x.com/en/help/campaign-setup/creative-ad-specifications)、[YouTube 缩略图](https://support.google.com/youtube/answer/72431)、[MDN text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)、[MDN initial-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter)、[MDN subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)、[MDN orphans](https://developer.mozilla.org/en-US/docs/Web/CSS/orphans)、[Material 3 图标设计规范](https://m3.material.io/styles/icons/designing-icons)（24dp 网格 / 四基形 / 描边 2dp）、[Carbon Icons](https://carbondesignsystem.com/elements/icons/usage/)（16px 画布 / 热区 44 / 居中对齐）、[Apple HIG App icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)（1024 / 未遮罩 / 四外观）、[Google favicon 规范](https://developers.google.com/search/docs/appearance/favicon-in-search)（1:1 / ≥8×8 / 推荐 >48）、[W3C Manifest 安全区](https://w3c.github.io/manifest/)（半径 2/5 的圆）、[Radix Colors 12 步](https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale)、[material-color-utilities scheme.ts](https://github.com/material-foundation/material-color-utilities/blob/main/typescript/scheme/scheme.ts)（亮暗 tone 映射）、[Adobe Leonardo](https://github.com/adobe/leonardo)（对比度优先反解）、[NN/g 语气四维](https://www.nngroup.com/articles/tone-of-voice-dimensions/)、[RIA 品牌指南](https://www.ria.ie/brand-guidelines/)（40px / 10mm / 清space 半符号）、[web.dev Web Vitals](https://web.dev/articles/vitals)（LCP 2.5 / INP 200 / CLS 0.1 + p75 口径）、[web.dev Optimize LCP](https://web.dev/articles/optimize-lcp)（四分解 40/10/40/10）、[web.dev INP](https://web.dev/articles/inp)（三阶段 + 200/500ms + 每 50 次交互忽略最高 1 次）、[web.dev CLS](https://web.dev/articles/cls)（impact×distance + 会话窗口 + `hadRecentInput` 500ms）、[web.dev Long Tasks](https://web.dev/articles/long-tasks-devtools)（>50ms / RAIL 100ms）、[web.dev Font best practices](https://web.dev/articles/font-best-practices)（font-display 五档 / WOFF2 -30% / CJK >10000 字形）、[web.dev Choose the right image format](https://web.dev/articles/choose-the-right-image-format)（格式矩阵 / DPR 4 倍）、[web.dev Performance budgets 101](https://web.dev/articles/performance-budgets-101)（170KB / 5s TTI）、[Chrome Lighthouse scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)（TBT 30 / LCP 25 / CLS 25 / 0.96 分水岭）、[Addy Osmani 的 JavaScript 成本](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)（4s/13s/36s / parse+compile 10–30%）、[微信 代码包体积优化](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips/start_optimizeA)（单包 2M / ZSTD / 分包四手段）、[微信 合理使用 setData](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/tips/runtime_setData)（Shadow 树节点量优先 / 只传 diff）、[MDN prefers-reduced-data](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-data)、[MDN size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust)、[Carbon Component checklist](https://carbondesignsystem.com/getting-started/contributing/component-checklist/)（definition of done / 规格六类 / 80% 覆盖 / VRT·AVT·三读屏器）、[Carbon 2x Grid](https://carbondesignsystem.com/elements/2x-grid/overview/)（8px mini unit / 断点列数表 / sizing scale）、[Carbon Spacing](https://carbondesignsystem.com/building-blocks/foundations/spacing/overview/)（`$spacing-01`–`13` 全 13 档）、[Figma Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode)、[Figma 组件命名](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components)、[Figma 变体](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants)、[DTCG Design Tokens Format published 2025.10](https://www.designtokens.org/TR/2025.10/format/)（**权威版本**；`tr.designtokens.org/format/` 为 preview draft，页首明写 "Do not reference this version as authoritative in any way"，只作辨析对象、不可当规范依据）、[Style Dictionary](https://styledictionary.com/info/tokens/)、[Semantic Versioning 2.0.0](https://semver.org/)、[Cucumber Gherkin](https://cucumber.io/docs/gherkin/reference/)、[NN/g Design Critiques](https://www.nngroup.com/articles/design-critiques/)、[优设·设计走查流程](https://www.uisdc.com/design-inspection)、[WCAG 2.2 SC 3.3.4 Error Prevention (Legal, Financial, Data)](https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html)、[WCAG 2.2 SC 3.3.7 Redundant Entry](https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html)、[WCAG 2.2 SC 1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)、[GOV.UK Design System · Check answers](https://design-system.service.gov.uk/patterns/check-answers/)、[Apple Pay Marketing Guidelines](https://developer.apple.com/apple-pay/marketing/)、[16 CFR Part 464 · Rule on Unfair or Deceptive Fees](https://ecfr.io/Title-16/Part-464)、[WCAG 2.2 SC 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)。、[Apple HIG Notifications](https://developer.apple.com/design/human-interface-guidelines/notifications)、[UNUserNotificationCenter](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter)、[Android 通知渠道](https://developer.android.com/develop/ui/views/notifications/channels)、[Android 13 通知权限](https://developer.android.com/develop/ui/views/notifications/notification-permission)、[MDN Notification](https://developer.mozilla.org/en-US/docs/Web/API/Notification)、[RFC 8030](https://www.rfc-editor.org/rfc/rfc8030)、[RFC 8058](https://www.rfc-editor.org/rfc/rfc8058)、[Apple HIG · Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics)（七条 Best practices、三类生成器与 watchOS 九种类型逐字）、[Apple HIG · Playing audio](https://developer.apple.com/design/human-interface-guidelines/playing-audio)（静音开关与 AVAudioSession 类别表原文）、[WCAG 2.2 SC 1.4.2](https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html)（3 秒阈值与「静音系统音量不算暂停」原文）、[W3C Vibration API](https://www.w3.org/TR/vibration/)（10 段 / 10000 ms / sticky activation）、[AOSP · HapticFeedbackConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/view/HapticFeedbackConstants.java)（21 个公开常量逐条）、[AOSP · VibrationEffect](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/main/core/java/android/os/VibrationEffect.java)（振幅 1–255 与 1 s / 3 段注释）
-- 数据来源（v45 键盘快捷键与命令面板）：[W3C WCAG 2.2 · SC 2.1.4 Character Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html)、[WAI-ARIA 1.2 · aria-keyshortcuts](https://www.w3.org/TR/wai-aria-1.2/#aria-keyshortcuts)、[WAI-ARIA APG · Keyboard Interface](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/)、[MDN · aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts)、[MDN · KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)、[Apple HIG · Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards)、[Microsoft · Keyboard accelerators](https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators)、[VS Code · Key Bindings](https://code.visualstudio.com/docs/configure/keybindings)、[GitHub · Keyboard shortcuts](https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts)、[WHATWG · accesskey](https://html.spec.whatwg.org/multipage/interaction.html#the-accesskey-attribute)（一手上游 15 条，六库 GitHub API 实测 2026-11-14）。
-- 数据来源（v46 文件上传与媒体输入）：[MDN · input type=file 与 accept](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/accept)、[MDN · createImageBitmap](https://developer.mozilla.org/en-US/docs/Web/API/Window/createImageBitmap)、[MDN · image-orientation](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/image-orientation)、[MDN · 413 Content Too Large](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/413)、[OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)、[GOV.UK · File upload](https://design-system.service.gov.uk/components/file-upload/)、[USWDS · File input](https://designsystem.digital.gov/components/file-input/)、[W3C WCAG 2.2 · SC 2.5.7 Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html)、[SC 2.5.8 Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)、[SC 3.3.1](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html)、[SC 3.3.3](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)、[SC 4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[SC 2.2.1 Timing Adjustable](https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html)、[tus 1.0.0 Resumable Upload Protocol](https://github.com/tus/tus-resumable-upload-protocol/blob/main/protocol.md)、[Ant Design Upload](https://github.com/ant-design/ant-design/blob/master/components/upload/index.en-US.md)、GitHub API 实测（2026-11-16）：[transloadit/uppy](https://github.com/transloadit/uppy) 31,075★、[react-dropzone](https://github.com/react-dropzone/react-dropzone) 11,024★、[pqina/filepond](https://github.com/pqina/filepond) 16,396★、[fengyuanchen/cropperjs](https://github.com/fengyuanchen/cropperjs) 13,918★、[dropzone](https://github.com/enyo/dropzone) 18,408★、[tus/tus-js-client](https://github.com/tus/tus-js-client) 2,640★、[GoogleChromeLabs/squoosh](https://github.com/GoogleChromeLabs/squoosh) 26,195★、[lovell/sharp](https://github.com/lovell/sharp) 32,855★
-数据来源（v47 实时协作与多人编辑）：[Figma · How Figma's multiplayer technology works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/)、[Yjs awareness 源码](https://raw.githubusercontent.com/yjs/y-protocols/master/src/awareness.js)、[Yjs UndoManager](https://raw.githubusercontent.com/yjs/yjs/main/src/utils/UndoManager.js)、[Yjs 相对位置](https://docs.yjs.dev/api/relative-positions)、[Automerge sync](https://automerge.org/automerge/automerge/sync/)、[Liveblocks presence](https://liveblocks.io/docs/use-cases/presence)、[Liveblocks React API](https://liveblocks.io/docs/api-reference/liveblocks-react)、[WCAG 2.2 SC 4.1.3](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html)、[MDN aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live)；GitHub API 实测（2026-11-16）：[yjs/yjs](https://github.com/yjs/yjs) 23,072★、[automerge/automerge](https://github.com/automerge/automerge) 6,741★、[liveblocks/liveblocks](https://github.com/liveblocks/liveblocks) 4,772★、[tldraw/tldraw](https://github.com/tldraw/tldraw) 51,434★、[partykit/partykit](https://github.com/partykit/partykit) 5,750★、[excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 135,784★、[microsoft/FluidFramework](https://github.com/microsoft/FluidFramework) 4,949★
-- 数据来源（v48 视频播放器与字幕）：[Netflix · Timed Text Style Guide: General Requirements](https://partnerhelp.netflixstudios.com/hc/en-us/articles/215758617)、[Subtitle Timing Guidelines](https://partnerhelp.netflixstudios.com/hc/en-us/articles/360051554394)、[English (USA)](https://partnerhelp.netflixstudios.com/hc/en-us/articles/217350977)、[WCAG 2.2 · SC 1.2.2](https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html)、[SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)、[SC 2.2.2](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)、[SC 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)、[WebKit · New <video> Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/)（一手上游 8 条）；GitHub API 实测（2026-11-17）：[videojs/video.js](https://github.com/videojs/video.js) 40,211★、[sampotts/plyr](https://github.com/sampotts/plyr) 29,985★（已 deprecated）、[muxinc/media-chrome](https://github.com/muxinc/media-chrome) 2,772★、[shaka-project/shaka-player](https://github.com/shaka-project/shaka-player) 8,283★、[video-dev/hls.js](https://github.com/video-dev/hls.js) 17,058★。
-- 数据来源（v49 邮件设计与 EDM 排版）：[Microsoft · On Word & Outlook 2007](https://learn.microsoft.com/en-us/archive/blogs/michael_affronti/on-word-outlook-2007)、[Microsoft Support · Block automatic picture downloads](https://support.microsoft.com/en-us/office/block-or-unblock-automatic-picture-downloads-in-classic-outlook-email-messages)、[Apple · Mail Privacy Protection](https://www.apple.com/privacy/features/)、[Klaviyo · Gmail clipping](https://help.klaviyo.com/hc/en-us/articles/115000591251)、[caniemail · data.json](https://www.caniemail.com/api/data.json)、[WCAG 2.2 · SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)、[《广告法》第四十三条](https://www.gov.cn/)、[《互联网电子邮件服务管理办法》](https://www.gov.cn/gongbao/content/2007/content_554185.htm)、[MJML 文档](https://documentation.mjml.io/)、GitHub API 实测（mjmlio/mjml · resend/react-email · zurb/foundation-emails · maizzle/maizzle · SparkPost/heml）
-- 数据来源（v50 定价本地化）：[SIX · ISO 4217 List One XML](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml)（`Pblshd="2026-09-17"`）、[Stripe · Supported currencies](https://docs.stripe.com/currencies.md)、[MDN · Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat)、[欧盟委员会 · VAT rates](https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-rates_en)、[GOV.UK · VAT rates](https://www.gov.uk/vat-rates)、[德国 UStG §12](https://www.gesetze-im-internet.de/ustg_1980/__12.html)、[德国 PAngV §2](https://www.gesetze-im-internet.de/pangv_2022/__2.html)、[§4](https://www.gesetze-im-internet.de/pangv_2022/__4.html)、[§11](https://www.gesetze-im-internet.de/pangv_2022/__11.html)、[日本国税庁 No.6902](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6902.htm)、[No.6101](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6101.htm)、[日本消费者厅 · 表示規約 FAQ](https://www.caa.go.jp/policies/policy/representation/fair_labeling/faq/representation)、[《明码标价和禁止价格欺诈规定》](https://www.gov.cn/gongbao/content/2022/content_5699926.htm)、[Apple · App Store subscriptions](https://developer.apple.com/app-store/subscriptions/)（一手上游 14 条）；GitHub API 实测（2026-11-18）：[dinerojs/dinero.js](https://github.com/dinerojs/dinero.js) 6,814★、[unicode-org/cldr](https://github.com/unicode-org/cldr) 1,173★、[formatjs/formatjs](https://github.com/formatjs/formatjs) 14,754★、[saleor/saleor](https://github.com/saleor/saleor) 23,584★、[medusajs/medusa](https://github.com/medusajs/medusa) 37,303★、[vendurehq/vendure](https://github.com/vendurehq/vendure) 8,604★、[scurker/currency.js](https://github.com/scurker/currency.js) 3,375★、[globalizejs/globalize](https://github.com/globalizejs/globalize) 4,835★、[stripe/stripe-node](https://github.com/stripe/stripe-node) 4,574★、[taxjar/taxjar-node](https://github.com/taxjar/taxjar-node) 57★
-- 数据来源（v51 报价与发票单据）：[Peppol BIS Billing 3.0 · BR-CO-15](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-tc434/BR-CO-15/)、[Peppol · ubl-peppol 规则](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-peppol/)、[Peppol · UBL 发票字段树](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/tree/)、[UNCL1001-inv](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-inv/)、[UNCL1001-cn](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-cn/)、[UNCL5305](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL5305/)、[UNCL4461](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL4461/)、[FeRD · ZUGFeRD/Factur-X](https://www.ferd-net.de/standards/zugferd)、[FeRD · Order-X](https://www.ferd-net.de/standards/order-x)、[国家税务总局公告 2024 年第 11 号](https://www.gov.cn/zhengce/zhengceku/202411/content_6989164.htm)、[《发票管理办法》](https://dalian.chinatax.gov.cn/art/2023/7/20/art_2893_647610.html)（一手上游 11 条）；GitHub API 实测（2026-11-19）：[ZUGFeRD/mustangproject](https://github.com/ZUGFeRD/mustangproject) 498★、[gflohr/e-invoice-eu](https://github.com/gflohr/e-invoice-eu) 383★、[pretix/python-drafthorse](https://github.com/pretix/python-drafthorse) 184★、[VladSez/easy-invoice-pdf](https://github.com/VladSez/easy-invoice-pdf) 1,125★、[firsttris/haben](https://github.com/firsttris/haben) 721★、[DRYTRIX/TimeTracker](https://github.com/DRYTRIX/TimeTracker) 644★、[EthanYoQ/Invoice-Downloader](https://github.com/EthanYoQ/Invoice-Downloader) 553★、[SMEWebify/WebErpMesv2](https://github.com/SMEWebify/WebErpMesv2) 228★、[yooongchun/Invoice2Excel](https://github.com/yooongchun/Invoice2Excel) 249★
+**只给一版方案 = 没做设计判断。** 除极小的单点修改外，至少并置两案：
+
+| 案 | 定义 | 什么时候选它 |
+|---|---|---|
+| 保守案 | 沿用当前/主流范式，风险最低 | 品牌敏感、合规重、上线时间紧 |
+| 主流案 | 当下同类产品的最优实践 | 大多数商业项目 |
+| 进取案 | 挑战一个默认假设（版式、交互或气质） | 需要记忆点、有明确差异化目标 |
+
+流程（细则见 `references/comparison-protocol.md`）：
+
+1. **并置**：三案各写一句主张，不许写「风格 A / 风格 B」这种空标签。
+2. **五轴打分**：层级清晰、节奏、一致性、记忆点、风险，每轴 0–3 分，每轴必须写一句证据（锚点见 `references/taste-criteria.md` §8）。
+3. **强制裁决**：`选 A；代价 W；证据 E；什么条件下改选 B`。四段缺一不交付。
+4. **品味三问**（`references/taste-criteria.md` §7）：只能保留一个视觉特征，是哪个？为什么是它？删掉它画面损失什么？
+5. **盲评**（重要项目）：去掉品牌与来源，隔 24 小时或找第二人复看；分歧 >1 分必须写理由。
+
+**反模式**：只比规范数值不比整体；用投票代替理由；把熟悉当好看；把复杂当高级；裁决不写代价。
+
+### 灵感与对标（三级，按需）
+
+- **L1 元素级**：`references/patterns.md` → 输出 4–6 个变体的单文件 HTML「可视化设计板」（真实文案、标注构型与参数、板尾列参照）。
+- **L2 风格级**：`references/portfolios.md`（画廊与作品集）+ `references/design-md-format.md` §3（品牌 DNA）+ 中文站（站酷/花瓣/iconfont）。
+- **L3 实现级**：`references/component-libraries.md`（选型三问）、shadcn blocks / HyperUI / Magic UI 等。
+- 三级都没命中才联网检索，并标注「未经策展验证」；**不要用 star 数、下载量当质量证据**。
+
+---
+
+## 4 执行：按需读 1–3 份资产
+
+读之前先用检索层定位到「文件 + 章节」，只读那一节：
+
+```
+python scripts/dp_search.py "关键词" -n 8        # 别名自动扩展，只影响召回
+python scripts/dp_search.py --topic              # 全部二级标题总览
+python scripts/dp_search.py --rebuild            # 索引缺失或过期时重建
+```
+
+索引是本地生成物（`memory/index.json`、`memory/tree.md` 不入库）。**不要一次读多份完整文件**；一份文件只读命中的那一节，需要上下文再向前后各读 20 行。
+
+### 4.1 判断与品味核心
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 |
+| `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 五轴 · §3 裁决 · §5 大众锚 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 20 组案例，按载体查 |
+| `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
+| `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
+| `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、时长） | §1 口径表 · §2 六条纪律 |
+| `references/design-measurement-research.md` | 指标、研究方法、统计验收 | §1 指标 · §4 方法 · §10 验收 |
+
+### 4.2 视觉基础
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/typography-system.md` | 字体、字号、行高、行长、加载、授权、中文排印 | §2 六层 · §4 尺度 · §5 节奏 · §17 混排 |
+| `references/color-science.md` | 配色、色板、对比度、OKLCH、色盲 | §2 色彩模型 · §3 色板 · §8 对比 |
+| `references/shape-elevation.md` | 圆角、阴影、层级、材质、边界可见性 | §10 圆角 · §11 阴影 · §12 层级 |
+| `references/visual-hierarchy-gestalt.md` | 层级不清、分组、扫读路径、认知负荷 | §2 判层 · §7 分组 · §8 层级 · §9 动线 |
+| `references/iconography.md` | 图标系统、描边、网格、可访问性、spinner | §1 判型 · §2 网格 · §3 描边 · §10 可访问 |
+| `references/design-tokens.md` | token 命名、层级、语义、双主题 | §1 三层 · §3 命名 · §5 语义 |
+| `references/chinese-design.md` | 中文项目默认先读：字形、标点、竖排、混排 | §1 中文排印 · §1.7 竖排 |
+| `references/visual-style-taxonomy.md` | 风格匹配、谱系、历史参照、风格诊断 | §2 谱系 · §4 判据 |
+| `references/brand-identity.md` | logo、VI、品牌色、清 space、favicon、品牌语气 | §3 标志 · §5 色彩 · §6 清 space · §15 图标 |
+| `references/multi-brand-theming.md` | 多品牌/多主题：该不该上架构、主题分层 | §一 判层 · §三 决策归属 |
+
+### 4.3 版式、系统与交付
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/editorial-layout.md` | 海报、长图、社媒图、印刷、网格栏数、长文版式 | §2 网格 · §7 长文 · §8 视觉重量 · §10 出血 |
+| `references/responsive-layout.md` | 断点、栅格、版心、容器查询、流式字号、多端 | §1 判层 · §3 断点 · §4 栅格 · §9 容器查询 |
+| `references/dark-mode.md` | 暗色主题、底色、层级、图片与品牌色反色 | §1 该不该做 · §2 取值 · §3 层级 |
+| `references/design-system-docs.md` | 设计系统文档站、DESIGN.md、版本化、贡献指南 | §1 两类读者 · §4 九段式 · §7 版本化 |
+| `references/component-api-design.md` | 组件 API、受控/非受控、组合、asChild、SemVer | §2 所有权 · §3 组合 · §10 键盘契约 |
+| `references/component-libraries.md` | 选组件库：三问定生死 | §1 三问 · §2 对照 |
+| `references/handoff-collaboration.md` | 标注、验收标准、走查、缺陷分级、token 交付 | §3 规格 · §4 AC · §9 走查 |
+
+### 4.4 界面、流程与交互
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/form-table.md` | 表单、输入、校验、表格、列表、筛选 | §2 表单 · §6 表格 · §10 校验 |
+| `references/feedback-states.md` | toast、加载、骨架、错误、危险操作、保存态 | §1 判型 · §3 加载 · §4 错误 |
+| `references/empty-states.md` | 空状态、零数据、starter content、插画 | §3 五种空 · §4 结构 |
+| `references/navigation-ia.md` | 导航、菜单、信息架构、面包屑、Tabs、底部栏 | §1 判型 · §2 IA · §3 一级项 |
+| `references/onboarding-first-run.md` | 首启、引导、教程、权限时机、激活 | §0 立场 · §3 路径 · §7 权限 · §9 激活 |
+| `references/overlays-modality.md` | 模态、dialog、popover、浮层、焦点陷阱 | §1 判型 · §3 dialog · §4 popover |
+| `references/content-findability.md` | 搜不到、链接文案、扫读、404、combobox 契约 | §2 多路径 · §4 搜索 · §6 combobox · §19 清单 |
+| `references/direct-manipulation.md` | 拖拽、排序、手势、指针事件、触控目标 | §2 四段 · §3 裁决 · §19 替代路径 |
+| `references/keyboard-shortcuts-command-palette.md` | 快捷键、命令面板、键位冲突、IME | §1 五问 · §3 三出口 · §8 面板 |
+| `references/conversational-generative-ui.md` | 聊天 UI、流式输出、生成式界面、纠错 | §2 五段 · §3 状态机 · §6 边界 |
+| `references/realtime-collaboration.md` | 多人编辑、光标、在线状态、评论、权限 | §2 协作模型 · §3 在场 · §5 评论 |
+
+### 4.5 领域、商业与表达
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/pricing-checkout.md` | 定价页、三档表、结账、优惠、税费展示 | §1 判层 · §2 价格表 · §5 结账 |
+| `references/pricing-localization.md` | 多币种、含税口径、法定原价、地区价差 | §1 七问 · §2 ISO 4217 · §3 含税 · §10 法标 |
+| `references/quote-invoice-documents.md` | 报价单、发票、订单确认、红冲、对账单 | §1 判层 · §3 金额脊柱 · §7 版式 |
+| `references/notifications-messaging.md` | 该不该发、通道、消息中心、角标、免打扰 | §1 判层 · §2 通道 · §3 消息中心 |
+| `references/auth-account-ux.md` | 登录、注册、Passkeys、MFA、会话与恢复 | §1 判型 · §2 路径 · §5 恢复 |
+| `references/file-upload-media-input.md` | 上传、进度、断点续传、裁剪、EXIF | §1 判型 · §2 路径 · §4 图片 |
+| `references/email-design.md` | HTML 邮件、EDM、客户端兼容、深色反色 | §1 约束 · §3 结构 · §12 兼容 |
+| `references/video-player-captions.md` | 播放器 UI、字幕、WebVTT、自动播放 | §1 控件 · §3 字幕 · §5 自动播放 |
+| `references/presentation-design.md` | PPT、母版、字号、转场、远程演示 | §3 母版 · §5 字号 · §7 转场 |
+| `references/dataviz.md` | 图表选型、色板、轴、仪表盘布局 | §1 关系 · §2 图形 · §3 色板 · §7 布局 |
+| `references/motion-system.md` | 该不该动、时长、曲线、场景 | §1 判该不该 · §3 时长 · §2 曲线 |
+| `references/motion-orchestration.md` | 编排、列表增删、共享元素、状态机、中断 | §1 编排 · §3 转场 · §4 状态机 |
+| `references/sound-haptics-feedback.md` | 要不要加声音/触觉、常量、可访问性 | §1 判层 · §2 常量 · §4 静音 |
+| `references/ux-writing.md` | 按钮、错误、空态、语气、标签、术语 | §2 四级尺寸 · §3 语气 · §8 错误 |
+| `references/performance-design.md` | 慢、卡顿、CLS、预算、图片、字体加载 | §2 预算 · §3 图片 · §10 字体 |
+
+### 4.6 合规、国际化与 AI
+
+| 资产 | 何时用 | 入口 |
+|---|---|---|
+| `references/accessibility.md` | 无障碍、WCAG 2.2、焦点、键盘、读屏、对比度、适老化 | §1 判层 · §2 键盘 · §3 语义 · §17 对比 |
+| `references/design-ethics-inclusion.md` | dark patterns、同意、续费、开屏、未成年人、COGA | §1 判层 · §2 红线 · §14 画像谱 |
+| `references/i18n-localization.md` | 出海、多语言、RTL、膨胀、复数、日期货币 | §1 三层 · §4 RTL · §5 膨胀 · §12 测试 |
+| `references/ai-design-toolchain.md` | AI 生成设计、标识合规、版权、提示词、AI 味验收 | §1 五层 · §2 标识 · §9 提示词 |
+
+### 4.7 索引、学习与资源（数据，不是知识）
+
+| 资产 | 何时用 |
+|---|---|
+| `references/knowledge-map.md` | 想系统补课：L0→L4 路线、必读、练习、验收 |
+| `references/resources.md` | 找书/文章/课程/规范原文 |
+| `references/tools.md` | 找工具与资产 |
+| `references/portfolios.md` | 找画廊、作品集、风格样本（L2） |
+| `references/inspiration.md` | 灵感站清单（仅作数据，需自行判断质量） |
+| `references/patterns.md` | 元素级模式库（L1） |
+| `references/design-md-format.md` | 写 `DESIGN.md`（给 AI/协作者读的约束）与品牌 DNA |
+
+---
+
+## 5 自检 12 条：答不上来就不交付
+
+不是打勾清单，是**证据问题**。任何一条答不上来，回去改，不要用「已检查」糊过去。
+
+1. **brief**：一句话说清给谁、什么场景、什么气质、最怕什么了吗？
+2. **比较**：三案在哪？如果只给了一案，为什么这一案不需要比较？
+3. **裁决**：选了什么、代价是什么、什么条件下改选？四段齐吗？
+4. **保留**：只能留一个视觉特征，是哪个？为什么是它？
+5. **层级**：眯眼/缩小到 30% 后，第一眼落在哪？是你要的那一处吗？
+6. **比例**：版心、栏数、字号阶梯是推出来的，还是随手定的？说得出推导吗？
+7. **一致**：同一语义在两处是否同一条规则？如果不是，理由是什么？
+8. **颜色**：强调色用了几处？超过一处，每一处的理由是什么？
+9. **文字**：最长一行多少字？中文行高、字号、对比度各是多少（对 `numeric-truth.md` §1）？
+10. **可达**：键盘能走完主路径吗？焦点可见吗？对比度、点击区达标吗？
+11. **反证**：最有力的反对意见是什么？我怎么回答？回答不了，是不是该改？
+12. **删减**：删掉哪个元素画面会更好？为什么没删？
+
+**交付时附三行**：读了哪几份资产（文件 §）；做了什么裁决（A/W/E）；还有什么没解决（明确写「未验证」，不要写「已完成」）。
+
+---
+
+## 6 记忆：每次收尾写 3 行
+
+记忆是判断的一部分：**先读画像，再动手；做完必须回写**。
+
+```
+python scripts/memory.py add --task "落地页首屏改版" ^
+  --signal explicit_preference --quote "不要太花，像 Linear 那种" ^
+  --decision "克制：单强调色 + 大留白 + 强字重对比"
+```
+
+- **谁**（角色/场景）、**怕什么**（硬约束/禁忌）、**选了什么**（偏好与理由）——三行都要有。
+- `signal_type`：`explicit_preference`（用户明说）/ `correction`（用户纠正）/ `accept`（明确接受）/ `none`（本次没有信号，**不要编造**）/ `process`（流程指令）。
+- 同一 `domain + decision` 出现 ≥2 次 → `python scripts/memory.py promote` 看候选；**必须用户确认**后才 `apply` 写入 `memory/profile.md`。
+- 冲突时以最新一次为准，并在 profile 里保留旧值与改判理由。
+- 没有信号就写 `none`，不要写「无反馈」凑数；连续 `none` 说明该主动问一次。
+
+---
+
+## 7 成长与进化：一进一出
+
+- **升级前**：`python scripts/memory.py stats` 看真实信号；读 `memory/profile.md`。没有画像时，先补采集，不要先写新规范。
+- **每日升级协议**（完整版见 `PROMPT-daily-upgrade.md`）：取源 → 官方原文验证 → 蒸馏成可执行规则 → 接线（路由 / 别名 / 数值口径）→ 门禁 → 归档。**一轮只做一个主题**。
+- **一进一出**：新增 N 字符，必须删除或合并 ≥N 字符。SKILL ≤500 行 / ≤30,000 字符；单份 reference ≤1,200 行。季度大裁剪，年度重写。
+- **每轮必须写一条「本轮被推翻的旧判断」**，写不出就记「本轮无学习」，连续 3 轮触发复盘。
+- **门禁**：`python scripts/audit.py`（结构、章节引用、新鲜度、画像、别名、重复段落、立场接线）。FAIL 不提交。
+- **质量门槛**：不是「写了吗」，而是「这一类问题以后不再含糊」——给出可判断的句子、边界与代价。
+
+---
+
+## 8 边界与习惯
+
+- **给立场，不和稀泥**：可以错，不可以「看情况」；给结论 + 代价 + 改选条件。
+- **不臆造**：数值、来源、资源链接、用户反馈，取不到就写「未验证」。
+- **先诊断后开药**：改造与评审先看现状，再谈改法。
+- **记忆优先**：与画像冲突时，先解释冲突，再决定是否推翻画像。
+- **中文默认**：中文项目先读 `chinese-design.md`；中英混排按 `numeric-truth.md` §1 执行。
+- **只动本技能目录**：升级不得修改目录外文件；安装副本同步由发布脚本负责。
+- **来源**：全部来源与取源限制见 `SOURCES.md`；引用规范数值时标注「法条 / 设计值 / 库默认 / 经验值」。
+
+---
+
+## 附：资产索引（工具与数据）
+
+| 路径 | 作用 | 用法 |
+|---|---|---|
+| `memory/profile.md` | 用户画像（被 ≥2 条证据支持、经确认的规则） | 每次任务前读 |
+| `memory/journal.jsonl` | 反馈流水（一行一条） | `memory.py add / stats / validate` |
+| `memory/aliases.json` | 检索层别名（只影响召回，不改路由） | `dp_search.py` 自动使用 |
+| `scripts/dp_search.py` | 检索入口 | `"关键词" -n 8` / `--topic` / `--rebuild` |
+| `scripts/memory.py` | 记忆读写与晋升 | `add / stats / promote / apply / validate` |
+| `scripts/audit.py` | 门禁 | `--json` / `--only A1,A5` |
+| `tests/golden/` | 盲评集（10 条 brief + rubric） | 产出两案 → 五轴打分 → 记 baseline |
+| `CHANGELOG.md` | v38–v52 版本史 + 每日升级摘要 | 每轮顶部追加一行 |
+| `SOURCES.md` | 来源索引与取源限制 | 引用来源时查 |

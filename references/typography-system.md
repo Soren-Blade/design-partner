@@ -1,5 +1,7 @@
 # 字体排印系统（Typography System）
 
+
+> 本篇数值若与其他文件冲突，以 `numeric-truth.md` §1 为准；本篇只解释为什么。
 > 快照 2026-11-07 · 30 节 · 12 场景 · 20 反模式 · 20 自检 · 6 段可抄代码
 
 把「字体靠挑好看的、字号随手写、行距凭感觉」变成**可计算的决策**。本文件不替代 `design-tokens.md`（token 三层架构）/`performance-design.md`（字体加载与 CLS 预算）/`chinese-design.md`（中文场景惯例）/`visual-style-taxonomy.md`（风格四维信号里的 Typography 维）/`brand-identity.md`（品牌字体人格），而是给它们补上**字体本身的底层机制**：字号为什么不能用 px、用户把间距改到 WCAG 门槛时页面为什么不许塌、数字为什么会在表格里跳、`font-family` 到底怎么回退、可变字体和 OpenType 特性怎么用、字体授权哪些事不能做。
@@ -68,12 +70,12 @@
 
 行高与行长决定长文可读性，也是对比度、可访问性与验收里最常被跳过的一组数值；三段式节奏（行内 / 段间 / 块间）必须分开定，不能一个 `line-height` 打天下。
 
-- **行高比率（M3 官方，已核验）**：`applying-type` 原文——*"For larger type legibility using styles like title, headline, and display, we recommend a line height ratio of **1.2 times** the type size"*；*"For smaller body copy using styles like body and label, we recommend a line height ratio **around 1.5 times** the type size."* 太紧破坏阅读流，太松行与行不成组。
-- **本知识库既有口径**：`SKILL.md` 第 5 步「正文 16px 起，行高 1.5–1.7，行长 60–75 字符」；`presentation-design.md` 给中文演示行距 1.4–1.6。两者不冲突：M3 的 1.2 只给**大字号标题**，正文仍走 1.5 上下。写 token 时按角色分两档，不要全局一个值。
-- **行长（WCAG 2.2 SC 1.4.8 Visual Presentation，AAA）**：文本块宽度 **≤80 characters or glyphs（CJK ≤40）**、`Text is not justified`（禁两端对齐）、段内行距 `space-and-a-half`、段间距至少 `1.5 times larger than line spacing`。行长超标时优先缩容器而不是缩字号。
+- **行高比率（M3 官方，已核验）**：`applying-type` 原文——*"For larger type legibility using styles like title, headline, and display, we recommend a line height ratio of **1.2 times** the type size"*；*"For smaller body copy using styles like body and label, we recommend a line height ratio **around 1.5 times** the type size."* 注意这是**拉丁**口径：1.2 只给大字号标题，1.5 给拉丁 UI 短文本，不能直接套到中文正文。
+- **本知识库口径（见 numeric-truth §1）**：中文正文 **1.6–1.8（推荐 1.7）**，小字/表内 **1.5–1.6**；拉丁 UI **1.5**，拉丁长文 **1.4–1.6**。`SKILL.md` 第 5 步「行高 1.5–1.7」与本表冲突时以本表为准；`presentation-design.md` 的 1.4–1.6 属于演示/展示场景例外。写 token 时按 display / latin / cjk 分三档，不要全局一个值。
+- **行长（WCAG 2.2 SC 1.4.8 Visual Presentation，AAA）**：文本块宽度 **≤80 characters or glyphs（CJK ≤40）**、`Text is not justified`（AAA 原文；中文的条件式用法见下条）、段内行距 `space-and-a-half`、段间距至少 `1.5 times larger than line spacing`。行长超标时优先缩容器而不是缩字号。
 - **三段节奏分离**：`line-height`（行内）/ `margin-block-end`（段间，≥2× font size 才扛得住 1.4.12）/ 块间距（章节，走 spacing token）。三者都写死 `px` 会在间距覆盖时叠爆。
-- **两端对齐是硬禁**：`text-align: justify` 在窄栏与 CJK/西文混排下制造词间「河流」，1.4.8 明令 `Text is not justified`；中文也不靠加字距凑齐行尾。
-- **中文行高**：汉字 1:1 方框（clreq §1.2）、字面率高，同字号视觉比拉丁更满，正文行高通常需比拉丁略宽松；`visual-style-taxonomy.md §7` 给中文极简场景 ≥1.6。
+- **两端对齐是条件式，不是无条件硬禁**：拉丁正文一律左对齐（ragged right）；中文内容页可用 `text-align: justify`，但必须同时做**标点挤压/避头尾**（`text-spacing-trim` + `line-break: strict`），且 **`text-align-last: left`** 保证最后一行不拉伸。任一条件缺失就回到左对齐；以 WCAG AAA 为验收目标时，中文也按 1.4.8 原文用左对齐。口径见 numeric-truth §1。
+- **中文行高（见 numeric-truth §1）**：汉字 1:1 方框（clreq §1.2）、字面率高，同字号视觉比拉丁更满，正文行高取 **1.6–1.8（推荐 1.7）**，小字/表内 1.5–1.6；不再沿用 M3 的 1.5。
 
 ---
 
@@ -233,7 +235,7 @@ FOUT 的 CLS 根因不是「换字体」，是**两款字体的度量不同**；
 
 中文排版的区域/locale 差异大于简繁差异；把视觉排版需求写进文本存储层、或按码位处理光标，都会在 CJK 与 emoji 场景下出错。以下四条均取自 W3C《Requirements for Chinese Text Layout》原文。
 
-1. **汉字与西文/阿拉伯数字间的空白（§2.1.3）**：原文 *"Use a spacing of **no more than one-quarter of the width of a Han character** between Han characters and Western letters or European numerals. However, when the Western text appears at the beginning or end of a line, **no extra spacing is required**."* → 是**上限**不是固定值，行首/行尾不加。落地用 CSS `margin`/`text-spacing` 或排版引擎，**不要手敲空格到文本里**（会把视觉需求写进内容层）。
+1. **汉字与西文/阿拉伯数字间的空白（§2.1.3，见 numeric-truth §1）**：原文 *"Use a spacing of **no more than one-quarter of the width of a Han character** between Han characters and Western letters or European numerals. However, when the Western text appears at the beginning or end of a line, **no extra spacing is required**."* → 是**上限**不是固定值，行首/行尾不加。**内容层不手敲空格**；由排版层（`text-spacing` / `text-autospace` / 构建脚本）处理；只有纯文本交付（邮件、纯文本文件）允许手敲**一个**半角空格。
 2. **汉字与标点 1:1 正方形（§1.2）**：*"In principle, the characters, including Han characters (Hanzi) and punctuation, used in Chinese composition are **squares with the ratio of 1:1**, and are seamlessly arranged with one another."* §2.1.1 Note 补充 `square character frame`，直横排可共用活字、部分标点需按书写方向调整分布。→ 中文栅格与行高按方框推，别套拉丁 baseline 习惯。
 3. **不要把视觉需求写进文本层（§4.1 Note）**：*"Nowadays, when storing text, **avoid using** [fullwidth ASCII] Latin letters and European numerals; leave proportional/monospace display requirements to the typesetting engine."* 同段还纠正「半角/全角」是**度量宽度的概念**，现代西文字体多为比例字体，把 ASCII 一概称「半角」并不准确。→ 数据库存标准 ASCII，显示交给 CSS。
 4. **光标/删除/选择按字素丛（§4.2.1）**：*"Cursor movement, deletion, and selection should operate on **grapheme cluster boundaries** rather than on code point or code unit boundaries. A caret should never be placed inside a grapheme cluster, and the Backspace and Delete keys should remove the whole cluster."* 边界由 **UAX #29** 定义，组合附加符号、变体选择符、ZWJ emoji 序列都算一个字素丛。→ 输入框、富文本、字符计数都要用 `Intl.Segmenter`（见 `i18n-localization.md`），不能用 `str.length`。
@@ -308,7 +310,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 | 2 | 用户说「字太小 / 要长辈版」 | 先查是不是 px 锁死；改 rem + 去固定高度 + 跑 200% 缩放 | §4 §8；`accessibility.md §16` |
 | 3 | 卡片/按钮在间距覆盖下裁切 | 去 `height`，`min-height`+`padding`，允许换行，勿用 `!important` 顶回覆盖 | §7 |
 | 4 | 表格数字左右跳 / 倒计时抖动 | `font-variant-numeric: lining-nums tabular-nums` | §10 |
-| 5 | 中文正文密得喘不过气 | 行高 ≥1.6、行长 CJK ≤40 字、禁 justify、段距 ≥2× | §5 §6 §16 |
+| 5 | 中文正文密得喘不过气 | 行高 ≥1.6、行长 CJK ≤40 字、justify 须配挤压/避头尾、段距 ≥2× | §5 §6 §16 |
 | 6 | 中英混排哪里加空格 | 视觉空白 ≤1/4 汉字宽、行首行尾不加；用 CSS 不手敲进文本 | §16 |
 | 7 | 首屏字体加载白字或跳动 | 选 `swap`/`optional`，配 `size-adjust` 度量对齐，实测 CLS | §14 §15 |
 | 8 | CJK 站点字体几个 MB | `unicode-range` 高频字集分片 + WOFF2 + `pyftsubset` | §13 |
@@ -319,7 +321,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 
 ---
 
-## 21 · 反模式（20）
+## 21 · 反模式（19）
 
 1. 正文 `font-size: 14px` 写死 → 用户改不了默认字号，MDN 判为 not accessible（§4）。
 2. 全站 `em` 嵌套做字号 → compounding 让内层字号失控（MDN 实测 40.96px）（§4）。
@@ -327,20 +329,19 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 4. 用 `!important` 把作者 `line-height` 顶在用户覆盖之上 → 正是条文禁止的「干扰用户覆盖」（§7）。
 5. 承载文字的按钮写死 `height` → 200% 缩放与间距覆盖双爆（§8）。
 6. 动态文案上 `white-space: nowrap` → 翻译膨胀 + 缩放叠乘后必裁切（§8 `i18n-localization.md`）。
-7. 长文 `text-align: justify` → 1.4.8 明令 `Text is not justified`（§5 §6）。
-8. 正文栏宽 100ch 且不分栏 → 超 80 字符（CJK 40）门槛（§5 §6）。
-9. 大标题沿用正文 1.5 行高 → M3 大字号应约 1.2×，标题松散不成组（§5 §17）。
-10. 表格用 `font-family: monospace` 代替 `tabular-nums` → 字母也被等宽化，是排版降级（§10）。
-11. 全局开 `tnum`、组件里又写 `font-feature-settings: "pnum"` → 低位覆盖高位，静默失效（§11）。
-12. 用 `font-feature-settings: "smcp"` 做小型大写 → MDN 明确不应这么做，走 `font-variant-caps`（§11）。
-13. `font-family: "sans-serif"` 加引号 → 变成字体名，失去通用族兜底（§12）。
-14. 回退链里把 CJK 字体放西文前面 → 中文正文的拉丁字符被中文字体自带字形接管（§12）。
-15. `system-ui` 用作大段正文字体 → 跨平台 x-height 与行高不可控（§12）。
-16. `unicode-range` 切一大片 CJK 全字集还以为优化过 → 命中一个字就整片下载（§13）。
-17. 正文 `@font-face` 用 `font-display: block` → 长 FOIT，弱网等于空白页（§14）。
-18. 写了 `swap` 却不调 `size-adjust` → FOUT 换字体时行盒变化，CLS 依然高（§15）。
-19. 往数据库里存全角 ＡＢＣ１２３ 追求「对齐」 → clreq §4.1 明确文本存储应避免（§16）。
-20. 用 `str.length` 做中文/emoji 字符计数与截断 → 应按 UAX #29 字素丛（§16 `i18n-localization.md`）。
+7. 正文栏宽 100ch 且不分栏 → 超 80 字符（CJK 40）门槛（§5 §6）。
+8. 大标题沿用拉丁正文 1.5 行高 → M3 大字号应约 1.2×，标题松散不成组（§5 §17）。
+9. 表格用 `font-family: monospace` 代替 `tabular-nums` → 字母也被等宽化，是排版降级（§10）。
+10. 全局开 `tnum`、组件里又写 `font-feature-settings: "pnum"` → 低位覆盖高位，静默失效（§11）。
+11. 用 `font-feature-settings: "smcp"` 做小型大写 → MDN 明确不应这么做，走 `font-variant-caps`（§11）。
+12. `font-family: "sans-serif"` 加引号 → 变成字体名，失去通用族兜底（§12）。
+13. 回退链里把 CJK 字体放西文前面 → 中文正文的拉丁字符被中文字体自带字形接管（§12）。
+14. `system-ui` 用作大段正文字体 → 跨平台 x-height 与行高不可控（§12）。
+15. `unicode-range` 切一大片 CJK 全字集还以为优化过 → 命中一个字就整片下载（§13）。
+16. 正文 `@font-face` 用 `font-display: block` → 长 FOIT，弱网等于空白页（§14）。
+17. 写了 `swap` 却不调 `size-adjust` → FOUT 换字体时行盒变化，CLS 依然高（§15）。
+18. 往数据库里存全角 ＡＢＣ１２３ 追求「对齐」 → clreq §4.1 明确文本存储应避免（§16）。
+19. 用 `str.length` 做中文/emoji 字符计数与截断 → 应按 UAX #29 字素丛（§16 `i18n-localization.md`）。
 
 ---
 
@@ -351,8 +352,8 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 - [ ] 跑过 200% **仅文字缩放**与**整页缩放**两种测试，表单、按钮、卡片都没裁切/重叠？
 - [ ] 注入 1.4.12 四项（且未改其他属性）后无内容或功能丢失，固定高度容器全部换成了 `min-height`+`padding`？
 - [ ] 知道 1.4.12 是「用户覆盖抗压」而非「作者默认样式」，能引用 Note 1？
-- [ ] 正文行宽 ≤80 字符（CJK ≤40）、`text-align` 不是 `justify`、段间距 ≥1.5× 行距？
-- [ ] 大标题行高约 1.2×、正文/标签约 1.5×，两档分别落在 token 里？
+- [ ] 正文行宽 ≤80 字符（CJK ≤40）、拉丁正文为左对齐、中文 justify 已配标点挤压/避头尾且末行不拉伸、段间距 ≥1.5× 行距？
+- [ ] 大标题行高约 1.2×（拉丁）、拉丁正文/标签 1.5×、中文正文 1.6–1.8（推荐 1.7），三档分别落在 token 里？
 - [ ] 文本对比度按大文本 3:1 / 小文本 4.5:1 重算过（改字号后没忘记重判「大文本」）？
 - [ ] 超链接在正文里除了颜色还带下划线？
 - [ ] 表格/时钟/金额/实时数值开了 `tabular-nums`，ID/验证码开了 `slashed-zero`，且确认字体真有 `tnum` 表？
@@ -362,7 +363,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 - [ ] `unicode-range` 按高频字集分片，每片都写了同一个 `font-display`？
 - [ ] `font-display` 按场景选（正文不 `block`、不依赖 `auto`），并用 `PerformanceObserver` 实测过 CLS？
 - [ ] 用 `size-adjust` / `font-size-adjust` 对齐过 fallback 度量，用 `getBoundingClientRect()` 量过行盒差？
-- [ ] 中文与西文间空白 ≤1/4 汉字宽、行首行尾不加、由 CSS 而非手敲空格实现？
+- [ ] 中文与西文间空白 ≤1/4 汉字宽、行首行尾不加、由排版层处理而非在内容层手敲空格？
 - [ ] 文本存储层没有全角 ASCII；光标/删除/计数按字素丛（`Intl.Segmenter` / UAX #29）？
 - [ ] M3 五角色×三尺寸的 role/size/line-height/weight 已落 token，且**没有**抄未经官方核验的 15 行精确数值？
 - [ ] 逐字体查过 license（非仅仓库级）、带了版权声明与 license 文件、确认 RFN 与 self-host 权限？
@@ -371,7 +372,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 
 ## 23 · 可抄代码（6 段）
 
-### 23.1 CSS · rem 字号阶梯与两档行高（可抄）
+### 23.1 CSS · rem 字号阶梯与三档行高（可抄）
 
 ```css
 :root {
@@ -384,9 +385,10 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
   --type-size-2xl:  2rem;      /* 32 */
   --type-size-3xl:  3rem;      /* 48 */
 
-  /* 行高两档（M3 applying-type）：大字号 1.2，小正文/标签 1.5 */
+  /* 行高三档（见 numeric-truth §1）：大字号 1.2 / 拉丁 UI 1.5 / 中文正文 1.7 */
   --type-leading-display: 1.2;
-  --type-leading-body:    1.55;
+  --type-leading-latin:   1.5;
+  --type-leading-cjk:     1.7;
 
   /* 段距按 1.4.12 抗压门槛取 2× font size */
   --type-paragraph-gap: 2em;
@@ -395,7 +397,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 body {
   font-family: "Inter", "Noto Sans SC", system-ui, sans-serif; /* generic 不加引号 */
   font-size: var(--type-size-md);
-  line-height: var(--type-leading-body);
+  line-height: var(--type-leading-cjk); /* 中文正文；纯拉丁界面改用 --type-leading-latin */
   /* 不写 height，让 200% 缩放与间距覆盖都能撑开 */
 }
 
@@ -500,7 +502,7 @@ html body p {
 ```python
 """扫描 CSS/组件源码里的排印可访问性反模式。
 用法: python typography_lint.py <file_or_dir>
-规则: px 字号 / 固定 height 承载文字 / justify / 引号 generic / 低位 API 滥用
+规则: px 字号 / 固定 height 承载文字 / 裸 justify（未配挤压/避头尾）/ 引号 generic / 低位 API 滥用
 """
 import re, sys
 from pathlib import Path
@@ -512,7 +514,7 @@ RULES = [
     ("FIXED_HEIGHT",   re.compile(r"(?:^|[;{])\s*height\s*:\s*\d+(\.\d+)?(?:px|rem|em)", re.I | re.M),
      "承载文字的元素写死 height → 200% 缩放 / 1.4.12 覆盖会裁切，改 min-height+padding"),
     ("JUSTIFY",        re.compile(r"text-align\s*:\s*justify", re.I),
-     "WCAG 2.2 SC 1.4.8 要求 Text is not justified"),
+     "裸 justify：拉丁正文应左对齐；中文须同时配标点挤压/避头尾 + text-align-last:left（numeric-truth §1）"),
     ("QUOTED_GENERIC", re.compile(r'font-family\s*:[^;]*["\'](?:sans-serif|serif|monospace)["\']', re.I),
      "generic family 加引号会变成字体名，失去兜底"),
     ("SMCP_LOWLEVEL",  re.compile(r'font-feature-settings\s*:[^;]*["\']smcp["\']', re.I),

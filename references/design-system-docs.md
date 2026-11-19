@@ -669,7 +669,7 @@ Figma 官方定义：*"Code Connect is a bridge between your codebase and Figma'
 | **统计自动生成** | `scripts/build_readme.py` | 早期把「11 份参考 / 12 类路由 / 9 项自检 / 25 组别名」硬编码在 README 里，每轮升级都会过期 → 改为从 `SKILL.md` 与 `references/` **实时解析**版本号、路由行数、自检项数、字数、别名组数 | §13 单一真源、§11 一致性 |
 | **记忆树 + 接线体检** | `scripts/mindmap.py` → `memory/tree.md` + `memory/index.json` | 新增知识「写了但没路由」，等于没写 → 逐文件报「未接线 / 失联」 | §1 信息架构、§4 链接 |
 | **章节级检索** | `scripts/dp_search.py` + `memory/aliases.json` | 标题写得像散文，用户查不到 → 强制「新知识必须命中关键词前 3 条，命中不了改标题不改检索器」 | §4 检索、§5 标题 sentence case |
-| **版本与发布闭环** | `memory/design-log.md` → `build_readme.py` → `publish_github.py` → 双份全局安装 → 远端逐字比对 | README changelog 漏记一轮、本地/远端/安装副本三者不一致 | §10 版本化、§11 changelog 单一可信源 |
+| **版本与发布闭环** | `CHANGELOG.md` + `memory/journal.jsonl` → `build_readme.py` → `publish_github.py` → 双份全局安装 → 远端逐字比对 | README changelog 漏记一轮、本地/远端/安装副本三者不一致 | §10 版本化、§11 changelog 单一可信源 |
 
 **两条踩过的坑，值得写进任何文档团队的规约**：
 - **历史基线只加标注、不改原文；但活规则必须改源头**。#16 轮发现 `ux-writing.md` 的「按钮容纳 +40%」对短串是错的，处理方式不是只在新文件里写「以我为准」，而是把 `ux-writing.md` §13.1 与 §18 自检第 16 项**一并改写**，历史段落只加「v20 已裁决」标注。→ 对应本文 §11「changelog 应当是 single source of truth」。
@@ -692,7 +692,7 @@ Figma 官方定义：*"Code Connect is a bridge between your codebase and Figma'
 | 5 | 有 breaking change | §12 | 迁移文档六段 + codemod + `[BREAKING]` |
 | 6 | 要废弃一个组件 | §9 §11 | 至少一个带废弃声明的 MINOR，再在 MAJOR 移除 |
 | 7 | 组件被投诉难用 | §8 §9 §16 | 转 `use with caution`，写清哪条要求未满足 |
-| 8 | 用户说"照 XX 感觉做" | `design-md-format.md` | 那是 DESIGN.md，不是设计系统站点（§0） |
+| 8 | 用户说"照 XX 感觉做" | `design-md-format.md` | 那是 DESIGN.md，不是设计系统站点（§1） |
 | 9 | 多版本并存 | §10 | 先回答"真的需要吗"；要则版本数 <10、dev 限 2–3 |
 | 10 | 中文团队写文档 | §5 | 术语表 + sentence case 英文标题 + 条件前置 + ≤30 字 |
 | 11 | 接入 AI 编码 / MCP | §15 | 命名三处一致 + Code Connect 连真实代码路径 |

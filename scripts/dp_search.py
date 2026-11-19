@@ -85,6 +85,30 @@ def expand(terms: list, alias_map: dict) -> tuple:
     return out, sorted(added)
 
 
+def route_boost(query: str, base_terms: list) -> dict:
+    """SKILL §4 资产表里，描述词与查询重合越多，该文件越该排在前面。"""
+    skill = ROOT / "SKILL.md"
+    if not skill.exists():
+        return {}
+    q = query.lower()
+    out = {}
+    for raw in skill.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"\|\s*`?references/([a-z0-9\-]+\.md)`?\s*\|([^|]*)\|", raw)
+        if not m:
+            continue
+        name, desc = m.group(1), m.group(2).lower()
+        score = 0
+        for kw in re.split(r"[、，,／/\s]+", desc):
+            kw = kw.strip(" `（）()")
+            if len(kw) < 2:
+                continue
+            if kw in q or any(len(t) >= 2 and t in kw for t in base_terms):
+                score += 25
+        if score:
+            out[name] = min(50, score)
+    return out
+
+
 def need_rebuild() -> bool:
     if not INDEX.exists():
         return True
@@ -174,6 +198,7 @@ def main():
         terms, added = expand(base_terms, load_alias_map())
 
     cache, hits = {}, []
+    boost = route_boost(query, [t for t, w in base_terms if w >= 1.0])
     for f in index["files"]:
         if only and only not in f["path"].lower():
             continue
@@ -199,24 +224,68 @@ def main():
             low_sum = s["summary"].lower()
             low_body = body.lower()
             score = 0.0
+            matched = 0
             for t, w in terms:
                 tl = t.lower()
+                hit = False
                 if tl in low_title:
-                    score += 10 * w
+                    score += 12 * w
+                    hit = True
                 if tl in low_sum:
                     score += 4 * w
+                    hit = True
                 c = low_body.count(tl)
                 if c:
                     score += min(c, 8) * w
+                    hit = True
+                if hit and w >= 1.0:
+                    matched += 1
+            # 整句/整串命中：说明这一节真的在讲这件事，而不是零散提词
+            phrase = " ".join(t for t, w in base_terms if w >= 1.0).lower()
+            if len(phrase) >= 4 and phrase.replace(" ", "") in low_body.replace(" ", ""):
+                score += 8
+            # 覆盖加成：命中越多不同检索词，越可能是正主
+            if base_terms:
+                score *= 0.6 + 0.8 * (matched / float(len(base_terms)))
             if score:
+                base_name = f["path"].rsplit("/", 1)[-1].lower()
+                parts = set(re.split(r"[-_.]", base_name))
+                f_title = f["title"].lower()
+                tb = nb = 0
+                for t, w in base_terms:
+                    if w < 1.0:
+                        continue
+                    tl = t.lower()
+                    if tl in f_title:
+                        tb += 6
+                    if tl in parts:
+                        nb += 12
+                score += min(18, tb) + min(24, nb)
                 hits.append({
                     "file": f["path"], "title": f["title"], "section": s["title"],
                     "line": s["line"], "score": round(score, 1),
                     "snippet": snippet(body, [t for t, _ in base_terms] or [t for t, _ in terms]),
                 })
 
+    # 索引/登记类文件不应压过正文资产；同一文件只保留最高分的一节
+    META = {"knowledge-map.md", "resources.md", "inspiration.md", "portfolios.md",
+            "tools.md", "readme.md", "changelog.md", "sources.md",
+            "audit-2026-11-19.md", "skill.md", "design-related websites.txt"}
+    for h in hits:
+        base = h["file"].rsplit("/", 1)[-1].lower()
+        if base in META:
+            h["score"] = round(h["score"] * 0.35, 1)
+        b = boost.get(base)
+        if b:
+            h["score"] = round(h["score"] + b, 1)
     hits.sort(key=lambda h: -h["score"])
-    hits = hits[:top_n]
+    seen, uniq = set(), []
+    for h in hits:
+        if h["file"] in seen:
+            continue
+        seen.add(h["file"])
+        uniq.append(h)
+    hits = uniq[:top_n]
 
     if as_json:
         print(json.dumps({"query": query, "terms": [t for t, _ in terms],

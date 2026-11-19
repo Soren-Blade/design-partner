@@ -146,7 +146,7 @@ W3C《Understanding SC 2.5.2 Pointer Cancellation》（Level A）逐字四选一
 
 > *"The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when:"* — `Spacing` / `Equivalent` / `Inline` / `User Agent Control` / `Essential` 五项。
 
-Spacing 例外逐字：*"Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target"*。**注意是「以每个 undersized target 的 bounding box 为圆心画直径 24 CSS px 的圆，圆与圆、圆与其他目标都不相交」**，不是「间距 ≥24px」的简化说法。
+Spacing 例外的精确读法见 `file-upload-media-input.md`（SC 2.5.8 原文）：以每个 undersized target 的 bounding box 为圆心、直径 24 CSS px 画的圆，彼此及与其他目标都不得相交——**不是「间距 ≥24px」**。
 
 尺寸判定逐字：*"For a target to be 'at least 24 by 24 CSS pixels', it must be conceptually possible to draw a solid 24 by 24 CSS pixel square, aligned to the horizontal and vertical axis such that the square is completely within the target"*；圆角目标可能因 *"The rounded corners do not leave sufficient space to draw a 24 by 24px square"* 被判 undersized。**独立于缩放**逐字：*"The requirement is independent of the zoom factor of the page; when users zoom in, the CSS pixel size of elements does not change ... authors cannot meet it by claiming that the target will have enough spacing or sufficient size if the user zooms into the page."*
 

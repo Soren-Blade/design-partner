@@ -152,6 +152,9 @@ INTENTS = [
     ("邮件体积 / Gmail 102KB 截断 / 主题行 / preheader", "email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt"),
     ("定价本地化 / 多币种价格 / 币种切换 / 含税口径", "pricing-localization.md §1 七问判层 → §2 ISO 4217 最小单位表 → §3 三种含税口径 → §9 price book 与结算币种"),
     ("税额反算 / 划线价原价 / 单位价格 / 地区价差", "pricing-localization.md §4 反算与取整记账 → §6 法定原价窗口 → §7 Grundpreis 与 10g 豁免"),
+    ("报价单 / 发票 / 订单确认 / 采购单据", "quote-invoice-documents.md §1 七问判层与四类构型 → §2 号码与日期 → §3 金额脊柱五数 → §5 三单字段映射"),
+    ("电子发票 / 数电票 / ZUGFeRD / Factur-X / Peppol", "quote-invoice-documents.md §6 载体 PDF/A-3+XML 与交付 → §2.3 20 位号码 → §4 税分类码与税号 → §10 法标清单"),
+    ("红冲 / 作废 / 贷项通知 / 对账单 / 账龄", "quote-invoice-documents.md §2.5 更正/作废/红冲三态 → §8 状态机与账龄桶 → §12 自检 20 条"),
 
 ]
 

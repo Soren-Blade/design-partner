@@ -37,25 +37,26 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
 
-# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 pricing-localization.md 前 3。
-# #46 换轮：13 条覆盖最小单位 / 含税口径 / 税额反算 / 法定原价 / 地区价差 / 单位价格 /
-# 汇率缓冲 / 价格点尾数 / 结算币种与最小收款额 / 切币一致性 / 折扣取整，且混入
-# 「校验 / 验收 / 合规 / 组件 / 策略」等跨域词（#26 P1 教训）。
-# #45 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #46 沉淀块）。
+# 新主题门槛：主题词 + 通用跨域词组合，答案应落在 quote-invoice-documents.md 前 3。
+# #47 换轮：13 条覆盖单据版式 / 金额脊柱恒等式 / 逐层舍入 1 分差 / 数电票 20 位号码 /
+# 报价单 15 项与版本 / 订单确认与 PO 号 / ZUGFeRD 混合载体 / 红冲与贷项 / 对账单账龄 /
+# 多页打印 / 税分类码 / 付款条件与 Skonto / 黑白打印可读性，且混入「校验 / 验收 / 合规 /
+# 组件 / 度量」等跨域词（#26 P1 教训）。
+# #46 的 13 条已全部沉淀进 HIST_QUERIES（见下方 #47 沉淀块）。
 NEW_QUERIES = [
-    "多币种 价格 显示 小数位 校验 验收",
-    "日元 价格 小数位 ISO 4217 最小单位 规范",
-    "含税 不含税 价格 显示 欧洲 合规",
-    "日本 総額表示 税込 价格 标示 合规",
-    "税额 反算 取整 差额 记账 结账",
-    "划线价 原价 法定 回溯 窗口 最低价 期间",
-    "地区 定价 购买力 价差 成本 汇兑",
-    "单位价格 每公斤 Grundpreis 标示 组件",
-    "汇率 换算 价格 缓冲 上浮 策略",
-    "价格点 尾数 心理 定价 价格表",
-    "结算 币种 展示 币种 最小 收款 额 支付",
-    "币种 切换 展示币种 结算 币种 锁价 一致性",
-    "优惠券 折扣 叠加 取整 含税 价格 计算",
+    "发票 版式 字段 层级 验收",
+    "发票 金额 合计 应付 恒等式 校验",
+    "舍入 差额 一分钱 逐行 汇总 结账",
+    "数电票 20 位 号码 结构 校验",
+    "报价单 15 项 字段 版本 编号",
+    "订单确认 采购订单 PO 号 单据 链",
+    "ZUGFeRD PDF/A-3 XML 嵌入 合规",
+    "红冲 更正 贷项 通知 单据 状态",
+    "对账单 账龄 逾期 分桶 度量",
+    "多页 发票 页码 打印 验收",
+    "税分类码 免税 零税 反向征收 合规",
+    "付款条件 net 30 Skonto 到期日 组件",
+    "黑白 打印 发票 负数 可读性",
 ]
 
 
@@ -337,9 +338,23 @@ HIST_QUERIES = [
     "邮件 测试 真机 客户端 矩阵 流程 验收",
     "EDM 长图 营销 活动 邮件 版式 度量",
     "中文 邮件 排版 字号 行高 行长 一行",
+    # #47 沉淀：#46 主题门槛查询转为历史样本，验收「新增 quote-invoice-documents.md 后不退化」。
+    "多币种 价格 显示 小数位 校验 验收",
+    "日元 价格 小数位 ISO 4217 最小单位 规范",
+    "含税 不含税 价格 显示 欧洲 合规",
+    "日本 総額表示 税込 价格 标示 合规",
+    "税额 反算 取整 差额 记账 结账",
+    "划线价 原价 法定 回溯 窗口 最低价 期间",
+    "地区 定价 购买力 价差 成本 汇兑",
+    "单位价格 每公斤 Grundpreis 标示 组件",
+    "汇率 换算 价格 缓冲 上浮 策略",
+    "价格点 尾数 心理 定价 价格表",
+    "结算 币种 展示 币种 最小 收款 额 支付",
+    "币种 切换 展示币种 结算 币种 锁价 一致性",
+    "优惠券 折扣 叠加 取整 含税 价格 计算",
 ]
 
-EXPECT_FILE = "pricing-localization.md"
+EXPECT_FILE = "quote-invoice-documents.md"
 NEW_ASSETS = {EXPECT_FILE}
 
 # 登记演进：新增权威资产凭「原词相关性」进入 top3，属升级而非退化。
@@ -352,7 +367,7 @@ NEW_ASSETS = {EXPECT_FILE}
 # #44：新资产 §3「控制栏构型」凭原词「音量 / 控制」进入历史查询第 2 位；三条硬校验 a/b/c 全过：
 # HEAD top1（knowledge-map.md）未被顶掉，HEAD top3 的 sound-haptics-feedback 两条仍在 NOW 第 3/4，
 # 新进入者 video-player-captions 在 --no-alias 下仍在第 2。
-# #46：清空 #44 的两条登记（已随 #45 提交进入 HEAD 基线，按「已沉淀」判例移除）；
+# #46（历史记录）：清空 #44 的两条登记（已随 #45 提交进入 HEAD 基线，按「已沉淀」判例移除）；
 # 同时登记本轮两条真实演进，三条硬校验 a/b/c 均已实测通过：
 # #46-1「价格数字 排版 货币符号 tabular-nums 字号」——HEAD top3 = [pricing-checkout ×2, typography-system]；
 #   NOW top5 = [pricing-checkout, pricing-checkout, pricing-localization, typography-system, pricing-localization]，
@@ -362,13 +377,8 @@ NEW_ASSETS = {EXPECT_FILE}
 #   a=HEAD top1 仍是 top1、b=content-findability 仍在第 5、c=新进入者只有 pricing-localization 且 --no-alias 仍在第 2。
 #   该条先做过内容层收敛：把 §6 的「6.1 设计层落法」从 `###` 小标题降为加粗引导句，
 #   让同一文件不再以两个分块重复占位（§6 从 38→52 分、6.1 从 30 分并入），不是改打分逻辑。
+# #47：清空 #46 的两条登记（已随 #46 提交进入 HEAD 基线，按「已沉淀」判例移除）。
 EXPECTED_EVOLUTION = {
-    "价格数字 排版 货币符号 tabular-nums 字号":
-        "pricing-localization §8.3 价格排版尺寸进驻第 3 位（货币符号 / 排版的原词相关性）；"
-        "HEAD top1 pricing-checkout.md 未被顶掉，其 top3 的 typography-system 仍在 NOW 第 4。",
-    "划线价 原价 划掉 折扣百分比 计算 合规":
-        "pricing-localization §6 法定回溯窗口进驻第 2 位（原价 / 划线价的原词相关性）；"
-        "HEAD top1 pricing-checkout.md 未被顶掉，其 top3 的 content-findability 仍在 NOW 第 5。",
 }
 
 # 别名层卫生偏移（#37 维护轮新增）：与 EXPECTED_EVOLUTION 的区别在于**没有新资产上位**，

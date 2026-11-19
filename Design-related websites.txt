@@ -780,3 +780,31 @@
 - https://github.com/taxjar/taxjar-node | 57 ★ · MIT · pushed 2026-02-03 · archived=false | 美国销售税计算 API 客户端（示例用，热度低）
 
 - 取源限制（v50）：EUR-Lex 指令 98/6/EC、2019/2161、2018/302 三个地址均返回 HTTP 202 空正文（/TXT/HTML/、/TXT/PDF/、/eli/ 变体同样），故 EU 侧法条一律改引成员国转写本（德国 UStG §12 与 PAngV §2/§4/§11、日本 消法63 与 CAA Q18/Q21、中国 56 号令）；iso.org 的 ISO 4217 页被 Cloudflare 403 拦截，改用 SIX 官方 list-one.xml；Google Play 开发者价格区间页与印度 Legal Metrology 站 fetch failed 未取到，相关数值不写入；Apple App Store Connect 定价帮助页正文为 Page Not Found，改用 app-store/subscriptions 页。
+
+## 三十五、报价与发票单据（Quote, Invoice & Order Documents）【v51 本轮新增分区】
+
+- https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-tc434/BR-CO-15/ | Peppol BIS Billing 3.0（May 2026 Release）EN 16931 计算规则 BR-CO-10/13/15/16：逐字 *"Invoice total amount with VAT (BT-112) = Invoice total amount without VAT (BT-109) + Invoice total VAT amount (BT-110)."*，XPath 实现 `round(值 * 10 * 10) div 100`（每层金额各自舍到 2 位）（v51 一手源：定金额脊柱四等式与舍入层）
+- https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-peppol/ | Peppol 强制业务规则：R003 *"A buyer reference or purchase order reference MUST be provided."*、R120 行净额公式、R130 单价基数单位一致、R051 单币种、R053 只能一个税汇总、R008 不得空元素、F001 日期 `YYYY-MM-DD`、CL007 ISO 4217；含德国 DE-R-018 Skonto 的 `#SKONTO#TAGE=10#PROZENT=2.00#` 写法（v51 一手源：定必填字段与校验清单）
+- https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/tree/ | UBL 发票字段树：BT-1 发票号 *"The sequential number required in Article 226(2) of the directive 2006/112/EC"* 且 *"No identification scheme is to be used."*；BT-2/BT-9 日期；BT-3 类型码 `380`；BT-10 Buyer reference；BT-31/32 卖方税号 scheme 规则（v51 一手源：定单据身份字段）
+- https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-inv/ | 发票类型码子集：`380` Commercial invoice、`384` Corrected invoice、`386` Prepayment invoice、`389` Self-billed invoice、`71` Request for payment、`326` Partial invoice（逐字定义）（v51 一手源：定"改/作废/红冲"三态的类型码）
+- https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-cn/ | 贷项类型码子集：`381` Credit note *"(1113) Document/message for providing credit information to the relevant party."*（v51 一手源：定红字/贷项单的编号与引用规则）
+- https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL5305/ | 税分类码：`S` 标准税率、`Z` 零税率、`E` 免税、`AE` 反向征收、`K` 欧盟内供货免税、`G` 出口免税、`O` 服务范围外（v51 一手源：定"税额 0 ≠ 免税"的票面说明）
+- https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL4461/ | 付款方式码：`30` Credit transfer、`58` SEPA credit transfer、`49` Direct debit、`59` SEPA direct debit、`48` Bank card、`97` Clearing between partners（v51 一手源：定付款方式字段的可选值）
+- https://www.ferd-net.de/standards/zugferd | FeRD ZUGFeRD/Factur-X：混合格式 PDF/A-3 + XML、*"PDF und XML müssen die Vorgaben des § 14 Abs. 4 Umsatzsteuergesetz (UStG) berücksichtigen, um inhaltlich identische Mehrstücke derselben Rechnung darzustellen."*；§14b UStG 八年 + GoBD Rz 128/131 电子原件保存、*"Eine Aufbewahrung elektronischer Rechnungen in ausgedruckter Form ist nicht möglich."*；当前 2.5.2（2026-08-04）（v51 一手源：定电子发票载体与归档）
+- https://www.ferd-net.de/standards/order-x | FeRD Order-X 1.0（2021-04-13）：ORDER / ORDER_RESPONSE（确认、拒绝或改单建议）/ ORDER_CHANGE 三类文档，hybrid PDF+XML（v51 一手源：定订单确认的三态与"不是付款请求"）
+- https://www.gov.cn/zhengce/zhengceku/202411/content_6989164.htm | 国家税务总局公告 2024 年第 11 号（2024-12-01 施行）：数电票 20 位号码结构（1-2 年度、3-4 省级区域、5 渠道、6-20 顺序码）、票面 17 项、单一联次、平台自动交付、下载/打印次数标记、发票总额度（不含税月上限）、红字确认单 72 小时未确认自动作废（v51 一手源：定中国票面与红冲）
+- https://dalian.chinatax.gov.cn/art/2023/7/20/art_2893_647610.html | 《中华人民共和国发票管理办法》（2023-07-20 第三次修订）：第三条定义与电子发票同等效力、第二十一条"全部联次一次性如实开具"、第二十八条存根联保存 5 年、第二十条不合规发票可拒收（v51 一手源：定票面真实性与归档年限）
+
+## 三十五·附：报价与发票单据相关 GitHub 仓库（v51 GitHub API 实测）
+
+- https://github.com/ZUGFeRD/mustangproject | 498 ★ · Apache-2.0 · pushed 2026-11-18 · archived=false | Java 电子发票库与校验器（Factur-X/ZUGFeRD、CII、XRechnung）；注意旧名 Mustangproject/Mustang 已 404
+- https://github.com/gflohr/e-invoice-eu | 383 ★ · NOASSERTION（API 名为 Other，商用前需人工核许可）· pushed 2026-11-16 · archived=false | 从 LibreOffice Calc/Excel 或 JSON 生成 EN 16931 合规发票（Factur-X/ZUGFeRD、UBL、CII、XRechnung），TypeScript
+- https://github.com/pretix/python-drafthorse | 184 ★ · Apache-2.0 · pushed 2026-10-28 · archived=false | 纯 Python 的 ZUGFeRD/Factur-X 生成与读取（服务端出票参考）
+- https://github.com/VladSez/easy-invoice-pdf | 1125 ★ · AGPL-3.0 · pushed 2026-11-19 · archived=false | 纯浏览器端发票生成器（模板与版式参考，AGPL 传染性强）
+- https://github.com/firsttris/haben | 721 ★ · AGPL-3.0 · pushed 2026-11-19 · archived=false | 小型企业开票与记账（ZUGFeRD、XRechnung、GoBD、DATEV 输出）
+- https://github.com/SMEWebify/WebErpMesv2 | 228 ★ · LGPL-3.0 · pushed 2026-11-16 · archived=false | Laravel ERP/MES，含 Factur-X 出票与订单/报价模块
+- https://github.com/DRYTRIX/TimeTracker | 644 ★ · GPL-3.0 · pushed 2026-11-18 · archived=false | 工时到发票的链路（Peppol e-invoicing 集成）
+- https://github.com/EthanYoQ/Invoice-Downloader | 553 ★ · Apache-2.0 · pushed 2026-11-07 · archived=false | 中国电子发票（PDF/OFD/XML）批量下载与 OCR（消费侧取票参考）
+- https://github.com/yooongchun/Invoice2Excel | 249 ★ · 无 license 声明（NONE）· pushed 2023-10-10 · archived=false | 发票 OCR 转 Excel；**已停更 3 年**，仅作字段结构参考
+
+- 取源限制（v51）：EUR-Lex 指令 2014/55/EU 两个入口均返回 HTTP 202 空正文，VAT 指令 2006/112/EC 第 226 条未取到原文（只引 Peppol 对 226(2) 的转述）；`factur-x.org` fetch failed、`ferd-net.de/en/standards/zugferd` 404；`codelist/UNCL1001/` 404（须用 `-inv` / `-cn` 子集）；陕西税局红冲公告页 HTTP 412（WAF），改用 gov.cn 同名公告；ISO 216（A4 210×297 mm）与 ISO 19005-3（PDF/A-3）为付费标准，只作标称引用；XPath `fn:round` 的 .5 取整方向未取到条文。

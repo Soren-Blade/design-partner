@@ -1,6 +1,6 @@
 # 记忆树 · Knowledge Tree
 
-> 自动生成于 2026-11-18 21:22 ｜ 57 个文件 · 2368 个章节 · 2,065,821 字符
+> 自动生成于 2026-11-19 18:08 ｜ 58 个文件 · 2428 个章节 · 2,106,808 字符
 > 由 `scripts/mindmap.py` 重建，**不要手改**（手改会被下次覆盖；要改就改源文件或脚本）。
 
 ## 怎么用（三条命令）
@@ -131,6 +131,9 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | 邮件体积 / Gmail 102KB 截断 / 主题行 / preheader | email-design.md §11 体积预算 → §8 主题行与 preheader → §5 图片与 alt |
 | 定价本地化 / 多币种价格 / 币种切换 / 含税口径 | pricing-localization.md §1 七问判层 → §2 ISO 4217 最小单位表 → §3 三种含税口径 → §9 price book 与结算币种 |
 | 税额反算 / 划线价原价 / 单位价格 / 地区价差 | pricing-localization.md §4 反算与取整记账 → §6 法定原价窗口 → §7 Grundpreis 与 10g 豁免 |
+| 报价单 / 发票 / 订单确认 / 采购单据 | quote-invoice-documents.md §1 七问判层与四类构型 → §2 号码与日期 → §3 金额脊柱五数 → §5 三单字段映射 |
+| 电子发票 / 数电票 / ZUGFeRD / Factur-X / Peppol | quote-invoice-documents.md §6 载体 PDF/A-3+XML 与交付 → §2.3 20 位号码 → §4 税分类码与税号 → §10 法标清单 |
+| 红冲 / 作废 / 贷项通知 / 对账单 / 账龄 | quote-invoice-documents.md §2.5 更正/作废/红冲三态 → §8 状态机与账龄桶 → §12 自检 20 条 |
 
 ## 一·B、别名映射（检索层，不改路由优先级）
 
@@ -418,26 +421,27 @@ python scripts/mindmap.py                    # 资产变更后重建本树与 in
 | **视频播放器** | 视频播放器 · 播放器控件 · 视频控件 · 字幕 · 隐藏式字幕 · 字幕样式 · 画中画 · 媒体播放器 · 视频进度条 · 全屏播放 · WebVTT · 字幕轨 |
 | **邮件设计** | HTML 邮件 · EDM · 营销邮件排版 · 邮件模板设计 · Outlook 兼容 · 响应式邮件 · preheader · 邮件客户端 · 邮件排版 · 邮件深色模式 · 邮件体积 · 邮件宽度 |
 | **定价本地化** | 价格本地化 · 多币种 · 币种切换 · 货币本地化 · 含税口径 · 地区定价 · 区域价格 · 购买力定价 · 汇率换算 · 价格点 · 单位价格 · 税额反算 |
+| **报价与发票单据** | 报价单 · 发票 · 电子发票 · 数电票 · 红字发票 · 红冲 · 贷项通知 · 订单确认 · 采购订单 · 对账单 · 账龄 · ZUGFeRD |
 
 新增别名改 `memory/aliases.json`；`dp_search.py "词" --no-alias` 可关闭扩展做对比。
 
 ## 二、知识树（按文件）
 
 ### `SKILL.md` · Design Partner 设计伙伴
-_1102 行 · 快照 — · 12 节_
+_1114 行 · 快照 — · 12 节_
 
-- **工作流：接到任何设计任务时按此执行** `L163` — 资产已 55 份参考、约 162 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 0 步 · 先检索，别整份读** `L165` — 资产已 55 份参考、约 162 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
-  - **第 1 步 · 识别设计意图** `L178`
-  - **第 2 步 · 完善需求（设计 brief 澄清）** `L440` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
-  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L455` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
-  - **第 4 步 · 匹配灵感（三级精准匹配）** `L481` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
-  - **第 5 步 · 按设计原则执行** `L512` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
-  - **第 6 步 · 产出前自检 + 交付评审** `L961` — 交付前逐条检查，不达标先修再交：
-- **自我成长机制（用得越多越准）** `L1052` — 记忆档案 memory/design-log.md 分两层，协议如下：
-- **自我进化机制（知识保鲜）** `L1065` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
-  - **每日升级协议（Deep Distillation Loop）** `L1072` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
-- **边界与习惯** `L1088` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
+- **工作流：接到任何设计任务时按此执行** `L168` — 资产已 56 份参考、约 165 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 0 步 · 先检索，别整份读** `L170` — 资产已 56 份参考、约 165 万字符。整份读完等于浪费上下文，而答案通常只在一节。动手前：
+  - **第 1 步 · 识别设计意图** `L183`
+  - **第 2 步 · 完善需求（设计 brief 澄清）** `L449` — 动手前检查以下要素。只问缺失且影响方向的项（一次最多 3 个，给选项不给开放题）；要素齐全就直接进第 3 步。用户不在场时选合理默认值并注明假设。
+  - **第 3 步 · 可行性 × 美观性预判（自我判断，反馈给用户）** `L464` — 执行前对需求本身给出结构化评审——这一步的产出是给用户的反馈，不是自我怀疑。用户在线时先给评审再动手；不在线时把评审作为交付说明的开头。
+  - **第 4 步 · 匹配灵感（三级精准匹配）** `L490` — 先读 memory/design-log.md 的「当前画像」：用户既定偏好优先于通用推荐（画像说不要渐变，就不出现渐变变体）。
+  - **第 5 步 · 按设计原则执行** `L521` — 从策展标准（craft / utility / clarity / relevance）展开，适用于任何视觉产出：
+  - **第 6 步 · 产出前自检 + 交付评审** `L970` — 交付前逐条检查，不达标先修再交：
+- **自我成长机制（用得越多越准）** `L1063` — 记忆档案 memory/design-log.md 分两层，协议如下：
+- **自我进化机制（知识保鲜）** `L1076` — - 自动刷新：references 头部标注快照日期。快照 30 天、或用户说"更新知识库/刷新灵感库"时，执行 python <技能目录/scripts/refreshcatalog.py——它重抓 designeer.xyz 目录 AP
+  - **每日升级协议（Deep Distillation Loop）** `L1083` — 定时任务按此五步跑，每次只深挖一个主题，不做广度摊平：
+- **边界与习惯** `L1099` — - 给立场：评审和对比都先给明确结论和理由，再列备选；不和稀泥。
 
 ### `references/accessibility.md` · 可访问性实操 / 无障碍（Accessibility in Practice）
 _690 行 · 快照 2026-11-01 · 58 节_
@@ -1766,7 +1770,7 @@ _942 行 · 快照 2026-11-14 · 52 节_
 - **§16 取源限制（本轮实测，未取到的写在这里，不臆造）** `L925` — 1. Apple HIG keyboard-shortcuts slug 已 404：/design/human-interface-guidelines/keyboard-shortcuts、其 .md 变体、index.json、tut
 
 ### `references/knowledge-map.md` · 设计能力知识路线图 — Knowledge Map（L0→L4）
-_809 行 · 快照 2026-11-05 · 72 节_
+_819 行 · 快照 2026-11-05 · 73 节_
 
 - **全景：五级台阶与对应产出** `L9` — 级别不是资历，是任务类型。 同一份工作里会反复上下：做落地页是 L0→L1→L2→L3 直落；被问"这版好不好"是 L4 单点。
 - **L0 · 视觉感知：先治"看不出来"** `L23` — 为什么排第一：绝大多数"设计不好"不是技法问题，是看不出问题。没有分辨力，学再多规范也只是套模板。
@@ -1794,7 +1798,7 @@ _809 行 · 快照 2026-11-05 · 72 节_
   - **必读材料** `L140` — - Ant Design 设计价值观：自然/确定性/意义感/生长性——评价设计的内在标准
   - **练习** `L146` — 拿一个真实需求，写一份可行性 × 美观性预判：3 条风险、每条给缓解方案、最后给"做什么/不做什么/先做什么"。
   - **验收标准** `L149` — 结论有立场、有理由、有代价说明；被反驳时能说清"我为什么仍这样判断"。
-- **四十二条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
+- **四十四条专题支线（可与主线并行）** `L154` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 A · 中文场景（中文项目必走）** `L156` — 中文不是"英文换字"。字号要 +1~2px、行高要 1.6–1.8、标点全角、避头尾、中英混排要间距。
   - **支线 B · 数据可视化** `L160` — - 原则：准确 / 有效 / 清晰 / 美（AntV 四原则）；Data-ink Ratio 最大化
   - **支线 C · 动效（界面"活"起来的那一层）** `L169` — - 三种合法用途：反馈 / 引导（空间关系、过程）/ 个性（每页 ≤1 处）
@@ -1839,7 +1843,8 @@ _809 行 · 快照 2026-11-05 · 72 节_
   - **支线 AO · 视频播放器与字幕（Video Player UX & Captions / WebVTT）** `L636` — - 这是什么（交互 + 内容侧）：整条「媒体能不能被控制、时间能不能被理解」的链路——控件层构型、时间轴语义（拖拽 / ±5s / 倍速 / 直播 DVR）、字幕数据模型与规范数值、起播门控与移动端内联、字幕可访问性。
   - **支线 AP · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout）** `L646` — - 这是什么（介质 + 版式侧）：一条被四件事同时挤压的设计通道——客户端渲染引擎、体积截断线、图片默认屏蔽、深色模式反色；设计对象不是网页，而是「在不同客户端里都还读得下去的那一版」。
   - **支线 AQ · 定价本地化（Pricing Localization：币种、含税口径与法定原价）** `L656` — - 这是什么（商业数字 + 合规侧）：同一件商品卖到多个国家时「这个价怎么写」的三元归属问题——币种小数位、含税口径、地区价差、税额反算、法定原价窗口、单位价格。
-- **能力自测（190 条，做到 ≥112 条即达 L2+）** `L666` — L0
+  - **支线 AR · 报价与发票单据（Quote, Invoice & Order Documents：单据语法与金额脊柱）** `L666` — - 这是什么（交易凭证 + 合规侧）：一笔 B2B 交易从「报价」到「订单确认」到「发票」再到「贷项/红冲」的单据链，每一张都要同时被三个人读：客户采购（买了什么）、客户财务（付多少、什么时候付）、税务与审计（凭什么开、怎么留档）。
+- **能力自测（192 条，做到 ≥112 条即达 L2+）** `L676` — L0
 
 ### `references/motion-orchestration.md` · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏）
 _1049 行 · 快照 2026-11-05 · 68 节_
@@ -2473,6 +2478,69 @@ _706 行 · 快照 — · 42 节_
   - **段 E · "原价"法定窗口校验（DE 30 日 / CN 7 日）** `L614`
   - **段 F · Grundpreis（单位价格）与 10g/10ml 豁免** `L655` — ---
 - **§14 取源限制（本轮实测，未取到的一律不臆造）** `L691` — 已逐字取到并可直接引用的源：SIX ISO 4217 List One、Stripe currencies.md、MDN Intl.NumberFormat、欧盟委员会 VAT rates 页、GOV.UK VAT rates、德国 USt
+
+### `references/quote-invoice-documents.md` · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法
+_1005 行 · 快照 — · 59 节_
+
+- **§0 一句话立场** `L6` — 发票不是一张好看的纸，而是「一条能被机器逐行复核的金额脊柱」+「一条能回溯到报价与订单的身份链」；设计能决定字段的层级、顺序、版式与可见性，不能决定税基、编号规则与红冲条件——所以先锁脊柱，再排版。
+- **§1 判层：先问七个问题，再动手** `L17`
+  - **四类构型：一张表定字段集** `L29` — 判层失败最常见的两种：把报价单做成"看起来像发票"（客户财务不敢收，也不敢付），把订单确认做成"付款请求"（客户付了不该付的钱）。
+- **§2 单据身份：号、日期、版本** `L40` — Peppol BIS Billing 3.0 对 BT-1（Invoice number）的字段定义逐字：
+  - **2.1 发票号：唯一、连续、可排序** `L42` — Peppol BIS Billing 3.0 对 BT-1（Invoice number）的字段定义逐字：
+  - **2.2 日期：只写 YYYY-MM-DD** `L58` — Peppol 业务规则 F001 逐字：
+  - **2.3 中国数电票：20 位号码是结构，不是流水** `L79` — 《国家税务总局关于推广应用全面数字化电子发票的公告》（国家税务总局公告 2024 年第 11 号，自 2024 年 12 月 1 日起施行）第四条逐字：
+  - **2.4 报价单：编号与版本分离** `L104` — 报价单没有法定编号规范，它是商务承诺，所以身份设计是产品决策：
+  - **2.5 更正、作废、红冲：三条不同的路** `L114` — Peppol 的发票类型码（UNCL1001 子集）里，三类"不是新交易"的单据定义逐字：
+- **§3 金额脊柱：五个数必须自洽** `L136` — 这是整份文档最不能含糊的一节。任何一张发票，金额只有五个数，且由四条恒等式锁死。
+  - **3.1 五个数与四条恒等式** `L140` — EN 16931 计算规则逐字（Peppol 规则库 /rules/ubl-tc434/ 每页 "Message" 字段）：
+  - **3.2 行净额：乘法顺序写死** `L192` — Peppol 业务规则 R120 逐字（原文结尾缺右括号，照抄）：
+  - **3.3 舍入：每一层都保留 2 位** `L208` — Peppol 每条 BR-CO 的 XPath 实现都能看到同一形状（以 BR-CO-15 为例）：
+  - **3.4 一分钱去哪：两个实跑样例** `L225` — 同样三行、同样 19%，两种算法差 1 分（§13 段 B 实跑输出）：
+  - **3.5 增减项：折扣、运费、预付款、尾差** `L242` — 一个常见错误：把"折扣"写成负数量行。R120 的行净额允许负值，但许多 ERP 与 Peppol 校验把负数量视为退货；折扣应走 BT-107 或行折扣字段。
+  - **3.6 多税率：按税率分组，不按商品分组** `L254` — BR-S-08 逐字（以标准税率为例）：
+- **§4 税与合规字段** `L270` — Peppol 税分类码（UNCL5305 子集）逐字：
+  - **4.1 税分类码：0 不等于免税** `L272` — Peppol 税分类码（UNCL5305 子集）逐字：
+  - **4.2 卖方税号：至少一个能自动识别** `L290` — Peppol 对 BT-31/32 的填法逐字：
+  - **4.3 单币种：一张票只能一种币** `L306` — BT-5 逐字：
+  - **4.4 中国票面：17 项基本内容** `L326` — 公告第三条逐字列出 17 项（见 §2.3）。设计上按"四个区"组织：
+  - **4.5 中国：额度与红冲是两个不同机制** `L339` — 第六条逐字：
+- **§5 单据链：报价 → 订单 → 确认 → 发票** `L351` — R003 逐字（fatal）：
+  - **5.1 三单对齐：每张票都要能回溯** `L353` — R003 逐字（fatal）：
+  - **5.2 报价单必备字段（15 项）** `L384` — 反模式：报价单只给总价，不给单价与小计——客户无法比较，销售也无法解释折扣。
+  - **5.3 订单确认：Order-X 的三类文档** `L406` — FeRD 对 Order-X 的说明逐字（德语）：
+  - **5.4 付款条件与折扣（Skonto）** `L420` — BT-20（Payment terms）是自由文本，但德国 Peppol 规则对"提前付款折扣"给了机器可读的写法，DE-R-018 逐字：
+  - **5.5 发票类型码：别把贷项开成发票** `L435` — UNCL1001 子集逐字：
+- **§6 电子发票载体** `L450` — FeRD 对 ZUGFeRD 的说明逐字（德语）：
+  - **6.1 混合格式：PDF 是给人看的，XML 是给机器看的** `L452` — FeRD 对 ZUGFeRD 的说明逐字（德语）：
+  - **6.2 版本与时效** `L475` — ZUGFeRD 当前版本 2.5.2，2026-08-04 发布（FeRD 页面 Infopaket 标题："Infopaket für das E-Rechnungsformat ZUGFeRD 2.5.2 vom 04.08.2026"
+  - **6.3 中国数电票：单一联次、自动交付、次数可见** `L484` — 公告第二条逐字："数电发票为单一联次，以数字化形态存在"；第一条："数电发票与纸质发票具有同等法律效力。"
+  - **6.4 交付渠道矩阵** `L499`
+- **§7 版式：一页 A4 能读多少** `L509` — 打印机的不可打印区通常 4–5 mm，10 mm 是"大多数打印机 + 大多数装订方式都不吃字"的下限；15 mm 给打孔与订书留位。
+  - **7.1 页面与安全边距** `L511` — 打印机的不可打印区通常 4–5 mm，10 mm 是"大多数打印机 + 大多数装订方式都不吃字"的下限；15 mm 给打孔与订书留位。
+  - **7.2 字号与层级（工程默认，无规范强制）** `L523` — 结论句：应付金额的字号必须是全页最大，且比第二大的数字至少大 1.4 倍；否则客户财务在扫读时找不到该付多少。
+  - **7.3 表格列与对齐** `L536` — - 所有金额列使用 font-variant-numeric: tabular-nums，否则数字列会在右对齐时抖动。
+  - **7.4 多页规则** `L552`
+  - **7.5 首屏三件事** `L563` — 无论屏幕还是纸张，读者在前 5 秒要能回答三个问题：
+  - **7.6 打印验收（黑白 + A4）** `L601` — - 去色后仍能区分：表头、合计行、必填标记（用字重/边框，不用颜色）。
+- **§8 状态与对账** `L608` — draft ──issue── issued ──send── sent ──pay── paid
+  - **8.1 单据状态机** `L610` — 设计后果：状态是数据，不是颜色。每个状态都要有文字标签；颜色只做辅助，且对比度 ≥ 3:1（非文本）与 ≥ 4.5:1（文字）。
+  - **8.2 对账单与账龄** `L632` — 对账单（statement of account）不是发票，字段不同：期初余额、本期发票、本期收款、期末余额、逾期明细。
+  - **8.3 催收文案的三段式** `L646` — 事实（哪张票、多少钱、逾期几天）→ 影响（将暂停服务/计息）→ 动作（付款链接/联系方式）。不要用"最后通牒"式的单独大字红色——它会让正常客户反感，也让真逾期客户麻木。
+- **§9 工程实现** `L650` — json
+  - **9.1 数据模型（最小可用）** `L652` — - 金额一律存字符串（或十进制定点），不存浮点；JSON 里 0.1 + 0.2 的坑在财务数据上是事故。
+  - **9.2 渲染管线** `L681` — - PDF 与 XML 从同一个领域对象出，禁止两条链路各自拼装。
+  - **9.3 可访问性（PDF 与网页）** `L692` — - PDF 要打标签（tagged PDF），表格有 th 与 scope；否则读屏读出来是一串数字。
+- **§10 法标与规范清单** `L699`
+- **§11 反模式（20 条）** `L718` — 1. 把"合计"写成三个不同数（小计/合计/总额）却都不标含义。
+- **§12 自检清单（20 条）** `L741` — - [ ] 1. 发票号全租户唯一、连续、定宽可排序，作废号不复用。
+- **§13 可跑校验代码（6 段）** `L764` — 每段独立可跑（python -I -X utf8，仅标准库），末尾打印 段 X OK。
+  - **段 A · 金额脊柱校验（BR-CO-10/13/15/16）** `L768`
+  - **段 B · 舍入差：逐行 vs 汇总** `L813`
+  - **段 C · 单据号与日期** `L840`
+  - **段 D · 单据状态机** `L878`
+  - **段 E · 版式静态检查（打印 CSS 与金额列）** `L907`
+  - **段 F · 付款条件与到期日** `L949`
+- **§14 取源限制** `L979` — 已逐字取到并可直接引用的源
 
 ### `references/realtime-collaboration.md` · 实时协作与多人编辑（Real-time Collaboration & Presence）
 _769 行 · 快照 2026-11-16 · 73 节_
@@ -3669,7 +3737,7 @@ _889 行 · 快照 — · 51 节_
 - **Studios (4)** → `references/portfolios.md` L180
 - **Type & Colour (14)** → `references/resources.md` L14
 - **YYYY-MM-DD · 需求一句话** → `memory/design-log.md` L14
-- **§0 一句话立场** → `references/email-design.md` L10 · `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/pricing-localization.md` L8 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
+- **§0 一句话立场** → `references/email-design.md` L10 · `references/empty-states.md` L5 · `references/pricing-checkout.md` L6 · `references/pricing-localization.md` L8 · `references/quote-invoice-documents.md` L6 · `references/realtime-collaboration.md` L10 · `references/sound-haptics-feedback.md` L9 · `references/video-player-captions.md` L10
 - **§0 一句话立场与三条裁决** → `references/file-upload-media-input.md` L3 · `references/keyboard-shortcuts-command-palette.md` L7
 - **§0 一页速查（赶时间只看这里）** → `references/editorial-layout.md` L18
 - **§0 立场与三条裁决** → `references/auth-account-ux.md` L9
@@ -3683,7 +3751,7 @@ _889 行 · 快照 — · 51 节_
 - **§1 判层：五问定「做不做、做哪一类、放哪里」** → `references/file-upload-media-input.md` L17
 - **§1 判层：你被问的是哪一类** → `references/pricing-checkout.md` L18
 - **§1 判层：先判「要不要」，再判「哪一种」** → `references/sound-haptics-feedback.md` L23
-- **§1 判层：先问七个问题，再动手** → `references/pricing-localization.md` L14
+- **§1 判层：先问七个问题，再动手** → `references/pricing-localization.md` L14 · `references/quote-invoice-documents.md` L17
 - **§1 判层：六问决定你该改哪一层** → `references/auth-account-ux.md` L43
 - **§1 反馈的五个层级与选择决策** → `references/feedback-states.md` L10
 - **§10 六个库的实测与选型（GitHub API 2026-11-14）** → `references/keyboard-shortcuts-command-palette.md` L619
@@ -3695,6 +3763,7 @@ _889 行 · 快照 — · 51 节_
 - **§10 场景速查** → `references/sound-haptics-feedback.md` L482
 - **§10 场景速查（12 行，直接查表）** → `references/file-upload-media-input.md` L445
 - **§10 无障碍与合规（这一节决定「能不能用」）** → `references/auth-account-ux.md` L496
+- **§10 法标与规范清单** → `references/quote-invoice-documents.md` L699
 - **§10 法标清单：按市场查表** → `references/pricing-localization.md` L390
 - **§10 海报（Poster）** → `references/editorial-layout.md` L314
 - **§10 移动端 / 小程序空态** → `references/empty-states.md` L176
@@ -3703,6 +3772,7 @@ _889 行 · 快照 — · 51 节_
 - **§11 交付前自检（18 条，逐条打勾）** → `references/video-player-captions.md` L397
 - **§11 交付规格：清单模板与四条硬规则** → `references/keyboard-shortcuts-command-palette.md` L675
 - **§11 体积预算：102 KB 是一条会腰斩内容的线** → `references/email-design.md` L533
+- **§11 反模式（20 条）** → `references/quote-invoice-documents.md` L718
 - **§11 反模式（20 条，看到即打回）** → `references/pricing-localization.md` L408
 - **§11 反模式（20 条，评审直接对照）** → `references/file-upload-media-input.md` L464
 - **§11 可执行校验（以下代码已实跑通过）** → `references/sound-haptics-feedback.md` L499
@@ -3723,6 +3793,7 @@ _889 行 · 快照 — · 51 节_
 - **§12 移动端与触摸：没有 hover，也没有「光标」** → `references/realtime-collaboration.md` L507
 - **§12 第三方登录的数值** → `references/auth-account-ux.md` L578
 - **§12 精确值总表（按来源分级）** → `references/sound-haptics-feedback.md` L675
+- **§12 自检清单（20 条）** → `references/quote-invoice-documents.md` L741
 - **§12 自检清单（20 条，产出前逐条打勾）** → `references/pricing-localization.md` L433
 - **§12 自检清单（20 项，交付前逐条打勾）** → `references/file-upload-media-input.md` L489
 - **§13 上线自检（15 条，全部可判定）** → `references/feedback-states.md` L465
@@ -3733,6 +3804,7 @@ _889 行 · 快照 — · 51 节_
 - **§13 取源限制（本轮实测，绝不臆造）** → `references/video-player-captions.md` L579
 - **§13 取源限制（本轮抓取实况，如实登记）** → `references/sound-haptics-feedback.md` L742
 - **§13 可跑代码（python -I -X utf8 实跑通过）** → `references/file-upload-media-input.md` L514
+- **§13 可跑校验代码（6 段）** → `references/quote-invoice-documents.md` L764
 - **§13 可跑校验代码（6 段，python -I -X utf8 <file 实跑通过）** → `references/pricing-localization.md` L458
 - **§13 场景速查表** → `references/auth-account-ux.md` L610
 - **§13 性能、成本与容量** → `references/realtime-collaboration.md` L518
@@ -3741,6 +3813,7 @@ _889 行 · 快照 — · 51 节_
 - **§14 CSS 实现（可抄）** → `references/editorial-layout.md` L476
 - **§14 与既有资产的分工** → `references/sound-haptics-feedback.md` L765
 - **§14 反模式 20 条** → `references/auth-account-ux.md` L629
+- **§14 取源限制** → `references/quote-invoice-documents.md` L979
 - **§14 取源限制（本轮实测，未取到的一律不臆造）** → `references/pricing-localization.md` L691
 - **§14 取源限制（本轮实测，逐条登记）** → `references/file-upload-media-input.md` L699
 - **§14 可抄代码** → `references/feedback-states.md` L485
@@ -3785,6 +3858,7 @@ _889 行 · 快照 — · 51 节_
 - **§2 三通道分工：谁能承担什么** → `references/sound-haptics-feedback.md` L61
 - **§2 五种空状态分类与判型（判型器）** → `references/empty-states.md` L27
 - **§2 协作模型选型：三种路线与它们能承诺的话** → `references/realtime-collaboration.md` L45
+- **§2 单据身份：号、日期、版本** → `references/quote-invoice-documents.md` L40
 - **§2 合规底线：WCAG 2.2 SC 2.1.4 只约束「可打印字符键」** → `references/keyboard-shortcuts-command-palette.md` L47
 - **§2 定价页构型谱系（先选构型，再调尺寸）** → `references/pricing-checkout.md` L33
 - **§2 客户端矩阵：四种渲染引擎，各自丢什么** → `references/email-design.md` L54
@@ -3812,6 +3886,7 @@ _889 行 · 快照 — · 51 节_
 - **§3 焦点可见：三层标准叠着用** → `references/accessibility.md` L89
 - **§3 空状态的结构五件套（Ant Design / Atlassian 一手解剖）** → `references/empty-states.md` L51
 - **§3 触觉的语义层：能借系统常量就别自造** → `references/sound-haptics-feedback.md` L78
+- **§3 金额脊柱：五个数必须自洽** → `references/quote-invoice-documents.md` L136
 - **§3 骨架：600px、单列优先、表格套表格** → `references/email-design.md` L90
 - **§4 传输与进度** → `references/file-upload-media-input.md` L171
 - **§4 划线价、折扣与"原价"的合规红线** → `references/pricing-checkout.md` L65
@@ -3821,12 +3896,14 @@ _889 行 · 快照 — · 51 节_
 - **§4 平台修饰键契约：Command / Ctrl、列出顺序、显示格式** → `references/keyboard-shortcuts-command-palette.md` L121
 - **§4 时间轴语义：点按、拖拽、帧步进** → `references/video-player-captions.md` L128
 - **§4 版心与页边距（版心宽度 / 页边距比例）** → `references/editorial-layout.md` L108
+- **§4 税与合规字段** → `references/quote-invoice-documents.md` L270
 - **§4 税额反算与取整：四种取整位置，一种记账方式** → `references/pricing-localization.md` L172
 - **§4 空状态文案公式与中英抄写矩阵（核心交付）** → `references/empty-states.md` L77
 - **§4 能力清单：caniemail 实测表（2026-09-16 数据）** → `references/email-design.md` L173
 - **§4 触觉的数值与实现** → `references/sound-haptics-feedback.md` L154
 - **§4 键盘：顺序、陷阱、返回** → `references/accessibility.md` L164
 - **§5 Passkeys / WebAuthn（首选路径）** → `references/auth-account-ux.md` L250
+- **§5 单据链：报价 → 订单 → 确认 → 发票** → `references/quote-invoice-documents.md` L351
 - **§5 四层语义：行为绑定、aria-keyshortcuts、accesskey、<kbd** → `references/keyboard-shortcuts-command-palette.md` L221
 - **§5 图片：默认不显示的那一半设计** → `references/email-design.md` L243
 - **§5 地区定价：三种体系，选一种并写进设计系统** → `references/pricing-localization.md` L224
@@ -3848,6 +3925,7 @@ _889 行 · 快照 — · 51 节_
 - **§6 字幕规范数值表：字号、行长（42 字符）与 20 CPS 定生死** → `references/video-player-captions.md` L212
 - **§6 月付 / 年付切换器** → `references/pricing-checkout.md` L140
 - **§6 深色模式：三条通道，只有一条是你能控制的** → `references/email-design.md` L282
+- **§6 电子发票载体** → `references/quote-invoice-documents.md` L450
 - **§6 目标尺寸：24 是底线，44 是好用，48/60 是适老** → `references/accessibility.md` L241
 - **§6 第二因素的选择与编排** → `references/auth-account-ux.md` L361
 - **§6 行长与行距（最影响"读得下去"的两项）** → `references/editorial-layout.md` L191
@@ -3862,6 +3940,7 @@ _889 行 · 快照 — · 51 节_
 - **§7 拖动必须有替代（2.5.7）** → `references/accessibility.md` L273
 - **§7 无障碍：上传是最容易漏键盘的一条链路** → `references/file-upload-media-input.md` L342
 - **§7 段落细节与断行（工艺层，差一点就差很多）** → `references/editorial-layout.md` L236
+- **§7 版式：一页 A4 能读多少** → `references/quote-invoice-documents.md` L509
 - **§7 结账骨架：单页 / 分段 / 多步** → `references/pricing-checkout.md` L148
 - **§7 邮件文字规格：字号、行距、每行字数** → `references/email-design.md` L322
 - **§7 零数据位 / starter content：用示例教，而不是用文字讲** → `references/empty-states.md` L132
@@ -3872,6 +3951,7 @@ _889 行 · 快照 — · 51 节_
 - **§8 媒体策略：iOS 门控与静音开播** → `references/video-player-captions.md` L293
 - **§8 安全与隐私：客户端做体验，服务端做边界** → `references/file-upload-media-input.md` L379
 - **§8 尾数与数字格式：符号、分组、空格、括号** → `references/pricing-localization.md` L324
+- **§8 状态与对账** → `references/quote-invoice-documents.md` L608
 - **§8 表单字段与自动填充** → `references/pricing-checkout.md` L173
 - **§8 视觉动线与焦点** → `references/editorial-layout.md` L270
 - **§8 评论与批注：锚点会死，线程不能死** → `references/realtime-collaboration.md` L307
@@ -3883,6 +3963,7 @@ _889 行 · 快照 — · 51 节_
 - **§9 发现性：帮助面板、菜单标注与 kbd 样式** → `references/keyboard-shortcuts-command-palette.md` L571
 - **§9 可访问性：四条 SC + 一套键位** → `references/video-player-captions.md` L334
 - **§9 多币种工程：price book、FX 缓冲、结算币种** → `references/pricing-localization.md` L352
+- **§9 工程实现** → `references/quote-invoice-documents.md` L650
 - **§9 库选型：GitHub API 实测（2026-11-16）** → `references/file-upload-media-input.md` L406
 - **§9 支付方式与钱包按钮** → `references/pricing-checkout.md` L224
 - **§9 权限与分享：角色矩阵、继承陷阱、即时回收** → `references/realtime-collaboration.md` L354
@@ -3977,11 +4058,11 @@ _889 行 · 快照 — · 51 节_
 - **四、从 1 个品牌色算出整套色阶：四条路线与精确参数** → `references/multi-brand-theming.md` L76
 - **四、空态文案（Empty State Copy）** → `references/ux-writing.md` L176
 - **四、项目类型 → 风格推荐（选风格先看场景）** → `references/design-md-format.md` L135
-- **四十二条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
+- **四十四条专题支线（可与主线并行）** → `references/knowledge-map.md` L154
 - **学习节奏（可持续，不靠意志力）** → `references/knowledge-map.md` L412
 - **定价表 Pricing** → `references/patterns.md` L65
 - **导航栏 Navbar** → `references/patterns.md` L7
-- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L163
+- **工作流：接到任何设计任务时按此执行** → `SKILL.md` L168
 - **当前画像（规则层，命中 ≥2 次的稳定偏好）** → `memory/design-log.md` L6
 - **数据来源** → `references/handoff-collaboration.md` L837
 - **数据表格 Data Table** → `references/patterns.md` L108
@@ -3991,12 +4072,12 @@ _889 行 · 快照 — · 51 节_
 - **移动端底部导航 Tab Bar** → `references/patterns.md` L119
 - **组件库选型规则** → `references/component-libraries.md` L24
 - **维护协议** → `references/component-libraries.md` L34
-- **能力自测（190 条，做到 ≥112 条即达 L2+）** → `references/knowledge-map.md` L666
-- **自我成长机制（用得越多越准）** → `SKILL.md` L1052
-- **自我进化机制（知识保鲜）** → `SKILL.md` L1065
+- **能力自测（192 条，做到 ≥112 条即达 L2+）** → `references/knowledge-map.md` L676
+- **自我成长机制（用得越多越准）** → `SKILL.md` L1063
+- **自我进化机制（知识保鲜）** → `SKILL.md` L1076
 - **落地页版式骨架（整页组装）** → `references/patterns.md` L126
 - **表单 Form** → `references/patterns.md` L97
-- **边界与习惯** → `SKILL.md` L1088
+- **边界与习惯** → `SKILL.md` L1099
 - **附：一句话总结** → `references/sound-haptics-feedback.md` L785
 - **附：来源** → `references/multi-brand-theming.md` L847
 - **页脚 Footer** → `references/patterns.md` L57

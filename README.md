@@ -2,10 +2,10 @@
 
 > 一个会**自我进化**的设计 Skill：把模糊的想法变成有品味的设计决策，并在每次使用与每日迭代中变得更准。
 
-![version](https://img.shields.io/badge/version-v50-1677ff)
-![assets](https://img.shields.io/badge/reference_files-55-2ea44f)
+![version](https://img.shields.io/badge/version-v51-1677ff)
+![assets](https://img.shields.io/badge/reference_files-56-2ea44f)
 ![entries](https://img.shields.io/badge/curated_entries-657-e60023)
-![updated](https://img.shields.io/badge/updated-2026-11-18-6e7781)
+![updated](https://img.shields.io/badge/updated-2026-11-19-6e7781)
 
 ---
 
@@ -48,8 +48,9 @@
 | **视频播放器像半成品 / 字幕挡画面** | 控件只有播放暂停、进度条 2px 高拖不中、一行字幕挤 60 个字、字号写死 14px、手机上一进页面就被暂停、全屏后控件全消失、GIF 当视频用 | `video-player-captions.md` 七层判层 + 控制栏顺序 + 42×2 行·20 CPS·5/6 秒数值表 + WebKit autoplay 四场景 + GIF 12×/2× |
 | **邮件发出去就乱 / 被截断** | Outlook 里两栏塌成一列、圆角按钮变成方块、Gmail 只显示前一半内容、图片全被屏蔽后只剩空白框、深色模式里灰字消失、主题行被截成半句、中文一行挤 50 字 | `email-design.md` 四种渲染引擎判层 + 600px 表格骨架 + caniemail 实测替代表 + 102KB/85KB 体积预算 + 深色三通道 + 20 条自检 |
 | **多币种价格看不懂 / 划线价不敢写** | 美元站和日文站价格位数不一样、切个币种价格就和结账对不上、欧盟站没说含不含税、日本站忘了标税込、划线价随便填一个数、德国站没标每公斤价、折扣率前后对不上 | `pricing-localization.md` 七问判层 + ISO 4217 最小单位表 + 三种含税口径 + 税额反算与取整记账 + 三地法定原价窗口 + Grundpreis 单位价 + 20 条自检 |
-| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 51 项自检 |
-| **知识找不到** | 55 份参考、162 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
+| **报价单 / 发票开出来不敢给人看** | 报价单没有有效期和版本、订单确认和发票字段对不上、发票上的合计减明细不等于应付、多税率混在一张表、开错了想直接改 PDF、多页单据打印后拼不回来、数电票号码位数说不清、红冲要不要确认单不知道 | `quote-invoice-documents.md` 七问判层 + 五数四等式（BT-106→115）+ 逐层舍入与一分钱落点 + 数电票 20 位结构 + 三单回溯 + 更正/作废/红冲三态 + 多页与黑白打印验收 |
+| **产出平庸** | 说不上哪不好，但就是不对 | 第 5 步原则执行 + 第 6 步 52 项自检 |
+| **知识找不到** | 56 份参考、166 万字符，不知读哪节 | `memory/tree.md` 记忆树 + `dp_search.py` 章节级检索 |
 | **不记得用户偏好** | 每次都从零猜 | `memory/design-log.md` 持续蒸馏偏好画像 |
 
 ---
@@ -58,7 +59,7 @@
 
 | 资产 | 内容 | 条目 | 快照 |
 |---|---|---|---|
-| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 190 条自测 | 规则型 | 2026-11-05 |
+| [知识路线图](references/knowledge-map.md) | L0→L4 分级目标 / 必读 / 练习 / 验收 + 192 条自测 | 规则型 | 2026-11-05 |
 | [元素设计模式](references/patterns.md) | 12 类高频元素的构型谱系、参数区间、速配规则 | 规则型 | 2026-10-29 |
 | [设计 Token 体系](references/design-tokens.md) | 三层架构 / Ant Design 数值全量 / 三大体系对比 / 中文设计系统矩阵 | 规则型 | 2026-10-29 |
 | [动效与微交互系统](references/motion-system.md) | 曲线语义表（M3/Carbon/Ant 精确值）/ 时长刻度 / 20 场景速查 / 转场代码 / 降级与验收 | 规则型 | 2026-10-30 |
@@ -112,6 +113,7 @@
 | [实时协作与多人编辑](references/realtime-collaboration.md) | 立场：协作不是加个光标，是让每个人判断「我的改动在哪、别人的在哪、冲突时谁说了算」/ 三条裁决（① 冲突粒度取属性级 LWW，同对象同属性裁决、AB 与 BC 并发永不 ABC，不引入 OT；② presence 只放临时信号，Yjs outdatedTimeout 30s / 15s 续期 / 3s 巡检，永久内容进 Storage；③ 评论钉相对位置、类型被删返回 null 即孤儿；权限逐文件/文件夹判 audience access，继承不自动下传）/ §1 六层判层 / §2 三种模型选型（中心 LWW·CRDT·OT）/ §3 文档模型（client ID·fractional index·删除与 undo buffer）/ §4 presence 五信号 / §5 延迟预算 / §6 冲突与软锁 / §7 多人撤销 / §8 评论三锚点与线程 / §9 角色矩阵与继承陷阱 / §10 四态状态机 / §11 SC 4.1.3 与 aria-live / §12 移动端 / §13 容量 / §14 文案 / §15 反模式 / §16 18 条验收 / §17 度量 / §18 交付检查 / §19 4 段 Python 实跑 PASS / §20 取源限制 / §21 10 库 GitHub API 实测 | 规则型 | 2026-11-16 |
 | [视频播放器与字幕](references/video-player-captions.md) | 立场：播放器不是皮肤，是一份关于时间的契约（现在播到哪 / 能不能控制 / 听不见时看什么）/ 三条裁决（控件层是契约层·Space·K·←→±5s·↑↓ 音量·M·F·C 先接受再扩展 / 字幕是内容不是样式·42 字符×2 行×20 CPS（儿童 17）与 5/6–7 秒同时成立 / 默认不自动播放有声视频·WebKit 只放行 muted 或无音轨）/ 七层判层 / 控制栏顺序与自动隐藏三态 / 时间轴语义 / WebVTT 与 TextTrack 三态 / 16 行精确值表 + 中文 20–22 汉字/行 / ::cue 与自绘层 / GIF 12× 带宽 2× 能量 / 四条 WCAG 逐字 / 14 反模式 / 3 段 Python 校验 | 规则型 | 2026-11-17 |
 | [邮件设计与 EDM 排版](references/email-design.md) | 立场：邮件不是网页的降级版，是一条被客户端引擎、体积截断与深色反色共同挤压的版式通道 / 三条裁决（四种渲染引擎血统·Outlook 用 Word 引擎，600px 是产物·图片可删文字必达·体积是排版约束 102KB/85KB/`<style>` 16KB）/ 七层判层 / caniemail 实测 40 行与 11 行特性替代表 / 图片三事实与 VML 圆角按钮 / 深色三通道与双写模板 / 中文 25–32 字一行与 `mso-font-alt` / 主题行·preheader·首屏·CTA·页脚 / 20 条反模式 + 20 条自检 + 6 段可跑校验 | 规则型 | 2026-11-17 |
+| [报价与发票单据](references/quote-invoice-documents.md) | 立场：发票是一条能被机器逐行复核的金额脊柱 + 一条能回溯到报价与订单的身份链；设计能决定字段层级与版式，不能决定税基、编号规则与红冲条件 / 三条裁决（五个数被 BR-CO-10/13/15/16 锁死，页面只有一个「应付」BT-115·舍入逐层发生 1 分钱必有落点·已开出的单据只能更正 384 或红冲 381，不能编辑）/ 七问判层与四类构型 / 数电票 20 位号码与票面 17 项 / 金额脊柱实跑样例与一分钱去向 / 三单字段映射与 Skonto / PDF/A-3+XML 同源载体 / A4 版式与多页规则 / 状态机与账龄桶 / 20 条反模式 / 20 条自检 / 六段可跑校验 | 规则型 | — |
 | [定价本地化](references/pricing-localization.md) | 立场：价格不是一个数字，是一个三元组「金额 + 币种 + 含税口径」——设计能决定三元的展示归属与时机，不能决定取值 / 三条裁决（ISO 4217 最小单位是数据·JPY 0 位 KWD 3 位，`¥1,234.50` 不存在·含税口径由销售地法定，同一件 9.99 在美/德/日是三种写法·「原价」是法定回溯窗口不是文案自由，DE 30 日 / CN 7 日 / JP 8 周·税额由含税价反算 r/(1+r) 且只取整一次、差额必须记账）/ 七问判层与四种构型 / 最小单位表与 `currencyDisplay` 四档 / 三种含税口径（EU 15% 框架·德 19-7-0·英 20-5-0·日 10-8 総額表示·中人民币金额·美不含税）/ 反算与取整记账 / 价格点与 FX 缓冲 / 三地法定原价窗口 / Grundpreis 与 10g 豁免 / 格式与尾数 / price book 与结算币种 / 20 条反模式 + 20 条自检 + 6 段可跑校验 | 规则型 | — |
 
 > 条目数与快照日期由 `scripts/build_readme.py` 从文件实时统计，不手写。
@@ -123,12 +125,12 @@
 
 ```
 第 0 步  先检索        →  dp_search.py 定位到「文件 §章节」，只读那一段
-第 1 步  识别设计意图  →  250 类意图路由（全表见 SKILL.md 第 1 步）
+第 1 步  识别设计意图  →  253 类意图路由（全表见 SKILL.md 第 1 步）
 第 2 步  完善需求      →  brief 澄清，最多 3 个问题，给选项不给开放题；主动提示盲区
 第 3 步  可行性×美观性 →  技术/范围/资源/性能 四查 + 审美风险预判，给明确立场
 第 4 步  匹配灵感      →  L1 元素级（出可视化设计板）/ L2 风格级（品牌 DNA）/ L3 实现级（组件库）
 第 5 步  按原则执行    →  层级 / 排版 / 色彩 / 间距 / 动效 / 图表 / 表单 / 表格 / 反馈与状态 / 响应式 / 版式与网格 / 交付与协作 / 一致性 / 系统化 / 中文修正
-第 6 步  自检与交付    →  51 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关、键盘快捷键关、文件上传关、视频与字幕关、邮件设计关、定价本地化关）+ 交付说明三段式
+第 6 步  自检与交付    →  52 项自检（含中文关、系统关、动效关、图表关、表单关、表格关、无障碍关、反馈关、响应式关、版式关、品牌关、暗色关、性能关、交付关、文案关、演示关、编排关、国际化关、文档关、AI 关、伦理关、组件 API 关、度量关、图标关、导航关、色彩科学关、评审关、风格关、字体排印关、形状与深度关、视觉层级与格式塔关、内容可发现性关、直接操纵与指针交互关、对话式与生成式界面关、叠加层与模态性关、首次体验与用户引导关、定价与结账关、通知与消息触达关、声音与触觉反馈关、认证与账户体验关、键盘快捷键关、文件上传关、视频与字幕关、邮件设计关、定价本地化关、报价与发票单据关）+ 交付说明三段式
 ```
 
 **核心主张：给立场，不和稀泥。** 评审先给结论再列备选；⚠️ 时给"满足什么条件就可行"，❌ 时给最接近意图的替代方案。
@@ -150,7 +152,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 |---|---|
 | [`memory/tree.md`](memory/tree.md) | 意图→位置路由表 + 别名映射 + 全资产章节树 + 接线体检（谁写了但没被路由） |
 | `memory/index.json` | 机器索引：文件 → 章节 → 行号 → 摘要（检索数据源） |
-| `memory/aliases.json` | **检索层别名映射**：280 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
+| `memory/aliases.json` | **检索层别名映射**：281 组口语/术语/中英对应，只提升召回、不改路由优先级；单组 ≤12 词、成员不与既有组重复 |
 | `scripts/dp_search.py` | 中文按二元组拆词、英文按词拆，标题/摘要/正文加权打分；别名以 0.45 权重补充召回 |
 | `scripts/mindmap.py` | 扫描全部 Markdown 重建索引；`--check` 只跑体检 |
 | `scripts/regression.py` | 固化新主题门槛 + `git archive HEAD` 基线 top3 对比；路由边界、登记演进、已沉淀、别名卫生各按硬校验判定 |
@@ -170,7 +172,7 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 | **L3** 工程落地 | 把设计**变成可运行代码** | 组件代码 / 可交互页面 |
 | **L4** 判断与品味 | 在**冲突约束**下做取舍 | 设计评审报告、方案对比结论 |
 
-含 43 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验 / 键位加速契约 / 上传链路契约 / 实时协作与多人编辑 / 视频播放器与字幕 / 邮件设计与 EDM 排版 / 定价本地化）、学习节奏表、190 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
+含 44 条专题支线（中文场景 / 数据可视化 / 动效 / 可访问性 / 反馈与状态 / 版式与网格 / 品牌视觉与 Logo / 暗色模式 / 性能与设计 / 设计交付与协作 / 内容设计与 UX 文案 / 演示文稿与幻灯片版式 / 动效编排与状态机 / 国际化与本地化 / 设计系统文档写作 / AI / 生成式设计工具链 / 设计伦理与包容性 / 组件 API 设计与组合模式 / 设计度量与用户研究 / 图标设计系统 / 导航与信息架构 / 设计评审与反馈 / 色彩科学 / 视觉风格谱系与设计运动 / 字体排印系统 / 形状与深度系统 / 视觉层级与格式塔组织律 / 内容可发现性与可扫读性 / 直接操纵与指针交互 / 对话式与生成式界面 / 叠加层交互契约 / 首次体验链路 / 空状态与零数据位 / 定价页与结账流程 / 通知与消息触达 / 声音与触觉反馈 / 认证与账户体验 / 键位加速契约 / 上传链路契约 / 实时协作与多人编辑 / 视频播放器与字幕 / 邮件设计与 EDM 排版 / 定价本地化 / 报价与发票单据）、学习节奏表、192 条能力自测 → 见 [`references/knowledge-map.md`](references/knowledge-map.md)
 
 ---
 
@@ -400,13 +402,20 @@ python scripts/regression.py --baseline   # 收口门槛：新主题可发现性
 - 取源限制（v50）：EUR-Lex 指令 98/6/EC、2019/2161、2018/302 三地址均 HTTP 202 空正文，EU 侧法条改引成员国转写本（德国 UStG §12 / PAngV §2·§4·§11、日本 消法63 与 CAA Q18·Q21、中国 56 号令）；iso.org 被 Cloudflare 403，改用 SIX 官方 list-one.xml；Google Play 价格区间页与印度 Legal Metrology 站 fetch failed 未取到；App Store Connect 定价帮助页正文为 Page Not Found
 - GitHub API 实测（2026-11-18）：[dinerojs/dinero.js](https://github.com/dinerojs/dinero.js) 6,814★ MIT · [unicode-org/cldr](https://github.com/unicode-org/cldr) 1,173★ Other · [formatjs/formatjs](https://github.com/formatjs/formatjs) 14,754★ NONE · [saleor/saleor](https://github.com/saleor/saleor) 23,584★ BSD-3-Clause · [medusajs/medusa](https://github.com/medusajs/medusa) 37,303★ Other · [vendurehq/vendure](https://github.com/vendurehq/vendure) 8,604★ Other · [scurker/currency.js](https://github.com/scurker/currency.js) 3,375★ MIT · [globalizejs/globalize](https://github.com/globalizejs/globalize) 4,835★ MIT · [stripe/stripe-node](https://github.com/stripe/stripe-node) 4,574★ MIT · [taxjar/taxjar-node](https://github.com/taxjar/taxjar-node) 57★ MIT
 
+- [Peppol BIS Billing 3.0 · BR-CO 计算规则](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-tc434/BR-CO-15/) · [rules/ubl-peppol](https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-peppol/) · [UBL 发票字段树](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/tree/) — BR-CO-10/13/15/16 与 BT-1…BT-115 逐字定义；金额等式一律 `round(值 * 10 * 10) div 100`（每层各舍 2 位）
+- [Peppol · UNCL1001-inv](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-inv/) · [UNCL1001-cn](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL1001-cn/) · [UNCL5305](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL5305/) · [UNCL4461](https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL4461/) — 发票 380/384/389、贷项 381、税分类 S/Z/E/AE/K/G/O、付款方式 30/58/49/59 逐字定义
+- [FeRD · ZUGFeRD / Factur-X](https://www.ferd-net.de/standards/zugferd) · [Order-X](https://www.ferd-net.de/standards/order-x) — ZUGFeRD 2.5.2（2026-08-04）混合载体 PDF/A-3+XML 与 §14 Abs. 4 UStG 同源要求；Order-X 1.0（2021-04-13）ORDER / ORDER_RESPONSE / ORDER_CHANGE
+- [国家税务总局公告 2024 年第 11 号](https://www.gov.cn/zhengce/zhengceku/202411/content_6989164.htm) · [《发票管理办法》（2023 修订）](https://dalian.chinatax.gov.cn/art/2023/7/20/art_2893_647610.html) — 数电票 2024-12-01 施行 / 20 位号码结构 / 票面 17 项 / 红冲 72 小时确认 / 存根 5 年 / 不合规可拒收
+- 取源限制（v51）：EUR-Lex 2014/55/EU 与 2006/112/EC 两地址 HTTP 202 空正文（指令与 VAT 指令第 226 条只引 Peppol 转述）；factur-x.org `fetch failed`；docs.peppol.eu `codelist/UNCL1001/` 404（改 `UNCL1001-inv/`·`UNCL1001-cn/`）；陕西税务 412 WAF；ISO 216 与 19005-3 付费未取；XPath `fn:round` 的 .5 方向无官方原文
+- GitHub API 实测（2026-11-19）：[ZUGFeRD/mustangproject](https://github.com/ZUGFeRD/mustangproject) 498★ Apache-2.0 · [gflohr/e-invoice-eu](https://github.com/gflohr/e-invoice-eu) 383★ NOASSERTION · [pretix/python-drafthorse](https://github.com/pretix/python-drafthorse) 184★ Apache-2.0 · [VladSez/easy-invoice-pdf](https://github.com/VladSez/easy-invoice-pdf) 1,125★ AGPL-3.0 · [firsttris/haben](https://github.com/firsttris/haben) 721★ AGPL-3.0 · [DRYTRIX/TimeTracker](https://github.com/DRYTRIX/TimeTracker) 644★ GPL-3.0 · [EthanYoQ/Invoice-Downloader](https://github.com/EthanYoQ/Invoice-Downloader) 553★ Apache-2.0 · [SMEWebify/WebErpMesv2](https://github.com/SMEWebify/WebErpMesv2) 228★ LGPL-3.0 · [yooongchun/Invoice2Excel](https://github.com/yooongchun/Invoice2Excel) 249★ NONE（2023-10-10 停更）
+
 ## 目录结构
 
 ```
 design-partner/
 ├── SKILL.md                  # 主文件：七步工作流 + 资产索引 + 进化协议
 ├── README.md                 # 本文件（自动生成）
-├── references/               # 知识库（55 份，见上表）
+├── references/               # 知识库（56 份，见上表）
 ├── memory/
 │   ├── tree.md               # 记忆树（自动生成）
 │   ├── index.json            # 检索索引（自动生成）

@@ -5,6 +5,17 @@
 
 ---
 
+## v55 · 2026-11-19（案例集 20→22：移动端整页缩放 + 暗色反相）
+
+- 新增 2 组案例（队列第 3 项「20→30」的第一批）：案例 21 移动·首屏（根节点 `transform: scale(calc(100vw / 1440))`，正文 4.2px、热区 41×12.5，同时破「正文 ≥12」与「热区 ≥24×24」，且 hover 下拉在触屏永不出现；改稿=断点重排、字号 32/40·16/26·12/18、底部 4–5 项导航、图片 4:5 裁切）；案例 22 暗色·全站（`filter: invert(1) hue-rotate(180deg)`，品牌红 `#E5484D`→`#1AB7B2`、白底 logo 变黑块、产品图肤色发绿；改稿=独立暗色 token：底 tone 6、表面 4 档且跨度 1.50 对亮色 1.23、文字 85% 白、品牌色 tone 80）。
+- §0 判据速查新增两条：J7 触控与安全区（≥44 且不低于 24×24；固定元素让出手势区）、J8 暗色不反相；分组表加「移动端 / 暗色」两行；数值口径表把印刷/长图/幻灯片三行并为一行指针（指向 editorial-layout §5 与 presentation-design §3.2），案例集不再自带第二套字号数值。
+- 合并重复清单：dark-mode §11 12 行→3 行、§12 22 项→14 项、§13 20 条→4 条（只留自检查不出的）；responsive-layout §15 20 条→6 条（另 13 条并入 §16 逐条判定）。
+- 被推翻的旧判断：「暗色的反模式要单列到 20 条、响应式也要 20 条才算全」——§11 速查、§12 自检、§13 反模式在陈述同一批事实，20 条的边际条目全部落在 14 项自检已能判出的范围内；清单的用途是查漏，不是收录。
+- 一进一出：before-after.md 24,889→26,271（+1,382），dark-mode.md −1,105，responsive-layout.md −285，净 **−8** 字符；SKILL.md 12,097→12,112 字符 / 277 行（路由行改为「22 组案例（含移动端/暗色），按载体查 §0 判据」）。
+- 门禁：`dp_search.py "transform scale 1440 塞进 375 invert hue-rotate 一键暗色"` top1 命中案例 21；`build_readme.py` 重建 + `--check` 新鲜；`audit.py` PASS 38 · WARN 0 · FAIL 0；`mindmap.py` 未跑（本轮无资产增删）。
+- 未完成 / 下一步：队列第 3 项目标 30 组，本轮到 22 组；第 4 项「≥5 条真实信号」未动。另有两组已写后删的候选（移动结算页安全区、暗色表单 `#424242` 2.09:1），下轮可回收为案例 23–24。
+- 发布：两处安装副本已同步（`~/.agents/skills/design-partner`、`~/.workbuddy-ai/skills/design-partner`，`before-after.md` 与 `SKILL.md` 哈希与源一致）；本地已提交 `6351552`；GitHub 推送失败（`error: RPC failed; HTTP 408` / `send-pack: unexpected disconnect while reading sideband packet`），按发布规则不重试第二次推送——下轮第一步先 `git push` 补推（main 仍无 upstream，需带 `--set-upstream origin main`）。
+
 ## v54 · 2026-11-19（比较协议演练：3 条 golden brief + 门槛制 + 30% 结构检验）
 
 - 演练：用 `tests/golden/` 的 3 条现成 brief（01 落地页 / 05 A2 海报 / 10 移动空态）各做一次三案并置与 A/W/E/B 裁决，一律写进 `comparison-protocol.md` §8；书面方案、单人、无视觉稿，† 标结构代理分，有稿须复评——分数只证明协议可执行，不是设计质量证据。三条进取案 0 胜，两次撞门槛。

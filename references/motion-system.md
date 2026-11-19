@@ -109,7 +109,7 @@
 | 焦点环出现 | 0–100ms | 0ms | linear | 无 | 焦点必须**即时**可见，别做淡入 |
 | 开关 Toggle | 150ms 拇指 / 200ms 轨道 | 同 | `--ease-move` | 位移 ≈ 轨道宽 − 2×内边距 | 颜色与位移同步结束 |
 | 复选框打勾 | 150ms | — | `--ease-enter` | 路径描边 `stroke-dashoffset` | 勾号先出、方框后填 |
-| Tooltip | 100ms（延迟 300–500ms 再显示） | 70ms | `--ease-enter` / `--ease-exit` | `opacity` + 4px | 出场必须比入场快 |
+| Tooltip | 100ms（延迟 300–500ms 再显示） | 70ms | `--ease-enter` / `--ease-exit` | `opacity` + 4px | 延迟只防划过就弹，入场仍要 ≤100ms；出场比入场快 |
 | 下拉菜单 / Popover | 150–180ms | 120ms | `--ease-enter` | `scale(0.96) → 1`，原点贴触发元素 | `transform-origin` 对准触发按钮 |
 | Modal / Dialog | 200–250ms | 150ms | 入 `--ease-enter` / 出 `--ease-exit` | `scale(0.96) → 1` + scrim 200ms | 不要从 `scale(0)` 弹 |
 | 抽屉 Drawer | 250–300ms | 200ms | `--ease-move` | 从边缘 100% 位移 | 支持拖拽关闭时 1:1 跟手 |
@@ -120,21 +120,15 @@
 | 骨架屏 → 内容 | 150ms 交叉淡出 | — | linear | `opacity` | 骨架尺寸必须与真实内容一致（防 CLS） |
 | 数字滚动 | 400–600ms | — | `--ease-enter` | — | 仅关键指标；无障碍要提供最终值文本 |
 | 侧边栏折叠 | 200–250ms | 同 | `--ease-move` | 宽 240 → 64px | 文字先淡出（100ms）再改宽 |
-| 页面 / 路由切换 | 250–350ms | — | `--ease-enter` | 共享元素优先 | 见 §7.3 View Transitions |
-| 滚动显现 | 与滚动绑定 | — | — | `translateY(24px)` + 淡入 | 见 §7.4，必须可降级 |
+| 页面 / 路由切换 | 250–350ms | — | `--ease-enter` | 共享元素优先 | 见 `motion-orchestration.md` §6 |
+| 滚动显现 | 与滚动绑定 | — | — | `translateY(24px)` + 淡入 | 见 §7.2，必须可降级 |
 | 拖拽落位 | 弹簧收敛 | — | spring | 跟手 1:1 | 松手时按速度决定归位还是取消 |
-
-**延迟出场的例外**：Tooltip、二级菜单需要"意图延迟"（300–500ms）避免划过就弹；但**入场动画本身仍要快**（≤100ms）。延迟是防误触，不是慢动作。
 
 ---
 
 ## 5. 编排：多个元素一起动时的顺序
 
-1. **层级优先**：重要元素先动、动得更久；次要元素**合并成一组同时动**（Fluent：次要元素同步可避免注意力分散）。
-2. **stagger 间隔 20–40ms**，总数 ≤6 项。超过 6 项改为"整组淡入"，否则最后一项要等到 800ms 后。
-3. **父容器先于子元素**：父容器位移/缩放完成 60% 后再触发子内容淡入，观感才"是一个整体"。
-4. **同向原则**：同一次转场里所有元素朝同一方向运动，反向运动只在"对比/切换"语义下用。
-5. **重复加载时递减间隔**：同一内容多次加载，stagger 间隔可逐次缩短（首次 40ms → 后续 20ms），避免等待感累积。
+**细则见 `motion-orchestration.md` §2 / §3**：stagger 间隔 20–40ms、总数 ≤6（>6 改整组淡入或分组），`n > 6` 为何会破 400ms 的算术关系、父容器先于子元素、同向原则、重复加载递减间隔，都在那里给过公式，本文件不重复。
 
 ---
 
@@ -152,7 +146,7 @@
 
 ---
 
-## 7. 实现：可直接抄的四段代码
+## 7. 实现：可直接抄的两段代码
 
 ### 7.1 动效 token（贴进 `:root`）
 
@@ -176,49 +170,9 @@
 }
 ```
 
-### 7.2 从 `display:none` 进入的弹层（`@starting-style`）
+> 弹层从 `display:none` 进出的 `@starting-style` 四件套见 `motion-orchestration.md` §12；共享元素 / View Transitions 的伪元素树、唯一 name、UA 默认值见同文件 §6。实现细节不在本文件重复，这里只留判据与数值。
 
-原生 `dialog` / `popover` 从 `display:none` 变可见时，直接写 transition 不会触发动画，必须配 `@starting-style` + `transition-behavior: allow-discrete`：
-
-```css
-.popover {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity var(--dur-fast) var(--ease-enter),
-              transform var(--dur-fast) var(--ease-enter),
-              display var(--dur-fast) allow-discrete,
-              overlay var(--dur-fast) allow-discrete;
-}
-@starting-style {
-  .popover { opacity: 0; transform: scale(0.96); }
-}
-.popover:not(:popover-open) { opacity: 0; transform: scale(0.96); }
-```
-
-> 兼容：`@starting-style` / `transition-behavior: allow-discrete` 属 2024 年后的 Baseline 能力（Chrome 117+ / Safari 17.4+ / Firefox 129+）。老浏览器下退化为"瞬间出现"，可接受。
-
-### 7.3 共享元素过渡（View Transitions）
-
-同一元素在 A 视图与 B 视图都标同一个名字，浏览器自动做"从旧位置尺寸平滑过渡到新位置尺寸"：
-
-```css
-.card { view-transition-name: card-detail; }        /* 两个视图都要标 */
-::view-transition-group(card-detail) {
-  animation-duration: var(--dur-slow);
-  animation-timing-function: var(--ease-enter);
-}
-::view-transition-old(card-detail) { animation: none; }  /* 避免双层叠影 */
-```
-
-```js
-document.startViewTransition(() => renderNewState());   // SPA
-```
-
-多页应用（MPA）只需在两个页面 CSS 里各写一行 `@view-transition { navigation: auto; }`，即可获得跨文档转场；配合 `pageswap` / `pagereveal` 事件按导航方向定制。
-
-**什么时候别用**：需要精确控制中途状态、或转场元素 >6 个（快照开销大）。此时退回手写 transform。
-
-### 7.4 滚动驱动动画（无 JS）
+### 7.2 滚动驱动动画（无 JS）
 
 ```css
 @supports (animation-timeline: view()) {
@@ -280,6 +234,28 @@ WCAG 依据：**2.3.3 Animation from Interactions（AAA）**——交互触发�
 
 **低端设备策略**：用 `navigator.hardwareConcurrency` 或首帧帧率采样做一次性降级（关闭视差与大范围模糊），不要做实时检测——检测本身就在耗性能。
 
+### 8.2 可见性默认成立：隐藏是增强，不是前提
+
+**规则**：内容在无 JS、IO 未触发、打印、爬虫、动效库加载失败时都必须可读。隐藏态只在探到「能恢复」的能力时启用，且隐藏与恢复写在同一处。
+
+```html
+<script>document.documentElement.classList.add('js')</script>  <!-- head 内联，先于首帧 -->
+```
+```css
+.js .reveal { opacity: 0; translate: 0 var(--shift-lg); }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) { .reveal { animation: rise linear both; animation-timeline: view(); } }
+}
+@media print { .reveal { opacity: 1 !important; translate: none !important; } }
+```
+
+**四条边界**：
+
+1. **LCP**：`opacity:0` 的元素不做 LCP 候选（Chrome 口径），非零重绘才记账——首屏主图 / 主标题别做入场，`fetchpriority="high"` 与淡入会互相抵消。必须保留时用 CSS `@keyframes`（首帧即 >0）且 <300ms，别用等 `DOMContentLoaded` 的 JS 过渡。
+2. **降级不能只接 `prefers-reduced-motion`**：它只覆盖一类用户；禁 JS、IO 不触发、打印、邮件预览都不在里面。验收三测：禁 JS、reduce、打印预览。
+3. **别用 `display:none` 做 reveal**：整块脱布局，恢复时重排产生 CLS；且 `loading="lazy"` 的图在 `display:none` 下不发起请求，`opacity:0` 下照常下载（白付带宽）。
+4. **`opacity:0.01` 不是正解**：它让元素留在 LCP 候选里，但语义仍是「先藏后显」，各家口径有差异（W3C LCP 仓库 issue #148 仍是讨论，非标准），只能当临时手段。
+
 ---
 
 ## 9. 中文场景与小程序
@@ -288,9 +264,9 @@ WCAG 依据：**2.3.3 Animation from Interactions（AAA）**——交互触发�
 |---|---|
 | **微信小程序** | WXSS 支持 `transition` / `@keyframes` / `transform`；**原生组件（video、map、canvas、textarea）层级最高**，动画弹层盖不住它们 → 用 `cover-view` 或转场期间临时隐藏原生组件 |
 | 小程序动效选型 | 优先 CSS 动画（包体最小、无 JS 线程开销）；复杂插画才上 Lottie。**不要用已废弃的 `wx.createAnimation`** |
-| Lottie 小程序 | `wechat-miniprogram/lottie-miniprogram` ★433，最后提交 2024-05（2026-10-30 实测）→ 已趋停滞，仅作存量方案；新项目评估 Rive/CSS 方案 |
+| Lottie 小程序 | `wechat-miniprogram/lottie-miniprogram` 最后提交 2024-05（2026-10-30 实测）→ 已趋停滞，只作存量方案；新项目评估 Rive/CSS |
 | 序列帧 | 体积杀手。1 秒 24 帧全屏序列帧轻易 >5MB，小程序 2MB 主包根本放不下 → 用 Lottie 或视频 |
-| 国内设计系统 | Ant Design 动效 token 已实测：`motionUnit 0.1` → 0.1 / 0.2 / 0.3s，曲线见 §2.1。TDesign（★4120）、Semi（★10447）为同级组件生态，动效数值以各自源码为准，**不臆造** |
+| 国内设计系统 | Ant Design 动效 token 已实测：`motionUnit 0.1` → 0.1 / 0.2 / 0.3s，曲线见 §2.1。TDesign、Semi 为同级组件生态，动效数值以各自源码为准，**不臆造** |
 | 中文文案动效 | 逐字浮现对中文不友好（中文无词间空格，逐字断句会破词）；要逐字就用**按词分组**，或整句淡入 + 轻微上移 |
 
 ---
@@ -304,7 +280,7 @@ WCAG 依据：**2.3.3 Animation from Interactions（AAA）**——交互触发�
 5. 动画进行中用户再次点击，是否**从当前状态继续**而不是跳回起点？
 6. 只动了 `transform` / `opacity`？有没有动 `height` / `top` / `box-shadow`？
 7. 每页是否只有 **1 处**主角动效？expressive 类动效占比是否 ≤10%？
-8. `prefers-reduced-motion: reduce` 下，位移与循环是否全部消失、功能反馈是否仍存在？
+8. `prefers-reduced-motion: reduce` 下，位移与循环是否全部消失、功能反馈是否仍存在？**禁 JS / 打印 / IO 不触发时内容是否仍可读**（§8.2）？
 9. 动效有没有造成布局跳动（CLS）或推迟首屏内容可见（LCP）？
 10. 移动端弱网/低端安卓机上，滚动时是否掉帧？（DevTools Performance 面板看 FPS 与 Long Tasks）
 
@@ -312,14 +288,12 @@ WCAG 依据：**2.3.3 Animation from Interactions（AAA）**——交互触发�
 
 ## 11. 反模式（命中即扣分）
 
-- 从 `scale(0)` 弹窗、从 `opacity:0` + `scale(0.5)` 做卡片——真实物体不会从无到有地放大。
-- 每个元素都加 hover 放大 + 阴影 + 位移三件套（视觉噪音）。
-- 出场和入场一样慢（甚至更慢）——用户等的是"消失"。
-- 用 `animation` 做交互反馈（不可中断，连点会跳帧）。
-- 无限循环的渐变流光 / 粒子 / 打字机（除非是产品核心表达，且必须可暂停）。
+- 从 `scale(0)` 弹窗或从 `opacity:0 + scale(.5)` 做卡片入场——真实物体不会从无到有地放大。
+- 每个元素都叠 hover 放大 + 阴影 + 位移三件套（视觉噪音）。
 - 滚动劫持 + 逐屏吸附（scroll-jacking），移动端尤其致命。
-- 动效时长"凭手感"设成 500ms / 800ms 这种非刻度值，导致全站节奏不齐。
-- 只做动效不做降级， vestibular 障碍用户直接无法使用。
+- 把可见性挂在动效上：`opacity:0` 等 JS / IO / 转场才显示——见 §8.2。
+
+> 其余反模式正文已给判据，不重复收录：无限流光、出场比入场慢、用 `animation` 做交互反馈、时长凭手感、不做降级，分别见 §1、§2、§3.1、§8.1。
 
 ---
 
@@ -331,18 +305,18 @@ WCAG 依据：**2.3.3 Animation from Interactions（AAA）**——交互触发�
 - [Ant Design · 动效](https://ant.design/docs/spec/motion-cn) + `components/theme/themes/seed.ts` — 自然/高效/克制三原则与 motion 种子 token
 - [Fluent 2 · Motion](https://fluent2.microsoft.design/motion) — 四种转场模式（Enter/Exit、Elevation、Top level、Container transform）与编排原则
 - [MDN · prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) — Baseline 2020-01
-- [MDN · View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) — 同文档/跨文档、伪元素、类型与作用域
 - [MDN · CSS scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations) — `scroll()` / `view()` / `animation-range`
+- [Shopify · Don't hide LCP images behind animations](https://shopify.dev/docs/storefronts/themes/best-practices/performance/dont-hide-lcp-image-behind-animations) — `opacity:0` 不进 LCP 候选、`display:none` 更糟（§8.2）
 
-**库与工具（GitHub API 实测 2026-10-30）**
+**库与工具（选型只看许可与定位；★ 数不作质量证据）**
 
-| 库 | ★ | 最近提交 | 许可 | 定位 |
-|---|---|---|---|---|
-| [motiondivision/motion](https://github.com/motiondivision/motion)（Framer Motion） | 34666 | 2026-10-30 | MIT | React/Vanilla 声明式动效，弹簧与手势最完整 |
-| [airbnb/lottie-web](https://github.com/airbnb/lottie-web) | 32291 | 2025-09-01 | MIT | AE 导出矢量动效播放 |
-| [greensock/GSAP](https://github.com/greensock/GSAP) | 29931 | 2026-04-13 | 自定义（核心免费） | 时间轴编排、滚动触发，商业项目注意条款 |
-| [pmndrs/react-spring](https://github.com/pmndrs/react-spring) | 29256 | 2026-10-30 | MIT | 物理弹簧，React 生态 |
-| [darkroomengineering/lenis](https://github.com/darkroomengineering/lenis) | 16976 | 2026-10-29 | MIT | 平滑滚动（谨慎使用，见 §11） |
-| [rive-app/rive-wasm](https://github.com/rive-app/rive-wasm) | 1017 | 2026-10-30 | MIT | 可交互矢量动效（状态机驱动，替代 Lottie 的新选择） |
+| 库 | 许可 | 定位 |
+|---|---|---|
+| [motiondivision/motion](https://github.com/motiondivision/motion)（Framer Motion） | MIT | React/Vanilla 声明式动效，弹簧与手势最完整 |
+| [airbnb/lottie-web](https://github.com/airbnb/lottie-web) | MIT | AE 导出矢量动效播放 |
+| [greensock/GSAP](https://github.com/greensock/GSAP) | 自定义（核心免费） | 时间轴编排、滚动触发，商业项目注意条款 |
+| [pmndrs/react-spring](https://github.com/pmndrs/react-spring) | MIT | 物理弹簧，React 生态 |
+| [darkroomengineering/lenis](https://github.com/darkroomengineering/lenis) | MIT | 平滑滚动（谨慎使用，见 §11） |
+| [rive-app/rive-wasm](https://github.com/rive-app/rive-wasm) | MIT | 可交互矢量动效（状态机驱动，替代 Lottie 的新选择） |
 
-**灵感与校准**：[60fps.design](https://60fps.design/)（动效实录）、[Motion Primitives](https://motion-primitives.com)（可抄的 React 动效组件）、[easings.net](https://easings.net/)（曲线可视化）、[cubic-bezier.com](https://cubic-bezier.com/)（调曲线）、[IBM Motion Generator](https://ibm.github.io/motion/)（按距离/尺寸算时长）
+**灵感与校准**：[IBM Motion Generator](https://ibm.github.io/motion/)（按距离/尺寸算时长）；动效实录与曲线可视化工具见 `knowledge-map.md` 支线 M，不重复列。

@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v58 · 2026-11-19**：v58 补案例 25（暗色看板）并按角色重定网格对比度（有标签承担时 1.2–1.8），压掉 dataviz 星数表与重复自检；v57 暗色边界反解表；更早见 `CHANGELOG.md`。
+**当前版本 v59 · 2026-11-19**：v59 补案例 26（入场动效把可见性当人质）并新立 J9「可见性默认成立」，把重复的 View Transitions / `@starting-style` 实现压成指针；v58 见 `CHANGELOG.md`。
 
 ---
 
@@ -107,7 +107,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 · §10 实测校准 |
 | `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 门槛 · §3 裁决 · §5 大众锚 · §8 演练 |
-| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 25 组案例（含移动安全区/暗色表单/暗色看板），按载体查 §0 判据 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 26 组案例（含移动安全区/暗色表单/入场动效），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
 | `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
@@ -170,7 +170,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | `references/video-player-captions.md` | 播放器 UI、字幕、WebVTT、自动播放 | §1 控件 · §3 字幕 · §5 自动播放 |
 | `references/presentation-design.md` | PPT、母版、字号、转场、远程演示 | §3 母版 · §5 字号 · §7 转场 |
 | `references/dataviz.md` | 图表选型、色板、轴、仪表盘布局 | §1 关系 · §2 图形 · §3 色板 · §7 布局 · §9 对比 |
-| `references/motion-system.md` | 该不该动、时长、曲线、场景 | §1 判该不该 · §3 时长 · §2 曲线 |
+| `references/motion-system.md` | 该不该动、时长、曲线、场景、内容可见性 | §1 判该不该 · §3 时长 · §8.2 可见性默认成立 |
 | `references/motion-orchestration.md` | 编排、列表增删、共享元素、状态机、中断 | §1 编排 · §3 转场 · §4 状态机 |
 | `references/sound-haptics-feedback.md` | 要不要加声音/触觉、常量、可访问性 | §1 判层 · §2 常量 · §4 静音 |
 | `references/ux-writing.md` | 按钮、错误、空态、语气、标签、术语 | §2 四级尺寸 · §3 语气 · §8 错误 |

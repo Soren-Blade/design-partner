@@ -5,6 +5,18 @@
 
 ---
 
+## v59 · 2026-11-19（案例 26：入场动效把内容可见性当人质；新立 J9）
+
+- `references/motion-system.md §8.2` 新增「可见性默认成立：隐藏是增强，不是前提」：内容在无 JS、IO 未触发、打印、爬虫、动效库失败时都必须可读；隐藏态只在探到「能恢复」的能力时启用（head 内联 `html.js`、`@supports (animation-timeline: view())`、`onpagereveal in window`），且隐藏与恢复写在同一处。四条边界：①`opacity:0` 不做 LCP 候选，首屏主图/主标题别做入场，必须保留时用 CSS `@keyframes` 首帧 >0 且 <300ms；②降级不能只接 `prefers-reduced-motion`，验收三测 = 禁 JS / reduce / 打印；③别用 `display:none` 做 reveal（脱布局 + CLS；`loading="lazy"` 图在 `display:none` 下不请求、`opacity:0` 下照常下载）；④`opacity:0.01` 不是正解（W3C LCP issue #148 仍非标准）。
+- `before-after.md` 案例 26（网页 · 动效层）：标题逐字 800ms、12 卡 stagger 60ms 进视口才显现、hero 等 DOMContentLoaded → 实测 LCP 1.1s→2.0s、末张 920ms、禁 JS 只剩导航页脚、打印空白、爬虫无正文；改稿 = 首屏静态直出 + 12 卡只留首屏下 3 张同帧 200ms + 隐藏态授权 + 删流光/视差 ≤0.15。头部、§0 判据速查（J9）、分组表、附页与 SKILL 路由同步为 26 组。
+- 去重：`motion-system.md §7` 删掉 `@starting-style` 弹层四件套与 View Transitions 两段代码（已在 `motion-orchestration.md §12/§6` 写全），只留判据与指针；§11 反模式 8 条压成 4 条 + 指针；§5 编排、§12 库表（★ 与最近提交全删，选型只看许可与定位）、`motion-orchestration §20.2`（删 motion/GSAP/react-spring/RTG 四行）同步压缩。
+- **本轮被推翻的旧判断**：「降级 = 接 `prefers-reduced-motion` 三档就够了」——reduce 只覆盖一类用户，JS 失败、IO 不触发、打印、爬虫都不在它的覆盖里；真正的前提是「内容默认可见、动效只做增强」，隐藏必须是探到能力之后的增强。
+- 一进一出：新增 +1,223（before-after +1,196、SKILL +27），删除/合并 −1,223（motion-system −671：§7 两段代码 + §5 + §11 + §12 星数；motion-orchestration −548：§20.2 四行；knowledge-map −4），净 **0** 字符；SKILL 276 行 / 12,129 字符；before-after 827 行；motion-system 322 行。
+- 门禁：`dp_search "入场动效 LCP opacity 可见性"` 第 1 命中 `motion-system.md §8.2`（96.6）、第 2 命中案例 26（60.2）、第 3 `motion-orchestration §12`（47.4）；`audit.py` PASS 38 · WARN 0 · FAIL 0（首跑 A3 由 `build_readme.py` 重建 README 修复：9,510 字符 / 144 行，`--check` 新鲜）；`mindmap.py` 未跑（本轮无资产增删）。
+- 队列：#3 案例集 25→26 / 30，下一候选 = 定价页三档（等高同宽、只靠色块区分推荐档）。
+- 取源：Shopify 主题性能文档（opacity:0 不入 LCP 候选、display:none 下 lazy 图不请求）；web.dev LCP 页两次抓取失败（连接被重置），其官方转述的 3.6s→2.2s / 加购 +9.4% 标「未验证」、不入判据。
+- 发布：两处安装副本 ~/.agents/skills/design-partner、~/.workbuddy-ai/skills/design-partner 已同步（13 个改动文件逐一对哈希，SKILL.md = 8C6F7852…）；origin/main 已到 c259a86，v59 全部内容与 README 修复都在远端。补记发布行后的本地 amend（仅改本节文字，内容无变化）推送失败：atal: unable to access … OpenSSL SSL_read: Connection was reset, errno 10054，按规则不重试第二次 —— **下轮第一步先 git push --force-with-lease origin main 补推**。
+
 ## v58 · 2026-11-19（暗色图表：网格不是越清楚越好）
 
 - `before-after.md` 案例 25（暗色 · 数据看板）：亮色 G2 主题搬进 `#161616` 后，网格 12.82 / 轴线 9.84 比所有数据线亮、图例 2.58、6 条分类线 4 条 <3:1；改稿 = 网格 `rgba(255,255,255,.12)`≈1.4 + 轴线 `.22`≈2.0、文字 7.61 / 10.59、Carbon 7 色按原序过滤（`#1192e8`…`#a56eff`）、2px 线、填充 ≤20%。头部、§0 分组表、附页与 SKILL 路由同步为 25 组。

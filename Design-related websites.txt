@@ -39,6 +39,7 @@
 - https://motion-primitives.com | 动效组件
 - https://designdetails.fm/ | 动效设计播客/案例
 - https://developer.mozilla.org/ | View Transition API / scroll-driven animations / prefers-reduced-motion
+- https://shopify.dev/docs/storefronts/themes/best-practices/performance/dont-hide-lcp-image-behind-animations | Shopify 主题性能：入场动画与 LCP 候选、display:none 与 lazy 图（2026-11-19 加入，v59 取源）
 
 ## 五、可访问性（Accessibility）
 - https://www.w3.org/WAI/WCAG22/ | WCAG 2.2 全部 SC

@@ -172,7 +172,7 @@ token 表能直接翻译成 CSS 变量且无歧义；同一份表能同时生成
 - **时长四档**：120 / 200 / 300 / 400ms（上限）；用户输入反馈 ≤120ms
 - **只动 transform / opacity**；必须做 `prefers-reduced-motion` 降级
 - 材料：[60fps](https://60fps.design/)、[Design Details](https://designdetails.fm/)、[Motion Primitives](https://motion-primitives.com)、[easings.net](https://easings.net/)
-- → 全量数值、20 个场景速查、View Transitions/scroll-driven 代码、10 条验收见 `motion-system.md`
+- → 全量数值、场景速查、scroll-driven 代码、10 条验收见 `motion-system.md`；可见性四条边界见同文件 §8.2
 - → **进阶层**（多个元素编排 / 交错 stagger / FLIP / 共享元素转场 / 动画状态机 / 中断与取消 / `@starting-style`）见 `motion-orchestration.md`，对应下方支线 M
 
 ### 支线 D · 可访问性（不是"加分项"，是交付门槛）

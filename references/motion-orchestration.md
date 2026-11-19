@@ -1027,22 +1027,18 @@ document.documentElement.dataset.reducedMotion = String(mq.matches);
 - [MDN · `prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) — `no-preference`=false / `reduce`=true、等价简写、各系统开关
 - [W3C WAI · Understanding SC 2.3.3 Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html) — AAA 原文、`essential` 例外、`motion animation` 定义、与 2.2.2 分工、C39/SCR40/Gx
 
-### 20.2 仓库实测（GitHub API，2026-11-05）
+### 20.2 仓库实测（GitHub API，2026-11-05；只记许可与定位，★ 不当质量证据）
 
-| 仓库 | ★ | 许可 | 最近提交 | 定位 |
-|---|---|---|---|---|
-| [sveltejs/svelte](https://github.com/sveltejs/svelte) | 88562 | MIT | 2026-11-05 | `transition:` / `animate:flip` 内置 |
-| [juliangarnier/anime](https://github.com/juliangarnier/anime) | 74308 | MIT | 2026-11-02 | 轻量 JS 动画引擎、stagger/timeline |
-| [vuejs/core](https://github.com/vuejs/core) | 54840 | MIT | 2026-11-05 | `<TransitionGroup>` / `.list-move` FLIP |
-| [motiondivision/motion](https://github.com/motiondivision/motion) | 34922 | MIT | 2026-11-05 | React/Vanilla 声明式动效，`layoutId` + `AnimatePresence` |
-| [statelyai/xstate](https://github.com/statelyai/xstate) | 30411 | MIT | 2026-11-05 | 状态机 / statechart / actor |
-| [greensock/GSAP](https://github.com/greensock/GSAP) | 30193 | 自定义（核心免费） | 2026-11-04 | timeline / Flip Plugin；商业插件需确认授权 |
-| [pmndrs/react-spring](https://github.com/pmndrs/react-spring) | 29260 | MIT | 2026-11-01 | 弹簧物理、天然可中断 |
-| [reactjs/react-transition-group](https://github.com/reactjs/react-transition-group) | 10211 | NOASSERTION | 2026-03-05 | 四态模型参考实现（维护趋缓） |
-| [hotwired/turbo](https://github.com/hotwired/turbo) | 7399 | MIT | 2026-10-30 | MPA 导航加速，可与跨文档转场配合 |
-| [swup/swup](https://github.com/swup/swup) | 5251 | MIT | 2026-11-03 | 服务端渲染站点的页面转场库 |
+| 仓库 | 许可 | 定位 |
+|---|---|---|
+| [sveltejs/svelte](https://github.com/sveltejs/svelte) | MIT | `transition:` / `animate:flip` 内置 |
+| [juliangarnier/anime](https://github.com/juliangarnier/anime) | MIT | 轻量 JS 动画引擎、stagger/timeline |
+| [vuejs/core](https://github.com/vuejs/core) | MIT | `<TransitionGroup>` / `.list-move` FLIP |
+| [statelyai/xstate](https://github.com/statelyai/xstate) | MIT | 状态机 / statechart / actor |
+| [hotwired/turbo](https://github.com/hotwired/turbo) | MIT | MPA 导航加速，可与跨文档转场配合 |
+| [swup/swup](https://github.com/swup/swup) | MIT | 服务端渲染站点的页面转场库 |
 
-> 实测备注：`barba/barba` 与 `motionone/motion` 本轮 API 返回 **404**（仓库迁移/合并），故不列入表，也不臆造数字。`motionone` 已并入 `motiondivision/motion`。
+> motion / GSAP / react-spring 的许可与定位见 `motion-system.md §12`；react-transition-group 是 NOASSERTION、维护趋缓，只当四态模型参考，不推荐生产依赖。`barba/barba` 与 `motionone/motion` 本轮 API 返回 **404**，不臆造数字；`motionone` 已并入 `motiondivision/motion`。
 
 ---
 

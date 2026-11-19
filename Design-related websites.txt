@@ -13,6 +13,8 @@
 - https://www.refactoringui.com/ | 层级/间距/色彩的成体系读本
 - https://lawsofux.com/ | 可用性原则
 - https://practicaltypography.com/ | 排版判断力地基
+- https://stripe.com/ | 支付基础设施官网：品牌渐变与大字标题的取舍（2026-11-19 加入，品味判据实测样本）
+- https://linear.app/ | 项目管理产品官网：暗色单强调色与大标题（2026-11-19 加入，品味判据实测样本）
 
 ## 二、设计系统与规范（Design systems / specs）
 - https://ant.design/docs/spec/introduce-cn | Ant Design 中文规范原文（色彩/字体/布局/动效）

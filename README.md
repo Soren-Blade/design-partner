@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v52` · 本页由 `scripts/build_readme.py` 生成于 2026-11-19 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v53` · 本页由 `scripts/build_readme.py` 生成于 2026-11-19 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -44,8 +44,8 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 | 组 | 资产 | 行 | 节 |
 |---|---|---:|---:|
-| 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 322 | 10 |
-| 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 196 | 8 |
+| 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 304 | 11 |
+| 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 193 | 8 |
 | 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 693 | 6 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
 | 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 201 | 6 |

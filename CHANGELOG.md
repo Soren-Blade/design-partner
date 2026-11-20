@@ -15,7 +15,7 @@
 - 门禁：`dp_search "空态 空集合 状态判定"` 命中 feedback-states §5（68.5）、empty-states §13（64.4）、before-after 案例 28（58.0）；`audit.py` **PASS 38 · WARN 0 · FAIL 0**（首跑 WARN 1：empty-states 指向已删的 `feedback-states.md §5.3`，改指 §5.2 后清）；`build_readme.py` + `--check` 新鲜（README 9,511 字符 / 144 行）；`mindmap.py` 未跑（本轮无资产增删）。
 - 队列：#3 案例集 28/30，下一候选 = 定价页促销倒计时与划线价的可读性（倒计时抢焦点、划线价与现价对比不足 4.5:1、过期价未撤）。
 - 取源：Carbon empty-states pattern **仓库源码** `raw.githubusercontent.com/.../patterns/empty-states-pattern/index.mdx` 2026-11-20 取到全文（站点渲染页跨域重定向后 30s 超时）；`ant.design/components/empty` 复取返回 200 但正文为空、`atlassian.design/components/empty-state/usage` 复取返回 200 但被截断只剩导航 → 这两处 2026-11-20 复取失败，token 与 Atlassian 引文沿用 2026-11-13 逐字核验，标「未验证」记入 `SOURCES.md`。
-- 发布：两处安装副本已同步；`git push origin main` 见下条发布记录。本轮状态：**已完成**——案例 28、J10、empty-states §2 硬线、三份资产去重；**未完成（留给后续轮）**——#4 真实反馈仍 0 条、#5 画像仍空、#6 盲评 baseline 未动、#8 中文排版未定稿；**下一步**——案例 29「定价页促销倒计时与划线价」，若下次有真人搜「暂无数据」而召回偏到 `content-findability.md §18`，先查别名表。
+- 发布：两处安装副本 `%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner` 已同步（12 个本轮变动文件逐文件 SHA256 与本仓一致）；`git push origin main` → 8a11578..adb6fe9 成功。本轮状态：**已完成**——案例 28、J10、empty-states §2 硬线、三份资产去重；**未完成（留给后续轮）**——#4 真实反馈仍 0 条、#5 画像仍空、#6 盲评 baseline 未动、#8 中文排版未定稿；**下一步**——案例 29「定价页促销倒计时与划线价」，若下次有真人搜「暂无数据」而召回偏到 `content-findability.md §18`，先查别名表。
 
 ## v60 · 2026-11-20（案例 27：定价三档，等高不等于对齐）
 

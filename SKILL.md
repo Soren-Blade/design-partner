@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v61 · 2026-11-20**：v61 补案例 28（后台数据表空态：`length===0` 一个分支接住零数据/筛不到/500/403），立 J10「空态靠出口判型」——版式可复用、状态不共用；`empty-states.md` §2 加四态硬线、§13 反模式并入自检；v60 见 `CHANGELOG.md`。
+**当前版本 v62 · 2026-11-20**：v62 补案例 29（秒杀价与倒计时：满宽红条抢总价、划线价 `#999` 2.85:1、过期价不撤），立 J11「划线价是文字不是装饰」、J12「倒计时与价格同生同灭」；`pricing-checkout.md` §4 加纪律四/五（SC 2.2.2 暂停机制 + 分元素 4.5:1）；v61 见 `CHANGELOG.md`。
 
 ---
 
@@ -107,7 +107,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 · §10 实测校准 |
 | `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 门槛 · §3 裁决 · §5 大众锚 · §8 演练 |
-| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 28 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态），按载体查 §0 判据 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 29 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态/促销倒计时），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
 | `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
@@ -160,7 +160,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 
 | 资产 | 何时用 | 入口 |
 |---|---|---|
-| `references/pricing-checkout.md` | 定价页、三档表、结账、优惠、税费展示 | §1 判层 · §2 价格表 · §5 结账 |
+| `references/pricing-checkout.md` | 定价页、三档表、结账、优惠、税费展示 | §1 判层 · §2 价格表 · §4 倒计时与划线价 · §5 结账 |
 | `references/pricing-localization.md` | 多币种、含税口径、法定原价、地区价差 | §1 七问 · §2 ISO 4217 · §3 含税 · §10 法标 |
 | `references/quote-invoice-documents.md` | 报价单、发票、订单确认、红冲、对账单 | §1 判层 · §3 金额脊柱 · §7 版式 |
 | `references/notifications-messaging.md` | 该不该发、通道、消息中心、角标、免打扰 | §1 判层 · §2 通道 · §3 消息中心 |

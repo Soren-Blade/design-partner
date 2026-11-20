@@ -39,7 +39,7 @@
 | **③ 单档 + 用量/阶梯计价表** | 价格随用量线性变化（API、存储、席位 > 50） | 无推荐档，改为"费量表 + 估算器" | 估算器不给区间，用户算不出自己的账单 |
 | **④ 无定价（纯"联系销售"）** | 客单价极高、必须方案定制 | 不适用 | 页面上不出现任何数字 → 用户直接离开（除非销售线索充足） |
 
-**尺寸与对齐（可直接抄）**：卡片内边距 32px；三档并排时容器宽 ≥ 960px，< 768px 转纵向堆叠且**推荐档置顶**。三张卡共用**一套 grid 行轨道**（卡名 / 卖点 / 价格 / 周期 / 功能 / CTA），价格行与 CTA 三卡同 y；等高只是外壳——功能行数不同时补一行「含 X 档全部功能」，空隙只压在 CTA 上方（`margin-top:auto`），**不要**用 `space-between` 拉伸行距（32 会被拉到 45，行距离开 4 的倍数尺度，同一行号的行不再同一位置）。角标要么内嵌成卡内 16px 文字带（三卡都预留），要么不骑卡顶：骑角标会整卡下移，三卡价格错位一个角标高度。改稿与量法（`getBoundingClientRect().top`）见 `before-after.md` 案例 27。
+**尺寸与对齐（可直接抄）**：卡片内边距 32px；三档并排时容器宽 ≥ 960px，< 768px 转纵向堆叠且**推荐档置顶**。三张卡共用**一套 grid 行轨道**（卡名 / 卖点 / 价格 / 周期 / 功能 / CTA），价格行与 CTA 三卡同 y——量法、禁 `space-between` 拉伸行距、角标为什么不能骑卡顶，见 `before-after.md` 案例 27。
 
 **推荐档强调的载体顺序：角标文字 > 色条 / 描边 > 底色 > 尺寸。** 底色只在「分区」级使用（与页面底的明度对比 ≤1.2:1 是本文件口径，意为看得出分区、看不出强调）；要当颜色之外的第二通道就得 ≥3:1，1.2–3 之间两头不占，只是把卡面弄脏。定价页的主焦点必须是三个价格数字，不是卡框——整卡深色填充会把主焦点挪到色块边缘（白字对比 6.29:1 也救不回来）。三列等宽是价格可比的前提，放大只在一档独占版面（移动端堆叠首屏）时成立。
 
@@ -60,11 +60,11 @@
 | 省额 | "省 ¥240" 与 "-20%" **只给一个口径** | 两个口径都给且不一致 = 用户开始怀疑全部数字 |
 | 数字右对齐 | 对比表内所有金额右对齐 | 左对齐时位数不同的数字无法竖向比较 |
 
-`tabular-nums` 是硬要求：对比表里 `¥1,200` 与 `¥980` 若用比例数字（proportional figures），"1"与"9"占宽不同，整列会歪。中文界面里这条同样成立（中文字体通常自带等宽数字，但拉丁回退字体不一定）。
+`tabular-nums` 是硬要求：对比表里 `¥1,200` 与 `¥980` 用比例数字时"1"与"9"占宽不同，整列会歪。
 
 ## §4 划线价、折扣与"原价"的合规红线
 
-价格呈现不是纯审美问题——**被比较的价格有法律含义**。三条纪律先给，再给一手依据。
+价格呈现不是纯审美问题——**被比较的价格有法律含义**。五条纪律先给，再给一手依据。
 
 **纪律一：被比较价格必须真实、有依据、可追溯。** "原价/划线价"若从未真实成交、或只短暂挂过一天，就是虚假比较。设计侧的落点：划线价组件必须能绑到一个**历史成交价字段**，而不是设计师手填的数字。
 
@@ -82,7 +82,7 @@ FTC《Rule on Unfair or Deceptive Fees》（16 CFR Part 464，Source 90 FR 2166,
 
 > *"must disclose the total price more prominently than any other pricing information. However, where the final amount of payment for the transaction is displayed, the final amount of payment must be disclosed more prominently than, or as prominently as, the total price."*
 
-§464.2(c) 要求消费者**同意付款前**披露被排除费用的性质、目的、金额，以及最终支付金额。**适用范围要说清**：该规则只覆盖两类商品/服务——**live-event tickets** 与 **short-term lodging**，不是全品类。所以**不要**把它当"全球电商法条"引用；但它的两条机制（总价定义 / 总价显著性 ≥ 其他价格信息）可以作为设计纪律外推到任何品类，且这正是行业正在对齐的方向。
+§464.2(c) 要求消费者**同意付款前**披露被排除费用的性质、目的、金额与最终支付金额。**适用范围**：只覆盖 **live-event tickets** 与 **short-term lodging**——不要当"全球电商法条"引用；但两条机制（总价定义 / 总价显著性 ≥ 其他价格信息）可作设计纪律外推。
 
 "清楚显著"（clearly and conspicuous）的定义里有一条对设计最直接：
 
@@ -110,9 +110,9 @@ FTC《Rule on Unfair or Deceptive Fees》（16 CFR Part 464，Source 90 FR 2166,
 >
 > *"5. Member States may provide that, when the price reduction is progressively increased, the prior price is the price without the price reduction before the first application of the price reduction."*
 
-**设计落点**：划线价必须绑到「应用本次折扣前、不少于 30 天内该商品的最低成交价」，而不是"我们上周标过的那个价"。阶梯式加码促销（折扣逐步加大）时，基准取**第一次加码前**的价格；上市不足 30 天的商品，成员国可另行规定更短期间。这三条直接决定划线价组件的取值来源：**取交易流水的最低价，不取标价历史**。
+**设计落点**：划线价绑「应用本次折扣前、不少于 30 天内该商品的最低成交价」，不取"我们上周标过的那个价"；阶梯加码取**第一次加码前**的价格；上市不足 30 天成员国可另定更短期间。即**取交易流水的最低价，不取标价历史**。
 
-**中国：《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号，2022-07-01 施行）**——来源为 gov.cn 国务院公报 2022 年第 19 号与市场监管总局官方页面（两处文本互校一致）。要点：**第十六条**定被比较价格的基准（同一经营场所价格比较前七日内最低成交价；用厂商建议零售价须标明）；**第十七条**禁止折价前临时显著提高标示价格；**第十九条**列八项价格欺诈，与定价页直接相关的两项是"以低价诱骗、以高价结算"与"虚假折价或价格比较"；**第二十一条**给三类除外情形。**逐字条文与 DE / CN / JP 三市场回溯期对照表在 `pricing-localization.md` §6，本文件不重复抄录。**
+**中国：《明码标价和禁止价格欺诈规定》（市场监管总局令第 56 号，2022-07-01 施行）**——第十六条定被比较价格的基准（同一经营场所比较前**七日内**最低成交价；用厂商建议零售价须标明）、第十七条禁止折价前临时显著提价、第十九条列八项价格欺诈（与定价页直接相关的是虚假折价与虚假价格比较）、第二十一条给除外情形。**逐字条文与 DE / CN / JP 三市场回溯期对照在 `pricing-localization.md` §6，本文件不重复抄录。**
 
 > **术语纪律**：该规章**不使用"原价"这个术语**，用的是"被比较价格"与"折价、减价的计算基准"。作品里写"虚构原价"等于引用已废止的旧《禁止价格欺诈行为的规定》表述——**现行法规下应写"虚假的被比较价格"或"折价前临时抬价"**。
 
@@ -120,9 +120,23 @@ FTC《Rule on Unfair or Deceptive Fees》（16 CFR Part 464，Source 90 FR 2166,
 
 > *"经营者采取自动展期、自动续费等方式提供服务的，应当在消费者接受服务前和自动展期、自动续费等日期前，以显著方式提请消费者注意。"*
 
-**设计落点**：两个时点都要提示——**开通前**与**每次扣款前**；只在开通时勾一次、扣款日静默扣费，不满足"在……日期前，以显著方式提请"。违反第十条至第十四条的处罚见该条例第五十条第一款。
+**设计落点**：**开通前**与**每次扣款前**两个时点都要显著提示；只在开通时勾一次、扣款日静默扣费不满足。处罚见该条例第五十条第一款。
 
-**取源方式（可复核）**：EUR-Lex 对脚本客户端返回 HTTP 202 + WAF JS 挑战（空正文），上述欧盟条文经**本机 headless Chrome 渲染同一 CELEX 文档**取回 OJ HTML 后逐字抄录；中国条文经政府网国务院公报与市场监管总局两处官方页面互校。复核遇拦截请用浏览器访问（见 §18 第 4 条）。本文件**只逐字引用已核对的句子**，其余以条号 + 要点转述。
+**纪律四：倒计时是价格信息，不是装饰。**
+
+- **先判型（SC 2.2.1）**：① 促销截止——到点仍可按原价买，不构成对用户活动的时限，2.2.1 不适用；② 占位时限（座位、名额、试用到期）——三选一：关、调到 ≥10 倍、到期前警告并给 **≥20 秒**一键延长且可延 ≥10 次；③ 计时即活动（拍卖、售票）——走 Real-time Exception（官方例 *"an auction"*、*"an auction timer"*）。
+- **2.2.2 是 A 级、无"五秒例外"**：每秒跳的数字属 auto-updating，必须给暂停 / 停止 / 隐藏或控频（官方原文 *"there is no five second exception for auto-updating"*）。机制不能靠「焦点在时才停」，也不能只用 `prefers-reduced-motion`（*"starts automatically"* 含滚入视口）；实时型信息的"暂停"是**跳到当前显示**，不是冻结数字。
+- **播报**：`role="timer"` 隐性 `aria-live="off"`（MDN 口径，W3C ARIA 1.2 原文本轮被截断，标未验证）；秒级永不进 `assertive`；只在两个边界各播一次（≤1 小时、已结束），用 §12 的 `role="status"`。
+- **权重与粒度**：倒计时字号、对比、动效均不得超过总价；文案默认给绝对截止时刻，<24h 才写「还剩 3 小时」。依据：§464.2(b) 的显著性纪律外推（该规则只覆盖票务与短租）。
+
+**纪律五：划线价与省额是文字，不是视觉噪点。**
+
+- **按元素字号各算一次 4.5:1**（SC 1.4.3）：`#999` 对白 **2.85:1**（连大字 3:1 都不过）、`#E4393C` **4.24:1**、`#767676` **4.54:1**、`#B3261E` **6.54:1**。32px 的 `#E4393C` 按大字 3:1 合格，14px 的「省 ¥X」同色就不合格——验收不能只看"这个颜色没问题"。
+- **"弱化"只能靠字号（≤0.875×）、删除线、位置**，不能靠降对比；把对比拉到 2.85 是把信息删掉，不是次级化。
+- **删除线对读屏不存在**：必须有可见字标「原价」+ `<s>` 内 `sr-only`（「原价三千九百九十九元」），否则读屏只报三个数字。
+- **到期即撤**：`ends_at` 由服务端单一事实源给出（客户端时钟不可信），到点同一事务撤划线价 / 省额 / 倒计时 / 徽标，回单一定价并播报一次。
+
+**取源**：EUR-Lex 对脚本客户端回 202 + WAF 空正文，欧盟条文经本机 headless Chrome 渲染同一 CELEX 文档后逐字抄录；中国条文经国务院公报与总局页面互校（见 §18 第 4 条）。本文件**只逐字引用已核对的句子**，其余以条号 + 要点转述。
 
 ## §5 对比表与 CTA
 
@@ -161,7 +175,7 @@ FTC《Rule on Unfair or Deceptive Fees》（16 CFR Part 464，Source 90 FR 2166,
 - **提交按钮写动作**："支付 ¥1,188" / "提交订单"，不写"继续"。
 - 参考实现：`dl` + `dt`/`dd` 三列（key / value / actions），`h1` 用大标题样式。
 
-GOV.UK 给的两条收益值得抄进 brief：复核页 *"increase users' confidence as they can clearly see that they have completed all the sections and that their data has been captured"*，并且 *"reduce error rates as users are given a second chance to notice and correct errors before submitting data"*。
+GOV.UK 的两条收益可抄进 brief：复核页提高信心（用户看到各段已完成）并降低错误率（提交前有第二次纠错机会）。
 
 **游客结账**：默认允许。强制注册是弃单的头号自造原因，且与 SC 3.3.7 的精神相抵（同一进程内不该重复索要信息）。账号可以在**付款成功后**再邀请创建。
 
@@ -280,7 +294,7 @@ SC 3.3.4 Error Prevention (Legal, Financial, Data) 管的就是结账。适用�
 ## §13 信任与社会证明
 
 - **只放可验证的信号**：支付方式标识、退货/退款政策、客服入口、实体信息（公司名/地址/联系方式）、HTTPS 与隐私链接。
-- **不伪造**：评价、倒计时、"3 人正在浏览"、库存告急——造一个就是 §4 纪律一的同族问题，且被识破的代价远高于收益。
+- **不伪造**：评价、倒计时、"3 人正在浏览"、库存告急——造一个就同时踩 §4 纪律一与四。
 - **社会证明的位置**：可以放金额附近增强信心，但**不得**抢主行动；评价模块不放默认展开的大段文字。
 - **只需什么问什么**：结账不需要生日、性别、公司规模。字段每多一个，弃单概率上升，且违反 SC 3.3.7 的精神。
 - **卡号不落地**：用支付服务商的 iframe/SDK token，自己的 DOM 不接触完整卡号（PCI 边界）。
@@ -305,12 +319,13 @@ SC 3.3.4 Error Prevention (Legal, Financial, Data) 管的就是结账。适用�
 5. 企业档价格写 "—" 或 "0"（会被读成免费或未定价）。
 6. 改 Apple Pay 标记的颜色，或让它与其它按钮共享边框。
 
-## §16 自检清单（20 条）
+## §16 自检清单（21 条）
 
 - [ ] 填地址**之前**能看到运费/税费政策。
 - [ ] 付款前总额唯一且锁定，三处（购物车/结账/支付页）逐字一致。
 - [ ] 货币写法全站统一，`$` 有国家限定。
-- [ ] 划线价能追溯到历史成交价字段。
+- [ ] 划线价：绑历史成交价字段、≥4.5:1、有「原价」字标、`<s>` 内 `sr-only`。
+- [ ] 倒计时字号与对比不高于总价，且可隐藏；秒级更新不进 `assertive`。
 - [ ] 折扣率=页面两个价格算出来的值。
 - [ ] 推荐档有文字角标 + 标签，不只靠颜色。
 - [ ] 三档功能行同行对齐，容器 ≥ 960px，移动端纵向堆叠。
@@ -328,93 +343,15 @@ SC 3.3.4 Error Prevention (Legal, Financial, Data) 管的就是结账。适用�
 - [ ] 金额变化有 `role="status" aria-live="polite" aria-atomic="true"` 播报，且防抖。
 - [ ] 结账页只有一个主提交按钮，文案写明金额或动作。
 
-## §17 可抄代码（5 段，均可在标准库下直接跑）
+## §17 可抄代码（2 段 + 1 段指针，均可在标准库下直接跑）
 
-### 17.1 价格排版生成器（字号/等宽数字/货币符号/周期）
+### 17.1 划线价台账校验 → 见 `pricing-localization.md` §13 段 E
 
-```python
-def price_html(amount, currency="¥", period="/月", big=True):
-    """金额 → 内联 HTML 片段。字号取 §3 的数值区间，数字强制等宽。"""
-    symbol_size = 0.5          # em，§3：货币符号 0.5em
-    lift = "0.13em"            # baseline 上移
-    font_size = 44 if big else 30   # px，§3：40–48 / 28–32
-    assert 40 <= font_size <= 48 or 28 <= font_size <= 32
-    assert 0 < symbol_size < 1
-    nice = f"{amount:,.2f}".rstrip("0").rstrip(".") if amount != int(amount) else f"{amount:,.0f}"
-    return (
-        f'<span class="price" style="font-size:{font_size}px;line-height:1.1;'
-        f'font-variant-numeric:tabular-nums;font-feature-settings:\'tnum\' 1">'
-        f'<span class="cur" style="font-size:{symbol_size}em;vertical-align:{lift}">{currency}</span>'
-        f'{nice}<span class="per" style="font-size:0.34em">{period}</span></span>'
-    )
+历史成交台账的窗口校验（DE 30 日 / CN 7 日；窗口内无交易则用最后一次成交价）以该段代码为准，本文件不再维护第二份——两份窗口天数一定会漂移，而 CNY 站的窗口是 **7 日**，照抄 30 日就会把不合规的"原价"判成通过。折扣率仍必须由两个价格算回（`1 − now/was`），禁止手填（§4 纪律二、§16 的折扣率条目）。
 
+> 字段清单不复制成代码：autocomplete token 的唯一事实源是 §8.1 的表，代码里再存一份 allow-list 只会漂移。
 
-if __name__ == "__main__":
-    a = price_html(1188, period="/年")
-    assert "tabular-nums" in a and "font-size:44px" in a
-    assert "¥" in a and "/年" in a
-    b = price_html(99.5, big=False)
-    assert "99.5" in b and "49.5" not in b
-    c = price_html(1200)
-    print(a)
-    print(c)
-    assert "1,200" in c      # 千分位
-```
-
-### 17.2 划线价台账校验 → 见 `pricing-localization.md` §13 段 E
-
-历史成交台账的窗口校验（DE 30 日 / CN 7 日；窗口内无交易则用最后一次成交价）以该段代码为准，本文件不再维护第二份——两份窗口天数一定会漂移，而 CNY 站的窗口是 **7 日**，照抄 30 日就会把不合规的"原价"判成通过。折扣率仍必须由两个价格算回（`1 − now/was`），禁止手填（§4 纪律二、§16 第 9 条）。
-
-### 17.3 结账字段计划器（autocomplete token + 地址复用）
-
-```python
-ALLOWED_TOKENS = {
-    "email", "tel", "name", "given-name", "family-name", "organization",
-    "shipping name", "shipping address-line1", "shipping address-line2",
-    "shipping address-level2", "shipping address-level1", "shipping postal-code",
-    "shipping country", "billing address-line1", "billing postal-code",
-    "cc-number", "cc-exp", "cc-csc", "cc-name",
-}
-
-
-def checkout_fields(needs_shipping=True, billing_same=True, card=True):
-    """返回 [(field, autocomplete, inputmode)]，并校验 token 合法（§8.1 / SC 1.3.5）。"""
-    plan = [("邮箱", "email", "email")]
-    if needs_shipping:
-        plan += [
-            ("收件人", "shipping name", None),
-            ("地址1", "shipping address-line1", None),
-            ("城市", "shipping address-level2", None),
-            ("邮编", "shipping postal-code", "numeric"),
-            ("国家", "shipping country", None),
-        ]
-    if not billing_same:
-        plan += [("账单地址", "billing address-line1", None)]
-    else:
-        plan += [("__billing_reuse__", "shipping address-line1", None)]  # 复用钩子
-    if card:
-        plan += [
-            ("卡号", "cc-number", "numeric"),
-            ("有效期", "cc-exp", "numeric"),
-            ("安全码", "cc-csc", "numeric"),
-        ]
-    bad = [t for _, t, _ in plan if t not in ALLOWED_TOKENS and t != "__billing_reuse__"]
-    assert not bad, f"非法 autocomplete token: {bad}"
-    return plan
-
-
-if __name__ == "__main__":
-    p = checkout_fields(billing_same=True)
-    print(len(p), "fields")
-    for row in p:
-        print(row)
-    assert not any(f == "账单地址" for f, _, _ in p)   # 复用后不再收一遍（SC 3.3.7）
-    assert any(f == "卡号" for f, _, _ in p)
-    p2 = checkout_fields(billing_same=False)
-    assert any(f == "账单地址" for f, _, _ in p2)
-```
-
-### 17.4 总价对账器（三处一致 + 加项透明）
+### 17.2 总价对账器（三处一致 + 加项透明）
 
 ```python
 def reconcile(items, shipping, tax, extras=None, tolerance=0.01):
@@ -456,7 +393,7 @@ if __name__ == "__main__":
         assert "不一致" in str(e)
 ```
 
-### 17.5 SC 3.3.4 承诺闸门验收器 + 总额播报片段
+### 17.3 SC 3.3.4 承诺闸门验收器 + 总额播报片段
 
 ```python
 def commitment_gate(reversible=False, checked=False, confirmed=False,
@@ -498,11 +435,10 @@ if __name__ == "__main__":
 
 ## §18 取源限制（公开记录，不臆造）
 
-1. **Baymard 购物车放弃率榜单全文不可得**：`baymard.com/blog/cart-abandonment-rate`（标题 *"Cart Abandonment Rate: 50 Statistics (2026)"*）两次抓取均被站点全局导航占满并 "Content truncated"，`r.jina.ai` 代理与 `learn/reduce-cart-abandonment` 同样失败。**本章因此不引用任何 Baymard 百分比**，只做定性引用；需要数字时须先补取正文。
+1. **Baymard 购物车放弃率全文不可得**（`baymard.com/blog/cart-abandonment-rate` 多次抓取被导航占满，代理同样失败）：**本章因此不引用任何 Baymard 百分比**，只做定性引用。
 2. **Google Pay 官方按钮规范未取到**：`developers.google.com/pay/api/web/guides/brand-guidelines` 两次 `fetch failed`。本章只给不依赖该文档的通用原则（官方素材、不改比例、留白、按能力显隐），未引用其条文。
-3. **Apple HIG 的 Apple Pay 页为 JS 渲染**：`developer.apple.com/design/human-interface-guidelines/apple-pay` 正文为空；本章 Apple Pay 全部引文来自可静态读取的 **Apple Pay Marketing Guidelines**（`developer.apple.com/apple-pay/marketing/`）。
-4. **欧盟/中国法条的取源方式不是常规抓取**：EUR-Lex、legislation.gov.uk、europarl doceo 对脚本客户端返回 HTTP 202 + AWS WAF JS 挑战（空正文），`web_fetch` 与 curl 均被拦；欧盟第 6a 条经本机 headless Chrome（CDP）渲染 CELEX:32019L2161 取回 OJ HTML 后逐字抄录，中国条文经 gov.cn 国务院公报 2022 年第 19 号与 samr.gov.cn 两处官方页面互校（文本一致）。二次复核须用浏览器访问；本文件只逐字引用已核对句子，其余以条号 + 要点转述。
-5. **FTC 官方站 403 + eCFR 跳转拦截**：改读 `ecfr.io/Title-16/Part-464`（Daily eCFR 版 2026-10-30，Source 90 FR 2166, Jan. 10, 2025），条文与 §464.1/§464.2 一致；正式引用请以 eCFR 原站为准。
-6. **`patterns.md §定价表` 的旧数值未被推翻**：卡内边距 32px、价格 40–48px、货币符号 0.5em 三处与本章一致，本章仅补充「上移 0.12–0.15em」「`tabular-nums`」「差异 ≤ 20%」等可执行细则，未改旧值。
-7. **折中效应**本章只称机制名（compromise effect），未引用实验原句与具体百分比；若要写进对外文案，须先补取原始研究。
-8. 本章引用的 WCAG 条款级别：**SC 3.3.4 AA**、**SC 1.3.5 AA**、**SC 3.3.7 A**、**SC 4.1.3 AA**、**SC 1.4.1 AA**、**SC 3.3.2 / 3.3.3 A**、**SC 2.5.8 AA**、**SC 2.5.5 AAA**。
+3. **Apple HIG 的 Apple Pay 页为 JS 渲染**（正文为空）：本章 Apple Pay 引文均来自可静态读取的 Apple Pay Marketing Guidelines。
+4. **欧盟/中国法条不能常规抓取**：EUR-Lex、legislation.gov.uk、europarl doceo 对脚本返回 HTTP 202 + WAF 空正文；第 6a 条经本机 headless Chrome 渲染 CELEX:32019L2161 取回 OJ HTML，中国条文经 gov.cn 公报与 samr.gov.cn 互校（一致）。复核须用浏览器。
+5. **FTC 站 403 + eCFR 跳转拦截**：改读 `ecfr.io/Title-16/Part-464`（Daily eCFR 版 2026-10-30），与 §464.1/§464.2 一致；正式引用以 eCFR 原站为准。
+6. **折中效应**本章只称机制名（compromise effect），未引用实验原句与具体百分比；若要写进对外文案，须先补取原始研究。
+7. 本章引用的 WCAG 条款级别：**SC 3.3.4 AA**、**SC 1.3.5 AA**、**SC 3.3.7 A**、**SC 4.1.3 AA**、**SC 1.4.1 AA**、**SC 1.4.3 AA**、**SC 2.2.1 A**、**SC 2.2.2 A**、**SC 3.3.2 / 3.3.3 A**、**SC 2.5.8 AA**、**SC 2.5.5 AAA**。

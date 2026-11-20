@@ -811,3 +811,6 @@
 - https://github.com/yooongchun/Invoice2Excel | 249 ★ · 无 license 声明（NONE）· pushed 2023-10-10 · archived=false | 发票 OCR 转 Excel；**已停更 3 年**，仅作字段结构参考
 
 - 取源限制（v51）：EUR-Lex 指令 2014/55/EU 两个入口均返回 HTTP 202 空正文，VAT 指令 2006/112/EC 第 226 条未取到原文（只引 Peppol 对 226(2) 的转述）；`factur-x.org` fetch failed、`ferd-net.de/en/standards/zugferd` 404；`codelist/UNCL1001/` 404（须用 `-inv` / `-cn` 子集）；陕西税局红冲公告页 HTTP 412（WAF），改用 gov.cn 同名公告；ISO 216（A4 210×297 mm）与 ISO 19005-3（PDF/A-3）为付费标准，只作标称引用；XPath `fn:round` 的 .5 取整方向未取到条文。
+
+- https://github.com/carbon-design-system/carbon-website | 2026-11-20 加入 | 未取 star 数（不作为质量证据） | Carbon 设计系统官方文档站源码；`src/pages/patterns/empty-states-pattern/index.mdx` 是 v61 空状态判据的一手来源——渲染站点跨域重定向后 30s 超时，而仓库源码可取全文。
+- https://github.com/carbon-design-system/carbon | 2026-11-20 加入 | 未取 star 数（不作为质量证据） | Carbon 组件库源码（React/Vanilla 两套）；需要核对「文档说的规则在组件里怎么落地」时读源码，而不是读营销页。

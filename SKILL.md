@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v60 · 2026-11-20**：v60 补案例 27（定价三档：推荐档整卡实色抢焦点、三卡各自撑高），把「等高」降为外壳、「公共行对齐 + 角标固定带」立为判据，`pricing-checkout.md` §2 尺寸段改指针、§5 补 1.4.1 三分法；v59 见 `CHANGELOG.md`。
+**当前版本 v61 · 2026-11-20**：v61 补案例 28（后台数据表空态：`length===0` 一个分支接住零数据/筛不到/500/403），立 J10「空态靠出口判型」——版式可复用、状态不共用；`empty-states.md` §2 加四态硬线、§13 反模式并入自检；v60 见 `CHANGELOG.md`。
 
 ---
 
@@ -107,7 +107,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 · §10 实测校准 |
 | `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 门槛 · §3 裁决 · §5 大众锚 · §8 演练 |
-| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 27 组案例（含移动安全区/暗色表单/入场动效/定价三档），按载体查 §0 判据 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 28 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
 | `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
@@ -146,7 +146,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/form-table.md` | 表单、输入、校验、表格、列表、筛选 | §2 表单 · §6 表格 · §10 校验 |
 | `references/feedback-states.md` | toast、加载、骨架、错误、危险操作、保存态 | §1 判型 · §3 加载 · §4 错误 |
-| `references/empty-states.md` | 空状态、零数据、starter content、插画 | §3 五种空 · §4 结构 |
+| `references/empty-states.md` | 空状态、零数据、starter content、插画 | §2 判型与状态判定 · §3 结构 |
 | `references/navigation-ia.md` | 导航、菜单、信息架构、面包屑、Tabs、底部栏 | §1 判型 · §2 IA · §3 一级项 |
 | `references/onboarding-first-run.md` | 首启、引导、教程、权限时机、激活 | §0 立场 · §3 路径 · §7 权限 · §9 激活 |
 | `references/overlays-modality.md` | 模态、dialog、popover、浮层、焦点陷阱 | §1 判型 · §3 dialog · §4 popover |

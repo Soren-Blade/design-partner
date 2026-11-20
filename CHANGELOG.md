@@ -5,6 +5,18 @@
 
 ---
 
+## v61 · 2026-11-20（案例 28：数据表空态，四类状态塞进一个分支；新立 J10）
+
+- `before-after.md` 案例 28（后台 · 数据表空态）：8 列 / 行高 48 / 4 个筛选器，`if (!rows.length) return <Empty description="暂无数据" />` 一句同时接住首屏未回、筛不到、500 超时与 403 无权限；空态画在表格容器里，8 列表头与「共 0 条 · 1/1 页」分页都在，零按钮；灰色 `#BFBFBF` 对白 **1.84:1**、失败仅换红 `#FF4D4F`（3.27:1）。改稿 = 数据层出 `status: 'loading'|'empty'|'error'|'forbidden'`（仅 `200 且 total=0` 算 empty）+ 空态替换整张表（表头/列宽/分页一起撤）+ 判型改由标题与出口动词承载（清除筛选 / 重新加载 / 申请权限）+ 骨架行 8 列 × 3 行顶住 + 装饰图删或空 `alt=""`。头部、§0 判据速查（新立 J10）、分组表（新开「空态」）、附页与 SKILL 路由同步为 28 组。
+- `empty-states.md §2` 并入一条硬线「版式可复用，状态不共用」：Carbon 把权限 / 系统故障 / 缺配置 / 不支持操作都归进 empty state 的**版式**（原文 *"empty states that occur when data exists but cannot be surfaced for some reason"*），所以四态在数据层互斥、`length === 0` 只说明"没有可视行"；表格空态必须替换表头与表尾（Carbon 原文：否则读屏先念完整张空表）。§0 裁决二改口径：装饰图**首选 `alt=""`**，`role="presentation"` 不作首选、`role="img" aria-hidden` 仅叠用。
+- 去重（一进一出的删除侧）：`empty-states.md` 删原「§13 反模式 20 条」并入「自检 16 项」（20→16，加数据层判据 / 空态替换元素 / 骨架屏不混用三条）、§14 可抄代码五段压成一段 `empty_kind`、§5/§6/§7/§8/§9/§11/§12 逐处去重（§7 四模式→三模式、§9 六条→三条、§12 六条→三条、删 token 表 lineHeight/opacityImage、删「中英对照（模式 A）」）；`feedback-states.md §5.1` 五行表压成一行五型并列并指向 `empty-states.md §2`，§5.2–5.4（结构五件套 / 布局尺寸表 / 文案公式 + 5 行示例）全删，只留「入口 + 两条纪律」。
+- **本轮被推翻的旧判断**：①「空态就是一个视觉状态，`length===0` 即可判定」——Carbon 明确把权限 / 系统 / 配置问题归进空态**版式**，能共用版式 ≠ 能共用状态；一个分支接住四种原因，等于把「重试」这条唯一出路删掉；②「装饰图 `role="img" aria-hidden` 与 `alt=""` 等价」——Carbon 原文 *"an empty alt tag is more widely supported… avoid assigning role to presentation until support is more ubiquitous"*，`alt=""` 应作首选，`role="presentation"` 目前不作首选。
+- 一进一出：新增 +1,869（before-after 案例 28 与头部/分组 +1,852、SKILL +17），删除/合并 −1,874（empty-states −1,062、feedback-states −812），净 **−5** 字符；SKILL 276 行 / 12,175 字符；before-after 897 行 / 33,746 字符；empty-states 253 行 / 13,288 字符。
+- 门禁：`dp_search "空态 空集合 状态判定"` 命中 feedback-states §5（68.5）、empty-states §13（64.4）、before-after 案例 28（58.0）；`audit.py` **PASS 38 · WARN 0 · FAIL 0**（首跑 WARN 1：empty-states 指向已删的 `feedback-states.md §5.3`，改指 §5.2 后清）；`build_readme.py` + `--check` 新鲜（README 9,511 字符 / 144 行）；`mindmap.py` 未跑（本轮无资产增删）。
+- 队列：#3 案例集 28/30，下一候选 = 定价页促销倒计时与划线价的可读性（倒计时抢焦点、划线价与现价对比不足 4.5:1、过期价未撤）。
+- 取源：Carbon empty-states pattern **仓库源码** `raw.githubusercontent.com/.../patterns/empty-states-pattern/index.mdx` 2026-11-20 取到全文（站点渲染页跨域重定向后 30s 超时）；`ant.design/components/empty` 复取返回 200 但正文为空、`atlassian.design/components/empty-state/usage` 复取返回 200 但被截断只剩导航 → 这两处 2026-11-20 复取失败，token 与 Atlassian 引文沿用 2026-11-13 逐字核验，标「未验证」记入 `SOURCES.md`。
+- 发布：两处安装副本已同步；`git push origin main` 见下条发布记录。本轮状态：**已完成**——案例 28、J10、empty-states §2 硬线、三份资产去重；**未完成（留给后续轮）**——#4 真实反馈仍 0 条、#5 画像仍空、#6 盲评 baseline 未动、#8 中文排版未定稿；**下一步**——案例 29「定价页促销倒计时与划线价」，若下次有真人搜「暂无数据」而召回偏到 `content-findability.md §18`，先查别名表。
+
 ## v60 · 2026-11-20（案例 27：定价三档，等高不等于对齐）
 
 - `before-after.md` 案例 27（网页 · 定价三档）：版心 1120、三卡 352 + 间距 32 + 内边距 32，价格 40px `tabular-nums`、CTA 48；卖点 2/3/2 行，中档角标骑卡顶 `top:-16px` 又加 `margin-top:16px` 让位 → 三个价格 y 差 **40px = 24（多一行）+ 16（角标）**；三卡 `stretch` 等高 832，但 `space-between` 把短卡行距从 32 拉到 **45**，CTA 落 604/700/780。改稿 = 一套 grid 行轨道（卡名 / 卖点固定 3 行空行占位 / 价格 / 周期 / 功能 / CTA）、CTA `margin-top:auto`、整卡填充换 4px 色条 + 卡内 16px 角标 + `#F7F7FF`（对白 1.07:1 只分区）。头部、§0 分组表（新开「定价与选择」）、附页与 SKILL 路由同步为 27 组。

@@ -14,6 +14,7 @@
 - 一进一出：新增 +1,470（before-after 案例 27 与头部/分组 +1,436、SKILL +30、PROMPT 队列 +4），删除/合并 −1,525（pricing-checkout −1,041、pricing-localization −438、patterns −46），净 **−55** 字符；SKILL 276 行 / 12,158 字符；before-after 862 行 / 31,894 字符；pricing-checkout 509 行 / 25,676 字符。
 - 门禁：`dp_search "定价三档 推荐档 等高 角标 行轨道"` 第 1 命中案例 27（165.2）、第 2 `pricing-checkout §2`（140.9）、第 3 `notifications-messaging §9`（45.3，别名召回的是 badge 类词，属干扰项）；`audit.py` PASS 38 · WARN 0 · FAIL 0（首跑 A3 FAIL 由 `build_readme.py` 重建 README 修复：9,511 字符 / 144 行，`--check` 新鲜）；`mindmap.py` 未跑（本轮无资产增删）。
 - 队列：#3 案例集 27/30，下一候选 = 空态页（只写「暂无数据」，把空态当错误页）。
+- 发布：两处安装副本 ~/.agents/skills/design-partner、~/.workbuddy-ai/skills/design-partner 已 robocopy 同步（排除 .git/.agents/.workbuddy-ai/派生索引），SKILL.md 与 before-after.md 逐文件 SHA256 与本仓一致；`git push origin main` → 751b3f0..a0125d6 成功。本轮状态：**已完成**——队列 #3 案例集 27/30、§2 尺寸段改指针、五份文件去重；**未完成（留给后续轮）**——#4 真实反馈仍 0 条、#5 画像仍空、#6 盲评 baseline 未动、#8 中文排版未定稿；**下一步**——案例 28「空态页：把空态当错误页」；若下次有真人用「推荐档」搜定价，先查别名表是否召回 badge 类词。
 - 取源：W3C `Understanding SC 1.4.1 Use of Color`（Updated 16 September 2025）逐字取到判据句与明度差 ≥3:1 的 Note；NN/g `Comparison Tables for Products, Services, and Features`（Kate Moran & Taylor Dykes，2024-02-09）逐字取到「列=方案、行=属性」的定义与「5–7 个方案以内才做 compensatory 决策」，页面在 "Simple Items" 处被截断，Best Practices 段落只见于搜索摘录、标「未验证」不入判据；Baymard 定价页正文仍不可抓（沿用 v40 限制）。
 ## v59 · 2026-11-19（案例 26：入场动效把内容可见性当人质；新立 J9）
 

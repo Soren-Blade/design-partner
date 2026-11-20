@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v59` · 本页由 `scripts/build_readme.py` 生成于 2026-11-19 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v60` · 本页由 `scripts/build_readme.py` 生成于 2026-11-20 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -46,7 +46,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 |---|---|---:|---:|
 | 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 304 | 11 |
 | 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
-| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 828 | 9 |
+| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 862 | 10 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
 | 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
 | 判断与品味 | [`design-critique.md`](references/design-critique.md) · 设计评审与反馈 · Design Critique & Feedback | 261 | 23 |
@@ -82,8 +82,8 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 界面与交互 | [`video-player-captions.md`](references/video-player-captions.md) · 视频播放器与字幕（Video Player UX & Captions / Subtitles / WebVTT） | 586 | 14 |
 | 领域与商业 | [`presentation-design.md`](references/presentation-design.md) · 演示文稿与幻灯片版式（Presentation Design） | 1130 | 19 |
 | 领域与商业 | [`email-design.md`](references/email-design.md) · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout） | 835 | 22 |
-| 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 563 | 19 |
-| 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 707 | 15 |
+| 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 509 | 19 |
+| 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 689 | 14 |
 | 领域与商业 | [`quote-invoice-documents.md`](references/quote-invoice-documents.md) · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法 | 1006 | 15 |
 | 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 827 | 19 |
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
@@ -98,7 +98,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 合规与工具链 | [`design-system-docs.md`](references/design-system-docs.md) · 设计系统文档写作：组件文档页 / 信息架构 / 版本化 / 治理 | 950 | 37 |
 | 合规与工具链 | [`component-libraries.md`](references/component-libraries.md) · 组件库与设计 GitHub 地图 — Component Libraries | 38 | 3 |
 | 索引与资源 | [`knowledge-map.md`](references/knowledge-map.md) · 设计能力知识路线图 — Knowledge Map（L0→L4） | 820 | 9 |
-| 索引与资源 | [`patterns.md`](references/patterns.md) · 元素设计模式图鉴 — Patterns（深度蒸馏） | 136 | 14 |
+| 索引与资源 | [`patterns.md`](references/patterns.md) · 元素设计模式图鉴 — Patterns（深度蒸馏） | 134 | 14 |
 | 索引与资源 | [`portfolios.md`](references/portfolios.md) · 作品集 — Portfolios | 195 | 8 |
 | 索引与资源 | [`resources.md`](references/resources.md) · 设计资源 — Resources | 226 | 5 |
 | 索引与资源 | [`tools.md`](references/tools.md) · 制作工具 — Tools | 183 | 7 |
@@ -108,7 +108,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，56 条记录，其中 3 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，57 条记录，其中 3 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

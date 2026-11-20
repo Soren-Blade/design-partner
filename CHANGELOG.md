@@ -5,6 +5,16 @@
 
 ---
 
+## v60 · 2026-11-20（案例 27：定价三档，等高不等于对齐）
+
+- `before-after.md` 案例 27（网页 · 定价三档）：版心 1120、三卡 352 + 间距 32 + 内边距 32，价格 40px `tabular-nums`、CTA 48；卖点 2/3/2 行，中档角标骑卡顶 `top:-16px` 又加 `margin-top:16px` 让位 → 三个价格 y 差 **40px = 24（多一行）+ 16（角标）**；三卡 `stretch` 等高 832，但 `space-between` 把短卡行距从 32 拉到 **45**，CTA 落 604/700/780。改稿 = 一套 grid 行轨道（卡名 / 卖点固定 3 行空行占位 / 价格 / 周期 / 功能 / CTA）、CTA `margin-top:auto`、整卡填充换 4px 色条 + 卡内 16px 角标 + `#F7F7FF`（对白 1.07:1 只分区）。头部、§0 分组表（新开「定价与选择」）、附页与 SKILL 路由同步为 27 组。
+- `pricing-checkout.md §2` 尺寸段改为指针 + 新判据：**等高只是外壳，公共行对齐才是判据**；三卡共用一个行轨道、价格与 CTA 必须同 y、禁止 `space-between` 拉行距、角标内嵌 16px 带（骑卡顶会让中卡外扩，坐标全漂）；新增「推荐档强调的载体顺序：角标文字 > 色条/描边 > 底色 > 尺寸」。§5 补 WCAG 1.4.1 原文那条 Note：**明度差 ≥3:1** 才算颜色之外的第二通道，`#EEF0FF` 对白 1.13 在灰度下等于没有。
+- 去重（一进一出的删除侧）：`pricing-checkout §15` 反模式 20 条并进 §16 自检，只留 6 条「自检查不出的行为红线」；§4 中国 56 号令四条 bullet 压成一段要点、条文指向 `pricing-localization §6`；`§17.2 划线价台账校验`（默认 30 天窗口，对 CNY 站是错的）改为指 `pricing-localization §13 段 E`（DE 30 / CN 7 已分市场）；`pricing-localization §11` 反模式 20 条并进 §12 自检，只留 3 条整体做法红线；`patterns.md` 定价表与登录/注册两段改指针（Auth 已独立为 `auth-account-ux.md`）；`before-after §0` 数值口径表改三条指针（行高阶梯与全量阈值只留 `numeric-truth §1`）。
+- **本轮被推翻的旧判断**：①「三卡等高就算对齐」——等高只保证外框，价格不在同一 y 的比较表就报废，40px 的错位是两个各自合理的小偏移之和；②「推荐档靠底色区分即可」——1.13:1 的浅底只换了色相，灰度与色觉障碍下与白底同值，既不够当第二通道、又弄脏卡面；「推荐」是语义，必须由文字（角标）承载。
+- 一进一出：新增 +1,470（before-after 案例 27 与头部/分组 +1,436、SKILL +30、PROMPT 队列 +4），删除/合并 −1,525（pricing-checkout −1,041、pricing-localization −438、patterns −46），净 **−55** 字符；SKILL 276 行 / 12,158 字符；before-after 862 行 / 31,894 字符；pricing-checkout 509 行 / 25,676 字符。
+- 门禁：`dp_search "定价三档 推荐档 等高 角标 行轨道"` 第 1 命中案例 27（165.2）、第 2 `pricing-checkout §2`（140.9）、第 3 `notifications-messaging §9`（45.3，别名召回的是 badge 类词，属干扰项）；`audit.py` PASS 38 · WARN 0 · FAIL 0（首跑 A3 FAIL 由 `build_readme.py` 重建 README 修复：9,511 字符 / 144 行，`--check` 新鲜）；`mindmap.py` 未跑（本轮无资产增删）。
+- 队列：#3 案例集 27/30，下一候选 = 空态页（只写「暂无数据」，把空态当错误页）。
+- 取源：W3C `Understanding SC 1.4.1 Use of Color`（Updated 16 September 2025）逐字取到判据句与明度差 ≥3:1 的 Note；NN/g `Comparison Tables for Products, Services, and Features`（Kate Moran & Taylor Dykes，2024-02-09）逐字取到「列=方案、行=属性」的定义与「5–7 个方案以内才做 compensatory 决策」，页面在 "Simple Items" 处被截断，Best Practices 段落只见于搜索摘录、标「未验证」不入判据；Baymard 定价页正文仍不可抓（沿用 v40 限制）。
 ## v59 · 2026-11-19（案例 26：入场动效把内容可见性当人质；新立 J9）
 
 - `references/motion-system.md §8.2` 新增「可见性默认成立：隐藏是增强，不是前提」：内容在无 JS、IO 未触发、打印、爬虫、动效库失败时都必须可读；隐藏态只在探到「能恢复」的能力时启用（head 内联 `html.js`、`@supports (animation-timeline: view())`、`onpagereveal in window`），且隐藏与恢复写在同一处。四条边界：①`opacity:0` 不做 LCP 候选，首屏主图/主标题别做入场，必须保留时用 CSS `@keyframes` 首帧 >0 且 <300ms；②降级不能只接 `prefers-reduced-motion`，验收三测 = 禁 JS / reduce / 打印；③别用 `display:none` 做 reveal（脱布局 + CLS；`loading="lazy"` 图在 `display:none` 下不请求、`opacity:0` 下照常下载）；④`opacity:0.01` 不是正解（W3C LCP issue #148 仍非标准）。

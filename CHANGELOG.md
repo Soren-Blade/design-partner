@@ -1,9 +1,20 @@
-# 版本史（v38–v52）
+# 版本史（v38–v63）
 
 > 本文件由 v52 整改从 `SKILL.md` 迁出，仅作历史参考，**不再逐版维护全文**。
 > 当前版本只写在 `SKILL.md` 首部；日常升级只需在 `CHANGELOG.md` 顶部追加一节「YYYY-MM-DD vNN」的一行摘要，不再写逐版基线全文。
 
 ---
+
+## v63 · 2026-11-21（案例 30：订单详情打印，第 2 页无表头、徽标剥底后成功绿 3.30:1；新资产 print-export.md 与 J13）
+
+- **新资产 `references/print-export.md`（7,901 字符 / 195 行 / 2 段可跑代码）**：打印判层与验收——A4 210×297mm、`@page` 只能放页面描述符与 margin at-rules（不能放普通选择器、不能用 `vh/vw`）、`break-inside: avoid` 不保证不跨页、`print-color-adjust` 默认 `economy` 会剥背景且 MDN 明说 "there isn't any guarantee"、语义色须补文字/图形、`thead{display:table-header-group}` 逐页重复表头、页脚三件。空白实测：v62 全库 `打印样式` 2、`@page` 5（均在 quote-invoice / editorial-layout 边角）、零 `@media print`。
+- **案例 30（后台 · 订单详情打印）**：病稿零 `@media print`、8 列 1400px 明细表、成功 `#16A34A` 剥底后 3.30:1、失败 `#DC2626` 4.83:1、`#0F172A` 侧栏吞墨；改稿 `@page{size:A4;margin:12mm 12mm 16mm 20mm}`、表头重复、行与图不断开、隐藏 nav/toolbar/pager、链接补 URL、页脚三件。`before-after.md` 29 → **30 组**（37,889 字符 / 976 行），§0 加 J13，新增 `## 十一 · 打印与导出（1 组）`。
+- **J13「打印是第二载体，不是截图」**：剥掉颜色、悬停、滚动后仍可判读；页面盒显式、语义块不切断、每页自带上下文。SKILL 12,416 字符 / 278 行，A1 实测 277 行，§0 速查与 §4.3 路由同步。
+- **本轮被推翻的旧判断**：「打印只要加 `@media print` 隐藏导航就算做完」。实测三处不成立：① `economy` 剥底后成功绿对白纸 3.30:1，14px 标签线不合格；② 1400px 的 8 列表压进 A4 186mm 版心后列宽塌成两行高，且不设 `table-header-group` 时第 2 页起无表头；③ 悬停提示与滚动懒加载行在纸上等于不存在。打印是**第二载体重新排版**：先页面盒，再断点，最后才是去色。
+- **一进一出**：v52 那份 14,815 字符一次性审计报告压成 1,690 字符结论摘要（六项分数、2.7/5、三个病因与落地文件保留；11 组子审计与全部行号删除——v52–v63 重写后行号已漂，留着是假精确）；`quote-invoice §7.6` 四条压两条并指向 print-export（−59）；`PROMPT` 队列 #3 收口（−5）。一进一出合计 **+13,528 / −13,528 · 净 0**（新增全在 print-export、案例 30、SOURCES、journal 与 SKILL，删除全在审计报告压缩）。
+- **门禁**：`dp_search "打印 导出 PDF A4 分页"` 第 1 = `print-export.md §1`（**93.4**）、2 = 案例 30（54.6）、3 = `quote-invoice §7`（38.2）；`"报表 打印 表头 重复 断了"` 第 1（78.3）、2 = 案例 30（38.9）；跨域 `"打印 对比度 空态 验收"`（33 词稀释）前三落 brand-identity / accessibility / color-science，属稀释不判失败。`mindmap` 64 文件 / 2,497 章节；`audit` **PASS 38 · WARN 0 · FAIL 0**；README 9,635 字符 / 145 行。
+- **队列**：#3「案例集补到 30 组」**完成（30/30）**（移动安全区、暗色、动效可见性、定价三档、空态、促销倒计时、打印导出）。下一轮候选：#4 真实反馈采集 / #5 画像从 0 到 1。
+- **取源**：MDN `@page` / `size` / `print-color-adjust` / `break-inside` 逐字（2026-11-21 HTTP 200）；Paged Media L3 margin box 未取、不可打印区无官方值（12mm 经验下限）、`counter(pages)` 未验证，登记 `print-export.md §9` 与 `SOURCES.md`。
 
 ## v62 · 2026-11-20（案例 29：秒杀价与倒计时，划线价 2.85:1、过点不撤；新立 J11/J12）
 

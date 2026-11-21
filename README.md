@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v62` · 本页由 `scripts/build_readme.py` 生成于 2026-11-20 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v63` · 本页由 `scripts/build_readme.py` 生成于 2026-11-21 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -40,13 +40,13 @@ python scripts/memory.py stats                         # 记忆里到底有多�
     自检：5 秒内能否说出「这是监控」？缩小到 320px 后主按钮还在首屏？暗色下状态色对比度过 4.5:1？
 ```
 
-## 资产一览（61 份，按需读）
+## 资产一览（62 份，按需读）
 
 | 组 | 资产 | 行 | 节 |
 |---|---|---:|---:|
 | 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 304 | 11 |
 | 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
-| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 936 | 12 |
+| 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 976 | 13 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
 | 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
 | 判断与品味 | [`design-critique.md`](references/design-critique.md) · 设计评审与反馈 · Design Critique & Feedback | 261 | 23 |
@@ -84,7 +84,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`email-design.md`](references/email-design.md) · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout） | 835 | 22 |
 | 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 445 | 19 |
 | 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 689 | 14 |
-| 领域与商业 | [`quote-invoice-documents.md`](references/quote-invoice-documents.md) · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法 | 1006 | 15 |
+| 领域与商业 | [`quote-invoice-documents.md`](references/quote-invoice-documents.md) · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法 | 1004 | 15 |
 | 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 827 | 19 |
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
@@ -105,10 +105,11 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 索引与资源 | [`inspiration.md`](references/inspiration.md) · 灵感与阅读 — Inspiration | 154 | 4 |
 | 索引与资源 | [`design-md-format.md`](references/design-md-format.md) · DESIGN.md 规范与品牌 DNA — Design Spec | 191 | 7 |
 | 未归组（请补 GROUPS） | [`motion-orchestration.md`](references/motion-orchestration.md) · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏） | 1046 | 20 |
+| 未归组（请补 GROUPS） | [`print-export.md`](references/print-export.md) · 打印与导出（Print & PDF Export）：纸张、分页、去色可读、页眉页脚 | 195 | 10 |
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，59 条记录，其中 3 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，60 条记录，其中 3 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

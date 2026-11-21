@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v62 · 2026-11-20**：v62 补案例 29（秒杀价与倒计时：满宽红条抢总价、划线价 `#999` 2.85:1、过期价不撤），立 J11「划线价是文字不是装饰」、J12「倒计时与价格同生同灭」；`pricing-checkout.md` §4 加纪律四/五（SC 2.2.2 暂停机制 + 分元素 4.5:1）；v61 见 `CHANGELOG.md`。
+**当前版本 v63 · 2026-11-21**：v63 补案例 30（订单详情打印：零 `@media print`、第 2 页无表头、徽标剥底后成功绿 3.30:1），新增 `print-export.md`（A4 210×297mm、`@page` 只能放页面描述符与 margin at-rules、`break-inside: avoid`、`print-color-adjust` 默认 economy 会剥色且无保证），立 J13「打印是第二载体」；`before-after.md` 30 组。v62 见 `CHANGELOG.md`。
 
 ---
 
@@ -107,7 +107,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 |---|---|---|
 | `references/taste-criteria.md` | 判断「好不好看」、给审美理由、五轴锚点 | §0 立场 · §7 三问 · §8 五轴 · §9 伪高级清单 · §10 实测校准 |
 | `references/comparison-protocol.md` | 两案/三案并置、盲评、强制裁决 | §1 三案 · §2 门槛 · §3 裁决 · §5 大众锚 · §8 演练 |
-| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 29 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态/促销倒计时），按载体查 §0 判据 |
+| `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 30 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态/促销倒计时/打印导出），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
 | `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
@@ -133,6 +133,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | 资产 | 何时用 | 入口 |
 |---|---|---|
 | `references/editorial-layout.md` | 海报、长图、社媒图、印刷、网格栏数、长文版式 | §2 网格 · §7 长文 · §8 视觉重量 · §10 出血 |
+| `references/print-export.md` | 打印、导出 PDF、报表归档、A4 分页、去色可读、页眉页脚 | §1 判层 · §2 纸张与边距 · §3 分页 · §4 去色 · §5 页脚 |
 | `references/responsive-layout.md` | 断点、栅格、版心、容器查询、流式字号、多端 | §1 判层 · §3 断点 · §4 栅格 · §9 容器查询 |
 | `references/dark-mode.md` | 暗色主题、底色、层级、图片与品牌色反色 | §1 该不该做 · §2 取值 · §3 层级 · §4.3 边界达标值 |
 | `references/design-system-docs.md` | 设计系统文档站、DESIGN.md、版本化、贡献指南 | §1 两类读者 · §4 九段式 · §7 版本化 |

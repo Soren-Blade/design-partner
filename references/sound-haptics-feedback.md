@@ -772,7 +772,7 @@ if __name__ == "__main__":
 | 通知发不发、怎么发、权限 | `notifications-messaging.md`（后台完成应走通知，不是震动） |
 | 拖拽、长按、阈值手势的交互规则 | `direct-manipulation.md`（本文补触觉常量映射） |
 | 错误文案怎么写 | `ux-writing.md`（触觉不能替代文案） |
-| 选哪个播放/触觉库 | `tools.md`（howler / use-sound / expo-haptics / web-haptics） |
+| 选哪个播放/触觉库 | 官方 README 直读（howler / use-sound / expo-haptics / web-haptics）；本地索引已裁至策展 30 条，不再列库 |
 
 **下轮候选（按缺口与可取证性排序）**：
 

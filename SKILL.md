@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v65 · 2026-11-22**：v65 数值口径单点化——行高/时长/触控/对比度的例外只登记在 `numeric-truth.md` §1 的「适用/例外」列（图表入场 450ms、邮件行高 1.5–1.6、适老化 ≥1.3 倍）；`taste-criteria.md` §6 删掉 120/240/400 第二套刻度，`motion-system.md` §3.1 标明四体系表是原值、不是本库刻度。v64 中文排版定稿见 CHANGELOG。
+**当前版本 v66 · 2026-11-22**：v66 索引资源降级——四份索引 `resources / tools / inspiration / portfolios` 从 657 条链接裁到 30 条策展，口径只写在 `resources.md` 「策展口径」（上限、入选三条件、剔除四类、长尾下一跳）；清单是数据，不是依据。v65 数值口径单点化（例外只登记在 `numeric-truth.md` §1）与 v64 中文排版定稿见 CHANGELOG。
 
 ---
 
@@ -188,13 +188,15 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 
 ### 4.7 索引、学习与资源（数据，不是知识）
 
+> 四份索引共 **30 条策展**，口径写在 `references/resources.md` 开头：上限不是收录度而是可核对度；长尾查 `Design-related websites.txt`（来源索引，不是证据）。**清单不能当依据**——它只回答「去哪儿看」，判断回上面各专题正文。
+
 | 资产 | 何时用 |
 |---|---|
 | `references/knowledge-map.md` | 想系统补课：L0→L4 路线、必读、练习、验收 |
-| `references/resources.md` | 找书/文章/课程/规范原文 |
-| `references/tools.md` | 找工具与资产 |
-| `references/portfolios.md` | 找画廊、作品集、风格样本（L2） |
-| `references/inspiration.md` | 灵感站清单（仅作数据，需自行判断质量） |
+| `references/resources.md` | 找字体/配色/组件/图标/动效资产（10 条策展 + 口径） |
+| `references/tools.md` | 找制作工具（8 条策展） |
+| `references/portfolios.md` | 审美校准：一线从业者站点（6 条，L2） |
+| `references/inspiration.md` | 找参照画廊与阅读（6 条，仅作数据） |
 | `references/patterns.md` | 元素级模式库（L1） |
 | `references/design-md-format.md` | 写 `DESIGN.md`（给 AI/协作者读的约束）与品牌 DNA |
 

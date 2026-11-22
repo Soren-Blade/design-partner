@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v65` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v66` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -99,17 +99,17 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 合规与工具链 | [`component-libraries.md`](references/component-libraries.md) · 组件库与设计 GitHub 地图 — Component Libraries | 38 | 3 |
 | 索引与资源 | [`knowledge-map.md`](references/knowledge-map.md) · 设计能力知识路线图 — Knowledge Map（L0→L4） | 820 | 9 |
 | 索引与资源 | [`patterns.md`](references/patterns.md) · 元素设计模式图鉴 — Patterns（深度蒸馏） | 134 | 14 |
-| 索引与资源 | [`portfolios.md`](references/portfolios.md) · 作品集 — Portfolios | 195 | 8 |
-| 索引与资源 | [`resources.md`](references/resources.md) · 设计资源 — Resources | 226 | 5 |
-| 索引与资源 | [`tools.md`](references/tools.md) · 制作工具 — Tools | 183 | 7 |
-| 索引与资源 | [`inspiration.md`](references/inspiration.md) · 灵感与阅读 — Inspiration | 154 | 4 |
+| 索引与资源 | [`portfolios.md`](references/portfolios.md) · 作品集 — Portfolios | 23 | 4 |
+| 索引与资源 | [`resources.md`](references/resources.md) · 设计资源 — Resources | 40 | 6 |
+| 索引与资源 | [`tools.md`](references/tools.md) · 制作工具 — Tools | 31 | 5 |
+| 索引与资源 | [`inspiration.md`](references/inspiration.md) · 灵感与阅读 — Inspiration | 21 | 3 |
 | 索引与资源 | [`design-md-format.md`](references/design-md-format.md) · DESIGN.md 规范与品牌 DNA — Design Spec | 191 | 7 |
 | 未归组（请补 GROUPS） | [`motion-orchestration.md`](references/motion-orchestration.md) · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏） | 1046 | 20 |
 | 未归组（请补 GROUPS） | [`print-export.md`](references/print-export.md) · 打印与导出（Print & PDF Export）：纸张、分页、去色可读、页眉页脚 | 195 | 10 |
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，62 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，63 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

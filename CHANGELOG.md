@@ -15,6 +15,7 @@
 - **门禁**：`audit.py` PASS 38 · WARN 0 · FAIL 0（先 `build_readme.py` 再 `--check`）；`dp_search "盲评 产出者 评审 自评 基线"` 首位仍是 `comparison-protocol.md` §4.1。本轮无 reference 增删（只改内容），未跑 `mindmap.py`。
 - **记忆**：`journal.jsonl` 追加第 66 行（`signal_type: none`，四条待观察：重跑 brief 03 走钉住流程、换 brief 07 复跑、去掉字节上限后 B 是否回到 12 分档、自述与产物不一致是否普遍）。
 - **队列记账**：#6 仍**未完成**——基线未建立，卡在「重跑 brief 03（钉住流程）」；20 条 brief 仍缺 6 条。
+- **发布**：`b2d60eb` → 远端 `main` 一致；两处副本（`%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner`）同步本轮 8 个改动文件并逐个 SHA256 核对。本轮 push 未复现 SSL_read reset。
 
 ---
 

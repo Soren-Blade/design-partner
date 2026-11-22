@@ -13,6 +13,7 @@
 - **一进一出（未平，如实记）**：库本体 SKILL + references 净 **+232**（§15.4 +713 / rubric −536 / 四处指针 ≈0 / SKILL +57），未做到「新增 N 删 ≥N」；差额来自本轮把预算花在夹具（`tests/golden` 净 +3,732，其中 brief 四条 3,298、README 入选判据 +434），属队列 #6 规定的扩充，不计入库本体但确实推高了仓库总量。**下轮补 brief 前先删 reference 冗余再动笔**，且优先从 `design-measurement-research.md` §17 工具矩阵这类「清单当依据」的段落下手。
 - **门禁**：`dp_search "分数差多少才算差 五轴刻度噪声"` 第 1 = `design-measurement-research.md` §15.4（226.9）、第 2 = `taste-criteria.md` §8（42.1）；audit **PASS 38 · WARN 0 · FAIL 0**（A1 实测 279 行 / 12,701 字符）；`build_readme.py` 重建后 `--check` 新鲜；本轮无 reference 增删，未跑 `mindmap.py`。
 - **记忆**：`memory/journal.jsonl` 追加第 64 行，`signal_type: none`（本轮无任何真实用户信号）；`memory.py stats` 仍为真实信号 0 条，`profile.md` 保持空态——队列 #4/#5 继续阻塞，不臆造偏好。
+- **发布**：提交 `a28e626`，`git push` 一次成功（`3a904a7..a28e626 main -> main`，未复现 v65 的 SSL_read reset）。副本：`.agents/skills/design-partner` 与 **`.workbuddy-ai/skills/design-partner`** 各同步 15 个改动文件，逐个 SHA256 一致——v66 记「只找到一处副本」，本轮在 `%USERPROFILE%\.workbuddy-ai\skills\` 找到第二处并补同步，队列 #8 的「两处副本」口径至此成立。
 
 ## v66 · 2026-11-22（索引资源降级：657 条链接 → 30 条策展，四份索引同一口径）
 

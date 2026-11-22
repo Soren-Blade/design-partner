@@ -71,11 +71,10 @@
 行高与行长决定长文可读性，也是对比度、可访问性与验收里最常被跳过的一组数值；三段式节奏（行内 / 段间 / 块间）必须分开定，不能一个 `line-height` 打天下。
 
 - **行高比率（M3 官方，已核验）**：`applying-type` 原文——*"For larger type legibility using styles like title, headline, and display, we recommend a line height ratio of **1.2 times** the type size"*；*"For smaller body copy using styles like body and label, we recommend a line height ratio **around 1.5 times** the type size."* 注意这是**拉丁**口径：1.2 只给大字号标题，1.5 给拉丁 UI 短文本，不能直接套到中文正文。
-- **本知识库口径（见 numeric-truth §1）**：中文正文 **1.6–1.8（推荐 1.7）**，小字/表内 **1.5–1.6**；拉丁 UI **1.5**，拉丁长文 **1.4–1.6**。`SKILL.md` 第 5 步「行高 1.5–1.7」与本表冲突时以本表为准；`presentation-design.md` 的 1.4–1.6 属于演示/展示场景例外。写 token 时按 display / latin / cjk 分三档，不要全局一个值。
+- **本知识库口径（见 numeric-truth §1.2）**：中文行高按角色取——连续阅读 1.7、中后台 14px 用 22px 档、辅助 1.5–1.6、标题 1.3–1.4、投影 1.4–1.6；拉丁 UI **1.5**，拉丁长文 **1.4–1.6**。`SKILL.md` 第 5 步「行高 1.5–1.7」与本表冲突时以本表为准。写 token 时按 display / latin / cjk 分三档，不要全局一个值。
 - **行长（WCAG 2.2 SC 1.4.8 Visual Presentation，AAA）**：文本块宽度 **≤80 characters or glyphs（CJK ≤40）**、`Text is not justified`（AAA 原文；中文的条件式用法见下条）、段内行距 `space-and-a-half`、段间距至少 `1.5 times larger than line spacing`。行长超标时优先缩容器而不是缩字号。
 - **三段节奏分离**：`line-height`（行内）/ `margin-block-end`（段间，≥2× font size 才扛得住 1.4.12）/ 块间距（章节，走 spacing token）。三者都写死 `px` 会在间距覆盖时叠爆。
-- **两端对齐是条件式，不是无条件硬禁**：拉丁正文一律左对齐（ragged right）；中文内容页可用 `text-align: justify`，但必须同时做**标点挤压/避头尾**（`text-spacing-trim` + `line-break: strict`），且 **`text-align-last: left`** 保证最后一行不拉伸。任一条件缺失就回到左对齐；以 WCAG AAA 为验收目标时，中文也按 1.4.8 原文用左对齐。口径见 numeric-truth §1。
-- **中文行高（见 numeric-truth §1）**：汉字 1:1 方框（clreq §1.2）、字面率高，同字号视觉比拉丁更满，正文行高取 **1.6–1.8（推荐 1.7）**，小字/表内 1.5–1.6；不再沿用 M3 的 1.5。
+- **两端对齐是条件式，不是无条件硬禁**：拉丁正文一律左对齐（ragged right）；中文内容页可用 `text-align: justify`，但必须同时做**标点挤压/避头尾**（`text-spacing-trim` + `line-break: strict`），且 **`text-align-last: left`** 保证最后一行不拉伸。任一条件缺失就回到左对齐；以 WCAG AAA 为验收目标时，中文也按 1.4.8 原文用左对齐。口径见 numeric-truth §1.2。
 
 ---
 
@@ -239,7 +238,7 @@ FOUT 的 CLS 根因不是「换字体」，是**两款字体的度量不同**；
 2. **汉字与标点 1:1 正方形（§1.2）**：*"In principle, the characters, including Han characters (Hanzi) and punctuation, used in Chinese composition are **squares with the ratio of 1:1**, and are seamlessly arranged with one another."* §2.1.1 Note 补充 `square character frame`，直横排可共用活字、部分标点需按书写方向调整分布。→ 中文栅格与行高按方框推，别套拉丁 baseline 习惯。
 3. **不要把视觉需求写进文本层（§4.1 Note）**：*"Nowadays, when storing text, **avoid using** [fullwidth ASCII] Latin letters and European numerals; leave proportional/monospace display requirements to the typesetting engine."* 同段还纠正「半角/全角」是**度量宽度的概念**，现代西文字体多为比例字体，把 ASCII 一概称「半角」并不准确。→ 数据库存标准 ASCII，显示交给 CSS。
 4. **光标/删除/选择按字素丛（§4.2.1）**：*"Cursor movement, deletion, and selection should operate on **grapheme cluster boundaries** rather than on code point or code unit boundaries. A caret should never be placed inside a grapheme cluster, and the Backspace and Delete keys should remove the whole cluster."* 边界由 **UAX #29** 定义，组合附加符号、变体选择符、ZWJ emoji 序列都算一个字素丛。→ 输入框、富文本、字符计数都要用 `Intl.Segmenter`（见 `i18n-localization.md`），不能用 `str.length`。
-- **未证实，不写入硬规范**：本次抓取片段**未**证实「标点挤压」「避头尾（禁则处理）」「中文必须用着重号代替 italic/bold」的具体规则数值，因此本文件只作定性提醒、不给数值与「必须」。需要时另查 clreq 相应章节原文。
+- **已补核（2026-11-22）**：clreq §6.1.1 明确给出四档禁则（none / basic / GB 式 / strict）及逐类符号，§6.1.2 规定 2em 标点与数字/单位不可拆行，§6.1.3 说明行尾悬挂的适用面；完整清单与验收串见 `chinese-design.md` §1.5。原「未证实」判断作废；「着重号代替 italic/bold」仍未核，继续只作定性提醒。
 
 ---
 
@@ -576,11 +575,11 @@ const limited = segments.slice(0, max).map(s => s.segment).join("");
 
 ## 24 · 取源与限制（公开记录）
 
-- **已逐条联网核验（官方原文）**：W3C WCAG 2.2 Understanding SC 1.4.12（四项数值、Exception、Note 1/2、Applicability、Author/User Responsibility）；MDN `font-size`（相对单位建议、px not accessible、em compounding 25.6/40.96px、rem 消除 compounding）；MDN `font-display`（五档、三阶段、初始 `auto`、Baseline 2020-01）；MDN `unicode-range`（「至少一个字符即整片下载」、三种语法、初始 `U+0-10FFFF`、Baseline 2015-07）；MDN `font-variant-numeric`（8 个值 ↔ tag 全表）；MDN `font-feature-settings`（高层优先、4 字符 ASCII tag、on/off=1/0、省略默认 1、small caps 禁用）；M3 `applying-type`（五角色×三尺寸、1.2×/1.5× 行高比率、tabular figures、3:1 / 4.5:1、链接必须下划线、half-leading）；W3C clreq（§2.1.3 不多于 1/4 汉字宽与行首行尾例外、§1.2 1:1 正方形、§4.1 全角 ASCII 与半角术语、§4.2.1 字素丛与 UAX #29）；SIL OFL 1.1 官方英文原文（Preamble + 五条件 + TERMINATION + 文档不受约束）。
+- **已逐条联网核验（官方原文）**：WCAG 2.2 Understanding SC 1.4.12（四项数值、例外、Note 1/2）；MDN `font-size`（px 不可访问、em compounding 25.6/40.96px、rem 修复）、`font-display`（五档与三阶段）、`unicode-range`（命中一个字符即整片下载）、`font-variant-numeric`（8 值 ↔ tag）、`font-feature-settings`（4 字符 ASCII tag、高层优先）；M3 `applying-type`（1.2×/1.5× 行高、tabular figures、3:1/4.5:1）；W3C clreq（§1.2 方块 1:1、§2.1.3 空白 ≤1/4 字、§4.1 存储 ASCII、§4.2.1 字素丛、§6.1.1–§6.1.3 禁则/不可拆/悬挂）；SIL OFL 1.1 全文。
 - **GitHub REST API 实测（2026-11-07，未认证读取 200）**：§19 表格九个仓库的 star / `license.spdx_id` / `pushed_at` / `archived` 均为当次实测；`NOASSERTION` 按「API 未自动识别」如实记录，未推断具体许可。`modernfontstacks/modern-font-stacks` 返回 404，已剔除，不写入。
 - **未取得、因此不臆造**：
-  - **M3 15 档 type scale 的精确 `size / line-height / weight / tracking` 表**——官方 `overview` / `type-scale-tokens` 为动态渲染页，`material-web` 的 `_md-sys-typescale.scss` 未含可直接引用的字面数值表。本文件只写「五角色×三尺寸」「30 = 15 baseline + 15 emphasized（2025-05 起）」「2026-08 language script height category」「行高比率」「token 命名」，**不给伪造数值**；上线前以官方页面或 `material-web` token 源码为准。
-  - clreq 的「标点挤压」「避头尾（禁则处理）」「中文强调须用着重号替代 italic/bold」——本次抓取片段未证实，**只作定性提醒不写规范与数值**。
+  - **M3 15 档精确 `size / line-height / weight / tracking` 表**——官方页为动态渲染，`material-web` 的 `_md-sys-typescale.scss` 无可直接引用的字面表。只写「五角色×三尺寸」「30 = 15 baseline + 15 emphasized」「行高比率」「token 命名」，**不伪造数值**；上线前回官方页或源码。
+  - clreq 的「标点挤压」「避头尾」已于 2026-11-22 补核（§6.1.1–§6.1.3，见 §16 与 `chinese-design.md` §1.5），原「未证实」记录作废；「着重号替代 italic/bold」仍未核。
   - 各字体的实际子集体积、`size-adjust` 的具体百分比、CLS 实测值——必须针对自己的字体与页面实测（§15 §19 给了方法），不照抄任何二手数字。
   - iOS Safari `<16px` 自动缩放等中文社区/二手说法未作为硬规范依据，只作线索，不写入。
 - **口径纪律**：`size-adjust` 百分比、`font-size-adjust` 公式 `u=(m/m′)s`、五个注册轴、`material-web` token 命名、M3 30 styles 与 language script height category 来自官方页面/规范但本轮未逐条重取动态页原文，标注为「以官方为准」；凡标「以官方为准」的数值不臆造逐字与精确版本号。`NOASSERTION` ≠ 无许可；1.4.12 ≠ 默认样式表；`optional` ≠ 一定不下载，只是不 swap。

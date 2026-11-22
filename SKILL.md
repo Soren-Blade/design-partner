@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v63 · 2026-11-21**：v63 补案例 30（订单详情打印：零 `@media print`、第 2 页无表头、徽标剥底后成功绿 3.30:1），新增 `print-export.md`（A4 210×297mm、`@page` 只能放页面描述符与 margin at-rules、`break-inside: avoid`、`print-color-adjust` 默认 economy 会剥色且无保证），立 J13「打印是第二载体」；`before-after.md` 30 组。v62 见 `CHANGELOG.md`。
+**当前版本 v64 · 2026-11-22**：v64 中文排版定稿——行高按角色单点取 `numeric-truth.md` §1.2；避头尾按 clreq §6.1.1 四档（默认 `basic`，`line-break: strict` 只近似 strict 档）、2em 破折号/省略号与数字单位不可拆、「先挤压后禁则」；中英混排按介质分层（HTML 走 `text-spacing-trim`/`text-autospace`，纯文本手敲一个半角空格）；`editorial-layout.md` §15 并入 `chinese-design.md` §1.5–§1.7，不再保留第二套清单。v63 见 CHANGELOG。
 
 ---
 
@@ -123,7 +123,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | `references/visual-hierarchy-gestalt.md` | 层级不清、分组、扫读路径、认知负荷 | §2 判层 · §7 分组 · §8 层级 · §9 动线 |
 | `references/iconography.md` | 图标系统、描边、网格、可访问性、spinner | §1 判型 · §2 网格 · §3 描边 · §10 可访问 |
 | `references/design-tokens.md` | token 命名、层级、语义、双主题 | §1 三层 · §3 命名 · §5 语义 |
-| `references/chinese-design.md` | 中文项目默认先读：字形、标点、竖排、混排 | §1 中文排印 · §1.7 竖排 |
+| `references/chinese-design.md` | 中文项目默认先读：字形、标点、竖排、混排；14px 行高有两种合法取法 | §1.2 字号行高 · §1.5 标点禁则 · §1.7 竖排 |
 | `references/visual-style-taxonomy.md` | 风格匹配、谱系、历史参照、风格诊断 | §2 谱系 · §4 判据 |
 | `references/brand-identity.md` | logo、VI、品牌色、清 space、favicon、品牌语气 | §3 标志 · §5 色彩 · §6 清 space · §15 图标 |
 | `references/multi-brand-theming.md` | 多品牌/多主题：该不该上架构、主题分层 | §一 判层 · §三 决策归属 |
@@ -256,7 +256,7 @@ python scripts/memory.py add --task "落地页首屏改版" ^
 - **不臆造**：数值、来源、资源链接、用户反馈，取不到就写「未验证」。
 - **先诊断后开药**：改造与评审先看现状，再谈改法。
 - **记忆优先**：与画像冲突时，先解释冲突，再决定是否推翻画像。
-- **中文默认**：中文项目先读 `chinese-design.md`；中英混排按 `numeric-truth.md` §1 执行。
+- **中文默认**：中文项目先读 `chinese-design.md`；行高按角色取 `numeric-truth.md` §1.2，中英混排的空格按介质分层取 `chinese-design.md` §1.5。
 - **只动本技能目录**：升级不得修改目录外文件；安装副本同步由发布脚本负责。
 - **来源**：全部来源与取源限制见 `SOURCES.md`；引用规范数值时标注「法条 / 设计值 / 库默认 / 经验值」。
 

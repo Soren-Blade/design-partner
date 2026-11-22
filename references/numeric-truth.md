@@ -35,7 +35,12 @@
 
 | 项目 | 裁决值 | 适用/例外 | 依据（来源+年份） | 唯一裁决源（文件 §） |
 |---|---|---|---|---|
-| 中文正文行高 | 1.6–1.8，推荐 **1.7** | 小字/表内 1.5–1.6；中后台 14px 可用 1.57 | W3C clreq（2024）+ 本库中文实测（2023–2026） | numeric-truth §1.2 |
+| 中文正文行高（连续阅读） | 1.6–1.8，推荐 **1.7** | 16–18px 正文；17–18px 可取 1.65 | W3C clreq（2024）+ 本库中文实测（2023–2026） | numeric-truth §1.2 |
+| 中文正文行高（14px） | **22px（≈1.57）或 1.7** | 中后台表格/表单取 22px；小屏连续阅读取 1.7；同一产品同一层级只选一个 | Ant Design 5（2024）+ 本库 | numeric-truth §1.2 |
+| 中文辅助行高 | 1.5–1.6 | 12–13px；低于 1.5 上下笔画相撞 | Ant Design 5（2024）+ 本库 | numeric-truth §1.2 |
+| 中文标题行高 | 1.3–1.4 | 20–48px；字号越大越靠 1.3 | 本库经验值（2023–2026） | numeric-truth §1.2 |
+| 中文展示行高 | 1.2 | 48–72px 大屏；配 `letter-spacing: 0.02em` | 本库经验值（2023–2026） | numeric-truth §1.2 |
+| 中文投影行高 | 1.4–1.6 | 投影演示专用；不套屏幕正文 | presentation-design §11（2024） | numeric-truth §1.2 |
 | 拉丁 UI 行高 | **1.5** | 标签、按钮、表格等短文本 | Material Design 3 applying-type（2024） | numeric-truth §1.2 |
 | 拉丁长文行高 | 1.4–1.6 | 行长越大越取上限 | Butterick, Practical Typography（2010，持续修订） | numeric-truth §1.2 |
 | 正文行长（中文） | 25–40 字/行 | 上限 45 字；移动端 15–20 字 | WCAG 2.2 SC 1.4.8（2023）+ Butterick（2010） | numeric-truth §1.2 |
@@ -149,7 +154,7 @@ WCAG 2.2 SC 2.5.8 的 24×24 CSS px 是 **AA 底线**（Target Size Minimum）�
 | 文件 | 该文件保留的特有判断 | 数值指向 |
 |---|---|---|
 | `typography-system.md` §5 / §6 / §16 / §23 | 行高按角色分档的理由、WCAG 三关的验收方法、clreq 原文、token 写法 | numeric-truth §1.2 |
-| `editorial-layout.md` §6 / §7.4 / §14.2 / §15 | 行长×行距联动、justify 的成立条件、中文版式与避头尾 | numeric-truth §1.2 |
+| `editorial-layout.md` §6 / §7.4 / §14.2 | 行长×行距联动、justify 的成立条件、版面级字距与缩进 | numeric-truth §1.2 |
 | `chinese-design.md` §1.2 / §1.5 / §1.6 | 中文与拉丁的差异原因、标点与混排实现 | numeric-truth §1.2 |
 | `navigation-ia.md` §3 / §4 | 导航形态约束、广度优先于深度 | numeric-truth §1.3 |
 | `visual-hierarchy-gestalt.md` §11 | 认知负荷三类、chunking 的正确用法 | numeric-truth §1.3 |

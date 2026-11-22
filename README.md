@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v63` · 本页由 `scripts/build_readme.py` 生成于 2026-11-21 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v64` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -48,18 +48,18 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
 | 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 976 | 13 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
-| 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
+| 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 207 | 6 |
 | 判断与品味 | [`design-critique.md`](references/design-critique.md) · 设计评审与反馈 · Design Critique & Feedback | 261 | 23 |
-| 视觉基础 | [`typography-system.md`](references/typography-system.md) · 字体排印系统（Typography System） | 591 | 24 |
+| 视觉基础 | [`typography-system.md`](references/typography-system.md) · 字体排印系统（Typography System） | 590 | 24 |
 | 视觉基础 | [`color-science.md`](references/color-science.md) · 色彩科学（Color Science for Designers） | 400 | 16 |
 | 视觉基础 | [`visual-hierarchy-gestalt.md`](references/visual-hierarchy-gestalt.md) · 视觉层级与格式塔组织律（Visual Hierarchy & Gestalt / Attention & Cognitive Load） | 672 | 24 |
 | 视觉基础 | [`shape-elevation.md`](references/shape-elevation.md) · 形状与深度系统（Shape & Elevation） | 820 | 24 |
 | 视觉基础 | [`iconography.md`](references/iconography.md) · 图标设计系统 · Iconography | 339 | 20 |
 | 视觉基础 | [`visual-style-taxonomy.md`](references/visual-style-taxonomy.md) · 视觉风格谱系与设计运动（Visual Style Taxonomy） | 318 | 14 |
-| 视觉基础 | [`chinese-design.md`](references/chinese-design.md) · 中文设计场景 — Chinese Design（排版规范 + 生态地图） | 193 | 4 |
+| 视觉基础 | [`chinese-design.md`](references/chinese-design.md) · 中文设计场景 — Chinese Design（排版规范 + 生态地图） | 181 | 4 |
 | 视觉基础 | [`design-tokens.md`](references/design-tokens.md) · 设计 Token 体系 — Design Tokens（深度蒸馏） | 229 | 6 |
 | 视觉基础 | [`brand-identity.md`](references/brand-identity.md) · 品牌视觉与 Logo 逻辑（Brand Identity） | 695 | 21 |
-| 版式与系统 | [`editorial-layout.md`](references/editorial-layout.md) · 版式与网格（Editorial Layout） | 772 | 21 |
+| 版式与系统 | [`editorial-layout.md`](references/editorial-layout.md) · 版式与网格（Editorial Layout） | 759 | 21 |
 | 版式与系统 | [`responsive-layout.md`](references/responsive-layout.md) · 响应式与断点体系 · Responsive Layout | 717 | 20 |
 | 版式与系统 | [`dark-mode.md`](references/dark-mode.md) · 暗色模式体系（Dark Mode System） | 559 | 15 |
 | 版式与系统 | [`motion-system.md`](references/motion-system.md) · 动效与微交互系统 — Motion System（深度蒸馏） | 323 | 12 |
@@ -80,7 +80,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 界面与交互 | [`conversational-generative-ui.md`](references/conversational-generative-ui.md) · 对话式与生成式界面：流式输出、混合界面与可纠错契约 | 748 | 26 |
 | 界面与交互 | [`realtime-collaboration.md`](references/realtime-collaboration.md) · 实时协作与多人编辑（Real-time Collaboration & Presence） | 770 | 22 |
 | 界面与交互 | [`video-player-captions.md`](references/video-player-captions.md) · 视频播放器与字幕（Video Player UX & Captions / Subtitles / WebVTT） | 586 | 14 |
-| 领域与商业 | [`presentation-design.md`](references/presentation-design.md) · 演示文稿与幻灯片版式（Presentation Design） | 1130 | 19 |
+| 领域与商业 | [`presentation-design.md`](references/presentation-design.md) · 演示文稿与幻灯片版式（Presentation Design） | 1129 | 19 |
 | 领域与商业 | [`email-design.md`](references/email-design.md) · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout） | 835 | 22 |
 | 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 445 | 19 |
 | 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 689 | 14 |
@@ -90,7 +90,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
 | 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 506 | 24 |
-| 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 819 | 19 |
+| 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 821 | 19 |
 | 合规与工具链 | [`accessibility.md`](references/accessibility.md) · 可访问性实操 / 无障碍（Accessibility in Practice） | 691 | 20 |
 | 合规与工具链 | [`i18n-localization.md`](references/i18n-localization.md) · 国际化与本地化设计（i18n / L10n / RTL / 多语言） | 1059 | 22 |
 | 合规与工具链 | [`design-ethics-inclusion.md`](references/design-ethics-inclusion.md) · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍 | 800 | 24 |
@@ -109,7 +109,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，60 条记录，其中 3 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，61 条记录，其中 3 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

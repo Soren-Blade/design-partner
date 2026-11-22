@@ -5,6 +5,13 @@
 
 ---
 
+## v64 · 2026-11-22（中文排版定稿：clreq 四档禁则、行高单点、混排按介质分层）
+
+- **一句话**：行高只由 `numeric-truth.md` §1.2 裁决（连续阅读 1.7；14px 中后台 22px 或连续阅读 1.7，同层级只选一个）；避头尾按 clreq §6.1.1 四档（默认 `basic`，`line-break: strict` 仅近似 strict 档），2em 破折号/省略号与数字单位不可拆、先挤压后禁则；中英混排 HTML 走 `text-spacing-trim`/`text-autospace`、纯文本手敲一个半角空格。
+- **改动**：`editorial-layout.md` §15 并入 `chinese-design.md` §1.5–§1.7（只留指针）；`typography-system.md` §5 合并重复行高、§16 改「已补核」、§24 压缩 M3/clreq 记录；`responsive-layout.md` §6.3、`presentation-design.md` §11、`email-design.md` §7.3、`ux-writing.md` §11.2 加角色/介质限定；SKILL §4.2/§8 同步。一进一出 **净 −3**（各文件净增合计 1,130 / 净减合计 1,133）。
+- **本轮被推翻的旧判断**：`typography-system.md` §16 曾判「clreq 未给出避头尾具体规则」，实际 clreq §6.1.1 给出四档级别与逐类符号；`chinese-design.md` 旧清单把 `％℃` 列入行首禁则，实际它们与数字属「不可拆单位」。
+- **门禁**：`dp_search "避头尾 四档 挤压"` 第 1 = `chinese-design.md` §1.5（109.1）；audit PASS 38 · WARN 0 · FAIL 0；README 一致；mindmap 64 文件 / 2,497 章节。
+
 ## v63 · 2026-11-21（案例 30：订单详情打印，第 2 页无表头、徽标剥底后成功绿 3.30:1；新资产 print-export.md 与 J13）
 
 - **新资产 `references/print-export.md`（7,901 字符 / 195 行 / 2 段可跑代码）**：打印判层与验收——A4 210×297mm、`@page` 只能放页面描述符与 margin at-rules（不能放普通选择器、不能用 `vh/vw`）、`break-inside: avoid` 不保证不跨页、`print-color-adjust` 默认 `economy` 会剥背景且 MDN 明说 "there isn't any guarantee"、语义色须补文字/图形、`thead{display:table-header-group}` 逐页重复表头、页脚三件。空白实测：v62 全库 `打印样式` 2、`@page` 5（均在 quote-invoice / editorial-layout 边角）、零 `@media print`。

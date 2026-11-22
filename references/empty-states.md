@@ -183,7 +183,7 @@ Atlassian 对插画给了明确的可选性与禁忌：
 
 - **首次操作率（First-Action Rate）**：看到首次空态后点击主操作的比例，是这块的北极星——比"空态曝光量"有用。
 - **清除筛选率**（无结果空）与**重试率**（失败空）：分别反映筛选是否过严、排除网络抖动后的真实恢复能力。
-- **样本量与护栏**：日活低时按 `design-measurement-research.md §7` 的比例样本量公式放大；不用多个 CTA 换首操率（§6），也不做伪进度、默认保留筛选这类 `design-ethics-inclusion.md` 红线设计。
+- **样本量与护栏**：日活低时按 `design-measurement-research.md §8` 的样本量公式放大；不用多个 CTA 换首操率（§6），也不做伪进度、默认保留筛选这类 `design-ethics-inclusion.md` 红线设计。
 
 ---
 

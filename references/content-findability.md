@@ -2,7 +2,7 @@
 
 > 快照 2026-11-09 · 27 节 · 12 场景 · 20 反模式 · 20 自检 · 5 段可抄代码（3 段 Python 已实跑）
 
-把「放个搜索框、写几句简洁文案、导航清楚一点」变成**有官方原文、有量化口径、能静态验收的找路契约**。本文件不替代 `navigation-ia.md`（导航形态、面包屑、IA 深度广度）、`feedback-states.md §5/§6`（五种空态与 404 文案模板）、`ux-writing.md §14.3`（文案语气与可读性）、`design-measurement-research.md §11`（A/B 与统计）、`accessibility.md`（WCAG 全档阈值）、`typography-system.md §16`（W3C clreq 中文排版）、`visual-hierarchy-gestalt.md §3/§4`（F 型与扫描模式），而是补上它们都在**假设**、却没人贯通的一整条链路：**用户从「我要找个东西」到「我确认找到了」之间，每一步靠什么线索、在哪一步流失、以及这条链路对读屏用户是否同样成立**。
+把「放个搜索框、写几句简洁文案、导航清楚一点」变成**有官方原文、有量化口径、能静态验收的找路契约**。本文件不替代 `navigation-ia.md`（导航形态、面包屑、IA 深度广度）、`feedback-states.md §5/§6`（五种空态与 404 文案模板）、`ux-writing.md §14.3`（文案语气与可读性）、`design-measurement-research.md §13`（A/B 与统计）、`accessibility.md`（WCAG 全档阈值）、`typography-system.md §16`（W3C clreq 中文排版）、`visual-hierarchy-gestalt.md §3/§4`（F 型与扫描模式），而是补上它们都在**假设**、却没人贯通的一整条链路：**用户从「我要找个东西」到「我确认找到了」之间，每一步靠什么线索、在哪一步流失、以及这条链路对读屏用户是否同样成立**。
 
 **一句话立场**：可发现性不是搜索框的属性，是**内容在整条链路上留下的线索密度**——用户先要「有路可走」，再要「看得出哪条路对」，再要「点进去读得动」，最后要「走错了还能退出来」。任何一环断裂，前面的视觉层级做得再好都是把用户更快地送到一个死胡同。
 
@@ -12,7 +12,7 @@
 2. **链接目的必须能在脱离上下文时成立；前 11 个字符决定用户会不会看完整句**。W3C SC 2.4.4（A）要求链接目的可由 *"link text alone or from the link text together with its programmatically determined link context"* 判定，SC 2.4.9（AAA）进一步要求 *"from link text alone"*，Intent 说明理由：*"links can be understood when they are out of context, such as when the user agent provides a list of all the links on a page."* NN/g（1997-09-30）实测 *"79 percent of our test users always scanned any new page they came across; only 16 percent read word-by-word."*；2009-04-06 的 11 字符研究里，35% 的链接只凭开头根本 *"hadn't the faintest idea of where the links would lead"*。**「了解更多 / Learn More」不是文案风格问题，是读屏用户的 links list 里一排无法区分的同名项**。
 3. **阅读等级的合规门槛是「九年学校教育」，不是某个 Flesch 分数；音节公式不能套中文**。W3C SC 3.1.5（AAA）逐字要求当文本 *"requires reading ability more advanced than the lower secondary education level after removal of proper names and titles"* 时提供补充内容或简化版本；Intent 明确 *"Supplemental content is required when text demands reading ability more advanced than the lower secondary education level—that is, more than nine years of school."* FRE / FKGL / SMOG 三条公式都以**英文音节**为输入，Wikipedia 明确 *"the two schemes are not directly comparable and cannot be converted"*，且 *"As readability formulas were developed for school books, they demonstrate weaknesses compared to directly testing usability with typical readers."* 中文没有等价音节结构，**把 206.835 公式直接跑在中文上得到的数值没有意义**。
 
-**边界声明**：本文件管「找路路径、链接线索、文本可扫读、死胡同、可发现性度量」的机制与验收；具体导航项数与深度归 `navigation-ia.md §3/§4`；面包屑三型与 `aria-current` 归 `navigation-ia.md §5`；空态五分法与错误页文案模板归 `feedback-states.md §5/§6`；字号、行高、行长、W3C clreq 归 `typography-system.md`；对比度与焦点可见归 `accessibility.md` / `color-science.md`；F 型扫描与视觉动线归 `visual-hierarchy-gestalt.md §3/§4`；A/B 与统计显著性归 `design-measurement-research.md §11`。**本文件不生产新的「XX 字最合适」魔法数**，只生产可复现的判断规则、逐字原文与静态检查器。
+**边界声明**：本文件管「找路路径、链接线索、文本可扫读、死胡同、可发现性度量」的机制与验收；具体导航项数与深度归 `navigation-ia.md §3/§4`；面包屑三型与 `aria-current` 归 `navigation-ia.md §5`；空态五分法与错误页文案模板归 `feedback-states.md §5/§6`；字号、行高、行长、W3C clreq 归 `typography-system.md`；对比度与焦点可见归 `accessibility.md` / `color-science.md`；F 型扫描与视觉动线归 `visual-hierarchy-gestalt.md §3/§4`；A/B 与统计显著性归 `design-measurement-research.md §13`。**本文件不生产新的「XX 字最合适」魔法数**，只生产可复现的判断规则、逐字原文与静态检查器。
 
 ---
 

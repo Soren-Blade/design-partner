@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v66 · 2026-11-22**：v66 索引资源降级——四份索引 `resources / tools / inspiration / portfolios` 从 657 条链接裁到 30 条策展，口径只写在 `resources.md` 「策展口径」（上限、入选三条件、剔除四类、长尾下一跳）；清单是数据，不是依据。v65 数值口径单点化（例外只登记在 `numeric-truth.md` §1）与 v64 中文排版定稿见 CHANGELOG。
+**当前版本 v67 · 2026-11-22**：v67 评分噪声下限——「差多少才算差」定成三档（逐轴 ≤1 且合计 ≤2 = 同一水平，不写更好；单轴 ≥2 或 ≥2 轴各 ≥1 且合计 ≥3 才可写；层级/一致性/风险任一下降即整体不成立），写在 `design-measurement-research.md` §15.4；同时清掉四处「解析得通但指错」的章节指针、rubric 去重锚点、golden brief 10 → 14 并补入选判据。v66 索引资源降级（657 → 30 条策展）与 v65 数值口径单点化见 CHANGELOG。
 
 ---
 
@@ -111,7 +111,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
 | `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长），含「这个例外该进哪张表」 | §1 口径表（适用/例外列是例外唯一登记处）· §2 六条纪律 |
-| `references/design-measurement-research.md` | 指标、研究方法、统计验收 | §1 指标 · §4 方法 · §10 验收 |
+| `references/design-measurement-research.md` | 指标、研究方法、统计验收 | §8 样本量 · §13 A/B · §15.4 分数噪声 |
 
 ### 4.2 视觉基础
 
@@ -274,6 +274,6 @@ python scripts/memory.py add --task "落地页首屏改版" ^
 | `scripts/dp_search.py` | 检索入口 | `"关键词" -n 8` / `--topic` / `--rebuild` |
 | `scripts/memory.py` | 记忆读写与晋升 | `add / stats / promote / apply / validate` |
 | `scripts/audit.py` | 门禁 | `--json` / `--only A1,A5` |
-| `tests/golden/` | 盲评集（10 条 brief + rubric） | 产出两案 → 五轴打分 → 记 baseline |
+| `tests/golden/` | 盲评集（14 条 brief + rubric + 噪声下限） | 产出两案 → 五轴打分 → 记 baseline |
 | `CHANGELOG.md` | v38–v52 版本史 + 每日升级摘要 | 每轮顶部追加一行 |
 | `SOURCES.md` | 来源索引与取源限制 | 引用来源时查 |

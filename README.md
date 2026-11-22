@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v66` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v67` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -89,7 +89,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
-| 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 506 | 24 |
+| 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 521 | 24 |
 | 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 821 | 19 |
 | 合规与工具链 | [`accessibility.md`](references/accessibility.md) · 可访问性实操 / 无障碍（Accessibility in Practice） | 691 | 20 |
 | 合规与工具链 | [`i18n-localization.md`](references/i18n-localization.md) · 国际化与本地化设计（i18n / L10n / RTL / 多语言） | 1059 | 22 |
@@ -109,7 +109,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，63 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，64 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

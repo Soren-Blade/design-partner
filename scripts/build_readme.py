@@ -25,6 +25,9 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "scripts" / "readme_template.md"
 README = ROOT / "README.md"
 
+sys.path.insert(0, str(ROOT / "scripts"))
+from memory import REAL_SIGNALS  # noqa: E402  真实信号只有这一处定义（memory.py）
+
 GROUPS = [
     ("判断与品味", ["taste-criteria", "comparison-protocol", "before-after", "user-modeling",
                     "numeric-truth", "design-critique"]),
@@ -107,7 +110,7 @@ def memory_stats() -> dict:
                 rec = json.loads(line)
             except json.JSONDecodeError:
                 continue
-            if rec.get("user_quote") or (rec.get("signal_type") not in (None, "none")):
+            if rec.get("user_quote") or rec.get("signal_type") in REAL_SIGNALS:
                 real += 1
     profile = ROOT / "memory" / "profile.md"
     state = "尚未建立"

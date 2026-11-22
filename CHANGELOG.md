@@ -15,7 +15,8 @@
 - **一进一出（本次平衡）**：库本体 SKILL + references 净 **−113**（`design-measurement-research` −883 / `comparison-protocol` +736 / SKILL +34），符合「新增 N 删 ≥N」；夹具不减反增（`tests/golden/README.md` +355、新增 `baseline.md`），属队列 #6 交付，不计入库本体但确实推高仓库总量，如实记。SKILL 实测 280 行 / 12,735 字符（≤500 行 / ≤30,000）。
 - **门禁**：`dp_search "盲评 产出者 评审 自评 基线"` 第 1 = `comparison-protocol.md` §4.1（131.4），第 2 = `design-critique.md` §1（52.9），第 3 = `user-modeling.md` §4（35.0）；`audit.py` 本轮先跑出 A3 两条 FAIL（README 版本 / `--check` 过期），`build_readme.py` 重建后转 PASS；`build_readme.py --check` 新鲜；本轮无 reference 增删（§9 是段内合并、§17 是同节改写），未跑 `mindmap.py`。
 - **记忆**：`memory/journal.jsonl` 追加第 65 行，`signal_type: none`（本轮无真实用户信号）；`memory.py stats` 真实信号仍 0 条，`profile.md` 保持空态——队列 #4/#5 继续阻塞，不臆造偏好。
-- **发布**：见下方「发布结果」。
+- **发布**：提交 `aa7ac73`，`git push origin main` 一次成功（`a456044..aa7ac73`，未复现 v65 的 SSL_read reset）。两处副本 `%USERPROFILE%\.agents\skills\design-partner` 与 `%USERPROFILE%\.workbuddy-ai\skills\design-partner` 各同步 8 个改动文件，逐个 SHA256 一致；`memory/tree.md` 与 `index.json` 未变（audit A6 判未过期）。
+- **队列记账**：#6「golden 10 → 20 + 首轮 baseline」——**baseline 部分完成**（1/14 条），brief 数仍 14 条、缺口 6 条未动；#4 真实反馈采集、#5 画像从 0 到 1 继续被「零真实信号」阻塞（65 条 journal 全 none/process），不臆造。#9 越界内容拆附录、#11 CI 门禁、#12 季度裁剪未动。
 
 ## v67 · 2026-11-22（评分噪声下限：差 1 分不算差，1 分以上要能指到画面）
 

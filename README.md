@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v67` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v68` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -45,7 +45,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 组 | 资产 | 行 | 节 |
 |---|---|---:|---:|
 | 判断与品味 | [`taste-criteria.md`](references/taste-criteria.md) · 品味判据 · Taste Criteria | 304 | 11 |
-| 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
+| 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 187 | 9 |
 | 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 976 | 13 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
 | 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
@@ -89,7 +89,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
-| 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 521 | 24 |
+| 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 510 | 24 |
 | 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 821 | 19 |
 | 合规与工具链 | [`accessibility.md`](references/accessibility.md) · 可访问性实操 / 无障碍（Accessibility in Practice） | 691 | 20 |
 | 合规与工具链 | [`i18n-localization.md`](references/i18n-localization.md) · 国际化与本地化设计（i18n / L10n / RTL / 多语言） | 1059 | 22 |
@@ -109,7 +109,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，64 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，65 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

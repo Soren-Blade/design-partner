@@ -11,7 +11,7 @@
 - **改动**：`motion-system.md` §3.1 补两行——四体系表是各家原值、不是本库刻度（Carbon moderate-02 240ms 对 M3 short4 200ms，照抄一家就得到第二套刻度）；`taste-criteria.md` §0 给「本技能口径」立边界（已成表的行高/时长/触控/对比度不再用这个标签）；`typography-system.md` §5 七角色只留指针、§10 行高比率改指原文；`knowledge-map.md` 四档对比度与投影对比度降为指针；`accessibility.md` §16.3 行高改指表；SKILL §4.2 路由写清「例外列是唯一登记处」；`scripts/build_readme.py` 的「真实反馈」原按「`signal_type` ≠ none」计数，把 3 条 `process` 记成用户反馈，现改为 import `memory.py` 的 `REAL_SIGNALS`，README 从「3 条」改为「0 条」。一进一出 **净 −3**（refs 1,725,214 → 1,725,211 字符），SKILL 12,526 → 12,469（净 −57）。
 - **本轮被推翻的旧判断**：`taste-criteria.md` §6 曾写「本技能口径：120/240/400ms」，其中 240 既不来自 token（`--dur-base` 200）也不落在 §1.3 的转场区间（200–300），是从 Carbon moderate-02 抄来的**库默认**——把某一家的中间档当成本库刻度，正是「二手转述冒充设计值」；同时 `dataviz.md`「唯一可破 400ms」与 `email-design.md`「1.5–1.6」长期只活在专题文件里，等于两张表外孤岛；`build_readme.py` 把 `process` 信号算作真实用户反馈，是**用日志条数冒充反馈**（与 `memory.py` 的 `REAL_SIGNALS` 口径打架）。
 - **门禁**：`dp_search "图表首次入场 450ms 是唯一例外"` 命中 `dataviz.md` §8（78.8）与 `numeric-truth.md` §1（74.7）；`grep 240ms` 仅 `motion-system.md` §3.1 与 §4 侧栏宽度（240px，非时长）；audit PASS 38 · WARN 0 · FAIL 0；README 一致；本轮无资产增删，未跑 mindmap。
-- **发布**：`git push` 首次被拒（远端多出两个内容树相同的 v64 提交，本地缺），`git fetch` 比树确认无差异后 `git rebase origin/main` 成功，推送 `3224808..5a54adb`（remote `main`）；两处安装副本 13 个本轮改动文件逐个 SHA256 与本仓一致。
+- **发布**：`git push` 首次被拒（远端多出两个内容树相同的 v64 提交，本地缺），`git fetch` 比树确认无差异后 `git rebase origin/main` 成功，推送 `3224808..5a54adb`（remote `main`）；两处安装副本 13 个本轮改动文件逐个 SHA256 与本仓一致。收尾又发现 `build_readme.py` 把 `process` 信号算作真实反馈（README 写「3 条」），修正后追加 `09a2772`（README 改「0 条」），副本再同步并核对 4 个文件哈希。
 
 ## v64 · 2026-11-22（中文排版定稿：clreq 四档禁则、行高单点、混排按介质分层）
 

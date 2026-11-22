@@ -12,7 +12,7 @@
 
 ## 1 · 为什么单列字体排印系统
 
-字体排印是和色彩科学并列的**基础设计支柱**，但此前本知识库没有独立文件：字体知识散落在 `performance-design.md`（19 行，讲加载）、`brand-identity.md`（13 行，讲人格）、`visual-style-taxonomy.md`（10 行，讲风格信号）、`knowledge-map.md`（8 行，讲路线）等边角。上游文件都在**用**字体，没人讲**字体本身怎么算、怎么被用户改、怎么被浏览器回退**。这一层不补，「正文 16px、行高 1.5」就永远是一条没有理由的口诀。
+字体排印是和色彩科学并列的**基础设计支柱**，但此前本知识库没有独立文件，字体知识散落在讲加载、讲人格、讲风格信号的边角里。上游文件都在**用**字体，没人讲**字体本身怎么算、怎么被用户改、怎么被浏览器回退**。这一层不补，「正文 16px、行高 1.5」就永远是一条没有理由的口诀。
 
 **本轮三条最重要裁决**（后文逐条给官方原文与验收方法）：
 
@@ -71,7 +71,7 @@
 行高与行长决定长文可读性，也是对比度、可访问性与验收里最常被跳过的一组数值；三段式节奏（行内 / 段间 / 块间）必须分开定，不能一个 `line-height` 打天下。
 
 - **行高比率（M3 官方，已核验）**：`applying-type` 原文——*"For larger type legibility using styles like title, headline, and display, we recommend a line height ratio of **1.2 times** the type size"*；*"For smaller body copy using styles like body and label, we recommend a line height ratio **around 1.5 times** the type size."* 注意这是**拉丁**口径：1.2 只给大字号标题，1.5 给拉丁 UI 短文本，不能直接套到中文正文。
-- **本知识库口径（见 numeric-truth §1.2）**：中文行高按角色取——连续阅读 1.7、中后台 14px 用 22px 档、辅助 1.5–1.6、标题 1.3–1.4、投影 1.4–1.6；拉丁 UI **1.5**，拉丁长文 **1.4–1.6**。`SKILL.md` 第 5 步「行高 1.5–1.7」与本表冲突时以本表为准。写 token 时按 display / latin / cjk 分三档，不要全局一个值。
+- **本知识库口径**：行高按角色取——连续阅读、中后台 14px、辅助、标题、投影、拉丁 UI、拉丁长文七个角色，数值一律见 `numeric-truth.md` §1.2，本文不再复述。`SKILL.md` 第 5 步「行高 1.5–1.7」与表冲突时以表为准。写 token 时按 display / latin / cjk 分三档，不要全局一个值。
 - **行长（WCAG 2.2 SC 1.4.8 Visual Presentation，AAA）**：文本块宽度 **≤80 characters or glyphs（CJK ≤40）**、`Text is not justified`（AAA 原文；中文的条件式用法见下条）、段内行距 `space-and-a-half`、段间距至少 `1.5 times larger than line spacing`。行长超标时优先缩容器而不是缩字号。
 - **三段节奏分离**：`line-height`（行内）/ `margin-block-end`（段间，≥2× font size 才扛得住 1.4.12）/ 块间距（章节，走 spacing token）。三者都写死 `px` 会在间距覆盖时叠爆。
 - **两端对齐是条件式，不是无条件硬禁**：拉丁正文一律左对齐（ragged right）；中文内容页可用 `text-align: justify`，但必须同时做**标点挤压/避头尾**（`text-spacing-trim` + `line-break: strict`），且 **`text-align-last: left`** 保证最后一行不拉伸。任一条件缺失就回到左对齐；以 WCAG AAA 为验收目标时，中文也按 1.4.8 原文用左对齐。口径见 numeric-truth §1.2。
@@ -248,7 +248,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 
 - **五角色 × 三尺寸（官方已核验）**：`applying-type` 原文——*"The Material 3 type scale organizes styles into **five roles** that are named to describe their purposes: **display, headline, title, label, body**. Each role has **three sizes: large, medium, and small**."* → 15 个 baseline styles。官方 2025-05 起另有 emphasized 变体，使总数成为 30（15 baseline + 15 emphasized）；2026-08 更新支持按 language script height category 自动适配 line height。**取源限制**：官方 `overview` / `type-scale-tokens` 为动态渲染页，本机未能取得完整 15 行 `size / line-height / weight / tracking` 字面表，故**不在此伪造数值**；上线前以官方页面或 `material-web` token 源码为准。
 - **角色语义（官方）**：display 保留给短而重要的文字/数字、适合大屏、可用表现性字体并设 optical size；headline 适合小屏短高强调文本；title 中等强调、较短、**慎用**表现性字体；body 用于长段落、**禁**装饰字体；label 用于组件内文字与 caption（按钮用 label large）。
-- **行高比率（官方）**：大字号（title/headline/display）≈ `1.2×`，小正文/标签 ≈ `1.5×`（见 §5）。
+- **行高比率（官方）**：拉丁大字号 `1.2×`、小正文 `1.5×`——原文与「为什么不能套到中文」见 §5。
 - **数字与链接（官方）**：表格/时钟/频繁变化值用 tabular figures；大文本 3:1 / 小文本 4.5:1；**超链接必须加下划线**（见 §6 §10）。
 - **Web 的排版盒模型（官方）**：*"In web UIs, the line height and bounding box height are the same. Text is vertically centered within the bounding box, following the **half-leading** behavior established by CSS."* → Web 用 `line-height + padding + 容器测量`；Android 用 baseline；两套标法不能混写进同一份 spec（与 `handoff-collaboration.md` 的标注纪律一致）。
 - **token 命名（material-web）**：ref 层 `--md-ref-typeface-brand` / `--md-ref-typeface-plain`；sys 层 `--md-sys-typescale-<scale>-<size>-<property>`，`property` 含 `font` / `size` / `line-height` / `weight`。→ 自建 token 时也分 ref（字体族）/ sys（角色×尺寸×属性）两层，落 DTCG 格式（见 `design-tokens.md`）。
@@ -352,7 +352,7 @@ M3 提供的是**角色结构 + 行高比率 + 命名约定**，不是一张可�
 - [ ] 注入 1.4.12 四项（且未改其他属性）后无内容或功能丢失，固定高度容器全部换成了 `min-height`+`padding`？
 - [ ] 知道 1.4.12 是「用户覆盖抗压」而非「作者默认样式」，能引用 Note 1？
 - [ ] 正文行宽 ≤80 字符（CJK ≤40）、拉丁正文为左对齐、中文 justify 已配标点挤压/避头尾且末行不拉伸、段间距 ≥1.5× 行距？
-- [ ] 大标题行高约 1.2×（拉丁）、拉丁正文/标签 1.5×、中文正文 1.6–1.8（推荐 1.7），三档分别落在 token 里？
+- [ ] 大标题 / 拉丁正文 / 中文正文三类行高按 `numeric-truth.md` §1.2 分别落在 token 里，没有全局一个值？
 - [ ] 文本对比度按大文本 3:1 / 小文本 4.5:1 重算过（改字号后没忘记重判「大文本」）？
 - [ ] 超链接在正文里除了颜色还带下划线？
 - [ ] 表格/时钟/金额/实时数值开了 `tabular-nums`，ID/验证码开了 `slashed-zero`，且确认字体真有 `tnum` 表？

@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v64` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v65` · 本页由 `scripts/build_readme.py` 生成于 2026-11-22 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -48,7 +48,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 判断与品味 | [`comparison-protocol.md`](references/comparison-protocol.md) · 比较协议 · Comparison Protocol | 169 | 9 |
 | 判断与品味 | [`before-after.md`](references/before-after.md) · 改稿案例（Before / After） | 976 | 13 |
 | 判断与品味 | [`user-modeling.md`](references/user-modeling.md) · 用户建模（User Modeling） | 276 | 9 |
-| 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 207 | 6 |
+| 判断与品味 | [`numeric-truth.md`](references/numeric-truth.md) · 数值口径单点（Numeric Truth） | 202 | 6 |
 | 判断与品味 | [`design-critique.md`](references/design-critique.md) · 设计评审与反馈 · Design Critique & Feedback | 261 | 23 |
 | 视觉基础 | [`typography-system.md`](references/typography-system.md) · 字体排印系统（Typography System） | 590 | 24 |
 | 视觉基础 | [`color-science.md`](references/color-science.md) · 色彩科学（Color Science for Designers） | 400 | 16 |
@@ -62,7 +62,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 版式与系统 | [`editorial-layout.md`](references/editorial-layout.md) · 版式与网格（Editorial Layout） | 759 | 21 |
 | 版式与系统 | [`responsive-layout.md`](references/responsive-layout.md) · 响应式与断点体系 · Responsive Layout | 717 | 20 |
 | 版式与系统 | [`dark-mode.md`](references/dark-mode.md) · 暗色模式体系（Dark Mode System） | 559 | 15 |
-| 版式与系统 | [`motion-system.md`](references/motion-system.md) · 动效与微交互系统 — Motion System（深度蒸馏） | 323 | 12 |
+| 版式与系统 | [`motion-system.md`](references/motion-system.md) · 动效与微交互系统 — Motion System（深度蒸馏） | 325 | 12 |
 | 版式与系统 | [`dataviz.md`](references/dataviz.md) · 数据可视化规范 · Data Visualization | 361 | 14 |
 | 版式与系统 | [`performance-design.md`](references/performance-design.md) · 性能与设计的关系（Performance × Design） | 844 | 19 |
 | 版式与系统 | [`multi-brand-theming.md`](references/multi-brand-theming.md) · 多品牌与多主题 Token 架构 — Multi-brand & Multi-theme | 865 | 21 |

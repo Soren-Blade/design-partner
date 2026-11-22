@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v64 · 2026-11-22**：v64 中文排版定稿——行高按角色单点取 `numeric-truth.md` §1.2；避头尾按 clreq §6.1.1 四档（默认 `basic`，`line-break: strict` 只近似 strict 档）、2em 破折号/省略号与数字单位不可拆、「先挤压后禁则」；中英混排按介质分层（HTML 走 `text-spacing-trim`/`text-autospace`，纯文本手敲一个半角空格）；`editorial-layout.md` §15 并入 `chinese-design.md` §1.5–§1.7，不再保留第二套清单。v63 见 CHANGELOG。
+**当前版本 v65 · 2026-11-22**：v65 数值口径单点化——行高/时长/触控/对比度的例外只登记在 `numeric-truth.md` §1 的「适用/例外」列（图表入场 450ms、邮件行高 1.5–1.6、适老化 ≥1.3 倍）；`taste-criteria.md` §6 删掉 120/240/400 第二套刻度，`motion-system.md` §3.1 标明四体系表是原值、不是本库刻度。v64 中文排版定稿见 CHANGELOG。
 
 ---
 
@@ -110,7 +110,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | `references/before-after.md` | 改稿示范：病稿→诊断→改哪一笔→为什么更好 | 30 组案例（含移动安全区/暗色表单/入场动效/定价三档/空态/促销倒计时/打印导出），按载体查 §0 判据 |
 | `references/user-modeling.md` | 画像、场景切片、禁忌清单、审美基线采集 | §1 五问 · §4 基线 · §5 映射 |
 | `references/design-critique.md` | 评审会、给/收反馈、决策留痕、自我批判 | §1 范围 · §5 议程 · §7 ADR · §11 红队 |
-| `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长） | §1 口径表 · §2 六条纪律 |
+| `references/numeric-truth.md` | 任何数值争议（行高、对比度、触控、安全区、时长），含「这个例外该进哪张表」 | §1 口径表（适用/例外列是例外唯一登记处）· §2 六条纪律 |
 | `references/design-measurement-research.md` | 指标、研究方法、统计验收 | §1 指标 · §4 方法 · §10 验收 |
 
 ### 4.2 视觉基础

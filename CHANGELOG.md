@@ -11,6 +11,7 @@
 - **改动**：`editorial-layout.md` §15 并入 `chinese-design.md` §1.5–§1.7（只留指针）；`typography-system.md` §5 合并重复行高、§16 改「已补核」、§24 压缩 M3/clreq 记录；`responsive-layout.md` §6.3、`presentation-design.md` §11、`email-design.md` §7.3、`ux-writing.md` §11.2 加角色/介质限定；SKILL §4.2/§8 同步。一进一出 **净 −3**（各文件净增合计 1,130 / 净减合计 1,133）。
 - **本轮被推翻的旧判断**：`typography-system.md` §16 曾判「clreq 未给出避头尾具体规则」，实际 clreq §6.1.1 给出四档级别与逐类符号；`chinese-design.md` 旧清单把 `％℃` 列入行首禁则，实际它们与数字属「不可拆单位」。
 - **门禁**：`dp_search "避头尾 四档 挤压"` 第 1 = `chinese-design.md` §1.5（109.1）；audit PASS 38 · WARN 0 · FAIL 0；README 一致；mindmap 64 文件 / 2,497 章节。
+- **发布**：`git push` 到 github.com 被重置（`OpenSSL SSL_read: Connection was reset, errno 10054`），改用 `scripts/publish_github.py` REST 发布；两处安装副本各 96 个跟踪文件 SHA256 一致。
 
 ## v63 · 2026-11-21（案例 30：订单详情打印，第 2 页无表头、徽标剥底后成功绿 3.30:1；新资产 print-export.md 与 J13）
 

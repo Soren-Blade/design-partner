@@ -15,7 +15,7 @@
 - **门禁**：`dp_search "预算不是分数"` 命中 §4.2 第 1（100.8）；`audit.py` PASS 38 / WARN 0 / FAIL 0；`build_readme.py` 已重建、`--check` 新鲜。本轮无资产增删，未跑 `mindmap.py`。
 - **记忆**：`memory/journal.jsonl` 第 67 行（signal_type `none`；outcome 记四条待观察：换 brief 复跑、基线能否分辨提升、是否诱发注水、交付物内嵌说明的处理）。
 - **队列**：#6 基线建立，brief 03 完成，其余 13 条待跑；#4/#5 仍被 0 真实信号阻塞；#9/#11/#12 未动。
-- **发布**：待执行。
+- **发布**：commit `7a31f0f`；两处安装副本（`~/.agents/skills/design-partner`、`~/.workbuddy-ai/skills/design-partner`）已同步；远端 `main` 已推送。
 
 ---
 

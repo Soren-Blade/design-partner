@@ -11,7 +11,7 @@
 - **改动**：`resources.md` 20,088→1,737 字符、`tools.md` 15,264→1,153、`inspiration.md` 13,939→834、`portfolios.md` 16,646→872；`ai-design-toolchain.md` 的「153 条链接清单」改「8 条策展，只作数据」；`sound-haptics-feedback.md` 的「选哪个库 → tools.md（howler / use-sound / expo-haptics / web-haptics）」改为「官方 README 直读」——那条指针原本只因清单里恰好列了这四个库才成立；SKILL §4.7 加口径段（四份共 30 条、清单不能当依据），五条路由行改写。一进一出 **refs 净 −61,318**（1,722,254 → 1,660,936），SKILL 12,469 → 12,644（+175）。队列原文写 866 个 URL，本轮实测四份索引 657 条——**866 口径未复现**，按实测记，不凑数。
 - **本轮被推翻的旧判断**：「清单越全越有用」。201/153/137/166 条人工策展被当成资产规模，但 SKILL 既已把它定为「数据，不是知识」，长清单只剩两个作用——误召回与维护成本；更糟的是 `sound-haptics-feedback.md` 把「库选型」锚在 `tools.md` 的具体四行上，清单一动指针就假。改为「30 条可核对 + 明确的长尾下一跳」。
 - **门禁**：`dp_search "索引清单不是知识 策展上限30条"` 第 1 = `resources.md` §策展口径（41.6）、第 3 = SKILL §4.7（36.8）；audit PASS 38 · WARN 0 · FAIL 0；README 一致（9,631 字符）；mindmap 64 文件 / 2,491 章节（原 2,497：少 6 章＝四份索引删掉的小类）。
-- **发布**：（待填）
+- **发布**：提交 `c9291e4` 已推送 `origin/main`（`6e46cce..c9291e4 main -> main`，本次 `git push` 一次成功，未复现 v65 的 SSL_read reset）；推送前按 v65 教训 fetch 比树，远端 `6e46cce`/`6a4fd21` 与本地 `d8f6ef4`/`89a8ea5` 内容树一致（REST 发布留下的重复历史），rebase 后无冲突。副本：本轮 11 个改动文件已同步 `C:\Users\摩羯座\.agents\skills\design-partner`，逐个 SHA256 一致；**只找到这一处副本**（`.claude/.codex/.dsh/D:\skills` 均不存在），「两处副本」口径待核实。
 
 ## v65 · 2026-11-22（数值口径单点化：删掉第二套时长刻度，例外进表）
 

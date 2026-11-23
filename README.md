@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v74` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v75` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -40,7 +40,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
     自检：5 秒内能否说出「这是监控」？缩小到 320px 后主按钮还在首屏？暗色下状态色对比度过 4.5:1？
 ```
 
-## 资产一览（62 份，按需读）
+## 资产一览（63 份，按需读）
 
 | 组 | 资产 | 行 | 节 |
 |---|---|---:|---:|
@@ -90,7 +90,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
 | 领域与商业 | [`design-measurement-research.md`](references/design-measurement-research.md) · 设计度量与用户研究：可用性指标、研究方法与统计验收 | 510 | 24 |
-| 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 821 | 19 |
+| 领域与商业 | [`ux-writing.md`](references/ux-writing.md) · 内容设计与 UX 文案 — UX Writing & Content Design（深度蒸馏） | 816 | 19 |
 | 合规与工具链 | [`accessibility.md`](references/accessibility.md) · 可访问性实操 / 无障碍（Accessibility in Practice） | 691 | 20 |
 | 合规与工具链 | [`i18n-localization.md`](references/i18n-localization.md) · 国际化与本地化设计（i18n / L10n / RTL / 多语言） | 1059 | 22 |
 | 合规与工具链 | [`design-ethics-inclusion.md`](references/design-ethics-inclusion.md) · 设计伦理与包容性：欺骗性设计、隐私同意 UI、成瘾机制与认知无障碍 | 800 | 24 |
@@ -106,6 +106,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 索引与资源 | [`design-md-format.md`](references/design-md-format.md) · DESIGN.md 规范与品牌 DNA — Design Spec | 191 | 7 |
 | 未归组（请补 GROUPS） | [`motion-orchestration.md`](references/motion-orchestration.md) · 动效进阶 — 编排、状态机与共享元素转场（深度蒸馏） | 1046 | 20 |
 | 未归组（请补 GROUPS） | [`print-export.md`](references/print-export.md) · 打印与导出（Print & PDF Export）：纸张、分页、去色可读、页眉页脚 | 195 | 10 |
+| 未归组（请补 GROUPS） | [`settings-preferences.md`](references/settings-preferences.md) · 设置与偏好 — Settings & Preferences | 92 | 8 |
 
 ## 记忆与成长
 

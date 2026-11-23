@@ -68,12 +68,12 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 版式与系统 | [`multi-brand-theming.md`](references/multi-brand-theming.md) · 多品牌与多主题 Token 架构 — Multi-brand & Multi-theme | 615 | 21 |
 | 界面与交互 | [`component-api-design.md`](references/component-api-design.md) · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进 | 918 | 23 |
 | 界面与交互 | [`form-table.md`](references/form-table.md) · 表单与表格 — Forms & Tables（深度蒸馏） | 503 | 19 |
-| 界面与交互 | [`feedback-states.md`](references/feedback-states.md) · 反馈与状态设计 — Feedback & States（深度蒸馏） | 551 | 15 |
+| 界面与交互 | [`feedback-states.md`](references/feedback-states.md) · 反馈与状态设计 — Feedback & States（深度蒸馏） | 553 | 15 |
 | 界面与交互 | [`empty-states.md`](references/empty-states.md) · 空状态与零数据位（Empty States & Zero-Data） | 254 | 16 |
 | 界面与交互 | [`navigation-ia.md`](references/navigation-ia.md) · 导航与信息架构 · Navigation & Information Architecture | 279 | 15 |
 | 界面与交互 | [`overlays-modality.md`](references/overlays-modality.md) · 叠加层与模态性：判型、焦点契约、顶层栈与非模态消隐 | 927 | 25 |
 | 界面与交互 | [`content-findability.md`](references/content-findability.md) · 内容可发现性与可扫读性（Content Findability / Search UX / Scannability） | 957 | 27 |
-| 界面与交互 | [`direct-manipulation.md`](references/direct-manipulation.md) · 直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） | 894 | 26 |
+| 界面与交互 | [`direct-manipulation.md`](references/direct-manipulation.md) · 直接操纵与指针交互（Direct Manipulation / Pointer, Gesture & Drag-and-Drop） | 895 | 26 |
 | 界面与交互 | [`keyboard-shortcuts-command-palette.md`](references/keyboard-shortcuts-command-palette.md) · 键盘快捷键与命令面板（Keyboard Shortcuts & Command Palette）：把「记不住的按键」做成可发现、可关闭、可重 | 919 | 17 |
 | 界面与交互 | [`onboarding-first-run.md`](references/onboarding-first-run.md) · 首次体验与用户引导：从启动到 Aha Moment 的判型、时机与可访问性契约 | 901 | 25 |
 | 界面与交互 | [`sound-haptics-feedback.md`](references/sound-haptics-feedback.md) · 声音与触觉反馈：把「要不要响一下 / 震一下」判成通道、时长与强度 | 788 | 16 |
@@ -85,7 +85,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 445 | 19 |
 | 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 466 | 15 |
 | 领域与商业 | [`quote-invoice-documents.md`](references/quote-invoice-documents.md) · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法 | 1004 | 15 |
-| 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 706 | 18 |
+| 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 707 | 18 |
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
@@ -110,7 +110,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，72 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，73 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

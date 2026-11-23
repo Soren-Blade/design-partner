@@ -520,6 +520,7 @@ GitHub API 实测（2026-11-10，`GET /repos/{owner}/{repo}`，star / license / 
 | 零结果 / 404 / 空态文案 | ❌ | `content-findability.md §18` / `feedback-states.md §5 §6` |
 | 表单校验、滑块标签、表格批量操作 | ❌ | `form-table.md` |
 | toast / Undo 提示条的时长与层级 | ❌ | `feedback-states.md §3` |
+| 多人同编时的光标/选区可见性、占用软锁、他人撤销 | ❌ | `realtime-collaboration.md §4 §6 §7` |
 
 ---
 

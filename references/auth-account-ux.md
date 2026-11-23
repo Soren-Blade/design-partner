@@ -80,6 +80,7 @@ web.dev 的注册指南把前置条件写得很直白：
 | 「App 首次启动什么时候问通知权限」 | `onboarding-first-run.md` §10 | 权限时机 |
 | 「验证码输入框的无障碍」 | 本资产 §7 + `accessibility.md` | 焦点与播报 |
 | 「结账要不要登录」 | `pricing-checkout.md` §7 + 本资产 §3.2 | 结账三型 |
+| 「共享资源谁能看、谁能改，降级后谁被踢出」 | `realtime-collaboration.md` §9 | 角色矩阵与继承陷阱不属单人身份层 |
 
 ---
 

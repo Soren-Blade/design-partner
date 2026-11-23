@@ -5,6 +5,19 @@
 
 ---
 
+## v75.1 · 2026-11-23（自行裁决 #11/#12 + 对齐定时任务，修 v75 发布记录）
+
+- **一句话**：把 v75 收尾时留下的三件待裁决按判据自行裁决，并修掉两处状态不一致——定时任务 prompt 与 §1 不符、CHANGELOG 发布条只记了一个 SHA。
+- **#11 裁决（CI）**：选 B，CI 只作报警、不设分支保护。理由：发布通道是 `publish_github.py` 的 REST 单提交直推 `main`，PR-only 会与之直接冲突；改分支保护属仓库设置、需授权，本轮不申请。代价写明：CI 红不阻断发布，靠人看页面/邮件。
+- **#12 裁决（裁剪）**：保留 `references/realtime-collaboration.md`，改走判据的另一条出路——消除「零入度」。它承载 presence 五信号、软锁文案、多人撤销只撤自己、孤儿线程、权限继承陷阱、Yjs 判离线数值等独家判据，26,826 字符删掉是「按判据杀价值」。落点三处：`direct-manipulation.md` §21 边界矩阵加一行、`auth-account-ux.md` 判层表加一行、`feedback-states.md` §8 加一段指路。`trim_audit.py` 复跑：候选 1 → **0**，该资产入度 0 → **3**。
+- **定时任务对齐**：automation prompt 已逐字替换为 `PROMPT-daily-upgrade.md` §1（原 prompt 还要求读写**已不存在的** `memory/design-log.md`、跑 `regression.py --baseline` 与 `mindmap.py --check`，明早 09:00 会按旧口径空转）；任务保持 active、每天 09:00 Asia/Shanghai。§6 里「保持 paused」改为如实描述，§2 的 #11/#12 标 ✅，头注版本 v52→v75。
+- **修 v75 记录**：v75「发布」条补上补记提交 `766a9eb076`（原只记内容提交 `11a92d9d69`）；本轮改动合成一次提交发布，远端 SHA 见下。
+- **一进一出**：本轮是裁决/接线轮，不动主题资产正文，只加 3 条入链与文档状态（约 +700 字符），不触发删减；v75 的 **+4,377** 净增差额仍挂在「下轮先补回」。
+- **门禁**：`trim_audit.py` 候选 0；`audit.py` PASS 38 / WARN 0 / FAIL 0；`build_readme.py --check` 新鲜；`dp_search "多人协作 光标 权限继承 离线判定"` 首条命中 `realtime-collaboration.md` §9（101.9 分）。
+- **记忆**：`memory/journal.jsonl` 第 73 行，signal_type `process`——你给的是流程授权（「根据需求自行决定并执行」），不是设计偏好，不进画像候选。
+- **本轮被推翻的旧判断**：「零入度就等于该删」。入度衡量的是接线质量，不是价值；对「有价值但孤立」的资产，正确动作是补入链，而不是删除。
+- **发布**：本轮提交推远端 `main` 后回填 SHA（v75 两个 SHA 之上）。
+
 ## v75 · 2026-11-23（新增「设置与偏好」判据；一进一出差额如实记）
 
 - **一句话**：补上全库零覆盖的一块——「设置页该放什么、放几个、用什么控件、什么时候生效」原先只散落在通知偏好、首启、文案三处，本轮收成一份可判断资产 `references/settings-preferences.md`，源全取一手（Apple HIG、Microsoft Learn、W3C APG；GNOME 旧 HIG 只作旁证）。
@@ -15,7 +28,7 @@
 - **本轮被推翻的旧判断**：「设置属于表单，读 `form-table.md` 就够」。表单规则回答「怎么填」，设置页的第一问题却是「该不该有这一项」——四问判层与条目预算都不是表单问题；这正是全库 62 份资产里设置相关只有零散段落的原因。
 - **门禁实录**：`dp_search "设置 偏好 switch 即时生效 Apply" -n 3` → 首条命中新文件 §5（159.2 分）；`audit.py` → PASS 38 / WARN 0 / FAIL 0（A1 282 行 / 13,203 字符）；`build_readme.py` 重建 + `--check` 新鲜（9,759 字符 / 146 行）；资产增删 → 跑 `mindmap.py`（65 文件 / 2,483 章节）；README 资产数 62→63，SKILL 描述里的「56 份」一并改成 63。
 - **记忆**：`memory/journal.jsonl` 第 72 行，signal_type `none`（本轮无用户反馈，不写「已完成」），outcome 记三条待观察：新资产首条命中位置、下轮 `trim_audit` 是否会把它标成零入度候选、存量产品上四问判层是否需要「迁移」边界。
-- **发布**：已推到 GitHub `Soren-Blade/design-partner`，远端 `main` commit `11a92d9d69`（`scripts/publish_github.py`，REST Git Data API 单提交，65 个文件）；两处安装副本 `%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner` 已同步。本条补记随紧随的补记提交一起同步。
+- **发布**：已推到 GitHub `Soren-Blade/design-partner`：内容提交 `11a92d9d69`（`scripts/publish_github.py`，REST Git Data API 单提交，65 个文件），补记提交 `766a9eb076`（本条补记即由它带上远端）；两处安装副本 `%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner` 已同步。
 - **队列**：#4/#5 仍 🔴 被 0 真实信号阻塞；#11 待用户选发布流；#12 `realtime-collaboration.md` 去留待裁决。下轮默认动作：先补回本轮净增的 4.4k（挑重复度最高的两份资产做合并压缩），再开下一个空缺专题。
 
 ## v74 · 2026-11-23（季度裁剪判据重写：证伪「6 个月未路由」，改为可测三事实 + `trim_audit.py`；本轮不删资产）

@@ -5,6 +5,22 @@
 
 ---
 
+## v74 · 2026-11-23（季度裁剪判据重写：证伪「6 个月未路由」，改为可测三事实 + `trim_audit.py`；本轮不删资产）
+
+- **一句话**：队列 #12 的原验收「删除 6 个月未被路由命中的资产」在本库不成立——62 份资产 62 行路由、库龄不足 6 个月；改写成可执行判据（未路由 / 零入度 / 无夹具引用）+ 一个测量脚本，按判据实测后**候选只有 1 份且删除理由不足**，故本轮如实记「不删」。
+- **改动**：新增 `scripts/trim_audit.py`（62 资产逐份输出 字符/行/R 路由/I 入度/G 夹具 四列 + 「最小先死」候选序，`--json` / `--fail-on-unrouted` 两开关，CI 可直接用）；`PROMPT-daily-upgrade.md` §2 #12 判据重写并写明 v74 实测结论、§1 门禁清单加一条 `trim_audit.py`；`SKILL.md` 版本行 v73→v74。
+- **原判据为什么不可执行**：`references/*.md` 共 62 份，SKILL §4 路由表恰好 62 行（无一资产落在表外）；`CHANGELOG.md` 显示 v38 起于 2026-11，库龄数周，不存在「6 个月未命中」的历史窗口。这条验收在任何一轮都返回 0 命中，等于一段永远不会触发的门禁。
+- **新判据在测什么**：R = SKILL 第 4 节有没有 `references/<file>` 行；I = 其它资产/附录/夹具里出现该文件名的次数；G = `tests/golden/*.md` 是否引用。候选 = 未路由 **或**（I=0 且 G 未引用）。排序按字符数升序：最小的先死，代价最低；内容等重的先合并、不硬删。
+- **实测结果**：62 份 / 1,644,168 字符；候选 1 份 = `realtime-collaboration.md`（26,826 字符 / 894 行级 / 入度 0 / golden 0 次）。交叉证据：14 字符 shingle 重叠 Top1 只有 `portfolios.md ↔ tools.md` J=0.029，`realtime-collaboration` 与任何资产 J≤0.007——**没有可合并的重叠对**，删除只会掉召回面。
+- **为什么不删它**：多人编辑、光标在场、评论与权限是真实设计领域，SKILL §4 有路由行，「入度 0」更多说明本库的资产间互引偏向通用层（accessibility 93、feedback-states 65），而不是这个领域没价值。删掉它是「按判据执行」，不是「按价值执行」，两者冲突时本轮选后者，把去留交用户裁决。
+- **一进一出（如实记）**：知识资产 **0 变动**（SKILL 仅版本行；references 未增删）；仓库 **+约 4.7k 字符**（trim_audit.py + PROMPT 登记）。沿 v68/v71 口径，测试与工具代码不计知识预算，但体积确实涨了，不用「净减」自夸。
+- **本轮被推翻的旧判断**：**「季度裁剪 = 删掉 6 个月没被路由到的资产」**。本库从来不是「资产多到没人路由」的问题，而是「路由满覆盖 + 交叉引用稀疏」；真正该测的是**引用密度**（谁在用它），不是**路由新鲜度**（多久没被抓到）。补一条同源的旧误判：不是所有「可量化」口径都可执行——「6 个月」看起来严谨，实际因库龄短而恒为真阳性 0。
+- **撤回的尝试（记录以免下轮重试）**：把 `inspiration/portfolios/tools/resources` 四份索引并成一份 `sources-curation.md`（内容 30 条不变、净 −约 1.6k 字符、资产 62→59）已写完又删掉——`refresh_catalog.py` 的 `COLLECTIONS` 会按四组重建这四份文件，`build_readme.py` 的分类表与 `dp_search.py` 的 `META` 也硬编码文件名；合并要连带改 3 个脚本，且与 v66「四份索引 10/8/6/6」的既有决策冲突，超出本轮预算，故不落地。
+- **门禁实录**：`trim_audit.py` → 62 资产、PASS 全路由（`--fail-on-unrouted` 绿）；`audit.py` → PASS 38 · WARN 0 · FAIL 0；`build_readme.py` 重建 + `--check` 新鲜（9,631 字符 / 145 行）；`dp_search "季度裁剪 零入度 未路由" -n 3` 命中的是既有资产（file-upload §5.3 裁剪、profile §季度重写、conversational-generative-ui §6）——**本轮没有新 reference 内容，故「命中新内容」这一条不成立，不伪称命中**；无资产增删，未跑 `mindmap.py`。
+- **记忆**：`memory/journal.jsonl` 第 71 行（signal_type `none`，closed_at 空）；outcome 记四条待观察：CI 里 `--fail-on-unrouted` 首次变红的场景、入度口径会不会把「只被 SKILL 路由」的资产挂成噪声、`realtime-collaboration` 若下轮被引用则候选自然消失、下轮若无真实反馈就补「设置与偏好」专题（全库 settings 命中 0 处，源取 W3C/Apple HIG 原文）。
+- **队列**：#12 改 🟡（判据已重写、执行器已就位，是否删 `realtime-collaboration` 待裁决）；#4/#5 仍被 0 真实信号阻塞；#11 仍待用户选发布流（PR 流 vs 仅 required status check）。下轮默认动作：设计知识蒸馏，不再碰裁剪。
+- **发布**：见本节省末行的补记。
+
 ## v73 · 2026-11-23（CI 门禁：audit + README + golden 结构冒烟进 Actions；分支保护未开）
 
 - **一句话**：完成队列 #11 的 workflow 部分——新增 GitHub Actions 结构门禁，golden 冒烟做成 `regression.py --golden`；分支保护未设置，「PR 不绿不合」未验证，故 #11 记 🟡 部分完成。

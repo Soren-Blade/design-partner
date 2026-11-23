@@ -38,7 +38,8 @@
 5. 门禁：python scripts/dp_search.py "本轮关键词" -n 3（能命中新内容）；
    python scripts/audit.py（FAIL 必须修到 PASS）；
    python scripts/build_readme.py && python scripts/build_readme.py --check；
-   python scripts/mindmap.py（只在资产增删后跑）。
+   python scripts/mindmap.py（只在资产增删后跑）；
+   python scripts/trim_audit.py（裁剪轮必跑：列出未路由 / 零入度 / 无夹具引用的资产与最小先死顺序）。
 6. 记忆：在 memory/journal.jsonl 追加一行：日期、任务、signal_type（真实信号五值之一，
    没有就 none）、决策、outcome（待观察要写清观察什么）。绝不写「已完成」代替真实反馈；
    不把自动化任务写成用户偏好。
@@ -80,7 +81,7 @@ P0 清减已在 v52 完成（主文件 24.6 万 → 1.2 万字符、派生索引
 | 9 ✅ | ~~越界内容拆附录~~ **已完成（v72）** | pricing-localization / multi-brand / auth 的工程细节移 `references/appendix/`（代码 16.6k 字符出正文，净 −61k） | 正文只留判据与指针；附录不入检索/README/章节审计，见 SKILL §4 导语 |
 | 10 ✅ | ~~索引资源降级~~ **已完成（v66）** | 四份索引 657 → 30 条策展（10/8/6/6），口径写在 `resources.md` §策展口径 | SKILL §4.7 明写「清单不能当依据」；长尾下一跳写进同节 |
 | 11 | CI 门禁（🟡 部分完成 v73） | GitHub Actions：audit + build_readme --check + golden smoke（`regression.py --golden` 结构冒烟，不发分） | workflow 已加；**分支保护未设置（改仓库设置需用户确认；要求 PR 会与直接推 main 的发布流冲突），「PR 不绿不合」未验证** |
-| 12 | 季度裁剪 | 删除 6 个月未被路由命中的资产 | 资产数下降、命中率不降 |
+| 12 | 季度裁剪（判据已于 v74 重写，🟡 待执行） | 删「未路由 或（零入度且无夹具引用）」的资产；等重先合并、最小先死。可执行形式 = `python scripts/trim_audit.py` | 资产数下降、命中率不降。**v74 实测：候选仅 1 份（`realtime-collaboration.md`，26,826 字符 / 零入度 / 无夹具），删它是「按判据」而非「按价值」，故本轮不删**；`6 个月未被路由命中` 这条原口径在本库不成立（库龄 < 6 个月，62/62 资产都有 SKILL 路由行） |
 
 **P3/P4 长期**：golden 扩到 50 条并做双盲胜率；引入第二评审模型做红队；年度重写一次 SKILL（只保留仍被违反的原则）。
 

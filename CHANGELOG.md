@@ -19,7 +19,7 @@
 - **门禁实录**：`trim_audit.py` → 62 资产、PASS 全路由（`--fail-on-unrouted` 绿）；`audit.py` → PASS 38 · WARN 0 · FAIL 0；`build_readme.py` 重建 + `--check` 新鲜（9,631 字符 / 145 行）；`dp_search "季度裁剪 零入度 未路由" -n 3` 命中的是既有资产（file-upload §5.3 裁剪、profile §季度重写、conversational-generative-ui §6）——**本轮没有新 reference 内容，故「命中新内容」这一条不成立，不伪称命中**；无资产增删，未跑 `mindmap.py`。
 - **记忆**：`memory/journal.jsonl` 第 71 行（signal_type `none`，closed_at 空）；outcome 记四条待观察：CI 里 `--fail-on-unrouted` 首次变红的场景、入度口径会不会把「只被 SKILL 路由」的资产挂成噪声、`realtime-collaboration` 若下轮被引用则候选自然消失、下轮若无真实反馈就补「设置与偏好」专题（全库 settings 命中 0 处，源取 W3C/Apple HIG 原文）。
 - **队列**：#12 改 🟡（判据已重写、执行器已就位，是否删 `realtime-collaboration` 待裁决）；#4/#5 仍被 0 真实信号阻塞；#11 仍待用户选发布流（PR 流 vs 仅 required status check）。下轮默认动作：设计知识蒸馏，不再碰裁剪。
-- **发布**：见本节省末行的补记。
+- **发布**：commit `c170f2f`（远端 `main`，REST Git Data API 单提交），本地 `0de826d`；两处安装副本 （`%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner`）已按 SHA256 逐文件核对 6 份改动（SKILL / PROMPT / CHANGELOG / README / journal / trim_audit.py）。
 
 ## v73 · 2026-11-23（CI 门禁：audit + README + golden 结构冒烟进 Actions；分支保护未开）
 

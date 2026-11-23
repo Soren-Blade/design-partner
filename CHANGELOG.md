@@ -13,6 +13,9 @@
 - **一进一出（如实记）**：三份正文合计 **−17,331 字符**；附录 **+16,618 字符**；库本体净 **−713 字符**；SKILL +319、SOURCES +785（均为登记与路由）。数值远低于各上限（SKILL 12,915 字符 / 282 行；单份最大附录 237 行）。**本轮不能用「净减 6 万」自夸**：代码是原样搬迁，换的是正文可读性，不是体积。
 - **被推翻的旧判断**：multi-brand-theming「附：来源」原写「`$extends`/`$root` 属早期草案表述、官方明写不要实现」。2026-11-23 复核 [DTCG Format Module 2025.10](https://www.designtokens.org/TR/2025.10/format/)（Final CG Report, 28 October 2025）：§6.2 定义 `$root`、§6.3 的 Group Properties 表收录 `$extends`、§6.4 给出完整继承语义（同路径 = 整个 token 定义完整替换，不逐属性合并；循环继承必须报错；`$value` 与子节点同时存在必须报错；`$type` 四级解析；`{color.accent.$root}` 有效而 `{color.accent}` 无效）。旧注记已删，改引原始 `groups.md`，硬规则写进附录段 B。
 - **门禁**：`dp_search` 三组关键词均命中主文件（多币种 187.8 / 多品牌 166.6 / 登录 102.6，均 #1）；`audit.py` PASS 38 / WARN 0 / FAIL 0（A1 实测 282 行 / 12,915 字符；A6 抽检 28 条 top3 100%）；`build_readme.py` 重建且 `--check` 新鲜；`mindmap.py` 64 文件 / 2,475 章节。附录 A–F 与认证代码本轮**未重跑**，实跑结论沿用 2026-11-14。
+- **记忆**：`memory/journal.jsonl` 第 69 行（signal_type `none`）；outcome 记四条待观察：附录指针漂移、三份正文召回是否退化、附录代码在 Python 3.13 之外能否跑通、正文平均节长是否真降。
+- **队列**：#9 验收（正文回到设计判断）达成，标 ✅；#4/#5 仍被 0 真实信号阻塞；下一个可执行项是 #11 CI 门禁。
+- **发布**：commit 8038510；两处安装副本（`.agents/skills/design-partner`、`.workbuddy-ai/skills/design-partner`）已同步；远端 main 已推。
 
 ## v71 · 2026-11-23（golden 评估集补到 20 条：六条新 brief 只验路由，不新增知识）
 

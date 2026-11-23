@@ -17,7 +17,7 @@
 - **门禁**：见上；`dp_search "CI 门禁 golden 结构冒烟 盲评"` 命中 `comparison-protocol.md` §4（盲评流程）而非新文件——CI 内容不在检索库，属预期，不伪称命中。
 - **记忆**：`memory/journal.jsonl` 第 70 行（signal_type `none`，closed_at 空）；outcome 记四条待观察：GitHub 首次跑绿与 job 名、仅 status check 的保护是否兼容直推、brief 增删时 20 条硬断言的维护成本、路由表是否补 canonical query 列。`memory.py validate` 仍报 31 条 2026-11-19 以前的旧行格式问题（缺 closed_at/evidence_ref），非本轮引入，未改旧账。
 - **队列**：#11 记 🟡 部分完成（workflow 已加，保护未设），保留在队列；下一步是「发布流决策 → 分支保护」。其余 #4/#5 仍被 0 真实信号阻塞，#12 未动。
-- **发布**：待本轮提交后补记。
+- **发布**：commit `ad58bd3`；两处安装副本（`~/.agents/skills/design-partner`、`~/.workbuddy-ai/skills/design-partner`）已同步；远端 `main` 已推送。GitHub Actions 首次运行结果与分支保护均未验证，见上二条。
 
 ## v72 · 2026-11-23（越界内容拆附录：三份正文的工程实现移入 references/appendix/）
 

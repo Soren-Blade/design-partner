@@ -5,6 +5,20 @@
 
 ---
 
+## v71 · 2026-11-23（golden 评估集补到 20 条：六条新 brief 只验路由，不新增知识）
+
+- **一句话**：补齐队列 #6 缺的 6 条 brief（15–20），评估集到 20 条；六条主路由均落在 top-3，两处 #2 是同题不同层、不视作误路由。本轮是夹具轮，库本体知识资产 0 变动。
+- **改动**：新增 `tests/golden/15-icon-system.md` … `20-multicurrency-pricing.md`（图标、交易邮件、A4 对账单、空态迁移、双向文本、多币种定价）；`tests/golden/README.md` 状态改 14→20 并加六条「陷阱 / 主路由」断言表；`SKILL.md` 版本行改 v71。
+- **为什么没有知识条目**：六个主题在库内均已有强命中（iconography §6/§10、email-design §3/§6、print-export §1/§3、empty-states §2、i18n-localization §3.5、pricing-localization §9），硬加一节只会在审计 A7 里变成重复；本轮只补评估覆盖，不假装蒸馏。
+- **一进一出**：测试夹具不计入库本体（沿用 v68 口径）；库本体净 **−111 字符 / −260 字节**（SKILL 版本行 272 → 161 字符，其余未动）。仓库总量增加 6 个 brief + README 断言表，如实记。
+- **门禁**：六条 canonical 查询 `dp_search -n 3` 主路由均命中（iconography #1 / email-design #2 / print-export #1 / empty-states #1 / i18n-localization #1 / pricing-localization #1）；`audit.py` PASS 38 / WARN 0 / FAIL 0；`build_readme.py` 重建、`--check` 新鲜。**注意**：`dp_search` 只索引 SKILL + references，本轮新增在 `tests/golden/`，故步骤 5 的「命中新内容」不能照字面满足；本轮以六条 canonical 路由断言替代，不伪称命中新文件。无资产增删，未跑 `mindmap.py`。
+- **记忆**：`memory/journal.jsonl` 第 68 行（signal_type `none`）；outcome 记四条待观察：陷阱是否撞车、独立评审能否读出同一陷阱、夹具轮是否该单列门禁、其余 19 条 baseline 未跑。
+- **队列**：#6 的验收（20 条 + 首轮 baseline）达成，标 ✅；其余 19 条未跑 baseline 属后续复跑，不算 #6 未完成；#4/#5 仍被 0 真实信号阻塞；#9/#11/#12 未动。
+- **本轮被推翻的旧判断**：无。上一轮的「夹具不计入库预算」口径本轮再次适用；没有真实信号可推翻设计判断，不硬写「学习」。
+- **发布**：见下一条补记。
+
+---
+
 ## v70 · 2026-11-23（基线建立：去掉字节上限后两案 10/11 同水平；预算不进五轴）
 
 - **一句话**：brief 03 走钉住流程复跑，两案 10 / 11、逐轴差 0/0/0/1/0、合计差 1 → **golden 基线建立**（噪声下限 = 1 分）；同时把「字节/行数上限」从验收变量里拿掉，新增 §4.2「预算不是分数」。

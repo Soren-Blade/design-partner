@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v70` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v71` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -109,7 +109,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，67 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，68 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

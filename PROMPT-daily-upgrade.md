@@ -74,7 +74,7 @@ P0 清减已在 v52 完成（主文件 24.6 万 → 1.2 万字符、派生索引
 | 3 ✅ | 案例集补到 30 组 | `before-after.md` 20 → 30 组，新增移动端/深色/动效/定价/打印 | **已完成（v63，30/30）**；30 组覆盖移动安全区、暗色、动效可见性、定价三档、空态、促销倒计时、打印导出 |
 | 4 | 真实反馈采集 | `journal.jsonl` 里 ≥5 条非 none 信号 | `memory.py promote` 产出 ≥1 条候选规则 |
 | 5 | 画像从 0 到 1 | `profile.md` 至少 3 条经用户确认的规则 | `audit.py` A4 通过且不是占位 |
-| 6 | 盲评 baseline | `tests/golden/` 10 → 20 条 + 首轮 baseline 分数 | 同 brief 两次产出分差 ≤1；**进行中（v67：10 → 14，补了 brief 入选判据与噪声下限 §15.4，缺 6 条与 baseline 本身）** |
+| 6 ✅ | 盲评 baseline | `tests/golden/` 10 → 20 条 + 首轮 baseline 分数 | 同 brief 两次产出分差 ≤1；**已完成（v71）**：20/20，brief 03 基线 10/11、噪声下限 1 分；其余 19 条未跑 baseline，属后续复跑 |
 | 7 ✅ | 数值口径单点化 | 所有文件的行高/对比度/时长引用指向 `numeric-truth.md` | **已完成（v65）**；`240ms` 只剩 `motion-system.md` §3.1 的 Carbon 原值，例外（图表 450ms / 邮件 1.5–1.6 / 适老化 ≥1.3 倍）已进 §1「适用/例外」列 |
 | 8 ✅ | 中文排版定稿 | 行高/标点/混排三处口径合一，删重复段 | **已完成（v64）**；三份文件不再互相矛盾 |
 | 9 | 越界内容拆附录 | pricing-localization / multi-brand / auth 的工程细节移 `references/appendix/` | 正文回到设计判断 |

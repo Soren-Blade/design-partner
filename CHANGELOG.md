@@ -15,7 +15,7 @@
 - **记忆**：`memory/journal.jsonl` 第 68 行（signal_type `none`）；outcome 记四条待观察：陷阱是否撞车、独立评审能否读出同一陷阱、夹具轮是否该单列门禁、其余 19 条 baseline 未跑。
 - **队列**：#6 的验收（20 条 + 首轮 baseline）达成，标 ✅；其余 19 条未跑 baseline 属后续复跑，不算 #6 未完成；#4/#5 仍被 0 真实信号阻塞；#9/#11/#12 未动。
 - **本轮被推翻的旧判断**：无。上一轮的「夹具不计入库预算」口径本轮再次适用；没有真实信号可推翻设计判断，不硬写「学习」。
-- **发布**：见下一条补记。
+- **发布**：commit `35d572b`；两处安装副本（`%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner`）已逐文件 SHA256 核对；远端 `main` 已推送（897c91b..35d572b）。
 
 ---
 

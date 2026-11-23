@@ -15,6 +15,7 @@
 - **本轮被推翻的旧判断**：「设置属于表单，读 `form-table.md` 就够」。表单规则回答「怎么填」，设置页的第一问题却是「该不该有这一项」——四问判层与条目预算都不是表单问题；这正是全库 62 份资产里设置相关只有零散段落的原因。
 - **门禁实录**：`dp_search "设置 偏好 switch 即时生效 Apply" -n 3` → 首条命中新文件 §5（159.2 分）；`audit.py` → PASS 38 / WARN 0 / FAIL 0（A1 282 行 / 13,203 字符）；`build_readme.py` 重建 + `--check` 新鲜（9,759 字符 / 146 行）；资产增删 → 跑 `mindmap.py`（65 文件 / 2,483 章节）；README 资产数 62→63，SKILL 描述里的「56 份」一并改成 63。
 - **记忆**：`memory/journal.jsonl` 第 72 行，signal_type `none`（本轮无用户反馈，不写「已完成」），outcome 记三条待观察：新资产首条命中位置、下轮 `trim_audit` 是否会把它标成零入度候选、存量产品上四问判层是否需要「迁移」边界。
+- **发布**：已推到 GitHub `Soren-Blade/design-partner`，远端 `main` commit `11a92d9d69`（`scripts/publish_github.py`，REST Git Data API 单提交，65 个文件）；两处安装副本 `%USERPROFILE%\.agents\skills\design-partner`、`%USERPROFILE%\.workbuddy-ai\skills\design-partner` 已同步。本条补记随紧随的补记提交一起同步。
 - **队列**：#4/#5 仍 🔴 被 0 真实信号阻塞；#11 待用户选发布流；#12 `realtime-collaboration.md` 去留待裁决。下轮默认动作：先补回本轮净增的 4.4k（挑重复度最高的两份资产做合并压缩），再开下一个空缺专题。
 
 ## v74 · 2026-11-23（季度裁剪判据重写：证伪「6 个月未路由」，改为可测三事实 + `trim_audit.py`；本轮不删资产）

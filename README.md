@@ -3,7 +3,7 @@
 **把模糊的想法，变成有品味、可执行的设计决策。** 它不是一本规范手册，而是一条判断流程：
 先问清约束，再并置三个方向，然后带着代价选一个，最后用证据自检。
 
-`当前版本 v71` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
+`当前版本 v72` · 本页由 `scripts/build_readme.py` 生成于 2026-11-23 · 生成器与 `CHANGELOG.md` 同源
 
 ---
 
@@ -65,7 +65,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 版式与系统 | [`motion-system.md`](references/motion-system.md) · 动效与微交互系统 — Motion System（深度蒸馏） | 325 | 12 |
 | 版式与系统 | [`dataviz.md`](references/dataviz.md) · 数据可视化规范 · Data Visualization | 361 | 14 |
 | 版式与系统 | [`performance-design.md`](references/performance-design.md) · 性能与设计的关系（Performance × Design） | 844 | 19 |
-| 版式与系统 | [`multi-brand-theming.md`](references/multi-brand-theming.md) · 多品牌与多主题 Token 架构 — Multi-brand & Multi-theme | 865 | 21 |
+| 版式与系统 | [`multi-brand-theming.md`](references/multi-brand-theming.md) · 多品牌与多主题 Token 架构 — Multi-brand & Multi-theme | 615 | 21 |
 | 界面与交互 | [`component-api-design.md`](references/component-api-design.md) · 组件 API 设计与组合模式：状态所有权、渲染所有权、契约可演进 | 918 | 23 |
 | 界面与交互 | [`form-table.md`](references/form-table.md) · 表单与表格 — Forms & Tables（深度蒸馏） | 503 | 19 |
 | 界面与交互 | [`feedback-states.md`](references/feedback-states.md) · 反馈与状态设计 — Feedback & States（深度蒸馏） | 551 | 15 |
@@ -83,9 +83,9 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 | 领域与商业 | [`presentation-design.md`](references/presentation-design.md) · 演示文稿与幻灯片版式（Presentation Design） | 1129 | 19 |
 | 领域与商业 | [`email-design.md`](references/email-design.md) · 邮件设计与 EDM 排版（HTML Email Design / EDM Layout） | 835 | 22 |
 | 领域与商业 | [`pricing-checkout.md`](references/pricing-checkout.md) · 定价页与结账流程（Pricing & Checkout） | 445 | 19 |
-| 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 689 | 14 |
+| 领域与商业 | [`pricing-localization.md`](references/pricing-localization.md) · 定价本地化（Pricing Localization）：币种、含税口径、地区价差与法定原价 | 466 | 15 |
 | 领域与商业 | [`quote-invoice-documents.md`](references/quote-invoice-documents.md) · 报价与发票单据（Quote, Invoice & Order Documents）：报价单、发票、订单确认与对账的单据语法 | 1004 | 15 |
-| 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 827 | 19 |
+| 领域与商业 | [`auth-account-ux.md`](references/auth-account-ux.md) · 认证与账户体验（Authentication & Account UX） | 706 | 18 |
 | 领域与商业 | [`notifications-messaging.md`](references/notifications-messaging.md) · 通知与消息触达（Notifications & Messaging） | 989 | 26 |
 | 领域与商业 | [`file-upload-media-input.md`](references/file-upload-media-input.md) · 文件上传与媒体输入（File Upload & Media Input）：把「选个文件传上去」做成可失败、可恢复、可验收的五段链路 | 713 | 15 |
 | 领域与商业 | [`handoff-collaboration.md`](references/handoff-collaboration.md) · 设计交付与协作 / Design Handoff & Collaboration | 852 | 24 |
@@ -109,7 +109,7 @@ python scripts/memory.py stats                         # 记忆里到底有多�
 
 ## 记忆与成长
 
-- 反馈日志：`memory/journal.jsonl`，68 条记录，其中 0 条带真实用户反馈
+- 反馈日志：`memory/journal.jsonl`，69 条记录，其中 0 条带真实用户反馈
 - 用户画像：`memory/profile.md`（51 行）；规则只在同一偏好出现 ≥2 次后晋升
 - 历史：`CHANGELOG.md`（每轮一行摘要）；取源口径：`SOURCES.md`
 - 成长协议：一进一出（新增 N 字符必须删掉 N 字符）、`SKILL.md` ≤ 500 行、单份资产 ≤ 1,200 行、

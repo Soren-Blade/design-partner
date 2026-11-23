@@ -77,7 +77,7 @@ P0 清减已在 v52 完成（主文件 24.6 万 → 1.2 万字符、派生索引
 | 6 ✅ | 盲评 baseline | `tests/golden/` 10 → 20 条 + 首轮 baseline 分数 | 同 brief 两次产出分差 ≤1；**已完成（v71）**：20/20，brief 03 基线 10/11、噪声下限 1 分；其余 19 条未跑 baseline，属后续复跑 |
 | 7 ✅ | 数值口径单点化 | 所有文件的行高/对比度/时长引用指向 `numeric-truth.md` | **已完成（v65）**；`240ms` 只剩 `motion-system.md` §3.1 的 Carbon 原值，例外（图表 450ms / 邮件 1.5–1.6 / 适老化 ≥1.3 倍）已进 §1「适用/例外」列 |
 | 8 ✅ | 中文排版定稿 | 行高/标点/混排三处口径合一，删重复段 | **已完成（v64）**；三份文件不再互相矛盾 |
-| 9 | 越界内容拆附录 | pricing-localization / multi-brand / auth 的工程细节移 `references/appendix/` | 正文回到设计判断 |
+| 9 ✅ | ~~越界内容拆附录~~ **已完成（v72）** | pricing-localization / multi-brand / auth 的工程细节移 `references/appendix/`（代码 16.6k 字符出正文，净 −61k） | 正文只留判据与指针；附录不入检索/README/章节审计，见 SKILL §4 导语 |
 | 10 ✅ | ~~索引资源降级~~ **已完成（v66）** | 四份索引 657 → 30 条策展（10/8/6/6），口径写在 `resources.md` §策展口径 | SKILL §4.7 明写「清单不能当依据」；长尾下一跳写进同节 |
 | 11 | CI 门禁 | GitHub Actions：audit + build_readme --check + golden smoke | PR 不绿不合 |
 | 12 | 季度裁剪 | 删除 6 个月未被路由命中的资产 | 资产数下降、命中率不降 |

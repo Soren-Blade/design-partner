@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v71 · 2026-11-23**：golden 评估集补到 20 条（15–20：图标、交易邮件、A4 对账单、空态迁移、双向文本、多币种定价），六条主路由均落在 top-3，两处 #2 已注明同题不同层。本轮是夹具轮，库本体只改版本行、知识资产 0 变动；评估仍按 v70「逐轴 ≤1 且合计 ≤2」。
+**当前版本 v72 · 2026-11-23**：越界内容拆附录——定价本地化的 6 段校验代码、多品牌的主题矩阵/DTCG/SD/护栏代码、认证的 4 段可抄代码与实跑记录移入 `references/appendix/`，正文只留判断与指针；顺带更正 DTCG `$extends`/`$root` 的版本口径（2025.10 正式条款，不是草案）。三份正文 −17.3k 字符，附录 +16.6k（代码原样搬迁，总量几乎不变，换的是正文可读性）。
 
 ---
 
@@ -101,6 +101,8 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 
 索引是本地生成物（`memory/index.json`、`memory/tree.md` 不入库）。**不要一次读多份完整文件**；一份文件只读命中的那一节，需要上下文再向前后各读 20 行。
 
+`references/appendix/` 是代码附录：只放可跑实现（校验脚本、配置、可抄片段），正文用指针引到具体段。它不进 `dp_search` 索引、不进 README 资产表、不参与章节号审计——要判断时读正文，要动手时再翻附录。
+
 ### 4.1 判断与品味核心
 
 | 资产 | 何时用 | 入口 |
@@ -126,7 +128,7 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | `references/chinese-design.md` | 中文项目默认先读：字形、标点、竖排、混排；14px 行高有两种合法取法 | §1.2 字号行高 · §1.5 标点禁则 · §1.7 竖排 |
 | `references/visual-style-taxonomy.md` | 风格匹配、谱系、历史参照、风格诊断 | §2 谱系 · §4 判据 |
 | `references/brand-identity.md` | logo、VI、品牌色、清 space、favicon、品牌语气 | §3 标志 · §5 色彩 · §6 清 space · §15 图标 |
-| `references/multi-brand-theming.md` | 多品牌/多主题：该不该上架构、主题分层 | §一 判层 · §三 决策归属 |
+| `references/multi-brand-theming.md` | 多品牌/多主题：该不该上架构、主题分层 | §一 判层 · §三 决策归属 · 目录/DTCG/SD/护栏代码见 `appendix/multi-brand-theming-code.md` |
 
 ### 4.3 版式、系统与交付
 
@@ -162,10 +164,10 @@ python scripts/dp_search.py --rebuild            # 索引缺失或过期时重�
 | 资产 | 何时用 | 入口 |
 |---|---|---|
 | `references/pricing-checkout.md` | 定价页、三档表、结账、优惠、税费展示 | §1 判层 · §2 价格表 · §4 倒计时与划线价 · §5 结账 |
-| `references/pricing-localization.md` | 多币种、含税口径、法定原价、地区价差 | §1 七问 · §2 ISO 4217 · §3 含税 · §10 法标 |
+| `references/pricing-localization.md` | 多币种、含税口径、法定原价、地区价差 | §1 七问 · §2 ISO 4217 · §3 含税 · §10 法标 · 6 段校验代码见 `appendix/pricing-localization-code.md` |
 | `references/quote-invoice-documents.md` | 报价单、发票、订单确认、红冲、对账单 | §1 判层 · §3 金额脊柱 · §7 版式 |
 | `references/notifications-messaging.md` | 该不该发、通道、消息中心、角标、免打扰 | §1 判层 · §2 通道 · §3 消息中心 |
-| `references/auth-account-ux.md` | 登录、注册、Passkeys、MFA、会话与恢复 | §1 判型 · §2 路径 · §5 恢复 |
+| `references/auth-account-ux.md` | 登录、注册、Passkeys、MFA、会话与恢复 | §1 判型 · §2 路径 · §5 恢复 · 可抄代码与实跑记录见 `appendix/auth-account-ux-code.md` |
 | `references/file-upload-media-input.md` | 上传、进度、断点续传、裁剪、EXIF | §1 判型 · §2 路径 · §4 图片 |
 | `references/email-design.md` | HTML 邮件、EDM、客户端兼容、深色反色 | §1 约束 · §3 结构 · §12 兼容 |
 | `references/video-player-captions.md` | 播放器 UI、字幕、WebVTT、自动播放 | §1 控件 · §3 字幕 · §5 自动播放 |

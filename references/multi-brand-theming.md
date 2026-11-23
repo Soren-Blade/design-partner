@@ -407,88 +407,15 @@ WCAG 相对亮度 `L`，白字对比度 = `1.05 / (L + 0.05)`，黑字对比度 
 
 ---
 
-## 十一、配置文件结构：DTCG 多品牌写法
+## 十一、配置文件结构（附录）
 
-### 11.1 目录结构（core 与 brand 分离）
+设计侧只需守三条铁律，文件格式与构建脚本移入 `references/appendix/multi-brand-theming-code.md`：
 
-```
-tokens/
-  core/                 # 跨品牌共享：L2 语义 + L3 组件 + dimension
-    semantic.tokens.json
-    component.tokens.json
-    dimension.tokens.json
-  brands/
-    brand-a/            # 只放 L0 + L1
-      seed.tokens.json
-      palette.tokens.json
-    brand-b/
-      seed.tokens.json
-      palette.tokens.json
-  themes/
-    light.tokens.json   # 只改 L2 的指针
-    dark.tokens.json
-    high-contrast.tokens.json
-```
+1. `core/` 里**不许出现任何品牌色值**；`brands/*/` 里**不许出现任何语义名**（`--color-text` 只属于 core）。
+2. **每个品牌独立 `buildPath`**，不要试图把多品牌塞进一个文件（后面必然要拆）。
+3. `outputReferences: true` 必须开——保留 `var(--blue-7)` 引用链是运行时换肤的前提，关掉就变成硬编码值。
 
-**铁律**：`core/` 里**不许出现任何品牌色值**。`brands/*/` 里**不许出现任何语义名**（`--color-text` 这种词只属于 core）。
-
-### 11.2 DTCG 的 `$extends` 做品牌继承
-
-DTCG（2025.10 草案）的组级 `$extends` 是**深合并**语义：复制被继承组 → 本地同路径**完整替换**（不是逐属性合并）→ 新增路径并入 → **禁止循环引用**。
-
-```json
-{
-  "brand": {
-    "$extends": "{core.semantic}",
-    "color": {
-      "brand": { "$value": "{palette.blue.7}", "$type": "color" }
-    }
-  }
-}
-```
-
-**注意 DTCG 的几条硬约束（踩过就知道）**：
-- 含 `$value` 才是 token，不含才是组；**两者同时出现是无效结构，必须报错**。
-- token 名与组名**不得以 `$` 开头**，**不得含 `{ } .`**（点号是路径分隔符）。
-- 别名两种语法都要支持：`{group.token}`（只能指向完整 token）与 `$ref`（RFC 6901 JSON Pointer，可指向任意位置与属性级子值）。
-- `$type` 解析优先级：自身 → 被引用 token → 最近父组 → 无则**无效，工具不得猜**。
-- 组可用保留名 `$root` 提供基础值；`{color.accent.$root}` 有效，`{color.accent}` 指向组本身 → **无效**。
-- **这是 preview draft，官方明写"不要实现此版本，不要作为权威引用"**——用于内部管线可以，写进对外规范要注明。
-
-### 11.3 Style Dictionary 多品牌构建（已验证的配置模式）
-
-SD 的多品牌不靠"主题插件"，靠两条机制的**组合**：
-
-1. **`include` 放共享基座，`source` 放品牌覆盖**。加载顺序是 `include`（按数组序）→ `source`（按数组序），**后者覆盖前者**。
-2. **关键规则**：`source` 覆盖 `include` **不告警**（因为这是设计意图）；但 `source` **内部**两个文件冲突**会告警**。所以品牌覆盖必须全放 `source`，共享基座全放 `include`——这样"意外的覆盖"才会被报出来。
-
-```js
-import StyleDictionary from 'style-dictionary';
-
-const brands = ['brand-a', 'brand-b', 'brand-c'];
-
-for (const brand of brands) {
-  const sd = new StyleDictionary({
-    include: ['tokens/core/**/*.json'],          // 基座：语义 + 组件 + 尺寸
-    source:  [`tokens/brands/${brand}/**/*.json`], // 覆盖：只有 L0 + L1
-    platforms: {
-      css: {
-        transformGroup: 'css',
-        buildPath: `build/${brand}/css/`,        // 每品牌独立输出目录
-        files: [{ destination: 'tokens.css', format: 'css/variables',
-                  options: { outputReferences: true } }],
-      },
-    },
-  });
-  await sd.buildAllPlatforms();
-}
-```
-
-**四条纪律**：
-1. **每个品牌独立 `buildPath`**，不要试图把多品牌塞进一个文件（后面必然要拆）。
-2. **DTCG 与原格式不能在同一实例混用**（SD v4 明写）。
-3. `options.outputReferences: true` 让输出保留 `var(--blue-7)` 引用链——**这是运行时换肤的前提**，关掉就变成硬编码值。
-4. token 元数据里 `isSource: true/false` 可用来判断"这个值来自品牌覆盖还是基座"，做审计时有用。
+> DTCG `$extends` 的版本口径已更正（published 2025.10 收录，不是草案），见附录段 B。
 
 ---
 
@@ -661,186 +588,9 @@ for (const brand of brands) {
 
 ---
 
-## 二十、可抄代码（6 段）
+## 二十、可抄代码（附录）
 
-### 20.1 主题矩阵骨架（轴独立 + `@layer`）
-
-```css
-/* 1) 先声明层顺序，不写规则 —— 先声明者优先级最低 */
-@layer tokens.base, tokens.brand, tokens.mode, tokens.contrast,
-       components, overrides;
-
-/* 2) L1 基座（默认品牌） */
-@layer tokens.base {
-  :root {
-    --blue-9: #1677FF; --blue-8: #4096FF; --blue-10: #0958D9;
-    --gray-1: #FFFFFF; --gray-2: #F5F5F5; --gray-13: #141414; --gray-14: #0A0A0A;
-    --color-brand-solid: var(--blue-9);
-    --color-on-brand: #FFFFFF;          /* 深色品牌：白字 */
-    --color-bg: var(--gray-1);
-    --color-text: var(--gray-13);
-  }
-}
-
-/* 3) 品牌轴：只改 L1 与"前景字色"这一个指针 */
-@layer tokens.brand {
-  [data-brand="acme"]   { --blue-9: #0052D9; --blue-8: #366EF4; --blue-10: #003CAB; }
-  [data-brand="sunny"]  {
-    --blue-9: #FADB14; --blue-8: #FFE58F; --blue-10: #D4B106;
-    --color-on-brand: var(--gray-13);   /* 浅色品牌：必须换深色字 */
-  }
-}
-
-/* 4) 模式轴：只改 L2 指针 */
-@layer tokens.mode {
-  [data-mode="dark"] {
-    --color-bg: var(--gray-14);
-    --color-text: var(--gray-2);
-  }
-}
-
-/* 5) 对比度轴：只往色阶两端跳档 */
-@layer tokens.contrast {
-  [data-contrast="high"] {
-    --color-text: var(--gray-14);
-    --color-border-strong: var(--gray-11);
-  }
-}
-
-/* 6) 组件层：只引用 L2，永不写品牌判断 */
-@layer components {
-  .btn-primary {
-    background: var(--color-brand-solid);
-    color: var(--color-on-brand);
-  }
-}
-```
-
-### 20.2 品牌色护栏（生成色阶后、写 token 前必跑）
-
-```js
-const s2l = c => { c /= 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
-const lum = hex => {
-  const h = hex.replace('#', '');
-  return 0.2126 * s2l(parseInt(h.slice(0,2),16))
-       + 0.7152 * s2l(parseInt(h.slice(2,4),16))
-       + 0.0722 * s2l(parseInt(h.slice(4,6),16));
-};
-const cr = (a, b) => {
-  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
-  return (hi + 0.05) / (lo + 0.05);
-};
-
-// 边界（由公式反解，不要凭经验改）
-const WHITE_AA_MAX = 0.1833;   // L <= 此值 → 白字可达 4.5:1
-const BLACK_AA_MIN = 0.1750;   // L >= 此值 → 黑字可达 4.5:1
-const WHITE_3_MAX  = 0.3000;   // L <= 此值 → 白字可达 3:1（大字/图形）
-
-/**
- * 给定品牌色，返回合规的前景字色与告警。
- * 注意：优先"换档位"，其次"调明度"，浅色品牌必须"换前景字色"。
- */
-function guardOnBrand(brandHex) {
-  const L = lum(brandHex);
-  if (L <= WHITE_AA_MAX) return { onColor: '#FFFFFF', ratio: cr(brandHex, '#FFFFFF'), ok: true };
-  if (L >= BLACK_AA_MIN) {
-    const on = '#0A0A0A';
-    return { onColor: on, ratio: cr(brandHex, on), ok: cr(brandHex, on) >= 4.5 };
-  }
-  return { onColor: '#FFFFFF', ratio: cr(brandHex, '#FFFFFF'), ok: true, note: '重叠区，两向均需复测' };
-}
-```
-
-### 20.3 品牌色阶生成骨架（HCT tone，路线 A）
-
-```js
-// 伪代码：色相继承种子、色度取变体常量、明度取 tone 列表
-// 依赖 @material/material-color-utilities
-import { Hct, TonalPalette } from '@material/material-color-utilities';
-
-const seed = Hct.fromInt(0xFF0052D9);          // 客户品牌色
-
-// TONAL_SPOT 2021 常量：primary 36 / secondary 16 / tertiary 24 / neutral 6 / nv 8
-const primary   = TonalPalette.fromHueAndChroma(seed.hue, 36);
-const secondary = TonalPalette.fromHueAndChroma(seed.hue, 16);
-const tertiary  = TonalPalette.fromHueAndChroma(seed.hue + 60, 24);
-const neutral   = TonalPalette.fromHueAndChroma(seed.hue, 6);
-const nv        = TonalPalette.fromHueAndChroma(seed.hue, 8);
-
-// 取档：亮色 surface 98/96/94/92/90，暗色 4/6/10/12/17/22（见 dark-mode.md）
-const steps = [98, 96, 94, 92, 90, 80, 70, 60, 50, 40, 30, 20, 10];
-const palette = Object.fromEntries(steps.map(t => [`blue-${t}`, primary.tone(t)]));
-```
-
-### 20.4 首屏防闪烁注入
-
-```html
-<!doctype html>
-<html lang="zh-CN" data-brand="acme" data-mode="light">
-<head>
-  <meta charset="utf-8">
-  <!-- 1) 关键变量内联，必须早于任何 CSS -->
-  <style>
-    [data-brand="acme"]  { --blue-9:#0052D9; --color-brand-solid:var(--blue-9); --color-on-brand:#fff; }
-    [data-brand="sunny"] { --blue-9:#FADB14; --color-brand-solid:var(--blue-9); --color-on-brand:#141414; }
-    [data-mode="dark"]   { --color-bg:#0A0A0A; --color-text:#F5F5F5; }
-  </style>
-  <!-- 2) 其余 token 外链 -->
-  <link rel="stylesheet" href="/tokens/brand-acme.9f2c1a.css">
-  <link rel="stylesheet" href="/app.css">
-</head>
-```
-
-### 20.5 主题切换（禁用过渡，只改属性）
-
-```js
-// 错误：切主题时给 * 加 transition，会整页重绘 300ms
-// 正确：切换瞬间禁用过渡，下一帧恢复
-function switchTheme({ brand, mode }) {
-  const root = document.documentElement;
-  root.classList.add('no-transition');
-  if (brand) root.dataset.brand = brand;
-  if (mode)  root.dataset.mode  = mode;
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    root.classList.remove('no-transition');
-  }));
-}
-```
-
-```css
-.no-transition, .no-transition * { transition: none !important; }
-```
-
-### 20.6 Style Dictionary 多品牌（完整可跑）
-
-```js
-// sd.config.js —— 每品牌独立实例 + 独立输出目录
-import StyleDictionary from 'style-dictionary';
-
-const brands = ['acme', 'sunny', 'nova'];
-
-export default async function build() {
-  for (const brand of brands) {
-    const sd = new StyleDictionary({
-      include: ['tokens/core/**/*.json'],            // L2 + L3 + dimension，跨品牌共享
-      source:  [`tokens/brands/${brand}/**/*.json`], // 只含 L0 种子 + L1 色阶
-      platforms: {
-        css: {
-          transformGroup: 'css',
-          buildPath: `build/${brand}/`,
-          files: [{
-            destination: 'tokens.css',
-            format: 'css/variables',
-            options: { outputReferences: true },     // 保留 var() 引用链，否则无法运行时换肤
-          }],
-        },
-      },
-    });
-    await sd.buildAllPlatforms();
-    console.log(`✓ ${brand}`);
-  }
-}
-```
+六段代码见 `references/appendix/multi-brand-theming-code.md`。原 20.1（主题矩阵骨架）与正文 §6.1/§6.2 同构、20.4（首屏注入）与 §十四 同构，已随迁移删除，以正文为准。
 
 ---
 
@@ -857,7 +607,7 @@ export default async function build() {
 | Seed/Map/Alias 三级、三算法、嵌套 Provider、`cssVar`/`zeroRuntime` | [Ant Design 定制主题](https://ant.design/docs/react/customize-theme) |
 | 腾讯蓝第 7 档、10 档功能色、14 档中性色、12% 品牌混色 | [TDesign 色彩](https://tdesign.tencent.com/design/color) |
 | Less `modifyVars` 换肤、CSS Custom Properties、不兼容 IE | [Arco 定制主题](https://arco.design/react/docs/theme) |
-| `$value`/`$type`/`$description`/`$deprecated`/`$extensions`/别名与 reference（**published 2025.10 权威口径**；原 `$extends`/`$root` 属早期草案表述） | [DTCG published 2025.10](https://www.designtokens.org/TR/2025.10/format/) · [preview drafts 仅作辨析](https://tr.designtokens.org/format/) |
+| `$value`/`$type`/`$description`/`$deprecated`/`$extensions`/`$extends`/`$root`/别名与 reference（**published 2025.10 权威口径，全部为正式条款**；2026-11-23 逐条复核，见附录段 B） | [DTCG published 2025.10](https://www.designtokens.org/TR/2025.10/format/) · [groups.md 原文](https://github.com/design-tokens/community-group/blob/main/technical-reports/format/groups.md) |
 | `include`→`source` 覆盖顺序、source 内部冲突告警、`.extend()`、DTCG 不可混用 | [Style Dictionary Config](https://styledictionary.com/reference/config/) · [Tokens](https://styledictionary.com/info/tokens/) |
 | 层顺序、未分层样式优先、`!important` 反向 | [MDN @layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) |
 | 模式数上限 4 / 40 | Figma 官方插件说明（Professional + Organization 4 个，Enterprise 40 个） |

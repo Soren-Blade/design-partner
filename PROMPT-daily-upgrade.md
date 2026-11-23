@@ -79,7 +79,7 @@ P0 清减已在 v52 完成（主文件 24.6 万 → 1.2 万字符、派生索引
 | 8 ✅ | 中文排版定稿 | 行高/标点/混排三处口径合一，删重复段 | **已完成（v64）**；三份文件不再互相矛盾 |
 | 9 ✅ | ~~越界内容拆附录~~ **已完成（v72）** | pricing-localization / multi-brand / auth 的工程细节移 `references/appendix/`（代码 16.6k 字符出正文，净 −61k） | 正文只留判据与指针；附录不入检索/README/章节审计，见 SKILL §4 导语 |
 | 10 ✅ | ~~索引资源降级~~ **已完成（v66）** | 四份索引 657 → 30 条策展（10/8/6/6），口径写在 `resources.md` §策展口径 | SKILL §4.7 明写「清单不能当依据」；长尾下一跳写进同节 |
-| 11 | CI 门禁 | GitHub Actions：audit + build_readme --check + golden smoke | PR 不绿不合 |
+| 11 | CI 门禁（🟡 部分完成 v73） | GitHub Actions：audit + build_readme --check + golden smoke（`regression.py --golden` 结构冒烟，不发分） | workflow 已加；**分支保护未设置（改仓库设置需用户确认；要求 PR 会与直接推 main 的发布流冲突），「PR 不绿不合」未验证** |
 | 12 | 季度裁剪 | 删除 6 个月未被路由命中的资产 | 资产数下降、命中率不降 |
 
 **P3/P4 长期**：golden 扩到 50 条并做双盲胜率；引入第二评审模型做红队；年度重写一次 SKILL（只保留仍被违反的原则）。

@@ -1,0 +1,38 @@
+name: ci
+
+# 结构门禁，不评设计质量。绿勾只说明「可复现、引用可解析、夹具完整」；
+# 设计好坏仍靠 tests/golden/ 的盲评，不要把 CI 通过当成质量提升的证据。
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 结构审计（A1–A8）
+        run: python scripts/audit.py
+
+      - name: README 与 SKILL 路由表一致
+        run: python scripts/build_readme.py --check
+
+      - name: golden 结构冒烟（不发分）
+        run: python scripts/regression.py --golden

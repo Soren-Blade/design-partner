@@ -6,6 +6,7 @@
     python scripts/regression.py                  # 只跑新主题门槛（当前工作区）
     python scripts/regression.py --baseline       # git archive HEAD 到临时目录，跑全量 top3 对比
     python scripts/regression.py --baseline -v    # 追加逐条 top3 明细
+    python scripts/regression.py --golden         # 只跑 golden 评估集结构冒烟（CI 用，不发分）
 
 设计约束（#26 P1 与 #27 实测教训）：
   * 门槛查询必须含「主题词 + 通用跨域词」的真实组合，否则漏掉最贴近实战的失败路径。
@@ -22,6 +23,7 @@ import argparse
 import contextlib
 import json
 import os
+import re
 import shutil
 import time
 import subprocess
@@ -36,6 +38,15 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH = ROOT / "scripts" / "dp_search.py"
+GOLDEN = ROOT / "tests" / "golden"
+GOLDEN_SECTIONS = (
+    "## 任务（一句话）",
+    "## 目标用户与场景",
+    "## 硬约束",
+    "## 必须回答的 3 个问题",
+    "## 期望命中的 references（2–4 份）",
+    "## 评分（五轴，0–3 分，盲评后填写）",
+)
 
 # 新主题门槛：主题词 + 通用跨域词组合，答案应落在 quote-invoice-documents.md 前 3。
 # #47 换轮：13 条覆盖单据版式 / 金额脊柱恒等式 / 逐层舍入 1 分差 / 数电票 20 位号码 /
@@ -498,12 +509,84 @@ def check_alias_hygiene(search_py: Path, base_search: Path, query: str) -> tuple
     return a and b and c, detail
 
 
+def golden_smoke() -> int:
+    """golden 评估集的结构冒烟：只验夹具完整与指针可解析，不发分。
+
+    能证明的是「brief 没缺节、期望 refs 没断、README 路由断言指向存在的资产」；
+    证明不了「产出的设计更好」——质量只能靠盲评，见 tests/golden/README.md。
+    CI 只跑这一层，避免把绿勾误读成质量提升。
+    """
+    fails = []
+    briefs = sorted(GOLDEN.glob("[0-9][0-9]-*.md"))
+    print("=== golden 结构冒烟（不发分）===")
+    print("  brief 文件: %d" % len(briefs))
+    if len(briefs) != 20:
+        fails.append("brief 数 %d ≠ 20（增删 brief 须同步本节与 README）" % len(briefs))
+
+    ref_total = ref_ok = 0
+    for b in briefs:
+        text = b.read_text(encoding="utf-8")
+        missing = [s for s in GOLDEN_SECTIONS if s not in text]
+        if missing:
+            fails.append("%s 缺节：%s" % (b.name, "、".join(missing)))
+        refs = re.findall(r"`(references/[^`]+\.md)`", text)
+        if not 2 <= len(refs) <= 4:
+            fails.append("%s 期望 refs %d 份，不在 2–4" % (b.name, len(refs)))
+        for r in refs:
+            ref_total += 1
+            if (ROOT / r).exists():
+                ref_ok += 1
+            else:
+                fails.append("%s 指向不存在的 %s" % (b.name, r))
+    print("  期望 refs: %d/%d 存在" % (ref_ok, ref_total))
+
+    readme = GOLDEN / "README.md"
+    if not readme.exists():
+        fails.append("缺 tests/golden/README.md")
+    else:
+        rows = 0
+        for line in readme.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"^\|\s*(\d{2})\s+", line)
+            if not m:
+                continue
+            num = m.group(1)
+            r = re.search(r"([a-z][a-z0-9-]*)\s*#\d", line)
+            if not r:
+                fails.append("README 路由表第 %s 行缺「资产 #名次」" % num)
+                continue
+            rows += 1
+            name = r.group(1)
+            if not (ROOT / "references" / (name + ".md")).exists():
+                fails.append("README 路由表指向不存在的 references/%s.md" % name)
+            if not list(GOLDEN.glob(num + "-*.md")):
+                fails.append("README 路由表第 %s 行没有对应 brief" % num)
+        print("  路由断言: %d 行" % rows)
+        if rows == 0:
+            fails.append("README 路由断言表为空")
+    for extra in ("rubric.md", "baseline.md"):
+        if not (GOLDEN / extra).exists():
+            fails.append("缺 tests/golden/%s" % extra)
+
+    if fails:
+        print("  FAIL")
+        for f in fails:
+            print("    - %s" % f)
+        return 1
+    print("  PASS（夹具完整；质量仍需盲评，绿勾不等于变好）")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--baseline", action="store_true",
                     help="用 git archive HEAD 构造基线并对比历史查询 top3")
+    ap.add_argument("--golden", action="store_true",
+                    help="只跑 golden 评估集结构冒烟（CI 门禁；不发分）")
     ap.add_argument("-v", "--verbose", action="store_true", help="打印逐条 top3")
     args = ap.parse_args()
+
+    if args.golden:
+        return golden_smoke()
 
     gated = [q for q in NEW_QUERIES if q not in BOUNDARY]
     print("=== 新主题门槛（top3 命中 %s）===" % EXPECT_FILE)

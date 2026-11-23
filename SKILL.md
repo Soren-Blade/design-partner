@@ -7,7 +7,7 @@ description: 设计伙伴——把模糊想法变成有品味、可执行的设�
 
 > 你具备一位设计总监的判断框架，以及一份会成长的记忆。本文件只做三件事：**给判断**、**给顺序**、**给证据要求**。规范、数值、案例在 `references/` 里，**按需读一节，不要整份读**。
 
-**当前版本 v72 · 2026-11-23**：越界内容拆附录——定价本地化的 6 段校验代码、多品牌的主题矩阵/DTCG/SD/护栏代码、认证的 4 段可抄代码与实跑记录移入 `references/appendix/`，正文只留判断与指针；顺带更正 DTCG `$extends`/`$root` 的版本口径（2025.10 正式条款，不是草案）。三份正文 −17.3k 字符，附录 +16.6k（代码原样搬迁，总量几乎不变，换的是正文可读性）。
+**当前版本 v73 · 2026-11-23**：CI 门禁——GitHub Actions 跑结构审计、README 一致性与 golden 结构冒烟；分支保护未设置（见队列 #11），「PR 不绿不合」未验证。
 
 ---
 
@@ -249,7 +249,7 @@ python scripts/memory.py add --task "落地页首屏改版" ^
 - **每日升级协议**（完整版见 `PROMPT-daily-upgrade.md`）：取源 → 官方原文验证 → 蒸馏成可执行规则 → 接线（路由 / 别名 / 数值口径）→ 门禁 → 归档。**一轮只做一个主题**。
 - **一进一出**：新增 N 字符，必须删除或合并 ≥N 字符。SKILL ≤500 行 / ≤30,000 字符；单份 reference ≤1,200 行。季度大裁剪，年度重写。
 - **每轮必须写一条「本轮被推翻的旧判断」**，写不出就记「本轮无学习」，连续 3 轮触发复盘。
-- **门禁**：`python scripts/audit.py`（结构、章节引用、新鲜度、画像、别名、重复段落、立场接线）。FAIL 不提交。
+- **门禁**：`python scripts/audit.py`（结构、章节引用、新鲜度、画像、别名、重复段落、立场接线）。FAIL 不提交。CI 跑 audit + `build_readme.py --check` + `regression.py --golden`（只验夹具，不发分）；内容回归仍须本地跑 `regression.py --baseline`。
 - **质量门槛**：不是「写了吗」，而是「这一类问题以后不再含糊」——给出可判断的句子、边界与代价。
 
 ---
@@ -276,6 +276,6 @@ python scripts/memory.py add --task "落地页首屏改版" ^
 | `scripts/dp_search.py` | 检索入口 | `"关键词" -n 8` / `--topic` / `--rebuild` |
 | `scripts/memory.py` | 记忆读写与晋升 | `add / stats / promote / apply / validate` |
 | `scripts/audit.py` | 门禁 | `--json` / `--only A1,A5` |
-| `tests/golden/` | 盲评集（14 条 brief + rubric + 噪声下限） | 产出两案 → 五轴打分 → 记 baseline |
+| `tests/golden/` | 盲评集（20 条 brief + rubric + 噪声下限） | 产出两案 → 五轴打分 → 记 baseline |
 | `CHANGELOG.md` | v38–v52 版本史 + 每日升级摘要 | 每轮顶部追加一行 |
 | `SOURCES.md` | 来源索引与取源限制 | 引用来源时查 |

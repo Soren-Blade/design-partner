@@ -5,6 +5,20 @@
 
 ---
 
+## v73 · 2026-11-23（CI 门禁：audit + README + golden 结构冒烟进 Actions；分支保护未开）
+
+- **一句话**：完成队列 #11 的 workflow 部分——新增 GitHub Actions 结构门禁，golden 冒烟做成 `regression.py --golden`；分支保护未设置，「PR 不绿不合」未验证，故 #11 记 🟡 部分完成。
+- **改动**：新建 `.github/workflows/ci.yml`（push/PR 到 main + workflow_dispatch；checkout@v4 / setup-python@v5 / Python 3.13；跑 audit、`build_readme.py --check`、`regression.py --golden`；contents:read、concurrency 取消旧跑、timeout 15 分）；`scripts/regression.py` +83 行加 `--golden`：20 条 brief、六节齐备、每 brief 2–4 份 refs 且文件存在、README 六行路由断言指向存在的资产、rubric/baseline 在场；`tests/golden/README.md` 纪律补一条「CI 不发分」；SKILL 版本行改 v73、§7 门禁补 CI 三命令、资产表把 tests/golden 的 14 条更正为 20 条；PROMPT 队列 #11 记部分完成。
+- **为什么只是结构冒烟**：README 路由断言表只存「资产 #名次」结论，没有保存 v71 的原始查询文本；要复跑就得臆造查询，违反「不臆造」。`dp_search` 只索引 SKILL + references，不索引 `tests/`，所以 CI 也不可能验「新夹具被检索到」。能验的只有夹具完整性：brief 数、六节、refs 存在、路由表指向的资产存在。代价写在输出与 workflow 注释里：绿勾不等于变好，质量仍靠盲评。
+- **验收实况（本地）**：`audit.py` PASS 38 / WARN 0 / FAIL 0（A1 281 行 / 12,936 字符）；`build_readme.py --check` 新鲜；`regression.py --golden` 20 brief / 60 refs / 6 路由行全过；`regression.py` 仍 13/13 + 1 BOUNDARY。模拟 CI 的 fresh checkout：挪走 `memory/index.json` 与 `tree.md` 后 audit 仍 PASS（19.1s，索引自动重建）。负例：多塞第 21 条 brief → `--golden` FAIL，证明断言不是空跑。YAML 用临时装在 `.tmp/` 的 PyYAML 解析通过（on/push/pull_request/steps 结构正确），未把依赖入库。
+- **分支保护为什么没设**：`GET /repos/Soren-Blade/design-partner/branches/main/protection` 返回 404（public 仓库、main 未保护）；token 的 scope 是 `gist, repo, workflow`，所以不是权限不足。没设的两个理由：改仓库设置超出「只动本目录」与发布步骤；「Require a pull request」会挡住 `publish_github.py` 直接 commit 到 main 的既有发布方式。下一步需用户选：改 PR 流，或只加 required status check（不要求 PR）。本轮不把「PR 不绿不合」写成已达成。
+- **一进一出（如实记）**：知识资产净 **−6 字符**（SKILL 12,942 → 12,936；references 0 变动）。仓库总字符 **+3,707**：regression.py +2,796、ci.yml +723、tests README +82、PROMPT +112。CI 与测试代码不进技能运行时上下文，按 v68/v71 口径不计知识预算；但仓库体积确实涨了，不用「净减」自夸。
+- **本轮被推翻的旧判断**：「CI 门禁 = 加一个 workflow 文件」不成立。没有分支保护，红 PR 仍可合；而加保护不是免费开关——「要求 PR」与本仓库直推 main 的发布方式冲突，要先选发布流。于是 #11 的真正交付不是 YAML，而是「结构门禁 + 发布流决策」，后者未做。
+- **门禁**：见上；`dp_search "CI 门禁 golden 结构冒烟 盲评"` 命中 `comparison-protocol.md` §4（盲评流程）而非新文件——CI 内容不在检索库，属预期，不伪称命中。
+- **记忆**：`memory/journal.jsonl` 第 70 行（signal_type `none`，closed_at 空）；outcome 记四条待观察：GitHub 首次跑绿与 job 名、仅 status check 的保护是否兼容直推、brief 增删时 20 条硬断言的维护成本、路由表是否补 canonical query 列。`memory.py validate` 仍报 31 条 2026-11-19 以前的旧行格式问题（缺 closed_at/evidence_ref），非本轮引入，未改旧账。
+- **队列**：#11 记 🟡 部分完成（workflow 已加，保护未设），保留在队列；下一步是「发布流决策 → 分支保护」。其余 #4/#5 仍被 0 真实信号阻塞，#12 未动。
+- **发布**：待本轮提交后补记。
+
 ## v72 · 2026-11-23（越界内容拆附录：三份正文的工程实现移入 references/appendix/）
 
 - **一句话**：完成队列 #9——定价本地化、多品牌、认证三份正文里的可跑代码与配置整体移入 `references/appendix/`，正文只留判据、边界与指针；顺手更正 DTCG `$extends`/`$root` 的版本口径。
